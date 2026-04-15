@@ -1,0 +1,74 @@
+Templates:
+  Devices:
+    - Name: 'Cognex_Vision_Insight_V_6_0_0'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'cognex_insight'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'cognex_insight'
+        - Name: 'DEVICE_FAMILY'
+          Value: 'Cognex_Vision_Insight_V_6_0_0_IS2XXX'
+          AllowedValues:
+            - 'Cognex_Vision_Insight_V_6_0_0_IS2XXX'
+            - 'Cognex_Vision_Insight_V_6_0_0_IS8XXX'
+            - 'Cognex_Vision_Insight_V_6_0_0_IS9XXX'
+            - 'Cognex_Vision_Insight_V_6_0_0_IS79XX_IS75XX'
+            - 'Cognex_Vision_Insight_V_6_0_0_IS85XXP'
+        - Name: 'USER_DATA'
+          Value: 'Cognex_Vision_Insight_V_6_0_0_UserData_128'
+          AllowedValues:
+            - 'Cognex_Vision_Insight_V_6_0_0_UserData_16'
+            - 'Cognex_Vision_Insight_V_6_0_0_UserData_32'
+            - 'Cognex_Vision_Insight_V_6_0_0_UserData_64'
+            - 'Cognex_Vision_Insight_V_6_0_0_UserData_128'
+            - 'Cognex_Vision_Insight_V_6_0_0_UserData_254'
+        - Name: 'RESULT_DATA'
+          Value: 'Cognex_Vision_Insight_V_6_0_0_ResultData_128'
+          AllowedValues:
+            - 'Cognex_Vision_Insight_V_6_0_0_ResultData_16'
+            - 'Cognex_Vision_Insight_V_6_0_0_ResultData_32'
+            - 'Cognex_Vision_Insight_V_6_0_0_ResultData_64'
+            - 'Cognex_Vision_Insight_V_6_0_0_ResultData_128'
+            - 'Cognex_Vision_Insight_V_6_0_0_ResultData_250'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Apply: ${DEVICE_FAMILY}  
+            Arguments:
+              NAME: '${NAME}'
+              IP_ADDRESS_X1: '${IP_ADDRESS_X1}'     
+              PROFINET_DEVICE_NAME_X1: '${PROFINET_DEVICE_NAME_X1}'       
+          - Name: Acquisition_Control
+            TypeIdentifier:
+              GsdId: '101'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 1
+          - Name: Acquisition_Status
+            TypeIdentifier:
+              GsdId: '201'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 2
+          - Name: Inspection_Control
+            TypeIdentifier:
+              GsdId: '102'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 3
+          - Name: Inspection_Status
+            TypeIdentifier:
+              GsdId: '203'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 4
+          - Name: Command_Control
+            TypeIdentifier:
+              GsdId: '107'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 5
+          - Name: SoftEvent_Control
+            TypeIdentifier:
+              GsdId: '106'
+              FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+            Slot: 6
+          - Apply: ${USER_DATA}
+          - Apply: ${RESULT_DATA}

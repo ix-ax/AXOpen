@@ -1,36 +1,35 @@
-NAMESPACE AXOpen.Components.Rexroth.Drives
+﻿NAMESPACE AXOpen.Components.Rexroth.Drives
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-            AxoCtrlxDriveXsc_Outputs_Submodule_1 AT %B0:  WORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_2 AT %B24:  WORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_3 AT %B22:  WORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_4 AT %B2:  WORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_5 AT %B26:  DWORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_6 AT %B8:  DWORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_7 AT %B12:  DWORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_8 AT %B4:  DWORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_9 AT %B16:  DWORD;
-            AxoCtrlxDriveXsc_Outputs_Submodule_10 AT %B20:  WORD;
-            ST3_indradrive_Output_13_Words_0 AT %B32:  WORD;
-            ST3_indradrive_Output_13_Words_1 AT %B34:  WORD;
-            ST3_indradrive_Output_13_Words_2 AT %B36:  WORD;
-            ST3_indradrive_Output_13_Words_3 AT %B38:  WORD;
-            ST3_indradrive_Output_13_Words_4 AT %B40:  WORD;
-            ST3_indradrive_Output_13_Words_5 AT %B42:  WORD;
-            ST3_indradrive_Output_13_Words_6 AT %B44:  WORD;
-            ST3_indradrive_Output_13_Words_7 AT %B46:  WORD;
-            ST3_indradrive_Output_13_Words_8 AT %B48:  WORD;
-            ST3_indradrive_Output_13_Words_9 AT %B50:  WORD;
-            ST3_indradrive_Output_13_Words_10 AT %B52:  WORD;
-            ST3_indradrive_Output_13_Words_11 AT %B54:  WORD;
-            ST3_indradrive_Output_13_Words_12 AT %B56:  WORD;
-            ST3_indradrive_ParamCh_5Words_0 AT %B58:  WORD;
-            ST3_indradrive_ParamCh_5Words_1 AT %B60:  WORD;
-            ST3_indradrive_ParamCh_5Words_2 AT %B62:  WORD;
-            ST3_indradrive_ParamCh_5Words_3 AT %B64:  WORD;
-            ST3_indradrive_ParamCh_5Words_4 AT %B66:  WORD;
+	        // Module rexroth_ctrlx_drive/Outputs
+	        rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output AT %B24 : rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output AT %B22 : rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output AT %B0 : rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output AT %B18 : rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output AT %B26 : rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output AT %B14 : rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output AT %B2 : rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output AT %B6 : rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output AT %B10 : rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output_Layout;
+
+	        rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output AT %B20 : rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output_Layout;
+
+	        // Module rexroth_indradrive/Output_13_Words
+	        rexroth_indradrive_Output_13_Words_Output AT %B30 : rexroth_indradrive_Output_13_Words_Output_Layout;
+
+	        rexroth_indradrive_ParamCh_5Words_Output AT %B56 : rexroth_indradrive_ParamCh_5Words_Output_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

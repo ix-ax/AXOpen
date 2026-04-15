@@ -44,8 +44,13 @@ A simple example could be a component of a pneumatic cylinder where the call of 
 
 Moreover, AXOpen comprises powerful tools that expedite the development of HMI/UI applications. It builds upon web technologies (Blazor) and the incredibly powerful [AX# library](https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) for the automated generation of user interfaces. Each library/component within AXOpen comes equipped with ready-to-use visual components, enabling swift deployment in any human-machine interface scenario. Though we develop HMI/UI controls based on `Blazor` technology, we keep the design open to other UI technologies from the .NET ecosystem.
 
+# Library Overview
 
-## Tasks
+AXOpen provides a comprehensive set of libraries and components for industrial automation. For an up-to-date list of available packages, their maturity, and intended usage, see [COMPONENTS_MATURITY](COMPONENTS_MATURITY.md).
+
+## Notable features
+
+### Tasks
 
 The task provides a simple coordination primitive to execute actions. Tasks provide additional benefits regarding handling and observability of executed actions.
 
@@ -104,6 +109,12 @@ We are planning the first pilot project using `AXOpen` in the coming months. Onc
 
 In parallel with the project's advancement, we are incrementally building the [documentation](https://inxton.github.io/AXOpen/). We invite you to visit the link if you wish to learn more about AXOpen.
 
+
 ## About the Repository
 
 More about how the repository is organized and structured, see [here](src/README.md).
+
+
+## Important remarks
+
+**Localization**: AXOpen projects come with pre-scaffolded localization resources for multiple languages. These resources are meant as a starting point: not all translations are complete or production-ready, and some texts may still fall back to English. Before deploying, review and adjust the localized strings relevant to your target languages.

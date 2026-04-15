@@ -1,5 +1,7 @@
 ﻿using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -12,19 +14,17 @@ namespace AXOpen.Core
         {
             get
             {
-                if(_warningLevel>0 && _errorLevel > _warningLevel)
+                if(_warningLevel > 0 && _errorLevel > _warningLevel)
                 {
                     if (Component.Id.Cyclic < _warningLevel)
-                        return "card bg-primary text-light mb-1";
+                        return "card bg-primary mb-1";
                     else if (Component.Id.Cyclic >= _errorLevel)
-                        return "card bg-danger text-white mb-1";
+                        return "card bg-danger mb-1";
                     else
-                        return "card bg-warning text-black mb-1";
+                        return "card bg-warning mb-1";
                 }
                 else
-                    return "card bg-primary text-light mb-1";
-
-
+                    return "card bg-primary mb-1";
             }
         }
 
@@ -34,7 +34,7 @@ namespace AXOpen.Core
         }
 
         // Attribute name contains interpolation from twin object.
-        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
 
 
     }

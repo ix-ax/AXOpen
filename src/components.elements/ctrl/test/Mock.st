@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
-NAMESPACE AxoIO.Tests
+NAMESPACE AXOpen.Components.Elements.Tests
     {S7.extern=ReadWrite}
     CLASS INTERNAL AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
@@ -65,6 +65,17 @@ NAMESPACE AxoIO.Tests
             VAR_INPUT
                 _level : eLogLevel;
             END_VAR
+            ;
+        END_METHOD
+    
+        METHOD PUBLIC Log
+            VAR_INPUT
+                _message : STRING[80];
+                _level : eLogLevel;
+                _sender : IAxoObject;
+                _messageCode : ULINT;
+            END_VAR
+
             ;
         END_METHOD
     END_CLASS    

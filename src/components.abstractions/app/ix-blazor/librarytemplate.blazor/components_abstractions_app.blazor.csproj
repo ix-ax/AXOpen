@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\ix\components_abstractions_app.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+
 </Project>

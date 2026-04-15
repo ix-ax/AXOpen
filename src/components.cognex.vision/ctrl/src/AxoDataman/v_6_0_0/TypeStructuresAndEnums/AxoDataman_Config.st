@@ -10,6 +10,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             InfoTime : LTIME := LT#2S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#5S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoDataman_HWIDs;
             {#ix-set:AttributeName = "<#Result data size#>"}
             ResultDataSize : eAxoDataman_ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             {#ix-set:AttributeName = "<#User data size#>"}

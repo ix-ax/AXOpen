@@ -5,12 +5,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             rootObject      : AxoObject;
             componentOne    : AXOpen.Components.Keyence.Vision.Component_1;
             componentTwo    : AXOpen.Components.Keyence.Vision.Component_2;
+            componentThree  : AXOpen.Components.Keyence.Vision.Component_3;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(rootObject);
             componentOne.Run(rootObject);
             componentTwo.Run(rootObject);
+            componentThree.Run(rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

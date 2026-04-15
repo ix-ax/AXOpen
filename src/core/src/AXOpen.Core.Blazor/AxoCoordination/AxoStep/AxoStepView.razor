@@ -2,28 +2,48 @@
 @using AXOpen.Core.Blazor.Culture;
 @using AXSharp.Connector.ValueTypes;
 @using AXSharp.Connector;
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @inherits RenderableComplexComponentBase<AxoStep>
 
+<div data-axo-step-view class="flex flex-wrap justify-center items-center gap-2 w-full px-4 py-2 @Class">
+    <div class="flex flex-wrap items-center">
+        @if (_stepState == eStepState.Active || true)
+        {
+            <span class="inline-flex w-5 h-5 rounded-full border-t-2 border-text animate-spin"></span>
+        }
+        else if (_stepState == eStepState.Done)
+        {
+            <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+        else if (_stepState == eStepState.Error)
+        {
+            <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+        else
+        {
+            <span class="inline-flex w-5 h-5 rounded-full border-2 border-border"></span>
+        }
+    </div>
 
-<div class="container text-left">
-    <div class="row @AxoStepHelper.StepRowColor(Component)">
-        <div class="col">
-            @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
-            @*            @if (IsControllable)
-            {
-            <AxoTaskCommandView Component="@Component" Description="@Description" />
-            }
-            else
-            {
-            <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
-            }*@
-            @AxoStepHelper.Description(Component)
-        </div>
-        <div class="col">
-            @Component.Duration.Cyclic.TotalSeconds
-        </div>
-        <div class="col">
-            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)
-        </div>
+    <div class="flex flex-wrap items-center">
+        <h6 class="text-base text-text font-semibold">@_description</h6>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+        @if (_stepState == eStepState.Active || _stepState == eStepState.Done)
+        {
+            <span class="badge @(_stepState == eStepState.Active ? "badge-primary" : null)" title="@Localizer["Duration"]">
+                <Operon.Icons.HeroIcon Icon="clock" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                @_durationText
+            </span>
+        }
+        @if (!string.IsNullOrEmpty(_timestampText))
+        {
+            <span class="text-sm text-text/80 font-semibold" title="@Component.StartTimeStamp.Cyclic.ToString()">
+                @_timestampText
+            </span>
+        }
     </div>
 </div>

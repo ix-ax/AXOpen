@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetTask.</value>
+  </data>
+  <data name="Unable_to_change_the_screwing_program_DOT_" xml:space="preserve">
+    <value>Nie je možné zmeniť skrutkovací program.</value>
+  </data>
+  <data name="Screwing_cycle_takes_too_long_DOT_" xml:space="preserve">
+    <value>Skrutkovací cyklus trvá príliš dlho.</value>
+  </data>
+  <data name="_UNDERSCORE_progress" xml:space="preserve">
+    <value>pokrok</value>
+  </data>
+  <data name="Screwing_program" xml:space="preserve">
+    <value>Skrutkovací program</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Prešiel</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Neúspešné</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Krútiaci moment</value>
+  </data>
+  <data name="Torque_trend" xml:space="preserve">
+    <value>Trend krútiaceho momentu</value>
+  </data>
+  <data name="Angle" xml:space="preserve">
+    <value>Uhol</value>
+  </data>
+  <data name="Angle_trend" xml:space="preserve">
+    <value>Uhlový trend</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Required_screwing_program" xml:space="preserve">
+    <value>Požadovaný skrutkovací program</value>
+  </data>
+  <data name="Set_screwing_program" xml:space="preserve">
+    <value>Nastavenie skrutkovacieho programu</value>
+  </data>
+  <data name="Start_screwing" xml:space="preserve">
+    <value>Začnite skrutkovať</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Screwing_program_min" xml:space="preserve">
+    <value>Skrutkovací program min</value>
+  </data>
+  <data name="Screwing_program_max" xml:space="preserve">
+    <value>Skrutkovací program max</value>
+  </data>
+  <data name="Program_change_timeout" xml:space="preserve">
+    <value>Časový limit zmeny programu</value>
+  </data>
+  <data name="Screwing_cycle_timeout" xml:space="preserve">
+    <value>Časový limit skrutkovacieho cyklu</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Cycle_bit__ONE_" xml:space="preserve">
+    <value>Bit cyklu 1</value>
+  </data>
+  <data name="Cycle_bit__TWO_" xml:space="preserve">
+    <value>Bit cyklu 2</value>
+  </data>
+  <data name="Cycle_bit__FOUR_" xml:space="preserve">
+    <value>Bit cyklu 4</value>
+  </data>
+  <data name="Spindle_validation" xml:space="preserve">
+    <value>Overenie vretena</value>
+  </data>
+  <data name="Error_acknowledge" xml:space="preserve">
+    <value>Potvrdenie chyby</value>
+  </data>
+  <data name="Start_cycle" xml:space="preserve">
+    <value>Začiatok cyklu</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Smer</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input1byte1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input1byte2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input2word1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input1word1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input2word2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Input1word2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Output1byte1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "Output1byte2</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pripravené</value>
+  </data>
+  <data name="In_cycle" xml:space="preserve">
+    <value>V cykle</value>
+  </data>
+  <data name="NumberOfCyclesOk" xml:space="preserve">
+    <value>NumberOfCyclesOk</value>
+  </data>
+</root>

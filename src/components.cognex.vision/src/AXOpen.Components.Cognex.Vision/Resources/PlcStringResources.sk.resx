@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HardResetAllCamerasTask_timeout_DOT_" xml:space="preserve">
+    <value>HardResetAllCamerasTask timeout.</value>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetTask.</value>
+  </data>
+  <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit TriggerTask.</value>
+  </data>
+  <data name="ReadResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy ReadResultsTask.</value>
+  </data>
+  <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SendDataTask.</value>
+  </data>
+  <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearResultDataTask.</value>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ReadTask.</value>
+  </data>
+  <data name="ClearInspectionResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearInspectionResultsTask.</value>
+  </data>
+  <data name="ChangeJobByNameTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNameTask časový limit.</value>
+  </data>
+  <data name="ChangeJobByNumberTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNumberTask časový limit.</value>
+  </data>
+  <data name="SoftEventTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SoftEventTask.</value>
+  </data>
+  <data name="SendUserDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SendUserDataTask.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Trigger" xml:space="preserve">
+    <value>Spúšť</value>
+  </data>
+  <data name="Trigger_ready" xml:space="preserve">
+    <value>Spúšť pripravená</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Rozšírené</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Result_data" xml:space="preserve">
+    <value>Údaje o výsledku</value>
+  </data>
+  <data name="User_data" xml:space="preserve">
+    <value>Údaje používateľa</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="Hard_reset_all_cameras" xml:space="preserve">
+    <value>Tvrdý reset všetkých fotoaparátov</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Trigger_" xml:space="preserve">
+    <value>Spúšťač</value>
+  </data>
+  <data name="ReadResults" xml:space="preserve">
+    <value>ReadResults</value>
+  </data>
+  <data name="ReadResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ID úlohy ReadResults (režim služby)</value>
+  </data>
+  <data name="ReadResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>Dĺžka ReadResults (servisný režim)</value>
+  </data>
+  <data name="SendData" xml:space="preserve">
+    <value>SendData</value>
+  </data>
+  <data name="SendData_inspection_type__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>Typ kontroly SendData (režim služby)</value>
+  </data>
+  <data name="SendData_BufferID__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendData BufferID (režim služby)</value>
+  </data>
+  <data name="SendResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ID úlohy SendResults (režim služby)</value>
+  </data>
+  <data name="SendResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>Dĺžka SendResults (režim služby)</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Prečítajte si</value>
+  </data>
+  <data name="Inspection_results" xml:space="preserve">
+    <value>Výsledky kontroly</value>
+  </data>
+  <data name="Clear_result_data" xml:space="preserve">
+    <value>Vymazanie údajov o výsledkoch</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Výsledky</value>
+  </data>
+  <data name="Acquisition_control" xml:space="preserve">
+    <value>Kontrola akvizície</value>
+  </data>
+  <data name="Acquisition_status" xml:space="preserve">
+    <value>Stav akvizície</value>
+  </data>
+  <data name="Results_control" xml:space="preserve">
+    <value>Kontrola výsledkov</value>
+  </data>
+  <data name="Results_status" xml:space="preserve">
+    <value>Stav výsledkov</value>
+  </data>
+  <data name="Soft_DASH_event_control" xml:space="preserve">
+    <value>Ovládanie mäkkých udalostí</value>
+  </data>
+  <data name="Soft_DASH_event_status" xml:space="preserve">
+    <value>Stav mäkkej udalosti</value>
+  </data>
+  <data name="Clear_inspection_results" xml:space="preserve">
+    <value>Jasné výsledky kontroly</value>
+  </data>
+  <data name="Required_job_name" xml:space="preserve">
+    <value>Požadovaný názov úlohy</value>
+  </data>
+  <data name="Change_job_by_name" xml:space="preserve">
+    <value>Zmena úlohy podľa názvu</value>
+  </data>
+  <data name="Required_job_number" xml:space="preserve">
+    <value>Požadované číslo úlohy</value>
+  </data>
+  <data name="Change_job_by_number" xml:space="preserve">
+    <value>Zmena úlohy podľa čísla</value>
+  </data>
+  <data name="Required_soft_event_number" xml:space="preserve">
+    <value>Požadované číslo mäkkej udalosti</value>
+  </data>
+  <data name="Trigger_soft_event" xml:space="preserve">
+    <value>Spustenie mäkkej udalosti</value>
+  </data>
+  <data name="User_data_to_sent" xml:space="preserve">
+    <value>Údaje používateľa, ktoré sa majú odoslať</value>
+  </data>
+  <data name="User_data_length" xml:space="preserve">
+    <value>Dĺžka používateľských údajov</value>
+  </data>
+  <data name="Send_user_data" xml:space="preserve">
+    <value>Odoslanie údajov používateľa</value>
+  </data>
+  <data name="Inspection_control" xml:space="preserve">
+    <value>Kontrola inšpekcie</value>
+  </data>
+  <data name="Inspection_status" xml:space="preserve">
+    <value>Stav kontroly</value>
+  </data>
+  <data name="Command_control" xml:space="preserve">
+    <value>Príkazové riadenie</value>
+  </data>
+  <data name="Command_status" xml:space="preserve">
+    <value>Stav príkazu</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SystemControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'SystemControl'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'EngineControl1'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'EngineControl2'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'EngineControl3'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'EngineControl4'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData240B1' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData240B2' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData240B3' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData240B4' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData240B5' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserData64B1' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results240B1' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results240B2' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results240B3' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results240B4' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results240B5' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Results64B1' podmodul</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Camera_number" xml:space="preserve">
+    <value>Číslo kamery</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
+  <data name="Trigger_enable" xml:space="preserve">
+    <value>Povolenie spúšťania</value>
+  </data>
+  <data name="Trigger_acknowledge" xml:space="preserve">
+    <value>Potvrdenie spúšte</value>
+  </data>
+  <data name="Acquiring" xml:space="preserve">
+    <value>Získanie</value>
+  </data>
+  <data name="Missed_acquisition" xml:space="preserve">
+    <value>Zmeškaná akvizícia</value>
+  </data>
+  <data name="Trigger_ID" xml:space="preserve">
+    <value>ID spúšťača</value>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Kontinuálne čítanie</value>
+  </data>
+  <data name="Result_data_size" xml:space="preserve">
+    <value>Veľkosť výsledných údajov</value>
+  </data>
+  <data name="User_data_size" xml:space="preserve">
+    <value>Veľkosť používateľských údajov</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "AcquisitionControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "AcquisitionStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ResultsControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ResultsStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "SoftEventControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UserData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "UserData</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ResultData</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Dĺžka</value>
+  </data>
+  <data name="Enable_results_buffering" xml:space="preserve">
+    <value>Povolenie vyrovnávacej pamäte pre výsledky</value>
+  </data>
+  <data name="Results_acknowledge" xml:space="preserve">
+    <value>Výsledky berú na vedomie</value>
+  </data>
+  <data name="Decoding" xml:space="preserve">
+    <value>Dekódovanie</value>
+  </data>
+  <data name="Decode_complete" xml:space="preserve">
+    <value>Dekódovanie dokončené</value>
+  </data>
+  <data name="Results_buffer_overrun" xml:space="preserve">
+    <value>Prekročenie vyrovnávacej pamäte výsledkov</value>
+  </data>
+  <data name="Results_available" xml:space="preserve">
+    <value>Dostupné výsledky</value>
+  </data>
+  <data name="Error_detected" xml:space="preserve">
+    <value>Zistená chyba</value>
+  </data>
+  <data name="Train_code" xml:space="preserve">
+    <value>Kód vlaku</value>
+  </data>
+  <data name="Train_match_string" xml:space="preserve">
+    <value>Reťazec vlakovej zápasy</value>
+  </data>
+  <data name="Train_focus" xml:space="preserve">
+    <value>Zameranie vlaku</value>
+  </data>
+  <data name="Train_brightness" xml:space="preserve">
+    <value>Jas vlaku</value>
+  </data>
+  <data name="Untrain" xml:space="preserve">
+    <value>Odcvičiť</value>
+  </data>
+  <data name="Execute_DMCC" xml:space="preserve">
+    <value>Vykonanie DMCC</value>
+  </data>
+  <data name="Train_code_acknowledge" xml:space="preserve">
+    <value>Potvrdenie kódu vlaku</value>
+  </data>
+  <data name="Train_match_string_acknowledge" xml:space="preserve">
+    <value>Potvrdenie reťazca zápasu vlaku</value>
+  </data>
+  <data name="Train_focus_acknowledge" xml:space="preserve">
+    <value>Zameranie vlaku potvrdiť</value>
+  </data>
+  <data name="Train_brightness_acknowledge" xml:space="preserve">
+    <value>Potvrdenie jasu vlaku</value>
+  </data>
+  <data name="Untrain_acknowledge" xml:space="preserve">
+    <value>Odcvičiť potvrdiť</value>
+  </data>
+  <data name="Execute_DMCC_acknowledge" xml:space="preserve">
+    <value>Vykonanie potvrdenia DMCC</value>
+  </data>
+  <data name="Set_match_string_acknowledge" xml:space="preserve">
+    <value>Nastaviť potvrdenie reťazca zápasu</value>
+  </data>
+  <data name="Option" xml:space="preserve">
+    <value>Možnosť</value>
+  </data>
+  <data name="Clear_exposure_complete" xml:space="preserve">
+    <value>Jasná expozícia dokončená</value>
+  </data>
+  <data name="Set_offline" xml:space="preserve">
+    <value>Nastavenie offline</value>
+  </data>
+  <data name="Exposure_complete" xml:space="preserve">
+    <value>Expozícia dokončená</value>
+  </data>
+  <data name="Offline_reason__ZERO_" xml:space="preserve">
+    <value>Dôvod offline 0</value>
+  </data>
+  <data name="Offline_reason__ONE_" xml:space="preserve">
+    <value>Dôvod offline 1</value>
+  </data>
+  <data name="Offline_reason__TWO_" xml:space="preserve">
+    <value>Dôvod offline 2</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Acquisition_ID" xml:space="preserve">
+    <value>ID akvizície</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Príkaz</value>
+  </data>
+  <data name="Current_job_ID" xml:space="preserve">
+    <value>ID aktuálneho pracovného miesta</value>
+  </data>
+  <data name="Max_job_number" xml:space="preserve">
+    <value>Maximálny počet úloh</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'AcquisitionControl'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru 'AcquisitionStatus'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'InspectionControl'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru 'InspectionStatus'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'CommandControl'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'SoftEventControl'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserDataSlot7' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserDataSlot8' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserDataSlot9' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'UserDataSlot10' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'ResultDataSlot11' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'ResultDataSlot12' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'ResultDataSlot13' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'ResultDataSlot14' podmodul</value>
+  </data>
+  <data name="Acknowledge_inspection_results" xml:space="preserve">
+    <value>Potvrdenie výsledkov kontroly</value>
+  </data>
+  <data name="Extended_user_data_set" xml:space="preserve">
+    <value>Rozšírený súbor údajov používateľa</value>
+  </data>
+  <data name="Execute_command" xml:space="preserve">
+    <value>Vykonanie príkazu</value>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Vymazanie chyby</value>
+  </data>
+  <data name="System_busy" xml:space="preserve">
+    <value>Systém je obsadený</value>
+  </data>
+  <data name="Inspection_completed" xml:space="preserve">
+    <value>Ukončená kontrola</value>
+  </data>
+  <data name="Results_valid" xml:space="preserve">
+    <value>Platné výsledky</value>
+  </data>
+  <data name="Command_executing" xml:space="preserve">
+    <value>Vykonávanie príkazu</value>
+  </data>
+  <data name="Command_complete" xml:space="preserve">
+    <value>Príkaz dokončený</value>
+  </data>
+  <data name="Command_failed" xml:space="preserve">
+    <value>Príkaz zlyhal</value>
+  </data>
+  <data name="Extended_user_data_set_acknowledge" xml:space="preserve">
+    <value>Potvrdenie rozšíreného súboru údajov používateľa</value>
+  </data>
+  <data name="Overall_job_pass_fail" xml:space="preserve">
+    <value>Celková práca prešla neúspechom</value>
+  </data>
+  <data name="Test_run_ready" xml:space="preserve">
+    <value>Testovacia prevádzka je pripravená</value>
+  </data>
+  <data name="Error_code" xml:space="preserve">
+    <value>Kód chyby</value>
+  </data>
+  <data name="Inspection_ID" xml:space="preserve">
+    <value>Identifikačné číslo inšpekcie</value>
+  </data>
+  <data name="Result_code" xml:space="preserve">
+    <value>Výsledný kód</value>
+  </data>
+  <data name="Trigger_soft_DASH_event" xml:space="preserve">
+    <value>Spustenie mäkkej udalosti</value>
+  </data>
+  <data name="Trigger_soft_DASH_event_acknowledge" xml:space="preserve">
+    <value>Spustenie potvrdenia mäkkej udalosti</value>
+  </data>
+  <data name="Current_job_name" xml:space="preserve">
+    <value>Názov aktuálneho pracovného miesta</value>
+  </data>
+  <data name="Current_job_number" xml:space="preserve">
+    <value>Číslo aktuálneho pracovného miesta</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "InspectionControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "InspectionStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "CommandControl</value>
+  </data>
+</root>

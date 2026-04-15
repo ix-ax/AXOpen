@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Data
                 expected := 'CreateRecordIdentifier';
                 _dataExchangeTask.Invoke(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(TRUE, _dataExchangeTask.DataEntityIdentifier = expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchangeTask._EntityId = expected);
             END_METHOD
                      
         END_CLASS

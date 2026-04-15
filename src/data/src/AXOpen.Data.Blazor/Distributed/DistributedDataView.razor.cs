@@ -1,9 +1,9 @@
-﻿using AXOpen.Base.Data.Query;
+using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
-using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Operon.Components.Toast;
 using Pocos.AXOpen.Data;
 using System.Globalization;
 
@@ -35,8 +35,8 @@ namespace AXOpen.Data
         [Parameter] public bool EnableSorting { get; set; } = false;
 
 
-        [Parameter] public List<string>? InjectedEntities { get; set; }
-        [Parameter] public PredicateContainer? InjectedPredicateContainer { get; set; }
+        [Parameter] public List<string>? ExternalEntityIds { get; set; }
+        [Parameter] public PredicateContainer? ExternalPredicates { get; set; }
 
 
         [Inject]
@@ -46,7 +46,7 @@ namespace AXOpen.Data
         public AuthenticationStateProvider Authentication { set; get; }
 
         [Inject]
-        public IAlertService AlertService { get; set; }
+        public IToastService ToastService { get; set; }
 
         [Inject]
         public IDistributedDataExchangeService DistributedExchangeService { set; get; }
@@ -54,11 +54,6 @@ namespace AXOpen.Data
         [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-        public string BtnOperation { get; set; } = string.Empty;
-        public string SelectedEntityId { get; set; } = string.Empty;
-        public string OperationRecordName { get; set; } = string.Empty;
-
-        public bool AdvanceFilterConfig { get; set; } = false;
 
         public DistributedDataViewModel DistributedVM { set; get; }
 
@@ -76,15 +71,15 @@ namespace AXOpen.Data
             if (DistributedExchangeService.IsExistGroup(GroupName))
             {
                 this.DistributedVM = new DistributedDataViewModel(
-                    this.AlertService,
+                    this.ToastService,
                     this.Authentication,
                     this.DistributedExchangeService,
                     this.ExchangeConfigService,
                     this.GroupName,
                     this.DisplayOnePerDataType,
                     this.ConfigSuffix,
-                    this.InjectedEntities,
-                    this.InjectedPredicateContainer
+                    this.ExternalEntityIds,
+                    this.ExternalPredicates
                     );
 
                 this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
@@ -95,21 +90,5 @@ namespace AXOpen.Data
             }
         }
 
-        public void EndBtnOperation()
-        {
-            this.BtnOperation = "";
-            this.SelectedEntityId = "";
-            this.OperationRecordName = "";
-        }
-
-        public bool IsAnyActiveOperation()
-        {
-            return !string.IsNullOrEmpty(this.BtnOperation);
-        }
-
-        public bool IsNoActiveOperation()
-        {
-            return string.IsNullOrEmpty(this.BtnOperation);
-        }
     }
 }

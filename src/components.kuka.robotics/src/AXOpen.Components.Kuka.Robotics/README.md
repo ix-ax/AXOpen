@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Kuka.Robotics --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Kuka.Robotics" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

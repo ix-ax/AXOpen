@@ -1,4 +1,4 @@
-export GREEN='\033[0;32m'
+﻿export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
@@ -39,6 +39,17 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+#check hwc version
+apax hwc --version
+if [[ $? -eq 0 ]]; then
+	printf "${GREEN}hwc installed.${NC}"
+else	
+	printf "${YELLOW}hwc not installed!${NC}\n"
+	printf "${YELLOW}Trying to install the dependencies.${NC}\n"
+	apax install --catalog
+	apax install
+fi
+
 #copy_and_install_gsd                         # copy and install all gsdml files from library           
 copy_and_install_gsd=$( dirname ${BASH_SOURCE[0]})"\\copy_and_install_gsd.sh"
 $copy_and_install_gsd
@@ -57,6 +68,17 @@ if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Copying hardware templates from the libraries finished succesfully.${NC}"
 else
 	printf "${RED}Copying hardware templates from the libraries finished with an error!${NC}\n"
+	printf "${RED}Please check the details above.${NC}\n"
+	exit 1
+fi
+
+#setup_secure_communication                   # setup secure communication, create and import certificates, setup password for AX_USERNAME 
+setup_secure_communication=$( dirname ${BASH_SOURCE[0]})"\\setup_secure_communication.sh"
+$setup_secure_communication $PLC_NAME $USERNAME $PASSWORD $PLC_IP_ADDRESS
+if [[ $? -eq 0 ]]; then
+	printf "${GREEN}Configuring secure communication finished succesfully.${NC}"
+else
+	printf "${RED}Configuring secure communication finished with an error!${NC}\n"
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi

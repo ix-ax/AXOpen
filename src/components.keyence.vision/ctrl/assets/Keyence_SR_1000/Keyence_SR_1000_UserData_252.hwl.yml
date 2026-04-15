@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Keyence_SR_1000_UserData_252'
+    Content:
+      Name: 'UserData_252'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+        GsdId: '208'
+      Slot: 14

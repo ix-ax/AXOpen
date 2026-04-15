@@ -1,3 +1,4 @@
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Core
     {#ix-prop: public string Description}
     {S7.extern=ReadWrite}
@@ -5,10 +6,10 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             Order : ULINT;                      
-            StepDescription : STRING[120];
+            Descr : STRING[120];
             IsActive : BOOL;                        
             IsEnabled : BOOL;  
-            Analytics : AxoStepAnalytics;          
+            StepExecutionMode : eAxoStepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;                           
         END_VAR 
 
         VAR PROTECTED            
@@ -23,12 +24,15 @@ NAMESPACE AXOpen.Core
         END_VAR
 
         ///<summary>
-        /// Gets duration of the current iteration of the step.
+        /// Updates the analitic information from this step.
         ///</summary>
         METHOD PUBLIC UpdateStepAnalitics 
-            Analytics.Order := THIS.Order;
-            Analytics.Description := THIS.StepDescription;
-            Analytics.Duration := THIS.Duration;            
+            VAR_IN_OUT
+                inoAnalytics : AxoStepAnalytics;
+            END_VAR    
+            inoAnalytics.Order := THIS.Order;
+            inoAnalytics.Description := THIS.Descr;
+            inoAnalytics.Duration := THIS.Duration;            
         END_METHOD
 
         ///<summary>
@@ -89,7 +93,7 @@ NAMESPACE AXOpen.Core
                 Enable : BOOL;
                 Description : STRING[120];
             END_VAR
-            StepDescription := Description;
+            Descr := Description;
             Execute := THIS.ExecuteInternal(coord,Enable);
         END_METHOD
 
@@ -102,7 +106,7 @@ NAMESPACE AXOpen.Core
                 coord : IAxoCoordinator;                
                 Description : STRING[120];
             END_VAR
-            StepDescription := Description;
+            Descr := Description;
             Execute := THIS.ExecuteInternal(coord,TRUE);
         END_METHOD
 
@@ -113,14 +117,16 @@ NAMESPACE AXOpen.Core
             END_VAR
             VAR                
                 Sequencer : REF_TO AxoSequencer;
+                SequencerContainer : REF_TO AxoSequencerContainer;
                 coordAsAxoObject : IAxoObject;
-                _currentlyOpenCycleCount : ULINT;
-                // Selector : REF_TO Selector;
+                _currentlyOpenCycleCount : ULINT;                
             END_VAR    
             SUPER.Run(coord);
             IF _context = NULL THEN
                 _context := THIS.GetContext();
             END_IF;
+
+            THIS._suspendMultipleExecuteCallCheck := FALSE;
 
             IF _context <> NULL THEN 
                 _currentlyOpenCycleCount := _context.OpenCycleCount();
@@ -140,13 +146,14 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;    
 
-            Sequencer ?= coord;
+            Sequencer ?= coord;            
+            SequencerContainer ?= coord;
             IF(Sequencer <> NULL) THEN 
                 // Sequencer^.SetSuspendMultipleExecuteCallCheck(TRUE);  // moved to Sequencer.Open
                 ExecuteInternal := Sequencer^.Execute(THIS, Enable);
+            ELSIF (SequencerContainer <> NULL) THEN
+                ExecuteInternal := SequencerContainer^.Execute(THIS, Enable);   
             END_IF;
-
-                
             // Selector ?= coord;
             // IF(coord <> NULL) THEN Sequencer^.ExecuteWithSelector(THIS, Enable); END_IF;    
 
@@ -163,7 +170,7 @@ NAMESPACE AXOpen.Core
                 _context := THIS.GetContext();
             END_IF;
             IF(NOT THIS.IsActive AND Active) THEN 
-                _context.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); 
+                _context.GetLogger().Log('<#At step:#>', AXOpen.Logging.eLogLevel#Verbose, THIS); 
             END_IF;
             IsActive := Active;
         END_METHOD
@@ -204,6 +211,18 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC IsFirstEntryToStep : BOOL 
             IsFirstEntryToStep := THIS.IsFirstExecutionCycle(); // Utilizes IsFirstExecutionCycle method.
         END_METHOD
+    
+        METHOD PUBLIC GetStepDescription : STRING
+            GetStepDescription := THIS.Descr;
+        END_METHOD
+
+        ///<summary>
+        /// Returns the step execution mode
+        ///</summary>
+        METHOD PUBLIC GetStepExecutionMode : eAxoStepExecutionMode
+            GetStepExecutionMode := THIS.StepExecutionMode;
+        END_METHOD
+    
     END_CLASS    
 END_NAMESPACE
 

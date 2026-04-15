@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Is_manually_controllable" xml:space="preserve">
+    <value>Controlable</value>
+  </data>
   <data name="Command_state" xml:space="preserve">
     <value>Estado de comando</value>
   </data>
@@ -128,5 +131,74 @@
   </data>
   <data name="Run_step" xml:space="preserve">
     <value>Correr paso</value>
+  </data>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>LA TAREA REMOTA NO ESTÁ INICIALIZADA</value>
+  </data>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>CONTEXTO NULO</value>
+  </data>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Tarea invocada</value>
+  </data>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Intento de invocar tarea desactivada</value>
+  </data>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Tarea restaurada</value>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Tarea realizada.</value>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>Tarea iniciada.</value>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>Tarea fallida</value>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Secuencia en estado config :</value>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Inicia el paso :</value>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Compruebe que los pasos son únicos y están correctamente configurados.</value>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Paso realizado :</value>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Petición de paso a paso :</value>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Secuencia completada :</value>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>Al paso:</value>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Resucitado</value>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Resucitado antes del reconocimiento</value>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Caídos</value>
+  </data>
+  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
+    <value>Mensajero 1 - activar usando el método 'Activate' llamado dentro de la sentencia if</value>
+  </data>
+  <data name="RemoteTaskMessenger" xml:space="preserve">
+    <value>RemoteTaskMessenger</value>
+  </data>
+  <data name="Messenger" xml:space="preserve">
+    <value>Mensajero</value>
   </data>
 </root>

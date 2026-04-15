@@ -70,7 +70,8 @@ public static class ApaxTraversal
         return fileInfoList;
     }
 
-    private static void CollectApaxFileInfoRecursively(string directoryPath, List<string> excludedDirectories, List<string> allFiles)
+   
+    internal static void CollectApaxFileInfoRecursively(string directoryPath, List<string> excludedDirectories, List<string> allFiles)
     {
         foreach (var directory in Directory.GetDirectories(directoryPath))
         {
@@ -169,12 +170,12 @@ public static class ApaxTraversal
 
     public static void CreateApaxTraversal(this BuildContext context, string dir, string outputFile)
     {
-        CreateDependenciesFile(CollectApaxFileInfo(dir,new List<string>() { ".apax", "traversals"}), outputFile);
+        CreateDependenciesFile(CollectApaxFileInfo(dir, new List<string>() { ".apax", "traversals"}), outputFile);
     }
     
     public class ApaxFileInfo
     {
         public string Name { get; set; }
-        public string Version { get; set; }
+        public string Version { get; set; }       
     }
 }

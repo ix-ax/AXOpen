@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,441</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,625</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,713</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,803</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,981</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoCr800_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Start at main</value>
+    <comment>src\AxoCr800_v_1_x_x.st,40</comment>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Start motors and program</value>
+    <comment>src\AxoCr800_v_1_x_x.st,44</comment>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Stop movements</value>
+    <comment>src\AxoCr800_v_1_x_x.st,48</comment>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Stop movements and program</value>
+    <comment>src\AxoCr800_v_1_x_x.st,52</comment>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Start movements with extended parameters</value>
+    <comment>src\AxoCr800_v_1_x_x.st,56</comment>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Power progress</value>
+    <comment>src\AxoCr800_v_1_x_x.st,78</comment>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Movement progress</value>
+    <comment>src\AxoCr800_v_1_x_x.st,82</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoCr800_v_1_x_x.st,92</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoCr800_v_1_x_x.st,98</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoCr800_v_1_x_x.st,106</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st,11</comment>
+  </data>
+  <data name="Operation_enable__BRACKET_rights_ENDBRACKET_" xml:space="preserve">
+    <value>Operation enable (rights)</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,7</comment>
+  </data>
+  <data name="Automatic_operation_enabled" xml:space="preserve">
+    <value>Automatic operation enabled</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,9</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,11</comment>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,13</comment>
+  </data>
+  <data name="Program_reset" xml:space="preserve">
+    <value>Program reset</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,15</comment>
+  </data>
+  <data name="Error_Reset" xml:space="preserve">
+    <value>Error Reset</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,17</comment>
+  </data>
+  <data name="Cycle_Stop" xml:space="preserve">
+    <value>Cycle Stop</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,19</comment>
+  </data>
+  <data name="Servo_Off" xml:space="preserve">
+    <value>Servo Off</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,21</comment>
+  </data>
+  <data name="Servo_On" xml:space="preserve">
+    <value>Servo On</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,26</comment>
+  </data>
+  <data name="General_Purpose_reset" xml:space="preserve">
+    <value>General Purpose reset</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,28</comment>
+  </data>
+  <data name="Overide_specification" xml:space="preserve">
+    <value>Overide specification</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,30</comment>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Master mode</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,35</comment>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Tool 1 retract</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,40</comment>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Tool 1 extend</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,42</comment>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Tool 2 retract</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,44</comment>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Tool 2 extend</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,46</comment>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Tool 3 retract</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,48</comment>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Tool 3 extend</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,50</comment>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Tool 4 retract</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,52</comment>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Tool 4 extend</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,54</comment>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zones</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,59</comment>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In position</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,61</comment>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Action number</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,63</comment>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Global robot speed</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,65</comment>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Tool number</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,67</comment>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Workobject number</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,69</comment>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Point number</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,71</comment>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>User specific speed 1</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,73</comment>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>User specific speed 2</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Control.st,75</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st,5</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InOut_UNDERSCORE__SIX__FOUR__UNDERSCORE_byte_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'InOut_64_byte' submodule</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st,7</comment>
+  </data>
+  <data name="Operation_rights" xml:space="preserve">
+    <value>Operation rights</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,7</comment>
+  </data>
+  <data name="High_level_error" xml:space="preserve">
+    <value>High level error</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,28</comment>
+  </data>
+  <data name="Low_level_error" xml:space="preserve">
+    <value>Low level error</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,30</comment>
+  </data>
+  <data name="Warning_level_error__BRACKET_caution_ENDBRACKET_" xml:space="preserve">
+    <value>Warning level error (caution)</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,32</comment>
+  </data>
+  <data name="Emergency_stop" xml:space="preserve">
+    <value>Emergency stop</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,34</comment>
+  </data>
+  <data name="Rc_Ready" xml:space="preserve">
+    <value>Rc Ready</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,36</comment>
+  </data>
+  <data name="Battery_Low" xml:space="preserve">
+    <value>Battery Low</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,38</comment>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>In area 1</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,43</comment>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>In area 2</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,45</comment>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>In area 3</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,47</comment>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>In area 4</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,49</comment>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>In position 1</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,51</comment>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>In position 2</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,53</comment>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>In position 3</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,55</comment>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>In position 4</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,57</comment>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Global speed</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,90</comment>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+    <comment>src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st,96</comment>
+  </data>
+</root>

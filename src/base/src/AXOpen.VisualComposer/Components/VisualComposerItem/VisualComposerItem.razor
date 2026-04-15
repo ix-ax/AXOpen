@@ -1,0 +1,82 @@
+﻿<style>
+    .bg-switcher-@Origin.UniqueGuid {
+        background-color: @Origin.BackgroundColorLight;
+        border-color: @Origin.BackgroundColorLight !important;
+    }
+
+    [data-theme="dark"] .bg-switcher-@Origin.UniqueGuid {
+        background-color: @Origin.BackgroundColorDark;
+        border-color: @Origin.BackgroundColorLight !important;
+    }
+</style>
+
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        @if (InDesign)
+        {
+            <div @onpointerdown="Down"
+                 @onpointerup="Up"
+                 @onwheel="Wheel"
+                 style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? $"bg-switcher-{Origin.UniqueGuid}" : null)">
+                    <RenderableContentControl @ref="renderableContentControlRcc"
+                                              Context="@Origin.TwinElement"
+                                              Presentation="@Origin.Presentation.ToString()"
+                                              ParentContainer="@this"
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
+                </div>
+                <a class="absolute" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" @onclick="() => Origin.ModalSettingOpen = true">
+                    <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Outline" Class="@($"size-5 {Parent.CurrentView.Theme}")" />
+                </a>
+            </div>
+        }
+        else
+        {
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? $"bg-switcher-{Origin.UniqueGuid}" : null)">
+                    <RenderableContentControl Context="@Origin.TwinElement"
+                                              Presentation="@Origin.Presentation.ToString()"
+                                              ParentContainer="@this"
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
+                </div>
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        @if (Origin.Roles != null && Origin.Roles != "")
+        {
+            <AuthorizeView Roles="@Origin.Roles" Context="SecondAuthorizeView">
+                <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                    <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? "bg-switcher" : null)">
+                        <RenderableContentControl Context="@Origin.TwinElement"
+                                                  Presentation="@Origin.Presentation.ToString()"
+                                                  ParentContainer="@this"
+                                                  PresentationTemplate="@Origin.PresentationTemplate"
+                                                  PollingInterval="@Origin.PollingInterval"/>
+                    </div>
+                </div>
+            </AuthorizeView>
+        }
+        else
+        {
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? "bg-switcher" : null)">
+                    <RenderableContentControl Context="@Origin.TwinElement"
+                                              Presentation="@Origin.Presentation.ToString()"
+                                              ParentContainer="@this"
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
+                </div>
+            </div>
+        }
+    </NotAuthorized>
+</AuthorizeView>
+
+@code
+{
+    [Parameter]
+    public bool InDesign { get; set; }
+    private RenderableContentControl renderableContentControlRcc;
+}

@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
 
     /// <summary>
     /// Class representing Digital output
@@ -7,26 +7,27 @@ NAMESPACE AXOpen.Elements
     {S7.extern=ReadWrite}
     CLASS AxoDo EXTENDS AXOpen.Core.AxoComponent
 
-        VAR
+        VAR PUBLIC
+            
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Signal#>"}
             _signal : BOOL;
 
-        END_VAR
-
-        VAR PUBLIC
-
-            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
             _setTask : AxoTask;
-
+            
             {#ix-set:AttributeName = "<#Off#>"}
             {#ix-attr:[ComponentHeader()]}
             _resetTask : AxoTask;
-
+            
             {#ix-set:AttributeName = "<#MessengerInfo#>"}
             {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
-
+            
+           
         END_VAR
 
         VAR PRIVATE
@@ -48,24 +49,22 @@ NAMESPACE AXOpen.Elements
         /// </summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
             END_VAR
 
             VAR_OUTPUT
                 oSignal: BOOL;
             END_VAR
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN;
             END_IF;
 
-            IF _context = NULL THEN
-                SUPER.Run(parent);
-                _setTask.Run(THIS);
-                _resetTask.Run(THIS);
-                _context := THIS.GetContext();
-            END_IF;
-
+           
+            SUPER.Run(inParent);
+            _setTask.Run(THIS);
+            _resetTask.Run(THIS);
+           
             _messengerInfo.Serve(THIS); 
 
             oSignal := _signal;		
@@ -91,12 +90,12 @@ NAMESPACE AXOpen.Elements
 
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _signal;
-            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
 
         METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _signal;
-            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
     END_CLASS
 END_NAMESPACE

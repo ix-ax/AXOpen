@@ -1,0 +1,450 @@
+USING AXOpen.Core;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
+USING AXOpen.Components.Abstractions;
+
+
+NAMESPACE AXOpen.Components.Elements
+    {S7.extern=ReadWrite}
+    CLASS AxoRotaryIndexingTable EXTENDS AXOpen.Core.AxoComponent
+        VAR PUBLIC // HEADER
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Turn#>"}
+            TurnTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentHeader()]}         
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Current position#>"}
+            CurrentPosition  :   UINT;
+        END_VAR
+
+        VAR PUBLIC // TASKS
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Restore#>"}
+            RestoreTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#InitPositionTask#>"}
+            InitPositionTask : AXOpen.Core.AxoTask;
+        END_VAR
+        
+        VAR PUBLIC // CONFIG
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            Config  :   AxoRotaryIndexingTable_Config;
+        END_VAR
+
+        VAR PUBLIC // STATUS
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            Status              :   AxoRotaryIndexingTable_Component_Status;
+            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
+            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+        END_VAR    
+
+        VAR PUBLIC //Hardware signals
+            {#ix-attr:[ComponentDetails("Hardware signals")]}
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Inputs#>"}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
+            Inputs              :   AxoRotaryIndexingTable_State;
+            {#ix-attr:[ComponentDetails("Hardware signals")]}
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Outputs#>"}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
+            Outputs              :   AxoRotaryIndexingTable_Control;
+        END_VAR    
+
+        VAR PRIVATE
+            _progress               :   INT;
+            _infoTimer              :   AXOpen.Timers.OnDelayTimer;
+            _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _timeoutTimer           :   AXOpen.Timers.OnDelayTimer;
+            _movementIsSuspended    :   BOOL;
+            _suspentionCycleCount   :   ULINT;
+
+        END_VAR
+
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        ///</summary>
+        METHOD PUBLIC Run
+            VAR_INPUT
+                inParent              :   IAxoObject;
+                inSafetyCondition     :   BOOL;
+            	inPosition            :   BOOL;
+            	inPrecisePosition     :   BOOL;                
+                inCodingPosition      :   UINT;
+            END_VAR
+
+            VAR_OUTPUT
+                outEnableTurn : BOOL;
+                outStartTurn : BOOL;
+            END_VAR
+
+            VAR
+                _index :    UINT;
+            END_VAR
+
+            SUPER.Run(inParent);
+
+            Messenger.Serve(THIS);
+            
+            IF inParent = NULL THEN
+                Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#700;
+                RETURN;
+            END_IF;
+            
+            IF Config.NumberOfPositions < UINT#2 THEN
+                Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#701;
+                RETURN;
+            END_IF;
+
+            IF Config.NumberOfPositions > UINT#32 THEN
+                Messenger.Activate(UINT#702, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#702;
+                RETURN;
+            END_IF;
+
+            IF Config.OffSet = UINT#0 THEN
+                Config.OffSet := UINT#1;
+            END_IF;
+
+            //***********Update inputs **************
+            Inputs.SafetyCondition      :=  inSafetyCondition;
+            Inputs.InPosition           :=  inPosition;
+            Inputs.InPrecisePosition    :=  inPrecisePosition;
+            Inputs.CodingPosition       :=  inCodingPosition;
+
+
+            //*************INITIALIZATION*************
+            RestoreTask.Run(THIS);
+            TurnTask.Run(THIS);
+            InitPositionTask.Run(THIS);
+    
+            //****************************************
+    
+            //*********CALCULATE POSITIONS************
+            CurrentPosition := Inputs.CodingPosition - Config.Offset + UINT#1;
+            Status.Positions[Config.NumberOfPositions - UINT#1] := UINT#1 + CurrentPosition MOD Config.NumberOfPositions;
+            FOR _index := 1 TO (Config.NumberOfPositions - UINT#1) DO	
+                Status.Positions[Config.NumberOfPositions - UINT#1 - _index] := UINT#1 + (Status.Positions[Config.NumberOfPositions - _index]) MOD (Config.NumberOfPositions);			
+            END_FOR;
+
+            //****************************************
+    
+            //*************RESTORE********************
+            RestoreTask.SetIsDisabled(FALSE);
+            IF RestoreTask.Execute(THIS) THEN
+                THIS.Restore();
+            END_IF;
+            //****************************************
+    
+            //*************TurnTask**************
+            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT inSafetyCondition,'<#The safety condition is lost during movement.#>');
+            TurnTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR InitPositionTask.IsBusy());
+            IF TurnTask.StartTriggered() THEN
+                Status.Action.Id :=  UINT#100;
+            END_IF;            
+            Messenger.ActivateOnCondition(ULINT#100,TurnTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#101,TurnTask.IsDone(), eAxoMessageCategory#Info);
+            IF TurnTask.Execute(THIS) THEN
+                IF _progress = 0 AND NOT _movementIsSuspended THEN
+                    Status.Error.Id := UINT#0;
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
+                    _progress := 300;
+                END_IF;
+                // TurnTask running: checking the initial position.
+                IF _progress = 300 THEN
+                    // Turn table is not in the initial position!
+                    IF NOT Inputs.InPosition THEN
+                        Messenger.Activate(     UINT#703, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#703, eAxoMessageCategory#Error);                                       
+                        Status.Error.Id :=      UINT#703;
+                    END_IF;
+
+                    IF Inputs.InPosition THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 301;
+                    END_IF;
+                END_IF;
+                // TurnTask running: evaluating start index.
+                IF _progress = 301 THEN
+                    // Invalid coding, no signal from any coding sensor!
+                    IF CurrentPosition = UINT#0 THEN
+                        Messenger.Activate(     UINT#704, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#704, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#704;                                       
+                     END_IF;
+                    // Invalid coding, current position is greather then maximum!
+                    IF CurrentPosition > Config.NumberOfPositions THEN                                                      
+                        Messenger.Activate(     UINT#705, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#705, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#705;                                       
+                    END_IF;
+    
+                    IF CurrentPosition > UINT#0 AND CurrentPosition<= Config.NumberOfPositions THEN
+                        Status.StartPosition := CurrentPosition;
+                        Status.EndPosition := Status.Positions[Config.NumberOfPositions-UINT#1];
+                        THIS.CallTimers(FALSE);
+                        _progress := 302;
+                    END_IF;
+                END_IF;
+                // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                IF _progress = 302 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#502;
+                    END_IF;
+
+                    Outputs.EnableTurn := TRUE;
+                    Outputs.StartTurn := TRUE;
+
+                    IF NOT Inputs.InPosition THEN
+                        Outputs.EnableTurn := FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 303;
+                    END_IF;
+                END_IF;
+                // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                IF _progress = 303 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#503;
+                    END_IF;
+    
+                    Outputs.EnableTurn := FALSE;
+                    Outputs.StartTurn := TRUE;
+
+                    IF Inputs.InPosition THEN
+                        Outputs.EnableTurn := FALSE;
+                        Outputs.StartTurn := FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 304;
+                    END_IF;
+                END_IF;
+                // TurnTask running: evaluating end index.
+                IF _progress = 304 THEN
+                    // Invalid coding, unexpected value of coding sensors!
+                    IF Status.EndPosition = Status.Positions[UINT#0] THEN 
+                        THIS.CallTimers(FALSE);
+                        _progress := 309;
+                    ELSE
+                        Messenger.Activate(     UINT#706, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#706, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#706;
+                    END_IF;
+                END_IF;
+                // TurnTask finished.
+                IF _progress = 309 THEN 
+                    TurnTask.DoneWhen(TRUE);
+                END_IF;
+    
+                THIS.CallTimers(NOT _movementIsSuspended);
+                
+                TurnTask.ThrowWhen(_errorTimer.output);
+                Status.Action.Id := TO_UINT(_progress);  
+                TurnTask.ThrowWhen(_timeoutTimer.output,'<#TurnTask timeout.#>');
+            END_IF;
+            IF TurnTask.DoneReached() THEN
+                Status.Action.Id :=  UINT#101;
+                Status.Error.Id :=  UINT#0;
+            ELSIF TurnTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#10000;
+                Status.Error.Id  :=  UINT#10000;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
+            ELSIF TurnTask.AbortTriggered()THEN
+                Status.Action.Id :=  UINT#10001;
+                Status.Error.Id  :=  UINT#10001;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
+            END_IF;            
+            Messenger.ActivateOnCondition(ULINT#10000,TurnTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,TurnTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,TurnTask.RestoreTriggered() , eAxoMessageCategory#Info);
+            IF TurnTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+                Status.Action.Id :=  UINT#102;
+                _progress := 0;
+            END_IF;
+            //**************************************************
+    
+            //*************InitPositionTask***************
+            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT inSafetyCondition,'<#The safety condition is lost during movement.#>');
+            InitPositionTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR TurnTask.IsBusy());
+            IF InitPositionTask.StartTriggered() THEN
+                Status.Action.Id :=  UINT#110;
+            END_IF;            
+            Messenger.ActivateOnCondition(ULINT#110,InitPositionTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,InitPositionTask.IsDone(), eAxoMessageCategory#Info);
+            IF InitPositionTask.Execute(THIS) THEN
+                IF _progress = 0 AND NOT _movementIsSuspended THEN
+                    Status.Error.Id := UINT#0;
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
+                    _progress := 312;
+                END_IF;
+                // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                IF _progress = 312 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#512;
+                    END_IF;
+    
+                    Outputs.EnableTurn := TRUE;
+                    Outputs.StartTurn := TRUE;
+
+                    IF NOT Inputs.InPosition THEN
+                        Outputs.EnableTurn := FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 313;
+                    END_IF;
+                END_IF;
+                // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                IF _progress = 313 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#513;
+                    END_IF;
+    
+                    Outputs.EnableTurn := FALSE;
+                    Outputs.StartTurn := TRUE;
+
+                    IF Inputs.InPosition THEN
+                        Outputs.EnableTurn := FALSE;
+                        Outputs.StartTurn := FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 319;
+                    END_IF;
+                END_IF;
+                // InitPositionTask finished.
+                IF _progress = 319 THEN
+                    InitPositionTask.DoneWhen(TRUE);
+                END_IF;
+    
+                THIS.CallTimers(NOT _movementIsSuspended);
+                
+                InitPositionTask.ThrowWhen(_errorTimer.output);
+                Status.Action.Id := TO_UINT(_progress);  
+                InitPositionTask.ThrowWhen(_timeoutTimer.output ,'<#InitPositionTask timeout.#>');
+            END_IF;
+            IF InitPositionTask.DoneReached() THEN
+                Status.Action.Id :=  UINT#111;
+                Status.Error.Id :=  UINT#0;
+            ELSIF InitPositionTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#10010;
+                Status.Error.Id  :=  UINT#10010;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
+            ELSIF InitPositionTask.AbortTriggered()THEN
+                Status.Action.Id :=  UINT#10011;
+                Status.Error.Id  :=  UINT#10011;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
+            END_IF;            
+            Messenger.ActivateOnCondition(ULINT#10010,InitPositionTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,InitPositionTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,InitPositionTask.RestoreTriggered() , eAxoMessageCategory#Info);
+            IF InitPositionTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+                Status.Action.Id :=  UINT#112;
+                _progress := 0;
+            END_IF;
+            //**************************************************
+            IF NOT Inputs.SafetyCondition THEN 
+                Outputs.EnableTurn  :=  FALSE;
+                Outputs.StartTurn   :=  FALSE;
+            END_IF;
+            //**************************************************
+            IF _movementIsSuspended THEN 
+                Outputs.EnableTurn  :=  FALSE;
+                Outputs.StartTurn   :=  FALSE;
+                IF (THIS.GetContext().OpenCycleCount() - _suspentionCycleCount ) >= ULINT#1 THEN
+                    _movementIsSuspended := FALSE;
+                END_IF;
+            END_IF;
+  
+            //***********Update outputs ****************
+            outEnableTurn  :=  Outputs.EnableTurn;
+            outStartTurn   :=  Outputs.StartTurn;
+            
+            //******************************************      
+
+        END_METHOD
+
+        METHOD PUBLIC Turn : IAxoTaskState
+            Turn := TurnTask.Invoke(THIS);
+        END_METHOD
+
+        METHOD PUBLIC InitPosition : IAxoTaskState
+            InitPosition := InitPositionTask.Invoke(THIS);
+        END_METHOD
+
+        ///<summary>
+        /// Suspends the movement while the condition is 'true'. Task remains still executing.
+        ///</summary>
+        METHOD PUBLIC SuspendMovementWhile 
+            VAR_INPUT
+                inCondition : BOOL;
+            END_VAR
+            VAR_INPUT
+                inMessage : STRING;
+            END_VAR
+
+            IF(inCondition) THEN                        
+                Outputs.EnableTurn  :=  FALSE;
+                Outputs.StartTurn   :=  FALSE;
+                IF TurnTask.IsBusy() OR InitPositionTask.IsBusy() THEN
+                    Messenger.Post(THIS, inMessage, eAxoMessageCategory#Info);
+                END_IF;
+                _suspentionCycleCount := THIS.GetContext().OpenCycleCount();
+            END_IF;   
+            _movementIsSuspended := _movementIsSuspended OR inCondition;
+        END_METHOD      
+
+        METHOD PROTECTED OVERRIDE ManualControl
+            THIS._isManuallyControllable := true;
+        END_METHOD
+        
+        ///<summary>
+        /// Restores this component into intial state.        
+        ///</summary>
+        METHOD PUBLIC OVERRIDE Restore
+            VAR
+                _index : INT;
+            END_VAR
+            Status.Action.Id := UINT#0;
+            Status.Error.Id  := UINT#0;
+
+            _progress       :=   INT#0;
+            TurnTask.Restore();
+            InitPositionTask.Restore();
+            Status.Action.Id := UINT#50;
+            RestoreTask.DoneWhen(TRUE);
+
+            Outputs.EnableTurn  :=  FALSE;
+            Outputs.StartTurn   :=  FALSE;
+
+
+        END_METHOD        
+
+        METHOD PRIVATE CallTimers
+            VAR_INPUT
+                signal : BOOL;
+            END_VAR
+            
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
+            _timeoutTimer.OnDelay(THIS, signal AND Config.TaskTimeout > LT#0S , Config.TaskTimeout);
+        END_METHOD
+
+    END_CLASS
+END_NAMESPACE

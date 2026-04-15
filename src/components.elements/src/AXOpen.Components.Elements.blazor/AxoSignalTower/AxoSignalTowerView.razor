@@ -1,0 +1,448 @@
+@namespace AXOpen.Components.Elements
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoSignalTower>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex flex-wrap items-center justify-end gap-3" @onclick:stopPropagation="true">
+            <span class="badge badge-ghost text-xs tracking-wide">@Localizer["SignalTower"]</span>
+            <span class="badge @StatusBadgeClass text-xs tracking-wide">@CurrentStateDisplay</span>
+            <div class="flex items-center gap-2">
+                @if (IsRedOn)
+                {
+                    <div class="size-3 rounded-full bg-red-500 animate-pulse shadow-lg shadow-red-500/50"></div>
+                }
+                @if (IsYellowOn)
+                {
+                    <div class="size-3 rounded-full bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50"></div>
+                }
+                @if (IsGreenOn)
+                {
+                    <div class="size-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50"></div>
+                }
+                @if (IsBlueOn)
+                {
+                    <div class="size-3 rounded-full bg-blue-500 animate-pulse shadow-lg shadow-blue-500/50"></div>
+                }
+                @if (IsHornOn)
+                {
+                    <div class="size-3 rounded-full bg-info animate-pulse shadow-lg shadow-info/50"></div>
+                }
+            </div>
+            <span class="badge @HornBadgeClass text-xs">@HornStatusText</span>
+        </div>
+    </HeaderContent>
+
+    <CommandsOperateContent>
+        <div class="space-y-6">
+            <h5 class="text-lg font-semibold text-text border-b border-border pb-2">@Localizer["SignalTowerControls"]</h5>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="card p-4">
+                    <h6 class="text-sm font-semibold text-text mb-3 uppercase tracking-wide">@Localizer["LightOutputs"]</h6>
+                    <div class="grid grid-cols-2 gap-3">
+                        <RenderableContentControl Context="Component.Red" Presentation="Control"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Yellow" Presentation="Control"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Green" Presentation="Control"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Blue" Presentation="Control"></RenderableContentControl>
+                    </div>
+                </div>
+
+                <div class="card p-4">
+                    <h6 class="text-sm font-semibold text-text mb-3 uppercase tracking-wide">@Localizer["HornControl"]</h6>
+                    <RenderableContentControl Context="Component.Horn" Presentation="Control"></RenderableContentControl>
+                    <p class="text-xs text-text/60 mt-3">@Localizer["HornToggleHint"]</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                    <h6 class="font-semibold">@Localizer["ManualOverride"]</h6>
+                    <p class="text-sm">@Localizer["ManualOverrideHint"]</p>
+                </div>
+            </div>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="space-y-6">
+            <h5 class="text-lg font-semibold text-text border-b border-border pb-2">@Localizer["SignalTowerStatus"]</h5>
+
+            <div class="card p-4">
+                <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <h6 class="text-sm font-semibold text-text mb-1 uppercase tracking-wide">@Localizer["CurrentState"]</h6>
+                        <p class="text-2xl font-bold @ColorTextClass">@CurrentStateDisplay</p>
+                        <p class="text-xs text-text/60">@HornStatusText</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="size-16 rounded-full @BackgroundColorClass @(IsAnyLightOn ? "animate-pulse" : string.Empty) @ShadowClass"></div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 mt-4">
+                    @foreach (var channel in ChannelDescriptors)
+                    {
+                        <div class="flex items-center gap-2">
+                            <div class="size-3 rounded-full @(channel.IsOn ? channel.DotClasses : "bg-text/20")"></div>
+                            <span class="text-xs text-text/60 uppercase tracking-widest">@Localizer[channel.LocalizationKey]</span>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                @foreach (var channel in ChannelDescriptors)
+                {
+                    <div class="card p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs text-text/60 uppercase tracking-widest">@Localizer[channel.LocalizationKey]</span>
+                            <div class="size-4 rounded-full @(channel.IsOn ? channel.DotClasses : "bg-text/20")"></div>
+                        </div>
+                        <div class="text-lg font-bold @(channel.IsOn ? channel.TextClass : "text-text/60")">
+                            @(channel.IsOn ? Localizer["On"].Value : Localizer["Off"].Value.ToUpperInvariant())
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigContent>
+        <div class="space-y-6">
+            <h5 class="text-lg font-semibold text-text border-b border-border pb-2">@Localizer["Diagnostics"]</h5>
+
+            @if (Component is not null)
+            {
+                <div class="card p-4">
+                    <h6 class="text-sm font-semibold text-text mb-3 uppercase tracking-wide">@Localizer["MessengerOverview"]</h6>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <RenderableContentControl Context="Component.Red._messengerInfo" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Yellow._messengerInfo" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Green._messengerInfo" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Blue._messengerInfo" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Horn._messengerInfo" Presentation="Display"></RenderableContentControl>
+                    </div>
+                </div>
+            }
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd" d="M8.485 2.495a1.75 1.75 0 0 1 3.03 0l6.825 11.81A1.75 1.75 0 0 1 16.825 17H3.175a1.75 1.75 0 0 1-1.515-2.695l6.825-11.81ZM10 6.75a.75.75 0 0 0-.75.75v3.5a.75.75 0 0 0 1.5 0v-3.5A.75.75 0 0 0 10 6.75Zm0 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                    <h6 class="font-semibold">@Localizer["MonitorDiagnostics"]</h6>
+                    <p class="text-sm">@Localizer["MonitorDiagnosticsHint"]</p>
+                </div>
+            </div>
+        </div>
+    </ConfigContent>
+
+    <SpotContent>
+        <div class="flex items-center justify-between gap-3 p-3 border-2 @BorderClass rounded-lg">
+            <div class="flex items-center gap-3">
+                <div class="h-12 w-6 rounded-md overflow-hidden border border-border/60 bg-slate-800/60 flex flex-col">
+                    <div class="w-full flex-1 @RedBarClass"></div>
+                    <div class="w-full flex-1 @YellowBarClass"></div>
+                    <div class="w-full flex-1 @GreenBarClass"></div>
+                    <div class="w-full flex-1 @BlueBarClass"></div>
+                </div>
+               @*  <div class="flex flex-col">
+                    <span class="text-xs font-semibold uppercase tracking-wide">@Localizer["SignalTower"]</span>
+                    <span class="text-[0.65rem] text-text/60">@Localizer["LightsActive"]: @ActiveLightCount</span>
+                </div> *@
+            </div>
+            <div class="flex items-center gap-2">
+               @*  <span class="text-xs font-bold @ColorTextClass">@CurrentStateDisplay</span> *@
+                <span class="badge badge-xs @HornBadgeClass">@HornStatusText.ToUpperInvariant()</span>
+            </div>
+        </div>
+        <style>
+            @@keyframes barPulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.55; }
+            }
+            .bar-pulse { animation: barPulse 1.2s ease-in-out infinite; }
+        </style>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code {
+    private bool IsRedOn => Component?.Red?._signal?.LastValue ?? false;
+    private bool IsGreenOn => Component?.Green?._signal?.LastValue ?? false;
+    private bool IsBlueOn => Component?.Blue?._signal?.LastValue ?? false;
+    private bool IsYellowOn => Component?.Yellow?._signal?.LastValue ?? false;
+    private bool IsHornOn => Component?.Horn?._signal?.LastValue ?? false;
+
+    private bool IsAnyLightOn => IsRedOn || IsYellowOn || IsGreenOn || IsBlueOn;
+
+    private int ActiveLightCount
+    {
+        get
+        {
+            var count = 0;
+            if (IsRedOn)
+            {
+                count++;
+            }
+            if (IsYellowOn)
+            {
+                count++;
+            }
+            if (IsGreenOn)
+            {
+                count++;
+            }
+            if (IsBlueOn)
+            {
+                count++;
+            }
+
+            return count;
+        }
+    }
+
+    private bool HasMultipleLights => ActiveLightCount > 1;
+
+    private string CurrentStateDisplay
+    {
+        get
+        {
+            var parts = new List<string>();
+            if (IsRedOn)
+            {
+                parts.Add(Localizer["Red"].Value);
+            }
+            if (IsYellowOn)
+            {
+                parts.Add(Localizer["Yellow"].Value);
+            }
+            if (IsGreenOn)
+            {
+                parts.Add(Localizer["Green"].Value);
+            }
+            if (IsBlueOn)
+            {
+                parts.Add(Localizer["Blue"].Value);
+            }
+            if (IsHornOn)
+            {
+                parts.Add(Localizer["Horn"].Value);
+            }
+
+            return parts.Count > 0 ? string.Join(" · ", parts) : Localizer["Off"].Value;
+        }
+    }
+
+    private string HornStatusText => IsHornOn ? Localizer["HornOn"].Value : Localizer["HornOff"].Value;
+
+    private string HornBadgeClass => IsHornOn ? "badge-info" : "badge-ghost";
+
+    private string StatusBadgeClass
+    {
+        get
+        {
+            if (HasMultipleLights && IsHornOn)
+            {
+                return "badge-secondary";
+            }
+            if (HasMultipleLights)
+            {
+                return "badge-warning";
+            }
+            if (IsRedOn)
+            {
+                return "badge-danger";
+            }
+            if (IsYellowOn)
+            {
+                return "badge-warning";
+            }
+            if (IsGreenOn)
+            {
+                return "badge-success";
+            }
+            if (IsBlueOn)
+            {
+                return "badge-info";
+            }
+            if (IsHornOn)
+            {
+                return "badge-info";
+            }
+
+            return "badge-ghost";
+        }
+    }
+
+    private string BackgroundColorClass
+    {
+        get
+        {
+            if (HasMultipleLights && ActiveLightCount >= 3)
+            {
+                return "bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500";
+            }
+            if (IsRedOn && IsGreenOn)
+            {
+                return "bg-gradient-to-r from-red-500 via-amber-400 to-green-500";
+            }
+            if (IsRedOn && IsBlueOn)
+            {
+                return "bg-gradient-to-r from-red-500 via-purple-500 to-blue-500";
+            }
+            if (IsYellowOn && IsGreenOn)
+            {
+                return "bg-gradient-to-r from-yellow-400 via-lime-400 to-green-500";
+            }
+            if (IsYellowOn && IsBlueOn)
+            {
+                return "bg-gradient-to-r from-yellow-400 via-sky-400 to-blue-500";
+            }
+            if (IsGreenOn && IsBlueOn)
+            {
+                return "bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500";
+            }
+            if (IsRedOn)
+            {
+                return "bg-red-500";
+            }
+            if (IsYellowOn)
+            {
+                return "bg-yellow-500";
+            }
+            if (IsGreenOn)
+            {
+                return "bg-green-500";
+            }
+            if (IsBlueOn)
+            {
+                return "bg-blue-500";
+            }
+
+            return "bg-gray-700";
+        }
+    }
+
+    private string ShadowClass
+    {
+        get
+        {
+            if (HasMultipleLights)
+            {
+                return "shadow-lg shadow-orange-400/40";
+            }
+            if (IsRedOn)
+            {
+                return "shadow-lg shadow-red-500/50";
+            }
+            if (IsYellowOn)
+            {
+                return "shadow-lg shadow-yellow-500/50";
+            }
+            if (IsGreenOn)
+            {
+                return "shadow-lg shadow-green-500/50";
+            }
+            if (IsBlueOn)
+            {
+                return "shadow-lg shadow-blue-500/50";
+            }
+
+            return string.Empty;
+        }
+    }
+
+    private string ColorTextClass
+    {
+        get
+        {
+            if (HasMultipleLights)
+            {
+                return "text-orange-500";
+            }
+            if (IsRedOn)
+            {
+                return "text-red-500";
+            }
+            if (IsYellowOn)
+            {
+                return "text-yellow-500";
+            }
+            if (IsGreenOn)
+            {
+                return "text-green-500";
+            }
+            if (IsBlueOn)
+            {
+                return "text-blue-500";
+            }
+
+            return "text-text/60";
+        }
+    }
+
+    private string BorderClass
+    {
+        get
+        {
+            if (HasMultipleLights)
+            {
+                return "border-orange-400/50";
+            }
+            if (IsRedOn)
+            {
+                return "border-red-500/50";
+            }
+            if (IsYellowOn)
+            {
+                return "border-yellow-500/50";
+            }
+            if (IsGreenOn)
+            {
+                return "border-green-500/50";
+            }
+            if (IsBlueOn)
+            {
+                return "border-blue-500/50";
+            }
+
+            return "border-border";
+        }
+    }
+
+    private string RedBarClass => IsRedOn ? "bg-red-500 bar-pulse" : "bg-slate-700";
+    private string YellowBarClass => IsYellowOn ? "bg-yellow-400 bar-pulse" : "bg-slate-700";
+    private string GreenBarClass => IsGreenOn ? "bg-green-500 bar-pulse" : "bg-slate-700";
+    private string BlueBarClass => IsBlueOn ? "bg-blue-500 bar-pulse" : "bg-slate-700";
+
+    private IEnumerable<ChannelDescriptor> ChannelDescriptors => new[]
+    {
+        new ChannelDescriptor("Red", IsRedOn, "bg-red-500 animate-pulse shadow-lg shadow-red-500/50", "text-red-500"),
+        new ChannelDescriptor("Yellow", IsYellowOn, "bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50", "text-yellow-500"),
+        new ChannelDescriptor("Green", IsGreenOn, "bg-green-500 animate-pulse shadow-lg shadow-green-500/50", "text-green-500"),
+        new ChannelDescriptor("Blue", IsBlueOn, "bg-blue-500 animate-pulse shadow-lg shadow-blue-500/50", "text-blue-500"),
+        new ChannelDescriptor("Horn", IsHornOn, "bg-info animate-pulse shadow-lg shadow-info/50", "text-info")
+    };
+
+    private record ChannelDescriptor(string LocalizationKey, bool IsOn, string DotClasses, string TextClass);
+
+    public override void ConfigurePolling()
+    {
+        if (Component is null)
+        {
+            return;
+        }
+
+        StartPolling(Component.Red._signal, 500);
+        StartPolling(Component.Yellow._signal, 500);
+        StartPolling(Component.Green._signal, 500);
+        StartPolling(Component.Blue._signal, 500);
+        StartPolling(Component.Horn._signal, 500);
+    }
+}

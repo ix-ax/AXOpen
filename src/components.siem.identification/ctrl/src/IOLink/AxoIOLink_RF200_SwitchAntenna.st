@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 USING System.Strings;
 USING System.Serialization;
@@ -49,7 +49,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             VAR_INPUT
                 execute     :	BOOL    :=  FALSE;          //  Execute function
                 antennaState:	BOOL    :=  FALSE;          //  TRUE: activate antenna, FALSE: deactivate antenna
-                hwID        :	WORD    :=  WORD#16#0;      //  Hardware identifier of IO-Link communication module
+                hwID        :	UINT    :=  UINT#16#0;      //  Hardware identifier of IO-Link communication module
                 portAddr    :	INT     :=  INT#0;          //  Start address of port
                 version     :	USINT   :=  IOL_V11;        //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
             END_VAR         
@@ -112,7 +112,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         
             // Get PII
 
-            tempWord := Siemens.Simatic.S71500.DistributedIO.ReadData(hwID,tempData);
+            tempWord := Siemens.Simatic.DistributedIO.ReadData((hwID),tempData);
             FOR tempIndex := 0 TO statIOsize - INT#1 DO
                 statAnt[tempIndex]   :=  tempData[tempIndex + portAddr];
             END_FOR;
@@ -168,7 +168,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                     //when SETIO_PART equivalent function is available in AX
-                    tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(hwID,tempData);
+                    tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempData);
 
                     IF NOT statIoPartError AND statAnt[INDEX_RFID_ERROR] = BYTE#0 THEN
                         statState := STATE_READY;
@@ -190,7 +190,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                     //when SETIO_PART equivalent function is available in AX
-                    tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(hwID,tempData);
+                    tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempData);
 
                     IF NOT statIoPartError AND statAnt[INDEX_RFID_ERROR] = BYTE#0 THEN
                         IF statAntStatus = CMD_ANTENNA_OFF THEN    //if status_byte=1610 then antenna off
@@ -221,3 +221,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+

@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ClearErrorTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearErrorTask.</value>
+  </data>
+  <data name="ChangeWeldingSetupTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ChangeWeldingSetupTask.</value>
+  </data>
+  <data name="ChangeWeldingProbeTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ChangeWeldingProbeTask.</value>
+  </data>
+  <data name="CycleStopTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit CycleStopTask.</value>
+  </data>
+  <data name="RunWeldingWithTimeTask_timeout_DOT_" xml:space="preserve">
+    <value>RunWeldingWithTimeTask timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask10steps6 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps1 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps2 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps3 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps4 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps5 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps6 timeout.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pripravený</value>
+  </data>
+  <data name="Run_welding_with_time" xml:space="preserve">
+    <value>Spustite zváranie s časom</value>
+  </data>
+  <data name="Required_setup_number" xml:space="preserve">
+    <value>Požadované číslo nastavenia</value>
+  </data>
+  <data name="Required_probe_number" xml:space="preserve">
+    <value>Požadované číslo sondy</value>
+  </data>
+  <data name="Required_welding_time" xml:space="preserve">
+    <value>Požadovaný čas zvárania</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="Change_setup" xml:space="preserve">
+    <value>Zmena nastavenia</value>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Vymazanie chyby</value>
+  </data>
+  <data name="Change_probe" xml:space="preserve">
+    <value>Zmena sondy</value>
+  </data>
+  <data name="CycleStopTask" xml:space="preserve">
+    <value>CycleStopTask</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Konfigurácia</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>ID hardvéru</value>
+  </data>
+  <data name="LowerBadEnergyLimit" xml:space="preserve">
+    <value>LowerBadEnergyLimit</value>
+  </data>
+  <data name="LowerSuspectEnergyLimit" xml:space="preserve">
+    <value>LowerSuspectEnergyLimit</value>
+  </data>
+  <data name="UpperSuspectEnergyLimit" xml:space="preserve">
+    <value>UpperSuspectEnergyLimit</value>
+  </data>
+  <data name="UpperBadEnergyLimit" xml:space="preserve">
+    <value>UpperBadEnergyLimit</value>
+  </data>
+  <data name="LowerBadPowerLimit" xml:space="preserve">
+    <value>LowerBadPowerLimit</value>
+  </data>
+  <data name="LowerSuspectPowerLimit" xml:space="preserve">
+    <value>LowerSuspectPowerLimit</value>
+  </data>
+  <data name="UpperSuspectPowerLimit" xml:space="preserve">
+    <value>UpperSuspectPowerLimit</value>
+  </data>
+  <data name="UpperBadPowerLimit" xml:space="preserve">
+    <value>UpperBadPowerLimit</value>
+  </data>
+  <data name="LowerBadTimeLimit" xml:space="preserve">
+    <value>LowerBadTimeLimit</value>
+  </data>
+  <data name="LowerSuspectTimeLimit" xml:space="preserve">
+    <value>LowerSuspectTimeLimit</value>
+  </data>
+  <data name="UpperSuspectTimeLimit" xml:space="preserve">
+    <value>UpperSuspectTimeLimit</value>
+  </data>
+  <data name="UpperBadTimeLimit" xml:space="preserve">
+    <value>UpperBadTimeLimit</value>
+  </data>
+  <data name="GoodPart" xml:space="preserve">
+    <value>GoodPart</value>
+  </data>
+  <data name="BadPart" xml:space="preserve">
+    <value>BadPart</value>
+  </data>
+  <data name="SuspectPart" xml:space="preserve">
+    <value>SuspectPart</value>
+  </data>
+  <data name="Frequency_UNDERSCORE_Overload_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>Frekvencia preťaženia3</value>
+  </data>
+  <data name="Under_UNDERSCORE_Voltage_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>UnderVoltage1</value>
+  </data>
+  <data name="Over_UNDERSCORE_Amplitude_UNDERSCORE_Fault" xml:space="preserve">
+    <value>OverAmplitudeFault</value>
+  </data>
+  <data name="InternalError_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>InternalError5</value>
+  </data>
+  <data name="US_UNDERSCORE_Voltage_UNDERSCORE_Overload" xml:space="preserve">
+    <value>USVoltageOverload</value>
+  </data>
+  <data name="Average_UNDERSCORE_Overload" xml:space="preserve">
+    <value>AverageOverload</value>
+  </data>
+  <data name="Current_UNDERSCORE_Loop" xml:space="preserve">
+    <value>CurrentLoop</value>
+  </data>
+  <data name="Power_UNDERSCORE_Not_UNDERSCORE_OK" xml:space="preserve">
+    <value>PowerNotOK</value>
+  </data>
+  <data name="Over_UNDERSCORE_Temperature" xml:space="preserve">
+    <value>Prehriatie</value>
+  </data>
+  <data name="InternalError_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>InternalError1</value>
+  </data>
+  <data name="InternalError_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>InternalError2</value>
+  </data>
+  <data name="InternalError_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>InternalError3</value>
+  </data>
+  <data name="InternalError_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>InternalError4</value>
+  </data>
+  <data name="FrequencyOverload_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>FrequencyOverload1</value>
+  </data>
+  <data name="Frequency_UNDERSCORE_Overload_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>FrequencyOverload2</value>
+  </data>
+  <data name="Peak_UNDERSCORE_Overload_UNDERSCORE_Positive" xml:space="preserve">
+    <value>PeakOverloadPositive</value>
+  </data>
+  <data name="Peak_UNDERSCORE_Overload_UNDERSCORE_Negative" xml:space="preserve">
+    <value>PeakOverloadNegative</value>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_iQ_UNDERSCORE_to_UNDERSCORE_PLC_UNDERSCORE_Inputs_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "iQtoPLCInputs</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out1</value>
+  </data>
+  <data name="Weld_ONE_Position" xml:space="preserve">
+    <value>Weld1Position</value>
+  </data>
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>ErrorStatus</value>
+  </data>
+  <data name="TotalWeldTime" xml:space="preserve">
+    <value>TotalWeldTime</value>
+  </data>
+  <data name="TotalWeldDistance" xml:space="preserve">
+    <value>TotalWeldDistance</value>
+  </data>
+  <data name="TotalWeldEnergy" xml:space="preserve">
+    <value>Celkové množstvo energie na zváranie</value>
+  </data>
+  <data name="HoldTime" xml:space="preserve">
+    <value>HoldTime</value>
+  </data>
+  <data name="HoldDistance" xml:space="preserve">
+    <value>HoldDistance</value>
+  </data>
+  <data name="TotalCycleTime" xml:space="preserve">
+    <value>TotalCycleTime</value>
+  </data>
+  <data name="FinalHoldPosition" xml:space="preserve">
+    <value>FinalHoldPosition</value>
+  </data>
+  <data name="Weld_ONE_PeakForce" xml:space="preserve">
+    <value>Weld1PeakForce</value>
+  </data>
+  <data name="Weld_ONE_Distance" xml:space="preserve">
+    <value>Weld1Distance</value>
+  </data>
+  <data name="Weld_ONE_Energy" xml:space="preserve">
+    <value>Weld1Energy</value>
+  </data>
+  <data name="Weld_ONE_Power" xml:space="preserve">
+    <value>Weld1Power</value>
+  </data>
+  <data name="Weld_TWO_Time" xml:space="preserve">
+    <value>Weld2Time</value>
+  </data>
+  <data name="Weld_TWO_Distance" xml:space="preserve">
+    <value>Weld2Distance</value>
+  </data>
+  <data name="Weld_TWO_Energy" xml:space="preserve">
+    <value>Weld2Energy</value>
+  </data>
+  <data name="Weld_TWO_Power" xml:space="preserve">
+    <value>Weld2Power</value>
+  </data>
+  <data name="Weld_TWO_Position" xml:space="preserve">
+    <value>Weld2Position</value>
+  </data>
+  <data name="TriggerTime" xml:space="preserve">
+    <value>TriggerTime</value>
+  </data>
+  <data name="TriggerPosition" xml:space="preserve">
+    <value>TriggerPosition</value>
+  </data>
+  <data name="AverageSensingVelocity" xml:space="preserve">
+    <value>AverageSensingVelocity</value>
+  </data>
+  <data name="TriggerPressure" xml:space="preserve">
+    <value>TriggerPressure</value>
+  </data>
+  <data name="TriggerForce" xml:space="preserve">
+    <value>TriggerForce</value>
+  </data>
+  <data name="TriggerDelayTime" xml:space="preserve">
+    <value>TriggerDelayTime</value>
+  </data>
+  <data name="TriggerDelayDistance" xml:space="preserve">
+    <value>TriggerDelayDistance</value>
+  </data>
+  <data name="Weld_ONE_Time" xml:space="preserve">
+    <value>Weld1Time</value>
+  </data>
+  <data name="Trigger_UNDERSCORE_Delay" xml:space="preserve">
+    <value>TriggerDelay</value>
+  </data>
+  <data name="Servo_UNDERSCORE_DN_UNDERSCORE_Limit" xml:space="preserve">
+    <value>ServoDNLimit</value>
+  </data>
+  <data name="Servo_UNDERSCORE_TOS_UNDERSCORE_Position" xml:space="preserve">
+    <value>ServoTOSPosition</value>
+  </data>
+  <data name="Forced_UNDERSCORE_ShutDown" xml:space="preserve">
+    <value>ForcedShutDown</value>
+  </data>
+  <data name="Trigger_UNDERSCORE_Lost_UNDERSCORE_Early" xml:space="preserve">
+    <value>TriggerLostEarly</value>
+  </data>
+  <data name="Trigger_UNDERSCORE_Lost_UNDERSCORE_Weld" xml:space="preserve">
+    <value>TriggerLostWeld</value>
+  </data>
+  <data name="Latched_UNDERSCORE_Bad_UNDERSCORE_Part" xml:space="preserve">
+    <value>LatchedBadPart</value>
+  </data>
+  <data name="PreTrigger_UNDERSCORE_OverTravel" xml:space="preserve">
+    <value>PreTriggerOverTravel</value>
+  </data>
+  <data name="Part_UNDERSCORE_Detected" xml:space="preserve">
+    <value>PartDetected</value>
+  </data>
+  <data name="PreTrigger_UNDERSCORE_Time" xml:space="preserve">
+    <value>PreTriggerTime</value>
+  </data>
+  <data name="Trigger_UNDERSCORE_Time" xml:space="preserve">
+    <value>TriggerTime</value>
+  </data>
+  <data name="SystemErrorStatus" xml:space="preserve">
+    <value>SystemErrorStatus</value>
+  </data>
+  <data name="SystemInitiateError" xml:space="preserve">
+    <value>SystemInitiateError</value>
+  </data>
+  <data name="SystemProcessError" xml:space="preserve">
+    <value>SystemProcessError</value>
+  </data>
+  <data name="GeneratorState" xml:space="preserve">
+    <value>GeneratorState</value>
+  </data>
+  <data name="RealTimeAmplitude" xml:space="preserve">
+    <value>RealTimeAmplitude</value>
+  </data>
+  <data name="RealTimeFrequency" xml:space="preserve">
+    <value>RealTimeFrequency</value>
+  </data>
+  <data name="RealTimePower" xml:space="preserve">
+    <value>RealTimePower</value>
+  </data>
+  <data name="SystemStatus" xml:space="preserve">
+    <value>SystemStatus</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Teplota</value>
+  </data>
+  <data name="CycleCount" xml:space="preserve">
+    <value>CycleCount</value>
+  </data>
+  <data name="GoodPartCount" xml:space="preserve">
+    <value>GoodPartCount</value>
+  </data>
+  <data name="BadPartCount" xml:space="preserve">
+    <value>BadPartCount</value>
+  </data>
+  <data name="SuspectPartCount" xml:space="preserve">
+    <value>SuspectPartCount</value>
+  </data>
+  <data name="AbortedPartCount" xml:space="preserve">
+    <value>AbortedPartCount</value>
+  </data>
+  <data name="CyclePartStatus" xml:space="preserve">
+    <value>CyclePartStatus</value>
+  </data>
+  <data name="CycleWeldTime" xml:space="preserve">
+    <value>CycleWeldTime</value>
+  </data>
+  <data name="CycleWeldPeakPower" xml:space="preserve">
+    <value>CycleWeldPeakPower</value>
+  </data>
+  <data name="CycleWeldEnergy" xml:space="preserve">
+    <value>CycleWeldEnergy</value>
+  </data>
+  <data name="ActiveSetup" xml:space="preserve">
+    <value>ActiveSetup</value>
+  </data>
+  <data name="RunningSetup" xml:space="preserve">
+    <value>RunningSetup</value>
+  </data>
+  <data name="RunningMPCProbe" xml:space="preserve">
+    <value>RunningMPCProbe</value>
+  </data>
+  <data name="SelectedInputVoltage" xml:space="preserve">
+    <value>SelectedInputVoltage</value>
+  </data>
+  <data name="RealTimePosition" xml:space="preserve">
+    <value>RealTimePosition</value>
+  </data>
+  <data name="RealTimeVelocity" xml:space="preserve">
+    <value>RealTimeVelocity</value>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_lo" xml:space="preserve">
+    <value>PressPartStatusBadlo</value>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_lo" xml:space="preserve">
+    <value>PressPartStatusSuslo</value>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_hi" xml:space="preserve">
+    <value>PressPartStatusSushi</value>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_hi" xml:space="preserve">
+    <value>PressPartStatusBadhi</value>
+  </data>
+  <data name="CycleTriggerTime" xml:space="preserve">
+    <value>CycleTriggerTime</value>
+  </data>
+  <data name="CycleTriggerPosition" xml:space="preserve">
+    <value>CycleTriggerPosition</value>
+  </data>
+  <data name="CycleTriggerDelayTime" xml:space="preserve">
+    <value>CycleTriggerDelayTime</value>
+  </data>
+  <data name="CycleTriggerDelayDistance" xml:space="preserve">
+    <value>CycleTriggerDelayDistance</value>
+  </data>
+  <data name="CycleWeld_ONE_Distance" xml:space="preserve">
+    <value>CycleWeld1Distance</value>
+  </data>
+  <data name="CycleWeld_ONE_Position" xml:space="preserve">
+    <value>CycleWeld1Position</value>
+  </data>
+  <data name="CycleTotalTime" xml:space="preserve">
+    <value>CycleTotalTime</value>
+  </data>
+  <data name="ClearSetup" xml:space="preserve">
+    <value>ClearSetup</value>
+  </data>
+  <data name="RunScan" xml:space="preserve">
+    <value>RunScan</value>
+  </data>
+  <data name="RunContinuously" xml:space="preserve">
+    <value>RunContinuously</value>
+  </data>
+  <data name="RunWeld" xml:space="preserve">
+    <value>RunWeld</value>
+  </data>
+  <data name="RunTest" xml:space="preserve">
+    <value>RunTest</value>
+  </data>
+  <data name="ClearError" xml:space="preserve">
+    <value>ClearError</value>
+  </data>
+  <data name="OTF_UNDERSCORE_AmplitudeEnable" xml:space="preserve">
+    <value>OTFAmplitudeEnable</value>
+  </data>
+  <data name="CycleStop" xml:space="preserve">
+    <value>CycleStop</value>
+  </data>
+  <data name="FrontPanelLockout_UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>FrontPanelLockout0</value>
+  </data>
+  <data name="FrontPanelLockout_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>FrontPanelLockout1</value>
+  </data>
+  <data name="OTF_UNDERSCORE_Amp_UNDERSCORE_Setpoint" xml:space="preserve">
+    <value>OTFAmpSetpoint</value>
+  </data>
+  <data name="ActiveSetupSelection" xml:space="preserve">
+    <value>ActiveSetupSelection</value>
+  </data>
+  <data name="RunningSetupSelection" xml:space="preserve">
+    <value>RunningSetupSelection</value>
+  </data>
+  <data name="RunningMPCProbeSelection" xml:space="preserve">
+    <value>RunningMPCProbeSelection</value>
+  </data>
+  <data name="SetupChanged" xml:space="preserve">
+    <value>SetupChanged</value>
+  </data>
+  <data name="InCycle" xml:space="preserve">
+    <value>InCycle</value>
+  </data>
+  <data name="InCycle_UNDERSCORE_No_UNDERSCORE_AB" xml:space="preserve">
+    <value>InCycleNoAB</value>
+  </data>
+  <data name="OverTemp" xml:space="preserve">
+    <value>OverTemp</value>
+  </data>
+  <data name="In_UNDERSCORE_AfterBurst" xml:space="preserve">
+    <value>InAfterBurst</value>
+  </data>
+  <data name="In_UNDERSCORE_Test" xml:space="preserve">
+    <value>InTest</value>
+  </data>
+  <data name="In_UNDERSCORE_TestScan" xml:space="preserve">
+    <value>InTestScan</value>
+  </data>
+  <data name="MPC_UNDERSCORE_Present" xml:space="preserve">
+    <value>MPCPresent</value>
+  </data>
+  <data name="PowerOK" xml:space="preserve">
+    <value>PowerOK</value>
+  </data>
+  <data name="MPC_UNDERSCORE_Ready" xml:space="preserve">
+    <value>MPCReady</value>
+  </data>
+  <data name="Any_UNDERSCORE_Fault" xml:space="preserve">
+    <value>AnyFault</value>
+  </data>
+  <data name="Overload" xml:space="preserve">
+    <value>Preťaženie</value>
+  </data>
+  <data name="Estop" xml:space="preserve">
+    <value>Estop</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="In_UNDERSCORE_Hold" xml:space="preserve">
+    <value>InHold</value>
+  </data>
+  <data name="Good_UNDERSCORE_Part" xml:space="preserve">
+    <value>GoodPart</value>
+  </data>
+  <data name="Bad_UNDERSCORE_Part" xml:space="preserve">
+    <value>BadPart</value>
+  </data>
+  <data name="Suspect_UNDERSCORE_Part" xml:space="preserve">
+    <value>SuspectPart</value>
+  </data>
+  <data name="CycleStartReject" xml:space="preserve">
+    <value>CycleStartReject</value>
+  </data>
+  <data name="Amplitude_UNDERSCORE_Regulation" xml:space="preserve">
+    <value>Regulácia amplitúdy</value>
+  </data>
+  <data name="Power_UNDERSCORE_Regulation" xml:space="preserve">
+    <value>Regulácia výkonu</value>
+  </data>
+  <data name="Trigger_UNDERSCORE_Status" xml:space="preserve">
+    <value>TriggerStatus</value>
+  </data>
+  <data name="US_UNDERSCORE_Status" xml:space="preserve">
+    <value>USStatus</value>
+  </data>
+</root>

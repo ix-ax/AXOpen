@@ -1,12 +1,13 @@
-NAMESPACE AXOpen.Components.Festo.Drives
+﻿NAMESPACE AXOpen.Components.Festo.Drives
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-            cmmtas_DoServo_Submodule_1_0 AT %B0:  LWORD;
-            cmmtas_DoServo_Submodule_1_1 AT %B8:  LWORD;
-            cmmtas_DoServo_Submodule_1_2 AT %B16:  LWORD;
-            cmmtas_DoServo_Submodule_2 AT %B24:  LWORD;
+	        festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output AT %B0 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout;
+
+	        festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output AT %B24 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

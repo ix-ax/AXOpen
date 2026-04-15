@@ -1,0 +1,28 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyInspectorsAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from Inspectors package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/AXOpen.Inspectors.Blazor.targets is located -->
+			<InspectorsAxoInspectorDialog Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoInspectorDialog\**\*" />
+			<InspectorsAxoInspectorSpotView Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoInspectorSpotView.razor" />
+			<InspectorsGenericIconView Include="$(MSBuildThisFileDirectory)..\contentFiles\GenericIconView.razor" />
+			<InspectorsGenericInspectorDataView Include="$(MSBuildThisFileDirectory)..\contentFiles\GenericInspectorDataView.razor" />
+			<InspectorsInspectorViewTemplate Include="$(MSBuildThisFileDirectory)..\contentFiles\InspectorViewTemplate.razor" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\Inspectors\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Inspectors" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Inspectors\AxoInspectorDialog" ContinueOnError="true" />
+
+		<!-- Copy Components files -->
+		<Copy SourceFiles="@(InspectorsAxoInspectorDialog)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Inspectors\AxoInspectorDialog\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(InspectorsAxoInspectorSpotView)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Inspectors\AxoInspectorSpotView.razor" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(InspectorsGenericIconView)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Inspectors\GenericIconView.razor" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(InspectorsGenericInspectorDataView)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Inspectors\GenericInspectorDataView.razor" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(InspectorsInspectorViewTemplate)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Inspectors\InspectorViewTemplate.razor" SkipUnchangedFiles="true" />
+	</Target>
+</Project>

@@ -7,6 +7,7 @@ using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -27,18 +28,13 @@ namespace AXOpen.Core
             return authenticationState?.User?.Identity;
         }
 
+        public eAxoTaskState State => ((eAxoTaskState)this.Component.Status.LastValue);
+
         public override void ConfigurePolling()
         {
-            var task = (AxoTask)this.Component;
-            List<ITwinElement> kids = new List<ITwinElement>();
-
-            kids.Add(task.Status);
-            kids.Add(task.IsDisabled);
-
-            kids.ForEach(p =>
-            {
-                this.StartPolling(p, 250);
-            });
+            this.StartPolling(Component.Status, 250);
+            this.StartPolling(Component.IsDisabled, 250);
+            this.StartPolling(Component.ErrorDetails, 250);
         }
 
         private async void InvokeTask()
@@ -66,20 +62,49 @@ namespace AXOpen.Core
             Component.ResumeTask();
         }
 
+        private string AnimationClass
+        {
+            get
+            {
+                if (this.Component.IsDisabled.LastValue)
+                    return "";
+                switch ((eAxoTaskState)Component.Status.LastValue)
+                {
+                    case eAxoTaskState.Busy:
+                        return "animate-pulse";
+                    case eAxoTaskState.Done:
+                        return "";
+                    case eAxoTaskState.Aborted:
+                        return "";
+                    case eAxoTaskState.Error:
+                        return "";
+                    default:
+                        return "";
+                }
+            }
+        }
+        
         private string ButtonClass
         {
             get
             {
+                if(this.Component.IsDisabled.LastValue)
+                    return "btn-inactive blur-[1px]";
+
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
+                    case eAxoTaskState.Busy:
+                        return "btn-active shadow-xl shadow-active-500/50";
                     case eAxoTaskState.Done:
                         return "btn-success";
-
+                    case eAxoTaskState.Aborted:
+                        return "btn-attention";
                     case eAxoTaskState.Error:
                         return "btn-danger";
-
+                    case eAxoTaskState.Ready:
+                        return "btn-info";
                     default:
-                        return "btn-primary";
+                        return "btn-inactive";
                 }
             }
         }
@@ -87,59 +112,22 @@ namespace AXOpen.Core
         private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eAxoTaskState.Busy;
         private bool IsTaskAborted => Component.Status.Cyclic == (ushort)eAxoTaskState.Aborted;
 
-        private Pocos.AXOpen.Core.AxoTask _lastPocoValue = new();
-
-        protected override bool ShouldRender()
-        {
-            if (_lastPocoValue.Status != Component.Status.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            if (_lastPocoValue.IsDisabled != IsDisabled)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            if (_lastPocoValue.StartTimeStamp != Component.StartTimeStamp.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-            if (_lastPocoValue.StartSignature != Component.StartSignature.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            return false;
-        }
-
-        private void SaveLastPocoValue()
-        {
-            _lastPocoValue.Status = Component.Status.LastValue;
-            _lastPocoValue.IsDisabled = IsDisabled;
-            _lastPocoValue.RemoteInvoke = Component.RemoteInvoke.LastValue;
-            _lastPocoValue.RemoteRestore = Component.RemoteRestore.LastValue;
-            _lastPocoValue.RemoteAbort = Component.RemoteAbort.LastValue;
-            _lastPocoValue.RemoteResume = Component.RemoteResume.LastValue;
-            _lastPocoValue.StartSignature = Component.StartSignature.LastValue;
-            _lastPocoValue.Duration = Component.Duration.LastValue;
-            _lastPocoValue.StartTimeStamp = Component.StartTimeStamp.LastValue;
-            _lastPocoValue.ErrorDetails = Component.ErrorDetails.LastValue;
-        }
-
         [Parameter]
         public bool Disable { get; set; }
 
         [Parameter]
+        public bool Enabled { get; set; } = true;
+
+        [Parameter]
         public bool HideRestoreButton { get; set; }
 
-        public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
+        public bool IsDisabled => Disable || Component.IsDisabled.Cyclic || !Enabled;
 
-        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
+        public string Description => string.IsNullOrEmpty(Text) 
+                                     ? string.IsNullOrEmpty(Component.AttributeName) 
+                                     ? Component.GetSymbolTail()
+                                     : Component.GetAttributeName(CultureInfo.CurrentUICulture) 
+                                     : Text;
     }
 
     public class AxoTaskCommandView : AxoTaskView

@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HardResetAllCamerasTask_timeout_DOT_" xml:space="preserve">
+    <value>HardResetAllCamerasTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1158</comment>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1282</comment>
+  </data>
+  <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
+    <value>TriggerTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1408</comment>
+  </data>
+  <data name="ReadResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadResultsTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1787</comment>
+  </data>
+  <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendDataTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,2231</comment>
+  </data>
+  <data name="Result_data" xml:space="preserve">
+    <value>Result data</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,14</comment>
+  </data>
+  <data name="User_data" xml:space="preserve">
+    <value>User data</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,19</comment>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,23</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,31</comment>
+  </data>
+  <data name="Hard_reset_all_cameras" xml:space="preserve">
+    <value>Hard reset all cameras</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,35</comment>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,39</comment>
+  </data>
+  <data name="Trigger_" xml:space="preserve">
+    <value>Trigger </value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,43</comment>
+  </data>
+  <data name="ReadResults" xml:space="preserve">
+    <value>ReadResults</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,47</comment>
+  </data>
+  <data name="ReadResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ReadResults job ID  (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,50</comment>
+  </data>
+  <data name="ReadResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ReadResults length (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,53</comment>
+  </data>
+  <data name="SendData" xml:space="preserve">
+    <value>SendData</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,57</comment>
+  </data>
+  <data name="SendData_inspection_type__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendData inspection type (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,60</comment>
+  </data>
+  <data name="SendData_BufferID__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendData BufferID (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,63</comment>
+  </data>
+  <data name="SendResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendResults job ID  (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,66</comment>
+  </data>
+  <data name="SendResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendResults length (service mode)</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,69</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,93</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,99</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,107</comment>
+  </data>
+  <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearResultDataTask timeout.</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,681</comment>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask timeout.</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,871</comment>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,45</comment>
+  </data>
+  <data name="Inspection_results" xml:space="preserve">
+    <value>Inspection results</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,49</comment>
+  </data>
+  <data name="Clear_result_data" xml:space="preserve">
+    <value>Clear result data</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,60</comment>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,81</comment>
+  </data>
+  <data name="Acquisition_control" xml:space="preserve">
+    <value>Acquisition control</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,87</comment>
+  </data>
+  <data name="Acquisition_status" xml:space="preserve">
+    <value>Acquisition status</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,94</comment>
+  </data>
+  <data name="Results_control" xml:space="preserve">
+    <value>Results control</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,101</comment>
+  </data>
+  <data name="Results_status" xml:space="preserve">
+    <value>Results status</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,108</comment>
+  </data>
+  <data name="Soft_DASH_event_control" xml:space="preserve">
+    <value>Soft-event control</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,115</comment>
+  </data>
+  <data name="Soft_DASH_event_status" xml:space="preserve">
+    <value>Soft-event status</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,122</comment>
+  </data>
+  <data name="ClearInspectionResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearInspectionResultsTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1211</comment>
+  </data>
+  <data name="ChangeJobByNameTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNameTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1673</comment>
+  </data>
+  <data name="ChangeJobByNumberTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNumberTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1834</comment>
+  </data>
+  <data name="SoftEventTask_timeout_DOT_" xml:space="preserve">
+    <value>SoftEventTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1927</comment>
+  </data>
+  <data name="SendUserDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendUserDataTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,2015</comment>
+  </data>
+  <data name="Trigger" xml:space="preserve">
+    <value>Trigger</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,58</comment>
+  </data>
+  <data name="Clear_inspection_results" xml:space="preserve">
+    <value>Clear inspection results</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,80</comment>
+  </data>
+  <data name="Required_job_name" xml:space="preserve">
+    <value>Required job name</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,85</comment>
+  </data>
+  <data name="Change_job_by_name" xml:space="preserve">
+    <value>Change job by name</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,88</comment>
+  </data>
+  <data name="Required_job_number" xml:space="preserve">
+    <value>Required job number</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,92</comment>
+  </data>
+  <data name="Change_job_by_number" xml:space="preserve">
+    <value>Change job by number</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,95</comment>
+  </data>
+  <data name="Required_soft_event_number" xml:space="preserve">
+    <value>Required soft event number</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,101</comment>
+  </data>
+  <data name="Trigger_soft_event" xml:space="preserve">
+    <value>Trigger soft event</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,104</comment>
+  </data>
+  <data name="User_data_to_sent" xml:space="preserve">
+    <value>User data to sent</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,110</comment>
+  </data>
+  <data name="User_data_length" xml:space="preserve">
+    <value>User data length</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,115</comment>
+  </data>
+  <data name="Send_user_data" xml:space="preserve">
+    <value>Send user data</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,118</comment>
+  </data>
+  <data name="Inspection_control" xml:space="preserve">
+    <value>Inspection control</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,159</comment>
+  </data>
+  <data name="Inspection_status" xml:space="preserve">
+    <value>Inspection status</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,166</comment>
+  </data>
+  <data name="Command_control" xml:space="preserve">
+    <value>Command control</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,173</comment>
+  </data>
+  <data name="Command_status" xml:space="preserve">
+    <value>Command status</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,180</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SystemControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'SystemControl' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EngineControl_1' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EngineControl_2' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EngineControl_3' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EngineControl_4' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_240B_1' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_240B_2' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_240B_3' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_240B_4' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_240B_5' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserData_64B_1' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_240B_1' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_240B_2' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_240B_3' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,32</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_240B_4' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,34</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_240B_5' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,36</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Results_64B_1' submodule</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProHWIDs.st,38</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st,9</comment>
+  </data>
+  <data name="Camera_number" xml:space="preserve">
+    <value>Camera number</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st,11</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st,13</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_In.st,5</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Out.st,5</comment>
+  </data>
+  <data name="Trigger_enable" xml:space="preserve">
+    <value>Trigger enable</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionControl.st,5</comment>
+  </data>
+  <data name="Trigger_ready" xml:space="preserve">
+    <value>Trigger ready</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st,5</comment>
+  </data>
+  <data name="Trigger_acknowledge" xml:space="preserve">
+    <value>Trigger acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st,7</comment>
+  </data>
+  <data name="Acquiring" xml:space="preserve">
+    <value>Acquiring</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st,9</comment>
+  </data>
+  <data name="Missed_acquisition" xml:space="preserve">
+    <value>Missed acquisition</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st,11</comment>
+  </data>
+  <data name="Trigger_ID" xml:space="preserve">
+    <value>Trigger ID</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st,13</comment>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Continous reading</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st,6</comment>
+  </data>
+  <data name="Result_data_size" xml:space="preserve">
+    <value>Result data size</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st,16</comment>
+  </data>
+  <data name="User_data_size" xml:space="preserve">
+    <value>User data size</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st,18</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'AcquisitionControl' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,7</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'AcquisitionStatus' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,9</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ResultsControl' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,11</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ResultsStatus' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,13</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'SoftEventControl' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,15</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UserData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'UserData' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,17</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ResultData' submodule</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_HWIDs.st,19</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st,5</comment>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st,7</comment>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Extended</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st,9</comment>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st,11</comment>
+  </data>
+  <data name="Enable_results_buffering" xml:space="preserve">
+    <value>Enable results buffering</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsControl.st,5</comment>
+  </data>
+  <data name="Results_acknowledge" xml:space="preserve">
+    <value>Results acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsControl.st,7</comment>
+  </data>
+  <data name="Decoding" xml:space="preserve">
+    <value>Decoding</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st,5</comment>
+  </data>
+  <data name="Decode_complete" xml:space="preserve">
+    <value>Decode complete</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st,7</comment>
+  </data>
+  <data name="Results_buffer_overrun" xml:space="preserve">
+    <value>Results buffer overrun</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st,9</comment>
+  </data>
+  <data name="Results_available" xml:space="preserve">
+    <value>Results available</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st,11</comment>
+  </data>
+  <data name="Error_detected" xml:space="preserve">
+    <value>Error detected</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st,13</comment>
+  </data>
+  <data name="Train_code" xml:space="preserve">
+    <value>Train code</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,5</comment>
+  </data>
+  <data name="Train_match_string" xml:space="preserve">
+    <value>Train match string</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,7</comment>
+  </data>
+  <data name="Train_focus" xml:space="preserve">
+    <value>Train focus</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,9</comment>
+  </data>
+  <data name="Train_brightness" xml:space="preserve">
+    <value>Train brightness</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,11</comment>
+  </data>
+  <data name="Untrain" xml:space="preserve">
+    <value>Untrain</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,13</comment>
+  </data>
+  <data name="Execute_DMCC" xml:space="preserve">
+    <value>Execute DMCC</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventControl.st,15</comment>
+  </data>
+  <data name="Train_code_acknowledge" xml:space="preserve">
+    <value>Train code acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,5</comment>
+  </data>
+  <data name="Train_match_string_acknowledge" xml:space="preserve">
+    <value>Train match string acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,7</comment>
+  </data>
+  <data name="Train_focus_acknowledge" xml:space="preserve">
+    <value>Train focus acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,9</comment>
+  </data>
+  <data name="Train_brightness_acknowledge" xml:space="preserve">
+    <value>Train brightness acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,11</comment>
+  </data>
+  <data name="Untrain_acknowledge" xml:space="preserve">
+    <value>Untrain acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,13</comment>
+  </data>
+  <data name="Execute_DMCC_acknowledge" xml:space="preserve">
+    <value>Execute DMCC acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,15</comment>
+  </data>
+  <data name="Set_match_string_acknowledge" xml:space="preserve">
+    <value>Set match string acknowledge</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st,19</comment>
+  </data>
+  <data name="Option" xml:space="preserve">
+    <value>Option</value>
+    <comment>src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_User.st,5</comment>
+  </data>
+  <data name="Clear_exposure_complete" xml:space="preserve">
+    <value>Clear exposure complete</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st,10</comment>
+  </data>
+  <data name="Set_offline" xml:space="preserve">
+    <value>Set offline</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st,12</comment>
+  </data>
+  <data name="Exposure_complete" xml:space="preserve">
+    <value>Exposure complete</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,10</comment>
+  </data>
+  <data name="Offline_reason__ZERO_" xml:space="preserve">
+    <value>Offline reason 0</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,14</comment>
+  </data>
+  <data name="Offline_reason__ONE_" xml:space="preserve">
+    <value>Offline reason 1</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,16</comment>
+  </data>
+  <data name="Offline_reason__TWO_" xml:space="preserve">
+    <value>Offline reason 2</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,18</comment>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,20</comment>
+  </data>
+  <data name="Acquisition_ID" xml:space="preserve">
+    <value>Acquisition ID</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st,22</comment>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Command</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_CommandControl.st,6</comment>
+  </data>
+  <data name="Current_job_ID" xml:space="preserve">
+    <value>Current job ID</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_CommandStatus.st,6</comment>
+  </data>
+  <data name="Max_job_number" xml:space="preserve">
+    <value>Max job number</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'AcquisitionControl' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'AcquisitionStatus' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'InspectionControl' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'InspectionStatus' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'CommandControl' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'SoftEventControl' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserDataSlot_7' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserDataSlot_8' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserDataSlot_9' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'UserDataSlot_10' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'ResultData_Slot_11' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'ResultData_Slot_12' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'ResultData_Slot_13' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'ResultData_Slot_14' submodule</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,32</comment>
+  </data>
+  <data name="Acknowledge_inspection_results" xml:space="preserve">
+    <value>Acknowledge inspection results</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st,8</comment>
+  </data>
+  <data name="Extended_user_data_set" xml:space="preserve">
+    <value>Extended user data set</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st,10</comment>
+  </data>
+  <data name="Execute_command" xml:space="preserve">
+    <value>Execute command</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st,12</comment>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Clear error</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st,14</comment>
+  </data>
+  <data name="System_busy" xml:space="preserve">
+    <value>System busy</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,6</comment>
+  </data>
+  <data name="Inspection_completed" xml:space="preserve">
+    <value>Inspection completed</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,8</comment>
+  </data>
+  <data name="Results_valid" xml:space="preserve">
+    <value>Results valid</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,12</comment>
+  </data>
+  <data name="Command_executing" xml:space="preserve">
+    <value>Command executing</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,14</comment>
+  </data>
+  <data name="Command_complete" xml:space="preserve">
+    <value>Command complete</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,16</comment>
+  </data>
+  <data name="Command_failed" xml:space="preserve">
+    <value>Command failed</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,18</comment>
+  </data>
+  <data name="Extended_user_data_set_acknowledge" xml:space="preserve">
+    <value>Extended user data set acknowledge</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,20</comment>
+  </data>
+  <data name="Overall_job_pass_fail" xml:space="preserve">
+    <value>Overall job pass fail</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,22</comment>
+  </data>
+  <data name="Test_run_ready" xml:space="preserve">
+    <value>Test run ready</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,24</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,26</comment>
+  </data>
+  <data name="Error_code" xml:space="preserve">
+    <value>Error code</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st,28</comment>
+  </data>
+  <data name="Inspection_ID" xml:space="preserve">
+    <value>Inspection ID</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Results.st,6</comment>
+  </data>
+  <data name="Result_code" xml:space="preserve">
+    <value>Result code</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Results.st,8</comment>
+  </data>
+  <data name="Trigger_soft_DASH_event" xml:space="preserve">
+    <value>Trigger soft-event</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_SoftEventControl.st,6</comment>
+  </data>
+  <data name="Trigger_soft_DASH_event_acknowledge" xml:space="preserve">
+    <value>Trigger soft-event acknowledge</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_SoftEventStatus.st,6</comment>
+  </data>
+  <data name="Current_job_name" xml:space="preserve">
+    <value>Current job name</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st,7</comment>
+  </data>
+  <data name="Current_job_number" xml:space="preserve">
+    <value>Current job number</value>
+    <comment>src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st,9</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'InspectionControl' submodule</value>
+    <comment>src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,11</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'InspectionStatus' submodule</value>
+    <comment>src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,13</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'CommandControl' submodule</value>
+    <comment>src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st,15</comment>
+  </data>
+</root>

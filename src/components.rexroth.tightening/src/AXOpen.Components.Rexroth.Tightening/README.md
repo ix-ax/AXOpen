@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Rexroth.Tightening --version {axopen-versio
 ~~~xml
 <PackageReference Include="AXOpen.Components.Rexroth.Tightening" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

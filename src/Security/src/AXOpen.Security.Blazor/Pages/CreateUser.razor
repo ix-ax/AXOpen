@@ -1,0 +1,248 @@
+﻿@page "/Security/CreateUser"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@using System.ComponentModel.DataAnnotations
+@using System.Text
+@using System.Text.Encodings.Web
+@using AXOpen.Security.Services
+@using AxOpen.Security.Entities
+@using AxOpen.Security.Services
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+@using Operon.Components.Toast
+@using System.Security.Principal
+@implements IDisposable
+@inject UserManager<User> UserManager
+@inject IUserStore<User> UserStore
+@inject SignInManager<User> SignInManager
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+@inject IRepositoryService RepositoryService
+@inject IToastService _toastService
+@inject IServiceProvider _serviceProvider
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Create user</PageTitle>
+
+<div class="flex justify-center">
+    <div class="w-md">
+        <h4>Create user</h4>
+        <hr class="mb-2" />
+        <StatusMessage Message="@Message" />
+        <EditForm Model="Input" FormName="create" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="input-group">
+                <label for="username">@Localizer["Username"]</label>
+                <InputText @bind-Value="Input.Username" id="Input.Username" autocomplete="username" aria-required="true" placeholder="Username" />
+            </div>
+            <div class="input-group">
+                <label for="Input.Password">@Localizer["Password"]</label>
+                <InputText type="password" @bind-Value="Input.Password" id="Input.Password" autocomplete="password" aria-required="true" placeholder="Password" />
+                <ValidationMessage For="@(() => Input.Password)" class="text-danger" />
+            </div>
+            <div class="input-group">
+                <label for="Input.ConfirmPassword">@Localizer["Confirm new password"]</label>
+                <InputText type="password" @bind-Value="Input.ConfirmPassword" id="Input.ConfirmPassword" autocomplete="password" aria-required="true" placeholder="Confirm password" />
+                <ValidationMessage For="@(() => Input.ConfirmPassword)" class="text-danger" />
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="Input.CanUserChangePassword" @bind="Input.CanUserChangePassword" />
+                <label for="Input.CanUserChangePassword">@Localizer["Can change password"]</label>
+                <ValidationMessage For="() => Input.CanUserChangePassword" class="text-danger" />
+            </div>
+
+            <div class="select-group">
+                <label for="Input.Group">@Localizer["Group"]</label>
+                <select class="min-w-6" @bind="@Input.Group">
+                    <option selected disabled>@Localizer["Choose group"]</option>
+                    @foreach (var group in RepositoryService.RoleGroupManager.GetAllGroup())
+                    {
+                        <option value="@group.Name">@group.Name</option>
+                    }
+                </select>
+                <ValidationMessage For="@(() => Input.Group)" class="text-danger" />
+            </div>
+
+            <div class="input-group">
+                <label for="Input.Email">@Localizer["Email"]</label>
+                <InputText type="email" @bind-Value="Input.Email" id="Input.Email" autocomplete="email" placeholder="Email" />
+                <ValidationMessage For="() => Input.Email" class="text-danger" />
+            </div>
+
+            <div class="input-group">
+                <label for="Input.PhoneNumber">@Localizer["Phone number"]</label>
+                <InputText type="text" @bind-Value="Input.PhoneNumber" id="Input.PhoneNumber" autocomplete="phone number" placeholder="Phone number" />
+                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
+            {
+                <p>@Localizer["External Auth is set"]</p>
+                <button class="btn btn-secondary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
+            }
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="Input.EnableAutoLogOut" @bind="Input.EnableAutoLogOut" />
+                <label for="Input.EnableAutoLogOut">@Localizer["Automatic Log Out"]</label>
+            </div>
+
+            <!-- Timeout (Hidden if EnableAutoLogOut is false) -->
+            @if (Input.EnableAutoLogOut)
+            {
+                <div class="input-group">
+                    <label for="Input.AutoLogOutTimeOutMinutes">[@Localizer["Minutes"]]</label>
+                    <input type="number" @bind="Input.AutoLogOutTimeOutMinutes" id="Input.AutoLogOutTimeOutMinutes" />
+                    <ValidationMessage For="@(() => Input.AutoLogOutTimeOutMinutes)" class="text-danger" />
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Create"]</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private ISerialService? _serialService { get; set; }
+
+    private IEnumerable<IdentityError>? identityErrors;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+
+    protected override void OnInitialized()
+    {
+        Input ??= new();
+
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+    }
+
+    private void ClearExternalAuthId()
+    {
+        Input.ExternalAuthId = null;
+    }
+
+    public async Task OnValidSubmitAsync(EditContext editContext)
+    {
+        User user = new User(Input.Username, Input.Email, Input.PhoneNumber, Input.Group, Input.CanUserChangePassword, Input.ExternalAuthId, Input.EnableAutoLogOut, Input.AutoLogOutTimeOutMinutes ?? 0);
+
+        user.SecurityStamp = Guid.NewGuid().ToString();
+
+        var result = await UserManager.CreateAsync(user, Input.Password);
+
+        if (result.Succeeded)
+        {
+            var msg = Localizer["User \"{0}\" successfully created.", Input.Username];
+            _toastService?.AddToast(eToastType.Success, Localizer["Created!"], msg, 10);
+            AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+
+            if (!string.IsNullOrEmpty(ReturnUrl))
+                NavigationManager.NavigateTo(ReturnUrl);
+            else
+                NavigationManager.NavigateTo("/Security/SecurityManagement");
+        }
+        else
+        {
+            identityErrors = result.Errors;
+            return;
+        }
+    }
+
+    protected async Task<IIdentity> GetCurrentIdentity()
+    {
+        if (AuthenticationStateProvider == null)
+        {
+            return new GenericIdentity("Unknown");
+        }
+        else
+        {
+            var context = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
+            if (context != null)
+            {
+                return context.User.Identity;
+            }
+            else return new GenericIdentity("Unknown");
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
+        }
+    }
+
+    private void OnSerialError()
+    {
+        _serialService.DataReceived -= OnSerialDataReceived;
+        Console.WriteLine("Serial port error");
+    }
+
+    private void OnSerialDataReceived(byte[] data)
+    {
+        if (Input != null)
+            Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], Localizer["The external token identified"], 10);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
+        }
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; } = "";
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; } = "";
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; } = "";
+
+        [Display(Name = "Can User Change Password")]
+        public bool CanUserChangePassword { get; set; }
+
+        [Display(Name = "Group")]
+        public string? Group { get; set; }
+
+        [Display(Name = "Email")]
+        public string? Email { get; set; }
+
+        [Display(Name = "Phone number")]
+        public string? PhoneNumber { get; set; }
+
+        [Display(Name = "Enable Auto Log Out")]
+        public bool EnableAutoLogOut { get; set; }
+
+        [Display(Name = "Auto Log Out Time Out Minutes")]
+        public uint? AutoLogOutTimeOutMinutes { get; set; }
+
+        [Display(Name = "External Auth Id")]
+        public string? ExternalAuthId { get; set; }
+    }
+}

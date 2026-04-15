@@ -19,7 +19,7 @@ namespace AXOpen.Security.Blazor.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class BlazorResources {
@@ -223,6 +223,33 @@ namespace AXOpen.Security.Blazor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to set email..
+        /// </summary>
+        internal static string Failed_to_set_email_ {
+            get {
+                return ResourceManager.GetString("Failed to set email.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to set externalId, because it is being used by another user..
+        /// </summary>
+        internal static string Failed_to_set_externalId__because_it_is_being_used_by_another_user_ {
+            get {
+                return ResourceManager.GetString("Failed to set externalId, because it is being used by another user.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to set phone number..
+        /// </summary>
+        internal static string Failed_to_set_phone_number_ {
+            get {
+                return ResourceManager.GetString("Failed to set phone number.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group.
         /// </summary>
         internal static string Group {
@@ -300,6 +327,15 @@ namespace AXOpen.Security.Blazor.Resources {
         internal static string Group_was_not_updated_ {
             get {
                 return ResourceManager.GetString("Group was not updated.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identified!.
+        /// </summary>
+        internal static string Identified_ {
+            get {
+                return ResourceManager.GetString("Identified!", resourceCulture);
             }
         }
         
@@ -464,6 +500,15 @@ namespace AXOpen.Security.Blazor.Resources {
         internal static string Sorry__you_are_not_logged_in__Please_log_in_ {
             get {
                 return ResourceManager.GetString("Sorry, you are not logged in. Please log in.", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The external token identified.
+        /// </summary>
+        internal static string The_external_token_identified {
+            get {
+                return ResourceManager.GetString("The external token identified", resourceCulture);
             }
         }
         

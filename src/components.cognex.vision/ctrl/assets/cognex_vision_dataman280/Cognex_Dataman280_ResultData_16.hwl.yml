@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Dataman280_ResultData_16'
+    Content:
+      Name: 'ResultData_16'
+      TypeIdentifier:
+        FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
+        GsdId: '401'
+      Slot: 7        

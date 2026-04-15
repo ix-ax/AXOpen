@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AxoHome_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit AxoHomeTask.</value>
+  </data>
+  <data name="AxoStop_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit AxoStopTask.</value>
+  </data>
+  <data name="AxoHalt_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit AxoHaltTask.</value>
+  </data>
+  <data name="AxoMoveAbsolute_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveAbsoluteTask timeout.</value>
+  </data>
+  <data name="AxoMoveRelative_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveRelativeTask timeout.</value>
+  </data>
+  <data name="AxoMoveAdditive_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveAdditiveTask timeout.</value>
+  </data>
+  <data name="AxoMoveVelocity_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveVelocityTask timeout.</value>
+  </data>
+  <data name="AxoSetPosition_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy AxoSetPositionTask.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozornenie</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Scaling_constant_required_position" xml:space="preserve">
+    <value>Konštanta mierky požadovanej polohy</value>
+  </data>
+  <data name="Scaling_constant_actual_position" xml:space="preserve">
+    <value>Konštanta mierky skutočnej polohy</value>
+  </data>
+  <data name="Scaling_constant_required_velocity" xml:space="preserve">
+    <value>Konštanta potrebnej rýchlosti</value>
+  </data>
+  <data name="Scaling_constant_actual_velocity" xml:space="preserve">
+    <value>Konštantná skutočná rýchlosť</value>
+  </data>
+  <data name="Scaling_constant_required_torque" xml:space="preserve">
+    <value>Konštanta potrebného krútiaceho momentu</value>
+  </data>
+  <data name="Scaling_constant_actual_torque" xml:space="preserve">
+    <value>Konštantný skutočný krútiaci moment</value>
+  </data>
+  <data name="Scaling_constant_required_acceleration" xml:space="preserve">
+    <value>Konštanta potrebného zrýchlenia</value>
+  </data>
+  <data name="Scaling_constant_actual_acceleration" xml:space="preserve">
+    <value>Skalopevná konštanta skutočného zrýchlenia</value>
+  </data>
+  <data name="Scaling_constant_required_deceleration" xml:space="preserve">
+    <value>Konštanta potrebného spomalenia</value>
+  </data>
+  <data name="Scaling_constant_actual_deceleration" xml:space="preserve">
+    <value>Konštanta mierky skutočného spomalenia</value>
+  </data>
+  <data name="Scaling_constant_required_jerk" xml:space="preserve">
+    <value>Potrebná škálovacia konštanta trhnutie</value>
+  </data>
+  <data name="Scaling_constant_actual_jerk" xml:space="preserve">
+    <value>Skalopevná konštanta skutočného trhnutia</value>
+  </data>
+  <data name="_UNDERSCORE_State" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit00Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit01Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit02Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit03Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit04Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__FIVE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit05Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__SIX__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit06Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__SEVEN__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit07Reserve</value>
+  </data>
+  <data name="Command_operation_mode_Bit__ZERO_" xml:space="preserve">
+    <value>Režim príkazovej operácie Bit 0</value>
+  </data>
+  <data name="Command_operation_mode_Bit__ONE_" xml:space="preserve">
+    <value>Režim príkazovej operácie Bit 1</value>
+  </data>
+  <data name="Command_operation_mode_Bit__TWO_" xml:space="preserve">
+    <value>Režim príkazovej operácie Bit 2</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit11Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit12Reserve</value>
+  </data>
+  <data name="Drive_Halt" xml:space="preserve">
+    <value>Zastavenie pohonu</value>
+  </data>
+  <data name="Drive_enable" xml:space="preserve">
+    <value>Povolenie pohonu</value>
+  </data>
+  <data name="Drive_On" xml:space="preserve">
+    <value>Drive On</value>
+  </data>
+  <data name="DriveControlWord" xml:space="preserve">
+    <value>DriveControlWord</value>
+  </data>
+  <data name="CommandProcessingStatus" xml:space="preserve">
+    <value>CommandProcessingStatus</value>
+  </data>
+  <data name="InStandstill" xml:space="preserve">
+    <value>InStandstill</value>
+  </data>
+  <data name="InReference" xml:space="preserve">
+    <value>InReference</value>
+  </data>
+  <data name="HardwareLock" xml:space="preserve">
+    <value>HardwareLock</value>
+  </data>
+  <data name="ActualOperatingModeBit_ZERO_" xml:space="preserve">
+    <value>ActualOperatingModeBit0</value>
+  </data>
+  <data name="ActualOperatingModeBit_ONE_" xml:space="preserve">
+    <value>ActualOperatingModeBit1</value>
+  </data>
+  <data name="ActualOperatingModeBit_TWO_" xml:space="preserve">
+    <value>ActualOperatingModeBit2</value>
+  </data>
+  <data name="WarningZKL_TWO_" xml:space="preserve">
+    <value>VarovanieZKL2</value>
+  </data>
+  <data name="DriveErrorZKL_ONE_" xml:space="preserve">
+    <value>DriveErrorZKL1</value>
+  </data>
+  <data name="ReadyForOperation_Bit__ZERO_" xml:space="preserve">
+    <value>ReadyForOperation Bit 0</value>
+  </data>
+  <data name="ReadyForOperation_Bit__ONE_" xml:space="preserve">
+    <value>ReadyForOperation Bit 1</value>
+  </data>
+  <data name="DriveStatusWord" xml:space="preserve">
+    <value>DriveStatusWord</value>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>ID hardvéru Zariadenie</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Outputs_APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Výstupy</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Inputs_APOSTROPHE__module" xml:space="preserve">
+    <value>Modul ID hardvéru "Vstupy</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0013400ServodriveprofileControlword' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_control_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0014500SignalcontrolwordValue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Drive_UNDERSCORE_controlled_UNDERSCORE_positioning_UNDERSCORE__UNDERSCORE_Command_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0028200DrivecontrolledpositioningCommandvalue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Profile_UNDERSCORE_velocity_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0025900PositioningprofileProfilevelocity' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Acceleration_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0026000PositioningprofileAcceleration' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Deceleration_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0035900PositioningprofileDeceleration' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0172001PowersupplycontrolControlword' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_limitation_UNDERSCORE__UNDERSCORE_Limit_UNDERSCORE_value_UNDERSCORE_bipolar_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0009200TorqueforcelimitationLimitvaluebipolar' submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_command_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0008000Torqueforcecommandvalue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_jerk_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0019300Positioningjerk' submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0013500ServodriveprofileStatusword' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_status_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0014400SignalstatuswordValue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0038600PositioncontrollerPositionactualvalue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0053500VelocitycontrollerVelocityactualvalue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Diagnostic_UNDERSCORE_message_UNDERSCORE__UNDERSCORE_Manufacturer_UNDERSCORE_status_UNDERSCORE_register_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0039000DiagnosticmessageManufacturerstatusregister' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0172002PowersupplycontrolStatusword' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_feedback_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'S0008400Torqueforcefeedbackvalue' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_P_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__ZERO__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_STO_UNDERSCORE_function_UNDERSCORE__UNDERSCORE_Operating_UNDERSCORE_status_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'P0010600STOfunctionOperatingstatus' podmodul</value>
+  </data>
+  <data name="Acceptance_of_positioning_command_value" xml:space="preserve">
+    <value>Prijatie hodnoty príkazu na polohovanie</value>
+  </data>
+  <data name="Homing_control" xml:space="preserve">
+    <value>Ovládanie navádzania</value>
+  </data>
+  <data name="Absolute_SLASH_Relative_type_of_positioning_command_value" xml:space="preserve">
+    <value>Absolútny/relatívny typ hodnoty príkazu na polohovanie</value>
+  </data>
+  <data name="Immediate_block_change" xml:space="preserve">
+    <value>Okamžitá zmena bloku</value>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Vymazanie chyby</value>
+  </data>
+  <data name="Infinite_travel_in_positive_direction__BRACKET_jog_PLUS__ENDBRACKET_" xml:space="preserve">
+    <value>Nekonečný pohyb v pozitívnom smere (jog+)</value>
+  </data>
+  <data name="Infinite_travel_in_negative_direction__BRACKET_jog_DASH__ENDBRACKET_" xml:space="preserve">
+    <value>Nekonečný pohyb v negatívnom smere (jog-)</value>
+  </data>
+  <data name="Activate_configuration_mode" xml:space="preserve">
+    <value>Aktivácia režimu konfigurácie</value>
+  </data>
+  <data name="Activate_operation_mode" xml:space="preserve">
+    <value>Aktivácia prevádzkového režimu</value>
+  </data>
+  <data name="CancelReferencePoint" xml:space="preserve">
+    <value>CancelReferencePoint</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit13Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit14Reserve</value>
+  </data>
+  <data name="Set_absolute_position_function" xml:space="preserve">
+    <value>Nastavenie funkcie absolútnej polohy</value>
+  </data>
+  <data name="SignalControlWord" xml:space="preserve">
+    <value>SignalControlWord</value>
+  </data>
+  <data name="Configuration_SLASH_Parametrization_SLASH_Operation_bit__ZERO_" xml:space="preserve">
+    <value>Konfigurácia/Parametrizácia/Operácia bit 0</value>
+  </data>
+  <data name="Configuration_SLASH_Parametrization_SLASH_Operation_bit__ONE_" xml:space="preserve">
+    <value>Konfigurácia/Parametrizácia/Operácia bit 1</value>
+  </data>
+  <data name="In_target_position" xml:space="preserve">
+    <value>V cieľovej polohe</value>
+  </data>
+  <data name="Position_command_acknowledgment" xml:space="preserve">
+    <value>Potvrdenie príkazu polohy</value>
+  </data>
+  <data name="Drive_standstill" xml:space="preserve">
+    <value>Zastavenie pohonu</value>
+  </data>
+  <data name="Command_change_bit" xml:space="preserve">
+    <value>Zmena príkazu bit</value>
+  </data>
+  <data name="_UNDERSCORE_bit_SIX__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit6Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_SEVEN__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit7Reserve</value>
+  </data>
+  <data name="Locked_by_hardware" xml:space="preserve">
+    <value>Uzamknuté hardvérom</value>
+  </data>
+  <data name="_UNDERSCORE_bit_NINE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit9Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit10Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__FIVE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit15Reserve</value>
+  </data>
+  <data name="SignalStatusWord" xml:space="preserve">
+    <value>SignalStatusWord</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit0Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit1Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit2Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit3Reserve</value>
+  </data>
+  <data name="_UNDERSCORE_bit_FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>bit4Reserve</value>
+  </data>
+  <data name="Mode_selection_bit__ZERO_" xml:space="preserve">
+    <value>Výber režimu bit 0</value>
+  </data>
+  <data name="Mode_selection_bit__ONE_" xml:space="preserve">
+    <value>Výber režimu bit 1</value>
+  </data>
+  <data name="DC_bus_discharge" xml:space="preserve">
+    <value>Vypúšťanie zbernice DC</value>
+  </data>
+  <data name="Controlling_the_ready_for_operation_relay" xml:space="preserve">
+    <value>Ovládanie relé pripravenosti na prevádzku</value>
+  </data>
+  <data name="Controlling_DC_bus_charging_and_mains_contactor" xml:space="preserve">
+    <value>Ovládanie nabíjania zbernice DC a sieťového stykača</value>
+  </data>
+  <data name="Enabling" xml:space="preserve">
+    <value>Umožnenie</value>
+  </data>
+  <data name="SupplyUnitControlWord" xml:space="preserve">
+    <value>SupplyUnitControlWord</value>
+  </data>
+  <data name="Mains_status" xml:space="preserve">
+    <value>Stav elektrickej siete</value>
+  </data>
+  <data name="Hardware_enable" xml:space="preserve">
+    <value>Povolenie hardvéru</value>
+  </data>
+  <data name="Controlling_the_mains_connection" xml:space="preserve">
+    <value>Ovládanie sieťového pripojenia</value>
+  </data>
+  <data name="Bb_contact" xml:space="preserve">
+    <value>Bb kontakt</value>
+  </data>
+  <data name="Feedback_of_the_preselected_operation_modes_bit__ZERO_" xml:space="preserve">
+    <value>Spätná väzba predvolených prevádzkových režimov bit 0</value>
+  </data>
+  <data name="Feedback_of_the_preselected_operation_modes_bit__ONE_" xml:space="preserve">
+    <value>Spätná väzba predvolených prevádzkových režimov bit 1</value>
+  </data>
+  <data name="Braking_resistor" xml:space="preserve">
+    <value>Brzdný odpor</value>
+  </data>
+  <data name="Ready_for_enabling" xml:space="preserve">
+    <value>Pripravené na aktiváciu</value>
+  </data>
+  <data name="SupplyUnitStatusWord" xml:space="preserve">
+    <value>SupplyUnitStatusWord</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="DriveControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DriveControlWordS0013400</value>
+  </data>
+  <data name="SignalControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>SignalControlWordS0014500</value>
+  </data>
+  <data name="CommandPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandPositionS0028200</value>
+  </data>
+  <data name="CommandVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandVelocityS0025900</value>
+  </data>
+  <data name="CommandAcceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandAccelerationS0026000</value>
+  </data>
+  <data name="CommandDecceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandDeccelerationS0035900</value>
+  </data>
+  <data name="SupplyUnitControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE_" xml:space="preserve">
+    <value>SupplyUnitControlWordS0172001</value>
+  </data>
+  <data name="BipolarTorqueLimitation_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>Bipolárne obmedzenie krútiaceho momentuS0009200</value>
+  </data>
+  <data name="CommandTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandTorqueS0008000</value>
+  </data>
+  <data name="CommandJerk_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandJerkS0019300</value>
+  </data>
+  <data name="DriveStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DriveStatusWordS0013500</value>
+  </data>
+  <data name="SignalStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>SignalStatusWordS0014400</value>
+  </data>
+  <data name="ActualPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>ActualPositionS0038600</value>
+  </data>
+  <data name="ActualVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>ActualVelocityS0053500</value>
+  </data>
+  <data name="DiagnosticMessage_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DiagnosticMessageS0039000</value>
+  </data>
+  <data name="SupplyUnitStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO_" xml:space="preserve">
+    <value>SupplyUnitStatusWordS0172002</value>
+  </data>
+  <data name="ActualTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>Skutočný krútiaci momentS0008400</value>
+  </data>
+</root>

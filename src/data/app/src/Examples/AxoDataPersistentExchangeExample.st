@@ -26,7 +26,7 @@ NAMESPACE AxoDataPersistentExchangeExample
     //</ContextDeclaration>
     
 
-    //<Usage>
+    //<ConcurrentUsage>
     {S7.extern=ReadWrite}
     CLASS PUBLIC ManagerUsage EXTENDS AxOpen.Core.AxoObject
         VAR PUBLIC
@@ -103,11 +103,11 @@ NAMESPACE AxoDataPersistentExchangeExample
         VAR PUBLIC 
             NotPersistentVariable : BOOL; 
             
-            {#ix-attr:[Persistent()]}
+            {#ix-attr:[AXOpen.Data.PersistentAttribute()]}
             {#ix-set:AttributeName = "PersistentVariable_1 (in default pg.))"} 
             PersistentVariable_1 : INT; // will be saved to 'default' persistent group
             
-            {#ix-attr:[Persistent("default","1")]} // will be saved to 'default' and '1' persistent group
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("default","1")]} // will be saved to 'default' and '1' persistent group
             {#ix-set:AttributeName = "PersistentVariable_2 (in default & 1 pg.)"} 
             PersistentVariable_2 : INT;
             
@@ -123,7 +123,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         VAR PUBLIC 
             NotPersistentVariable : INT; 
             
-            {#ix-attr:[Persistent("2")]}
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("2")]}
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "InitializedPrimitives (in 2 pg.)"} 

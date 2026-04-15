@@ -1,6 +1,6 @@
 # **Template localization**
 
-Localization is a useful feature of any application. It allows you to translate the application into different languages. This guide will show you how localization is achieved in our template Blazor application - `templates.simple`.
+Localization is a useful feature of any application. It allows you to translate the application into different languages. This guide shows how localization is achieved in the AXOpen Blazor template (formerly referenced as `templates.simple`).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ In our template application, resource files are located in the `Resources` folde
 
 If you want to make resource files easier to work with, check out [ResXManager](https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager) extension for Visual Studio.
 
-In `_Imports.razor` make sure that the `@using` directive for the newly created resource file is added and inject the `IStringLocalizer` service of the resource file. E.g.:
+In `_Imports.razor` (or per component) ensure the `@using` directive for the resource namespace is added and inject the `IStringLocalizer` service. Example:
 
 ```csharp
 @using axosimple.hmi.Resources
@@ -66,7 +66,10 @@ private CultureInfo[] supportedCultures = new[]
 };
 ```
 
-When selecting a language from the `<select>` menu in `Index.razor`, a **cookie** with selected language is created by `ChangeCulture` method of `CultureController`.
+When selecting a language from the `<select>` menu in `Index.razor`, a **cookie** with the selected language is created by the `ChangeCulture` method of `CultureController`. On next navigation/request the localization middleware sets `Thread.CurrentThread.CurrentCulture` / `CurrentUICulture` accordingly.
+
+> [!TIP]
+> For seamless client‑side updates without full refresh, you can trigger a lightweight page reload or use a `NavigationManager.NavigateTo(uri, forceLoad: true)` call after cookie update.
 
 ## Using localized strings
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -47,7 +47,7 @@ namespace AXOpen.Logging
                         return;
 
                     var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
-                    await this.GetConnector()?.ReadBatchAsync(a)!;
+                    await this.GetConnector()?.ReadBatchAsync(a, eAccessPriority.Low)!;
 
                     foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                     {
@@ -58,13 +58,17 @@ namespace AXOpen.Logging
 
                         switch (sender)
                         {
+                            case AxoStepTimedOutMessenger timedOutMessenger:
+                                level = (eLogLevel)entry.Level.LastValue;
+                                message = $"{entry.Message.LastValue}";
+                                break;
                             case AxoMessenger messenger:
                                 await messenger.ReadAsync();
-                                message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
+                                message = $"{entry.Message.LastValue} {messenger.GetMessageText(messenger.MessageCode.LastValue)}";
                                 break;
                             case AxoStep step:
                                 await step.ReadAsync();
-                                message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
+                                message = $"Step : {entry.Message.LastValue} : {step.Descr.LastValue ?? step.Description}";
                                 break;
                             case null:
                                 message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";
@@ -83,7 +87,7 @@ namespace AXOpen.Logging
                     }
                     catch (Exception e)
                     {
-                        AxoApplication.Current.Logger.Information($"There was in issue with getting logs from `{this.Carret.Symbol}`", this, new GenericIdentity("anonymous"), this);
+                        AxoApplication.Current.Logger.Error($"There was in issue with getting logs from `{this.Carret.Symbol}`", this, new GenericIdentity("anonymous"), this);
                     }
                
             });

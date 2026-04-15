@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HardResetAllCamerasTask_timeout_DOT_" xml:space="preserve">
+    <value>HardResetAllCamerasTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask Zeitüberschreitung.</value>
+  </data>
+  <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
+    <value>TriggerTask-Zeitüberschreitung.</value>
+  </data>
+  <data name="ReadResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadResultsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendDataTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearResultDataTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ClearInspectionResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearInspectionResultsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ChangeJobByNameTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNameTask Zeitüberschreitung.</value>
+  </data>
+  <data name="ChangeJobByNumberTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNumberTask Zeitüberschreitung.</value>
+  </data>
+  <data name="SoftEventTask_timeout_DOT_" xml:space="preserve">
+    <value>SoftEventTask Zeitüberschreitung.</value>
+  </data>
+  <data name="SendUserDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendUserDataTask Zeitüberschreitung.</value>
+  </data>
+  <data name="Result_data" xml:space="preserve">
+    <value>Ergebnisdaten</value>
+  </data>
+  <data name="User_data" xml:space="preserve">
+    <value>Benutzerdaten</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Hard_reset_all_cameras" xml:space="preserve">
+    <value>Alle Kameras hart zurücksetzen</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="Trigger_" xml:space="preserve">
+    <value>Auslöser</value>
+  </data>
+  <data name="ReadResults" xml:space="preserve">
+    <value>ReadResults</value>
+  </data>
+  <data name="ReadResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ReadResults Auftragskennung (Dienstmodus)</value>
+  </data>
+  <data name="ReadResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>ReadResults Länge (Dienstmodus)</value>
+  </data>
+  <data name="SendData" xml:space="preserve">
+    <value>Sendedaten</value>
+  </data>
+  <data name="SendData_inspection_type__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendData-Prüfart (Dienstmodus)</value>
+  </data>
+  <data name="SendData_BufferID__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendData BufferID (Dienstmodus)</value>
+  </data>
+  <data name="SendResults_job_ID___BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendResults Auftragskennung (Dienstmodus)</value>
+  </data>
+  <data name="SendResults_length__BRACKET_service_mode_ENDBRACKET_" xml:space="preserve">
+    <value>SendResults Länge (Dienstmodus)</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Diagnose aktualisieren</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Lesen Sie</value>
+  </data>
+  <data name="Inspection_results" xml:space="preserve">
+    <value>Ergebnisse der Inspektion</value>
+  </data>
+  <data name="Clear_result_data" xml:space="preserve">
+    <value>Ergebnisdaten löschen</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
+  <data name="Acquisition_control" xml:space="preserve">
+    <value>Kontrolle der Akquisition</value>
+  </data>
+  <data name="Acquisition_status" xml:space="preserve">
+    <value>Status der Akquisition</value>
+  </data>
+  <data name="Results_control" xml:space="preserve">
+    <value>Ergebniskontrolle</value>
+  </data>
+  <data name="Results_status" xml:space="preserve">
+    <value>Status der Ergebnisse</value>
+  </data>
+  <data name="Soft_DASH_event_control" xml:space="preserve">
+    <value>Soft-Event-Steuerung</value>
+  </data>
+  <data name="Soft_DASH_event_status" xml:space="preserve">
+    <value>Soft-Event-Status</value>
+  </data>
+  <data name="Trigger" xml:space="preserve">
+    <value>Auslöser</value>
+  </data>
+  <data name="Clear_inspection_results" xml:space="preserve">
+    <value>Klare Inspektionsergebnisse</value>
+  </data>
+  <data name="Required_job_name" xml:space="preserve">
+    <value>Erforderlicher Auftragsname</value>
+  </data>
+  <data name="Change_job_by_name" xml:space="preserve">
+    <value>Auftrag nach Name ändern</value>
+  </data>
+  <data name="Required_job_number" xml:space="preserve">
+    <value>Erforderliche Auftragsnummer</value>
+  </data>
+  <data name="Change_job_by_number" xml:space="preserve">
+    <value>Stelle nach Nummer ändern</value>
+  </data>
+  <data name="Required_soft_event_number" xml:space="preserve">
+    <value>Erforderliche Soft-Event-Nummer</value>
+  </data>
+  <data name="Trigger_soft_event" xml:space="preserve">
+    <value>Soft-Ereignis auslösen</value>
+  </data>
+  <data name="User_data_to_sent" xml:space="preserve">
+    <value>Zu sendende Benutzerdaten</value>
+  </data>
+  <data name="User_data_length" xml:space="preserve">
+    <value>Länge der Nutzdaten</value>
+  </data>
+  <data name="Send_user_data" xml:space="preserve">
+    <value>Benutzerdaten senden</value>
+  </data>
+  <data name="Inspection_control" xml:space="preserve">
+    <value>Kontrolle der Inspektion</value>
+  </data>
+  <data name="Inspection_status" xml:space="preserve">
+    <value>Status der Inspektion</value>
+  </data>
+  <data name="Command_control" xml:space="preserve">
+    <value>Befehlssteuerung</value>
+  </data>
+  <data name="Command_status" xml:space="preserve">
+    <value>Befehlsstatus</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware-ID des Geräts</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SystemControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'SystemControl'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'EngineControl1'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'EngineControl2'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'EngineControl3'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EngineControl_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'EngineControl4'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserData240B1' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserData240B2' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "UserData240B3"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserData240B4' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserData240B5' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserData_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "UserData64B1"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "Ergebnis240B1"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "Ergebnis240B2"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "Ergebnis240B3"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'Results240B4' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__TWO__FOUR__ZERO_B_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'Results240B5' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Results_UNDERSCORE__SIX__FOUR_B_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'Results64B1' Submodul</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Camera_number" xml:space="preserve">
+    <value>Kamera-Nummer</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware-IDs</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrolle</value>
+  </data>
+  <data name="Trigger_enable" xml:space="preserve">
+    <value>Auslöser aktivieren</value>
+  </data>
+  <data name="Trigger_ready" xml:space="preserve">
+    <value>Auslöser bereit</value>
+  </data>
+  <data name="Trigger_acknowledge" xml:space="preserve">
+    <value>Auslöser quittieren</value>
+  </data>
+  <data name="Acquiring" xml:space="preserve">
+    <value>Erwerben Sie</value>
+  </data>
+  <data name="Missed_acquisition" xml:space="preserve">
+    <value>Verpasster Erwerb</value>
+  </data>
+  <data name="Trigger_ID" xml:space="preserve">
+    <value>Auslöser-ID</value>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Kontinuierliches Lesen</value>
+  </data>
+  <data name="Result_data_size" xml:space="preserve">
+    <value>Größe der Ergebnisdaten</value>
+  </data>
+  <data name="User_data_size" xml:space="preserve">
+    <value>Größe der Nutzdaten</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'AcquisitionControl'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "AcquisitionStatus".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'ResultsControl'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultsStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "ResultsStatus".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'SoftEventControl'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UserData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "UserData".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ResultData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "ResultData".</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="Enable_results_buffering" xml:space="preserve">
+    <value>Ergebnispufferung aktivieren</value>
+  </data>
+  <data name="Results_acknowledge" xml:space="preserve">
+    <value>Ergebnisse bestätigen</value>
+  </data>
+  <data name="Decoding" xml:space="preserve">
+    <value>Dekodierung</value>
+  </data>
+  <data name="Decode_complete" xml:space="preserve">
+    <value>Dekodierung abgeschlossen</value>
+  </data>
+  <data name="Results_buffer_overrun" xml:space="preserve">
+    <value>Überlauf des Ergebnispuffers</value>
+  </data>
+  <data name="Results_available" xml:space="preserve">
+    <value>Ergebnisse verfügbar</value>
+  </data>
+  <data name="Error_detected" xml:space="preserve">
+    <value>Fehler entdeckt</value>
+  </data>
+  <data name="Train_code" xml:space="preserve">
+    <value>Zugnummer</value>
+  </data>
+  <data name="Train_match_string" xml:space="preserve">
+    <value>Zugübereinstimmungszeichenfolge</value>
+  </data>
+  <data name="Train_focus" xml:space="preserve">
+    <value>Fokus Zug</value>
+  </data>
+  <data name="Train_brightness" xml:space="preserve">
+    <value>Helligkeit des Zuges</value>
+  </data>
+  <data name="Untrain" xml:space="preserve">
+    <value>Untrain</value>
+  </data>
+  <data name="Execute_DMCC" xml:space="preserve">
+    <value>DMCC ausführen</value>
+  </data>
+  <data name="Train_code_acknowledge" xml:space="preserve">
+    <value>Zugcode quittieren</value>
+  </data>
+  <data name="Train_match_string_acknowledge" xml:space="preserve">
+    <value>Zugübereinstimmungszeichenfolge quittieren</value>
+  </data>
+  <data name="Train_focus_acknowledge" xml:space="preserve">
+    <value>Zugfokus anerkennen</value>
+  </data>
+  <data name="Train_brightness_acknowledge" xml:space="preserve">
+    <value>Helligkeit des Zuges anerkennen</value>
+  </data>
+  <data name="Untrain_acknowledge" xml:space="preserve">
+    <value>Nicht ausbilden anerkennen</value>
+  </data>
+  <data name="Execute_DMCC_acknowledge" xml:space="preserve">
+    <value>DMCC-Bestätigung ausführen</value>
+  </data>
+  <data name="Set_match_string_acknowledge" xml:space="preserve">
+    <value>Bestätigen Sie die Übereinstimmungszeichenfolge</value>
+  </data>
+  <data name="Option" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="Clear_exposure_complete" xml:space="preserve">
+    <value>Freilegung abgeschlossen</value>
+  </data>
+  <data name="Set_offline" xml:space="preserve">
+    <value>Offline setzen</value>
+  </data>
+  <data name="Exposure_complete" xml:space="preserve">
+    <value>Exposition abgeschlossen</value>
+  </data>
+  <data name="Offline_reason__ZERO_" xml:space="preserve">
+    <value>Offline-Grund 0</value>
+  </data>
+  <data name="Offline_reason__ONE_" xml:space="preserve">
+    <value>Offline Grund 1</value>
+  </data>
+  <data name="Offline_reason__TWO_" xml:space="preserve">
+    <value>Offline Grund 2</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Acquisition_ID" xml:space="preserve">
+    <value>Erfassungs-ID</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Befehl</value>
+  </data>
+  <data name="Current_job_ID" xml:space="preserve">
+    <value>Aktuelle Job-ID</value>
+  </data>
+  <data name="Max_job_number" xml:space="preserve">
+    <value>Maximale Auftragsnummer</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'AcquisitionControl'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_AcquisitionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'AcquisitionStatus' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'InspectionControl'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "InspectionStatus"-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'CommandControl'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_SoftEventControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'SoftEventControl'-Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserDataSlot7' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserDataSlot8' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserDataSlot9' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_UserDataSlot_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'UserDataSlot10' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "ErgebnisDatenSlot11" Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID 'ErgebnisDatenSlot12' Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "ErgebnisDatenSlot13" Submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ResultData_UNDERSCORE_Slot_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID "ErgebnisDatenSlot14" Submodul</value>
+  </data>
+  <data name="Acknowledge_inspection_results" xml:space="preserve">
+    <value>Bestätigen Sie die Inspektionsergebnisse</value>
+  </data>
+  <data name="Extended_user_data_set" xml:space="preserve">
+    <value>Erweiterter Benutzerdatensatz</value>
+  </data>
+  <data name="Execute_command" xml:space="preserve">
+    <value>Befehl ausführen</value>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Fehler löschen</value>
+  </data>
+  <data name="System_busy" xml:space="preserve">
+    <value>System besetzt</value>
+  </data>
+  <data name="Inspection_completed" xml:space="preserve">
+    <value>Inspektion abgeschlossen</value>
+  </data>
+  <data name="Results_valid" xml:space="preserve">
+    <value>Ergebnisse gültig</value>
+  </data>
+  <data name="Command_executing" xml:space="preserve">
+    <value>Befehl wird ausgeführt</value>
+  </data>
+  <data name="Command_complete" xml:space="preserve">
+    <value>Befehl abgeschlossen</value>
+  </data>
+  <data name="Command_failed" xml:space="preserve">
+    <value>Befehl fehlgeschlagen</value>
+  </data>
+  <data name="Extended_user_data_set_acknowledge" xml:space="preserve">
+    <value>Bestätigung des erweiterten Benutzerdatensatzes</value>
+  </data>
+  <data name="Overall_job_pass_fail" xml:space="preserve">
+    <value>Gesamtauftrag bestanden nicht bestanden</value>
+  </data>
+  <data name="Test_run_ready" xml:space="preserve">
+    <value>Testlauf bereit</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Error_code" xml:space="preserve">
+    <value>Fehlercode</value>
+  </data>
+  <data name="Inspection_ID" xml:space="preserve">
+    <value>Inspektions-ID</value>
+  </data>
+  <data name="Result_code" xml:space="preserve">
+    <value>Ergebnis-Code</value>
+  </data>
+  <data name="Trigger_soft_DASH_event" xml:space="preserve">
+    <value>Soft-Event auslösen</value>
+  </data>
+  <data name="Trigger_soft_DASH_event_acknowledge" xml:space="preserve">
+    <value>Soft-Event-Quittung auslösen</value>
+  </data>
+  <data name="Current_job_name" xml:space="preserve">
+    <value>Name der aktuellen Stelle</value>
+  </data>
+  <data name="Current_job_number" xml:space="preserve">
+    <value>Aktuelle Auftragsnummer</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'InspectionControl'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InspectionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "InspectionStatus".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'CommandControl'-Submoduls</value>
+  </data>
+</root>

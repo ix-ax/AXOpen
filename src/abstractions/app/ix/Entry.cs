@@ -24,8 +24,8 @@ namespace abstractions_app
     {
         // Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
         public static string TargetIp { get; } = "192.168.100.120";//Environment.GetEnvironmentVariable("AXTARGET"); // <- replace by your IP 
-        private static string Pass => @"123ABCDabcd$#!"; //Environment.GetEnvironmentVariable("AX_TARGET_PWD");       //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
-        private static string UserName = "adm"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by user name you have set up in your WebAPI settings        
+        private static string Pass => @"Qwerty123456+"; //Environment.GetEnvironmentVariable("AX_TARGET_PWD");       //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
+        private static string UserName = "admin"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by user name you have set up in your WebAPI settings        
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
         private static string CertificatePath = "..\\..\\certs\\plc_line\\plc_line.cer"; //NFI why, but it works
         // <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.

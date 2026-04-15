@@ -1,82 +1,73 @@
 ﻿@namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
-@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@*@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;*@
+@using Operon.Components
+@using Operon.Components.Accordion
+@using Operon.Components.Dropdown
+@using Operon.Icons
+@using System.Globalization
+@using AXSharp.Connector.Localizations
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
-<div>
-    <div class="row justify-content-between">
-        <div class="col-auto d-flex align-items-center">
-            <p class="mb-0">@Component.AttributeName</p>
-        </div>
-        <div class="col-auto d-flex align-items-center">
-            <button type="button" class="btn btn-secondary me-1" data-bs-toggle="modal" data-bs-target="#formatModal-@_id">Format</button>
-            @if (IsControllable & !IsReadOnly)
-            {
-                <button class="btn btn-primary" type="button" @onclick="() => UploadAndFormatData(null, null)">
-                    <span class="oi oi-data-transfer-upload" aria-hidden="true" />
-                </button>
-                <button class="btn btn-primary" type="button" @onclick="() => Download()">
-                    <span class="oi oi-data-transfer-download" aria-hidden="true" />
-                </button>
-            }
-            else
-            {
-                <button class="btn btn-primary" type="button" @onclick="() => UploadAndFormatData(null, null)">
-                    <span class="oi oi-reload" aria-hidden="true" />
-                </button>
-            }
-        </div>
-        <div class="col-auto d-flex align-items-center">
-        </div>
-    </div>
+<div data-axo-byte-array-view class="flex flex-wrap w-full">
+    <Accordion>
+        <AccordionItem Title="@Localizer["Data"]">
+            <div class="flex flex-wrap justify-between">
+                <p class="align-middle">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</p>
 
-
-    <div class="row mx-1 flex-nowrap gx-0" style="overflow-x: auto; width: 70vw;">
-
-        @if (this.Data != null)
-        {
-            @foreach (IndexedData<string> item in this.Data)
-            {
-                if (item != null && @item.Index != null && @item.Data != null)
-                {
-                    <div class="col-auto mx-1">
-                        <label>@item.Index</label>
-                        <div>
-                            <input class="form-control p-1" type="text" @bind=item.Data maxlength="@MaxLen" style="width: 2.5rem;">
-                        </div>
+                <div class="flex flex-wrap items-center gap-1">
+                    <div class="">
+                        <select @bind="@DisplayFormat" class="select bg-background-light in-w-6">
+                            @foreach (var displayedFormat in DisplayedFormatList)
+                            {
+                                <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
+                            }
+                        </select>
                     </div>
-                }
-            }
-        }
-    </div>
-</div>
 
-<div class="modal fade" id="formatModal-@_id" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Display format</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <select class="form-control" @bind="@DisplayFormat">
-
-                    @foreach (var displayedFormat in DisplayedFormatList)
+                    @if (IsControllable & !IsReadOnly)
                     {
-                        <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
+                        <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
+                            <HeroIcon Icon="arrow-up-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
+                        <button type="button" class="btn btn-primary" @onclick="() => Download()">
+                            <HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
                     }
-                </select>
+                    else
+                    {
+                        <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
+                            <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
+                    }
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+
+            @if (this.Data != null)
+            {
+                <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
+                    @foreach (IndexedData<string> item in this.Data)
+                    {
+                        if (item != null && @item.Data != null)
+                        {
+                            <div class="input-group">
+                                <label>@item.Index</label>
+                                <input type="text" @bind="item.Data" maxlength="@MaxLen" style="width: calc(var(--spacing) * 9 + var(--spacing) * 2 * @MaxLen) !important;" />
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </AccordionItem>
+    </Accordion>
 </div>
 
 @code {
-    private Guid _id = Guid.NewGuid();
+    private Dropdown _dropdownFormat { get; set; }
 
     private List<DisplayedFormat> DisplayedFormatList = new List<DisplayedFormat>()
         {new DisplayedFormat(eDisplayFormat.Array_of_decimals, "array of decimals"),
@@ -101,8 +92,8 @@
             DisplayFormat = displayFormat;
             Description = description;
         }
+
         public eDisplayFormat DisplayFormat { get; set; }
         public string Description { get; set; }
     }
-
 }

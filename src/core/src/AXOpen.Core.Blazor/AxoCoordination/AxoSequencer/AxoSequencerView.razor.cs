@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -9,85 +9,84 @@ namespace AXOpen.Core
 {
     public partial class AxoSequencerView : RenderableComplexComponentBase<AxoSequencer>, IDisposable
     {
-        public IEnumerable<AxoStep> AllAxoStepInstances => Component.GetKids().OfType<AxoStep>();
+        [Parameter]
+        public bool IsControllable { get; set; } = true;
 
-        private List<AxoStep> _AllSteps;
-        public List<AxoStep> AllSteps
+        [Parameter]
+        public bool HasExternalStepModeControl { get; set; } = false;
+
+        private string _description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+
+        private string _duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
+
+        private eAxoSteppingMode _currentSteppingMode => (eAxoSteppingMode)this.Component.SteppingMode.LastValue;
+
+        private async Task ToggleStepMode()
+        {
+            var currentSteppingMode = (eAxoSteppingMode)this.Component.SteppingMode.LastValue;
+
+            if (currentSteppingMode == eAxoSteppingMode.Continous)
+            {
+                await this.Component.SetReqSteppingMode.SetAsync(true);
+                await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.StepByStep);
+            }
+            else
+            {
+                await this.Component.SetReqSteppingMode.SetAsync(true);
+                await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
+            }
+        }
+
+        private string _runStepButtonText => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture)) ? "-" : this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture);
+
+        private IEnumerable<AxoObject> _associatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
+
+
+        private eSequenceStatus _currentStatus
         {
             get
             {
-                if (_AllSteps == null)
+                var taskState = (eAxoTaskState)this.Component.Status.LastValue;
+
+                if (taskState == eAxoTaskState.Error)
                 {
-                    _AllSteps = new List<AxoStep>();
-
-                    _AllSteps.AddRange(AllAxoStepInstances);
-                    _AllSteps.Remove(this.Component.CurrentStep);
-                    _AllSteps.Remove(this.Component.BeforeStep);
-                    _AllSteps.Remove(this.Component.AfterStep);
-
+                    return eSequenceStatus.SequencerError;
                 }
 
-                return _AllSteps;
+                if (_associatedComponents.Any(p => p.MsgCnt.LastValue > 0)
+                    && this.Component.Duration.LastValue > TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds))
+                {
+                    return eSequenceStatus.ExternalComponentError;
+                }
+
+                if (this.Component.Duration.LastValue >
+                TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds)
+                && this.Component.Duration.LastValue > TimeSpan.FromSeconds(10))
+                {
+                    return eSequenceStatus.SequenceTimeOutError;
+                }
+
+                if (taskState == eAxoTaskState.Busy)
+                {
+                    return eSequenceStatus.Active;
+                }
+
+                return eSequenceStatus.Inactive;
             }
-
         }
-
-        [Parameter] public bool IsControllable { get; set; } = true;
-
-        [Parameter] public bool HasTaskControlButton { get; set; } = true;
-
-        [Parameter] public bool HasSettings { get; set; } = true;
-
-        [Parameter] public bool HasStepControls { get; set; } = true;
-
-        [Parameter] public bool HasStepDetails { get; set; } = true;
 
         public override void ConfigurePolling()
         {
-            this.StartPolling(this.Component.CurrentStep.StepDescription, 500);
-            this.StartPolling(this.Component.CurrentStep.Status, 500);
+            this.StartPolling(this.Component.CurrentStep.Descr, 500);
+            this.StartPolling(this.Component.SteppingMode, 500);
+            this.StartPolling(this.Component.Duration, 1000);
+            this.StartPolling(this.Component.MsgCnt, 2500);
+            foreach (var a in _associatedComponents)
+            {
+                this.StartPolling(a.MsgCnt, 2500);
+            }
+            this.StartPolling(Component.MaxSequenceDuration, 1000);
         }
-
-        private void RefreshComponent()
-        {
-            Component.ReadAsync();
-        }
-
-        private async void RefreshStepsInSequnce()
-        {
-            // read out steps order numbers
-            await Component.GetConnector().ReadBatchAsync(AllSteps.GetStepsOrderElements());
-
-            List<ITwinPrimitive> activeProperties = new();
-            foreach (AxoStep activeStep in AllSteps.Where(p => p != null && p.Order.Cyclic != 0))
-            {
-                activeStep.GetPrimitivesDescriptionErrorDetails(activeProperties);
-                activeStep.GetPrimitivesDurationStatus(activeProperties);
-            }
-
-            if (activeProperties.Count > 0)
-            {
-                await Component.GetConnector().ReadBatchAsync(activeProperties);
-            }
-        } 
-        
-        private async void RefreshDurationAndStatus()
-        {
-            List<ITwinPrimitive> activeProperties = new();
-            foreach (AxoStep activeStep in AllSteps.Where(p => p != null && p.Order.Cyclic != 0))
-            {
-                activeStep.GetPrimitivesDurationStatus(activeProperties);
-            }
-
-            if (activeProperties.Count > 0)
-            {
-                await Component.GetConnector().ReadBatchAsync(activeProperties);
-            }
-        }
-
-        public bool EnableModalContent { set; get; }
-
-        private ElementReference activeStepReference { get; set; }
     }
 
     public class AxoSequencerCommandView : AxoSequencerView
@@ -104,5 +103,14 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
+    }
+
+    public enum eSequenceStatus
+    {
+        Inactive,
+        Active,
+        SequencerError,
+        SequenceTimeOutError,
+        ExternalComponentError,
     }
 }

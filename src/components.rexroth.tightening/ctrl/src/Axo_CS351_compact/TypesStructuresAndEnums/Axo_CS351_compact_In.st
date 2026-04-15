@@ -74,9 +74,9 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-set:AttributeName = "<#Angle max#>"}
             AngleMax : REAL;			
             {#ix-set:AttributeName = "<#Error code#>"}
-            ErrorCode : WORD;
+            ErrorCode : INT;
             {#ix-set:AttributeName = "<#Error class#>"}
-            ErrorClass : WORD;
+            ErrorClass : INT;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

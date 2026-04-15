@@ -1,0 +1,25 @@
+﻿@page "/Security/SecurityManagement"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Operon.Components.Tab
+
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        <Tab Class="m-2">
+            <TabPage Title="@Localizer["User Management"]">
+                <UserManagement @ref="@userManagement"></UserManagement>
+            </TabPage>
+            <TabPage Title="@Localizer["Group Management"]">
+                <GroupManagement @ref="@groupManagement"></GroupManagement>
+            </TabPage>
+        </Tab>
+    </Authorized>
+    <NotAuthorized>
+        <p>@Localizer["Sorry, you are not authorized to access user management. Please log in as administrator."]</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private UserManagement? userManagement { get; set; }
+    private GroupManagement? groupManagement { get; set; }
+}

@@ -1,16 +1,27 @@
 Devices:
-- Name: plc_line
-  Modules:
-  - Apply:
-      TemplateName: 6ES7516-3AP03-0AB0_v3_1
+  - Name: plc_line
+    Modules:
+    - Apply: 6ES7516-3AP03-0AB0_v4_0
       Arguments:
-        PLCName: plc_line
-        IpAddress_X1: 192.168.100.120/24
-        ProfinetDeviceName_X1: plc_line_x1
+        NAME: plc_line
+        IP_ADDRESS_X1: '192.168.100.120/24'
+        PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
+        ADMIN_NAME: 'admin'
+        CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: rexroth_indradrive
+    Arguments:
+      NAME: rexroth_indradrive
+      IP_ADDRESS_X1: 192.168.100.150/24
+      PROFINET_DEVICE_NAME_X1: rexroth_indradrive
+  - Apply: rexroth_ctrlx_drive_xcs
+    Arguments:
+      NAME: rexroth_ctrlx_drive
+      IP_ADDRESS_X1: 192.168.100.151/24
+      PROFINET_DEVICE_NAME_X1: rexroth_ctrlx_drive
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
-  - Ref: plc_line/plc_line/profinet_x1
+  - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  - Ref: ST3_indradrive/ST3_indradrive/profinet
-  - Ref: AxoCtrlxDriveXsc/AxoCtrlxDriveXsc/profinet
+  - Ref: rexroth_indradrive/rexroth_indradrive/PN-IO
+  - Ref: rexroth_ctrlx_drive/rexroth_ctrlx_drive/XCS_interface_PF30

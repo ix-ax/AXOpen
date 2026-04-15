@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RunCommandTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit RunCommandTask.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozornenie</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Výsledky</value>
+  </data>
+  <data name="Run_command" xml:space="preserve">
+    <value>Spustiť príkaz</value>
+  </data>
+  <data name="Run_command_parameters" xml:space="preserve">
+    <value>Parametre príkazu Run</value>
+  </data>
+  <data name="Get_results" xml:space="preserve">
+    <value>Získajte výsledky</value>
+  </data>
+  <data name="Export_curve" xml:space="preserve">
+    <value>Krivka vývozu</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Príkaz</value>
+  </data>
+  <data name="Serial_number" xml:space="preserve">
+    <value>Sériové číslo</value>
+  </data>
+  <data name="Program_Id" xml:space="preserve">
+    <value>Id programu</value>
+  </data>
+  <data name="Position_distance_tara" xml:space="preserve">
+    <value>Pozícia vzdialenosť tara</value>
+  </data>
+  <data name="Travel_speed" xml:space="preserve">
+    <value>Cestovná rýchlosť</value>
+  </data>
+  <data name="Acceleration" xml:space="preserve">
+    <value>Zrýchlenie</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Ofset</value>
+  </data>
+  <data name="Axis_in_reference" xml:space="preserve">
+    <value>Referenčná os</value>
+  </data>
+  <data name="Program_active" xml:space="preserve">
+    <value>Program aktívny</value>
+  </data>
+  <data name="Last_pressing_Ok" xml:space="preserve">
+    <value>Posledné stlačenie Ok</value>
+  </data>
+  <data name="Last_pressing_Nok" xml:space="preserve">
+    <value>Posledné stlačenie Nok</value>
+  </data>
+  <data name="Sensor_tared" xml:space="preserve">
+    <value>Snímač tared</value>
+  </data>
+  <data name="Press_ready" xml:space="preserve">
+    <value>Stlačte tlačidlo Pripravené</value>
+  </data>
+  <data name="Request_possible" xml:space="preserve">
+    <value>Možná žiadosť</value>
+  </data>
+  <data name="Respons_avialable" xml:space="preserve">
+    <value>Odpovede, ktoré je možné získať</value>
+  </data>
+  <data name="Notification_available" xml:space="preserve">
+    <value>Oznámenie je k dispozícii</value>
+  </data>
+  <data name="Emergency_off_active" xml:space="preserve">
+    <value>Núdzové vypnutie aktívne</value>
+  </data>
+  <data name="Safe_standstill_active" xml:space="preserve">
+    <value>Bezpečné zastavenie aktívne</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Maximal_force" xml:space="preserve">
+    <value>Maximálna sila</value>
+  </data>
+  <data name="Maximal_position" xml:space="preserve">
+    <value>Maximálna poloha</value>
+  </data>
+  <data name="Valid" xml:space="preserve">
+    <value>Platné</value>
+  </data>
+  <data name="Creation_date" xml:space="preserve">
+    <value>Dátum vytvorenia</value>
+  </data>
+  <data name="Cycle_time" xml:space="preserve">
+    <value>Čas cyklu</value>
+  </data>
+  <data name="Validation_time" xml:space="preserve">
+    <value>Čas validácie</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Custom_Id" xml:space="preserve">
+    <value>Vlastné ID</value>
+  </data>
+  <data name="Data_recording_disabled" xml:space="preserve">
+    <value>Zaznamenávanie údajov je vypnuté</value>
+  </data>
+  <data name="Sampling_interval" xml:space="preserve">
+    <value>Interval odberu vzoriek</value>
+  </data>
+  <data name="_UNDERSCORE_v" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="Response_status" xml:space="preserve">
+    <value>Stav reakcie</value>
+  </data>
+  <data name="Notification_Id" xml:space="preserve">
+    <value>Id oznámenia</value>
+  </data>
+  <data name="Notification_to_display" xml:space="preserve">
+    <value>Oznámenie, ktoré sa má zobraziť</value>
+  </data>
+  <data name="Notification_position" xml:space="preserve">
+    <value>Pozícia oznámenia</value>
+  </data>
+  <data name="Notification_velocity" xml:space="preserve">
+    <value>Rýchlosť oznamovania</value>
+  </data>
+  <data name="Notification_force" xml:space="preserve">
+    <value>Sila oznámenia</value>
+  </data>
+  <data name="Digital_Io_mapping" xml:space="preserve">
+    <value>Digitálne mapovanie Io</value>
+  </data>
+  <data name="Virtual_Io" xml:space="preserve">
+    <value>Virtuálny Io</value>
+  </data>
+  <data name="Current_command_parameters" xml:space="preserve">
+    <value>Aktuálne parametre príkazu</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Location_of_the_curve_export" xml:space="preserve">
+    <value>Umiestnenie exportu krivky</value>
+  </data>
+  <data name="Ip_address" xml:space="preserve">
+    <value>Ip adresa</value>
+  </data>
+  <data name="Handle" xml:space="preserve">
+    <value>Rukoväť</value>
+  </data>
+  <data name="Value__ONE_" xml:space="preserve">
+    <value>Hodnota 1</value>
+  </data>
+  <data name="Value__TWO_" xml:space="preserve">
+    <value>Hodnota 2</value>
+  </data>
+  <data name="Value__THREE_" xml:space="preserve">
+    <value>Hodnota 3</value>
+  </data>
+  <data name="Value__FOUR_" xml:space="preserve">
+    <value>Hodnota 4</value>
+  </data>
+  <data name="Value__FIVE_" xml:space="preserve">
+    <value>Hodnota 5</value>
+  </data>
+  <data name="Value__SIX_" xml:space="preserve">
+    <value>Hodnota 6</value>
+  </data>
+  <data name="Value__SEVEN_" xml:space="preserve">
+    <value>Hodnota 7</value>
+  </data>
+  <data name="Fast_variable_control" xml:space="preserve">
+    <value>Rýchle variabilné ovládanie</value>
+  </data>
+  <data name="Fast_variable_data" xml:space="preserve">
+    <value>Rýchle premenlivé údaje</value>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>ID hardvéru Zariadenie</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ParamCh_UNDERSCORE_IDN_APOSTROPHE__module" xml:space="preserve">
+    <value>Modul ID hardvéru "ParamChIDN</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_F_UNDERSCORE_ModulNotUsed_APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu 'FModulNotUsed'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Input_UNDERSCORE__TWO__FOUR__UNDERSCORE_Words_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodul 'Input24Words'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Output_UNDERSCORE__TWO__ONE__UNDERSCORE_Words_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'Output21Words' podmodul</value>
+  </data>
+  <data name="Value_ONE_" xml:space="preserve">
+    <value>Hodnota1</value>
+  </data>
+  <data name="Value_TWO_" xml:space="preserve">
+    <value>Hodnota2</value>
+  </data>
+  <data name="Value_THREE_" xml:space="preserve">
+    <value>Hodnota3</value>
+  </data>
+  <data name="NotificationId" xml:space="preserve">
+    <value>NotificationId</value>
+  </data>
+  <data name="NotificationValue" xml:space="preserve">
+    <value>NotificationValue</value>
+  </data>
+  <data name="NotificationStatus" xml:space="preserve">
+    <value>NotificationStatus</value>
+  </data>
+  <data name="NotificationPosition" xml:space="preserve">
+    <value>NotificationPosition</value>
+  </data>
+  <data name="NotificationVelocity" xml:space="preserve">
+    <value>NotificationVelocity</value>
+  </data>
+  <data name="NotificationForce" xml:space="preserve">
+    <value>NotificationForce</value>
+  </data>
+  <data name="DigitalIoMapping" xml:space="preserve">
+    <value>DigitalIoMapping</value>
+  </data>
+  <data name="VirtualIo" xml:space="preserve">
+    <value>VirtualIo</value>
+  </data>
+  <data name="Fast_variable_state" xml:space="preserve">
+    <value>Rýchly premenlivý stav</value>
+  </data>
+</root>

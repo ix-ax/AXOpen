@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -41,9 +43,15 @@ namespace AXOpen.Core
         [Parameter]
         public bool Disable { get; set; }
 
+        [Parameter]
+        public string? Text { get; set; }
+
+        [Parameter]
+        public bool HideRestoreButton { get; set; } = false;
+
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        public string Description => Component.GetAttributeName(CultureInfo.CurrentUICulture);
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.IsDisabled);

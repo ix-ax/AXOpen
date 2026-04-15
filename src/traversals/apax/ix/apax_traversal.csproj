@@ -78,6 +78,13 @@
 	  <ProjectReference Include="..\..\..\components.keyence.vision\src\AXOpen.Components.Keyence.Vision\inxton_axopen_components_keyence_vision.csproj" />
 	  <ProjectReference Include="..\..\..\components.rexroth.tightening\app\ix\app_axopen_components_rexroth_tightening.csproj" />
 	  <ProjectReference Include="..\..\..\components.rexroth.tightening\src\AXOpen.Components.Rexroth.Tightening\inxton_axopen_components_rexroth_tightening.csproj" />
+	  <ProjectReference Include="..\..\..\data\tests\AXOpen.Data.Tests_L1\ix\axopen_data_tests_l1.csproj" />
+	  <ProjectReference Include="..\..\..\components.dukane.welders\app\ix\app_axopen_components_dukane_welders.csproj" />
+	  <ProjectReference Include="..\..\..\components.dukane.welders\src\AXOpen.Components.Dukane.Welders\inxton_axopen_components_dukane_welders.csproj" />
+	  <ProjectReference Include="..\..\..\components.zebra.vision\app\ix\app_axopen_components_zebra_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.zebra.vision\src\AXOpen.Components.Zebra.Vision\inxton_axopen_components_zebra_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.communication\app\ix\app_axopen_components_siem_communication.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.communication\src\AXOpen.Components.Siem.Communication\inxton_axopen_components_siem_communication.csproj" />
 	</ItemGroup>
 	
 </Project>

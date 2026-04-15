@@ -21,19 +21,19 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             // RETURN;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
             END_IF;  
 
             //<Initialization>        
-            AxoCmmtAs.Run(parent            :=  THIS,
-                            hwID                  :=    HwIdentifiers#cmmtas_HwID,
+            AxoCmmtAs.Run(inParent            :=  THIS,
+                            hwID                  :=    HwIdentifiers#festo_cmmtas_HwID,
                             Enable                :=    Enable,
                             EnablePositive        :=    EnablePositive,
                             EnableNegative        :=    EnableNegative);
@@ -412,9 +412,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF; 
 
             IF(Steps[33].Execute(Sequencer, TRUE, 'Disable drive')) THEN
-                AxoCmmtAsEnable := FALSE;
-                AxoCmmtAsEnablePositive := FALSE;
-                AxoCmmtAsEnableNegative := FALSE;
+                Enable := FALSE;
+                EnablePositive := FALSE;
+                EnableNegative := FALSE;
                 IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
                     AxoCmmtAs.Restore();   
                     Sequencer.MoveNext();       

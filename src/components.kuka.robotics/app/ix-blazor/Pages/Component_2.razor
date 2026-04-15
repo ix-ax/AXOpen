@@ -1,7 +1,7 @@
 ﻿@page "/Component_2"
 @using AXOpen.Core;
-
-<PageTitle>Documentation</PageTitle>
+@using Operon.Components.Tab
+@using AXOpen.Components.Kuka.Robotics;
 
 
 
@@ -20,6 +20,7 @@
 
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
+<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentTwo.Sequencer" />
 <RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 

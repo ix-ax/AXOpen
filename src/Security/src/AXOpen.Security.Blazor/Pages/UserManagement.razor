@@ -1,0 +1,436 @@
+﻿@using AXOpen.Security.Services
+@using AxOpen.Security.Entities
+@using System.Collections.ObjectModel
+@using AxOpen.Security.Services
+@using Operon.Components
+@using System.ComponentModel.DataAnnotations
+@using Operon.Components.Toast
+@using System.Security.Principal
+@using System.Text
+@implements IDisposable
+@inject AuthenticationStateProvider _authenticationStateProvider
+@inject IRepositoryService _repositoryService
+@inject UserManager<User> _userManager
+@inject IToastService _toastService
+@inject IServiceProvider _serviceProvider
+
+<div class="flex flex-wrap">
+    <a role="button" class="btn btn-primary m-2" href="/Security/CreateUser">
+        @Localizer["Create new user"]
+    </a>
+</div>
+
+<div class="overflow-x-auto">
+    <table class="table table-hover table-striped w-full">
+        <thead>
+            <tr>
+                <th>@Localizer["Username"]</th>
+                <th>@Localizer["Can change password"]</th>
+                <th>@Localizer["Created"]</th>
+                <th>@Localizer["Modified"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (User user in AllUsers)
+            {
+                <tr @onclick="@(() => RowClicked(user))" class="cursor-pointer @((SelectedUser != null) ? ((SelectedUser.UserName == user.UserName) ? "active" : "") : "")">
+                    <th>@user.UserName</th>
+                    <td>@user.CanUserChangePassword</td>
+                    <td>@user.Created</td>
+                    <td>@user.Modified</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<Modal @ref="_modalEdit">
+    <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+        <div class="modal-header">
+            <h4>@Localizer["User"]: @SelectedUser?.UserName</h4>
+            <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => CloseModalEdit()">
+                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+            </button>
+        </div>
+        <div class="modal-body">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="input-group">
+                <label for="username">@Localizer["Username"]</label>
+                <input type="text" value="@SelectedUser?.UserName" id="username" disabled />
+            </div>
+
+            <div class="select-group">
+                <label for="Input.Group">@Localizer["Group"]</label>
+                <select class="min-w-6" @bind="@Input.Group">
+                    <option selected disabled>@Localizer["Choose group"]</option>
+                    @foreach (var group in _repositoryService.RoleGroupManager.GetAllGroup())
+                    {
+                        <option value="@group.Name">@group.Name</option>
+                    }
+                </select>
+                <ValidationMessage For="@(() => Input.Group)" class="text-danger" />
+            </div>
+
+            <div class="input-group">
+                <label for="Input.Email">@Localizer["Email"]</label>
+                <InputText type="email" @bind-Value="Input.Email" id="Input.Email" autocomplete="email" placeholder="Email" />
+                <ValidationMessage For="() => Input.Email" class="text-danger" />
+            </div>
+
+            <div class="input-group">
+                <label for="Input.PhoneNumber">@Localizer["Phone number"]</label>
+                <InputText type="text" @bind-Value="Input.PhoneNumber" id="Input.PhoneNumber" autocomplete="phone number" placeholder="Phone number" />
+                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
+            {
+                <p>@Localizer["External Auth is set"]</p>
+                <button type="button" class="btn btn-primary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
+            }
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="Input.CanUserChangePassword" @bind="Input.CanUserChangePassword" />
+                <label for="Input.CanUserChangePassword">@Localizer["Can change password"]</label>
+                <ValidationMessage For="() => Input.CanUserChangePassword" class="text-danger" />
+            </div>
+
+            <div class="input-group">
+                <label for="newPassword">@Localizer["New password"]</label>
+                <InputText type="password" @bind-Value="Input.NewPassword" id="newPassword" aria-required="true" placeholder="New password" />
+                <ValidationMessage For="@(() => Input.NewPassword)" class="text-danger" />
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">@Localizer["Confirm new password"]</label>
+                <InputText type="password" @bind-Value="Input.ConfirmPassword" id="confirmPassword" aria-required="true" placeholder="Confirm password" />
+                <ValidationMessage For="@(() => Input.ConfirmPassword)" class="text-danger" />
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="Input.EnableAutoLogOut" @bind="Input.EnableAutoLogOut" />
+                <label for="Input.EnableAutoLogOut">@Localizer["Automatic Log Out"]</label>
+            </div>
+
+            <!-- Timeout (Hidden if EnableAutoLogOut is false) -->
+            @if (Input.EnableAutoLogOut)
+            {
+                <div class="input-group">
+                    <label for="Input.AutoLogOutTimeOutMinutes">[@Localizer["Minutes"]]</label>
+                    <input type="number" @bind="Input.AutoLogOutTimeOutMinutes" id="Input.AutoLogOutTimeOutMinutes" />
+                    <ValidationMessage For="@(() => Input.AutoLogOutTimeOutMinutes)" class="text-danger" />
+                </div>
+            }
+        </div>
+        <div class="modal-footer flex justify-end gap-1">
+            <button type="button" class="btn btn-danger" @onclick="() => _modalDelete?.Toggle()">@Localizer["Delete"]</button>
+            <button type="button" class="btn btn-secondary" @onclick="() => CloseModalEdit()">@Localizer["Close"]</button>
+            <button type="submit" class="btn btn-primary">@Localizer["Update"]</button>
+        </div>
+    </EditForm>
+</Modal>
+
+<Modal @ref="_modalDelete">
+    <div class="modal-header">
+        <h4>@Localizer["Delete user"]</h4>
+        <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalDelete?.CloseModal()">
+            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+        </button>
+    </div>
+    <div class="modal-body">
+        <h6>@Localizer["Do you want to delete user"] @SelectedUser?.UserName</h6>
+    </div>
+    <div class="modal-footer flex justify-end gap-1">
+        <button type="button" class="btn btn-secondary" @onclick="() => _modalDelete?.CloseModal()">@Localizer["Close"]</button>
+        <button type="button" class="btn btn-danger" @onclick="@(async () => { _modalDelete?.CloseModal(); _modalEdit?.CloseModal(); await DeleteUserAsync(SelectedUser); })">@Localizer["Delete"]</button>
+    </div>
+</Modal>
+
+@code{
+    private ISerialService? _serialService { get; set; }
+
+    private Modal? _modalEdit { get; set; }
+
+    private Modal? _modalDelete { get; set; }
+
+    private ObservableCollection<User> AllUsers
+    {
+        get
+        {
+            var users = new ObservableCollection<User>(_repositoryService.UserRepository.GetRecords());
+
+            return users;
+        }
+    }
+
+    private User? SelectedUser { get; set; }
+
+    private InputModel Input { get; set; }
+
+    public void RowClicked(User user)
+    {
+        SelectedUser = user;
+
+        Input = new InputModel();
+
+        Input.Group = user.Group;
+        Input.Email = user.Email;
+        Input.PhoneNumber = user.PhoneNumber;
+        Input.CanUserChangePassword = user.CanUserChangePassword;
+        Input.EnableAutoLogOut = user.EnableAutoLogOut;
+        Input.AutoLogOutTimeOutMinutes = user.AutoLogOutTimeOutMinutes;
+        Input.ExternalAuthId = user.ExternalAuthId;
+
+        _modalEdit?.Toggle();
+
+        StateHasChanged();
+    }
+
+    public void CloseModalEdit()
+    {
+        _modalEdit?.CloseModal();
+
+        SelectedUser = null;
+
+        Input.Group = null;
+        Input.Email = null;
+        Input.PhoneNumber = null;
+        Input.CanUserChangePassword = false;
+        Input.EnableAutoLogOut = false;
+        Input.AutoLogOutTimeOutMinutes = null;
+        Input.ExternalAuthId = null;
+
+        StateHasChanged();
+    }
+
+    private void ClearExternalAuthId()
+    {
+        Input.ExternalAuthId = null;
+    }
+
+    private async void OnValidSubmitAsync()
+    {
+        if (Input.Group == "Choose group")
+        {
+            Input.Group = null;
+        }
+
+        if (Input.Group != SelectedUser.Group)
+        {
+            SelectedUser.Group = Input.Group;
+            SelectedUser.SecurityStamp = Guid.NewGuid().ToString(); //due to a change of sensitive information
+        }
+
+        if (Input.Email != SelectedUser.Email)
+        {
+            var setEmailResult = await _userManager.SetEmailAsync(SelectedUser, Input.Email);
+            if (!setEmailResult.Succeeded)
+            {
+                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set email."], 10);
+                return;
+            }
+        }
+
+        if (Input.PhoneNumber != SelectedUser.PhoneNumber)
+        {
+            var setPhoneResult = await _userManager.SetPhoneNumberAsync(SelectedUser, Input.PhoneNumber);
+            if (!setPhoneResult.Succeeded)
+            {
+                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set phone number."], 10);
+                return;
+            }
+        }
+
+        if (Input.ExternalAuthId != SelectedUser.ExternalAuthId)
+        {
+            if (!string.IsNullOrEmpty(Input.ExternalAuthId))
+            {
+                List<User> users = _repositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(Input.ExternalAuthId)).ToList();
+                if (users.Any())
+                {
+                    _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set externalId, because it is being used by another user."], 10);
+                    return;
+                }
+
+                SelectedUser.ExternalAuthId = Input.ExternalAuthId;
+            }
+            else
+            {
+                SelectedUser.ExternalAuthId = null;
+            }
+        }
+
+        SelectedUser.CanUserChangePassword = Input.CanUserChangePassword;
+
+        if (!string.IsNullOrEmpty(Input.NewPassword) && !string.IsNullOrEmpty(Input.ConfirmPassword) && Input.NewPassword.Equals(Input.ConfirmPassword))
+        {
+            SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, Input.NewPassword);
+
+            SelectedUser.SecurityStamp = Guid.NewGuid().ToString(); //due to a change of sensitive information
+        }
+
+        SelectedUser.EnableAutoLogOut = Input.EnableAutoLogOut;
+        SelectedUser.AutoLogOutTimeOutMinutes = Input.AutoLogOutTimeOutMinutes ?? 30;
+
+        SelectedUser.Modified = DateTime.Now;
+
+        //SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
+        var result = await _userManager.UpdateAsync(SelectedUser);
+        if (result.Succeeded)
+        {
+            string msg = Localizer["User \"{0}\" succesfully updated!", SelectedUser.UserName];
+
+            _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
+            AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+        }
+        else
+        {
+            string msg = Localizer["User \"{0}\" was not updated!", SelectedUser.UserName] + $" {result.ToString()}";
+
+            _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
+            AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
+        }
+
+        CloseModalEdit();
+    }
+
+    public async Task DeleteUserAsync(User user)
+    {
+        var deletedUserName = user.UserName;
+
+        var result = await _userManager.DeleteAsync(user);
+
+        if (result.Succeeded)
+        {
+            SelectedUser = null;
+
+            string msg = Localizer["User \"{0}\" succesfully deleted!", deletedUserName];
+
+            _toastService?.AddToast(eToastType.Success, Localizer["Deleted!"], msg, 10);
+            AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+        }
+        else
+        {
+            string msg = Localizer["User \"{0}\" was not deleted!", deletedUserName] + $" {result.ToString()}";
+
+            _toastService?.AddToast(eToastType.Success, Localizer["Deleted!"], msg, 10);
+            AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
+        }
+    }
+
+    protected async Task<IIdentity> GetCurrentIdentity()
+    {
+        if (_authenticationStateProvider == null)
+        {
+            return new GenericIdentity("Unknown");
+        }
+        else
+        {
+            var context = await _authenticationStateProvider.GetAuthenticationStateAsync();
+
+            if (context != null)
+            {
+                return context.User.Identity;
+            }
+            else return new GenericIdentity("Unknown");
+        }
+    }
+
+    private sealed class InputModel : IValidatableObject
+    {
+        [Display(Name = "Group")]
+        public string? Group { get; set; }
+
+        [Display(Name = "Email")]
+        public string? Email { get; set; }
+
+        [Display(Name = "Phone number")]
+        public string? PhoneNumber { get; set; }
+
+        [StringLength(100, ErrorMessage = "The {0} must be max {1} characters long.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string? NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm new password")]
+        public string? ConfirmPassword { get; set; }
+
+        [Display(Name = "Can User Change Password")]
+        public bool CanUserChangePassword { get; set; }
+
+        [Display(Name = "Enable Auto Log Out")]
+        public bool EnableAutoLogOut { get; set; }
+
+        [Display(Name = "Auto Log Out Time Out Minutes")]
+        public uint? AutoLogOutTimeOutMinutes { get; set; }
+
+        [Display(Name = "External Auth Id")]
+        public string? ExternalAuthId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Treat empty as null (in case you didn't do Fix 1)
+            var newPw = string.IsNullOrWhiteSpace(NewPassword) ? null : NewPassword;
+            var confirm = string.IsNullOrWhiteSpace(ConfirmPassword) ? null : ConfirmPassword;
+
+            // Only validate Compare when user is actually setting a new password
+            if (newPw is not null)
+            {
+                if (confirm is null)
+                {
+                    yield return new ValidationResult(
+                        "Please confirm the new password.",
+                        new[] { nameof(ConfirmPassword) });
+                }
+                else if (newPw != confirm)
+                {
+                    yield return new ValidationResult(
+                        "The new password and confirmation password do not match.",
+                        new[] { nameof(ConfirmPassword) });
+                }
+            }
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
+        }
+    }
+
+    private void OnSerialError()
+    {
+        _serialService.DataReceived -= OnSerialDataReceived;
+        Console.WriteLine("Serial port error");
+    }
+
+    private void OnSerialDataReceived(byte[] data)
+    {
+        if (SelectedUser != null)
+            Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], Localizer["The external token identified"], 10);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
+        }
+    }
+}

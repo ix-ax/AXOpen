@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_750_BusyStatus : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_750_BusyStatus 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#BUSY#>"}
             BUSY : BOOL;
             {#ix-set:AttributeName = "<#TRG BUSY#>"}
@@ -13,6 +13,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             MODE_BUSY : BOOL;
             {#ix-set:AttributeName = "<#ERR BUSY#>"}
             ERR_BUSY : BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

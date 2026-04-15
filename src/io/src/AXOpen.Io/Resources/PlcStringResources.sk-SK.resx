@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfigTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy ConfigTask.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="UpdateDiagnostics" xml:space="preserve">
+    <value>UpdateDiagnostics</value>
+  </data>
+  <data name="Hardware_ID" xml:space="preserve">
+    <value>ID hardvéru</value>
+  </data>
+  <data name="Diagnostics_return_code" xml:space="preserve">
+    <value>Návratový kód diagnostiky</value>
+  </data>
+  <data name="Diagnostics_details" xml:space="preserve">
+    <value>Podrobnosti o diagnostike</value>
+  </data>
+  <data name="Diagnostics_sub_details" xml:space="preserve">
+    <value>Dielčie podrobnosti o diagnostike</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Update_sub_diagnostics" xml:space="preserve">
+    <value>Aktualizácia čiastkovej diagnostiky</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Konfigurácia</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Dĺžka</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Údaje</value>
+  </data>
+  <data name="Read_record" xml:space="preserve">
+    <value>Prečítajte si záznam</value>
+  </data>
+  <data name="Write_record" xml:space="preserve">
+    <value>Zápis záznamu</value>
+  </data>
+  <data name="HardwareID" xml:space="preserve">
+    <value>HardwareID</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="Subordinate_state" xml:space="preserve">
+    <value>Podriadený štát</value>
+  </data>
+  <data name="GetDiagnosticsReturnCode" xml:space="preserve">
+    <value>GetDiagnosticsReturnCode</value>
+  </data>
+  <data name="Operating_DiagnosticsEnabled" xml:space="preserve">
+    <value>Zapnutá prevádzková diagnostika</value>
+  </data>
+  <data name="IO_state" xml:space="preserve">
+    <value>Stav IO</value>
+  </data>
+  <data name="Hardware_component_state" xml:space="preserve">
+    <value>Stav hardvérovej súčasti</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="IOSystem" xml:space="preserve">
+    <value>Systém IOS</value>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>Stanica</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>Modul</value>
+  </data>
+  <data name="Sub_module" xml:space="preserve">
+    <value>Podmodul</value>
+  </data>
+  <data name="Faulty_item_details" xml:space="preserve">
+    <value>Podrobnosti o chybnej položke</value>
+  </data>
+  <data name="Component_state" xml:space="preserve">
+    <value>Stav súčasti</value>
+  </data>
+  <data name="Operating_state" xml:space="preserve">
+    <value>Prevádzkový stav</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="PlcState" xml:space="preserve">
+    <value>PlcState</value>
+  </data>
+  <data name="Component_state_detail" xml:space="preserve">
+    <value>Detail stavu komponentu</value>
+  </data>
+  <data name="Subordinate_IO_state" xml:space="preserve">
+    <value>Podriadený stav IO</value>
+  </data>
+  <data name="Port__ONE_" xml:space="preserve">
+    <value>Port 1</value>
+  </data>
+  <data name="Port__TWO_" xml:space="preserve">
+    <value>Port 2</value>
+  </data>
+  <data name="Port__THREE_" xml:space="preserve">
+    <value>Port 3</value>
+  </data>
+  <data name="Port__FOUR_" xml:space="preserve">
+    <value>Prístav 4</value>
+  </data>
+  <data name="Port_C_ONE_" xml:space="preserve">
+    <value>Prístav C1</value>
+  </data>
+  <data name="Port_C_TWO_" xml:space="preserve">
+    <value>Prístav C2</value>
+  </data>
+  <data name="Port_C_THREE_" xml:space="preserve">
+    <value>Prístav C3</value>
+  </data>
+  <data name="Port_C_FOUR_" xml:space="preserve">
+    <value>Prístav C4</value>
+  </data>
+  <data name="Box_ONE_" xml:space="preserve">
+    <value>Box1</value>
+  </data>
+  <data name="Box_TWO_" xml:space="preserve">
+    <value>Box2</value>
+  </data>
+  <data name="Port_status" xml:space="preserve">
+    <value>Stav prístavu</value>
+  </data>
+</root>

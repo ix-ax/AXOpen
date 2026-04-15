@@ -10,9 +10,10 @@
     <ProjectReference Include="src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />    
     <ProjectReference Include="src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />    
     <ProjectReference Include="tests\AXOpen.Data.Exporters.ExcelTests\AXOpen.Data.Exporters.ExcelTests_L1.csproj" />    
-    <ProjectReference Include="tests\AXOpen.Data.Tests\axopen_data_tests_L1.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Data.Tests_L1\Tests_L1\axopen.data.tests_L1.csproj" />    
     <ProjectReference Include="tests\AXOpen.Repository.Integration.Tests_L1\axopen_repository_integration_tests_L1.csproj" />    
     <ProjectReference Include="tests\AXOpen.Repository.Integration.Tests_L3\axopen_repository_integration_tests_L3.csproj" />     
     <ProjectReference Include="tests\AXOpen.Repository.Integration.Tests_L4\Tests_L4\axopen.repository.integration.tests_l4.csproj" />     
+    <ProjectReference Include="tests\AXOpen.Data.Distributed.Tests_L4\Tests_L4\axopen.data.distributed.tests_l4.csproj" />     
   </ItemGroup>
 </Project>

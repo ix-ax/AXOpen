@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             DriveStopReq				:	BOOL;			//Set Drive Stop with writing deceleration value to drive
             DriveHaltReq				:	BOOL;			//Set Drive Halt with writing deceleration value to drive
             MoveVelocityReq				:	BOOL;			//Command is velocity
-            TorqueControlReq				:	BOOL;			//Command is torque
+            TorqueControlReq			:	BOOL;			//Command is torque
             Relative					:	BOOL; 			//Move relative to (last recommended) positioning command value
             Additive					:	BOOL; 			//Move additive to actual position; works only if relative possitioning active
             Position					:	LREAL;			//Target position for the motion  (negative or positive)
@@ -75,10 +75,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Error_AcyclicCommunication	:	BOOL := FALSE;  //Error                          
             ErrorID_AcyclicCommunication:   AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode;		//Error identification, ErrorCode
             ErrorIdent_AcyclicCommunication:AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct; 	//Error identification      
-            hwID                :   WORD;
-            hwIdParamCh_IDN     :   WORD;
-            hwIdInput_9_Words   :   WORD;
-            hwIdOutput_13_Words :   WORD;
+            hwIdDevice                  :   UINT;
+            hwIdParamCh_IDN             :   UINT;
+            hwID_F_ModulNotUsed         :   UINT;
+            hwIdInput_9_Words           :   UINT;
+            hwIdOutput_13_Words         :   UINT;
 
         END_VAR
 

@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_750_HandshakeAndGeneralErrorStatus : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_750_HandshakeAndGeneralErrorStatus  
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Error#>"}
             Error : BOOL;
             {#ix-set:AttributeName = "<#Result Data Available#>"}
@@ -13,6 +13,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             BufferOverflowError : BOOL;
             {#ix-set:AttributeName = "<#General Error#>"}
             GeneralError : BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

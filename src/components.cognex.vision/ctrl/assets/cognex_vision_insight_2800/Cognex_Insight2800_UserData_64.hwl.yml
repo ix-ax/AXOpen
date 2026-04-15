@@ -1,0 +1,24 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight2800_UserData_64'
+    Placeholders:
+      - Name: 'ModuleName'
+        Value: 'Slot_7'
+        AllowedValues:
+          - 'Slot_7'
+          - 'Slot_8'
+          - 'Slot_9'    
+          - 'Slot_10'    
+      - Name: 'SLOT'
+        Value: 7
+        AllowedValues:
+          - 7
+          - 8
+          - 9
+          - 10
+    Content:
+      Name: '${ModuleName}' # It would be nice to have the possibility to combine placeholders as follows: 'Slot_&${SLOT}$_UserData_64'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+        GsdId: '303'
+      Slot: ${SLOT}        

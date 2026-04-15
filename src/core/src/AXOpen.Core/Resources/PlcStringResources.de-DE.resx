@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>DIE FERNAUFGABE IST NICHT INITIALISIERT</value>
+  </data>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>NULL KONTEXT</value>
+  </data>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Aufgerufene Aufgabe</value>
+  </data>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Versuch, eine deaktivierte Aufgabe aufzurufen</value>
+  </data>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Aufgabe wiederhergestellt</value>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Aufgabe erledigt.</value>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>Aufgabe gestartet.</value>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>Aufgabe fehlgeschlagen</value>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Sequenz im Konfigurationszustand :</value>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Startet Schritt :</value>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Überprüfen Sie, ob die Schritte eindeutig und richtig konfiguriert sind.</value>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Schritt erledigt:</value>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Schritt Anfrage zu Schritt :</value>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Sequenz abgeschlossen:</value>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>Auf Schritt und Tritt:</value>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Auferstanden</value>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Vor der Anerkennung wieder auferstanden</value>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Gefallen</value>
+  </data>
+  <data name="Is_manually_controllable" xml:space="preserve">
+    <value>Ist manuell steuerbar</value>
+  </data>
+  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
+    <value>Messenger 1 - Aktivierung mit der Methode "Activate", die innerhalb der if-Anweisung aufgerufen wird</value>
+  </data>
+  <data name="RemoteTaskMessenger" xml:space="preserve">
+    <value>RemoteTaskMessenger</value>
+  </data>
+  <data name="Messenger" xml:space="preserve">
+    <value>Bote</value>
+  </data>
+  <data name="Command_state" xml:space="preserve">
+    <value>Befehlsstatus</value>
+  </data>
+  <data name="Stepping_mode" xml:space="preserve">
+    <value>Schrittweiser Betrieb</value>
+  </data>
+  <data name="Sequence_mode" xml:space="preserve">
+    <value>Sequenz-Modus</value>
+  </data>
+  <data name="Run_step" xml:space="preserve">
+    <value>Schritt ausführen</value>
+  </data>
+</root>

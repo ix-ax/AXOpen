@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Running" xml:space="preserve">
+    <value>Futás</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Üresjárat</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Időkorlátozás</value>
+  </data>
+  <data name="StepMode" xml:space="preserve">
+    <value>LÉPÉSMÓD</value>
+  </data>
+  <data name="StepModeActiveControlledByMaster" xml:space="preserve">
+    <value>STEP ÜZEMMÓD AKTÍV - A MASTER SZEKVENCIA VEZÉRLI</value>
+  </data>
+  <data name="StepModeControlledByMaster" xml:space="preserve">
+    <value>LÉPÉSES ÜZEMMÓD, AMELYET A MASTER SZEKVENCIA VEZÉREL</value>
+  </data>
+  <data name="EnterStepMode" xml:space="preserve">
+    <value>Lépéses üzemmódba lépés</value>
+  </data>
+  <data name="ExitStepMode" xml:space="preserve">
+    <value>Kilépés a lépéses üzemmódból</value>
+  </data>
+  <data name="Equipment" xml:space="preserve">
+    <value>Berendezések</value>
+  </data>
+  <data name="Raised" xml:space="preserve">
+    <value>Emelt</value>
+  </data>
+  <data name="Acknowledged" xml:space="preserve">
+    <value>Visszaigazolva</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Időtartam</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>Szimbólum</value>
+  </data>
+  <data name="HumanReadable" xml:space="preserve">
+    <value>Ember által olvasható</value>
+  </data>
+  <data name="AlarmId" xml:space="preserve">
+    <value>Riasztás azonosítója</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Javaslat</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>RESTORE</value>
+  </data>
+  <data name="RestoreButton" xml:space="preserve">
+    <value>Visszaállítás</value>
+  </data>
+  <data name="Acknowledge" xml:space="preserve">
+    <value>Visszaigazolás</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>DETAILS ELREJTÉSE</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>RÉSZLETEK MEGJELENÍTÉSE</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Részletek megtekintése</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>Feladat alaphelyzetbe állítása</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="Error_" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="SeverityMajorFault" xml:space="preserve">
+    <value>Fő hiba</value>
+  </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Rendszerhiba</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Kritikus</value>
+  </data>
+  <data name="ActiveAcknowledged" xml:space="preserve">
+    <value>Aktív - nyugtázva</value>
+  </data>
+  <data name="ActiveUnacknowledged" xml:space="preserve">
+    <value>Aktív - Nem tudomásul vett</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>Tisztázva</value>
+  </data>
+  <data name="ActiveAlarms" xml:space="preserve">
+    <value>Aktív riasztás</value>
+  </data>
+  <data name="ActiveAlarmsPlural" xml:space="preserve">
+    <value>Aktív riasztások</value>
+  </data>
+  <data name="NoAlarms" xml:space="preserve">
+    <value>Nincs riasztás</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>aktív</value>
+  </data>
+  <!-- Table Headers -->
+  <data name="Severity" xml:space="preserve">
+    <value>Súlyosság</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Műveletek</value>
+  </data>
+  <!-- UI Elements -->
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Riasztások keresése</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Cím vagy berendezés keresése</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Üzenetek frissítése</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>Nincsenek megjelenítendő riasztások.</value>
+  </data>
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+    <value>Részletek elrejtése</value>
+  </data>
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+    <value>Részletek megjelenítése</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Riasztás nyugtázása</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>NYUGT</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Nyugt</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Függőben</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Aktív · Nyugt</value>
+  </data>
+  <!-- Component Container -->
+  <data name="Alarms" xml:space="preserve">
+    <value>riasztások</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>riasztás</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Szerviz nézet váltása</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normál</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Szerviz</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>KONFIGURÁCIÓ</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>ÁLLAPOT</value>
+  </data>
+  <!-- Array Views -->
+  <data name="Data" xml:space="preserve">
+    <value>Adatok</value>
+  </data>
+  <!-- Aria Labels -->
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Súlyosság</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Riasztási kód</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Felfuggesztes konfiguracio kuldese</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas elott</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas utan</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Lepes vegrehajtasi mod</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nem talalhato lepes.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Figyelt lepesek</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nincs kivalasztott figyelt lepes.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Torespont</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Sorrend</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Leiras</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Figyeles</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Folytatas</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Eltavolitas</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Hozzaadas a figyeleshez</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Torespontok alkalmazasa</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Osszes torespont torlese</value>
+  </data>
+  <data name="SequencerTaskStateReady" xml:space="preserve">
+    <value>Kesz</value>
+  </data>
+  <data name="SequencerTaskStateKicking" xml:space="preserve">
+    <value>Inditas</value>
+  </data>
+  <data name="SequencerTaskStateBusy" xml:space="preserve">
+    <value>Folyamatban</value>
+  </data>
+  <data name="SequencerTaskStateDone" xml:space="preserve">
+    <value>Befejezve</value>
+  </data>
+  <data name="SequencerTaskStateAborted" xml:space="preserve">
+    <value>Megszakitva</value>
+  </data>
+  <data name="SequencerTaskStateError" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+</root>

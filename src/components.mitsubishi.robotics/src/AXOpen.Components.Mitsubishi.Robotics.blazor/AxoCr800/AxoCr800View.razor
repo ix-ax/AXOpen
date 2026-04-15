@@ -1,0 +1,409 @@
+@namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+@using AXOpen.Core.Blazor
+@using Operon.Components.Tab
+@inherits AxoComponentViewBase<AxoCr800>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (Component.Inputs.ServoOn.Cyclic)
+            {
+                <span class="badge badge-success">@Localizer["ServoOn"]</span>
+            }
+            else
+            {
+                <span class="badge badge-info">@Localizer["ServoOff"]</span>
+            }
+            
+            @if (Component.Inputs.Start.Cyclic)
+            {
+                <span class="badge badge-info">@Localizer["Running"]</span>
+            }
+            else if (Component.Inputs.Stop.Cyclic)
+            {
+                <span class="badge badge-warning">@Localizer["Stopped"]</span>
+            }
+            
+            @if (Component.Inputs.HighLevelError.Cyclic || Component.Inputs.LowLevelError.Cyclic)
+            {
+                <span class="badge badge-danger">@Localizer["Error"]</span>
+            }
+            else if (Component.Inputs.CautionLevelError.Cyclic)
+            {
+                <span class="badge badge-warning">@Localizer["Warning"]</span>
+            }
+            else if (Component.Inputs.EmergencyError.Cyclic)
+            {
+                <span class="badge badge-danger">@Localizer["Emergency"]</span>
+            }
+        </div>
+    </HeaderContent>
+    
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-4 w-full">
+            <!-- Main Control Tasks -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+            
+            <!-- Power and Program Tasks -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+            
+            <!-- Movement Control Tasks -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+            
+                        
+            <!-- Movement Parameters -->
+            <div class="card bg-base-200 p-4">
+                <h3 class="text-sm font-semibold mb-3">@Localizer["MovementParameters"]</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <RenderableContentControl Context="Component.MovementParameters.ActionNo" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.GlobalSpeed" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.ToolNo" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.WorkobjectNo" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.PointNo" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed1" Presentation="Control"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed2" Presentation="Control"></RenderableContentControl>
+                </div>
+                
+                <h4 class="text-sm font-semibold mt-4 mb-2">@Localizer["Coordinates"]</h4>
+                <div class="grid grid-cols-3 gap-2">
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.X" Presentation="Display"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Y" Presentation="Display"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Z" Presentation="Display"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rx" Presentation="Display"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Ry" Presentation="Display"></RenderableContentControl>
+                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rz" Presentation="Display"></RenderableContentControl>
+                </div>
+            </div>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-4 w-full">
+            <!-- Main Control Tasks Status -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>
+            
+            <!-- Power and Program Tasks Status -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>
+            
+            <!-- Movement Control Tasks Status -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>                     
+        </div>
+    </CommandsMonitorContent>
+    
+    <ConfigAndStateViewContent>       
+        <div class="w-full overflow-x-auto overflow-y-visible">
+            <Tab Class="min-w-0">
+                <!-- Robot Status -->
+                <TabPage Title="@Localizer["RobotStatus"]">
+                    <div class="card bg-base-200 p-4">
+                    <h3 class="text-sm font-semibold mb-3">@Localizer["RobotStatus"]</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.OperationEnable.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["OperationEnable"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.AutoEnable.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["AutoEnable"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.ServoOn.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["ServoOn"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Start.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Start"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Stop.Cyclic ? "badge badge-warning badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Stop"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.RcReady.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["RcReady"]</span>
+                        </div>
+                    </div>
+                </div>
+                </TabPage>
+                <!-- Error Status -->
+                <TabPage Title="@Localizer["ErrorStatus"]">
+                    <div class="card bg-base-200 p-4">
+                    <h3 class="text-sm font-semibold mb-3">@Localizer["ErrorStatus"]</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.HighLevelError.Cyclic ? "badge badge-error badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["HighLevelError"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.LowLevelError.Cyclic ? "badge badge-error badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["LowLevelError"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.CautionLevelError.Cyclic ? "badge badge-warning badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["CautionLevel"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.EmergencyError.Cyclic ? "badge badge-error badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["EmergencyError"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.BatteryLow.Cyclic ? "badge badge-warning badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["BatteryLow"]</span>
+                        </div>
+                    </div>
+                </div>
+                </TabPage>
+
+                <!-- Position and Zone Status -->
+                <TabPage Title="@Localizer["PositionAndZoneStatus"]">
+                    <div class="card bg-base-200 p-4">
+                    <h3 class="text-sm font-semibold mb-3">@Localizer["PositionAndZoneStatus"]</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <RenderableContentControl Context="Component.Inputs.Zone" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.InPosition" Presentation="Display"></RenderableContentControl>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-sm mt-2">
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.InArea_1.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["InArea1"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.InArea_2.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["InArea2"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.InPosition_1.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["InPosition1"]</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.InPosition_2.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["InPosition2"]</span>
+                        </div>
+                    </div>
+                </div>
+                </TabPage>
+            
+               
+                <!-- Current Coordinates -->
+                <TabPage Title="@Localizer["CurrentCoordinates"]">
+                    <div class="card bg-base-200 p-4">
+                    <h3 class="text-sm font-semibold mb-3">@Localizer["CurrentCoordinates"]</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.X" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.Y" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.Z" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.Rx" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.Ry" Presentation="Display"></RenderableContentControl>
+                        <RenderableContentControl Context="Component.Inputs.Coordinates.Rz" Presentation="Display"></RenderableContentControl>
+                    </div>
+                </div>
+                </TabPage>  
+            
+                <!-- Tool Status -->
+                <TabPage Title="@Localizer["ToolStatus"]">
+                    <div class="card bg-base-200 p-4">
+                    <h3 class="text-sm font-semibold mb-3">@Localizer["ToolStatus"]</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Tool_1_Extend.Cyclic ? "badge badge-success badge-xs" : Component.Inputs.Tool_1_Retract.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Tool1"] @(Component.Inputs.Tool_1_Extend.Cyclic ? Localizer["Extended"] : Component.Inputs.Tool_1_Retract.Cyclic ? Localizer["Retracted"] : Localizer["Unknown"])</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Tool_2_Extend.Cyclic ? "badge badge-success badge-xs" : Component.Inputs.Tool_2_Retract.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Tool2"] @(Component.Inputs.Tool_2_Extend.Cyclic ? Localizer["Extended"] : Component.Inputs.Tool_2_Retract.Cyclic ? Localizer["Retracted"] : Localizer["Unknown"])</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Tool_3_Extend.Cyclic ? "badge badge-success badge-xs" : Component.Inputs.Tool_3_Retract.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Tool3"] @(Component.Inputs.Tool_3_Extend.Cyclic ? Localizer["Extended"] : Component.Inputs.Tool_3_Retract.Cyclic ? Localizer["Retracted"] : Localizer["Unknown"])</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="@(Component.Inputs.Tool_4_Extend.Cyclic ? "badge badge-success badge-xs" : Component.Inputs.Tool_4_Retract.Cyclic ? "badge badge-info badge-xs" : "badge badge-neutral badge-xs")"></span>
+                            <span>@Localizer["Tool4"] @(Component.Inputs.Tool_4_Extend.Cyclic ? Localizer["Extended"] : Component.Inputs.Tool_4_Retract.Cyclic ? Localizer["Retracted"] : Localizer["Unknown"])</span>
+                        </div>
+                    </div>
+                </div>
+                </TabPage>
+            
+                <!-- Configuration -->
+                <TabPage Title="@Localizer["Configuration"]">
+                    <div class="card bg-base-200 p-4">
+                        <h3 class="text-sm font-semibold mb-3">@Localizer["Configuration"]</h3>
+                        <RenderableContentControl Context="Component.Config" Presentation="Display"></RenderableContentControl>
+                    </div>
+                </TabPage>
+                <!-- Hardware Diagnostics -->
+                <TabPage Title="@Localizer["HardwareDiagnostics"]">
+                    <div class="card bg-base-200 p-4">
+                        <h3 class="text-sm font-semibold mb-3">@Localizer["HardwareDiagnostics"]</h3>
+                        <RenderableContentControl Context="Component.HardwareDiagnosticsTask" Presentation="Display"></RenderableContentControl>
+                    </div>
+                </TabPage>
+            </Tab>
+        </div>     
+    </ConfigAndStateViewContent>
+    
+    <SpotContent>
+        <div class="robot-spot-view">
+            <button class="robot-spot-container">
+                <div class="robot-icon">
+                    <svg viewBox="0 0 64 64" class="robot-arm-svg">
+                        <!-- Robot Base -->
+                        <rect x="26" y="48" width="12" height="8" class="@GetBaseClass()" />
+                        <circle cx="32" cy="48" r="6" class="@GetJointClass()" />
+                        
+                        <!-- Robot Arm Lower -->
+                        <line x1="32" y1="48" x2="32" y2="32" class="@GetArmClass()" stroke-width="4" />
+                        <circle cx="32" cy="32" r="4" class="@GetJointClass()" />
+                        
+                        <!-- Robot Arm Upper -->
+                        <line x1="32" y1="32" x2="@(Component.Inputs.ServoOn.Cyclic ? "42" : "32")" y2="@(Component.Inputs.ServoOn.Cyclic ? "20" : "16")" class="@GetArmClass()" stroke-width="3" />
+                        <circle cx="@(Component.Inputs.ServoOn.Cyclic ? "42" : "32")" cy="@(Component.Inputs.ServoOn.Cyclic ? "20" : "16")" r="3" class="@GetJointClass()" />
+                        
+                        <!-- End Effector -->
+                        <rect x="@(Component.Inputs.ServoOn.Cyclic ? "40" : "30")" y="@(Component.Inputs.ServoOn.Cyclic ? "12" : "8")" width="4" height="6" class="@GetToolClass()" />
+                    </svg>
+                </div>
+                
+                <div class="robot-status-indicators">
+                    @if (HasError)
+                    {
+                        <span class="status-indicator error">⚠</span>
+                    }
+                    else if (Component.Inputs.ServoOn.Cyclic && Component.Inputs.Start.Cyclic)
+                    {
+                        <span class="status-indicator running">▶</span>
+                    }
+                    else if (Component.Inputs.ServoOn.Cyclic)
+                    {
+                        <span class="status-indicator ready">●</span>
+                    }
+                    else
+                    {
+                        <span class="status-indicator offline">○</span>
+                    }
+                </div>
+            </button>
+        </div>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{    
+    protected bool HasError => Component.Inputs.HighLevelError.Cyclic 
+                            || Component.Inputs.LowLevelError.Cyclic 
+                            || Component.Inputs.EmergencyError.Cyclic;
+    
+    protected bool HasWarning => Component.Inputs.CautionLevelError.Cyclic 
+                              || Component.Inputs.BatteryLow.Cyclic;
+    
+    protected bool IsRunning => Component.Inputs.ServoOn.Cyclic 
+                             && Component.Inputs.Start.Cyclic;
+    
+    protected bool IsReady => Component.Inputs.ServoOn.Cyclic 
+                           && !Component.Inputs.Start.Cyclic 
+                           && !HasError;
+
+    protected string GetBaseClass()
+    {
+        if (HasError) return "robot-part-error";
+        if (IsRunning) return "robot-part-running";
+        if (IsReady) return "robot-part-ready";
+        return "robot-part-offline";
+    }
+    
+    protected string GetJointClass()
+    {
+        if (HasError) return "robot-joint-error";
+        if (IsRunning) return "robot-joint-running";
+        if (IsReady) return "robot-joint-ready";
+        return "robot-joint-offline";
+    }
+    
+    protected string GetArmClass()
+    {
+        if (HasError) return "robot-arm-error";
+        if (IsRunning) return "robot-arm-running";
+        if (IsReady) return "robot-arm-ready";
+        return "robot-arm-offline";
+    }
+    
+    protected string GetToolClass()
+    {
+        if (HasError) return "robot-tool-error";
+        if (Component.Inputs.Tool_1_Extend.Cyclic || Component.Inputs.Tool_2_Extend.Cyclic) return "robot-tool-active";
+        if (IsReady) return "robot-tool-ready";
+        return "robot-tool-offline";
+    }
+
+    public override async void ConfigurePolling()
+    {        
+        // Poll input states
+        this.StartPolling(Component.Inputs.OperationEnable);
+        this.StartPolling(Component.Inputs.AutoEnable);
+        this.StartPolling(Component.Inputs.Start);
+        this.StartPolling(Component.Inputs.Stop);
+        this.StartPolling(Component.Inputs.ServoOn);
+        this.StartPolling(Component.Inputs.ServoOff);
+        
+        // Poll error states
+        this.StartPolling(Component.Inputs.HighLevelError);
+        this.StartPolling(Component.Inputs.LowLevelError);
+        this.StartPolling(Component.Inputs.CautionLevelError);
+        this.StartPolling(Component.Inputs.EmergencyError);
+        this.StartPolling(Component.Inputs.ErrorReset);
+        this.StartPolling(Component.Inputs.BatteryLow);
+        this.StartPolling(Component.Inputs.RcReady);
+        
+        // Poll position and zone states
+        this.StartPolling(Component.Inputs.Zone);
+        this.StartPolling(Component.Inputs.InPosition);
+        this.StartPolling(Component.Inputs.InArea_1);
+        this.StartPolling(Component.Inputs.InArea_2);
+        this.StartPolling(Component.Inputs.InPosition_1);
+        this.StartPolling(Component.Inputs.InPosition_2);
+        
+        // Poll tool states
+        this.StartPolling(Component.Inputs.Tool_1_Retract);
+        this.StartPolling(Component.Inputs.Tool_1_Extend);
+        this.StartPolling(Component.Inputs.Tool_2_Retract);
+        this.StartPolling(Component.Inputs.Tool_2_Extend);
+        this.StartPolling(Component.Inputs.Tool_3_Retract);
+        this.StartPolling(Component.Inputs.Tool_3_Extend);
+        this.StartPolling(Component.Inputs.Tool_4_Retract);
+        this.StartPolling(Component.Inputs.Tool_4_Extend);
+        
+        // Poll coordinates
+        this.StartPolling(Component.Inputs.Coordinates.X);
+        this.StartPolling(Component.Inputs.Coordinates.Y);
+        this.StartPolling(Component.Inputs.Coordinates.Z);
+        this.StartPolling(Component.Inputs.Coordinates.Rx);
+        this.StartPolling(Component.Inputs.Coordinates.Ry);
+        this.StartPolling(Component.Inputs.Coordinates.Rz);
+        
+        // Poll task statuses
+        this.StartPolling(Component.RestoreTask.Status);
+        this.StartPolling(Component.StartAtMainTask.Status);
+        this.StartPolling(Component.StartMotorsAndProgramTask.Status);
+        this.StartPolling(Component.StopMovementsTask.Status);
+        this.StartPolling(Component.StopMovementsAndProgramTask.Status);
+        this.StartPolling(Component.StartMovementsTask.Status);
+    }
+}

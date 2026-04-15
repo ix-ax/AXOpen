@@ -19,7 +19,7 @@ namespace AXOpen.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class PlcStringResources {
@@ -61,11 +61,56 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to At step:.
+        /// </summary>
+        public static string At_step_COLON_ {
+            get {
+                return ResourceManager.GetString("At_step_COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attempt to invoke disabled task.
+        /// </summary>
+        public static string Attempt_to_invoke_disabled_task {
+            get {
+                return ResourceManager.GetString("Attempt_to_invoke_disabled_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check that steps are unique and properly configured..
+        /// </summary>
+        public static string Check_that_steps_are_unique_and_properly_configured_DOT_ {
+            get {
+                return ResourceManager.GetString("Check_that_steps_are_unique_and_properly_configured_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Command state.
         /// </summary>
         public static string Command_state {
             get {
                 return ResourceManager.GetString("Command_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CyclicExecuteIsNotCalled.
+        /// </summary>
+        public static string CyclicExecuteIsNotCalled {
+            get {
+                return ResourceManager.GetString("CyclicExecuteIsNotCalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fallen.
+        /// </summary>
+        public static string Fallen {
+            get {
+                return ResourceManager.GetString("Fallen", resourceCulture);
             }
         }
         
@@ -79,11 +124,93 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Messenger.
+        /// </summary>
+        public static string Messenger {
+            get {
+                return ResourceManager.GetString("Messenger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Messenger 1 - activate using &apos;Activate&apos; method called inside the if statement.
+        /// </summary>
+        public static string Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement {
+            get {
+                return ResourceManager.GetString("Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_cal" +
+                        "led_inside_the_if_statement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MultipleExecuteIsCalled.
+        /// </summary>
+        public static string MultipleExecuteIsCalled {
+            get {
+                return ResourceManager.GetString("MultipleExecuteIsCalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NULL CONTEXT.
+        /// </summary>
+        public static string NULL_CONTEXT {
+            get {
+                return ResourceManager.GetString("NULL_CONTEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RemoteTaskMessenger.
+        /// </summary>
+        public static string RemoteTaskMessenger {
+            get {
+                return ResourceManager.GetString("RemoteTaskMessenger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Risen.
+        /// </summary>
+        public static string Risen {
+            get {
+                return ResourceManager.GetString("Risen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Risen again before acknowledgement.
+        /// </summary>
+        public static string Risen_again_before_acknowledgement {
+            get {
+                return ResourceManager.GetString("Risen_again_before_acknowledgement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run step.
         /// </summary>
         public static string Run_step {
             get {
                 return ResourceManager.GetString("Run_step", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence completed :.
+        /// </summary>
+        public static string Sequence_completed__COLON_ {
+            get {
+                return ResourceManager.GetString("Sequence_completed__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence in config state :.
+        /// </summary>
+        public static string Sequence_in_config_state__COLON_ {
+            get {
+                return ResourceManager.GetString("Sequence_in_config_state__COLON_", resourceCulture);
             }
         }
         
@@ -97,11 +224,92 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Starts step :.
+        /// </summary>
+        public static string Starts_step__COLON_ {
+            get {
+                return ResourceManager.GetString("Starts_step__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step done :.
+        /// </summary>
+        public static string Step_done__COLON_ {
+            get {
+                return ResourceManager.GetString("Step_done__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step request to step :.
+        /// </summary>
+        public static string Step_request_to_step__COLON_ {
+            get {
+                return ResourceManager.GetString("Step_request_to_step__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stepping mode.
         /// </summary>
         public static string Stepping_mode {
             get {
                 return ResourceManager.GetString("Stepping_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task done..
+        /// </summary>
+        public static string Task_done_DOT_ {
+            get {
+                return ResourceManager.GetString("Task_done_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task failed.
+        /// </summary>
+        public static string Task_failed {
+            get {
+                return ResourceManager.GetString("Task_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task invoked.
+        /// </summary>
+        public static string Task_invoked {
+            get {
+                return ResourceManager.GetString("Task_invoked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task restored.
+        /// </summary>
+        public static string Task_restored {
+            get {
+                return ResourceManager.GetString("Task_restored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task started..
+        /// </summary>
+        public static string Task_started_DOT_ {
+            get {
+                return ResourceManager.GetString("Task_started_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE REMOTE TASK IS NOT INITIALIZED.
+        /// </summary>
+        public static string THE_REMOTE_TASK_IS_NOT_INITIALIZED {
+            get {
+                return ResourceManager.GetString("THE_REMOTE_TASK_IS_NOT_INITIALIZED", resourceCulture);
             }
         }
     }

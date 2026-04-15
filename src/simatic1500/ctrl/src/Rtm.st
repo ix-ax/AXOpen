@@ -1,4 +1,4 @@
-USING Siemens.Simatic.S71500.Clocks;
+USING Siemens.Simatic.Clocks;
 USING System.Timer;
 NAMESPACE AXOpen.S71500
     {S7.extern=ReadWrite}

@@ -1,4 +1,4 @@
-﻿namespace Tests_L4
+namespace Tests_L4
 {
     using AXOpen.Data;
     using System;
@@ -19,155 +19,126 @@
         protected IAxoDataExchange Exchange { get; set; }
 
         [Fact]
-        public void ContainsInitialRecords()
+        public void should_contain_initial_records()
         {
             Assert.Equal(10, Exchange.GetRecords("").Count());
         }
 
         [Fact]
-        public void ContainsInitialRecords_fragmentQuery()
+        public void should_contain_initial_records_fragment_query()
         {
             Assert.Equal(10, Exchange.Repository.FilteredCount(new PredicateContainer()));
         }
 
         [Fact]
-        public void should_return_entities_from_framgents()
+        public void should_return_entities_from_fragments()
         {
-            var pc = new PredicateContainer();
+            var predicateContainer = new PredicateContainer();
 
-            pc.AddPredicates<HeaderData>(p => (p.vInt > 3 && p.vInt <= 8));
-            pc.AddPredicates<StationData>(p => (p.vInt > 5 && p.vInt <= 7));
+            predicateContainer.AddPredicates<HeaderData>(p => (p.vInt > 3 && p.vInt <= 8));
+            predicateContainer.AddPredicates<StationData>(p => (p.vInt > 5 && p.vInt <= 7));
 
+            var headerPredicates = predicateContainer.GetPredicates<HeaderData>();
+            var stationPredicates = predicateContainer.GetPredicates<StationData>();
 
-            var headerProdicates = pc.GetPredicates<HeaderData>();
-            var stationProdicates = pc.GetPredicates<StationData>();
+            IEnumerable<string> headerEntityIds = Fixture.RepositoryHeader.GetEntityIds(predicateContainer);
+            IEnumerable<string> stationEntityIds = Fixture.RepositoryStation.GetEntityIds(predicateContainer);
 
-            IEnumerable<string> resultHeader = Fixture.RepositoryHeader.GetEntityIds(pc);
-            IEnumerable<string> resultStation = Fixture.RepositoryStation.GetEntityIds(pc);
+            var records = Exchange.GetRecords(predicateContainer, 1000, 0).ToList();
 
-            var result = Exchange.GetRecords(pc, 1000, 0).ToList();
+            Assert.Equal(2, records.Count());
 
-            Assert.Equal(2, result.Count());
-
-            Assert.Equal("7", result[0].DataEntityId);
-            Assert.Equal("6", result[1].DataEntityId);
+            Assert.Equal("7", records[0]._EntityId);
+            Assert.Equal("6", records[1]._EntityId);
         }
 
         [Fact]
-        public void should_return_entities_from_framgents_string()
+        public void should_return_entities_from_fragments_string()
         {
-            var pc = new PredicateContainer();
+            var predicateContainer = new PredicateContainer();
 
-            pc.AddPredicates<HeaderData>(p => (p.vString.Contains("odd 4")));
-            pc.AddPredicates<HeaderData>(p => (p.vInt == 4));
-            pc.AddPredicates<StationData>(p => (p.vInt == 4));
+            predicateContainer.AddPredicates<HeaderData>(p => (p.vString.Contains("odd 4")));
+            predicateContainer.AddPredicates<HeaderData>(p => (p.vInt == 4));
+            predicateContainer.AddPredicates<StationData>(p => (p.vInt == 4));
 
-            var result = Exchange.GetRecords(pc, 1000, 0).ToList();
+            var records = Exchange.GetRecords(predicateContainer, 1000, 0).ToList();
 
-            Assert.Equal(1, result.Count());
+            Assert.Equal(1, records.Count());
 
-            Assert.Equal("4", result[0].DataEntityId);
+            Assert.Equal("4", records[0]._EntityId);
         }
 
         [Fact]
-        public void should_return_entities_count_framgents_query()
+        public void should_return_entities_count_fragments_query()
         {
-            var pc = new PredicateContainer();
+            var predicateContainer = new PredicateContainer();
 
-            pc.AddPredicates<HeaderData>(p => (p.vString.Contains("odd")));
-            pc.AddPredicates<StationData>(p => (p.vInt >= 4) && (p.vInt <= 8));
+            predicateContainer.AddPredicates<HeaderData>(p => (p.vString.Contains("odd")));
+            predicateContainer.AddPredicates<StationData>(p => (p.vInt >= 4) && (p.vInt <= 8));
 
-            var result = Exchange.GetRecords(pc, 100, 0).ToList();
+            var records = Exchange.GetRecords(predicateContainer, 100, 0).ToList();
 
-            Assert.Equal(3, result.Count);
+            Assert.Equal(3, records.Count);
             Assert.Equal(3, Exchange.LastFragmentQueryCount);
         }
 
         [Fact]
         public void should_create_symbol_list()
         {
-            var plains = Exchange.GetPlainTypes();
+            var plainTypes = Exchange.GetPlainTypes();
 
-            var plainBuilder_Header = new PlainSymbolBuilder(plains.First());
-            var plainBuilder_Station = new PlainSymbolBuilder(plains.Last());
+            var headerPlainSymbolBuilder  = new PlainSymbolBuilder(plainTypes.First());
+            var stationPlainSymbolBuilder = new PlainSymbolBuilder(plainTypes.Last());
 
-            var result_header = plainBuilder_Header.GetSymbols().ToList();
-            var result_Station = plainBuilder_Station.GetSymbols().ToList();
+            var symbolPaths = headerPlainSymbolBuilder.GetSymbolPaths()
+                                .Concat(stationPlainSymbolBuilder.GetSymbolPaths())
+                                .ToList();
 
-            List<string> result = new();
+            Assert.Equal(15, symbolPaths.Count);
 
-            foreach (var symbol in result_header)
-            {
-                result.Add(symbol);
-            }
+            // HeaderData members
+            Assert.Equal("vString",   symbolPaths[0]);
+            Assert.Equal("vInt",      symbolPaths[1]);
+            Assert.Equal("vBool",     symbolPaths[2]);
+            Assert.Equal("ModifiedAt",symbolPaths[3]);
+            Assert.Equal("CreatedAt", symbolPaths[4]);
+            Assert.Equal("_EntityId", symbolPaths[5]);
 
-            foreach (var symbol in result_Station)
-            {
-                result.Add(symbol);
-            }
-
-            Assert.Equal(11, result.Count());
-
-            Assert.Equal("HeaderData.vString", result[0]);
-            Assert.Equal("HeaderData.vInt", result[1]);
-            Assert.Equal("HeaderData.vBool", result[2]);
-            Assert.Equal("HeaderData.DataEntityId", result[3]);
-            Assert.Equal("StationData.vString", result[4]);
-            Assert.Equal("StationData.vInt", result[5]);
-            Assert.Equal("StationData.vBool", result[6]);
-            Assert.Equal("StationData.NestObj.vString", result[7]);
-            Assert.Equal("StationData.NestObj.vInt", result[8]);
-            Assert.Equal("StationData.NestObj.vBool", result[9]);
-            Assert.Equal("StationData.DataEntityId", result[10]);
+            // StationData members
+            Assert.Equal("vString",         symbolPaths[6]);
+            Assert.Equal("vInt",            symbolPaths[7]);
+            Assert.Equal("vBool",           symbolPaths[8]);
+            Assert.Equal("NestObj.vString", symbolPaths[9]);
+            Assert.Equal("NestObj.vInt",    symbolPaths[10]);
+            Assert.Equal("NestObj.vBool",   symbolPaths[11]);
+            Assert.Equal("ModifiedAt",      symbolPaths[12]);
+            Assert.Equal("CreatedAt",       symbolPaths[13]);
+            Assert.Equal("_EntityId",       symbolPaths[14]);
         }
 
         [Fact]
-        public void should_build_lambda_from_symbol()
+        public void should_build_lambda_from_symbols()
         {
-            var plains = Exchange.GetPlainTypes();
+            var plainTypes = Exchange.GetPlainTypes();
 
-            Type plainTypeHeader = plains.First();
-            Type plainTypeStation = plains.Last();
+            string headerSymbolPath = "vString";
 
-            string varNameHeader = "vString";
-            Type requiredSymbolTypeHeader = typeof(string);
+            string stationSymbolPath = "NestObj.vString";
 
-            string varNameStation = "NestObj.vString";
-            Type requiredSymbolTypeStation = typeof(string);
+            var headerPlainSymbolBuilder = new PlainSymbolBuilder(plainTypes.First()); // header
+            var stationPlainSymbolBuilder = new PlainSymbolBuilder(plainTypes.Last()); // station
 
-            string requiredSymbolNameHeader = $"{plainTypeHeader.Name}.{varNameHeader}";
-            string requiredSymbolNameStation = $"{plainTypeStation.Name}.{varNameStation}";
+            Assert.Equal(typeof(Pocos.FragmentExchange_Test_L4.HeaderData).FullName, headerPlainSymbolBuilder.RootTypeName);
+            Assert.Equal(typeof(Pocos.FragmentExchange_Test_L4.StationData).FullName, stationPlainSymbolBuilder.RootTypeName);
 
-            var plainSymbolBuilder_header = new PlainSymbolBuilder(plainTypeHeader);
-            var plainSymbolBuilder_station = new PlainSymbolBuilder(plainTypeStation);
+            var predicateContainer = new PredicateContainer();
+            var headerLambda = PredicateBuilder.BuildLambdaPredicate(headerPlainSymbolBuilder.RootType, headerSymbolPath, "Contains", "even", "");
+            var stationLambda = PredicateBuilder.BuildLambdaPredicate(stationPlainSymbolBuilder.RootType, stationSymbolPath, "EndsWith", "2", "");
 
-            List<string> symbols = new();
+            predicateContainer.AddPredicates(headerPlainSymbolBuilder.RootType, headerLambda);
+            predicateContainer.AddPredicates(stationPlainSymbolBuilder.RootType, stationLambda);
 
-            symbols.AddRange(plainSymbolBuilder_header.GetSymbols());
-            symbols.AddRange(plainSymbolBuilder_station.GetSymbols());
-
-            Assert.Equal(11, symbols.Count());
-
-            var acquiredSymbolHeader = plainSymbolBuilder_header.GetSymbols().Where(p => p == requiredSymbolNameHeader).First(); //SharedHeader.vString"
-            var acquiredSymbolStation = plainSymbolBuilder_station.GetSymbols().Where(p => p == requiredSymbolNameStation).First(); //SharedHeader.vString"
-
-            Assert.Equal(requiredSymbolNameHeader, acquiredSymbolHeader);
-            Assert.Equal(requiredSymbolNameStation, acquiredSymbolStation);
-
-            var acquiredSymbolTypeHeader = plainSymbolBuilder_header.GetSymbolType(acquiredSymbolHeader);
-            var acquiredSymbolTypeStation = plainSymbolBuilder_station.GetSymbolType(acquiredSymbolStation);
-
-            Assert.Equal(requiredSymbolTypeHeader.FullName, acquiredSymbolTypeHeader.FullName);
-            Assert.Equal(requiredSymbolTypeStation.FullName, acquiredSymbolTypeStation.FullName);
-
-            var pc = new PredicateContainer();
-            var lambdaHeader = PredicateBuilder.BuildLambdaPredicate(plainSymbolBuilder_header.RootType, varNameHeader, "Contains", "odd", "");
-            var lambdaStation = PredicateBuilder.BuildLambdaPredicate(plainSymbolBuilder_station.RootType, varNameHeader, "EndsWith", "2", "");
-
-            pc.AddPredicates(plainSymbolBuilder_header.RootType, lambdaHeader);
-            pc.AddPredicates(plainSymbolBuilder_station.RootType, lambdaStation);
-
-            var records = Exchange.GetRecords(pc, 100, 0);
+            var records = Exchange.GetRecords(predicateContainer, 100, 0);
 
             Assert.Equal(1, records.Count());
         }

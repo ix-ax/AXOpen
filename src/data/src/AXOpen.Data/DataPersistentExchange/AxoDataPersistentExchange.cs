@@ -58,16 +58,16 @@ namespace AXOpen.Data
         /// <returns>Returns true if the read operation is successful; otherwise, false.</returns>
         private async Task<bool> ReadTagsFromPlc(string group)
         {
-            var tagsToRead = tagsInGroups[group];
-            if (tagsToRead != null)
+            if (tagsInGroups.ContainsKey(group))
             {
-                await _root.GetConnector().ReadBatchAsync(tagsToRead);
-                return true;
+                var tagsToRead = tagsInGroups[group];
+                if (tagsToRead != null)
+                {
+                    await _root.GetConnector().ReadBatchAsync(tagsToRead);
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
@@ -92,26 +92,13 @@ namespace AXOpen.Data
         /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
         public async Task<bool> WritePersistentGroupFromRepository(string group)
         {
+            if (!tagsInGroups.ContainsKey(group)) return false; // group not exist 
+
             var recordFromRepo = _Repository.Read(group);
 
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
 
-            foreach (var tagFromRepo in recordFromRepo.Tags)
-            {
-                var ConnectedTags = allTags.Where(p => p.Symbol == tagFromRepo.Symbol);
-
-                if (!ConnectedTags.Any()) continue;
-
-                var ConnectedTag = ConnectedTags.First();
-
-                if (ConnectedTag == null) continue;
-
-#pragma warning disable CS0612
-                ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
-#pragma warning restore CS0612
-
-                tagsToWrite.Add(ConnectedTag);
-            }
+            AddTagsFromRecordToWrittenList(tagsToWrite, recordFromRepo);
 
             await WriteTags(tagsToWrite);
             return true;
@@ -136,18 +123,20 @@ namespace AXOpen.Data
 
         private void AddTagsFromRecordToWrittenList(List<ITwinPrimitive> tagsToWrite, PersistentRecord recordFromRepo)
         {
+            var groupTags = tagsInGroups[recordFromRepo._EntityId];
+
             foreach (var tagFromRepo in recordFromRepo.Tags)
             {
-                var ConnectedTags = allTags.Where(p => p.Symbol == tagFromRepo.Symbol);
+                var ConnectedTags = groupTags.Where(p => p.Symbol == tagFromRepo.Symbol);
 
                 if (!ConnectedTags.Any()) continue;
 
                 var ConnectedTag = ConnectedTags.First();
 
                 if (ConnectedTag == null) continue;
-
+#pragma warning disable CS0612
                 ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
-
+#pragma warning restore CS0612
                 tagsToWrite.Add(ConnectedTag);
             }
         }
@@ -159,6 +148,8 @@ namespace AXOpen.Data
         /// <returns>Returns true if the update operation is successful; otherwise, false.</returns>
         public async Task<bool> UpdatePersistentGroupFromPlcToRepository(string persistentGroupName)
         {
+            if (!tagsInGroups.ContainsKey(persistentGroupName)) return false; // group not exist 
+
             await ReadTagsFromPlc(persistentGroupName);
 
             return UpdateReadedTagsToRepository(persistentGroupName);
@@ -166,10 +157,11 @@ namespace AXOpen.Data
 
         private bool UpdateReadedTagsToRepository(string persistentGroupName)
         {
+            if (!tagsInGroups.ContainsKey(persistentGroupName)) return false; // group not exist 
+
             var primitivesTagsInGroup = tagsInGroups[persistentGroupName];
 
-            if (primitivesTagsInGroup == null)
-                return false;
+            if (primitivesTagsInGroup == null) return false;
 
             List<TagObject> NewTagValues = new List<TagObject>();
 
@@ -227,7 +219,7 @@ namespace AXOpen.Data
             {
                 _Repository.Create(persistentGroupName, new PersistentRecord()
                 {
-                    DataEntityId = persistentGroupName,
+                    _EntityId = persistentGroupName,
                     Tags = NewTagValues,
                     _Modified = DateTime.Now,
                     _Created = DateTime.Now,
@@ -278,7 +270,7 @@ namespace AXOpen.Data
         public async Task InitializeRemoteDataExchange()
         {
             Operation.InitializeExclusively(Handle);
-            //await this.WriteAsync();
+            await this.Operation.WriteAsync();
         }
 
         /// <summary>
@@ -287,14 +279,14 @@ namespace AXOpen.Data
         public async Task DeInitializeRemoteDataExchange()
         {
             Operation.DeInitialize();
-            //await this.WriteAsync();
+            await this.Operation.WriteAsync();
         }
 
         private async Task Handle()
         {
             await Operation.ReadAsync();
             var operation = (ePersistentOperation)Operation.CrudOperation.LastValue;
-            var identifier = Operation.DataEntityIdentifier.LastValue;
+            var identifier = Operation._EntityId.LastValue;
             if (string.IsNullOrEmpty(identifier))
             {
                 identifier = DEFAULT_IDENTIFIER; // default persistent group

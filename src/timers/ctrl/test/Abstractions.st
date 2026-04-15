@@ -34,6 +34,17 @@ NAMESPACE AXOpen.Timers_tests
             END_VAR 
             ;           
         END_METHOD
+    
+        METHOD PUBLIC Log
+            VAR_INPUT
+                _message : STRING[80];
+                _level : eLogLevel;
+                _sender : IAxoObject;
+                _messageCode : ULINT;
+            END_VAR
+
+            ;
+        END_METHOD
     END_CLASS    
 
     {S7.extern=ReadWrite}
@@ -107,6 +118,18 @@ NAMESPACE AXOpen.Timers_tests
     
         METHOD PUBLIC IsValid : BOOL
             IsValid := TRUE;
+        END_METHOD
+    
+        METHOD PUBLIC InjectMessengerService
+            VAR_INPUT
+                inMessengerService : IAxoMessagingServices;
+            END_VAR
+
+            ;
+        END_METHOD
+    
+        METHOD PUBLIC GetMessengerService : IAxoMessagingServices
+            ;
         END_METHOD
     END_CLASS      
 END_NAMESPACE

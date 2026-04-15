@@ -7,3 +7,4 @@ NAMESPACE AXOpen.Core
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

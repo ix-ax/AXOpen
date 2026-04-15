@@ -1,0 +1,46 @@
+Templates:
+  Submodules:
+  - Name: 'balluff_bni00l3_port_deactivated'
+    Placeholders:
+      - Name: 'SubmoduleName'
+        Value: 'X01'
+        AllowedValues:
+          - 'X01'   
+          - 'X02'
+          - 'X03'
+          - 'X04'    
+          - 'X05'   
+          - 'X06'
+          - 'X07'
+          - 'X08'    
+      - Name: 'Slot'
+        Value: 2
+        AllowedValues:
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+    Content:
+      Name: '${SubmoduleName}'
+      Slot: '${Slot}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+        GsdId: 'IDS_IOL_INACTIVE'
+        # Parameters:
+        # RecordDataList:
+        # - IndexName: 'Port configuration'
+        #   Values:
+              #   - OffsetName: 'Enable port diagnosis'
+              #     Value: False
+              #   - OffsetName: 'Enable process alarms (Enable Notifications)'
+        #     Value: False
+        #   - OffsetName: 'Enable input fraction (Disable PD size check)'
+        #     Value: False
+        #   - OffsetName: 'Enable Pull/Plug'
+        #     Value: False
+        #   - OffsetName: 'Port mode'
+        #     ValueName: 'Deactivated'

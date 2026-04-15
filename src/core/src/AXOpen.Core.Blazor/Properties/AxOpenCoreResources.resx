@@ -58,4 +58,272 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <!-- Task/Sequencer Status -->
+  <data name="Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="StepMode" xml:space="preserve">
+    <value>STEP MODE</value>
+  </data>
+  <data name="StepModeActiveControlledByMaster" xml:space="preserve">
+    <value>STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE</value>
+  </data>
+  <data name="StepModeControlledByMaster" xml:space="preserve">
+    <value>STEP MODE CONTROLLED BY MASTER SEQUENCE</value>
+  </data>
+  <data name="EnterStepMode" xml:space="preserve">
+    <value>Enter step mode</value>
+  </data>
+  <data name="ExitStepMode" xml:space="preserve">
+    <value>Exit step mode</value>
+  </data>
+  <!-- Messenger/Alarm Labels -->
+  <data name="Equipment" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
+  <data name="Raised" xml:space="preserve">
+    <value>Raised</value>
+  </data>
+  <data name="Acknowledged" xml:space="preserve">
+    <value>Acknowledged</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="HumanReadable" xml:space="preserve">
+    <value>Human Readable</value>
+  </data>
+  <data name="AlarmId" xml:space="preserve">
+    <value>Alarm ID</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>RESTORE</value>
+  </data>
+  <data name="RestoreButton" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="Acknowledge" xml:space="preserve">
+    <value>Acknowledge</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>HIDE DETAILS</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>SHOW DETAILS</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>View Details</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>Reset task</value>
+  </data>
+  <!-- Severity Names -->
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Error_" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="SeverityMajorFault" xml:space="preserve">
+    <value>Major Fault</value>
+  </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System Error</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Critical</value>
+  </data>
+  <!-- State Labels -->
+  <data name="ActiveAcknowledged" xml:space="preserve">
+    <value>Active · Acknowledged</value>
+  </data>
+  <data name="ActiveUnacknowledged" xml:space="preserve">
+    <value>Active · Unacknowledged</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>Cleared</value>
+  </data>
+  <!-- Component View -->
+  <data name="ActiveAlarms" xml:space="preserve">
+    <value>Active Alarm</value>
+  </data>
+  <data name="ActiveAlarmsPlural" xml:space="preserve">
+    <value>Active Alarms</value>
+  </data>
+  <data name="NoAlarms" xml:space="preserve">
+    <value>No Alarms</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <!-- Table Headers -->
+  <data name="Severity" xml:space="preserve">
+    <value>Severity</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <!-- UI Elements -->
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Search alarms</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Search title or equipment</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Refresh messages</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>No alarms to display.</value>
+  </data>
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+    <value>Hide details</value>
+  </data>
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+    <value>Show details</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Acknowledge alarm</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>ACKN</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Ack</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Active · Ack</value>
+  </data>
+  <!-- Component Container -->
+  <data name="Alarms" xml:space="preserve">
+    <value>alarms</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>alarm</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Toggle service view</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>CONFIGURATION</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>STATE</value>
+  </data>
+  <!-- Array Views -->
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <!-- Aria Labels -->
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Severity</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Alarm code</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Send suspend configuration</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Suspend before execution</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Suspend after execution</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Step execution mode</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>No steps found.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitored steps</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>No monitored steps selected.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Breakpoint</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Desc</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Add to monitor</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Apply breakpoints</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Clear all breakpoints</value>
+  </data>
+  <data name="SequencerTaskStateReady" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="SequencerTaskStateKicking" xml:space="preserve">
+    <value>Kicking</value>
+  </data>
+  <data name="SequencerTaskStateBusy" xml:space="preserve">
+    <value>Busy</value>
+  </data>
+  <data name="SequencerTaskStateDone" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="SequencerTaskStateAborted" xml:space="preserve">
+    <value>Aborted</value>
+  </data>
+  <data name="SequencerTaskStateError" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

@@ -1,0 +1,168 @@
+Templates:
+  Devices:
+    - Name: 'Cognex_Insight2800'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'cognex_insight_2800'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'cognex_insight_2800'
+        - Name: 'USER_DATA_SLOT_7'
+          Value: 'Cognex_Insight2800_UserData_128'
+          AllowedValues:
+            - 'Cognex_Insight2800_UserData_16'
+            - 'Cognex_Insight2800_UserData_32'
+            - 'Cognex_Insight2800_UserData_64'
+            - 'Cognex_Insight2800_UserData_128'
+            - 'Cognex_Insight2800_UserData_254'
+        - Name: 'USER_DATA_SLOT_8'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_UserData_16'
+            - 'Cognex_Insight2800_UserData_32'
+            - 'Cognex_Insight2800_UserData_64'
+            - 'Cognex_Insight2800_UserData_128'
+            - 'Cognex_Insight2800_UserData_254'
+        - Name: 'USER_DATA_SLOT_9'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_UserData_16'
+            - 'Cognex_Insight2800_UserData_32'
+            - 'Cognex_Insight2800_UserData_64'
+            - 'Cognex_Insight2800_UserData_128'
+            - 'Cognex_Insight2800_UserData_254'
+        - Name: 'USER_DATA_SLOT_10'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_UserData_16'
+            - 'Cognex_Insight2800_UserData_32'
+            - 'Cognex_Insight2800_UserData_64'
+            - 'Cognex_Insight2800_UserData_128'
+            - 'Cognex_Insight2800_UserData_254'
+        - Name: 'RESULT_DATA_SLOT_11'
+          Value: 'Cognex_Insight2800_ResultData_128'
+          AllowedValues:
+            - 'Cognex_Insight2800_ResultData_16'
+            - 'Cognex_Insight2800_ResultData_32'
+            - 'Cognex_Insight2800_ResultData_64'
+            - 'Cognex_Insight2800_ResultData_128'
+            - 'Cognex_Insight2800_ResultData_250'
+        - Name: 'RESULT_DATA_SLOT_12'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_ResultDataAdd_16'
+            - 'Cognex_Insight2800_ResultDataAdd_32'
+            - 'Cognex_Insight2800_ResultDataAdd_64'
+            - 'Cognex_Insight2800_ResultDataAdd_128'
+            - 'Cognex_Insight2800_ResultDataAdd_250'
+        - Name: 'RESULT_DATA_SLOT_13'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_ResultDataAdd_16'
+            - 'Cognex_Insight2800_ResultDataAdd_32'
+            - 'Cognex_Insight2800_ResultDataAdd_64'
+            - 'Cognex_Insight2800_ResultDataAdd_128'
+            - 'Cognex_Insight2800_ResultDataAdd_250'
+        - Name: 'RESULT_DATA_SLOT_14'
+          Value: 'Cognex_Insight2800_empty_slot'
+          AllowedValues:
+            - 'Cognex_Insight2800_empty_slot'
+            - 'Cognex_Insight2800_ResultDataAdd_16'
+            - 'Cognex_Insight2800_ResultDataAdd_32'
+            - 'Cognex_Insight2800_ResultDataAdd_64'
+            - 'Cognex_Insight2800_ResultDataAdd_128'
+            - 'Cognex_Insight2800_ResultDataAdd_250'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+              GsdId: 'DAP1'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 30 - 30
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                # PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: 'Slot_1' #Acquisition_Control
+            TypeIdentifier:
+              GsdId: '101'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+            Slot: 1
+          - Name: 'Slot_2' #Acquisition_Status
+            TypeIdentifier:
+              GsdId: '204'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+            Slot: 2
+          - Name: 'Slot_3' #Inspection_Control
+            TypeIdentifier:
+              GsdId: '102'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+            Slot: 3
+          - Name: 'Slot_4' #Inspection_Status
+            TypeIdentifier:
+              GsdId: '203'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+            Slot: 4
+          - Name: 'Slot_5' #Command_Control
+            TypeIdentifier:
+              GsdId: '108'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+            Slot: 5
+          - Name: 'Slot_6' #SoftEvent_Control
+            TypeIdentifier:
+              GsdId: '106'
+              FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'  
+            Slot: 6
+          - Apply: ${USER_DATA_SLOT_7}
+            Arguments:
+              ModuleName: 'Slot_7'
+              SLOT: 7
+          - Apply: ${USER_DATA_SLOT_8}
+            Arguments:
+              ModuleName: 'Slot_8'
+              SLOT: 8
+          - Apply: ${USER_DATA_SLOT_9}
+            Arguments:
+              ModuleName: 'Slot_9'
+              SLOT: 9
+          - Apply: ${USER_DATA_SLOT_10}
+            Arguments:
+              ModuleName: 'Slot_10'
+              SLOT: 10
+          - Apply: ${RESULT_DATA_SLOT_11}
+          - Apply: ${RESULT_DATA_SLOT_12}
+            Arguments:
+              ModuleName: 'Slot_12'
+              SLOT: 12
+          - Apply: ${RESULT_DATA_SLOT_13}
+            Arguments:
+              ModuleName: 'Slot_13'
+              SLOT: 13
+          - Apply: ${RESULT_DATA_SLOT_14}
+            Arguments:
+              ModuleName: 'Slot_14'
+              SLOT: 14

@@ -1,0 +1,121 @@
+﻿@namespace AXOpen.Components.Pneumatics
+@using AXOpen.Core.Blazor
+@inherits AxoComponentViewBase<AxoCylinder>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (IsInInnerPosition)
+            {
+                <span class="badge badge-success">@Component.InLabel</span>
+            }
+            else if (IsInOuterPosition)
+            {
+                <span class="badge badge-info">@Component.OutLabel</span>
+            }
+            else if (IsMoving)
+            {
+                <span class="badge badge-warning">@Localizer["Moving"]</span>
+            }
+            else
+            {
+                <span class="badge badge-primary">---</span>
+            }
+        </div>
+    </HeaderContent>
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["Stop"]" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["Stop"]" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>
+        </div>
+    </CommandsMonitorContent>
+    <ConfigAndStateViewContent>
+    </ConfigAndStateViewContent>
+    <SpotContent>        
+          <div class="self-center">
+                <button>
+                    <div class="flex flex-col gap-4 p-4 rounded-lg w-full">
+                        <!-- Cylinder Visual -->
+                        <div class="flex items-center gap-4 w-full">
+                            <!-- Inner Position with Label on Left -->
+                            <div class="flex items-center gap-2 flex-shrink-0">
+                                <span class="text-xs font-medium text-text/70">@Component.InLabel</span>
+                                <div class="sensor-indicator @(IsInInnerPosition ? "active bg-success text-success" : "bg-border/30 text-border")"></div>
+                            </div>
+
+                            <!-- Pneumatic Cylinder Assembly -->
+                            <div class="pneumatic-cylinder @(IsMoving ? "cylinder-moving" : "") flex-1">
+                                <!-- Movement Direction Indicator -->
+                                @if (Component.MoveInSignal.Cyclic)
+                                {
+                                    <div class="direction-indicator text-warning">◄</div>
+                                }
+                                @if (Component.MoveOutSignal.Cyclic)
+                                {
+                                    <div class="direction-indicator text-warning">►</div>
+                                }
+
+                                <!-- Left End Cap -->
+                                <div class="cylinder-cap rounded-l-md flex-shrink-0" style="width: 0.75rem; height: 3rem;"></div>
+
+                                <!-- Cylinder Barrel -->
+                                <div class="cylinder-barrel flex-1" style="min-width: 8rem; height: 2.5rem; position: relative;">
+                                    <!-- Piston Rod -->
+                                    <div class="piston-rod" style="height: 0.5rem; width: @(IsInOuterPosition ? "100%" : IsInInnerPosition ? "10%" : "50%");"></div>
+
+                                    <!-- Piston -->
+                                    <div class="piston" style="width: 2rem; height: 2rem; left: @(IsInOuterPosition ? "calc(100% - 2rem)" : IsInInnerPosition ? "0" : "calc(50% - 1rem)");">
+                                    </div>
+                                </div>
+
+                                <!-- Right End Cap -->
+                                <div class="cylinder-cap rounded-r-md flex-shrink-0" style="width: 0.75rem; height: 3rem;"></div>
+                            </div>
+
+                            <!-- Outer Position with Label on Right -->
+                            <div class="flex items-center gap-2 flex-shrink-0">
+                                <div class="sensor-indicator @(IsInOuterPosition ? "active bg-info text-info" : "bg-border/30 text-border")"></div>
+                                <span class="text-xs font-medium text-text/70">@Component.OutLabel</span>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{    
+    protected bool IsInInnerPosition => Component.InSensor.Cyclic && !Component.OutSensor.Cyclic;
+    protected bool IsInOuterPosition => Component.OutSensor.Cyclic && !Component.InSensor.Cyclic;
+    protected bool IsMoving => Component.MoveInSignal.Cyclic || Component.MoveOutSignal.Cyclic;
+
+    public override async void ConfigurePolling()
+    {        
+        // Poll sensor states
+        this.StartPolling(Component.InSensor);
+        this.StartPolling(Component.OutSensor);
+
+        // Poll signal states
+        this.StartPolling(Component.MoveInSignal);
+        this.StartPolling(Component.MoveOutSignal);
+
+        // Poll task statuses
+        this.StartPolling(Component._MoveOutTask.Status);
+        this.StartPolling(Component._MoveInTask.Status);
+        this.StartPolling(Component._StopTask.Status);                
+    }
+}

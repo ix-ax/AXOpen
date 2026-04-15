@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Running" xml:space="preserve">
+    <value>Bieganie</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Bezczynność</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Limit czasu</value>
+  </data>
+  <data name="StepMode" xml:space="preserve">
+    <value>TRYB KROKOWY</value>
+  </data>
+  <data name="StepModeActiveControlledByMaster" xml:space="preserve">
+    <value>AKTYWNY TRYB KROKOWY - KONTROLOWANY PRZEZ SEKWENCJĘ NADRZĘDNĄ</value>
+  </data>
+  <data name="StepModeControlledByMaster" xml:space="preserve">
+    <value>TRYB KROKOWY KONTROLOWANY PRZEZ SEKWENCJĘ GŁÓWNĄ</value>
+  </data>
+  <data name="EnterStepMode" xml:space="preserve">
+    <value>Wejście w tryb krokowy</value>
+  </data>
+  <data name="ExitStepMode" xml:space="preserve">
+    <value>Wyjście z trybu krokowego</value>
+  </data>
+  <data name="Equipment" xml:space="preserve">
+    <value>Sprzęt</value>
+  </data>
+  <data name="Raised" xml:space="preserve">
+    <value>Podniesiony</value>
+  </data>
+  <data name="Acknowledged" xml:space="preserve">
+    <value>Potwierdzam</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Czas trwania</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="HumanReadable" xml:space="preserve">
+    <value>Czytelny dla człowieka</value>
+  </data>
+  <data name="AlarmId" xml:space="preserve">
+    <value>Identyfikator alarmu</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Sugestia</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>PRZYWRÓĆ</value>
+  </data>
+  <data name="RestoreButton" xml:space="preserve">
+    <value>Przywracanie</value>
+  </data>
+  <data name="Acknowledge" xml:space="preserve">
+    <value>Potwierdzenie</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>UKRYJ SZCZEGÓŁY</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>SZCZEGÓŁY POKAZU</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Wyświetl szczegóły</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>Resetowanie zadania</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Ostrzeżenie</value>
+  </data>
+  <data name="Error_" xml:space="preserve">
+    <value>Usterka</value>
+  </data>
+  <data name="SeverityMajorFault" xml:space="preserve">
+    <value>Główny błąd</value>
+  </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Błąd systemu</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Krytyczny</value>
+  </data>
+  <data name="ActiveAcknowledged" xml:space="preserve">
+    <value>Aktywny - Potwierdzony</value>
+  </data>
+  <data name="ActiveUnacknowledged" xml:space="preserve">
+    <value>Aktywny - Niepotwierdzony</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>Wyczyszczony</value>
+  </data>
+  <data name="ActiveAlarms" xml:space="preserve">
+    <value>Aktywny alarm</value>
+  </data>
+  <data name="ActiveAlarmsPlural" xml:space="preserve">
+    <value>Aktywne alarmy</value>
+  </data>
+  <data name="NoAlarms" xml:space="preserve">
+    <value>Brak alarmów</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>aktywny</value>
+  </data>
+  <!-- Table Headers -->
+  <data name="Severity" xml:space="preserve">
+    <value>Ważność</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Stan</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Działania</value>
+  </data>
+  <!-- UI Elements -->
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Szukaj alarmów</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Wyszukaj tytuł lub sprzęt</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Odśwież</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Odśwież wiadomości</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>Brak alarmów do wyświetlenia.</value>
+  </data>
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+    <value>Ukryj szczegóły</value>
+  </data>
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+    <value>Pokaż szczegóły</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Potwierdź alarm</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>POTW</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Potw</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Oczekujący</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Aktywny · Potw</value>
+  </data>
+  <!-- Component Container -->
+  <data name="Alarms" xml:space="preserve">
+    <value>alarmy</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>alarm</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Przełącz widok serwisowy</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normalny</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Serwis</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>KONFIGURACJA</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>STAN</value>
+  </data>
+  <!-- Array Views -->
+  <data name="Data" xml:space="preserve">
+    <value>Dane</value>
+  </data>
+  <!-- Aria Labels -->
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Ważność</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Kod alarmu</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Wyslij konfiguracje zawieszenia</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Zawies przed wykonaniem</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Zawies po wykonaniu</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Tryb wykonania kroku</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nie znaleziono krokow.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitorowane kroki</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nie wybrano monitorowanych krokow.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Punkt przerwania</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Kolejnosc</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitoruj</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Kontynuuj</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Usun</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Dodaj do monitorowanych</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Zastosuj punkty przerwania</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Wyczysc wszystkie punkty przerwania</value>
+  </data>
+  <data name="SequencerTaskStateReady" xml:space="preserve">
+    <value>Gotowy</value>
+  </data>
+  <data name="SequencerTaskStateKicking" xml:space="preserve">
+    <value>Uruchamianie</value>
+  </data>
+  <data name="SequencerTaskStateBusy" xml:space="preserve">
+    <value>W trakcie</value>
+  </data>
+  <data name="SequencerTaskStateDone" xml:space="preserve">
+    <value>Zakonczono</value>
+  </data>
+  <data name="SequencerTaskStateAborted" xml:space="preserve">
+    <value>Przerwano</value>
+  </data>
+  <data name="SequencerTaskStateError" xml:space="preserve">
+    <value>Blad</value>
+  </data>
+</root>

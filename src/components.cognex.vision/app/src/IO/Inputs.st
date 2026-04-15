@@ -3,250 +3,103 @@ NAMESPACE AXOpen.Components.Cognex.Vision
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-            dm_280_Acquisition_Status_0 AT %B1685:  BYTE;
-            dm_280_Acquisition_Status_1 AT %B1686:  BYTE;
-            dm_280_Acquisition_Status_2 AT %B1687:  BYTE;
-            dm_280_Result_Data_128_bytes_0 AT %B1548:  LWORD;
-            dm_280_Result_Data_128_bytes_1 AT %B1556:  LWORD;
-            dm_280_Result_Data_128_bytes_2 AT %B1564:  LWORD;
-            dm_280_Result_Data_128_bytes_3 AT %B1572:  LWORD;
-            dm_280_Result_Data_128_bytes_4 AT %B1580:  LWORD;
-            dm_280_Result_Data_128_bytes_5 AT %B1588:  LWORD;
-            dm_280_Result_Data_128_bytes_6 AT %B1596:  LWORD;
-            dm_280_Result_Data_128_bytes_7 AT %B1604:  LWORD;
-            dm_280_Result_Data_128_bytes_8 AT %B1612:  LWORD;
-            dm_280_Result_Data_128_bytes_9 AT %B1620:  LWORD;
-            dm_280_Result_Data_128_bytes_10 AT %B1628:  LWORD;
-            dm_280_Result_Data_128_bytes_11 AT %B1636:  LWORD;
-            dm_280_Result_Data_128_bytes_12 AT %B1644:  LWORD;
-            dm_280_Result_Data_128_bytes_13 AT %B1652:  LWORD;
-            dm_280_Result_Data_128_bytes_14 AT %B1660:  LWORD;
-            dm_280_Result_Data_128_bytes_15 AT %B1668:  LWORD;
-            dm_280_Result_Data_128_bytes_16 AT %B1676:  LWORD;
-            dm_280_Results_Status AT %B1684:  BYTE;
-            dm_280_Soft_Event_Control AT %B1688:  BYTE;
-            dm_300_Acquisition_Status_0 AT %B1544:  BYTE;
-            dm_300_Acquisition_Status_1 AT %B1545:  BYTE;
-            dm_300_Acquisition_Status_2 AT %B1546:  BYTE;
-            dm_300_Result_Data_64_bytes_0 AT %B1471:  LWORD;
-            dm_300_Result_Data_64_bytes_1 AT %B1479:  LWORD;
-            dm_300_Result_Data_64_bytes_2 AT %B1487:  LWORD;
-            dm_300_Result_Data_64_bytes_3 AT %B1495:  LWORD;
-            dm_300_Result_Data_64_bytes_4 AT %B1503:  LWORD;
-            dm_300_Result_Data_64_bytes_5 AT %B1511:  LWORD;
-            dm_300_Result_Data_64_bytes_6 AT %B1519:  LWORD;
-            dm_300_Result_Data_64_bytes_7 AT %B1527:  LWORD;
-            dm_300_Result_Data_64_bytes_8 AT %B1535:  LWORD;
-            dm_300_Results_Status AT %B1543:  BYTE;
-            dm_300_Soft_Event_Control AT %B1547:  BYTE;
-            is2800_Acquisition_Status AT %B1380:  DWORD;
-            is2800_Command_Control AT %B1388:  DWORD;
-            is2800_Inspection_Status AT %B1384:  DWORD;
-            is2800_Result_Data_64_bytes_0 AT %B1312:  DWORD;
-            is2800_Result_Data_64_bytes_1 AT %B1316:  DWORD;
-            is2800_Result_Data_64_bytes_2 AT %B1320:  DWORD;
-            is2800_Result_Data_64_bytes_3 AT %B1324:  DWORD;
-            is2800_Result_Data_64_bytes_4 AT %B1328:  DWORD;
-            is2800_Result_Data_64_bytes_5 AT %B1332:  DWORD;
-            is2800_Result_Data_64_bytes_6 AT %B1336:  DWORD;
-            is2800_Result_Data_64_bytes_7 AT %B1340:  DWORD;
-            is2800_Result_Data_64_bytes_8 AT %B1344:  DWORD;
-            is2800_Result_Data_64_bytes_9 AT %B1348:  DWORD;
-            is2800_Result_Data_64_bytes_10 AT %B1352:  DWORD;
-            is2800_Result_Data_64_bytes_11 AT %B1356:  DWORD;
-            is2800_Result_Data_64_bytes_12 AT %B1360:  DWORD;
-            is2800_Result_Data_64_bytes_13 AT %B1364:  DWORD;
-            is2800_Result_Data_64_bytes_14 AT %B1368:  DWORD;
-            is2800_Result_Data_64_bytes_15 AT %B1372:  DWORD;
-            is2800_Result_Data_64_bytes_16 AT %B1376:  DWORD;
-            is2800_SoftEvent_Control AT %B1392:  BYTE;
-            is7600_Acquisition_Status_0 AT %B1465:  BYTE;
-            is7600_Acquisition_Status_1 AT %B1466:  BYTE;
-            is7600_Acquisition_Status_2 AT %B1467:  BYTE;
-            is7600_Command_Control AT %B1468:  WORD;
-            is7600_Inspection_Status AT %B1461:  DWORD;
-            is7600_Result_Data_64_bytes_0 AT %B1393:  DWORD;
-            is7600_Result_Data_64_bytes_1 AT %B1397:  DWORD;
-            is7600_Result_Data_64_bytes_2 AT %B1401:  DWORD;
-            is7600_Result_Data_64_bytes_3 AT %B1405:  DWORD;
-            is7600_Result_Data_64_bytes_4 AT %B1409:  DWORD;
-            is7600_Result_Data_64_bytes_5 AT %B1413:  DWORD;
-            is7600_Result_Data_64_bytes_6 AT %B1417:  DWORD;
-            is7600_Result_Data_64_bytes_7 AT %B1421:  DWORD;
-            is7600_Result_Data_64_bytes_8 AT %B1425:  DWORD;
-            is7600_Result_Data_64_bytes_9 AT %B1429:  DWORD;
-            is7600_Result_Data_64_bytes_10 AT %B1433:  DWORD;
-            is7600_Result_Data_64_bytes_11 AT %B1437:  DWORD;
-            is7600_Result_Data_64_bytes_12 AT %B1441:  DWORD;
-            is7600_Result_Data_64_bytes_13 AT %B1445:  DWORD;
-            is7600_Result_Data_64_bytes_14 AT %B1449:  DWORD;
-            is7600_Result_Data_64_bytes_15 AT %B1453:  DWORD;
-            is7600_Result_Data_64_bytes_16 AT %B1457:  DWORD;
-            is7600_SoftEvent_Control AT %B1470:  BYTE;
-            vision_pro_Engine_Control_1 AT %B1288:  LWORD;
-            vision_pro_Engine_Control_2 AT %B1280:  LWORD;
-            vision_pro_Engine_Control_3 AT %B1272:  LWORD;
-            vision_pro_Engine_Control_4 AT %B1264:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_0 AT %B1024:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_1 AT %B1032:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_2 AT %B1040:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_3 AT %B1048:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_4 AT %B1056:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_5 AT %B1064:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_6 AT %B1072:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_7 AT %B1080:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_8 AT %B1088:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_9 AT %B1096:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_10 AT %B1104:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_11 AT %B1112:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_12 AT %B1120:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_13 AT %B1128:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_14 AT %B1136:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_15 AT %B1144:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_16 AT %B1152:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_17 AT %B1160:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_18 AT %B1168:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_19 AT %B1176:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_20 AT %B1184:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_21 AT %B1192:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_22 AT %B1200:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_23 AT %B1208:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_24 AT %B1216:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_25 AT %B1224:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_26 AT %B1232:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_27 AT %B1240:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_28 AT %B1248:  LWORD;
-            vision_pro_Result_Data_240_bytes_1_29 AT %B1256:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_0 AT %B784:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_1 AT %B792:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_2 AT %B800:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_3 AT %B808:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_4 AT %B816:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_5 AT %B824:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_6 AT %B832:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_7 AT %B840:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_8 AT %B848:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_9 AT %B856:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_10 AT %B864:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_11 AT %B872:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_12 AT %B880:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_13 AT %B888:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_14 AT %B896:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_15 AT %B904:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_16 AT %B912:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_17 AT %B920:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_18 AT %B928:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_19 AT %B936:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_20 AT %B944:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_21 AT %B952:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_22 AT %B960:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_23 AT %B968:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_24 AT %B976:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_25 AT %B984:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_26 AT %B992:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_27 AT %B1000:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_28 AT %B1008:  LWORD;
-            vision_pro_Result_Data_240_bytes_2_29 AT %B1016:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_0 AT %B544:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_1 AT %B552:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_2 AT %B560:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_3 AT %B568:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_4 AT %B576:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_5 AT %B584:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_6 AT %B592:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_7 AT %B600:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_8 AT %B608:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_9 AT %B616:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_10 AT %B624:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_11 AT %B632:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_12 AT %B640:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_13 AT %B648:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_14 AT %B656:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_15 AT %B664:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_16 AT %B672:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_17 AT %B680:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_18 AT %B688:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_19 AT %B696:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_20 AT %B704:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_21 AT %B712:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_22 AT %B720:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_23 AT %B728:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_24 AT %B736:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_25 AT %B744:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_26 AT %B752:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_27 AT %B760:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_28 AT %B768:  LWORD;
-            vision_pro_Result_Data_240_bytes_3_29 AT %B776:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_0 AT %B304:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_1 AT %B312:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_2 AT %B320:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_3 AT %B328:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_4 AT %B336:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_5 AT %B344:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_6 AT %B352:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_7 AT %B360:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_8 AT %B368:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_9 AT %B376:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_10 AT %B384:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_11 AT %B392:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_12 AT %B400:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_13 AT %B408:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_14 AT %B416:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_15 AT %B424:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_16 AT %B432:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_17 AT %B440:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_18 AT %B448:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_19 AT %B456:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_20 AT %B464:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_21 AT %B472:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_22 AT %B480:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_23 AT %B488:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_24 AT %B496:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_25 AT %B504:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_26 AT %B512:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_27 AT %B520:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_28 AT %B528:  LWORD;
-            vision_pro_Result_Data_240_bytes_4_29 AT %B536:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_0 AT %B64:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_1 AT %B72:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_2 AT %B80:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_3 AT %B88:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_4 AT %B96:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_5 AT %B104:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_6 AT %B112:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_7 AT %B120:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_8 AT %B128:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_9 AT %B136:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_10 AT %B144:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_11 AT %B152:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_12 AT %B160:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_13 AT %B168:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_14 AT %B176:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_15 AT %B184:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_16 AT %B192:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_17 AT %B200:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_18 AT %B208:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_19 AT %B216:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_20 AT %B224:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_21 AT %B232:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_22 AT %B240:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_23 AT %B248:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_24 AT %B256:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_25 AT %B264:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_26 AT %B272:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_27 AT %B280:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_28 AT %B288:  LWORD;
-            vision_pro_Result_Data_240_bytes_5_29 AT %B296:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_0 AT %B0:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_1 AT %B8:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_2 AT %B16:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_3 AT %B24:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_4 AT %B32:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_5 AT %B40:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_6 AT %B48:  LWORD;
-            vision_pro_Result_Data_64_bytes_1_7 AT %B56:  LWORD;
-            vision_pro_System_Control_0 AT %B1296:  LWORD;
-            vision_pro_System_Control_1 AT %B1304:  LWORD;
+	        // Module cognex_dataman_280/Acquisition_Status
+	        cognex_dataman_280_Acquisition_Status_Input AT %B2607 : cognex_dataman_280_Acquisition_Status_Input_Layout;
+
+	        // Module cognex_dataman_280/ResultData_128
+	        cognex_dataman_280_ResultData_128_Input AT %B2470 : cognex_dataman_280_ResultData_128_Input_Layout;
+
+	        // Module cognex_dataman_280/Results_Status
+	        cognex_dataman_280_Results_Status_Input AT %B2606 : cognex_dataman_280_Results_Status_Input_Layout;
+
+	        // Module cognex_dataman_280/Soft_Event_Control
+	        cognex_dataman_280_Soft_Event_Control_Input AT %B2610 : cognex_dataman_280_Soft_Event_Control_Input_Layout;
+
+	        // Module cognex_dataman_380/Acquisition_Status
+	        cognex_dataman_380_Acquisition_Status_Input AT %B2466 : cognex_dataman_380_Acquisition_Status_Input_Layout;
+
+	        // Module cognex_dataman_380/ResultData_128
+	        cognex_dataman_380_ResultData_128_Input AT %B2329 : cognex_dataman_380_ResultData_128_Input_Layout;
+
+	        // Module cognex_dataman_380/Results_Status
+	        cognex_dataman_380_Results_Status_Input AT %B2465 : cognex_dataman_380_Results_Status_Input_Layout;
+
+	        // Module cognex_dataman_380/Soft_Event_Control
+	        cognex_dataman_380_Soft_Event_Control_Input AT %B2469 : cognex_dataman_380_Soft_Event_Control_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_11_ResultData_250
+	        cognex_insight_2800_Slot_11_ResultData_250_Input AT %B2062 : cognex_insight_2800_Slot_11_ResultData_250_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_12
+	        cognex_insight_2800_Slot_12_Input AT %B1812 : cognex_insight_2800_Slot_12_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_13
+	        cognex_insight_2800_Slot_13_Input AT %B1562 : cognex_insight_2800_Slot_13_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_14
+	        cognex_insight_2800_Slot_14_Input AT %B1312 : cognex_insight_2800_Slot_14_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_2
+	        cognex_insight_2800_Slot_2_Input AT %B2316 : cognex_insight_2800_Slot_2_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_4
+	        cognex_insight_2800_Slot_4_Input AT %B2320 : cognex_insight_2800_Slot_4_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_5
+	        cognex_insight_2800_Slot_5_Input AT %B2324 : cognex_insight_2800_Slot_5_Input_Layout;
+
+	        // Module cognex_insight_2800/Slot_6
+	        cognex_insight_2800_Slot_6_Input AT %B2328 : cognex_insight_2800_Slot_6_Input_Layout;
+
+	        // Module cognex_insight_7600/Acquisition_Status
+	        cognex_insight_7600_Acquisition_Status_Input AT %B2747 : cognex_insight_7600_Acquisition_Status_Input_Layout;
+
+	        // Module cognex_insight_7600/Command_Control
+	        cognex_insight_7600_Command_Control_Input AT %B2750 : cognex_insight_7600_Command_Control_Input_Layout;
+
+	        // Module cognex_insight_7600/Inspection_Status
+	        cognex_insight_7600_Inspection_Status_Input AT %B2743 : cognex_insight_7600_Inspection_Status_Input_Layout;
+
+	        // Module cognex_insight_7600/ResultData_128
+	        cognex_insight_7600_ResultData_128_Input AT %B2611 : cognex_insight_7600_ResultData_128_Input_Layout;
+
+	        // Module cognex_insight_7600/SoftEvent_Control
+	        cognex_insight_7600_SoftEvent_Control_Input AT %B2752 : cognex_insight_7600_SoftEvent_Control_Input_Layout;
+
+	        // Module vision_pro/Engine_Control_1
+	        vision_pro_Engine_Control_1_Input AT %B1288 : vision_pro_Engine_Control_1_Input_Layout;
+
+	        // Module vision_pro/Engine_Control_2
+	        vision_pro_Engine_Control_2_Input AT %B1280 : vision_pro_Engine_Control_2_Input_Layout;
+
+	        // Module vision_pro/Engine_Control_3
+	        vision_pro_Engine_Control_3_Input AT %B1272 : vision_pro_Engine_Control_3_Input_Layout;
+
+	        // Module vision_pro/Engine_Control_4
+	        vision_pro_Engine_Control_4_Input AT %B1264 : vision_pro_Engine_Control_4_Input_Layout;
+
+	        // Module vision_pro/Result_Data_240_bytes_1
+	        vision_pro_Result_Data_240_bytes_1_Input AT %B1024 : vision_pro_Result_Data_240_bytes_1_Input_Layout;
+
+	        // Module vision_pro/Result_Data_240_bytes_2
+	        vision_pro_Result_Data_240_bytes_2_Input AT %B784 : vision_pro_Result_Data_240_bytes_2_Input_Layout;
+
+	        // Module vision_pro/Result_Data_240_bytes_3
+	        vision_pro_Result_Data_240_bytes_3_Input AT %B544 : vision_pro_Result_Data_240_bytes_3_Input_Layout;
+
+	        // Module vision_pro/Result_Data_240_bytes_4
+	        vision_pro_Result_Data_240_bytes_4_Input AT %B304 : vision_pro_Result_Data_240_bytes_4_Input_Layout;
+
+	        // Module vision_pro/Result_Data_240_bytes_5
+	        vision_pro_Result_Data_240_bytes_5_Input AT %B64 : vision_pro_Result_Data_240_bytes_5_Input_Layout;
+
+	        // Module vision_pro/Result_Data_64_bytes_1
+	        vision_pro_Result_Data_64_bytes_1_Input AT %B0 : vision_pro_Result_Data_64_bytes_1_Input_Layout;
+
+	        // Module vision_pro/System_Control
+	        vision_pro_System_Control_Input AT %B1296 : vision_pro_System_Control_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

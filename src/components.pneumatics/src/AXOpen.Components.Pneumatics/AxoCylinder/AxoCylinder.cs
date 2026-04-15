@@ -23,15 +23,15 @@ namespace AXOpen.Components.Pneumatics
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0, new AxoMessengerTextItem("  ", "  ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1, new AxoMessengerTextItem("Movement to work position did not succeed.", "Check the cyclinder that it is free to move, air pressure input and extremity sensor.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(2, new AxoMessengerTextItem("Movement to home position did not succeed.", "Check the cyclinder that it is free to move, air pressure input and extremity sensor.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(3, new AxoMessengerTextItem("Home and work position sensors are both active at the same time.", "Check the positions of the sensors.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(4, new AxoMessengerTextItem("Movement to work position is temporarily suspended.", "Check the blocking condition.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(5, new AxoMessengerTextItem("Movement to home position is temporarily suspended.", "Check the blocking condition.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(6, new AxoMessengerTextItem("Movement to work position is aborted.", "Check the blocking condition.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(7, new AxoMessengerTextItem("Movement to home position is aborted.", "Check the blocking condition.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(8, new AxoMessengerTextItem("Movement to home position overshot the extremity sensor.", "Check the sensor position.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(9, new AxoMessengerTextItem("Movement to work position overshot the extremity sensor.", "Check the sensor position.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1, new AxoMessengerTextItem(() => $"Movement position `{this.OutLabel}` did not succeed.", "Check that cylinder is free to move, check the air pressure, and extremity sensor.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(2, new AxoMessengerTextItem(() => $"Movement  position `{this.InLabel}` did not succeed.", "Check that cylinder is free to move, check the air pressure, and extremity sensor.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(3, new AxoMessengerTextItem("Both extremity sensors are active at the same time.", "Check the positions of the sensors.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(4, new AxoMessengerTextItem(() => $"Movement to position `{this.OutLabel}` is temporarily suspended.", "Check the blocking condition.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(5, new AxoMessengerTextItem(() => $"Movement to position `{this.InLabel}` is temporarily suspended.", "Check the blocking condition.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(6, new AxoMessengerTextItem(() => $"Movement position `{this.OutLabel}` is aborted.", "Check the blocking condition.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(7, new AxoMessengerTextItem(() => $"Movement position `{this.InLabel}` is aborted.", "Check the blocking condition.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(8, new AxoMessengerTextItem(() => $"Movement position `{this.InLabel}` overshot the extremity sensor.", "Check the sensor position.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(9, new AxoMessengerTextItem(() => $"Movement  position `{this.OutLabel}` overshot the extremity sensor.", "Check the sensor position.")),
             };
 
             _Messenger.DotNetMessengerTextList = messengerTextList;

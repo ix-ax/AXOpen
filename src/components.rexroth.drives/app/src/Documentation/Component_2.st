@@ -21,17 +21,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 CtrlXdrive.ActivateManualControl();
             END_IF;   
             //<Initialization>        
-            CtrlXdrive.Run(parent               :=  THIS,
-                            hwID                :=  HwIdentifiers#AxoCtrlxDriveXsc_HwID,
+            CtrlXdrive.Run(inParent               :=  THIS,
+                            hwID                :=  HwIdentifiers#rexroth_ctrlx_drive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);

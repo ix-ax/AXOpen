@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         VAR PUBLIC
             _manualControl : BOOL;
             {#ix-attr:[Container(Layout.Stack)]}
-            _testRobot : AXOpen.Components.Mitsubishi.Robotics.AxoCr800_v_1_x_x;
+            _testRobot : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800;
             _rootObject :   AxoObject;
         END_VAR
 
@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 _testRobot.ActivateManualControl();
             END_IF;   
 
-            _testRobot.Run(parent := _rootObject, hwID := HwIdentifiers#TZ535_PN_HwID);
+            _testRobot.Run(inParent := _rootObject, hwID := HwIdentifiers#mitsubishi_tz535_robot_HwID);
 
         END_METHOD
     END_CLASS

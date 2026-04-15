@@ -1221,14 +1221,14 @@ NAMESPACE AXOpen.Components.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent          :   IAxoObject; 
+                inParent          :   IAxoObject; 
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 RETURN;
             END_IF;
 
@@ -1236,7 +1236,7 @@ NAMESPACE AXOpen.Components.Drives
                 RETURN;
             END_IF;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             THIS.UpdateInputs(AxisRef);
             THIS.Execute(AxisRef,Enable,EnablePositive,EnableNegative);
@@ -1253,7 +1253,7 @@ NAMESPACE AXOpen.Components.Drives
             END_VAR
 
             //*************RESTORE**********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
@@ -1311,7 +1311,7 @@ NAMESPACE AXOpen.Components.Drives
 
             IF AxoHalt_Task.IsBusy() THEN
                 AxoHalt_Task.DoneWhen(AxoHalt_Done);
-                AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('MC_Halt has thrown an error: ', ToString(AxoHalt_ErrorID)));
+                AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('<#MC_Halt has thrown an error: #>', ToString(AxoHalt_ErrorID)));
                 IF AxoHalt_CommandAborted THEN
                     AxoHalt_Task.Abort();
                 END_IF;
@@ -1366,7 +1366,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoHome_Deceleration    :=  _AxoHome_Deceleration;
                 END_IF;
                 AxoHome_Task.DoneWhen(AxoHome_Done);
-                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('MC_Home has thrown an error: ', ToString(AxoHome_ErrorID)));
+                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('<#MC_Home has thrown an error: #>', ToString(AxoHome_ErrorID)));
                 IF AxoHome_CommandAborted THEN
                     AxoHome_Task.Abort();
                 END_IF;
@@ -1410,7 +1410,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAbsolute_Direction           :=  _AxoMoveAbsolute_Direction;
                 END_IF;
                 AxoMoveAbsolute_Task.DoneWhen(AxoMoveAbsolute_Done);
-                AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('MC_MoveAbsolute has thrown an error: ', ToString(AxoMoveAbsolute_ErrorID)));
+                AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('<#MC_MoveAbsolute has thrown an error: #>', ToString(AxoMoveAbsolute_ErrorID)));
                 IF AxoMoveAbsolute_CommandAborted THEN
                     AxoMoveAbsolute_Task.Abort();
                 END_IF;
@@ -1452,7 +1452,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveRelative_Jerk                :=  _AxoMoveRelative_Jerk;
                 END_IF;
                 AxoMoveRelative_Task.DoneWhen(AxoMoveRelative_Done);
-                AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('MC_MoveRelative has thrown an error: ', ToString(AxoMoveRelative_ErrorID)));
+                AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('<#MC_MoveRelative has thrown an error: #>', ToString(AxoMoveRelative_ErrorID)));
                 IF AxoMoveRelative_CommandAborted THEN
                     AxoMoveRelative_Task.Abort();
                 END_IF;
@@ -1494,7 +1494,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAdditive_Jerk                :=  _AxoMoveAdditive_Jerk;
                 END_IF;
                 AxoMoveAdditive_Task.DoneWhen(AxoMoveAdditive_Done);
-                AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('MC_MoveAdditive has thrown an error: ', ToString(AxoMoveAdditive_ErrorID)));
+                AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('<#MC_MoveAdditive has thrown an error: #>', ToString(AxoMoveAdditive_ErrorID)));
                 IF AxoMoveAdditive_CommandAborted THEN
                     AxoMoveAdditive_Task.Abort();
                 END_IF;
@@ -1538,7 +1538,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveVelocity_Direction           :=  _AxoMoveVelocity_Direction;
                 END_IF;
                 AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity AND NOT _AxoMoveVelocity_ContinuousUpdate);
-                AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('MC_MoveVelocity has thrown an error: ', ToString(AxoMoveVelocity_ErrorID)));
+                AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('<#MC_MoveVelocity has thrown an error: #>', ToString(AxoMoveVelocity_ErrorID)));
                 IF AxoMoveVelocity_CommandAborted THEN
                     AxoMoveVelocity_Task.Abort();
                 END_IF;
@@ -1585,7 +1585,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoTorqueControl_Direction          :=  _AxoTorqueControl_Direction;
                 END_IF;
                 AxoTorqueControl_Task.DoneWhen(AxoTorqueControl_InTorque AND NOT _AxoTorqueControl_ContinuousUpdate);
-                AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('MC_TorqueControl has thrown an error: ', ToString(AxoTorqueControl_ErrorID)));
+                AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('<#MC_TorqueControl has thrown an error: #>', ToString(AxoTorqueControl_ErrorID)));
                 IF AxoTorqueControl_CommandAborted THEN
                     AxoTorqueControl_Task.Abort();
                 END_IF;
@@ -1617,7 +1617,7 @@ NAMESPACE AXOpen.Components.Drives
 
             IF AxoSetPosition_Task.IsBusy() THEN
                 AxoSetPosition_Task.DoneWhen(AxoSetPosition_Done);
-                AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('MC_SetPosition has thrown an error: ', ToString(AxoSetPosition_ErrorID)));
+                AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('<#MC_SetPosition has thrown an error: #>', ToString(AxoSetPosition_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1699,7 +1699,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteParameter_ErrorID);
             IF AxoWriteParameter_Task.IsBusy() THEN
                 AxoWriteParameter_Task.DoneWhen(AxoWriteParameter_Done);
-                AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('MC_WriteParameter has thrown an error: ', ToString(AxoWriteParameter_ErrorID)));
+                AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('<#MC_WriteParameter has thrown an error: #>', ToString(AxoWriteParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1716,7 +1716,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteRealParameter_ErrorID);
             IF AxoWriteRealParameter_Task.IsBusy() THEN
                 AxoWriteRealParameter_Task.DoneWhen(AxoWriteRealParameter_Done);
-                AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('MC_WriteRealParameter has thrown an error: ', ToString(AxoWriteRealParameter_ErrorID)));
+                AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('<#MC_WriteRealParameter has thrown an error: #>', ToString(AxoWriteRealParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1733,7 +1733,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteBoolParameter_ErrorID);
             IF AxoWriteBoolParameter_Task.IsBusy() THEN
                 AxoWriteBoolParameter_Task.DoneWhen(AxoWriteBoolParameter_Done);
-                AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('MC_WriteBoolParameter has thrown an error: ', ToString(AxoWriteBoolParameter_ErrorID)));
+                AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('<#MC_WriteBoolParameter has thrown an error: #>', ToString(AxoWriteBoolParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1784,7 +1784,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteDigitalOutput_ErrorID);
             IF AxoWriteDigitalOutput_Task.IsBusy() THEN
                 AxoWriteDigitalOutput_Task.DoneWhen(AxoWriteDigitalOutput_Done);
-                AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('MC_WriteDigitalOutput has thrown an error: ', ToString(AxoWriteDigitalOutput_ErrorID)));
+                AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('<#MC_WriteDigitalOutput has thrown an error: #>', ToString(AxoWriteDigitalOutput_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1950,7 +1950,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReset_ErrorID);
             IF AxoReset_Task.IsBusy() THEN
                 AxoReset_Task.DoneWhen(AxoReset_Done);
-                AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('MC_Reset has thrown an error: ', ToString(AxoReset_ErrorID)));
+                AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('<#MC_Reset has thrown an error: #>', ToString(AxoReset_ErrorID)));
             END_IF;
             //******************************************
 
@@ -3908,7 +3908,7 @@ NAMESPACE AXOpen.Components.Drives
                 Homing          :   BOOL;                       //  See state diagram
                 Standstill      :   BOOL;                       //  See state diagram
                 DiscreteMotion  :   BOOL;                       //  See state diagram
-                ContinousMotion :   BOOL;                       //  See state diagram
+                ContinuousMotion:   BOOL;                       //  See state diagram
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD

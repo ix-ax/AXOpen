@@ -18,19 +18,18 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleReader.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleReader.Run(  parent := THIS,
-                                hwID            := HwIdentifiers#BNIPNT507005Z040_HwID,
-                                hwId_BISM       := HwIdentifiers#BNIPNT507005Z040_BIS_M_4XX_045_1_BIS_M_4XX_045_HwID);
+            ExampleReader.Run(  inParent := THIS,
+                                hwID            := HwIdentifiers#BNIPNT507005Z040_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

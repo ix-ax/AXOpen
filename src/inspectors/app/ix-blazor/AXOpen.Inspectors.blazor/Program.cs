@@ -40,7 +40,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
         fileSizeLimitBytes: 100000)
     .MinimumLevel.Debug()
     .CreateLogger());
-await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+_ = Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()

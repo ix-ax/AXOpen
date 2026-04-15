@@ -1,0 +1,182 @@
+@namespace AXOpen.Components.Keyence.Vision
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@inherits AxoComponentViewBase<Axo_IV3>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <span class="badge @(HasResult ? "badge-success" : "badge-primary")">
+            @(HasResult ? Localizer["NewResult"] : Localizer["Waiting"])
+        </span>
+        <span class="badge @(LastResultOk ? "badge-success" : LastResultNg ? "badge-danger" : "badge-outline")">
+            @(LastResultOk ? Localizer["Ok"] : LastResultNg ? Localizer["Ng"] : "---")
+        </span>
+    </HeaderContent>
+    <CommandsOperateContent>
+        <div class="grid gap-4 md:grid-rows-2">
+            <div class="space-y-2 self-center">
+                <div class="flex items-center justify-between text-sm text-text/80">
+                    <span>@Localizer["CycleProgress"]</span>
+                    <span>@ProgressPercentage%</span>
+                </div>
+                <div class="h-2 bg-border/40 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary transition-all duration-500" style="width:@($"{ProgressPercentage}%")"></div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="@GetStatusChipClass(IsReady, "success")">@Localizer["Ready"]</span>
+                <span class="@GetStatusChipClass(IsBusy, "busy")">@Localizer["Busy"]</span>
+                <span class="@GetStatusChipClass(IsImaging, "info")">@Localizer["Imaging"]</span>
+                <span class="@GetStatusChipClass(TriggerReady, "primary")">@Localizer["TriggerReady"]</span>
+                <span class="@GetStatusChipClass(HasWarning, "warning")">@Localizer["Warning"]</span>
+                <span class="@GetStatusChipClass(HasError, "error")">@Localizer["Error"]</span>
+                <span class="@GetStatusChipClass(HasResult, "success")">@Localizer["ResultAvailable"]</span>
+            </div>
+        </div>
+        <Operon.Components.Tab.Tab>
+            <Operon.Components.Tab.TabPage Title="@Localizer["Controls"]">
+                <div class="grid gap-3 md:grid-cols-2">
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Trigger"]"
+                                 Component="Component.TriggerTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Restore"]"
+                                 Component="Component.RestoreTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-1">
+                    <div class="p-4 rounded-lg border border-border flex flex-col gap-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="text-base font-semibold text-text">@Localizer["ProgramControl"]</h5>
+                            <span class="text-xs text-text/60">@Localizer["Current"] @CurrentProgramNumber</span>
+                        </div>
+                        <RenderableContentControl Context="Component.RequiredProgramNumber"
+                                                  Presentation="Control" />
+                        <AxoTaskView class="w-full"
+                                     Text="@Localizer["ChangeProgram"]"
+                                     Component="Component.ChangeProgramTask"
+                                     HideRestoreButton="false"
+                                     Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div>
+                                <span class="text-text/60">@Localizer["ResultNo"]</span>
+                                <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ResultNo.Cyclic</div>
+                            </div>
+                            <div>
+                                <span class="text-text/60">@Localizer["ProgramDuringShot"]</span>
+                                <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ProgramNoDuringJudgment.Cyclic</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </Operon.Components.Tab.TabPage>
+            <Operon.Components.Tab.TabPage Title="@Localizer["Image"]">
+                 <div class="grid gap-3 md:grid-cols-2">
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Trigger"]"
+                                 Component="Component.TriggerTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Restore"]"
+                                 Component="Component.RestoreTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                </div>
+
+                 <div class="flex flex-col gap-4 p-4 rounded-lg bg-background/70">
+                    <Axo_IV3ImageView Component="Component" />
+                </div>
+            </Operon.Components.Tab.TabPage>
+        </Operon.Components.Tab.Tab>
+        
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="grid gap-4 md:grid-rows-2">
+            <div class="space-y-2 self-center">
+                <div class="flex items-center justify-between text-sm text-text/80">
+                    <span>@Localizer["CycleProgress"]</span>
+                    <span>@ProgressPercentage%</span>
+                </div>
+                <div class="h-2 bg-border/40 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary transition-all duration-500" style="width:@($"{ProgressPercentage}%")"></div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="@GetStatusChipClass(IsReady, "success")">@Localizer["Ready"]</span>
+                <span class="@GetStatusChipClass(IsBusy, "busy")">@Localizer["Busy"]</span>
+                <span class="@GetStatusChipClass(IsImaging, "info")">@Localizer["Imaging"]</span>
+                <span class="@GetStatusChipClass(TriggerReady, "primary")">@Localizer["TriggerReady"]</span>
+                <span class="@GetStatusChipClass(HasWarning, "warning")">@Localizer["Warning"]</span>
+                <span class="@GetStatusChipClass(HasError, "error")">@Localizer["Error"]</span>
+                <span class="@GetStatusChipClass(HasResult, "success")">@Localizer["ResultAvailable"]</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-4 p-4 rounded-lg bg-background/70">           
+              <Axo_IV3ImageView Component="Component" />            
+        </div>
+        
+        <div class="grid gap-4 md:grid-cols-1">
+            <div class="p-4 rounded-lg border border-border flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                    <h5 class="text-base font-semibold text-text">@Localizer["ProgramControl"]</h5>
+                    <span class="text-xs text-text/60">@Localizer["Current"] @CurrentProgramNumber</span>
+                </div>
+                <RenderableContentControl Context="Component.RequiredProgramNumber"
+                                          Presentation="Display" />                
+                <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div>
+                        <span class="text-text/60">@Localizer["ResultNo"]</span>
+                        <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ResultNo.Cyclic</div>
+                    </div>
+                    <div>
+                        <span class="text-text/60">@Localizer["ProgramDuringShot"]</span>
+                        <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ProgramNoDuringJudgment.Cyclic</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigAndStateViewContent>
+        <!--
+            TODO: Here add `State` details consider this as an expanded version of the header.
+        -->
+    </ConfigAndStateViewContent>
+    <SpotContent>
+       @*  <div class="self-center w-full">            
+                <div class="flex flex-col gap-4 p-4 rounded-lg w-full"> *@
+                    @* <div class="iv3-hero-block self-center">
+                        <div class="iv3-hero"
+                             data-busy="@(IsBusy ? "true" : "false")"
+                             data-warning="@(HasWarning ? "true" : "false")"
+                             data-error="@(HasError ? "true" : "false")">
+                            <div class="iv3-hero__camera">
+                                <div class="iv3-hero__body">
+                                    <div class="iv3-hero__lens">
+                                        <div class="iv3-hero__scan @(IsScanning ? "active" : string.Empty)"></div>
+                                        <div class="iv3-hero__pulse @(IsScanning ? "active" : string.Empty)"></div>
+                                        <div class="iv3-hero__result @(LastResultOk ? "ok" : LastResultNg ? "ng" : string.Empty)">
+                                            @(LastResultOk ? "OK" : LastResultNg ? "NG" : "—")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> *@
+                    <Axo_IV3ImageView Component="Component" />
+        @*         </div>         
+        </div> *@
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{
+   
+}

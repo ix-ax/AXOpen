@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_1000_CompletionClearControl : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_1000_CompletionClearControl 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Read Complete Clear#>"}
             ReadCompleteClear :  BOOL;
             {#ix-set:AttributeName = "<#Preset Complete Clear#>"}
@@ -13,6 +13,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             TuneCompleteClear : BOOL;
             {#ix-set:AttributeName = "<#EXT. Request Complete Clear#>"}
             EXT_RequestCompleteClear :  BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

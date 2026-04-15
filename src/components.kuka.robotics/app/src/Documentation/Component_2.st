@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
     CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;      
+            ExampleRobot : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4;              
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -19,20 +19,20 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(THIS,HwIdentifiers#KRC4_HwID);
+            ExampleRobot.Run(THIS,HwIdentifiers#kuka_rb1_HwID);
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
         //<Usage>    

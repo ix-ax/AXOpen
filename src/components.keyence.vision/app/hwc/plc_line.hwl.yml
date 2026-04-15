@@ -1,16 +1,37 @@
 Devices:
-- Name: plc_line
-  Modules:
-  - Apply:
-      TemplateName: 6ES7516-3AP03-0AB0_v3_1
+  - Name: plc_line
+    Modules:
+    - Apply: 6ES7516-3AP03-0AB0_v4_0
       Arguments:
-        PLCName: plc_line
-        IpAddress_X1: 192.168.100.120/24
-        ProfinetDeviceName_X1: plc_line_x1
+        NAME: plc_line
+        IP_ADDRESS_X1: '192.168.100.120/24'
+        PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
+        ADMIN_NAME: 'admin'
+        CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: Keyence_SR_750
+    Arguments:
+      NAME: keyence_sr_750
+      IP_ADDRESS_X1: 192.168.100.137/24
+      PROFINET_DEVICE_NAME_X1: keyence_sr_750
+      RESULT_DATA: Keyence_SR_750_ResultData_128
+      USER_DATA: Keyence_SR_750_UserData_128
+  - Apply: Keyence_SR_1000
+    Arguments:
+      NAME: keyence_sr_1000
+      IP_ADDRESS_X1: 192.168.100.138/24
+      PROFINET_DEVICE_NAME_X1: keyence_sr_1000
+      RESULT_DATA: Keyence_SR_1000_ResultData_128
+      USER_DATA: Keyence_SR_1000_UserData_128
+  - Apply: Keyence_IV3
+    Arguments:
+      NAME: keyence_iv3
+      IP_ADDRESS_X1: 192.168.100.139/24
+      PROFINET_DEVICE_NAME_X1: keyence_iv3      
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
-  - Ref: plc_line/plc_line/profinet_x1
+  - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  - Ref: sr-750_1/sr-750_1/profinet
-  - Ref: sr-1000_1/sr-1000_1/profinet
+  - Ref: keyence_sr_750/keyence_sr_750/Interface
+  - Ref: keyence_sr_1000/keyence_sr_1000/Interface
+  - Ref: keyence_iv3/keyence_iv3/Interface

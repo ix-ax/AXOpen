@@ -5,6 +5,10 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
+        {S7.extern=ReadWrite}                   
+        Inputs AT %IB0 : AXOpen.Components.Siem.Identification.Inputs;
+        {S7.extern=ReadWrite}  
+        Outputs AT %QB0 : AXOpen.Components.Siem.Identification.Outputs;    
         {S7.extern=ReadWrite}
         sandbox : SandboxContext;
         {S7.extern=ReadWrite}

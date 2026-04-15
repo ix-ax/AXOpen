@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoAbbRobotics_Config_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoAbbRobotics_Config_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoAbbRobotics_Config_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoAbbRobotics_Config_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Interuption_actually_running_instruction" xml:space="preserve">
+    <value>Interuption actually running instruction</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Load_program" xml:space="preserve">
+    <value>Load program</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Load_and_run_program" xml:space="preserve">
+    <value>Load and run program</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Switch_off_the_motors" xml:space="preserve">
+    <value>Switch off the motors</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Switch_on_the_motors" xml:space="preserve">
+    <value>Switch on the motors</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Switch_on_the_motors_and_start_program" xml:space="preserve">
+    <value>Switch on the motors and start program</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Emergency_stop_acknowledge" xml:space="preserve">
+    <value>Emergency stop acknowledge</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Error_acknowledge" xml:space="preserve">
+    <value>Error acknowledge</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Program_start" xml:space="preserve">
+    <value>Program start</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,26</comment>
+  </data>
+  <data name="Program_start_at_main" xml:space="preserve">
+    <value>Program start at main</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,28</comment>
+  </data>
+  <data name="Program_stop" xml:space="preserve">
+    <value>Program stop</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,30</comment>
+  </data>
+  <data name="Stop_movement_DASH_quick" xml:space="preserve">
+    <value>Stop movement-quick</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,32</comment>
+  </data>
+  <data name="Stop_movement_DASH_soft" xml:space="preserve">
+    <value>Stop movement-soft</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,34</comment>
+  </data>
+  <data name="Stop_program_at_the_end_of_the_cycle" xml:space="preserve">
+    <value>Stop program at the end of the cycle</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,36</comment>
+  </data>
+  <data name="Stop_program_at_the_end_of_the_instruction" xml:space="preserve">
+    <value>Stop program at the end of the instruction</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,38</comment>
+  </data>
+  <data name="Speed_limitation" xml:space="preserve">
+    <value>Speed limitation</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,40</comment>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Master mode</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Tool 1 retract</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,50</comment>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Tool 1 extend</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,52</comment>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Tool 2 retract</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,54</comment>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Tool 2 extend</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,56</comment>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Tool 3 retract</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,58</comment>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Tool 3 extend</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,60</comment>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Tool 4 retract</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,62</comment>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Tool 4 extend</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,64</comment>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zones</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,69</comment>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In position</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,71</comment>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Action number</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,73</comment>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Global robot speed</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,75</comment>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Tool number</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,77</comment>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Workobject number</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,79</comment>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Point number</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,81</comment>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>User specific speed 1</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,83</comment>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>User specific speed 2</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,85</comment>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coordinates</value>
+    <comment>src\AxoAbbRobotics_Control_v_1_x_x.st,90</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\AxoAbbRobotics_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DI_UNDERSCORE__SIX__FOUR__UNDERSCORE_bytes_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DI_64_bytes' submodule</value>
+    <comment>src\AxoAbbRobotics_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DO_UNDERSCORE__SIX__FOUR__UNDERSCORE_bytes_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DO_64_bytes' submodule</value>
+    <comment>src\AxoAbbRobotics_HWIDs.st,8</comment>
+  </data>
+  <data name="AutoOn" xml:space="preserve">
+    <value>AutoOn</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,7</comment>
+  </data>
+  <data name="CycleOn" xml:space="preserve">
+    <value>CycleOn</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Emergency_stop" xml:space="preserve">
+    <value>Emergency stop</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Event_ID" xml:space="preserve">
+    <value>Event ID</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Move_active" xml:space="preserve">
+    <value>Move active</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Move_inactive" xml:space="preserve">
+    <value>Move inactive</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Motor_off" xml:space="preserve">
+    <value>Motor off</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Motor_on" xml:space="preserve">
+    <value>Motor on</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,26</comment>
+  </data>
+  <data name="Motor_off_state" xml:space="preserve">
+    <value>Motor off state</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,28</comment>
+  </data>
+  <data name="Motor_on_state" xml:space="preserve">
+    <value>Motor on state</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,30</comment>
+  </data>
+  <data name="Program_execution_error" xml:space="preserve">
+    <value>Program execution error</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,32</comment>
+  </data>
+  <data name="Safety_OK" xml:space="preserve">
+    <value>Safety OK</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,34</comment>
+  </data>
+  <data name="System_input_busy" xml:space="preserve">
+    <value>System input busy</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,36</comment>
+  </data>
+  <data name="Program_pointer_moved" xml:space="preserve">
+    <value>Program pointer moved</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,38</comment>
+  </data>
+  <data name="Motion_supervision" xml:space="preserve">
+    <value>Motion supervision</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,40</comment>
+  </data>
+  <data name="Battery_Low" xml:space="preserve">
+    <value>Battery Low</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,42</comment>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>In area 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,47</comment>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>In area 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,49</comment>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>In area 3</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,51</comment>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>In area 4</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,53</comment>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>In position 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,55</comment>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>In position 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,57</comment>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>In position 3</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,59</comment>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>In position 4</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,61</comment>
+  </data>
+  <data name="Auto_stop__ONE_" xml:space="preserve">
+    <value>Auto stop 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,92</comment>
+  </data>
+  <data name="Auto_stop__TWO_" xml:space="preserve">
+    <value>Auto stop 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,94</comment>
+  </data>
+  <data name="Emergency_stop__ONE_" xml:space="preserve">
+    <value>Emergency stop 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,96</comment>
+  </data>
+  <data name="Emergency_stop__TWO_" xml:space="preserve">
+    <value>Emergency stop 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,98</comment>
+  </data>
+  <data name="General_stop__ONE_" xml:space="preserve">
+    <value>General stop 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,100</comment>
+  </data>
+  <data name="General_stop__TWO_" xml:space="preserve">
+    <value>General stop 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,102</comment>
+  </data>
+  <data name="Enable__ONE_" xml:space="preserve">
+    <value>Enable 1</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,104</comment>
+  </data>
+  <data name="Enable__TWO_" xml:space="preserve">
+    <value>Enable 2</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,106</comment>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Global speed</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,113</comment>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+    <comment>src\AxoAbbRobotics_State_v_1_x_x.st,119</comment>
+  </data>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,458</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,605</comment>
+  </data>
+  <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsProgramAndMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,852</comment>
+  </data>
+  <data name="StartMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,983</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1168</comment>
+  </data>
+  <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1247</comment>
+  </data>
+  <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMotorsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1323</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1405</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1474</comment>
+  </data>
+  <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1534</comment>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,14</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,22</comment>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Stop movements</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,26</comment>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Stop movements and program</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,30</comment>
+  </data>
+  <data name="Stop_program" xml:space="preserve">
+    <value>Stop program</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,34</comment>
+  </data>
+  <data name="Stop_motors" xml:space="preserve">
+    <value>Stop motors</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,38</comment>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Start at main</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Start motors and program</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Start_program" xml:space="preserve">
+    <value>Start program</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Start_motors" xml:space="preserve">
+    <value>Start motors</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,55</comment>
+  </data>
+  <data name="Start_movements" xml:space="preserve">
+    <value>Start movements</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,59</comment>
+  </data>
+  <data name="Start_motors_program_and_movements" xml:space="preserve">
+    <value>Start motors program and movements</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,63</comment>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Start movements with extended parameters</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,67</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,92</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,98</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,106</comment>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Power progress</value>
+    <comment>src\AxoOmnicore_v_1_x_x.st,80</comment>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Movement progress</value>
+    <comment>src\AxoOmnicore_v_1_x_x.st,84</comment>
+  </data>
+</root>

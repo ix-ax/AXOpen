@@ -1,86 +1,212 @@
-﻿@namespace AXOpen.Messaging.Static
-@using AXSharp.Connector;
-@using Microsoft.AspNetCore.Components.Authorization
+@namespace AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AxoMessenger>
+@using System.Security.Principal
+@using Operon.Icons
 @implements IDisposable;
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
-<tr class="@TableRowBackgroundColor">
-    <th scope="row">@Component.GetParent()?.AttributeName</th>
-    @if (!ShowHelpText )
-    {
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @Category
-            </span>
-        </td>
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @MessageText
-            </span>
-        </td>
-    }
-    else
-    {
-        <td>
-            <span class="@TableRowBackgroundColor">
-                @HelpText
-            </span>
-        </td>
-    }
-    <td style="font-size: 0.55em; margin-top: 0.15em;"></td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <AuthorizeView Roles="can_attempt_repair">
-            <Authorized>
-                <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@RestoreTask" hidden="@HideRepairButton">
-                    <span class="oi bi-wrench" aria-hidden="true"></span>
-                </button>
-            </Authorized>
-        </AuthorizeView>
-        
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@HelpTextTask" hidden="@HideHelpButton">
-            <span class="oi oi-question-mark" aria-hidden="true"></span>
+<div data-axo-messenger-view class="card w-full @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
+    <div class="card-title flex flex-wrap flex-row justify-between gap-2 bg-background-light/40!">
+        <div class="flux-flex flex-wrap items-center gap-2">
+            <div class="@ConvertToBadge((eAxoMessageCategory)Component.Category.LastValue) gap-2" aria-label="@Localizer["SeverityLabel"]">
+                <span class="inline-flex w-2 h-2 rounded-full @ConvertToInternalBgSeverityName((eAxoMessageCategory)Component.Category.LastValue)"></span>
+                @ConvertToInternalSeverityName((eAxoMessageCategory)Component.Category.LastValue)
+            </div>
+            @if (!string.IsNullOrWhiteSpace(Component.GetMessageText()))
+            {
+                <span class="text-text/80 font-semibold uppercase" aria-label="@Localizer["AlarmCode"]">@Component.GetMessageText()</span>
+            }
+        </div>
+        @* <div class="badge badge-primary" role="status">@StateLabel</div> *@
+    </div>
+
+    <div class="card-body">
+        @if (!string.IsNullOrWhiteSpace(Component.Message.LastValue))
+        {
+            <h3>@Component.Message.LastValue</h3>
+        }
+
+        <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
+            <div class="flex flex-wrap flex-col p-1 gap-1">
+                <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Equipment"]</span>
+                <span class="text-base text-text/80">@DisplayOrDash(Component.Component != null ? Component.Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</span>
+            </div>
+            <div class="flex flex-wrap flex-col p-1 gap-1">
+                <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Raised"]</span>
+                <span class="text-base text-text/80">@FormatTimestamp(Component.Risen.LastValue)</span>
+            </div>
+            <div class="flex flex-wrap flex-col p-1 gap-1">
+                <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Acknowledged"]</span>
+                <span class="text-base text-text/80">@FormatAcknowledged()</span>
+            </div>
+            <div class="flex flex-wrap flex-col p-1 gap-1">
+                <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Duration"]</span>
+                <span class="text-base text-text/80">@FormatDuration()</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer justify-between">
+        <button type="button" class="btn btn-primary btn-sm gap-2 transition duration-400" @onclick="ToggleDetails" title="@(_isDetailsExpanded ? Localizer["HideDetails"] : Localizer["ShowDetails"])" aria-expanded="@_isDetailsExpanded">
+            <HeroIcon Icon="chevron-right" Type="IconType.Outline" Class="@(_isDetailsExpanded ? "size-4 icon-button-rotate-90 rotated" : "size-4 icon-button-rotate-90")" />
+            @(_isDetailsExpanded ? Localizer["HideDetails"] : Localizer["ShowDetails"])
         </button>
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@AcknowledgeTask" hidden="@HideAcknowledgeButton">
-            <span class="oi oi-x" aria-hidden="true"></span>
-        </button>
-    </td>
-</tr>
+        <button class="btn btn-primary" @onclick="AcknowledgeTask" disabled="@(!CanAcknowledge)">@Localizer["Acknowledge"]</button>
+    </div>
 
-<tr class="@TableRowBackgroundColor">
-    <td colspan="3" style="font-size: 0.65em; margin-top: 0.25em;">
-        @Symbol
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
-    
-</tr>
+    @if (_isDetailsExpanded)
+    {
+        <div class="flex flex-wrap flex-col gap-2 m-4 pt-2 border-t border-border/80">
+            <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
+                <div class="flex flex-wrap flex-col p-1 gap-1">
+                    <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Symbol"]</span>
+                    <span class="text-base text-text/80">@DisplayOrDash(Component.Symbol)</span>
+                </div>
+                <div class="flex flex-wrap flex-col p-1 gap-1">
+                    <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["HumanReadable"]</span>
+                    <span class="text-base text-text/80">@DisplayOrDash(Component.HumanReadable)</span>
+                </div>
+                <div class="flex flex-wrap flex-col p-1 gap-1">
+                    <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["AlarmId"]</span>
+                    <span class="text-base text-text/80">@DisplayOrDash(Component.Identity.LastValue.ToString())</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
+                <div class="flex flex-wrap flex-col p-1 gap-1">
+                    <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Suggestion"]</span>
+                    <span class="text-base text-text/80">@DisplayOrDash(Component.GetHelpText())</span>
+                </div>
+                <AuthorizeView Roles="Administrator">
+                    <Authorized>
+                        <div class="flex flex-wrap flex-col grow-1 p-1 gap-1">
+                            <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Restore"]</span>
+                            <button type="button" class="btn btn-primary" @onclick="RestoreParentTask">@Localizer["RestoreButton"]</button>
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    }
+</div>
 
-@code
-  {
-      private string TableRowBackgroundColor
-      {
-          get
-          {
-              string retval = "table-primary";
-              if (Component.Category.Cyclic < 600)         // Upto warning level excluding
-              {
-                  retval = "table-info";
-              }
-              else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
-              {
-                  retval = "table-warning";
-              }
-              else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
-              {
-                  retval = "table-danger";
-              }
-              return retval;
-          }
-      }
-  }
+@code {
+    private bool _isDetailsExpanded { get; set; } = false;
 
+    private string ConvertToInternalSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return Localizer["Info"];
+            case eAxoMessageCategory.Potential:
+                return Localizer["Potential"];
+            case eAxoMessageCategory.Warning:
+                return Localizer["Warning"];
+            case eAxoMessageCategory.Error:
+                return Localizer["Error"];
+            case eAxoMessageCategory.ProgrammingError:
+                return Localizer["System"];
+            case eAxoMessageCategory.Critical:
+                return Localizer["Critical"];
+        }
+        return string.Empty;
+    }
+
+    private static string ConvertToInternalBgShadowSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Potential:
+                return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Warning:
+                return "bg-linear-to-br from-warning/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Error:
+                return "bg-linear-to-br from-danger/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.ProgrammingError:
+                return "bg-linear-to-br from-danger/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Critical:
+                return "bg-linear-to-br from-danger/20! from-0% to-background-light! to-50%";
+        }
+        return string.Empty;
+    }
+
+    private static string ConvertToBadge(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "badge badge-primary";
+            case eAxoMessageCategory.Potential:
+                return "badge badge-primary";
+            case eAxoMessageCategory.Warning:
+                return "badge badge-warning";
+            case eAxoMessageCategory.Error:
+                return "badge badge-danger";
+            case eAxoMessageCategory.ProgrammingError:
+                return "badge badge-danger";
+            case eAxoMessageCategory.Critical:
+                return "badge badge-danger";
+        }
+        return string.Empty;
+    }
+
+    private static string ConvertToInternalShadowGlowSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "shadow-glow-info";
+            case eAxoMessageCategory.Potential:
+                return "shadow-glow-info";
+            case eAxoMessageCategory.Warning:
+                return "shadow-glow-warning";            
+            case eAxoMessageCategory.Error:
+                return "shadow-glow-danger";
+            case eAxoMessageCategory.ProgrammingError:
+                return "shadow-glow-danger";
+            case eAxoMessageCategory.Critical:
+                return "shadow-glow-danger";
+        }
+        return string.Empty;
+    }
+
+    private static string ConvertToInternalBgSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "bg-info";
+            case eAxoMessageCategory.Potential:
+                return "bg-info";
+            case eAxoMessageCategory.Warning:
+                return "bg-warning";
+            case eAxoMessageCategory.Error:
+                return "bg-danger";
+            case eAxoMessageCategory.ProgrammingError:
+                return "bg-danger";
+            case eAxoMessageCategory.Critical:
+                return "bg-danger";
+        }
+        return string.Empty;
+    }
+
+    private string StateLabel => Component.IsActive ? (Component.IsAcknowledged ? Localizer["ActiveAcknowledged"] : Localizer["ActiveUnacknowledged"]) : Localizer["Cleared"];
+
+    private bool CanAcknowledge => Component.IsActive || !Component.IsAcknowledged;
+
+    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
+
+    private static string FormatTimestamp(DateTime? timestamp)
+    {
+        return timestamp?.ToLocalTime().ToString("g", CultureInfo.CurrentCulture) ?? "—";
+    }
+
+    private void ToggleDetails()
+    {
+        _isDetailsExpanded = !_isDetailsExpanded;
+        StateHasChanged();
+    }
+}

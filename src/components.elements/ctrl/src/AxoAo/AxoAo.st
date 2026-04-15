@@ -1,10 +1,12 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
 
     /// <summary>
     /// Class representing Analog output
     /// </summary>
     {S7.extern=ReadWrite}
+    {#ix-prop:public string Units}
+    {#ix-set:Units = ".#"}
     CLASS AxoAo EXTENDS AXOpen.Core.AxoComponent
         
         VAR PUBLIC
@@ -51,7 +53,7 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
             END_VAR
 
             VAR_OUTPUT
@@ -59,15 +61,12 @@ NAMESPACE AXOpen.Elements
             END_VAR
     
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
-
-            IF _context = NULL THEN
-                SUPER.Run(parent);
-                _context := THIS.GetContext();
-            END_IF;
-
+           
+            SUPER.Run(inParent);
+           
             _messengerInfo.Serve(THIS); 
     
             //unscaling

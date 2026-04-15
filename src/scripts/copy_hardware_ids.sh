@@ -29,10 +29,12 @@ if ! [[ -d "./hwc" ]]; then
     printf "${RED}Directory \"./hwc\" does not exist!!!${NC}"
     exit 1
 fi
-
+dos2unix SystemConstants/*
+dos2unix -r hwc/hwc.gen/*
 input_file="SystemConstants/${PLC_NAME}_HwIdentifiers.st"
 output_dir="src/IO"
-output_file="${output_dir}/HwIdentifiers.st"
+output_file1="${output_dir}/HwIdentifiers.st"
+output_file2="${output_dir}/HwIdentifierList.st"
 
 if ! [[ -e "$input_file" ]]; then
     printf "${RED}File $input_file does not exist!!!${NC}"
@@ -41,40 +43,90 @@ fi
 
 mkdir -p "$output_dir"
 
-# ---- Inline AWK transformation ----
-awk -v ns="$NAMESPACE" "
+
+# ============================================================
+#  AWK: read constants once, then output two files:
+#    1) HwIdentifiers.st (existing behavior)
+#    2) HwIDs.st (new — simple constant declarations)
+# ============================================================
+awk -v ns="$NAMESPACE" -v OUT1="$output_file1" -v OUT2="$output_file2" '
 BEGIN {
-    print \"NAMESPACE \" ns
-    print \"    TYPE\"
-    print \"        HwIdentifiers : WORD\"
-    print \"        (\"
+    in_block = 0;
 }
 {
-    line = \$0
-    gsub(/\\r/, \"\", line)
+    line = $0
+    gsub(/\r/, "", line)
 
-    if (line ~ /CONFIGURATION HardwareIDs|VAR_GLOBAL CONSTANT|END_VAR|END_CONFIGURATION/) next
+    # Detect block
+    if (line ~ /VAR_GLOBAL CONSTANT/) { in_block = 1; next }
+    if (line ~ /END_VAR/)             { in_block = 0; next }
 
-    gsub(/:_/, \"__\", line)
-    gsub(/: UINT := UINT/, \":=\\tWORD\", line)
-    gsub(/;/, \",\", line)
+    if (!in_block) next
 
-    match(line, /^[[:space:]]*/)
-    prefix = substr(line, 1, RLENGTH)
-    rest = substr(line, RLENGTH + 1)
-    first = substr(rest, 1, 1)
-    if (first !~ /[a-zA-Z_]/ && first != \"\") {
-        rest = \"_\" rest
+    # Expected format:  NAME : UINT := UINT#123;
+    if (match(line, /^[[:space:]]*([A-Za-z0-9_]+)[[:space:]]*:[[:space:]]*UINT[[:space:]]*:=[[:space:]]*UINT#([0-9]+)[[:space:]]*;/, m)) {
+        name = m[1]
+        val  = m[2]
+        items[name] = val
+    }
+}
+
+END {
+    ####################################################################
+    #  ------- 1) Generate HwIdentifiers.st (ENUM style) --------------
+    ####################################################################
+    out = ""
+    out = out "NAMESPACE " ns "\n"
+    out = out "    TYPE\n"
+    out = out "        HwIdentifiers : UINT\n"
+    out = out "        (\n"
+
+    n = asorti(items, sorted, "@val_num_asc")
+
+    if (n == 0) {
+        out = out "            NONE := UINT#0\n"
+    } else {
+        for (i = 1; i <= n; i++) {
+            key = sorted[i]
+            val = items[key]
+            last = (i == n ? "" : ",")
+            out = out "            " key " := UINT#" val last "\n"
+        }
     }
 
-    print \"    \" prefix rest
-}
-END {
-    print \"            NONE := WORD#0\"
-    print \"        );\"
-    print \"    END_TYPE\"
-    print \"END_NAMESPACE\"
-}
-" "$input_file" > "$output_file"
+    out = out "        );\n"
+    out = out "    END_TYPE\n"
+    out = out "END_NAMESPACE\n"
 
-echo -e "${GREEN}Generation complete. Output written to $output_file${NC}"
+    # Write file 1
+    print out > OUT1
+
+
+    ####################################################################
+    #  ------- 2) Generate HwIdentifierList.st ----------------
+    ####################################################################
+    out2 = ""
+    out2 = out2 "NAMESPACE " ns "\n"
+    out2 = out2 "    TYPE HwIdentifierList : ARRAY[0.." n - 1 "] OF UINT :=\n"
+    out2 = out2 "            [\n"
+
+    for (i = 1; i <= n; i++) {
+        val = items[sorted[i]]
+        last = (i == n ? "" : ",")
+        out2 = out2 "                UINT#" val last "\n"
+    }
+
+
+    out2 = out2 "    ];\n"
+    out2 = out2 "END_TYPE\n"
+    out2 = out2 "END_NAMESPACE\n"
+
+    # Write file 2
+    print out2 > OUT2
+}
+' "$input_file"
+
+dos2unix -r src/IO/*
+echo -e "${GREEN}Generation complete.${NC}"
+echo -e "${GREEN} - ${output_file1}${NC}"
+echo -e "${GREEN} - ${output_file2}${NC}"

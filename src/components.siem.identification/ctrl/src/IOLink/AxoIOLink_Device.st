@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 
 NAMESPACE AXOpen.Components.Siem.Identification
@@ -13,8 +13,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
             statError               :	BOOL    :=  FALSE;          //  Static value for output 'error'
             statStatus              :	WORD    :=  WORD#16#7000;	//  Static value for output 'status'
             statPollingPeriod       :	TIME    :=	T#100MS;        //	Static value for input 'pollingPeriod'
-            statHwID                :	WORD    :=  WORD#0;         //  Static value for input 'hwID'
-            statHwIDprevious        :	WORD    :=  WORD#0;         //  Static value for input 'hwID' from the previous execute 
+            statHwID                :	UINT    :=  UINT#0;         //  Static value for input 'hwID'
+            statHwIDprevious        :	UINT    :=  UINT#0;         //  Static value for input 'hwID' from the previous execute 
             statReadWrite           :	BOOL    :=  FALSE;          //  Static value for input 'readWrite'
             statCap                 :	UINT    :=  UINT#0;         //  Static value for input 'cap'
             statTimeout             :	TIME    :=	T#0MS;          //	Static value for input 'timeout'
@@ -80,7 +80,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         METHOD PUBLIC Run
             VAR_INPUT
                 execute         :	BOOL    :=  FALSE;                  //	Request to execute function
-                hwID            :	WORD    :=  WORD#0;                 //	Hardware identifier of IO-Link master module or first sub module
+                hwID            :	UINT    :=  UINT#0;                 //	Hardware identifier of IO-Link master module or first sub module
                 cap             :	INT     :=  INT#0;                  //	Client Access Point (CAP) 0xB400 or 0x00E3 (227)
                 readWrite       :	BOOL    :=  FALSE;                  //	FALSE: read-mode, TRUE: write-mode
                 port            :	INT     :=  INT#0;                  //  Port on IO-Link master module
@@ -103,7 +103,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
             VAR_TEMP 
                 tempExecute         :	BOOL;							//	Temporary value for input 'execute'
-                tempHwID            :	WORD;							//	Temporary value for input 'hwID'
+                tempHwID            :	UINT;							//	Temporary value for input 'hwID'
                 tempPort            :	INT;							//	Temporary value for input 'port'
                 tempIndex           :	INT;							//	Temporary value for input 'index'
                 tempSubindex        :	INT;							//	Temporary value for input 'subindex'
@@ -259,7 +259,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                                 IF instRdRec.request = FALSE THEN
                                     // call read record with Index 16#B000
                                     instRdRec.request := true;
-                                    instRdRec.ID := statHwID;
+                                    instRdRec.hardwareID := statHwID;
                                     instRdRec.INDEX := TO_UINT(INDEX_CAP_IOLINK);
                                     instRdRec.maxLength := UINT#0;
                                     statFBState := FB_STATE_READ_CAP;
@@ -298,11 +298,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         // to send at first a request via write data record (header, 8 byte). As response the IO-Link master module will 
                         // send the required data record.
                         
-                        instWrRec(request := TRUE,
-                                   id := statHwID,
-                                   index := statCap,
-                                   length := statLen,
-                                   record := statWrite);
+                        instWrRec(  request     := TRUE,
+                                    hardwareId  := statHwID,
+                                    index       := statCap,
+                                    length      := statLen,
+                                    record      := statWrite);
                         
                         IF instWrRec.ERROR THEN
                             IF (instWrRec.STATUS AND STATUS_MASK) = STATUS_RESOURCE_BUSY THEN
@@ -323,11 +323,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                                   duration := statPollingPeriod);
                         
                         // read data record on falling edge
-                        instRdRec(request := NOT instPoll.output,
-                                   id := statHwID,
-                                   index := statCap,
-                                   maxLength := UINT#0, // read all data available,
-                                   record := statRead);
+                        instRdRec(  request     := NOT instPoll.output,
+                                    hardwareId  := statHwID,
+                                    index := statCap,
+                                    maxLength := UINT#0, // read all data available,
+                                    record := statRead);
                         
                         IF instRdRec.ERROR = TRUE THEN
                             IF (instRdRec.STATUS AND STATUS_MASK) = STATUS_RESOURCE_BUSY THEN
@@ -431,3 +431,4 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+

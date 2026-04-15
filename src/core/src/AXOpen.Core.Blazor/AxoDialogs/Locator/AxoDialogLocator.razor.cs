@@ -1,4 +1,4 @@
-﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Core.Blazor.Dialogs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Operon.Components;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
@@ -20,22 +21,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public partial class AxoDialogLocator : AxoLocator
     {
         private AxoDialogLocatorService _dialogProxyService { get; set; }
-
-        /// <summary>
-        /// Controls the CSS display property of the modal dialog. Defaults to "none".
-        /// </summary>
-        public string ModalDisplay { set; get; } = "none;";
-
-        /// <summary>
-        /// Controls the CSS class of the modal dialog. Used to toggle visibility.
-        /// </summary>
-        public string ModalClass { set; get; } = string.Empty;
-
-        /// <summary>
-        /// Indicates whether the modal backdrop is shown.
-        /// </summary>
-        public bool ShowBackdrop { set; get; } = false;
-       
 
         /// <summary>
         /// The SignalR client for managing real-time dialogue events.
@@ -103,29 +88,31 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"AxoDialogLocator by SignalR Opening : {e.SymbolOfDialogInstance}");
+            Log.Logger.Verbose($"AxoDialogLocator by SignalR Opening : {e.SymbolOfDialogInstance}");
             // this message is no supported and required at this moment.
             await Refresh();
         }
 
         private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"AxoDialogLocator by SignalR Closing: {e.SymbolOfDialogInstance}");
+            Log.Logger.Verbose($"AxoDialogLocator by SignalR Closing: {e.SymbolOfDialogInstance}");
             _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
             await Refresh();
         }
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
+            Log.Logger.Verbose($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
             await Refresh();
         }
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"AxoDialogLocator by PLC Closing: {e.SymbolOfDialogInstance}");
+            Log.Logger.Verbose($"AxoDialogLocator by PLC Closing: {e.SymbolOfDialogInstance}");
             await Refresh();
         }
+
+        
 
         /// <summary>
         /// Refreshes the UI state based on active dialogs.
@@ -134,34 +121,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             if (_dialogProxyService.DisplayedDialogs.Count() > 0)
             {
-                Open();
+                ModalDialogContainer.OpenModal();
             }
             else
             {
-                Close();
+                ModalDialogContainer.CloseModal();
             }
 
             return InvokeAsync(StateHasChanged);
-        }
-
-        /// <summary>
-        /// Opens the dialog UI elements.
-        /// </summary>
-        protected void Open()
-        {
-            ModalDisplay = "flex";
-            ModalClass = "show";
-            ShowBackdrop = true;
-        }
-
-        /// <summary>
-        /// Closes the dialog UI elements.
-        /// </summary>
-        protected void Close()
-        {
-            ModalDisplay = "none";
-            ModalClass = string.Empty;
-            ShowBackdrop = false;
         }
 
         /// <summary>

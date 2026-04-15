@@ -1,0 +1,56 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyCoreAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from Core package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/AXOpen.Core.Blazor.targets is located -->
+			<CoreAxoAlert Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoAlert\**\*" />
+			<CoreAxoArrays Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoArrays\**\*" />
+			<CoreAxoComponent Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoComponent\**\*" />
+			<CoreAxoCoordination Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoCoordination\**\*" />
+			<CoreAxoDialogContainer Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoDialogContainer\**\*" />
+			<CoreAxoDialogs Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoDialogs\**\*" />
+			<CoreAxoLocator Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoLocator\**\*" />
+			<CoreAxoMessenger Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoMessenger\**\*" />
+			<CoreAxoMomentaryTask Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoMomentaryTask\**\*" />
+			<CoreAxoObject Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoObject\**\*" />
+			<CoreAxoTask Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoTask\**\*" />
+			<CoreAxoTextList Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoTextList\**\*" />
+			<CoreAxoToggleTask Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoToggleTask\**\*" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\Core\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoAlert" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoArrays" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoComponent" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoCoordination" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoDialogContainer" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoDialogs" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoLocator" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoMessenger" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoMomentaryTask" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoObject" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoTask" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoTextList" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Core\AxoToggleTask" ContinueOnError="true" />
+
+		<!-- Copy Components files -->
+		<Copy SourceFiles="@(CoreAxoAlert)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoAlert\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoArrays)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoArrays\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoComponent)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoComponent\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoCoordination)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoCoordination\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoDialogContainer)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoDialogContainer\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoDialogs)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoDialogs\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoLocator)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoLocator\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoMessenger)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoMessenger\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoMomentaryTask)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoMomentaryTask\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoObject)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoObject\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoTask)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoTask\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoTextList)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoTextList\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(CoreAxoToggleTask)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Core\AxoToggleTask\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>

@@ -1,16 +1,18 @@
-﻿using AXOpen.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using AXOpen.Data.Interfaces;
 using Microsoft.AspNetCore.Components.Authorization;
+using Operon.Components.Toast;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
-    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDataExchangeGlobalActions
+    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDistributedDataActions
     {
         protected readonly AuthenticationStateProvider Authentication;
 
-        protected readonly IAlertService AlertService;
+        protected readonly IToastService ToastService;
         protected readonly IDistributedDataExchangeService DistributedExchangeService;
         protected readonly IAxoDataExchangeConfigurationService ConfigurationService;
 
@@ -19,19 +21,19 @@ namespace AXOpen.Data
         protected readonly string ConfiguraionSuffix = "";
 
         public DistributedDataViewModel(
-            IAlertService alertService,
+            IToastService toastService,
             AuthenticationStateProvider authentication,
             IDistributedDataExchangeService distributedExchangeService,
             IAxoDataExchangeConfigurationService configuraionService,
             string groupName,
             bool displayOnePerDataType,
             string configuraionSuffix,
-             List<string>? injectedEntities,
-             PredicateContainer? injectedPredicateContainer
+             List<string>? externalEntityIds,
+             PredicateContainer? externalPredicates
 
             )
         {
-            AlertService = alertService;
+            ToastService = toastService;
             Authentication = authentication;
             ConfigurationService = configuraionService;
             DistributedExchangeService = distributedExchangeService;
@@ -39,33 +41,15 @@ namespace AXOpen.Data
             DisplayOnePerDataType = displayOnePerDataType;
             ConfiguraionSuffix = configuraionSuffix;
 
-            if (injectedEntities != null) InjectedEntities = injectedEntities;
-
-            InjectedPredicateContainer = injectedPredicateContainer;
+            ExternalEntityIds = externalEntityIds;
+            ExternalPredicates = externalPredicates;
 
             Exchanges = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
-
             AllExchanges = DistributedExchangeService.GetExchanges(this.GroupName, false);
 
             DisplayedExchanges = displayOnePerDataType ? Exchanges : AllExchanges; // select for display
 
-            if (InjectedPredicateContainer != null)
-            {
-                var idsFromPredicates = Exchanges.GetEntityIds(this.InjectedPredicateContainer);
-                if (idsFromPredicates != null && idsFromPredicates.Count > 0)
-                {
-                    if (InjectedEntities == null)
-                    {
-                        injectedEntities = idsFromPredicates;
-                    }
-                    else
-                    {
-                        InjectedEntities.AddRange(idsFromPredicates);
-                        InjectedEntities = InjectedEntities.Distinct().ToList();
-                    }
-                }
-            }
-
+            IntersectExternalEntityIds();
             InitializeSelectedViewModel(Exchanges.First());
         }
 
@@ -96,28 +80,22 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-            if (predicates == null)
+            // refresh ui
+            if ((predicates == null) && (this.SelectedManagerVm != null))
             {
-                if (this.SelectedManagerVm != null)
-                {
-                    return SelectedManagerVm.FillObservableRecordsAsync();
-                }
+                return SelectedManagerVm.FillObservableRecordsAsync();
             }
 
-            if (InjectedPredicateContainer != null && this.EnableInjectedExternalIds) // merge predicates
-                predicates.AddPredicatesFrom(InjectedPredicateContainer);
+            if (ExternalPredicates != null && this.EnableExternalEntityIds) // merge predicates
+                predicates.AddPredicatesFrom(ExternalPredicates);
+            
+            LocalConcatEntityIds.Clear();
+            EnableLocalConcatEntityIds = true;
+            LocalConcatEntityIds.AddRange(Exchanges.GetEntityIds(predicates));
 
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-            LastFragmentQueryCount = commonEntities.Count;
-
-            EnableInjectLocalIds = true;
-            TransmitedEntities.Clear();
-            TransmitedEntities.AddRange(commonEntities);
-
-            if (this.SelectedManagerVm != null)
+            if (this.SelectedManagerVm != null) // refresh with new predicates and merged entity ids
             {
-                SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
-
+                IntersectExternalAndLocalEntityIds(SelectedManagerVm);
                 return this.SelectedManagerVm.FillObservableRecordsAsync(predicates);
             }
             else
@@ -143,40 +121,65 @@ namespace AXOpen.Data
 
         #endregion IDataExchangeQueryViewModel
 
-        public PredicateContainer InjectedPredicateContainer { set; get; }
-        public List<string> InjectedEntities { set; get; } = new();
-
-        public List<string> TransmitedEntities { set; get; } = new();
-
-        public bool EnableInjectLocalIds { get; private set; } = false;
-
-        public bool EnableInjectedExternalIds { get; private set; } = true;
-
-        public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
-
-        public DataExchangeViewModel SelectedManagerVm { get; set; }
-
-        public int LastFragmentQueryCount { set; get; }
-
-        public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; private set; } // used for view
+        /// <summary>
+        /// External predicate container injected into the view model.
+        /// Results are merged with <see cref="ExternalEntityIds"/>.
+        /// </summary>
+        public PredicateContainer? ExternalPredicates { private set; get; }
 
         /// <summary>
-        /// Only one per data type
+        /// Indicates whether external entity IDs are enabled.
         /// </summary>
-        public IEnumerable<IAxoDataExchange> Exchanges { get; private set; } // used for data managent
+        public bool EnableExternalEntityIds { get; private set; } = false;
 
         /// <summary>
-        /// All instances in a data manager group
+        /// External entity IDs injected into the view model.
+        /// IDs are merged with IDs resolved from <see cref="ExternalPredicates"/>.
         /// </summary>
-        public IEnumerable<IAxoDataExchange> AllExchanges { get; private set; } // used for load to plc
+        public List<string>? ExternalEntityIds { private set; get; }
 
-        #region IDataExchangeGlogalActions
+        public List<string>? AllExternalEntityIds { private set; get; }
+        public int ExternalEntityIdsCount =>  AllExternalEntityIds?.Count ?? 0;
+
+        public bool EnableLocalConcatEntityIds { get; private set; } = false; // controlled by UI button
+
+        public int LocalConcatEntityIdsCount => LocalConcatEntityIds?.Count ?? 0;
+
+        public bool IsShownDistributedFilter { get; internal set; } = false;
+
+
+        /// <summary>
+        /// Entity Ids that have been transmitted between local view models.
+        /// </summary>
+        public List<string> LocalConcatEntityIds { protected set; get; } = new();
+
+        public AxoDataExchangeConfiguration ExchangeConfig { get; protected set; } = new();
+
+        public DataExchangeViewModel SelectedManagerVm { get; protected set; }
+
+        /// <summary>
+        /// Gets the collection of data exchanges currently displayed in the view.
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; protected set; } // used for view
+
+         /// <summary>
+         /// Gets the collection of data exchange interfaces used for managing data operations.
+         /// </summary>
+        public IEnumerable<IAxoDataExchange> Exchanges { get; protected set; } // used for data managent
+
+        /// <summary>
+        /// Gets the collection of all data exchanges managed by the instance, available for distributed grop
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> AllExchanges { get; protected set; } // used for load to plc
+
+
+        #region IDistributedDataActions
 
         public async Task Create(string identifier)
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Create error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Create_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
@@ -200,9 +203,9 @@ namespace AXOpen.Data
                 string createdRecords = string.Join(", ", created);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Create new record",
+                ToastService?.AddToast(
+                    eToastType.Info,
+                    Properties.AxOpenDataResources.Create_new_record,
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
                 );
@@ -219,9 +222,9 @@ namespace AXOpen.Data
                 string notCreatedRecords = string.Join(", ", alreadyExistInDb);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
-                    "Create record error",
+                ToastService?.AddToast(
+                    eToastType.Warning,
+                    Properties.AxOpenDataResources.Create_record_error,
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
                 );
@@ -238,7 +241,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Create data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Create_data_error, Properties.AxOpenDataResources.Please_enter_valid_identifier, 20);
                 return;
             }
 
@@ -263,9 +266,9 @@ namespace AXOpen.Data
                 string createdRecords = string.Join(", ", Created);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Create record from PLC",
+                ToastService?.AddToast(
+                    eToastType.Info,
+                    Properties.AxOpenDataResources.Create_record_from_PLC,
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
                 );
@@ -282,9 +285,9 @@ namespace AXOpen.Data
                 string notCreatedRecords = string.Join(", ", NotCreated);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
-                    "Create record error",
+                ToastService?.AddToast(
+                    eToastType.Warning,
+                    Properties.AxOpenDataResources.Create_record_error,
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
                 );
@@ -301,7 +304,7 @@ namespace AXOpen.Data
         //{
         //    if (string.IsNullOrEmpty(identifier))
         //    {
-        //        AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+        //        AlertService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
         //        return;
         //    }
 
@@ -314,15 +317,15 @@ namespace AXOpen.Data
         //        //TODO optimalize -> clone only EntityId
         //        var refdata = exchange.CloneDataObject();
 
-        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var _EntityId = (refdata as IAxoDataEntity)._EntityId;
 
         //        List<ITwinPrimitive> batchRedElements = new();
 
-        //        batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(_EntityId);
 
         //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-        //        if (DataEntityId.Cyclic != identifier)
+        //        if (_EntityId.Cyclic != identifier)
         //        {
         //            notSameIdInPlc.Add(exchange.ManagerDataTypeName);
         //            continue;
@@ -345,8 +348,8 @@ namespace AXOpen.Data
         //        string updatedInRepositories = string.Join(", ", updated);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Info,
+        //        AlertService?.AddToast(
+        //            eToastType.Info,
         //            "Update record",
         //            $"Record \"{identifier}\" was updated in repositories: {updatedInRepositories}.",
         //            7
@@ -364,8 +367,8 @@ namespace AXOpen.Data
         //        string createdInRepositories = string.Join(", ", created);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Info,
+        //        AlertService?.AddToast(
+        //            eToastType.Info,
         //            "Create record",
         //            $"Record \"{identifier}\" was created in repositories: {createdInRepositories}.",
         //            7
@@ -383,8 +386,8 @@ namespace AXOpen.Data
         //        string notEqualEntityIds = string.Join(", ", notSameIdInPlc);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Warning,
+        //        AlertService?.AddToast(
+        //            eToastType.Warning,
         //            "Update error",
         //            $"Online records have a different ID than requested for update: {notEqualEntityIds}.",
         //            14
@@ -403,7 +406,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Update_data_error, Properties.AxOpenDataResources.Please_enter_valid_identifier, 20);
                 return;
             }
 
@@ -433,16 +436,16 @@ namespace AXOpen.Data
                 string sentExchanges = string.Join(", ", sentToPlc);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Send record",
+                ToastService?.AddToast(
+                    eToastType.Info,
+                    Properties.AxOpenDataResources.Send_record,
                     $"Record \"{identifier}\" was sent to exchanges: {sentExchanges} by user action.",
                     7
                 );
 
                 // Log message
                 AxoApplication.Current.Logger.Information(
-                    $"Sent record \"{identifier}\" to exchanges: {sentExchanges} by user action.",
+                    $"Record \"{identifier}\" sent to exchanges: {sentExchanges} by user action.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
             }
@@ -452,9 +455,9 @@ namespace AXOpen.Data
                 string notExistInRepos = string.Join(", ", notExistInDb);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
-                    "Send error",
+                ToastService?.AddToast(
+                    eToastType.Warning,
+                    Properties.AxOpenDataResources.Send_error,
                     $"Record \"{identifier}\" does not exist in the database for: {notExistInRepos}.",
                     14
                 );
@@ -471,13 +474,13 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copy_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
             if (string.IsNullOrEmpty(newIdentifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy record error", "Data cannot be deleted. Please enter valid new identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copy_record_error, Properties.AxOpenDataResources.Data_cannot_be_deleted_please_enter_valid_new_identifier, 20);
                 return;
             }
 
@@ -492,7 +495,7 @@ namespace AXOpen.Data
                     if (!exchange.Repository.Exists(newIdentifier))
                     {
                         var newPlain = exchange.Repository.Read(identifier);
-                        (newPlain as dynamic).DataEntityId = newIdentifier;
+                        (newPlain as dynamic)._EntityId = newIdentifier;
                         exchange.Repository.Create(newIdentifier, newPlain);
                         copied.Add(exchange.ManagerDataTypeName);
                     }
@@ -510,21 +513,21 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                AlertService?.AddAlertDialog(eAlertType.Info, "Copied record", $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
+                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, $"Record \"{identifier}\" was copied to \"{newIdentifier}\" in repositories: {createdRecords}.", 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (alreadyExist.Count > 0)
             {
                 string alreadyExistRecords = string.Join(", ", alreadyExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, string.Format(Properties.AxOpenDataResources.Record_already_exist_for, alreadyExistRecords), 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (notExist.Count > 0)
             {
                 string notExistRecords = string.Join(", ", notExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, string.Format(Properties.AxOpenDataResources.Source_Record_not_exist_for, notExistRecords), 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
         }
@@ -533,7 +536,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Delete error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Delete_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
@@ -558,9 +561,9 @@ namespace AXOpen.Data
                 string deletedInRepos = string.Join(", ", deleted);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Delete record",
+                ToastService?.AddToast(
+                    eToastType.Info,
+                    Properties.AxOpenDataResources.Delete_record,
                     $"Record \"{identifier}\" was deleted from repositories: {deletedInRepos}.",
                     7
                 );
@@ -576,9 +579,9 @@ namespace AXOpen.Data
                 string notExistInRepos = string.Join(", ", notExist);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
-                    "Delete error",
+                ToastService?.AddToast(
+                    eToastType.Warning,
+                    Properties.AxOpenDataResources.Delete_error,
                     $"Source record does not exist in repositories: {notExistInRepos}.",
                     14
                 );
@@ -591,16 +594,32 @@ namespace AXOpen.Data
             }
         }
 
-        #endregion IDataExchangeGlogalActions
+        void IDistributedDataActions.SetLocalExchangeConcatIds(List<string> entityIdsToInject)
+        {
+            LocalConcatEntityIds = entityIdsToInject;
+            EnableLocalConcatEntityIds = true;
+        }
+
+        void IDistributedDataActions.ResetLocalExchangeConcatIds()
+        {
+            LocalConcatEntityIds.Clear();
+            EnableLocalConcatEntityIds = false;
+
+            IntersectExternalAndLocalEntityIds(SelectedManagerVm);
+        }
+
+        #endregion IDistributedDataActions
 
         public async Task SelectManager(IAxoDataExchange exchange)
         {
-            this.TransmitedEntities.Clear();
-
             // collect previous filtered ids...
             if (SelectedManagerVm != null)
             {
-                this.TransmitedEntities.AddRange(SelectedManagerVm.EntityIdsIntersected);
+                List<string> entityIds = new();
+                entityIds.AddRange(SelectedManagerVm.EntityIdsIntersected); // get all entity ids from previous exchange
+
+                this.LocalConcatEntityIds.Clear();
+                this.LocalConcatEntityIds.AddRange(entityIds);
             }
 
             if (exchange != null)
@@ -611,7 +630,7 @@ namespace AXOpen.Data
             }
         }
 
-        private void SelectCongiguration(IAxoDataExchange exchange)
+        private void SetExchangeConfiguration(IAxoDataExchange exchange)
         {
             if (ConfigurationService != null)
             {
@@ -635,109 +654,152 @@ namespace AXOpen.Data
 
             SelectedManagerVm = new DataExchangeViewModel();
             SelectedManagerVm.AuthenticationProvider = Authentication;
-            SelectedManagerVm.AlertDialogService = AlertService;
+            SelectedManagerVm.ToastService = ToastService;
 
             SelectedManagerVm.Model = exchange;
-            SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
 
-            SelectedManagerVm.GlobalActions = this; // set global actions
+            SelectedManagerVm.DistributedActions = this; // set global actions
 
-            SelectCongiguration(exchange);
+            SetExchangeConfiguration(exchange);
+            IntersectExternalAndLocalEntityIds(SelectedManagerVm);
         }
 
-        protected List<string> MergeInjectedEntities()
+        protected void IntersectExternalEntityIds()
         {
+            // enable external injection
+            if (ExternalEntityIds != null || ExternalPredicates != null) EnableExternalEntityIds = true;
+
+            AllExternalEntityIds = ExternalEntityIds;
+
+            if (ExternalPredicates != null)
+            {
+                var idsFromPredicates = Exchanges.GetEntityIds(this.ExternalPredicates);
+                if (idsFromPredicates != null && idsFromPredicates.Count > 0)
+                {
+                    if (ExternalEntityIds == null)
+                    {
+                        AllExternalEntityIds = idsFromPredicates; // no provided external ids, use those from predicates
+                    }
+                    else
+                    {
+                        AllExternalEntityIds = this.AllExternalEntityIds.Intersect(idsFromPredicates).ToList();
+                    }
+                }
+            }
+        }
+
+        protected void IntersectExternalAndLocalEntityIds(DataExchangeViewModel exchange)
+        {
+            // if none enabled, reset
+            if (!this.EnableExternalEntityIds && !this.EnableLocalConcatEntityIds)
+            {
+                exchange.ResetExternalEntityIds(); //reset to default, no injection
+                return;
+            }
+
             var ids = new List<string>();
 
-            if (this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            // merge both, local and external ids
+            if (this.EnableExternalEntityIds && this.EnableLocalConcatEntityIds)
             {
-                if (InjectedEntities.Count > 0)
+                if (AllExternalEntityIds?.Count > 0)
                 {
-                    ids = this.InjectedEntities
-                      .Intersect(this.TransmitedEntities.Distinct())
-                      .ToList();
+                    ids = this.AllExternalEntityIds.Intersect(this.LocalConcatEntityIds.Distinct()).ToList();
                 }
                 else
                 {
-                    ids.AddRange(this.TransmitedEntities);
+                    ids.AddRange(this.LocalConcatEntityIds);
                     ids = ids.Distinct().ToList();
                 }
             }
-            else if (!this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            // only local concatenated ids
+            else if (this.EnableLocalConcatEntityIds)
             {
-                ids.AddRange(this.TransmitedEntities);
+                ids.AddRange(this.LocalConcatEntityIds);
                 ids = ids.Distinct().ToList();
             }
-            else if (this.EnableInjectedExternalIds && !this.EnableInjectLocalIds)
+            // only external injected ids
+            else if (this.EnableExternalEntityIds)
             {
-                if (this.InjectedEntities != null)
+                if (this.AllExternalEntityIds != null)
                 {
-                    ids.AddRange(this.InjectedEntities);
+                    ids.AddRange(this.AllExternalEntityIds);
                     ids = ids.Distinct().ToList();
                 }
             }
 
-            return ids;
+            exchange.SetExternalEntityIds(ids);
         }
 
-        public async Task TogleLocalEntityIdsInjection()
+        //
+        public void SetExternalPredicates(PredicateContainer? value) // for testing and external injection
         {
-            EnableInjectLocalIds = !EnableInjectLocalIds;
-            await RefreshInjectedIds();
+            if (value != ExternalPredicates)
+            {
+                ExternalPredicates = value;
+                IntersectExternalEntityIds();
+
+                if (SelectedManagerVm != null)
+                {
+                    IntersectExternalAndLocalEntityIds(this.SelectedManagerVm); // deliver new predicates to selected vm
+                }
+            }
         }
 
-        public async Task TogleExternalEntityIdsInjection()
+        public void SetExternalEntityIds(List<string>? value) // for testing and external injection
         {
-            EnableInjectedExternalIds = !EnableInjectedExternalIds;
-            await RefreshInjectedIds();
+            if (value != ExternalEntityIds)
+            {
+                ExternalEntityIds = value;
+                IntersectExternalEntityIds();
+
+                if (SelectedManagerVm != null)
+                {
+                    IntersectExternalAndLocalEntityIds(this.SelectedManagerVm); // deliver new predicates to selected vm
+                }
+            }
         }
 
-        public async Task RefreshInjectedIds()
+        public void ResetExternalEntityIds() // satisfy interface
         {
-            SelectedManagerVm.ReadAllEntityIdsForConcatQuery = EnableInjectLocalIds;
+            throw new NotImplementedException();
+        }
 
-            SelectedManagerVm.SetInjectedEntityIds(this.MergeInjectedEntities());
+        public async Task TogleLocalEntityIdsInjectionAsync()
+        {
+            if (!EnableLocalConcatEntityIds)
+            {
+                EnableLocalConcatEntityIds = true;
+                this.LocalConcatEntityIds.Clear();
+                this.LocalConcatEntityIds.AddRange(SelectedManagerVm.GetLastEntityIds()); // get
+            }
+            else
+            {
+                EnableLocalConcatEntityIds = false;
+                this.LocalConcatEntityIds.Clear();
+            }
+
+            await RefreshInjectedIdsAsync();
+        }
+
+        public async Task TogleExternalPredicatesAsync()
+        {
+            EnableExternalEntityIds = !EnableExternalEntityIds;
+            await RefreshInjectedIdsAsync();
+        }
+
+        public async Task RefreshInjectedIdsAsync()
+        {
+            this.IntersectExternalAndLocalEntityIds(SelectedManagerVm);
 
             await SelectedManagerVm.FillObservableRecordsAsync();
 
             SelectedManagerVm.InvokeStateHasChanged();
         }
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
-            int limit, int skip)
+        public async Task TogleDistributedFilter()
         {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-            this.LastFragmentQueryCount = commonEntities.Count;
-
-            var toFind = commonEntities.Skip(skip).Take(limit).ToList();
-
-            return GetRecords(toFind);
-        }
-
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
-        {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-            this.LastFragmentQueryCount = commonEntities.Count;
-
-            return commonEntities;
-        }
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
-        {
-            var result = new Dictionary<string, List<IBrowsableDataObject>>();
-
-            foreach (var fragment in Exchanges)
-            {
-                var matching = fragment.GetRecords(identifiers); // Assuming fragment supports this
-                if (matching.Any())
-                {
-                    result[fragment.ManagerDataTypeName] = matching.ToList();
-                }
-            }
-
-            return result;
+            this.IsShownDistributedFilter = !this.IsShownDistributedFilter;
+            this.InvokeStateHasChanged();
         }
     }
 }

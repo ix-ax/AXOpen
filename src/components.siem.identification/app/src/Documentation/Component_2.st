@@ -20,10 +20,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 IOlinkReader.ActivateManualControl();
@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
             //<Initialization>        
 
-            IOlinkReader.Run(   parent      :=  THIS,
+            IOlinkReader.Run(   inParent    :=  THIS,
                                 HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                                 portAddr    :=  INT#0,
                                 version     :=  USINT#11);

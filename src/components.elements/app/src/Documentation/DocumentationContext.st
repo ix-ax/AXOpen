@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoDiDeclaration>
         VAR PUBLIC
-            _testDi : AXOpen.Elements.AxoDi;
+            _testDi : AXOpen.Components.Elements.AxoDi;
         END_VAR
         //</AxoDiDeclaration>
 
@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoDoDeclaration>
         VAR PUBLIC
-            _testDo : AXOpen.Elements.AxoDo;
+            _testDo : AXOpen.Components.Elements.AxoDo;
         END_VAR
         //</AxoDoDeclaration>
 
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoAiDeclaration>
         VAR PUBLIC
-            _testAi : AXOpen.Elements.AxoAi;
+            _testAi : AXOpen.Components.Elements.AxoAi;
         END_VAR
         //</AxoAiDeclaration>
 
@@ -59,7 +59,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoAoDeclaration>
         VAR PUBLIC
-            _testAo : AXOpen.Elements.AxoAo;
+            _testAo : AXOpen.Components.Elements.AxoAo;
         END_VAR
         //</AxoAoDeclaration>
 
@@ -71,7 +71,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoCarouselDeclaration>
         VAR PUBLIC
-            _testCarousel : AXOpen.Elements.AxoCarousel;
+            _testCarousel : AXOpen.Components.Elements.AxoRotaryIndexingTable;
         END_VAR
         //</AxoCarouselDeclaration>
 
@@ -83,15 +83,19 @@ NAMESPACE AXOpen.Elements
                 _testCarouselCodingPosition     :   UINT;
                 _testCarouselEnableTurn         :   BOOL;
                 _testCarouselStartTurn          :   BOOL;
-        END_VAR
+
+                _testCarouselSuspend1           :   BOOL;
+                _testCarouselSuspend2           :   BOOL;
+                _testCarouselSuspend3           :   BOOL;
+            END_VAR
         //</AxoCarouselInitializationArgumentsDeclaration>
 
         METHOD PUBLIC Main
             VAR_INPUT
-                parent  : IAxoObject;
+                inParent  : IAxoObject;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             
             //<AxoDiManualControl>
@@ -144,19 +148,25 @@ NAMESPACE AXOpen.Elements
             //</AxoCarouselManualControl>
 
             //<AxoCarouselInitialization>
-            _testCarousel.Config.ErrorTime:=T#10S;
-            _testCarousel.Config.InfoTime:=T#2S;
-            _testCarousel.Config.Direction:=eAxoCarouselDirection#Cw;
+            _testCarousel.Config.ErrorTime:=T#100S;
+            _testCarousel.Config.InfoTime:=T#20S;
+            _testCarousel.Config.TaskTimeout:=T#200S;
+            _testCarousel.Config.Direction:=eAxoRotaryIndexingTableDirection#Cw;
             _testCarousel.Config.NumberOfPositions:=UINT#8;
             _testCarousel.Config.Offset:=UINT#2;
 
-            _testCarousel.Run(  parent              :=  THIS,
-                                SafetyCondition     :=  _testCarouselSafetyCondition,
-                                InPosition          :=  _testCarouselInPosition,
-                                InPrecisePosition   :=  _testCarouselInPrecisePosition,
-                                CodingPosition      :=  _testCarouselCodingPosition,
-                                EnableTurn          =>  _testCarouselEnableTurn,
-                                StartTurn           =>  _testCarouselStartTurn);
+            _testCarousel.Run(  inParent            :=  THIS,
+                                inSafetyCondition   :=  _testCarouselSafetyCondition,
+                                inPosition          :=  _testCarouselInPosition,
+                                inPrecisePosition   :=  _testCarouselInPrecisePosition,
+                                inCodingPosition    :=  _testCarouselCodingPosition,
+                                outEnableTurn       =>  _testCarouselEnableTurn,
+                                outStartTurn        =>  _testCarouselStartTurn);
+
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend1,'Movement blocked by signal _testCarouselSuspend1');
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend2,'Movement blocked by signal _testCarouselSuspend2');
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend3,'Movement blocked by signal _testCarouselSuspend3');
+
             //</AxoCarouselInitialization>
         END_METHOD
     END_CLASS

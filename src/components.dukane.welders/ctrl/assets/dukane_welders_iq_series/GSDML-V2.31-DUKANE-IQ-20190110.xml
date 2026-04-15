@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<!-- ============================================================================================ -->
+	<!--   Dukane iQ generator GSMDL file - 20190107                                                  -->
+	<!-- ============================================================================================ -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-v2.31.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+        <DeviceIdentity VendorID="0x02E8" DeviceID="0x0001">
+			<InfoText TextId="T_ID_DEV_DESCRIPTION"/>
+			<VendorName Value="Dukane Corporation"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="General" ProductFamily="iQ Auto Plus"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<!-- ============================================================================================ -->
+			<!--   List of Device Access Points (DAP)                                                         -->
+			<!-- ============================================================================================ -->
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="DAP" PhysicalSlots="0..64" ModuleIdentNumber="0x80010000" MinDeviceInterval="8" ImplementationType="NP40" DNS_CompatibleName="iq-auto-plus" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" WebServer="http:///" MultipleWriteSupported="true" NameOfStationNotTransferable="true" ParameterizationSpeedupSupported="true" LLDP_NoD_Supported="true" CheckDeviceID_Allowed="true" PowerOnToCommReady="600" ResetToFactoryModes="2 8" RequiredSchemaVersion="V2.25" PNIO_Version="V2.31">
+					<ModuleInfo>
+						<Name TextId="T_ID_DAP"/>
+						<InfoText TextId="T_ID_DAP_DESCRIPTION"/>
+						<VendorName Value="Dukane Corporation"/>
+						<OrderNumber Value="iq-auto-plus"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="T_ID_SS_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="T_ID_SS_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="T_ID_SS_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="1440" MaxOutputLength="1440"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="ID_MODULE_INPUT" AllowedInSlots="1..64"/>
+						<ModuleItemRef ModuleItemTarget="ID_MODULE_OUTPUT" AllowedInSlots="1..64"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3 4">
+							<IOData IOPS_Length="1" IOCS_Length="1"/>
+							<ModuleInfo>
+								<Name TextId="T_ID_DAP"/>
+								<InfoText TextId="T_ID_DAP_DESCRIPTION"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="Interface" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="T_ID_INTERFACE" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" DCP_HelloSupported="true" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties StartupMode="Legacy;Advanced" ForwardingMode="Relative" MaxNumberIR_FrameData="128" MaxBridgeDelay="3100"/>
+							<SynchronisationMode SupportedRole="SyncSlave" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="Port 1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="T_ID_PORT1" MaxPortRxDelay="209" MaxPortTxDelay="90" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true"/>
+						<PortSubmoduleItem ID="Port 2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="T_ID_PORT2" MaxPortRxDelay="209" MaxPortTxDelay="90" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true"/>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+
+			<!-- ============================================================================================ -->
+			<!--   List of modules                                                                            -->
+			<!-- ============================================================================================ -->
+			<ModuleList>
+				<!-- OUTPUT module, 5 elements, data type = UINT32, direction = PLC-to-iQ -->
+				<ModuleItem ID="ID_MODULE_OUTPUT" ModuleIdentNumber="0x00000002">
+					<ModuleInfo CategoryRef="CAT_REF_OUT_MODULES">
+						<Name TextId="T_ID_MODULE_NAME_OUTPUT"/>
+						<InfoText TextId="T_ID_INFO_TEXT_OUTPUT"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_SUBMOD_OUTPUT_GROUP" SubmoduleIdentNumber="0x10000500" API="0" FixedInSubslots="1">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_OUTPUT_ELEMENT1"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_OUTPUT_ELEMENT2"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_OUTPUT_ELEMENT3"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_OUTPUT_ELEMENT4"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_OUTPUT_ELEMENT5"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="T_ID_MODULE_NAME_OUTPUT"/>
+								<InfoText TextId="T_ID_INFO_TEXT_OUTPUT"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+
+				<!-- INPUT Module, 35 elements, data type = UINT32, direction = iQ-to-PLC -->
+				<ModuleItem ID="ID_MODULE_INPUT" ModuleIdentNumber="0x00000001">
+					<ModuleInfo CategoryRef="CAT_REF_IN_MODULES">
+						<Name TextId="T_ID_MODULE_NAME_INPUT"/>
+						<InfoText TextId="T_ID_INFO_TEXT_INPUT"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+            <!-- MCH 20190110 - When changing the number of elements, need to change the SubmoduleIdentNumber to reflect the number of elements (In hex) -->
+            <!--                Look in the Profinet Network Guide Section 4.4 Fig. 2 to see -->
+						<VirtualSubmoduleItem ID="ID_SUBMOD_INPUT_GROUP" SubmoduleIdentNumber="0x00002300" API="0" FixedInSubslots="1">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT01"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT02"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT03"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT04"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT05"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT06"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT07"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT08"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT09"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT10"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT11"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT12"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT13"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT14"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT15"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT16"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT17"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT18"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT19"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT20"/>
+									<DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT21"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT22"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT23"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT24"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT25"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT26"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT27"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT28"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT29"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT30"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT31"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT32"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT33"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT34"/>
+                  <DataItem DataType="Unsigned32" TextId="T_ID_DATAITEM_INPUT_ELEMENT35"/>
+								</Input>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="T_ID_MODULE_NAME_INPUT"/>
+								<InfoText TextId="T_ID_INFO_TEXT_INPUT"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<GraphicsList>
+				<GraphicItem ID="1" GraphicFile="GSDML-010C-0010-ABCC40-PIR"/>
+			</GraphicsList>
+			<!-- ============================================================================================ -->
+			<!--   List of categories                                                                         -->
+			<!-- ============================================================================================ -->
+			<CategoryList>
+				<CategoryItem ID="CAT_REF_IN_MODULES" TextId="T_ID_CAT_REF_IN_MODULES"/>
+				<CategoryItem ID="CAT_REF_OUT_MODULES" TextId="T_ID_CAT_REF_OUT_MODULES"/>
+			</CategoryList>
+			<!-- ============================================================================================ -->
+			<!--   ExternalTextList                                                                           -->
+			<!-- ============================================================================================ -->
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<!--Identification-->
+					<Text TextId="T_ID_DAP" Value="DAP"/>
+					<Text TextId="T_ID_DEV_DESCRIPTION" Value="iq-auto-plus"/>
+					<Text TextId="T_ID_DAP_DESCRIPTION" Value="iq-auto-plus"/>
+					<Text TextId="T_ID_SS_INTERFACE" Value="X1"/>
+					<Text TextId="T_ID_SS_PORT1" Value="P1"/>
+					<Text TextId="T_ID_SS_PORT2" Value="P2"/>
+					<Text TextId="T_ID_INTERFACE" Value="Interface"/>
+					<Text TextId="T_ID_PORT1" Value="Port 1"/>
+					<Text TextId="T_ID_PORT2" Value="Port 2"/>
+
+					<!--Vendor module category-->
+					<Text TextId="T_ID_CAT_REF_IN_MODULES" Value="Input"/>
+					<Text TextId="T_ID_CAT_REF_OUT_MODULES" Value="Output"/>
+
+					<!-- Vendor module texts -->
+					<Text TextId="T_ID_INPUT" Value="Input"/>
+					<Text TextId="T_ID_MODULE_NAME_INPUT" Value="iQ-to-PLC Inputs"/>
+					<Text TextId="T_ID_INFO_TEXT_INPUT" Value="Array of DINTs representing cyclic iQ-to-PLC 'Input' communication"/>
+
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT01" Value="SystemErrorStatus"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT02" Value="SystemInitiateError"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT03" Value="SystemProcessError"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT04" Value="GeneratorState"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT05" Value="RealTimeAmplitude"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT06" Value="RealTimeFrequency"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT07" Value="RealTimePower"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT08" Value="SystemStatus"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT09" Value="Temperature"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT10" Value="CycleCount"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT11" Value="GoodPartCount"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT12" Value="BadPartCount"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT13" Value="SuspectPartCount"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT14" Value="AbortedPartCount"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT15" Value="CyclePartStatus"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT16" Value="CycleWeldTime"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT17" Value="CycleWeldPeakPower"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT18" Value="CycleWeldEnergy"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT19" Value="ActiveSetupSelection"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT20" Value="RunningSetupSelection"/>
+					<Text TextId="T_ID_DATAITEM_INPUT_ELEMENT21" Value="RunningMPCProbeSelection"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT22" Value="SelectedInputVoltage"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT23" Value="RealTimePosition"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT24" Value="RealTimeVelocity"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT25" Value="PartStatus_LowerBad"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT26" Value="PartStatus_LowerSuspect"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT27" Value="PartStatus_UpperSuspect"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT28" Value="PartStatus_UpperBad"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT29" Value="CycleTriggerTime"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT30" Value="CycleTriggerPosition"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT31" Value="CycleTriggerDelayTime"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT32" Value="CycleTriggerDelayDistance"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT33" Value="CycleWeld1Distance"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT34" Value="CycleWeld1Position"/>
+          <Text TextId="T_ID_DATAITEM_INPUT_ELEMENT35" Value="CycleTotalCycleTime"/>
+					
+					<Text TextId="T_ID_OUTPUT" Value="Output"/>
+					<Text TextId="T_ID_MODULE_NAME_OUTPUT" Value="PLC-to-iQ Outputs"/>
+					<Text TextId="T_ID_INFO_TEXT_OUTPUT" Value="Array of DINTs representing cyclic PLC-to-iQ 'Output' communication"/>
+					
+					<Text TextId="T_ID_DATAITEM_OUTPUT_ELEMENT1" Value="iQSystemCmd"/>
+					<Text TextId="T_ID_DATAITEM_OUTPUT_ELEMENT2" Value="OTFAmplitudeSetpoint"/>
+					<Text TextId="T_ID_DATAITEM_OUTPUT_ELEMENT3" Value="ActiveSetupSelection"/>
+					<Text TextId="T_ID_DATAITEM_OUTPUT_ELEMENT4" Value="RunningSetupSelection"/>
+					<Text TextId="T_ID_DATAITEM_OUTPUT_ELEMENT5" Value="RunningMPCProbeSelection"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

@@ -69,10 +69,10 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
-        /// Gets parent in which this object was initialized.
+        /// Gets inParent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
-            IF(_context <> NULL) THEN
+            IF(_parent <> NULL) THEN
                 GetParent := _parent;
                 _dg_.%X1 := FALSE;
             ELSE                
@@ -82,7 +82,7 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
-        /// Initializes this object associating it given parent. 
+        /// Initializes this object associating it given inParent. 
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
@@ -94,6 +94,9 @@ NAMESPACE AXOpen.Core
             VAR
                 NULL_CONTEXT_OBJ    : IAxoObject;
             END_VAR
+
+            // We always reset message count upon initialization.
+            THIS.MsgCnt := LINT#0;
 
             IF _isInitialized THEN
                 RETURN;
@@ -117,7 +120,7 @@ NAMESPACE AXOpen.Core
                 _errorState := UINT#40;
                 RETURN;
             END_IF;
-
+                        
             _context        := inParent.GetContext();                 
             _parent         := inParent;
             _isInitialized  := TRUE;
@@ -141,6 +144,9 @@ NAMESPACE AXOpen.Core
                 inContext : IAxoContext;
             END_VAR   
          
+
+            // We always reset message count upon initialization.
+            THIS.MsgCnt := LINT#0;
             IF _isInitialized THEN
                 RETURN;
             END_IF;
@@ -150,6 +156,8 @@ NAMESPACE AXOpen.Core
                 _errorState := UINT#10;
                 RETURN;
             END_IF;
+            
+            
             
             _context        := inContext;                 
             _isInitialized  := TRUE;
@@ -161,7 +169,7 @@ NAMESPACE AXOpen.Core
         END_VAR    
         
         ///<summary>
-        /// Aggregates message count for this object and all parent objects in the generation of this object.
+        /// Aggregates message count for this object and all inParent objects in the generation of this object.
         ///</summary>
         METHOD PUBLIC AggregateMessage
             VAR_INPUT

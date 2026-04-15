@@ -1,5 +1,5 @@
-USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+USING AXOpen.Components.Core;
+NAMESPACE AXOpen.Components.Elements
 
     /// <summary>
     /// Class representing Digital input
@@ -7,26 +7,28 @@ NAMESPACE AXOpen.Elements
     {S7.extern=ReadWrite}
     CLASS AxoDi EXTENDS AXOpen.Core.AxoComponent
 
-        VAR
-            _inSignal : BOOL;
-        END_VAR
-
         VAR PUBLIC
             
-            // task, which checks if signal is on
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Signal#>"}
+            _signal : BOOL;
+
+            // task, which checks if signal is on
             {#ix-set:AttributeName = "<#Check on#>"}
             {#ix-attr:[ComponentHeader()]}
             _isTrueTask : AxoTask;
-
+            
             // task, which checks if signal is off
             {#ix-set:AttributeName = "<#Check off#>"}
             {#ix-attr:[ComponentHeader()]}
             _isFalseTask : AxoTask;
-
+            
             {#ix-set:AttributeName = "<#MessengerInfo#>"}
             {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
+
         END_VAR
        
         VAR PRIVATE
@@ -49,24 +51,21 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
                 inSignal: BOOL;
             END_VAR
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
 
-            IF _context = NULL THEN
-                SUPER.Run(parent);
-                _isTrueTask.Run(THIS);
-                _isFalseTask.Run(THIS);
-                _context := THIS.GetContext();
-            END_IF;
-
+            SUPER.Run(inParent);            
+            _isTrueTask.Run(THIS);
+            _isFalseTask.Run(THIS);
+                       
             _messengerInfo.Serve(THIS); 
 
-            THIS._inSignal := inSignal;	
+            _signal := inSignal;
 
             IF(_isTrueTask.Execute(THIS))THEN
                 _isTrueTask.DoneWhen(THIS.IsTrue());
@@ -81,15 +80,19 @@ NAMESPACE AXOpen.Elements
         /// Returns TRUE if signal is on. It creates alarm otherwise.
         /// </summary>
         METHOD PUBLIC IsTrue : BOOL
-            IsTrue := _inSignal;
-            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            IsTrue := _signal;
+            _messengerInfo.ActivateOnCondition(UINT#1,NOT IsTrue,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
         /// <summary>
         /// Returns TRUE if signal is off. It creates alarm otherwise.
         /// </summary>
         METHOD PUBLIC IsFalse : BOOL
-            IsFalse := NOT _inSignal;
-            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            IsFalse := NOT _signal;
+            _messengerInfo.ActivateOnCondition(UINT#2,NOT IsFalse,AXOpen.Messaging.eAxoMessageCategory#Potential);
+        END_METHOD
+
+        METHOD PUBLIC SignalStatus : BOOL
+            SignalStatus :=  _signal;
         END_METHOD
     END_CLASS
 END_NAMESPACE 

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="min_COLON_" xml:space="preserve">
+    <value>min:</value>
+    <comment>src\AxoInspector.st,381</comment>
+  </data>
+  <data name="_max_COLON__" xml:space="preserve">
+    <value> max: </value>
+    <comment>src\AxoInspector.st,381</comment>
+  </data>
+  <data name="_but_was_COLON__" xml:space="preserve">
+    <value> but was: </value>
+    <comment>src\AxoInspector.st,382</comment>
+  </data>
+  <data name="Req_COLON__" xml:space="preserve">
+    <value>Req: </value>
+    <comment>src\AxoInspector.st,470</comment>
+  </data>
+  <data name="Actual_COLON__" xml:space="preserve">
+    <value>Actual: </value>
+    <comment>src\AxoInspector.st,471</comment>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>TimeStamp</value>
+    <comment>src\AxoInspectorData.st,12</comment>
+  </data>
+  <data name="Stab_DOT_Time" xml:space="preserve">
+    <value>Stab.Time</value>
+    <comment>src\AxoInspectorData.st,16</comment>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout</value>
+    <comment>src\AxoInspectorData.st,20</comment>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+    <comment>src\AxoInspectorData.st,24</comment>
+  </data>
+  <data name="Excluded" xml:space="preserve">
+    <value>Excluded</value>
+    <comment>src\AxoInspectorData.st,28</comment>
+  </data>
+  <data name="Bypass" xml:space="preserve">
+    <value>Bypass</value>
+    <comment>src\AxoInspectorData.st,32</comment>
+  </data>
+  <data name="Re_DASH_tries" xml:space="preserve">
+    <value>Re-tries</value>
+    <comment>src\AxoInspectorData.st,36</comment>
+  </data>
+  <data name="Attempts" xml:space="preserve">
+    <value>Attempts</value>
+    <comment>src\AxoInspectorData.st,40</comment>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>ErrorCode</value>
+    <comment>src\AxoInspectorData.st,43</comment>
+  </data>
+  <data name="Failure_Description" xml:space="preserve">
+    <value>Failure Description</value>
+    <comment>src\AxoInspectorData.st,46</comment>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+    <comment>src\AxoInspectorDialog.st,23</comment>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,9</comment>
+  </data>
+  <data name="Detected" xml:space="preserve">
+    <value>Detected</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,13</comment>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,16</comment>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+    <comment>src\AxoDataInspector\AxoDataInspectorData.st,10</comment>
+  </data>
+  <data name="Star_notation" xml:space="preserve">
+    <value>Star notation</value>
+    <comment>src\AxoDataInspector\AxoDataInspectorData.st,17</comment>
+  </data>
+</root>

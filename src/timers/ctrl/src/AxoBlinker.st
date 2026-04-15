@@ -24,7 +24,7 @@ NAMESPACE AXOpen.Timers
         ///</summary>
         METHOD PUBLIC Blink : BOOL
             VAR_INPUT 
-                Parent : IAxoObject;              
+                inParent : IAxoObject;              
                 ///<summary>
                 /// Time duration for on duty output.
                 ///</summary>
@@ -35,11 +35,11 @@ NAMESPACE AXOpen.Timers
                 inOffTime : TIME;
             END_VAR   
 
-            IF Parent = NULL THEN
+            IF inParent = NULL THEN
                 RETURN;
             END_IF;
            
-            Blink := THIS.Execute(Parent,inOnTime,inOffTime);
+            Blink := THIS.Execute(inParent,inOnTime,inOffTime);
         END_METHOD
 
         ///<summary>

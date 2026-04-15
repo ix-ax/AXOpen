@@ -265,4 +265,19 @@
   <data name="Group Management" xml:space="preserve">
     <value>Group Management</value>
   </data>
+  <data name="Identified!" xml:space="preserve">
+    <value>Identified!</value>
+  </data>
+  <data name="The external token identified" xml:space="preserve">
+    <value>The external token identified</value>
+  </data>
+  <data name="Failed to set email." xml:space="preserve">
+    <value>Failed to set email.</value>
+  </data>
+  <data name="Failed to set phone number." xml:space="preserve">
+    <value>Failed to set phone number.</value>
+  </data>
+  <data name="Failed to set externalId, because it is being used by another user." xml:space="preserve">
+    <value>Failed to set externalId, because it is being used by another user.</value>
+  </data>
 </root>

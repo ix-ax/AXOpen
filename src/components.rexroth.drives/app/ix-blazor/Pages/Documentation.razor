@@ -1,7 +1,14 @@
 ﻿@page "/Documentation"
 @using AXOpen.Core;
+@using Operon.Components.Tab
+@* @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents; *@
 
-<Component_1></Component_1>
-<Component_2></Component_2>
 
-
+<Tab>
+    <TabPage Title="Component_1 - Indradrive">
+        <Component_1></Component_1>
+    </TabPage>
+    <TabPage Title="Component_2 - CtrlXdrive (not working very well, hot candidate for 'blacklist')">
+        <Component_2></Component_2>
+    </TabPage>
+</Tab>

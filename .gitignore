@@ -420,16 +420,20 @@ import-cache
 .ax/plcs
 .ax/certificates
 
-#AX HWC compiled
-hwc.gen/
-
 #AX HWC templates copied from library
 library_templates
 
 #DCP export 
 dcp_export/
 
+temp/
+
 *.apax.tgz
 
 #JSONREPOS
 **/JSONREPOS/
+
+.cursor
+operon-variables.css
+
+**/app/gsd/source/**

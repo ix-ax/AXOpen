@@ -1,78 +1,455 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
 @using AXOpen.Core
 @using AXOpen.Messaging.Static
 @using System.Runtime.CompilerServices
+@using System.Security.Principal
 @using AXSharp.Connector
 @using Microsoft.JSInterop
 @implements IAsyncDisposable;
 @inject IJSRuntime JSRuntime
-@using AXOpen.Messaging.Static
+@using AXOpen.Messaging
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
- 
-<div class="container-fluid">
-    @if (MessageProvider.ActiveMessagesCount >= 0)
-    {
-        <div class="row p-3">
-            <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">ACKN</button>
+@if (EnableFiltering)
+{
+    <div data-axo-object-diagnostics-view class="card p-2">
+        <div class="input-group">
+            <input type="text" id="inputTailwindString" @bind="SearchTerm" @bind:event="oninput" title="@Localizer["SearchAlarms"]" placeholder="@Localizer["SearchTitleOrEquipment"]" />
         </div>
-        <table class="table table-hover">
-           <thead>
-             <tr>
-               <th scope="col">@Localizer["Source"]</th>
-               <th scope="col">@Localizer["Category"]</th>
-               <th scope="col">@Localizer["Description"]</th>
-               <th scope="col">@Localizer["Risen"]</th>
-               <th scope="col">@Localizer["Fallen"]</th>
-               <th scope="col">@Localizer["Ackn"]</th>
-               <th scope="col">@Localizer[""]</th>
-             </tr>
-           </thead>
-           <tbody>
-           @{
-            foreach (var message in MessageProvider.Messengers)
-            {
-                if (message.State != eAxoMessengerState.Idle)
+
+        <div class="flex flex-wrap flex-row items-center justify-center gap-4 py-1">
+            <div class="inline-flex flex-wrap items-center gap-2">
+                <span class="text-sm font-semibold uppercase">@Localizer["Severity"]</span>
+                @foreach (var severity in SeverityOptions)
                 {
-                    <AxoMessengerView Component="message"></AxoMessengerView>
+                    <label class="btn btn-sm @(IsSeveritySelected(severity) ? "btn-primary" : "btn-outline-primary")">
+                        <input type="checkbox" checked="@IsSeveritySelected(severity)" @onchange="() => ToggleSeverity(severity)" class="checkbox me-1" />
+                        @SeverityLabel(severity)
+                    </label>
+                }
+            </div>
+
+            <div class="w-[1px] h-6 bg-text-light/60"></div>
+
+            <div class="inline-flex flex-wrap items-center gap-2">
+                <span class="text-sm font-semibold uppercase">@Localizer["State"]</span>
+                <label class="btn btn-sm @(IncludeActive ? "btn-primary" : "btn-outline-primary")">
+                    <input type="checkbox" @bind="IncludeActive" class="checkbox me-1" />
+                    @Localizer["Active"]
+                </label>
+                <label class="btn btn-sm @(IncludeCleared ? "btn-primary" : "btn-outline-primary")">
+                    <input type="checkbox" @bind="IncludeCleared" class="checkbox me-1" />
+                    @Localizer["Cleared"]
+                </label>
+            </div>
+
+            <div class="w-[1px] h-6 bg-text-light/60"></div>
+
+            <button type="button" class="btn btn-sm btn-primary gap-1 @(_shouldBounce ? "animate-bounce" : null)" @onclick="RefreshMessages" title="@Localizer["RefreshMessages"]">
+                <Operon.Icons.HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Solid" Class="size-3" />
+                @Localizer["Refresh"]
+            </button>
+        </div>
+    </div>
+}
+
+<div class="overflow-x-auto">
+    <table class="table table-striped table-hover @Class" style="@Style">
+        <thead>
+            <tr>
+                <th>@Localizer["Severity"]</th>
+                <th>@Localizer["Title"]</th>
+                <th>@Localizer["Equipment"]</th>
+                <th>@Localizer["State"]</th>
+                <th>@Localizer["Raised"]</th>
+                <th>@Localizer["Acknowledged"]</th>
+                <th>@Localizer["Duration"]</th>
+                @if (HasActionsColumn)
+                {
+                    <th class="text-right">@Localizer["Actions"]</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @if (Rows.Count == 0)
+            {
+                <tr>
+                    <td colspan="@(HasActionsColumn ? 8 : 7)" class="p-2">@Localizer["NoAlarmsToDisplay"]</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var alarm in Rows)
+                {
+                    var isExpanded = _expandedAlarmIds.Contains(alarm.GetHashCode());
+                    <tr class="@ConvertToInternalBgSeverityName((eAxoMessageCategory)alarm.Category.LastValue)"
+                        @onclick="() => HandleRowClick(alarm)"
+                        @onkeypress="args => HandleRowKeyPress(args, alarm)"
+                        role="@RowRole"
+                        tabindex="@RowTabIndex">
+                        <td class="flex flex-nowrap gap-2 items-center">
+                            <button type="button" class="flex cursor-pointer" @onclick:stopPropagation="true" @onclick="() => ToggleAlarmDetails(alarm)" title="@(isExpanded ? Localizer["HideDetails"] : Localizer["ShowDetails"])" aria-expanded="@isExpanded">
+                                <Operon.Icons.HeroIcon Icon="chevron-right" Type="Operon.Icons.IconType.Solid" Class="@(isExpanded ? "size-5 icon-button-rotate-90 rotated" : "size-5 icon-button-rotate-90")" />
+                            </button>
+                            <span class="badge @ConvertToInternalBadgeSeverityName((eAxoMessageCategory)alarm.Category.LastValue)" aria-label="@alarm.Category">
+                                @SeverityLabel((eAxoMessageCategory)alarm.Category.LastValue)
+                            </span>
+                        </td>
+                        <td>@DisplayOrDash(@alarm.GetMessageText())</td>
+                        <td>@(alarm.GetParent() != null ? alarm.GetParent().GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</td>
+                        <td class="font-semibold uppercase">@StateLabel(alarm)</td>
+                        <td>@FormatTimestamp(alarm.Risen.LastValue)</td>
+                        <td>@FormatAcknowledged(alarm)</td>
+                        <td>@FormatDuration(alarm)</td>
+                        @if (HasActionsColumn || CanAcknowledge(alarm))
+                        {
+                            <td class="text-right">
+                                @if (Actions is not null)
+                                {
+                                    @Actions(alarm)
+                                }
+
+                                @if (alarm.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
+                                {
+                                    <button type="button" class="btn btn-sm btn-primary gap-1" disabled="@(!CanAcknowledge(alarm))" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" title="@Localizer["AcknowledgeAlarm"]">
+                                        <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Solid" Class="size-5" />
+                                        @Localizer["ACKN"]
+                                    </button>
+                                }
+                            </td>
+                        }
+                        @if (alarm.IsAcknowledged)
+                        {
+                            <td class="text-right">
+                                <div class="badge badge-primary uppercase">
+                                    <p>@Localizer["Ack"]</p>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                    @if (isExpanded)
+                    {
+                        <tr>
+                            <td colspan="@(HasActionsColumn ? 8 : 7)">
+                                <div class="flex flex-wrap flex-row justify-between w-full">
+                                    <div class="flex flex-wrap flex-col">
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Suggestion"]:</span>
+                                        <span class="text-xs text-text/80">@DisplayOrDash(alarm.GetHelpText())</span>
+                                    </div>
+                                    <div class="flex flex-wrap flex-col">
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Symbol"]:</span>
+                                        <span class="text-xs text-text/80">@DisplayOrDash(alarm.Component.Symbol)</span>
+                                    </div>
+                                    <div class="flex flex-wrap flex-col">
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["HumanReadable"]:</span>
+                                        <span class="text-xs text-text/80">@DisplayOrDash(alarm.Component.HumanReadable)</span>
+                                    </div>
+                                    <div class="flex flex-wrap flex-col">
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["AlarmId"]:</span>
+                                        <span class="text-xs text-text/80">@DisplayOrDash(alarm.Identity.LastValue.ToString())</span>
+                                    </div>
+                                    <AuthorizeView Roles="Administrator">
+                                        <Authorized>
+                                            <div class="flex flex-wrap flex-col">
+                                                <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Restore"]:</span>
+                                                <button class="btn btn-sm btn-primary" @onclick="() => RestoreParentTask(alarm)">@Localizer["RestoreButton"]</button>
+                                            </div>
+                                        </Authorized>
+                                    </AuthorizeView>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
             }
-        }
-
         </tbody>
-        </table>
-    }
-    else
-    {
-        <div class="d-flex justify-content-center align-items-center">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="success" class="bi bi-emoji-sunglasses-fill" viewBox="0 0 16 16">
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M2.31 5.243A1 1 0 0 1 3.28 4H6a1 1 0 0 1 1 1v.116A4.2 4.2 0 0 1 8 5c.35 0 .69.04 1 .116V5a1 1 0 0 1 1-1h2.72a1 1 0 0 1 .97 1.243l-.311 1.242A2 2 0 0 1 11.439 8H11a2 2 0 0 1-1.994-1.839A3 3 0 0 0 8 6c-.393 0-.74.064-1.006.161A2 2 0 0 1 5 8h-.438a2 2 0 0 1-1.94-1.515zM4.969 9.75A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .866-.5z"/>
-                </svg>
-            </div>
-        </div>
-    }
+    </table>
 </div>
 
 @code
 {
+    private async Task RestoreParentTask(AxoMessenger? task)
+    {
+        task?.RestoreParentTask(await this.GetCurrentUserIdentity());
+    }
+
+    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
+    private string SeverityLabel(eAxoMessageCategory category) => ConvertToSeverityName(category);
+    private string StateLabel(AxoMessenger alarm)
+    {
+        if (!alarm.IsActive)
+        {
+            return Localizer["Cleared"];
+        }
+
+        return alarm.IsAcknowledged ? Localizer["ActiveAck"] : Localizer["Active"];
+    }
+    private static string FormatTimestamp(DateTime? timestamp)
+        => timestamp?.ToLocalTime().ToString("g") ?? "—";
+    private string FormatAcknowledged(AxoMessenger Component)
+    {
+        if (!Component.IsAcknowledged)
+        {
+            return Component.IsActive ? Localizer["Pending"] : "—";
+        }
+
+        return FormatTimestamp(Component.Acknowledged.LastValue);
+    }
+    private static string FormatDuration(AxoMessenger Component)
+    {
+        try
+        {
+            if (Component.Risen.LastValue.Equals(new DateTime()))
+            {
+                return "—";
+            }
+
+            var end = Component.IsActive ? DateTime.UtcNow : Component.Acknowledged.LastValue;
+            if (end < Component.Risen.LastValue)
+            {
+                return "—";
+            }
+
+            var duration = end - Component.Risen.LastValue;
+            return duration switch
+            {
+                { TotalMinutes: < 1 } => "< 1 min",
+                { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
+                { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
+                _ => $"{duration.TotalDays:F1} d"
+            };
+        }
+        catch (Exception e)
+        {
+            //swallow;
+        }
+
+        return "—";
+
+    }
+    private bool CanAcknowledge(AxoMessenger Component) => Component.IsActive && !Component.IsAcknowledged;
+    private string? RowRole => RowSelected.HasDelegate ? "button" : null;
+    private int? RowTabIndex => RowSelected.HasDelegate ? 0 : (int?)null;
+
+    private bool HasActionsColumn => Actions is not null || AcknowledgeRequested.HasDelegate;
+
+
+    protected async Task<IIdentity?> GetCurrentUserIdentity()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        return authenticationState?.User?.Identity;
+    }
+
+    private async Task HandleAcknowledge(AxoMessenger alarm)
+    {
+        alarm.Acknowledge(await this.GetCurrentUserIdentity());
+        await alarm.ReadDetailsAsync();
+    }
+
+    private async Task HandleRowClick(AxoMessenger alarm)
+    {
+        if (RowSelected.HasDelegate)
+        {
+            await RowSelected.InvokeAsync(alarm);
+        }
+    }
+
+    private async Task HandleRowKeyPress(KeyboardEventArgs args, AxoMessenger alarm)
+    {
+        if (args.Key is "Enter" or " ")
+        {
+            await HandleRowClick(alarm);
+        }
+    }
+
+    private string ConvertToSeverityName(eAxoMessageCategory category)
+    {
+        return category switch
+        {
+            eAxoMessageCategory.Info => Localizer["Info"],
+            eAxoMessageCategory.Potential => Localizer["Potential"],
+            eAxoMessageCategory.Warning => Localizer["Warning"],
+            eAxoMessageCategory.Error => Localizer["Error"],
+            eAxoMessageCategory.ProgrammingError => Localizer["System"],
+            eAxoMessageCategory.Critical => Localizer["Critical"],
+            _ => string.Empty
+        };
+    }
+
+    private static string ConvertToInternalBadgeSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "badge-info";
+            case eAxoMessageCategory.Potential:
+                return "badge-info";
+            case eAxoMessageCategory.Warning:
+                return "badge-warning";
+            case eAxoMessageCategory.Error:
+                return "badge-danger";
+            case eAxoMessageCategory.ProgrammingError:
+                return "badge-danger";
+            case eAxoMessageCategory.Critical:
+                return "badge-danger";
+
+        }
+
+        return string.Empty;
+    }
+
+    private static string ConvertToInternalBgSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "bg-info/10!";
+            case eAxoMessageCategory.Potential:
+                return "bg-info/10!";
+            case eAxoMessageCategory.Warning:
+                return "bg-warning/10!";
+            case eAxoMessageCategory.Error:
+                return "bg-danger/10!";
+            case eAxoMessageCategory.ProgrammingError:
+                return "bg-danger/10!";
+            case eAxoMessageCategory.Critical:
+                return "bg-danger/10!";
+        }
+        return string.Empty;
+    }
+
+    private IReadOnlyList<AxoMessenger> BuildRows()
+    {
+        var source = this.MessageProvider.Messengers ?? Enumerable.Empty<AxoMessenger>();
+
+        if (!EnableFiltering)
+        {
+            return source
+                .OrderByDescending(a => a.IsActive)
+                .ThenByDescending(a => a.Category.LastValue)
+                .ThenByDescending(a => a.Risen.LastValue)
+                .ToList();
+        }
+
+        var filtered = source.Where(alarm => _selectedSeverities.Contains((eAxoMessageCategory)alarm.Category.LastValue))
+            .Where(alarm => alarm.IsActive ? IncludeActive : IncludeCleared);
+
+        var hasSearch = !string.IsNullOrWhiteSpace(SearchTerm);
+        if (hasSearch)
+        {
+            var term = SearchTerm.Trim();
+            filtered = filtered.Where(alarm => MatchesSearch(alarm, term));
+        }
+
+        return filtered
+            .OrderByDescending(a => a.IsActive)
+            .ThenByDescending(a => a.Category.LastValue)
+            .ThenByDescending(a => a.Risen.LastValue)
+            .ToList();
+    }
+
+    private static bool MatchesSearch(AxoMessenger alarm, string term)
+    {
+        return (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.Symbol?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.AttributeName != null && alarm.Component.GetAttributeName(CultureInfo.CurrentUICulture)?.Contains(term, StringComparison.OrdinalIgnoreCase) == true)
+               || (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false);
+    }
+
+    private IReadOnlyList<AxoMessenger> Rows => _rows ??= BuildRows();
+
+    private void ToggleSeverity(eAxoMessageCategory severity)
+    {
+        if (_selectedSeverities.Contains(severity))
+            _selectedSeverities.Remove(severity);
+        else
+            _selectedSeverities.Add(severity);
+
+        InvalidateFilters();
+    }
+
+    private string _searchTerm = string.Empty;
+
+    private string SearchTerm
+    {
+        get => _searchTerm;
+        set
+        {
+            var sanitized = value ?? string.Empty;
+            if (!string.Equals(_searchTerm, sanitized, StringComparison.Ordinal))
+            {
+                _searchTerm = sanitized;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private bool _includeCleared;
+
+    private bool IncludeCleared
+    {
+        get => _includeCleared;
+        set
+        {
+            if (_includeCleared != value)
+            {
+                _includeCleared = value;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private bool _includeActive = true;
+    private bool IncludeActive
+    {
+        get => _includeActive;
+        set
+        {
+            if (_includeActive != value)
+            {
+                _includeActive = value;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private IReadOnlyList<AxoMessenger>? _rows;
+
+    private void InvalidateFilters()
+    {
+        _rows = null;
+    }
+
+
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
-    
-    [Parameter]
-    public AxoMessageProvider MessageProvider
+    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().Skip(1).ToArray();
+    private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
+    private bool _shouldBounce = false;
+    private System.Threading.Timer? _bounceTimer;
+    private DateTime _componentOpenedAt = DateTime.UtcNow;
+    private readonly HashSet<int> _expandedAlarmIds = new();
+
+    [Parameter] public EventCallback<AxoMessenger> RowSelected { get; set; }
+    [Parameter] public RenderFragment<AxoMessenger>? Actions { get; set; }
+    [Parameter] public EventCallback<AxoMessenger> AcknowledgeRequested { get; set; }
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public bool EnableFiltering { get; set; } = true;
+    [Parameter] public AxoMessageProvider MessageProvider
     {
         get => provider;
         set
         {
             provider = value;
-        } 
+        }
     }
-    
-    
+
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects
     {
@@ -81,17 +458,13 @@
         {
             observedObjects = value;
             this.OnComponentChanged();
-        } 
+        }
     }
+
+    private bool IsSeveritySelected(eAxoMessageCategory severity) => _selectedSeverities.Contains(severity);
 
     public override async void OnComponentChanged()
     {
-        // if (observedObjects.Count() == 0 
-        //     && !observedObjects.First().Equals(this.Component))
-        // {
-        //     observedObjects = new[] { this.Component };
-        // }
-
         MessageProvider = AxoMessageProvider.Create(observedObjects);
         await LoadMessages();
         base.OnComponentChanged();
@@ -102,43 +475,87 @@
     public async ValueTask DisposeAsync()
     {
         if (module != null) await module.DisposeAsync();
+        _bounceTimer?.Dispose();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
+        
+        if (firstRender)
+        {
+            CheckBounceCondition();
+            StartBounceTimer();
+        }
     }
 
-    
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         _ = MessageProvider.InitializeLightUpdate(this.StartPolling);
-        
+
         await LoadMessages();
 
         // Notify Blazor to refresh the UI
         StateHasChanged();
     }
-    
+
+    private void StartBounceTimer()
+    {
+        _bounceTimer = new System.Threading.Timer(_ =>
+        {
+            CheckBounceCondition();
+            InvokeAsync(StateHasChanged);
+        }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+    }
+
+    private void CheckBounceCondition()
+    {
+        var hasNoAlarms = Rows.Count == 0 || MessageProvider.ActiveMessagesCount == 0;
+        var openForMoreThan7Seconds = (DateTime.UtcNow - _componentOpenedAt).TotalSeconds >= 7;
+        
+        _shouldBounce = hasNoAlarms || openForMoreThan7Seconds;
+    }
+
     private async Task AcknowledgeAll()
     {
         var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        if (MessageProvider is {Messengers: not null })
+        if (MessageProvider is { Messengers: not null })
         {
-            foreach (var messenger in 
+            foreach (var messenger in
                      MessageProvider.Messengers
-                         .Where(p =>p.State == eAxoMessengerState.ActiveAcknowledgeRequired || 
+                         .Where(p => p.State == eAxoMessengerState.ActiveAcknowledgeRequired ||
                                                 p.State == eAxoMessengerState.InactiveWaitingForAcknowledge))
             {
                 messenger.Acknowledge(ast.User.Identity);
             }
         }
-        
+
         await LoadMessages();
     }
+
+    private async Task RefreshMessages()
+    {
+        _shouldBounce = false;
+        _componentOpenedAt = DateTime.UtcNow; // Reset the timer when user refreshes
+        InvalidateFilters();
+        await LoadMessages();
+        CheckBounceCondition();
+        StateHasChanged();
+    }
+
+    private void ToggleAlarmDetails(AxoMessenger alarm)
+    {
+        var alarmId = alarm.GetHashCode();
+        if (_expandedAlarmIds.Contains(alarmId))
+        {
+            _expandedAlarmIds.Remove(alarmId);
+        }
+        else
+        {
+            _expandedAlarmIds.Add(alarmId);
+        }
+        StateHasChanged();
+    }
 }
-
-
-

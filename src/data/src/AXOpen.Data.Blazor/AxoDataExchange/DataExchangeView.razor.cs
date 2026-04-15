@@ -1,39 +1,19 @@
-﻿// axopen_data_blazor
+// axopen_data_blazor
 // Copyright (c) 2023 MTS spol. s r.o,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
-using AXOpen.Base.Data;
-using AXOpen.Data.Interfaces;
-using AXOpen.Data;
-
-using AXOpen.Data.Interfaces;
-
+using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using System.IO;
-using AXOpen.Core;
-using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using Operon.Components.Dropdown;
+using Operon.Components.Toast;
+using System.Security.Cryptography;
 using static AXOpen.Data.DataExchangeViewModel;
-
-using AXOpen.Data;
-
-using AXSharp.Connector;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Messaging;
-
-using Microsoft.AspNetCore.Components.Forms;
-using AXOpen.Data.Interfaces;
-using AXOpen.Core;
-using AXOpen.Data;
-
-using System.Data.Common;
-using AXOpen.Data.Query;
-using AXOpen.Base.Data.Query;
-using AXSharp.Presentation.Blazor.Controls.Templates;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data;
 
@@ -45,8 +25,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public string Presentation { get; set; } = "Status";
 
-    [Parameter] public bool ModalDataView { get; set; } = true;
-
     [Parameter] public bool EnableCreate { get; set; } = false;
     [Parameter] public bool EnableCopy { get; set; } = false;
     [Parameter] public bool EnableDelete { get; set; } = false;
@@ -54,7 +32,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
 
     [Parameter] public bool EnableFiltering { get; set; } = false;
-    [Parameter] public bool EnableExport { get; set; } = false; 
+    [Parameter] public bool EnableExport { get; set; } = false;
     [Parameter] public bool EnableSorting { get; set; } = false;
 
     //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
@@ -68,7 +46,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     public bool AdvanceFilterConfig { get; set; } = false;
 
     [Inject]
-    private IAlertService _alertDialogService { get; set; }
+    private IToastService _toastService { get; set; }
 
     [Inject]
     private ProtectedLocalStorage ProtectedLocalStore { get; set; }
@@ -82,6 +60,8 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private PredicateContainer _lastPredicates;
 
     private string _ClientFolder = string.Empty;
+
+    private Dropdown _dropdownExtentions { get; set; }
 
     public string ClientFolder
     {
@@ -127,9 +107,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string ButtonOperationName { get; set; } = "";
 
-    private int MaxPage =>
-        (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
-
     public void AddLine(ColumnData line)
     {
         if (!Columns.Contains(line))
@@ -150,13 +127,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
     }
 
-    private int mod(int x, int m)
-    {
-        if (m == 0) return 0; // avoid exception caused by % 0
-        var r = x % m;
-        return r < 0 ? r + m : r;
-    }
-
     private async Task setSortExpresionAsync(string sortExpresion)
     {
         Vm.DefaulSorting.MemberName = sortExpresion;
@@ -168,37 +138,51 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         await Vm.FillObservableRecordsAsync();
     }
 
-    private async Task setSortAscendingAsync()
+    private async Task ToggleSortSettings()
     {
         Vm.DefaulSorting.IsAscending = !Vm.DefaulSorting.IsAscending;
 
         await Vm.FillObservableRecordsAsync();
     }
 
-    private async Task setLimitAsync(int limit)
+    public int Limit
     {
-        var oldLimit = Vm.Limit;
-        Vm.Limit = limit;
-
-        Vm.Page = Vm.Page * oldLimit / Vm.Limit;
-
-        await Vm.FillObservableRecordsAsync();
+        set
+        {
+            Vm.Limit = value;
+            Vm.UpdateObservableRecords();
+        }
+        get
+        {
+            return Vm.Limit;
+        }
     }
 
-    private async Task setPageAsync(int page)
+    public int Page
     {
-        Vm.Page = page;
+        set
+        {
+            Vm.Page = value;
+            Vm.UpdateObservableRecords();
+        }
+        get
+        {
+            return Vm.Page;
+        }
+    }
 
+    private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
+    {
+        Vm.Limit = pageSize;
+        Vm.Page = selected;
         await Vm.FillObservableRecordsAsync();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        Vm.InjectedPredicateContainer = ExternalPredicates;
-
-        await Vm.Filter();
-
         Vm.StateHasChangedDelegate = StateHasChanged;
+        Vm.SetExternalPredicates(ExternalPredicates);
+        await Vm.Filter();
     }
 
     private async Task LoadFile(InputFileChangeEventArgs e)
@@ -219,7 +203,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
+            _toastService.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Error, ex.Message, 10);
             _fileLoadingStatus = eOperationStatus.Failed;
         }
     }
@@ -245,32 +229,20 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     public async Task LoadCustomExportDataAsync()
     {
-        var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
-        if (result.Success)
+        try
         {
-            Vm.ExportSet = result.Value;
+            var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
+            if (result.Success)
+            {
+                Vm.ExportSet = result.Value;
+            }
+        }
+        catch (CryptographicException)
+        {
+            await ProtectedLocalStore.DeleteAsync(Vm.DataExchange.ToString());
         }
 
         StateHasChanged();
-    }
-
-    //-inject
-    protected void ReloadRecordAfterEditWithoutModal()
-    {
-        if (this.ModalDataView) return; // make a sense when is not modal window
-
-        string identifier = Vm.SelectedRecord.DataEntityId;
-
-        Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates()).GetAwaiter();
-
-        var rec = Vm.Records.Where(e => e.DataEntityId == identifier).First();
-
-        if (rec != null)
-        {
-            Vm.SelectedRecord = rec;
-
-            this.StateHasChanged();
-        }
     }
 
     public void Dispose()

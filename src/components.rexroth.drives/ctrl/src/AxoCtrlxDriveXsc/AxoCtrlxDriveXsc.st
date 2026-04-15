@@ -6,8 +6,8 @@ USING AXOpen.Components.Abstractions;
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.Hardware.Utilities;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
@@ -111,27 +111,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _Parameter  : ARRAY[0..9] OF BYTE; 
             _Fieldbus   : ARRAY[0..25] OF BYTE; 
-            _HW_Device            : WORD;
-            _HW_Outputs           : WORD;
-            _HW_Inputs            : WORD;
-            _HW_S_0_0134_0_0      : WORD;
-            _HW_S_0_0145_0_0      : WORD;
-            _HW_S_0_0282_0_0      : WORD;
-            _HW_S_0_0259_0_0      : WORD;
-            _HW_S_0_0260_0_0      : WORD;
-            _HW_S_0_0359_0_0      : WORD;
-            _HW_S_0_1720_0_1      : WORD;
-            _HW_S_0_0092_0_0      : WORD;
-            _HW_S_0_0080_0_0      : WORD;
-            _HW_S_0_0193_0_0      : WORD;
-            _HW_S_0_0135_0_0      : WORD;
-            _HW_S_0_0144_0_0      : WORD;
-            _HW_S_0_0386_0_0      : WORD;
-            _HW_S_0_0535_0_0      : WORD;
-            _HW_S_0_0390_0_0      : WORD;
-            _HW_S_0_1720_0_2      : WORD;
-            _HW_S_0_0084_0_0      : WORD;
-            _HW_P_0_0106_0_0      : WORD;
                
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -145,7 +124,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _ReadRecord             :   ReadRecord;
             _WriteRecord            :   WriteRecord;
             _ScalingRead            :   BOOL;
-            // _State                  :   UINT;
             _S_0_0076               :   WORD;       // 2byte, binary
             _S_0_0077               :   INT;        // 2byte, 0 decimal places
             _S_0_0078               :   INT;        // 2byte, 0 decimal places
@@ -162,9 +140,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _P_0_0450               :   REAL;       // 2bytes, 2decimal places
 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#5S;
+            _tmpTimer                :   AXOpen.Timers.OnDelayTimer;
+            
             _lastMessageCodeFromMC  :   ULINT;
         END_VAR
 
@@ -174,8 +152,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              :   IAxoObject; 
-                hwID                :   WORD;
+                inParent            :   IAxoObject; 
+                hwID                :   UINT;
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
@@ -184,37 +162,34 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
                 _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
-            _infoTime   :=  DriveConfig.InfoTime;
-            _errorTime  :=  DriveConfig.ErrorTime;
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
             Messenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(     UINT#700, eAxoMessageCategory#ProgrammingError);
                     DriveStatus.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_Device :=  hwID;
+                IF AxisRefExt.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(     UINT#701, eAxoMessageCategory#ProgrammingError);
                     DriveStatus.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
 
-                _HW_Device                         := hwID;
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_HW_Device), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := AxisRefExt.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(     UINT#702,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#702;
                     RETURN;
                 END_IF;
-                AxisRefExt.HWIDs.HW_Device :=  TO_UINT(_HW_Device);
+
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_Outputs := TO_WORD(_outHwid);          
-                IF _HW_Outputs = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_Outputs);        
+                IF AxisRefExt.HWIDs.HW_Outputs = UINT#0 THEN
                     Messenger.Activate(     UINT#710,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#710;
                     RETURN;
@@ -244,19 +219,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _HW_Outputs, inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Outputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
                     RETURN;
                 END_IF;
-                AxisRefExt.HWIDs.HW_Outputs    :=  TO_UINT(_HW_Outputs);
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_Inputs := TO_WORD(_outHwid);          
-                IF _HW_Inputs = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID =>  AxisRefExt.HWIDs.HW_Inputs);        
+                IF AxisRefExt.HWIDs.HW_Inputs = UINT#0 THEN
                     Messenger.Activate(     UINT#720,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#720;
                     RETURN;
@@ -286,20 +259,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_Inputs, inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Inputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
                     RETURN;
                 END_IF;  
-                AxisRefExt.HWIDs.HW_Inputs :=  TO_UINT(_HW_Inputs);
                 //************Slot 1 Subslot 1*****************//
                 _geoAddr.Subslot:=      UINT#1;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0134_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0134_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0134_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0134_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#730,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#730;
                     RETURN;
@@ -329,20 +300,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0134_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0134_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
                     RETURN;
                 END_IF;
-                AxisRefExt.HWIDs.HW_S_0_0134_0_0      :=	TO_UINT(_HW_S_0_0134_0_0);
                 //************Slot 1 Subslot 2*****************//
                 _geoAddr.Subslot:=      UINT#2;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0145_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0145_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0145_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0145_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#740,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#740;
                     RETURN;
@@ -372,20 +341,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0145_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0145_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
                     RETURN;
                 END_IF;
-                AxisRefExt.HWIDs.HW_S_0_0145_0_0      :=	TO_UINT(_HW_S_0_0145_0_0);
                 //************Slot 1 Subslot 3*****************//
                 _geoAddr.Subslot:=      UINT#3;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0282_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0282_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0282_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0282_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#750,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#750;
                     RETURN;
@@ -415,20 +382,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0282_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0282_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#756;
                     RETURN;
                 END_IF;
-                AxisRefExt.HWIDs.HW_S_0_0282_0_0      :=	TO_UINT(_HW_S_0_0282_0_0);
                 //************Slot 1 Subslot 4*****************//
                 _geoAddr.Subslot:=      UINT#4;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0259_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0259_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0259_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0259_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#760,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#760;
                     RETURN;
@@ -458,20 +423,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0259_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0259_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#766;
                     RETURN;
                 END_IF;                
-                AxisRefExt.HWIDs.HW_S_0_0259_0_0      :=	TO_UINT(_HW_S_0_0259_0_0);
                 //************Slot 1 Subslot 5*****************//
                 _geoAddr.Subslot:=      UINT#5;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0260_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0260_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0260_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0260_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#770,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#770;
                     RETURN;
@@ -501,20 +464,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0260_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0260_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
                     RETURN;
                 END_IF;                
-                AxisRefExt.HWIDs.HW_S_0_0260_0_0      :=	TO_UINT(_HW_S_0_0260_0_0);
                 //************Slot 1 Subslot 6*****************//
                 _geoAddr.Subslot:=      UINT#6;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0359_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0359_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0359_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0359_0_0 = UINT#0 THEN
                     Messenger.Activate(     UINT#780,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#780;
                     RETURN;
@@ -544,20 +505,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0359_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0359_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#786,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#786;
                     RETURN;
                 END_IF;                
-                AxisRefExt.HWIDs.HW_S_0_0359_0_0      :=	TO_UINT(_HW_S_0_0359_0_0);
                 //************Slot 1 Subslot 7*****************//
                 _geoAddr.Subslot:=      UINT#7;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_1720_0_1  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_1720_0_1  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_1720_0_1);        
+                IF AxisRefExt.HWIDs.HW_S_0_1720_0_1 = UINT#0 THEN
                     Messenger.Activate(     UINT#790,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#790;
                     RETURN;
@@ -587,20 +546,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_1720_0_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_1720_0_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#796,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#796;
                     RETURN;
                 END_IF;                
-                AxisRefExt.HWIDs.HW_S_0_1720_0_1      :=	TO_UINT(_HW_S_0_1720_0_1);
                 //************Slot 1 Subslot 8*****************//
                 _geoAddr.Subslot:=      UINT#8;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0092_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0092_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0092_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0092_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#800,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#800;
                     RETURN;
@@ -630,20 +587,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#805;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0092_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0092_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#806,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#806;
                     RETURN;
                 END_IF;                
-                AxisRefExt.HWIDs.HW_S_0_0092_0_0      :=	TO_UINT(_HW_S_0_0092_0_0);
                 //************Slot 1 Subslot 9*****************//
                 _geoAddr.Subslot:=      UINT#9;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0080_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0080_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0080_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0080_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#810,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#810;
                     RETURN;
@@ -673,20 +628,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#815;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0080_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0080_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#816,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#816;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0080_0_0      :=	TO_UINT(_HW_S_0_0080_0_0);
                 //************Slot 1 Subslot 10*****************//
                 _geoAddr.Subslot:=      UINT#10;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0193_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0193_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID =>  AxisRefExt.HWIDs.HW_S_0_0193_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0193_0_0 = UINT#0 THEN
                     Messenger.Activate(     UINT#820,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#820;
                     RETURN;
@@ -716,20 +669,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#825;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0193_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0193_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#826,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#826;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0193_0_0      :=	TO_UINT(_HW_S_0_0193_0_0);
                 //************Slot 2 Subslot 1*****************//
                 _geoAddr.Subslot:=      UINT#1;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0135_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0135_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0135_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0135_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#830,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#830;
                     RETURN;
@@ -759,20 +710,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#835;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0135_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0135_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#836,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#836;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0135_0_0      :=	TO_UINT(_HW_S_0_0135_0_0);
                 //************Slot 2 Subslot 2*****************//
                 _geoAddr.Subslot:=      UINT#2;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0144_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0144_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0144_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0144_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#840,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#840;
                     RETURN;
@@ -802,20 +751,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#845;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0144_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0144_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#846,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#846;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0144_0_0      :=	TO_UINT(_HW_S_0_0144_0_0);
                 //************Slot 2 Subslot 3*****************//
                 _geoAddr.Subslot:=      UINT#3;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0386_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0386_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0386_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0386_0_0 = UINT#0 THEN
                     Messenger.Activate(     UINT#850,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#850;
                     RETURN;
@@ -845,20 +792,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#855;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0386_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0386_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#856,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#856;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0386_0_0      :=	TO_UINT(_HW_S_0_0386_0_0);
                 //************Slot 2 Subslot 4*****************//
                 _geoAddr.Subslot:=      UINT#4;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0535_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0535_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0535_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0535_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#860,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#860;
                     RETURN;
@@ -888,20 +833,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#865;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0535_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0535_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#866,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#866;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0535_0_0      :=	TO_UINT(_HW_S_0_0535_0_0);
                 //************Slot 2 Subslot 5*****************//
                 _geoAddr.Subslot:=      UINT#5;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0390_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0390_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0390_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0390_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#870,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#870;
                     RETURN;
@@ -931,20 +874,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#875;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0390_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0390_0_0), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#876,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#876;
                     RETURN;
                 END_IF;     
-                AxisRefExt.HWIDs.HW_S_0_0390_0_0      :=	TO_UINT(_HW_S_0_0390_0_0);
                 //************Slot 2 Subslot 6*****************//
                 _geoAddr.Subslot:=      UINT#6;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_1720_0_2  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_1720_0_2  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_1720_0_2);        
+                IF AxisRefExt.HWIDs.HW_S_0_1720_0_2  = UINT#0 THEN
                     Messenger.Activate(     UINT#880,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#880;
                     RETURN;
@@ -974,20 +915,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#885;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_1720_0_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_1720_0_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#886,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#886;
                     RETURN;
                 END_IF;                     
-                AxisRefExt.HWIDs.HW_S_0_1720_0_2      :=	TO_UINT(_HW_S_0_1720_0_2);
                 //************Slot 2 Subslot 7*****************//
                 _geoAddr.Subslot:=      UINT#7;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_S_0_0084_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_S_0_0084_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_S_0_0084_0_0);        
+                IF AxisRefExt.HWIDs.HW_S_0_0084_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#890,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#890;
                     RETURN;
@@ -1017,20 +956,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#895;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0084_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0084_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#896,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#896;
                     RETURN;
                 END_IF;                     
-                AxisRefExt.HWIDs.HW_S_0_0084_0_0      :=	TO_UINT(_HW_S_0_0084_0_0);
                 //************Slot 2 Subslot 8*****************//
                 _geoAddr.Subslot:=      UINT#8;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _HW_P_0_0106_0_0  :=  TO_WORD(_outHwid);                                         
-                IF _HW_P_0_0106_0_0  = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => AxisRefExt.HWIDs.HW_P_0_0106_0_0);        
+                IF AxisRefExt.HWIDs.HW_P_0_0106_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#900,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#900;
                     RETURN;
@@ -1060,132 +997,128 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#905;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := _HW_P_0_0106_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_P_0_0106_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#906,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#906;
                     RETURN;
                 END_IF;                     
-                AxisRefExt.HWIDs.HW_P_0_0106_0_0      :=	TO_UINT(_HW_P_0_0106_0_0);
                 //****************************** */
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(     UINT#1130,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _HW_Device  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Device  = UINT#0 THEN
                     Messenger.Activate(     UINT#1131,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _HW_Outputs = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Outputs = UINT#0 THEN
                     Messenger.Activate(     UINT#1132,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _HW_Inputs = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Inputs = UINT#0 THEN
                     Messenger.Activate(     UINT#1133,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0134_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0134_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1134,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0145_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0145_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1135,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0282_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0282_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1136,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1136;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0259_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0259_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1137,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1137;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0260_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0260_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1138,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1138;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0359_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0359_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1139,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1139;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_1720_0_1  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_1720_0_1  = UINT#0 THEN
                     Messenger.Activate(     UINT#1140,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1140;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0092_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0092_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1141,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1141;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0080_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0080_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1142,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1142;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0193_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0193_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1143,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1143;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0135_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0135_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1144,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1144;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0144_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0144_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1145,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1145;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0386_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0386_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1146,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1146;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0535_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0535_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1147,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1147;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0390_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0390_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1148,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1148;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_1720_0_2  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_1720_0_2  = UINT#0 THEN
                     Messenger.Activate(     UINT#1149,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1149;
                     RETURN;
                 END_IF;
-                IF _HW_S_0_0084_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_S_0_0084_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1150,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1150;
                     RETURN;
                 END_IF;
-                IF _HW_P_0_0106_0_0  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_P_0_0106_0_0  = UINT#0 THEN
                     Messenger.Activate(     UINT#1151,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1151;
                     RETURN;
                 END_IF;
                 _initHwCheckDone    := TRUE;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Warning);            
+            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Potential);            
             //********************Diagnostics******************//          
-            HardwareDiagnosticsTask.Run(THIS,TO_WORD(AxisRefExt.HWIDs.HW_Device));
-            //********************PARAMETRIZAION***************//          
-            // Parametrization.Run(THIS);
-            // Parametrization.Inputs.HardwareId := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);            
+            HardwareDiagnosticsTask.Run(THIS,AxisRefExt.HWIDs.HW_Device);
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
                 IF _State = UINT#0 THEN
@@ -1194,7 +1127,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --) 2byte, binary
                 IF _State = UINT#1 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#76,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1214,7 +1147,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --) 2byte, 0 decimal places
                 IF _State = UINT#3 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#77,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1234,7 +1167,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --) 2byte, 0 decimal places
                 IF _State = UINT#5 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#78,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1254,7 +1187,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --) 2byte, binary
                 IF _State = UINT#7 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#44,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1274,7 +1207,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --) 2byte, 0 decimal places
                 IF _State = UINT#9 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#45,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1294,7 +1227,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --) 2byte, 0 decimal places
                 IF _State = UINT#11 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#46,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1314,7 +1247,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --) 2byte, binary
                 IF _State = UINT#13 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#160,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1334,7 +1267,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --) 2byte, 0 decimal places
                 IF _State = UINT#15 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#161,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1354,7 +1287,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --) 2byte, 0 decimal places
                 IF _State = UINT#17 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#162,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1374,7 +1307,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --) 2byte, binary
                 IF _State = UINT#19 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#86,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1394,7 +1327,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --) 2byte, 0 decimal places
                 IF _State = UINT#21 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#93,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1414,7 +1347,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --) 2byte, 0 decimal places
                 IF _State = UINT#23 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#94,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1434,7 +1367,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Inverter type data: Nominal current (0x2314:01 / S-0-0112 / --) 4bytes, 3decimal places
                 IF _State = UINT#25 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#112,
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -1456,7 +1389,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Motor torque model: Current constant (0x2018:01 / P-0-0450 / --) 2bytes, 2decimal places
                 IF _State = UINT#27 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4546,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1542,8 +1475,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             //*************************************************//
 
-            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
-            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
+            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Info);
 
             //************************************************************
             SUPER.Run(THIS,AxisRefExt,Enable,EnablePositive,EnableNegative);
@@ -1613,9 +1546,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                RETURN;
            END_IF;
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0135_0_0 ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0135_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1201, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1201, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1201;
                RETURN;
            END_IF;
@@ -1637,9 +1570,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0     :=  _data2[0].%X6;     //  14
            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1     :=  _data2[0].%X7;     //  15
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0144_0_0 ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0144_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1202, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1202, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1202;
                RETURN;
            END_IF;
@@ -1661,9 +1594,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit14_Reserve           :=  _data2[0].%X6;     //  14
            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit15_Reserve           :=  _data2[0].%X7;     //  15
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0386_0_0 ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0386_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1203, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1203, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1203;
                RETURN;
            END_IF;
@@ -1673,9 +1606,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.ActualPosition_S_0_0386_0_0 := TO_DINT(_dword);
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0535_0_0 ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0535_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1204, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1204, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1204;
                RETURN;
            END_IF;
@@ -1685,9 +1618,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.ActualVelocity_S_0_0535_0_0 := TO_DINT(_dword);
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0390_0_0 ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0390_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1205, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1205, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1205;
                RETURN;
            END_IF;
@@ -1697,9 +1630,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.DiagnosticMessage_S_0_0390_0_0 := _dword;
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_1720_0_2 ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_1720_0_2) ,_data2);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1206, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1206, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1206;
                RETURN;
            END_IF;
@@ -1720,9 +1653,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling                     := _data2[0].%X6;	
            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Enabling                             := _data2[0].%X7;	
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0084_0_0 ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0084_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
-               Messenger.Activate(     UINT#1207, eAxoMessageCategory#ProgrammingError);
+               Messenger.Activate(     UINT#1207, eAxoMessageCategory#Error);
                DriveStatus.Error.Id := UINT#1207;
                RETURN;
            END_IF;
@@ -1766,9 +1699,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable;
             _data2[0].%X7   :=  AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0134_0_0,_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0134_0_0),_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1231, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1231;
                 RETURN;
             END_IF;    
@@ -1789,9 +1722,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit14_Reserve;
             _data2[0].%X7   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0145_0_0,_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0145_0_0),_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1232, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1232;
                 RETURN;
             END_IF;    
@@ -1801,9 +1734,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandPosition_S_0_0282_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandPosition_S_0_0282_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0282_0_0,_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0282_0_0),_data4);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1233, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1233, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1233;
                 RETURN;
             END_IF;    
@@ -1813,9 +1746,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandVelocity_S_0_0259_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandVelocity_S_0_0259_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0259_0_0,_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0259_0_0),_data4);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1234, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1234, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1234;
                 RETURN;
             END_IF;    
@@ -1825,9 +1758,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandAcceleration_S_0_0260_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandAcceleration_S_0_0260_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0260_0_0,_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0260_0_0),_data4);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1235, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1235, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1235;
                 RETURN;
             END_IF;    
@@ -1837,9 +1770,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandDecceleration_S_0_0359_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandDecceleration_S_0_0359_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0359_0_0,_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0359_0_0),_data4);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1236, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1236, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1236;
                 RETURN;
             END_IF;    
@@ -1861,9 +1794,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor;
             _data2[0].%X7   :=  AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.Enabling;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_1720_0_1,_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_1720_0_1),_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1237, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1237, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1237;
                 RETURN;
             END_IF;    
@@ -1871,9 +1804,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[1]   :=  AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0.%B0;
             _data2[0]   :=  AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0.%B1;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0092_0_0,_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0092_0_0),_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1238, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1238, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1238;
                 RETURN;
             END_IF;  
@@ -1881,9 +1814,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[1]   :=  AxisRefExt.Outputs.CommandTorque_S_0_0080_0_0.%B0;
             _data2[0]   :=  AxisRefExt.Outputs.CommandTorque_S_0_0080_0_0.%B1;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0080_0_0,_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0080_0_0),_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1239, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1239, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1239;
                 RETURN;
             END_IF;  
@@ -1893,9 +1826,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandJerk_S_0_0193_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandJerk_S_0_0193_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0193_0_0,_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0193_0_0),_data4);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(     UINT#1240, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1240, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1240;
                 RETURN;
             END_IF;  
@@ -1928,7 +1861,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisReference ?= AxisRef;
 
             IF(_AxisReference = NULL) THEN
-                Messenger.Activate(     UINT#1430, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1430, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1430;
                 RETURN;
             END_IF;
@@ -2024,6 +1957,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
+                    _tmpTimer.OnDelay(THIS, FALSE , T#0s);
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
@@ -2040,7 +1974,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 // Reseting InReference flag 
                 IF _State = UINT#310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#510;
                     END_IF;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := TRUE;
@@ -2053,7 +1987,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
                 IF _State = UINT#311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#511;
                     END_IF;                    
                     IF Acceleration <= 0 OR Deceleration <= 0 THEN
@@ -2067,14 +2001,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#52,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#312;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1444, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1444;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
@@ -2082,7 +2016,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#512;
                     END_IF; 
                     _WriteRecord(request := FALSE, record := _data4);
@@ -2093,21 +2027,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing function: Configuration (0x2500:02 / S-0-0147 / --)
                 IF _State = UINT#313 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#513;
                     END_IF; 
                     _word :=  TO_WORD(HommingMode);
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#147,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#314;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1445, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1445;
                         _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#329;
@@ -2115,7 +2049,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#314 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#514;
                     END_IF; 
                     _WriteRecord(request := FALSE, record := _data2);
@@ -2126,7 +2060,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing speeds: Speed during search for switch (0x6099:01 / S-0-0041 / --)
                 IF _State = UINT#315 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#515;
                     END_IF; 
                     _dword :=  TO_DWORD(TO_DINT(Velocity * ScalingConstantRequiredVelocity));
@@ -2135,7 +2069,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#41,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -2143,7 +2077,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#316;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1446, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1446;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
@@ -2152,7 +2086,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing speeds: Speed during search for zero (0x6099:02 / S-0-0542 / --)
                 IF _State = UINT#316 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#516;
                     END_IF; 
                     _dword :=  TO_DWORD(TO_DINT(Velocity * ScalingConstantRequiredVelocity * 0.1));
@@ -2161,7 +2095,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#542,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -2169,7 +2103,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#317;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1446, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1446;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
@@ -2178,7 +2112,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing acceleration (0x609A:00 / S-0-0042 / --)
                 IF _State = UINT#317 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#517;
                     END_IF; 
                     _dword :=  TO_DWORD(TO_DINT(Acceleration * ScalingConstantRequiredAcceleration));
@@ -2187,14 +2121,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#42,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#318;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1447, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1447;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
@@ -2202,7 +2136,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#318 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#518;
                     END_IF; 
                     _WriteRecord(request := FALSE, record := _data4);
@@ -2212,7 +2146,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#319 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#519;
                     END_IF; 
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0  := FALSE;
@@ -2226,7 +2160,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#320 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#520;
                     END_IF; 
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
@@ -2236,7 +2170,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;                
                 IF _State = UINT#321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#521;
                     END_IF; 
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
@@ -2246,7 +2180,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#522;
                     END_IF; 
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
@@ -2255,8 +2189,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                 END_IF;
                 IF _State = UINT#323 THEN
-                    _State := UINT#327;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    _State := UINT#324;
                 END_IF;
+                IF _State = UINT#324 THEN
+                    _tmpTimer.OnDelay(THIS,  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill , T#100ms);
+                    IF _tmpTimer.output THEN
+                        _State := UINT#325;
+                    END_IF;
+                END_IF;     
+                IF _State = UINT#325 THEN
+                    _State := UINT#326;
+                END_IF;                              
+                IF _State = UINT#326 THEN
+                    _State := UINT#327;
+                END_IF;                              
                 IF _State = UINT#327 THEN
                     Done := TRUE;            
                     MC_HomeCycle := ULINT#0;     
@@ -2290,6 +2243,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoHome_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoHome_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
@@ -2314,8 +2268,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method commands a controlled motion stop and transfers the axis to the_State ‘Stopping’. It aborts any
-        /// ongoing method execution. While the axis is in_State ‘Stopping’, no other method can perform any motion on the
+        /// This method commands a controlled motion stop and transfers the axis to the State ‘Stopping’. It aborts any
+        /// ongoing method execution. While the axis is in State ‘Stopping’, no other method can perform any motion on the
         /// same axis. 
         ///</summary>
         VAR INTERNAL
@@ -2386,7 +2340,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#331 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#531;
                     END_IF; 
                     Busy := TRUE;            
@@ -2462,6 +2416,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;       
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoStop_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoStop_Task.ThrowWhen(THIS.AxoStop_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoStop_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;   
             END_IF;
 
@@ -2481,8 +2436,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method commands a controlled motion stop. The axis is moved to the_State ‘DiscreteMotion’, until the
-        /// velocity is zero. With the ‘Done’ output set, the_State is transferred to ‘Standstill’.
+        /// This method commands a controlled motion stop. The axis is moved to the State ‘DiscreteMotion’, until the
+        /// velocity is zero. With the ‘Done’ output set, the State is transferred to ‘Standstill’.
         ///</summary>
         VAR INTERNAL
             MC_HaltExecute_PV					: 	BOOL;				//Execute - previous value
@@ -2543,7 +2498,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#340 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#540;
                     END_IF; 
                     Busy := TRUE;            
@@ -2556,7 +2511,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#341 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#541;
                     END_IF; 
                     Busy := TRUE;            
@@ -2626,6 +2581,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;           
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoHalt_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoHalt_Task.ThrowWhen(THIS.AxoHalt_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoHalt_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;     
             END_IF;
 
@@ -2724,7 +2680,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#350 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#550;
                     END_IF; 
                     Busy := TRUE;            
@@ -2746,7 +2702,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#351 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#551;
                     END_IF; 
                     Busy := TRUE;            
@@ -2762,7 +2718,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;      
                 IF _State = UINT#352 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#552;
                     END_IF; 
                     Busy := TRUE;            
@@ -2774,7 +2730,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;     
                 IF _State = UINT#353 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#553;
                     END_IF; 
                     Busy := TRUE;            
@@ -2787,7 +2743,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Executing movement
                 IF _State = UINT#354 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#554;
                     END_IF;                     
                     Busy := TRUE;            
@@ -2799,7 +2755,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#355 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#555;
                     END_IF;                     
                     Busy := TRUE;            
@@ -2810,7 +2766,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;                
                 IF _State = UINT#356 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#556;
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
@@ -2858,6 +2814,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveAbsolute_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoMoveAbsolute_Task.ThrowWhen(THIS.AxoMoveAbsolute_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoMoveAbsolute_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
@@ -2956,7 +2913,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#360 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#560;
                     END_IF; 
                     Busy := TRUE;            
@@ -2977,7 +2934,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#361 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#561;
                     END_IF; 
                     Busy := TRUE;            
@@ -2993,7 +2950,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#362 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#562;
                     END_IF; 
                     Busy := TRUE;            
@@ -3005,7 +2962,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;     
                 IF _State = UINT#363 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#563;
                     END_IF; 
                     Busy := TRUE;            
@@ -3018,7 +2975,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Executing movement
                 IF _State = UINT#364 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#564;
                     END_IF;                     
                     Busy := TRUE;            
@@ -3030,7 +2987,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#365 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#565;
                     END_IF;                     
                     Busy := TRUE;            
@@ -3041,7 +2998,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;                
                 IF _State = UINT#366 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#566;
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
@@ -3098,6 +3055,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveRelative_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoMoveRelative_Task.ThrowWhen(THIS.AxoMoveRelative_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoMoveRelative_Task timeout.#>');                
                 DriveStatus.Action.Id := _State; 
             END_IF;
 
@@ -3225,7 +3183,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#371 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#571;
                     END_IF; 
                     Busy := TRUE;            
@@ -3241,7 +3199,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#372 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#572;
                     END_IF; 
                     Busy := TRUE;            
@@ -3253,7 +3211,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;               
                 IF _State = UINT#373 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#573;
                     END_IF; 
                     Busy := TRUE;            
@@ -3265,7 +3223,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#374 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#574, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#574, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#574;
                     END_IF;                     
                     Busy := TRUE;            
@@ -3277,7 +3235,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#375 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#575;
                     END_IF;                     
                     Busy := TRUE;            
@@ -3288,7 +3246,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#376 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#576, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#576, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#576;
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
@@ -3348,6 +3306,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;   
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveAdditive_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoMoveAdditive_Task.ThrowWhen(THIS.AxoMoveAdditive_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoMoveAdditive_Task timeout.#>');                
                 DriveStatus.Action.Id := _State; 
             END_IF;
 
@@ -3499,7 +3458,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#381 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#581;
                     END_IF; 
                     Busy := TRUE;            
@@ -3515,7 +3474,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#382 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#582;
                     END_IF; 
                     Busy := TRUE;            
@@ -3527,7 +3486,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;                  
                 IF _State = UINT#383 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#583;
                     END_IF; 
                     Busy := TRUE;            
@@ -3539,7 +3498,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#384 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#584;
                     END_IF; 
                     Busy := TRUE;            
@@ -3571,7 +3530,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                            
                 IF _State = UINT#386 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#586;
                     END_IF;                     
                     IF InVelocity AND NOT MC_MoveVelocityContinuousUpdate_SV THEN
@@ -3621,6 +3580,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;         
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveVelocity_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoMoveVelocity_Task.ThrowWhen(THIS.AxoMoveVelocity_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoMoveVelocity_Task timeout.#>');                
                 DriveStatus.Action.Id := _State; 
             ELSE
                 InVelocity := FALSE;
@@ -3790,7 +3750,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Torque/force control: Ramp value (0x2838:01 / S-0-0822 / --)
                 IF _State = UINT#391 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#591;
                     END_IF;                    
                     Busy := TRUE;            
@@ -3799,7 +3759,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#822,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -3808,7 +3768,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#392;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
-                        Messenger.Activate(             UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1540, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1540;
                         _State := UINT#399;
                     END_IF;
@@ -3816,7 +3776,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Torque/force control: Ramp time (0x2838:02 / S-0-0823 / --)
                 IF _State = UINT#392 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#592;
                     END_IF;                    
                     Busy := TRUE;            
@@ -3825,7 +3785,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#823,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -3834,7 +3794,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#393;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
-                        Messenger.Activate(             UINT#1541, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1541, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1541;
                         _State := UINT#399;
                     END_IF;
@@ -3842,7 +3802,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Torque/force control: High velocity limit value (0x60C9:00 / P-0-0421.0.3 / P-0-2249)
                 IF _State = UINT#393 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#593;
                     END_IF;                    
                     Busy := TRUE;            
@@ -3853,7 +3813,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#6345,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -3862,7 +3822,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#394;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1542, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1542, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1542;
                         _State := UINT#399;
                     END_IF;
@@ -3870,7 +3830,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Torque/force control: Low velocity limit value (0x60C8:00 / P-0-0421.0.4 / P-0-2250)
                 IF _State = UINT#394 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#594;
                     END_IF;                    
                     Busy := TRUE;            
@@ -3881,7 +3841,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#6346,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -3890,7 +3850,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#395;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1543, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1543, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1543;
                         _State := UINT#399;
                     END_IF;
@@ -3898,7 +3858,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Executing movement
                 IF _State = UINT#395 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#595, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#595, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#595;
                     END_IF;                         
                     Busy := TRUE;            
@@ -4069,7 +4029,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 // Power off
                 IF _State = UINT#400 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#600;
                     END_IF;
                     Busy := TRUE;            
@@ -4084,7 +4044,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 // Reseting InReference flag 
                 IF _State = UINT#401 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#601;
                     END_IF;
                     Busy := TRUE;            
@@ -4098,7 +4058,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
                 IF _State = UINT#402 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#602;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4108,14 +4068,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#52,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#403;
                     ElSIF _WriteRecord.error THEN 
-                        Messenger.Activate( UINT#1551, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1551, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1551;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#609;
@@ -4123,7 +4083,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#403 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#603;
                     END_IF; 
                     Busy := TRUE;            
@@ -4134,7 +4094,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#404 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#604;
                     END_IF; 
                     Busy := TRUE;            
@@ -4150,7 +4110,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;    
                 IF _State = UINT#405 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#605;
                     END_IF; 
                     Busy := TRUE;            
@@ -4198,7 +4158,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                  
                 END_IF;  
                 THIS.CallTimers(TRUE,FALSE);
-                THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoSetPosition_Task.ThrowWhen(_errorTimer.output );
+                THIS.AxoSetPosition_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoSetPosition_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
@@ -4325,12 +4286,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#410 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#610;
                     END_IF;
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#8,
                                     record      :=  _data8);
@@ -4349,14 +4310,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data8);
-                        Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1581, eAxoMessageCategory#Error);
                         MC_ReadParameterErrorID :=  DINT#1581;
                         _State := UINT#419;
                     END_IF;                    
                 END_IF;
                 IF _State = UINT#411 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#611;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4441,12 +4402,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#420 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#620;
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -4461,14 +4422,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1591, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1591, eAxoMessageCategory#Error);
                         MC_ReadRealParameterErrorID :=  DINT#1591;
                         _State := UINT#629;
                     END_IF;
                 END_IF;
                 IF _State = UINT#421 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#621;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4554,12 +4515,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#430 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#630, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#630, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#630;
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -4570,14 +4531,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data2);
-                        Messenger.Activate(             UINT#1601, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1601, eAxoMessageCategory#Error);
                         MC_ReadBoolParameterErrorID :=  WORD#1601;
                         _State := UINT#439;
                     END_IF;
                 END_IF;
                 IF _State = UINT#431 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#631, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#631, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#631;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4667,7 +4628,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#440 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#640, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#640, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#640;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4681,7 +4642,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data8[6] := _lword.%B6;
                     _data8[7] := _lword.%B7;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#8,
                                     record      :=  _data8);
@@ -4689,7 +4650,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#441;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data8);
-                        Messenger.Activate(         UINT#1611, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1611, eAxoMessageCategory#Error);
                         MC_WriteParameterErrorID := WORD#1611;
                         _State := UINT#449;
                     END_IF;
@@ -4785,7 +4746,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#450 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#650, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#650, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#650;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4795,7 +4756,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -4803,14 +4764,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#451;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1621, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1621, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1621;
                         _State := UINT#459;
                     END_IF;
                 END_IF;
                 IF _State = UINT#451 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#651, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#651, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#651;
                     END_IF;                    
                     Busy := TRUE;            
@@ -4904,14 +4865,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#460 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#660, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#660, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#660;
                     END_IF;                    
                     Busy := TRUE;            
                     _dword :=  TO_DWORD(TO_DINT(Value));
                     _data2[0].%X0 := Value;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -4919,14 +4880,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#461;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
-                        Messenger.Activate(             UINT#1631, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1631, eAxoMessageCategory#Error);
                         MC_WriteBoolParameterErrorID := WORD#1631;
                         _State := UINT#469;
                     END_IF;
                 END_IF;
                 IF _State = UINT#461 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#661, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#661, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#661;
                     END_IF;                    
                     Busy := TRUE;            
@@ -5026,12 +4987,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#470 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#670, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#670, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#670;
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4403, //P-0-0307.0.0  16#1000 + 307 = 4096+307=4403
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5046,14 +5007,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1642, eAxoMessageCategory#Error);
                         MC_ReadDigitalInputErrorID :=   WORD#1642;
                         _State := UINT#479;
                     END_IF;
                 END_IF;
                 IF _State = UINT#471 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#671, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#671, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#671;
                     END_IF;                    
                     Busy := TRUE;            
@@ -5145,12 +5106,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#480 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#680, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#680, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#680;
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5165,14 +5126,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1652, eAxoMessageCategory#Error);
                         MC_ReadDigitalOutputErrorID :=  WORD#1652;
                         _State := UINT#489;
                     END_IF;
                 END_IF;
                 IF _State = UINT#481 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#681, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#681, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#681;
                     END_IF;                    
                     Busy := TRUE;            
@@ -5268,12 +5229,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#490 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#690, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#690, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#690;
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5285,14 +5246,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#491;
                     END_IF;
                     IF  _ReadRecord.error THEN 
-                        Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1662, eAxoMessageCategory#Error);
                         MC_WriteDigitalOutputErrorID := WORD#1662;
                         _State := UINT#499;
                     END_IF;
                 END_IF;
                 IF _State = UINT#491 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#691, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#691, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#691;
                     END_IF;                    
                     Busy := TRUE;            
@@ -5303,7 +5264,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF; 
                 IF _State = UINT#492 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#692, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#692, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#692;
                     END_IF;                    
                     Busy := TRUE;   
@@ -5317,7 +5278,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := MC_WriteDigitalOutputParameterPV.%B2;
                     _data4[3] := MC_WriteDigitalOutputParameterPV.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  _HW_S_0_0134_0_0,
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -5325,7 +5286,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#494;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
-                        Messenger.Activate(         UINT#1663, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1663, eAxoMessageCategory#Error);
                         MC_WriteParameterErrorID := WORD#1663;
                         _State := UINT#499;
                     END_IF;
@@ -5477,7 +5438,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method returns in detail the status of the_State diagram of the axis
+        /// This method returns in detail the status of the State diagram of the axis
         ///<summary>
         VAR INTERNAL
             MC_ReadStatusEnable_PV				: 	BOOL := FALSE;		//Enable - previous value                                                    
@@ -5748,13 +5709,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method makes the transition from the_State ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
+        /// This method makes the transition from the State ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
         /// internal axis-related errors – it does not affect the output of the other methods.
         ///<summary>
         VAR INTERNAL
-            MC_ResetExecute_PV					: 	BOOL := FALSE;		//Execute - previous value           
-            MC_ResetPower_PV					: 	BOOL := FALSE;		//Execute - previous value           
-            MC_ResetDone_PV                     : 	BOOL := FALSE;		//Execute - previous value           
+            MC_ResetState       : 	UINT := UINT#0;
+            MC_ResetPower_PV    : 	BOOL := FALSE;	
         END_VAR    
         METHOD PUBLIC OVERRIDE MC_Reset
             VAR_INPUT
@@ -5780,42 +5740,90 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN
-                IF Execute AND NOT MC_ResetExecute_PV THEN
+                IF Execute AND MC_ResetState = UINT#0 THEN
+                    IF AxoPower_Task.IsSwitchedOn() OR 
+                       _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable OR
+                       _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn THEN
+                         MC_ResetPower_PV := TRUE;
+                    END_IF;
+                    IF MC_ResetPower_PV THEN
+                        MC_ResetState   := UINT#1;
+                    ELSE
+                        MC_ResetState   := UINT#10;
+                    END_IF;
+                END_IF;
+
+                IF MC_ResetState = UINT#1 THEN
                     Busy := TRUE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                    THIS.AxoPower_Task.Manual();
+                    THIS.AxoPower_Task.SwitchOff();
+                    IF THIS.AxoPower_Task.IsSwitchedOff() THEN
+                        MC_ResetState := UINT#10;
+                    END_IF;                
+                END_IF;                
+
+                IF MC_ResetState = UINT#10 THEN
+                    IF MC_ResetPower_PV THEN
+                        THIS.AxoPower_Task.Manual();
+                        THIS.AxoPower_Task.SwitchOff();
+                    END_IF;
+                    Done            := FALSE;
+                    Busy            := TRUE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1;
-                END_IF;
-                IF Busy THEN
-                    Busy := TRUE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 ;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := TRUE;
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                        Done := TRUE;
-                        Busy := FALSE;
+                        MC_ResetState := UINT#20;    
                     END_IF;
                 END_IF;
-            ELSIF NOT Execute AND MC_ResetExecute_PV THEN
+
+                IF MC_ResetState = UINT#20 THEN
+                    Done            := FALSE;
+                    Busy            := TRUE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                        IF MC_ResetPower_PV THEN
+                            MC_ResetState   := UINT#21;
+                        ELSE
+                            MC_ResetState   := UINT#30;
+                        END_IF; 
+                    END_IF;
+                END_IF;     
+
+                IF MC_ResetState = UINT#21 THEN
+                    THIS.AxoPower_Task.Manual();
+                    THIS.AxoPower_Task.SwitchOn();
+                    Busy := TRUE;
+                    IF THIS.AxoPower_Task.IsSwitchedOn() THEN
+                        MC_ResetState := UINT#30;
+                    END_IF;                
+
+                END_IF;   
+
+                IF MC_ResetState = UINT#30 THEN
+                    MC_ResetPower_PV := FALSE;
+                    Done            := TRUE;
+                    Busy            := FALSE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
+                END_IF;              
+            END_IF;
+            IF NOT Execute THEN
                 Done := FALSE;
                 Error:=FALSE;
                 ErrorID := DINT#0;
                 Busy := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                MC_ResetState := UINT#0;
             END_IF;
-            IF Execute AND MC_ResetDone_PV THEN
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                Done := TRUE;
-            END_IF;
-            MC_ResetDone_PV := Done;
-            MC_ResetExecute_PV := Execute;
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore
@@ -5932,9 +5940,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_ReadAxisErrorValue			    := LINT#0;
             MC_ReadAxisErrorValid			    := FALSE;				
             LastMessageCode                     := ULINT#0;
-            MC_ResetExecute_PV				    := FALSE;        
-            MC_ResetPower_PV				    := FALSE;
-            
+            MC_ResetState                       := UINT#0;
             AxisRefExt.Data.Cycle               := ULINT#0;
             _State                              := UINT#0;
             DriveStatus.Action.Id := UINT#0;
@@ -5992,8 +5998,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND DriveConfig.InfoTime > LT#0S ,DriveConfig.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND DriveConfig.ErrorTime > LT#0S , DriveConfig.ErrorTime);
         END_METHOD
         METHOD PRIVATE CallTimers
             VAR_INPUT
@@ -6001,8 +6007,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 signal_2 : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal_1 , _infoTime);
-            _errorTimer.OnDelay(THIS, signal_2 , _errorTime );
+            _infoTimer.OnDelay(THIS, signal_1 AND DriveConfig.InfoTime > LT#0S ,DriveConfig.InfoTime);
+            _errorTimer.OnDelay(THIS, signal_2 AND DriveConfig.ErrorTime > LT#0S , DriveConfig.ErrorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+
+
+

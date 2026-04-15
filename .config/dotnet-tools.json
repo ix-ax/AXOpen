@@ -3,49 +3,49 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.24.0-preview.158",
+      "version": "0.47.0-alpha.459",
       "commands": [
         "ixc"
       ],
       "rollForward": false
     },
     "docfx": {
-      "version": "2.70.4",
+      "version": "2.78.5",
       "commands": [
         "docfx"
       ],
       "rollForward": false
     },
     "AXSharp.ixd": {
-      "version": "0.24.0-preview.158",
+      "version": "0.47.0-alpha.459",
       "commands": [
         "ixd"
       ],
       "rollForward": false
     },
     "AXSharp.ixr": {
-      "version": "0.24.0-preview.158",
+      "version": "0.47.0-alpha.459",
       "commands": [
         "ixr"
       ],
       "rollForward": false
     },
     "microsoft.visualstudio.slngen.tool": {
-      "version": "12.0.3",
+      "version": "12.0.32",
       "commands": [
         "slngen"
       ],
       "rollForward": false
     },
     "docfxtocgenerator": {
-      "version": "1.10.0",
+      "version": "1.40.0",
       "commands": [
         "DocFxTocGenerator"
       ],
       "rollForward": false
     },
     "gitversion.tool": {
-      "version": "5.12.0",
+      "version": "6.6.1",
       "commands": [
         "dotnet-gitversion"
       ],

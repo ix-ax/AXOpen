@@ -36,9 +36,10 @@ NAMESPACE AXOpen.Inspectors
         END_METHOD
 
         METHOD UpdateComprehensiveResult : IInspector
-
-            VAR_IN_OUT
-                inoResult : AxoComprehensiveResult;
+            VAR_INPUT
+                inResult                : IAxoComprehensiveResult;
+                inFailureDescription    : STRING;
+                inErrorCode             : STRING;
             END_VAR
 
         END_METHOD

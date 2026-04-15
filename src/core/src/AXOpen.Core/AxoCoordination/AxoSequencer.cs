@@ -15,35 +15,13 @@ namespace AXOpen.Core;
 
 public partial class AxoSequencer
 {
+    /// <summary>
+    /// List of object associated with the sequencer.
+    /// </summary>
+    public IEnumerable<ITwinObject> Associates { get; set; } = new List<ITwinObject>();
+
     partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
     {
-        this.CollectDataTask.InitializeExclusively(CollectSequenceData);
-    }
-
-    public async Task CollectSequenceData()
-    {
-        try
-        {
-            Console.WriteLine($"--------------------------------------------------------------------------\n");
-            var steps = this.GetChildren().Where(p => p is AxoStep).Select(p => (p as AxoStep).Analytics);
-
-            var ordered = this.GetChildren().Where(p => p is AxoStep).Select(p => (p as AxoStep).Analytics.Order);
-
-            
-            await this.Connector.ReadBatchAsync(ordered);
-            var activeSteps = steps.Where(p => p.Order.LastValue > 0);
-                
-
-            await this.Connector.ReadBatchAsync(activeSteps.SelectMany(p => p.GetValueTags()));
-            foreach (var step in activeSteps.OrderBy(p => p.Order.LastValue))
-            {
-                
-                Console.WriteLine($"{step.Order.LastValue} : {step.Description.LastValue} : {step.Duration.LastValue}");
-            }
-        }
-        catch (Exception e)
-        {
-            throw; // TODO handle exception
-        }
+       
     }
 }

@@ -1,0 +1,1 @@
+npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --minify --content "..\..\..\**\*.{html,js,jsx,ts,tsx,vue,razor}" --watch

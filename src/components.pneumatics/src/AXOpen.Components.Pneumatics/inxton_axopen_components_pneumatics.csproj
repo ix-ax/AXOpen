@@ -56,12 +56,8 @@
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>	    
 	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,4 +1,4 @@
-﻿using AXOpen.Base.Dialogs;
+using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
 using Serilog;
 
@@ -140,7 +140,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"AxoDialogLocatorService invoke dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
+                    Log.Logger.Verbose($"AxoDialogLocatorService invoke dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == e.SymbolOfDialogInstance);
                     if (!exist)
@@ -164,7 +164,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"AxoDialogLocatorService remove displayed dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
+                    Log.Logger.Verbose($"AxoDialogLocatorService remove displayed dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == senderAsDialogMonitor.Dialog.Symbol);
                     if (exist)
@@ -186,7 +186,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"AxoDialogLocatorService removing displayed dialog: {dialogSymbol}");
+                    Log.Logger.Verbose($"AxoDialogLocatorService removing displayed dialog: {dialogSymbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == dialogSymbol);
                     if (exist)

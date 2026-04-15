@@ -1,0 +1,72 @@
+@namespace AXOpen.Components.Elements
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoAi>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-3" @onclick:stopPropagation="true">
+            <span class="text-lg font-semibold">@ScaledValue.ToString("F2")</span>
+            <span class="text-lg font-semibold">[@Component.Units]</span>
+        </div>
+    </HeaderContent>       
+    <ConfigContent>                    
+        <div class="grid grid-cols-2 gap-4">
+            <RenderableContentControl Context="@Component._config.RawLow" Presentation="Control" />
+            <RenderableContentControl Context="@Component._config.RawHigh" Presentation="Control" />
+            <RenderableContentControl Context="@Component._config.RealLow" Presentation="Control" />
+            <RenderableContentControl Context="@Component._config.RealHigh" Presentation="Control" />
+            <RenderableContentControl Context="@Component._config.Gain" Presentation="Control" />
+            <RenderableContentControl Context="@Component._config.Offset" Presentation="Control" />
+        </div>       
+    </ConfigContent>
+    <ConfigAndStateViewContent>
+        <div class="grid grid-cols-2 gap-4">
+            <RenderableContentControl Context="@Component._config.RawLow" Presentation="Display" />
+            <RenderableContentControl Context="@Component._config.RawHigh" Presentation="Display" />
+            <RenderableContentControl Context="@Component._config.RealLow" Presentation="Display" />
+            <RenderableContentControl Context="@Component._config.RealHigh" Presentation="Display" />
+            <RenderableContentControl Context="@Component._config.Gain" Presentation="Display" />
+            <RenderableContentControl Context="@Component._config.Offset" Presentation="Display" />
+        </div>
+    </ConfigAndStateViewContent>
+    <SpotContent>       
+            <div class="bg-background/40 rounded-xl p-4">
+                <div class="flex-1">                    
+                    <p class="text-lg font-semibold">@ScaledValue.ToString("F2")</p>
+                <p class="text-lg font-semibold">[@Component.Units]</p>
+                </div>
+                <div class="flex-1 flex flex-col justify-center">
+                    <progress class="progress progress-primary w-full" value="@((ScaledValue - RealLow))" max="@((RealHigh - RealLow))"></progress>
+                    <div class="flex justify-between text-xs text-text/60 mt-1">
+                        <span class="text-sm">@RealLow.ToString("F0")</span>
+                        <span class="text-sm">@RealHigh.ToString("F0")</span>
+                    </div>
+                </div>
+            </div>        
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{
+    protected double ScaledValue => Component?._status?.Scaled?.Cyclic ?? 0;
+    protected double RealHigh => Component?._config?.RealHigh?.Cyclic ?? 100;
+    protected double RealLow => Component?._config?.RealLow?.Cyclic ?? 0;
+
+    public override async void ConfigurePolling()
+    {
+        if (Component is null)
+        {
+            return;
+        }
+        this.StartPolling(Component._status.Scaled);
+        this.StartPolling(Component._config.RealHigh);
+        this.StartPolling(Component._config.RealLow);
+        this.StartPolling(Component._config.RawHigh);
+        this.StartPolling(Component._config.RawLow);
+        this.StartPolling(Component._config.Gain);
+        this.StartPolling(Component._config.Offset);
+    }
+}

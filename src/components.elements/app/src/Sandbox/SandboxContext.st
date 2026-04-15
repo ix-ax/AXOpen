@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 USING AXOpen;
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
@@ -20,16 +20,16 @@ NAMESPACE AXOpen.Elements
         VAR PUBLIC
             _manualControl : BOOL;
             
-            _testDi : AXOpen.Elements.AxoDi;  
+            _testDi : AXOpen.Components.Elements.AxoDi;  
             _testDiSignal : BOOL;  
         
-            _testDo : AXOpen.Elements.AxoDo;  
+            _testDo : AXOpen.Components.Elements.AxoDo;  
             _testDoSignal : BOOL; 
 
-            _testAi : AXOpen.Elements.AxoAi;  
+            _testAi : AXOpen.Components.Elements.AxoAi;  
             _testAiSignal : DINT := DINT#10;  
 
-            _testAo : AXOpen.Elements.AxoAo;  
+            _testAo : AXOpen.Components.Elements.AxoAo;  
             _testAoSignal : DINT;
         
         END_VAR
@@ -38,10 +38,10 @@ NAMESPACE AXOpen.Elements
 
         METHOD PUBLIC Main
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(_manualControl) THEN
                 _testDi.ActivateManualControl();

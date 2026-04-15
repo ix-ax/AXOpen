@@ -150,27 +150,27 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             _stepTwo.Execute(_sequencer,TRUE,'StepTwo');            
             _stepThree.Execute(_sequencer,FALSE,'StepThree');             
 
-            AxOpenCoreAssert.Equal('StepOne', _stepOne.StepDescription);
-            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.StepDescription);
-            AxOpenCoreAssert.Equal('StepThree', _stepThree.StepDescription);
+            AxOpenCoreAssert.Equal('StepOne', _stepOne.Descr);
+            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.Descr);
+            AxOpenCoreAssert.Equal('StepThree', _stepThree.Descr);
             _context.Close();
 
             _context.Open();
             _stepOne.Execute(_sequencer);            
             _stepTwo.Execute(_sequencer);            
             _stepThree.Execute(_sequencer);             
-            AxOpenCoreAssert.Equal('StepOne', _stepOne.StepDescription);
-            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.StepDescription);
-            AxOpenCoreAssert.Equal('StepThree', _stepThree.StepDescription);
+            AxOpenCoreAssert.Equal('StepOne', _stepOne.Descr);
+            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.Descr);
+            AxOpenCoreAssert.Equal('StepThree', _stepThree.Descr);
             _context.Close();
 
             _context.Open();
             _stepOne.Execute(_sequencer,'StepOne-new description');            
             _stepTwo.Execute(_sequencer);            
             _stepThree.Execute(_sequencer);             
-            AxOpenCoreAssert.Equal('StepOne-new description', _stepOne.StepDescription);
-            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.StepDescription);
-            AxOpenCoreAssert.Equal('StepThree', _stepThree.StepDescription);
+            AxOpenCoreAssert.Equal('StepOne-new description', _stepOne.Descr);
+            AxOpenCoreAssert.Equal('StepTwo', _stepTwo.Descr);
+            AxOpenCoreAssert.Equal('StepThree', _stepThree.Descr);
         END_METHOD  
        END_CLASS
 END_NAMESPACE

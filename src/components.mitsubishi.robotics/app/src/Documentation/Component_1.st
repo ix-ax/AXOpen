@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
     CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleRobot : AXOpen.Components.Mitsubishi.Robotics.AxoCr800_v_1_x_x;  
+            ExampleRobot : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800; 
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -18,17 +18,17 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 ExampleRobot.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(parent := THIS , hwID := HwIdentifiers#TZ535_PN_HwID);
+            ExampleRobot.Run(inParent := THIS , hwID := HwIdentifiers#mitsubishi_tz535_robot_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();
@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..12] OF AXOpen.Core.AxoStep;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
@@ -85,8 +85,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;    
             END_IF;       
 
-            IF(Steps[4].Execute(Sequencer, 'Move to position 3')) THEN
-                movementParams.ActionNo         :=  BYTE#3;  
+            IF(Steps[4].Execute(Sequencer, 'Move to position 1')) THEN
+                movementParams.ActionNo             :=  BYTE#1;  
 
                 IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
                     ExampleRobot.StartMovementsTask.Restore();           
@@ -94,8 +94,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;    
             END_IF;       
 
-            IF(Steps[5].Execute(Sequencer, 'Move to position 4')) THEN
-                movementParams.ActionNo         :=  BYTE#4;  
+            IF(Steps[5].Execute(Sequencer, 'Move to position 3')) THEN
+                movementParams.ActionNo             :=  BYTE#3;  
 
                 IF(ExampleRobot.StartMovements(movementParams).IsBusy() AND Sequencer.CurrentStep.Duration >= T#500ms) THEN   
                     Sequencer.MoveNext();                
@@ -103,30 +103,51 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             END_IF;       
 
             IF(Steps[6].Execute(Sequencer, 'Stop during movement')) THEN
+                ExampleRobot.StartMovements(movementParams);
                 IF(ExampleRobot.StopMovements().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
             IF(Steps[7].Execute(Sequencer, 'Start motors and program')) THEN
+                ExampleRobot.StartMovements(movementParams);
                 IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
-            IF(Steps[8].Execute(Sequencer, 'Continue to position 4')) THEN
+            IF(Steps[8].Execute(Sequencer, 'Continue to position 3')) THEN
                 IF(ExampleRobot.StartMovementsTask.IsDone()) THEN                
                     ExampleRobot.StartMovementsTask.Restore();           
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[9].Execute(Sequencer, 'Stop movement and program')) THEN
-                IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
+            IF(Steps[9].Execute(Sequencer, 'Move to position 100')) THEN
+                movementParams.ActionNo             :=  BYTE#100;  
+
+                IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+                    ExampleRobot.StartMovementsTask.Restore();           
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
-            IF(Steps[10].Execute(Sequencer, 'Restore')) THEN
+
+            IF(Steps[10].Execute(Sequencer, 'Move to position 1')) THEN
+                movementParams.ActionNo             :=  BYTE#1;  
+
+                IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+                    ExampleRobot.StartMovementsTask.Restore();           
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;       
+
+            IF(Steps[11].Execute(Sequencer, 'Stop movement and program')) THEN
+                IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;   
+                
+            IF(Steps[12].Execute(Sequencer, 'Restore')) THEN
                 ExampleRobot.Restore();              
                 Sequencer.CompleteSequence();                
             END_IF;       

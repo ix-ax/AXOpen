@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="The_safety_condition_is_lost_during_movement_DOT_" xml:space="preserve">
+    <value>Der Sicherheitszustand geht während der Bewegung verloren.</value>
+  </data>
+  <data name="TurnTask_timeout_DOT_" xml:space="preserve">
+    <value>TurnTask Zeitüberschreitung.</value>
+  </data>
+  <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
+    <value>InitPositionTask Zeitüberschreitung.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MessengerInfo" xml:space="preserve">
+    <value>MessengerInfo</value>
+  </data>
+  <data name="Raw_range" xml:space="preserve">
+    <value>Rohbereich</value>
+  </data>
+  <data name="Real_range" xml:space="preserve">
+    <value>Reale Reichweite</value>
+  </data>
+  <data name="Scale_value" xml:space="preserve">
+    <value>Skalenwert</value>
+  </data>
+  <data name="SetPoint" xml:space="preserve">
+    <value>SetPoint</value>
+  </data>
+  <data name="Unscaled_value" xml:space="preserve">
+    <value>Unskalierter Wert</value>
+  </data>
+  <data name="Button_Signal" xml:space="preserve">
+    <value>Taste Signal</value>
+  </data>
+  <data name="LED_Indicator" xml:space="preserve">
+    <value>LED-Anzeige</value>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signal</value>
+  </data>
+  <data name="Check_on" xml:space="preserve">
+    <value>Überprüfen Sie</value>
+  </data>
+  <data name="Check_off" xml:space="preserve">
+    <value>Abhaken</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Auf</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Drehen</value>
+  </data>
+  <data name="Current_position" xml:space="preserve">
+    <value>Derzeitige Position</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="InitPositionTask" xml:space="preserve">
+    <value>InitPositionTask</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Richtung</value>
+  </data>
+  <data name="Number_of_positions" xml:space="preserve">
+    <value>Anzahl der Positionen</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Versetzt</value>
+  </data>
+  <data name="Enable_turn" xml:space="preserve">
+    <value>Aktivieren Sie die Drehung</value>
+  </data>
+  <data name="Start_turn" xml:space="preserve">
+    <value>Startdrehung</value>
+  </data>
+  <data name="Safety_condition" xml:space="preserve">
+    <value>Sicherheitsbedingungen</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="In_precise_position" xml:space="preserve">
+    <value>In präziser Position</value>
+  </data>
+  <data name="Coding_position" xml:space="preserve">
+    <value>Position der Kodierung</value>
+  </data>
+</root>

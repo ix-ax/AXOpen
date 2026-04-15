@@ -1,7 +1,18 @@
 param (
-    [int]$IssueId ,
-    [bool]$doNotCheckOldColumnName = 0
+    [string]$Assignee,
+    [int]$IssueId,
+    [bool]$doNotCheckOldColumnName = 0,
+    [switch]$All
 )
+
+# Determine effective assignee
+if ($All) {
+    $list_all = $true
+} elseif ($Assignee) {
+    $effectiveAssignee = $Assignee
+} else {
+    $effectiveAssignee = "@me"
+}
 
 # Get the current script directory
 $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
@@ -10,16 +21,29 @@ $_is_on_dev_nothing_to_commit = Join-Path -Path $scriptDir -ChildPath "_is_on_de
 
 # Call _is_on_dev_nothing_to_commit.ps1 
 $is_on_dev_nothing_to_commit = & $_is_on_dev_nothing_to_commit
-if(-not $is_on_dev_nothing_to_commit)
+
+if($is_on_dev_nothing_to_commit -ne 1)
 {
     Write-Host "You are not currently on the 'dev' branch, or you have some uncommited changes " -ForegroundColor Red
     Write-Host "Commit your local changes, sync your local 'dev' branch with the remote and start this script again." -ForegroundColor Red
     exit 1
 }
 
+# ----------------------
+# LIST ISSUES
+# ----------------------
 
-gh issue list --assignee "@me" --state "open"
-$issues = gh issue list --state "open" --assignee "@me" --json number,title | ConvertFrom-Json
+if ($list_all) {
+    Write-Host "Listing ALL open issues..."
+    gh issue list --state open
+    $issues = gh issue list --state "open" --json number,title,labels | ConvertFrom-Json
+}
+else {
+    Write-Host "Listing open issues assigned to: $effectiveAssignee"
+    gh issue list --state open --assignee $effectiveAssignee
+    $issues = gh issue list --state "open" --assignee $effectiveAssignee --json number,title,labels | ConvertFrom-Json
+}
+
 $issueIDs = $issues | ForEach-Object { $_.number }
 
 if (-not $IssueId) 

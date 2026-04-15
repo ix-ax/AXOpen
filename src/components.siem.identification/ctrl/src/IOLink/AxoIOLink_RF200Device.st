@@ -3,21 +3,19 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING System.Strings;
 USING System.Serialization;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoIOLink_RF200Device EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer                  :   AXOpen.Timers.OnDelayTimer;
-            _infoTime                   :   LTIME := LT#2S;
             _errorTimer                 :   AXOpen.Timers.OnDelayTimer;
-            _errorTime                  :   LTIME := LT#5S;
             _blink                      :   AXOpen.Timers.AxoBlinker;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
 
-            _HW_ID                      :	WORD    :=  WORD#16#0;     
+            _HW_ID                      :	UINT    :=  UINT#16#0;     
             _portAddr                   :	INT     :=  INT#0;     
             _version                    :	USINT   :=  USINT#11;    
 
@@ -143,8 +141,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent      : IAxoObject;
-                HW_ID       :	WORD    :=  WORD#16#0;      //	Logic IO address of the IO-Link Master
+                inParent    :   IAxoObject;
+                HW_ID       :	UINT    :=  UINT#16#0;      //	Logic IO address of the IO-Link Master
                 portAddr    :	INT     :=  INT#0;          //  Start address of port
                 version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
             END_VAR
@@ -152,17 +150,17 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 i : INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#700,inParent = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#701,HW_ID = UINT#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 Status.Error.Id := UINT#700;
                 RETURN;
-            ELSIF HW_ID = WORD#0 THEN
+            ELSIF HW_ID = UINT#0 THEN
                 Status.Error.Id := UINT#701;
                 RETURN;
             END_IF;
@@ -253,9 +251,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
             _context := THIS.GetContext();
 
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
-
             //*************INITIALIZATION****************
             // RestoreTask.Run(THIS);
             // ReadTagTask.Run(THIS);
@@ -268,14 +263,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
 
             //*************RESTORE***********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //*******************************************
 
             //*************ReadTask**********************
-            ReadTagTask.IsDisabled := FALSE;
+            ReadTagTask.SetIsDisabled(FALSE);
             IF ReadTagTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -310,7 +305,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=301;                    
                     END_IF;
-                    ReadTagTask.ThrowWhen(_switchAntenna_error,'Error when switching the antena On' );
+                    ReadTagTask.ThrowWhen(_switchAntenna_error,'<#Error when switching the antena On#>');
                 END_IF;
 
                 IF _progress = 301 THEN  
@@ -351,7 +346,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=304;                           
                      END_IF;   
-                     ReadTagTask.ThrowWhen(_readTag_error,'Error reading tag');
+                     ReadTagTask.ThrowWhen(_readTag_error,'<#Error reading tag#>');
                     END_IF;
 
                 IF _progress = 304 THEN  
@@ -404,7 +399,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
  
             //***********WriteTask***********************
-            WriteTagTask.IsDisabled := FALSE;
+            WriteTagTask.SetIsDisabled(FALSE);
             IF WriteTagTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -439,7 +434,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=321;                    
                     END_IF;
-                    WriteTagTask.ThrowWhen(_switchAntenna_error,'Error when switching the antena On' );
+                    WriteTagTask.ThrowWhen(_switchAntenna_error,'<#Error when switching the antena On#>');
                 END_IF;
 
                 IF _progress = 321 THEN  
@@ -480,7 +475,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=324;                           
                      END_IF;   
-                     WriteTagTask.ThrowWhen(_writeTag_error,'Error writing tag');
+                     WriteTagTask.ThrowWhen(_writeTag_error,'<#Error writing tag#>');
                     END_IF;
 
                 IF _progress = 324 THEN  
@@ -667,8 +662,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
+
         END_METHOD
     END_CLASS
 END_NAMESPACE

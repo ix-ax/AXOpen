@@ -1,0 +1,173 @@
+@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoSequencer>
+
+<div data-axo-sequencer-steps-view class="card bg-background-light/80! p-2 @Class">
+	<div class="mb-2">
+		<div class="text-sm font-medium mb-1">@Localizer["SequencerMonitoredSteps"]</div>
+		<div class="overflow-x-auto">
+			<table class="table table-striped table-hover w-full">
+				<colgroup>
+					<col style="width: 1%;" /> <!-- Breakpoint -->
+					<col style="width: 1%;" /> <!-- Actions -->
+					<col style="width: 1%;" /> <!-- Status -->
+					<col style="width: 1%;" /> <!-- Order -->
+					<col /> <!-- Description (flex) -->
+					<col style="width: 1%;" /> <!-- Remove -->
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="whitespace-nowrap">@Localizer["SequencerBreakpoint"]</th>
+						<th class="whitespace-nowrap">@Localizer["Actions"]</th>
+						<th class="whitespace-nowrap">@Localizer["SequencerStatus"]</th>
+						<th class="whitespace-nowrap">@Localizer["SequencerOrder"]</th>
+						<th>@Localizer["SequencerDesc"]</th>
+						<th class="whitespace-nowrap">@Localizer["SequencerRemove"]</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (!MonitoredSteps.Any())
+					{
+						<tr>
+							<td colspan="6" class="text-center text-text/70">@Localizer["SequencerNoMonitoredStepsSelected"]</td>
+						</tr>
+					}
+					else
+					{
+						@foreach (var monitored in MonitoredSteps)
+						{
+							<tr class="opacity-90">
+								<td class="breakpoint-col whitespace-nowrap">
+									<input type="checkbox" class="breakpoint-dot @GetBeforeBreakpointDotClass(monitored) @GetCurrentStepDotClass(monitored, monitored.BreakpointBeforeExecution)" checked="@monitored.BreakpointBeforeExecution" disabled />
+								</td>
+								<td class="whitespace-nowrap">
+									@if (monitored.Order == CurrentStepOrder && ShowCurrentStepRunButtons)
+									{
+										<button class="btn btn-warning btn-sm"
+												@onclick="RunAsync">
+											@Localizer["SequencerContinue"]
+										</button>
+									}
+									else
+									{
+										<span style="display:inline-block;width:100%;height:32px;"></span>
+									}
+								</td>
+								<td class="whitespace-nowrap">
+									@if (monitored.Order == CurrentStepOrder)
+									{
+										<div class="@GetStepStatusBadgeClass(monitored) w-auto justify-center">@GetStepStatusLabel(monitored)</div>
+									}
+									else
+									{
+										<span style="display:inline-block;width:100%;height:32px;"></span>
+									}
+								</td>
+								<td class="whitespace-nowrap">@monitored.Order</td>
+								<td>@monitored.Desc</td>
+								<td class="whitespace-nowrap">
+									<button class="btn btn-danger btn-sm"
+											@onclick="() => RemoveFromMonitor(monitored)">
+										@Localizer["SequencerRemove"]
+									</button>
+								</td>
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<details class="mt-2" open>
+		<summary class="cursor-pointer select-none text-sm font-medium">@Localizer["ViewDetails"]</summary>
+		<div class="overflow-x-auto mt-2">
+			<div class="mb-2 flex justify-center mt-2">
+
+				<button class="btn btn-warning btn-sm m-2"
+						@onclick="ApplyBreakpointConfigurationAsync"
+						disabled="@(Steps.Count == 0)">
+					@Localizer["SequencerApplyBreakpoints"]
+				</button>
+				<button class="btn btn-danger btn-sm m-2"
+						@onclick="ClearAllBreakpointsAsync"
+						disabled="@(Steps.Count == 0)">
+					@Localizer["SequencerClearAllBreakpoints"]
+				</button>
+			</div>
+			<table class="table table-striped table-hover w-full">
+				<colgroup>
+					<col style="width: 1%;" />
+					<col style="width: 1%;" />
+					<col style="width: 1%;" />
+					<col style="width: 1%;" />
+					<col />
+					<col style="width: 1%;" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="breakpoint-col whitespace-nowrap">@Localizer["SequencerBreakpoint"]</th>
+						<th class="whitespace-nowrap">@Localizer["Actions"]</th>
+						<th class="whitespace-nowrap">@Localizer["SequencerStatus"]</th>
+						<th class="whitespace-nowrap">@Localizer["SequencerOrder"]</th>
+						<th>@Localizer["SequencerDesc"]</th>
+
+						<th class="whitespace-nowrap">@Localizer["SequencerMonitor"]</th>
+
+
+						@* <th>@Localizer["SequencerStepExecutionMode"]</th> *@
+					</tr>
+				</thead>
+				<tbody>
+					@if (Steps.Count == 0)
+					{
+						<tr>
+							<td colspan="6" class="text-center text-text/70">@Localizer["SequencerNoStepsFound"]</td>
+						</tr>
+					}
+					else
+					{
+						@foreach (var item in Steps)
+						{
+							<tr class="@GetCurrentStepRowClass(item)">
+								<td class="breakpoint-col whitespace-nowrap">
+									<input type="checkbox"
+										   class="breakpoint-dot @GetBeforeBreakpointDotClass(item) @GetCurrentStepDotClass(item, item.BreakpointBeforeExecution)"
+										   checked="@item.BreakpointBeforeExecution"
+										   @onchange="@(args => ToggleBreakpointAsync(item, args))" />
+								</td>
+								<td class="whitespace-nowrap">
+									@if (item.Order == CurrentStepOrder && ShowCurrentStepRunButtons)
+									{
+
+										<button class="btn btn-warning btn-sm"
+												@onclick="RunAsync">
+											@Localizer["SequencerContinue"]
+										</button>
+									}
+								</td>
+								<td class="whitespace-nowrap">
+									@if (item.Order == CurrentStepOrder)
+									{
+										<div class="@GetStepStatusBadgeClass(item) w-auto justify-center">@GetStepStatusLabel(item)</div>
+									}
+								</td>
+								<td class="whitespace-nowrap">@item.Order</td>
+								<td>@item.Desc</td>
+
+								<td class="whitespace-nowrap">
+									<button class="btn btn-primary btn-sm"
+											@onclick="() => AddToMonitor(item)"
+											disabled="@IsMonitored(item)">
+										@Localizer["SequencerAddToMonitor"]
+									</button>
+								</td>
+
+
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</details>
+</div>

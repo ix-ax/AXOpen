@@ -24,9 +24,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#Test cylinder#>"}
             _testCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
-            PlcInputs : REF_TO PlcInputs;
-            PlcOutputs : REF_TO PlcOutputs;       
-            
+           
             CylinderParent : AXOpen.Core.AxoObject;
         END_VAR
 
@@ -37,8 +35,8 @@ NAMESPACE AXOpen.Components.Pneumatics
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(CylinderParent);
-            _testCylinder.SuspendMoveToWorkWhile(_suspendMoveToWork);
-            _testCylinder.SuspendMoveToHomeWhile(_suspendMoveToHome);
+            _testCylinder.SuspendMoveToOutWhile(_suspendMoveToWork);
+            _testCylinder.SuspendMoveToInWhile(_suspendMoveToHome);
             _testCylinder.AbortMoveToWorkWhen(_abortMoveToWork);
             _testCylinder.AbortMoveToHomeWhen(_abortMoveToHome);
             _testCylinder.Run(CylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);

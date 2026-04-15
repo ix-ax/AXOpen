@@ -60,7 +60,7 @@ Each type must be enclosed in an appropriate namespace. Orphaned types with no n
 
 
 
-> **CLASS member naming**
+> **SECTION member naming**
 
 | Variable section | Notation   | Prefix    | Example                          |
 |------------------|------------|-----------|----------------------------------|
