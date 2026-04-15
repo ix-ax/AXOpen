@@ -1,6 +1,12 @@
 name: dev
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 on:
 #  push:
@@ -53,3 +59,35 @@ jobs:
         dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
+
+  docs:
+    needs: build
+    runs-on: [self-hosted, Windows, X64, L2, AX]
+    steps:
+    - name: Generate ctrl API metadata (ixd)
+      shell: pwsh
+      run: .\scripts\_invoke_ixd.ps1
+
+    - name: Docfx metadata
+      shell: pwsh
+      run: dotnet docfx metadata .\docfx\docfx.json
+
+    - name: Docfx build
+      shell: pwsh
+      run: dotnet docfx build .\docfx\docfx.json --output .\docs\
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs
+
+  deploy:
+    needs: docs
+    runs-on: [self-hosted, Windows, X64, L2, AX]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
