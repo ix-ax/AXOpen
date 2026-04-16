@@ -49,7 +49,7 @@ Templates:
           ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
           AssetManagementViaUserProgram: False
         Interfaces:
-        # - Ref: '@Module/PROFINET_interface_1'
+        - Ref: '@Module/PROFINET_interface_1'
         TransferAreas:
         # - Name: 'iodata_I_consume'
         #   Length: 1
@@ -57,19 +57,17 @@ Templates:
         # - Name: 'iodata_I_provide'
         #   Length: 1
         #   Type: 'Output'
-      - Type: 'WebServer'
-        Enabled: True
-        Parameters:
-          HttpsOnly: True
       - Type: 'OpcUaServer'
         Enabled: False
         Parameters:
-          # Possible values: NoSecurity | Basic256Sha256Sign | Basic256Sha256SignEncrypt
-          SecurityPolicies:
-          - 'Basic256Sha256SignEncrypt'
-          AutoAcceptAllClientCertificates: True
+          # TrustedClientCertificates:
+          # - 'TrustedOpcUAClient.cer'
+          AutoAcceptAllClientCertificates: False
           # Possible value range: [1024, 49151]
           Port: 4840
+          # Possible values: 1 - NoSecurity | 2 - Basic128RsaSign | 4 - Basic128RsaSignEncrypt | 8 - Basic256Sign | 16 - Basic256SignEncrypt | 32 - Basic256Sha256Sign | 64 - Basic256Sha256SignEncrypt
+          SecurityPolicies:
+          - 'Basic256Sha256SignEncrypt'
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
           AlarmsAndConditionsEnable: False
           # AlarmsAndConditionsActiveMultilingual (Boolean)
@@ -84,12 +82,17 @@ Templates:
           AutoAcceptServer: False
           # TrustedServerCertificates:
           # - 'TrustedSyslogServer.cer'
+      - Type: 'WebServer'
+        Enabled: True
+        Parameters:
+          HttpsOnly: True
       Interfaces:
       - Name: 'PROFINET_interface_1'
         Label: 'X1'
         Addresses:
         - Type: 'IPv4'
           Address: '${IP_ADDRESS_X1}'
+          RouterAddress: '${ROUTER_ADDRESS_X1}'
         - Type: 'Profinet'
           ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
@@ -105,6 +108,7 @@ Templates:
         Addresses:
         - Type: 'IPv4'
           Address: '${IP_ADDRESS_X2}'
+          RouterAddress: '${ROUTER_ADDRESS_X2}'
         - Type: 'Profinet'
           ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
         Parameters:
@@ -120,6 +124,7 @@ Templates:
         Addresses:
         - Type: 'IPv4'
           Address: '${IP_ADDRESS_X3}'
+          RouterAddress: '${ROUTER_ADDRESS_X3}'
         - Type: 'Profinet'
           ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X3}'
         Parameters:
