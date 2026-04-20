@@ -5,18 +5,18 @@ Templates:
     - Name: 'NAME'
     - Name: 'IP_ADDRESS_X1'
       Value: '192.168.0.1/24'
-    - Name: 'ROUTER_ADDRESS_X1'
-      Value: '0.0.0.0'
-      Optional: TRUE
+    # - Name: 'ROUTER_ADDRESS_X1'
+    #   Value: '0.0.0.0'
+    #   Optional: TRUE
     - Name: 'PROFINET_DEVICE_NAME_X1'
       Value: 'plc_1.profinet_interface_1'
     - Name: 'IP_ADDRESS_X2'
       Value: '192.168.1.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X2'
       Value: 'plc_1.profinet_interface_2' 
-    - Name: 'ROUTER_ADDRESS_X2'
-      Value: '0.0.0.0'
-      Optional: TRUE
+    # - Name: 'ROUTER_ADDRESS_X2'
+    #   Value: '0.0.0.0'
+    #   Optional: TRUE
     - Name: ADMIN_NAME
       Value: 'admin'
     - Name: CYCLE_COMMUNICATION_LOAD
@@ -94,7 +94,7 @@ Templates:
         Addresses:
         - Type: 'IPv4'
           Address: '${IP_ADDRESS_X1}'
-          RouterAddress: '${ROUTER_ADDRESS_X1}'
+          # RouterAddress: '${ROUTER_ADDRESS_X1}'
         - Type: 'Profinet'
           ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
@@ -110,7 +110,7 @@ Templates:
         Addresses:
         - Type: 'IPv4'
           Address: '${IP_ADDRESS_X2}'
-          RouterAddress: '${ROUTER_ADDRESS_X2}'
+          # RouterAddress: '${ROUTER_ADDRESS_X2}'
         - Type: 'Profinet'
           ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
         Parameters:
