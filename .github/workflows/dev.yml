@@ -60,10 +60,6 @@ jobs:
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
 
-  docs:
-    needs: build
-    runs-on: [self-hosted, Windows, X64, L2, AX]
-    steps:
     - name: Generate ctrl API metadata (ixd)
       shell: pwsh
       run: .\scripts\_invoke_ixd.ps1
@@ -84,7 +80,7 @@ jobs:
         retention-days: 1
 
   deploy:
-    needs: docs
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
