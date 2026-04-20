@@ -29,6 +29,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT;             
             _movementExecuting      :   BOOL;
+            _inputsManualPV         :   BOOL;
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -390,6 +391,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             //*******************************************
             _context := THIS.GetContext();
 
+            //*********MOVE**ENABLE**IN**MANUAL*******
+            IF Inputs.Manual  AND NOT _inputsManualPV THEN
+                Outputs.MoveEnable := TRUE;
+            ELSIF NOT Inputs.Manual  AND _inputsManualPV THEN
+                Outputs.MoveEnable := FALSE;
+            END_IF;
+            _inputsManualPV := Inputs.Manual;   
+            //****************************************
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
             StopMovementsTask.Run(THIS);
