@@ -1,0 +1,77 @@
+Templates:
+  Devices:
+    - Name: 'kuka_krc5_dio512'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'kuka_krc5_robot'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'kuka_krc5_robot'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.4-KUKA-KR C5-20220704.XML'
+              GsdId: 'DIM 1'
+            Interfaces:
+            - Name: 'Interface1'
+              Label: 'X1'
+              Addresses:
+              - Type: 'IPv4'
+                Address: '${IP_ADDRESS_X1}'
+                # RouterAddress: '192.168.0.1'
+              - Type: 'Profinet'
+                ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                PrioritizedStartup: False
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_2'
+              Label: 'X1 P2'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_3'
+              Label: 'X1 P3'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_4'
+              Label: 'X1 P4'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+          - TypeIdentifier: NotAssigned
+            Slot: 1
+          - Name: DIO512
+            TypeIdentifier:
+              GsdId: '15'
+              FileName: GSDML-V2.4-KUKA-KR C5-20220704.XML
+            Slot: 2
