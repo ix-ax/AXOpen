@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Robotics Utilities | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Robotics Utilities | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.robotics/docs/RoboticsUtilities.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="robotics-utilities">Robotics Utilities</h1>
+
+<p>The <code>AXOpen.Components.Robotics</code> library provides shared utility functions and data types
+used by all vendor-specific robotics implementations (ABB, KUKA, UR, Mitsubishi).</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
+</li>
+</ul>
+<section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
+<h2 id="declarations">Declarations</h2>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    _status : AxoRobot_Status;
+    _pointA : AxoRoboticsCoordinates;
+    _pointB : AxoRoboticsCoordinates;
+    _movementParams : AxoRoboticsMovementsParams;
+    _distance3D : REAL;
+    _distanceXY : REAL;
+    _coordsMatch : BOOL;
+END_VAR
+</code></pre><h2 id="coordinate-setup">Coordinate setup</h2>
+<pre><code class="lang-smalltalk">// Define two 6-axis robot positions
+_pointA.X  := REAL#500.0;
+_pointA.Y  := REAL#200.0;
+_pointA.Z  := REAL#100.0;
+_pointA.Rx := REAL#0.0;
+_pointA.Ry := REAL#90.0;
+_pointA.Rz := REAL#0.0;
+
+_pointB.X  := REAL#510.0;
+_pointB.Y  := REAL#205.0;
+_pointB.Z  := REAL#100.0;
+_pointB.Rx := REAL#0.0;
+_pointB.Ry := REAL#90.0;
+_pointB.Rz := REAL#0.0;
+</code></pre><h2 id="calculate-distance-between-points">Calculate distance between points</h2>
+<pre><code class="lang-smalltalk">// Full 3D Euclidean distance between two points
+_distance3D := CalculateDistance(
+    inDistType := eAxoRoboticsDistance#XYZ,
+    inP1       := _pointA,
+    inP2       := _pointB);
+
+// 2D distance in the XY plane only
+_distanceXY := CalculateDistance(
+    inDistType := eAxoRoboticsDistance#XY,
+    inP1       := _pointA,
+    inP2       := _pointB);
+</code></pre><h2 id="compare-coordinates-with-tolerance">Compare coordinates with tolerance</h2>
+<pre><code class="lang-smalltalk">// Check if two positions match within per-axis tolerances
+_coordsMatch := CoordinatesAreNearlyEqual(
+    Coordinates1 := _pointA,
+    Coordinates2 := _pointB,
+    EpsilonX     := REAL#0.05,
+    EpsilonY     := REAL#0.05,
+    EpsilonZ     := REAL#0.05,
+    EpsilonRx    := REAL#0.01,
+    EpsilonRy    := REAL#0.01,
+    EpsilonRz    := REAL#0.01);
+</code></pre><h2 id="configure-movement-parameters">Configure movement parameters</h2>
+<pre><code class="lang-smalltalk">// Configure movement parameters for a robot action
+_movementParams.ActionNo    := BYTE#1;
+_movementParams.GlobalSpeed := BYTE#75;
+_movementParams.ToolNo      := BYTE#1;
+_movementParams.WorkobjectNo := BYTE#0;
+_movementParams.PointNo     := BYTE#10;
+_movementParams.UserSpecSpeed1 := INT#500;
+_movementParams.UserSpecSpeed2 := INT#100;
+_movementParams.Coordinates := _pointB;
+</code></pre></section>
+<section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
+</section>
+<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
+
+<p><strong>How to visualize Robotics utilities</strong></p>
+<p>On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance.</p>
+</section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.robotics/docs/RoboticsUtilities.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

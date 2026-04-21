@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoDataExchange | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoDataExchange | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axodataexchange">AxoDataExchange</h1>
+
+<h2 id="getting-started">Getting started</h2>
+<h3 id="data-exchange-manager">Data exchange manager</h3>
+<p>Data exchange object must be extended by <code>AxoDataExchange</code>.</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
+    VAR PUBLIC
+        {#ix-generic:TOnline}
+        {#ix-generic:TPlain as POCO}
+        {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+        Set : AxoProcessData; // &lt;- Manager will operate on this member.
+    END_VAR
+END_CLASS
+</code></pre><h3 id="data-exchange-object">Data exchange object</h3>
+<p>The data entity variable must be created. It contains data that we want to exchange between PLC and repository. This variable must be annotated with following attributes:</p>
+<ul>
+<li><code>AxoDataEntityAttribute</code> -- unique attribute for finding a correct instance of data exchange.</li>
+<li><code>#ix-generic:TOnline</code> -- type information attribute.</li>
+<li><code>#ix-generic:TPlain as POCO</code> -- type information attribute.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>AxoDataExchange</code> object must be unique. Annotations <code>AxoDataEntityAttribute</code>, <code>#ix-generic:TOnline</code> and <code>#ix-generic:TPlain as POCO</code> must be attributed to only one member <code>AxoDataExchange</code> object, which is used to locate data object that contains data to be exchanged between PLC and the target repository.
+An exception is thrown when <code>AxoDataEntityAttribute</code> is missing or multiple members have the annotation.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The 'Data' variable must be of a type that extends <code>AxoDataEntity</code>.</p>
+</div>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some string&quot;}
+        SomeString : STRING;
+        {#ix-set:AttributeName = &quot;Some int&quot;}
+        SomeInt : INT;
+
+        AllPrimitives : BasePrimitives;
+    END_VAR
+END_CLASS
+</code></pre><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
+<p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code>AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code>AxoProcessDataManager</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>DataManager</code> in the Main method of appropriate context.</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoObject
+    VAR PUBLIC
+        //Controlled unit that needs to manipulate with data
+        ControlledUnit : ControlledUnit;
+        //DataManager instance
+        DataManager  : AxoProcessDataManager;
+
+        //Testing usage of the manager
+        ManagerUsage : ManagerUsage;
+    END_VAR
+    
+    METHOD PUBLIC Execute
+        
+        // DataManager.Run(THIS); - is called iside of controlle unit
+        ControlledUnit.Run(THIS);
+        ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
+        ControlledUnit.Run();// run logic of controlled unit 
+
+        ManagerUsage.Use(DataManager);
+    END_METHOD
+END_CLASS
+</code></pre>
+<p>Execute run method in CU</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
+    VAR PUBLIC
+        //Reference to ProcessDataManager
+        ProcessData : REF_TO AxoProcessDataManager;
+        //Automatic sequence. Contains logic for automatic operations of this unit.
+        AutomatSequence : AutomatSequence;
+    END_VAR
+
+    METHOD PUBLIC Run
+        SUPER.Run(THIS); //??
+        THIS.Execute();
+    END_METHOD
+
+    METHOD PRIVATE Execute
+        ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
+        AutomatSequence.Run(THIS, ProcessData);
+    END_METHOD
+END_CLASS
+</code></pre>
+<p>Use in Automat Sequence</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
+    VAR PRIVATE
+        // private reference is used in Main()
+        ProcessData : REF_TO AxoProcessDataManager;
+    END_VAR
+
+    METHOD INTERNAL Run
+        VAR_INPUT
+            inParent : IAxoObject;
+            _processData : REF_TO AxoProcessDataManager;
+        END_VAR
+
+        ProcessData := _processData;
+    END_METHOD
+
+    METHOD OVERRIDE Main
+        ;//cyclic logic
+    END_METHOD
+END_CLASS
+</code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
+<p>At this point, we have everything ready in the PLC.</p>
+<p>We must now tell the <code>DataManager</code> what repository to use. As a example, data repository is set as JSON files.</p>
+<p>Let's create a configuration for the repository and initialize remote data exchange:</p>
+<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt; AxoProcessDataRepository;
+
+// *** IN MEMORY REPOSITORY ***
+//AxoProcessDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;().Factory();
+//Entry.Plc.Ctx.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
+
+// *** JSON REPOSITORY ***
+//var ProcessDataLocation = Path.Combine(jsonRepositoryLocation, &quot;ProcessData&quot;);
+//AxoProcessDataRepository = new JsonRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(ProcessDataLocation).Factory();
+
+// *** MONGO REPOSITORY ***
+AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;AxoDataExchangeExample&quot;));
+
+Entry.Plc.Ctx.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

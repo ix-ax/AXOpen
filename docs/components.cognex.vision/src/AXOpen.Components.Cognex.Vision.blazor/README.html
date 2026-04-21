@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AXOpen.Components.Cognex.Vision.Blazor | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXOpen.Components.Cognex.Vision.Blazor | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../docs/toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopencomponentscognexvisionblazor">AXOpen.Components.Cognex.Vision.Blazor</h1>
+
+<h2 id="description">Description</h2>
+<p>The <strong>components.cognex.vision</strong> is a set of libraries covering the product portfolio of the vision systems from the vendor <a href="https://www.cognex.com/">Cognex</a> for the target PLC platform <a href="https://www.siemens.com/global/en/products/automation/industry-software/automation-software/simatic-ax.html">Siemens AX</a> and <a href="https://github.com/inxton/AXOpen?tab=readme-ov-file">AxOpen</a> framework.</p>
+<p>The package consists of a PLC library providing control logic and its .NET twin counterpart aimed at the visualization part. This package currently covers the Dataman production family with the firmware 6.0.0.0 and the Insight production family with the firmware 6.0.0.0.</p>
+<h3 id="links-to-documentation">Links to documentation</h3>
+<p><a href="https://developer.siemens.com/simatic-ax/developer.html">Siemens AX-documentation</a></p>
+<p><a href="https://inxton.github.io/AXOpen/">AxOpen-documentation</a></p>
+<p><strong>NuGet Package Feed (Blazor Packages)</strong></p>
+<p>This note applies specifically to the AXOpen Blazor UI / integration packages but defers to the consolidated guidance in <code>NUGET_PACAKGE_GENERAL.md</code>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you have already added the <code>gh-packages-inxton</code> source (see general doc) you do not need to repeat configuration for Blazor packages.</p>
+</div>
+<p>Common package IDs (examples):</p>
+<ul>
+<li><code>AXOpen.Core.Blazor</code></li>
+<li><code>AXOpen.Integrations.Blazor</code></li>
+<li><code>AXOpen.Security</code> (UI components depend on this for auth views)</li>
+</ul>
+<p>Add (only if not already configured):</p>
+<pre><code class="lang-bash">dotnet nuget add source \
+	--username YOUR_GITHUB_USERNAME \
+	--password YOUR_GITHUB_PAT \
+	--store-password-in-clear-text \
+	--name gh-packages-inxton \
+	&quot;https://nuget.pkg.github.com/inxton/index.json&quot;
+</code></pre>
+<h3 id="version-strategy">Version Strategy</h3>
+<p>Blazor surface changes (Razor components, CSS/JS assets) may introduce subtle breakage if versions drift from backend core packages. Keep UI and core packages on identical versions to avoid mismatched rendering metadata or missing layout attributes.</p>
+<h3 id="asset-resolution">Asset Resolution</h3>
+<p>Static assets (icons, css, JS) are served via the standard <code>_content/{PackageId}/...</code> path. When creating composite libraries, re-export or document the asset path rather than copying files into the host app to reduce duplication.</p>
+<h3 id="debugging-ui-package-issues">Debugging UI Package Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause</th>
+<th>Suggested Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>404 on <code>_content/...</code></td>
+<td>Static web assets not referenced (missing package ref)</td>
+<td>Confirm <code>&lt;PackageReference&gt;</code> present &amp; rebuild</td>
+</tr>
+<tr>
+<td>Missing styles</td>
+<td>Theme CSS not selected / cookie unset</td>
+<td>Inspect cookies, verify theme asset existence</td>
+</tr>
+<tr>
+<td>Auth views blank</td>
+<td><code>ConfigureAxBlazorSecurity</code> not called or DI mismatch</td>
+<td>Check <code>Program.cs</code> configuration order</td>
+</tr>
+</tbody>
+</table>
+<p>For adding or updating the feed, contribution, or advanced scenarios (mirroring, offline caches) see <code>NUGET_PACAKGE_GENERAL.md</code>.</p>
+<h2 id="net-cli">.NET CLI</h2>
+<pre><code class="lang-bash">dotnet add package AXOpen.Components.Cognex.Vision.Blazor --version {axopen-version}
+</code></pre>
+<h2 id="package-reference">Package reference</h2>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;AXOpen.Components.Cognex.Vision.Blazor&quot; Version=&quot;{axopen-version}&quot; /&gt;
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

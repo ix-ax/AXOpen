@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoInspector | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoInspector | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/new/dev/apiSpec/new?filename=plc_AXOpen_Inspectors_AxoInspector.md&amp;value=---%0Auid%3A%20plc.AXOpen.Inspectors.AxoInspector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Inspectors.AxoInspector">
+
+
+
+  <h1 id="plc_AXOpen_Inspectors_AxoInspector" data-uid="plc.AXOpen.Inspectors.AxoInspector" class="text-break">
+Class AxoInspector  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Inspectors.html">plc.AXOpen.Inspectors</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoInspector</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoInspector</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></div>
+      <div><a class="xref" href="plc.AXOpen.Inspectors.IOnFail.html">IOnFail</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__inspectorTask" data-uid="plc.AXOpen.Inspectors.AxoInspector._inspectorTask">
+  _inspectorTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inspectorTask : AXOpen.Inspectors.AxoInspectorTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__coordinator" data-uid="plc.AXOpen.Inspectors.AxoInspector._coordinator">
+  _coordinator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_coordinator : AXOpen.Core.IAxoCoordinator</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__isOverInspected" data-uid="plc.AXOpen.Inspectors.AxoInspector._isOverInspected">
+  _isOverInspected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_isOverInspected : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__busy" data-uid="plc.AXOpen.Inspectors.AxoInspector._busy">
+  _busy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_busy : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__commonData" data-uid="plc.AXOpen.Inspectors.AxoInspector._commonData">
+  _commonData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_commonData : REF_TO AXOpen.Inspectors.AxoInspectorData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__comprehensiveResult" data-uid="plc.AXOpen.Inspectors.AxoInspector._comprehensiveResult">
+  _comprehensiveResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_comprehensiveResult : AXOpen.Inspectors.IAxoComprehensiveResult</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__comprehensiveResultUpdateCycle" data-uid="plc.AXOpen.Inspectors.AxoInspector._comprehensiveResultUpdateCycle">
+  _comprehensiveResultUpdateCycle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_comprehensiveResultUpdateCycle : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__updateOverallResult" data-uid="plc.AXOpen.Inspectors.AxoInspector._updateOverallResult">
+  _updateOverallResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_updateOverallResult : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__FailureDescription" data-uid="plc.AXOpen.Inspectors.AxoInspector._FailureDescription">
+  _FailureDescription
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_FailureDescription : STRING</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__ErrorCode" data-uid="plc.AXOpen.Inspectors.AxoInspector._ErrorCode">
+  _ErrorCode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_ErrorCode : STRING</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector__DL" data-uid="plc.AXOpen.Inspectors.AxoInspector._DL">
+  _DL
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_DL : AXOpen.Inspectors.AxoInspectorDialog</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_CheckOverInspection__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()">
+  CheckOverInspection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL CheckOverInspection()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_IsOverInspected__" data-uid="plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()">
+  IsOverInspected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected BOOL IsOverInspected()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_WithCoordinator_IAxoCoordinator_" data-uid="plc.AXOpen.Inspectors.AxoInspector.WithCoordinator(IAxoCoordinator)">
+  WithCoordinator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector WithCoordinator(in plc.AXOpen.Core.IAxoCoordinator inCoordinator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inCoordinator</code> <a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_OnFail__" data-uid="plc.AXOpen.Inspectors.AxoInspector.OnFail()">
+  OnFail
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IOnFail OnFail()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IOnFail.html">IOnFail</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Dialog_IAxoStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)">
+  Dialog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Dialog(in plc.AXOpen.Core.IAxoStep inRetryStep,in plc.AXOpen.Core.IAxoStep inTerminateStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inRetryStep</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+    <dt><code>inTerminateStep</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_RetryWithStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)">
+  RetryWithStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL RetryWithStep(in plc.AXOpen.Core.IAxoStep inRetryStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inRetryStep</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Restore__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Restore()">
+  Restore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_CarryOn__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CarryOn()">
+  CarryOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL CarryOn()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_TerminateWithStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)">
+  TerminateWithStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL TerminateWithStep(in plc.AXOpen.Core.IAxoStep inTerminateStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inTerminateStep</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_UpdateComprehensiveResult_IAxoComprehensiveResult_STRING_STRING_" data-uid="plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult(IAxoComprehensiveResult,STRING,STRING)">
+  UpdateComprehensiveResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector UpdateComprehensiveResult(in plc.AXOpen.Inspectors.IAxoComprehensiveResult inResult,in plc.STRING inFailureDescription,in plc.STRING inErrorCode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inResult</code> <a class="xref" href="plc.AXOpen.Inspectors.IAxoComprehensiveResult.html">IAxoComprehensiveResult</a></dt>
+    <dd></dd>
+    <dt><code>inFailureDescription</code> <span class="xref">STRING</span></dt>
+    <dd></dd>
+    <dt><code>inErrorCode</code> <span class="xref">STRING</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_UpdateOverallResult__" data-uid="plc.AXOpen.Inspectors.AxoInspector.UpdateOverallResult()">
+  UpdateOverallResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Internal VOID UpdateOverallResult()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_RestoreInspectorTask__" data-uid="plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()">
+  RestoreInspectorTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL RestoreInspectorTask()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Busy__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Busy()">
+  Busy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Busy()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_CommonData__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CommonData()">
+  CommonData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public REF_TO AXOpen.Inspectors.AxoInspectorData CommonData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">REF_TO AXOpen.Inspectors.AxoInspectorData</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Coordinator__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Coordinator()">
+  Coordinator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoCoordinator Coordinator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Done__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Done()">
+  Done
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Done()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Result__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Result()">
+  Result
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.eInspectorResult Result()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.eInspectorResult.html">eInspectorResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_UpdateDialogInfo__" data-uid="plc.AXOpen.Inspectors.AxoInspector.UpdateDialogInfo()">
+  UpdateDialogInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID UpdateDialogInfo()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Inspect_IAxoObject_REF_TO_AXOpen_Inspectors_AxoAnalogueInspectorData_LREAL_" data-uid="plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData,LREAL)">
+  Inspect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData inData,in plc.LREAL Status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>inData</code> <span class="xref">REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData</span></dt>
+    <dd></dd>
+    <dt><code>Status</code> <span class="xref">LREAL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Inspect_IAxoObject_REF_TO_AXOpen_Inspectors_AxoDataInspectorData_STRING_" data-uid="plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDataInspectorData,STRING)">
+  Inspect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData inData,in plc.STRING Status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>inData</code> <span class="xref">REF_TO AXOpen.Inspectors.AxoDataInspectorData</span></dt>
+    <dd></dd>
+    <dt><code>Status</code> <span class="xref">STRING</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_Inspect_IAxoObject_REF_TO_AXOpen_Inspectors_AxoDigitalInspectorData_BOOL_" data-uid="plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDigitalInspectorData,BOOL)">
+  Inspect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L494"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoDigitalInspectorData inData,in plc.BOOL Status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>inData</code> <span class="xref">REF_TO AXOpen.Inspectors.AxoDigitalInspectorData</span></dt>
+    <dd></dd>
+    <dt><code>Status</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_OnDone__" data-uid="plc.AXOpen.Inspectors.AxoInspector.OnDone()">
+  OnDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L553"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnDone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Inspectors_AxoInspector_IsCharNumber_CHAR_" data-uid="plc.AXOpen.Inspectors.AxoInspector.IsCharNumber(CHAR)">
+  IsCharNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L557"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected BOOL IsCharNumber(in plc.CHAR inCharacter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inCharacter</code> <span class="xref">CHAR</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/.\src\inspectors\ctrl\src\AxoInspector.st/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

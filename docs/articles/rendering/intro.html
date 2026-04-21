@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Automatic Rendering with AXOpen | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Automatic Rendering with AXOpen | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/rendering/intro.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="automatic-rendering-with-axopen">Automatic Rendering with AXOpen</h1>
+
+<p>AXOpen leverages <a href="https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html">AX# rendering</a> to enable a variety of advanced features.</p>
+<p>This document provides foundational information regarding the presentation methods used within AXOpen.</p>
+<h2 id="renderable-content-control">Renderable Content Control</h2>
+<p>While <a href="https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types">presentation modes in AX#</a> offer several options, AXOpen introduces additional presentation types:</p>
+<table>
+<thead>
+<tr>
+<th>Presentation Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command</td>
+<td>Allows interaction with a UI control, permitting modifications and controls of the component.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Grants visibility of a UI control without the capability to modify or control the component.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples:</h3>
+<p><strong>To enable manipulation of the <code>DriveX</code> component:</strong></p>
+<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Command&quot;/&gt;
+</code></pre>
+<p><strong>To view the status of the <code>DriveX</code> component without interaction:</strong></p>
+<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Status&quot;/&gt;
+</code></pre>
+<p><strong>To engage with visual components within the 'Components' structure for manual control:</strong></p>
+<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Command&quot;/&gt;
+</code></pre>
+<p><strong>To observe the state of visual components within the 'Components' structure without manual interaction:</strong></p>
+<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Status&quot;/&gt;
+</code></pre>
+<hr>
+<h2 id="layout-attributes--organization">Layout Attributes &amp; Organization</h2>
+<p>Auto‑rendered components rely on layout attributes applied to members of your <code>AxoComponent</code> (or derived) classes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ComponentHeader</code></td>
+<td>Places the member into the fixed (always visible) header region.</td>
+</tr>
+<tr>
+<td><code>ComponentDetails(&quot;TabName&quot;)</code></td>
+<td>Places the member into a tab named <code>TabName</code> within the expandable details section.</td>
+</tr>
+<tr>
+<td><code>Container(Layout.Wrap)</code> / <code>Container(Layout.Stack)</code></td>
+<td>Controls arrangement of grouped children inside the region they appear.</td>
+</tr>
+</tbody>
+</table>
+<p>Guidelines:</p>
+<ul>
+<li>Put frequently observed primary command tasks in the header.</li>
+<li>Group secondary / diagnostic data into logically named tabs (e.g. Diagnostics, IO, Tuning).</li>
+<li>Avoid overpopulating the header; if more than ~4 primary members appear, move non‑critical ones into a details tab.</li>
+<li>When adding new members, maintain attribute ordering to keep stable layout diffs.</li>
+</ul>
+<p>See <code>AXOCOMPONENT.md</code> and <code>guidelines/components.md</code> for deeper examples and conventions.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/rendering/intro.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

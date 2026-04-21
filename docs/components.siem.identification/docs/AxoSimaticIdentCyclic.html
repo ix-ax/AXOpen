@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoSimaticIdentCyclic | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoSimaticIdentCyclic | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.siem.identification/docs/AxoSimaticIdentCyclic.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axosimaticidentcyclic">AxoSimaticIdentCyclic</h1>
+
+<p><em>SIMATIC Ident cyclic communication profile</em></p>
+<p>Generated documentation for the <code>AxoSimaticIdentCyclic</code> component.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_hardware" role="tab" aria-controls="tabpanel_1_hardware" data-tab="hardware" tabindex="-1">HARDWARE</a>
+</li>
+</ul>
+<section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
+<h2 id="declare-component">Declare component</h2>
+<pre><code class="lang-pascal">VAR PUBLIC                
+    RF260R : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic;     
+END_VAR
+</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
+<p><em>Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.</em></p>
+<pre><code class="lang-pascal">VAR PUBLIC         
+    {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
+    ActivateManualControl : BOOL;         
+    DataBuffer : ARRAY[0..127] OF BYTE;         
+    TestTagUID : ARRAY[0..7] OF BYTE := [BYTE#224,BYTE#8,BYTE#1,BYTE#215,BYTE#229,BYTE#70,BYTE#94,BYTE#82];         
+END_VAR
+</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
+<pre><code class="lang-pascal">
+RF260R.Run( inParent    :=  THIS,
+            hwID        :=  AXOpen.Showcase.HwIdentifiers#rf186c_cyc_HwID,
+            Port        :=  eAxoSimaticIdentCyclic_Port#X21,
+            DataBuffer  :=  DataBuffer);
+
+</code></pre><div class="IMPORTANT">
+<h5>Important</h5>
+<p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
+</div>
+<h2 id="use">Use</h2>
+<pre><code class="lang-pascal">VAR PUBLIC                       
+    Sequencer   :   AxoSequencer;       
+    Steps       :   ARRAY[0..11] OF AXOpen.Core.AxoStep;
+    WriteData   :   STRING  :=  'My_very_first_attempt_to_use_RF260Rwith_RF186C_using_cyclic_communication_tag_field_10lenght100bytes';
+    ReadData    :   STRING;
+END_VAR
+
+METHOD PRIVATE UseInSequencer   
+    VAR
+        _index      :   UINT;
+        _is_equal   :   BOOL;
+        _data       :   ARRAY[0..128] OF BYTE;     
+        _offset     :   UDINT;    
+    END_VAR
+    
+    Sequencer.Run(THIS);
+    Sequencer.Open();
+    Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+    
+    IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+        ActivateManualControl := FALSE;
+        RF260R.Restore();
+        Sequencer.MoveNext();      
+    END_IF;
+
+    IF(Steps[1].Execute(Sequencer, 'Reset')) THEN
+        IF(RF260R.Reset().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+    
+    IF(Steps[2].Execute(Sequencer, 'ReadUID')) THEN
+        IF(RF260R.ReadUID().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[3].Execute(Sequencer, 'Compare UID')) THEN
+        _is_equal := TRUE;
+        FOR _index := UINT#0 TO UINT#7 BY UINT#1 DO
+            IF DataBuffer[_index] &lt;&gt; TestTagUID[_index] THEN
+                _is_equal := FALSE;
+            END_IF;    
+        END_FOR;
+        IF(_is_equal) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;          
+
+    //  Tag with ID 10 and length 100 has to be already defined using WBM
+    IF(Steps[4].Execute(Sequencer, 'WriteTagField: 10, length 100')) THEN
+        //*******************************************************************************************//
+        // Serialization of the string to the array of bytes to get out its length at the _data[0]
+            _offset := Serialize(UDINT#0, WriteData, _data);
+            FOR _index := UINT#0 TO TO_UINT(_offset) - UINT#1 BY UINT#1 DO
+                DataBuffer[_index] := _data[_index + UINT#1];
+            END_FOR;
+        //*******************************************************************************************//
+        IF(RF260R.WriteTagField(TagField := UINT#10, TagFieldLength := UINT#100).IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    //  Tag with ID 10 and length 100 has to be already defined using WBM
+    IF(Steps[5].Execute(Sequencer, 'ReadTagField: 10')) THEN
+        IF(RF260R.ReadTagField(TagField := UINT#10).IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF; 
+    END_IF;       
+
+    IF(Steps[6].Execute(Sequencer, 'Compare TagField')) THEN
+        //*******************************************************************************************//
+        // Deserialization of the string from the array of bytes to get its length at the _data[0]
+        _data[0] := BYTE#100;
+        FOR _index := UINT#0 TO UINT#127 BY UINT#1 DO
+            _data[_index + UINT#1] := DataBuffer[_index];
+        END_FOR;
+        
+        _offset := Deserialize(UDINT#0,_data, ReadData );
+        //*******************************************************************************************//
+        IF(ReadData = WriteData) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[7].Execute(Sequencer, 'Write: address: 10, length 8')) THEN
+        DataBuffer[0] := BYTE#10;
+        DataBuffer[1] := BYTE#20;
+        DataBuffer[2] := BYTE#30;
+        DataBuffer[3] := BYTE#40;
+        DataBuffer[4] := BYTE#50;
+        DataBuffer[5] := BYTE#60;
+        DataBuffer[6] := BYTE#70;
+        DataBuffer[7] := BYTE#80;
+        IF(RF260R.Write(Address := UDINT#10, Length := UINT#8).IsDone()) THEN                
+            DataBuffer[0] := BYTE#0;
+            DataBuffer[1] := BYTE#0;
+            DataBuffer[2] := BYTE#0;
+            DataBuffer[3] := BYTE#0;
+            DataBuffer[4] := BYTE#0;
+            DataBuffer[5] := BYTE#0;
+            DataBuffer[6] := BYTE#0;
+            DataBuffer[7] := BYTE#0;
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;      
+
+    IF(Steps[8].Execute(Sequencer, 'Read: address: 10, length 8')) THEN
+        IF(RF260R.Read(Address := UDINT#10, Length := UINT#8).IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;      
+
+    IF(Steps[9].Execute(Sequencer, 'Compare')) THEN
+        _is_equal :=    DataBuffer[0] = BYTE#10 AND
+                        DataBuffer[1] = BYTE#20 AND
+                        DataBuffer[2] = BYTE#30 AND
+                        DataBuffer[3] = BYTE#40 AND
+                        DataBuffer[4] = BYTE#50 AND
+                        DataBuffer[5] = BYTE#60 AND
+                        DataBuffer[6] = BYTE#70 AND
+                        DataBuffer[7] = BYTE#80;
+        IF _is_equal THEN
+            Sequencer.MoveNext();      
+        END_IF;    
+    END_IF;      
+
+    IF(Steps[10].Execute(Sequencer, 'Restore')) THEN
+        ActivateManualControl := FALSE;
+        RF260R.Restore();
+        Sequencer.MoveNext();      
+    END_IF;
+
+    IF(Steps[11].Execute(Sequencer, 'SEQUENCE DONE')) THEN
+        Sequencer.CompleteSequence();          
+    END_IF;
+END_METHOD
+
+</code></pre><h2 id="source">Source</h2>
+<p>View the library source at <a href="https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.siem.identification/ctrl/src/AxoSimaticIdentCyclic/AxoSimaticIdentCyclic.st"><code>AxoSimaticIdentCyclic.st</code></a>.</p>
+</section>
+<section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
+<h2 id="source-1">Source</h2>
+<p>View the .NET twin source at <a href="https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.siem.identification/src/AXOpen.Components.Siem.Identification/"><code>AXOpen.Components.Siem.Identification</code></a>.</p>
+</section>
+<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
+
+<p><code>AxoSimaticIdentCyclic</code> does not ship a dedicated Blazor view. It renders via the generic <code>AxoComponent</code> pattern using <code>RenderableContentControl</code>, which inspects the component type at runtime and selects the matching rendering based on the <code>Presentation</code> attribute.</p>
+<h2 id="status-display">Status display</h2>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.siem_identification_documentation.axoSimaticIdentCyclic_2&quot; Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><h2 id="command-control">Command control</h2>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.siem_identification_documentation.axoSimaticIdentCyclic_2&quot; Presentation=&quot;Command-Control&quot; /&gt;
+</code></pre><h2 id="type-agnostic-status-view">Type-agnostic status view</h2>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.siem_identification_documentation.axoSimaticIdentCyclic_2&quot; Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><h2 id="type-agnostic-command-view">Type-agnostic command view</h2>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.siem_identification_documentation.axoSimaticIdentCyclic_2&quot; Presentation=&quot;Command-Control&quot; /&gt;
+</code></pre>
+<p>Available <code>Presentation</code> values: <code>Status-Display</code>, <code>Command-Control</code>, <code>Service-Control</code>, <code>Spot</code>, <code>Compact</code>.</p>
+<h2 id="source-2">Source</h2>
+<p>View the Blazor package at <a href="https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.siem.identification/src/AXOpen.Components.Siem.Identification.blazor/"><code>AXOpen.Components.Siem.Identification.blazor</code></a>.</p>
+</section>
+<section id="tabpanel_1_hardware" role="tabpanel" data-tab="hardware" aria-hidden="true" hidden="hidden">
+<h2 id="device-template">Device template</h2>
+<p>PROFINET hardware template at <code>showcase/app/hwc/library_templates/siemens_identification/</code>.</p>
+<h2 id="io-system-wiring">IO system wiring</h2>
+<pre><code class="lang-yaml">- Ref: rf186c/rf186c/profinet
+- Ref: et200sp_CM_4xIO_Link_RF200/et200sp_CM_4xIO_Link_RF200/profinet
+- Ref: rf186c_cyc/rf186c_cyc/profinet
+</code></pre></section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.siem.identification/docs/AxoSimaticIdentCyclic.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

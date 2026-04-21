@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title> | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content=" | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../docs/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.rexroth.drives/ctrl/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="section">@inxton/axopen.components.rexroth.drives</h1>
+
+<h2 id="description">Description</h2>
+<p>The <strong>components.rexroth.drives</strong> is a set of libraries covering the product portfolio of motion systems from the vendor <a href="https://www.boschrexroth.com/en/dc/">Rexroth</a> for the target PLC platform <a href="https://www.siemens.com/global/en/products/automation/industry-software/automation-software/simatic-ax.html">Siemens AX</a> and <a href="https://github.com/inxton/AXOpen?tab=readme-ov-file">AxOpen</a> framework.</p>
+<p>The package consists of a PLC library providing control logic and its .NET twin counterpart aimed at the visualization part. This package currently covers the IndraDrive drives family.</p>
+<h3 id="links-to-documentation">Links to documentation</h3>
+<p><a href="https://developer.siemens.com/simatic-ax/developer.html">Siemens AX-documentation</a></p>
+<p><a href="https://inxton.github.io/AXOpen/">AxOpen-documentation</a></p>
+<p><strong>Apax Package Registry</strong></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>AXOpen Apax (SIMATIC AX) packages are published from the shared monorepo; keep versions aligned analogous to the NuGet guidance.</p>
+</div>
+<p>Registry is hosted on GitHub Packages (npm endpoint). Authentication references:</p>
+<ul>
+<li>Siemens AX docs (external registries): <a href="https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries">https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries</a></li>
+<li>GitHub PAT management: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens</a></li>
+</ul>
+<p>Login:</p>
+<pre><code class="lang-bash">apax login --registry https://npm.pkg.github.com --username YOUR_GITHUB_USERNAME --password YOUR_GITHUB_PAT
+</code></pre>
+<p><code>apax.yml</code> snippet:</p>
+<pre><code class="lang-yml">registries:
+  &quot;@inxton&quot;: https://npm.pkg.github.com/
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Version Alignment: Use the same version across all <code>@inxton</code> scoped packages whenever possible. Diverging major versions is unsupported; minor/patch divergence is untested and should be a temporary measure only.</p>
+</div>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>401 Unauthorized</td>
+<td>PAT missing <code>read:packages</code></td>
+<td>Recreate PAT with required scope</td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td>Registry not listed in <code>apax.yml</code></td>
+<td>Add registry block &amp; retry</td>
+</tr>
+<tr>
+<td>Version mismatch build errors</td>
+<td>Mixed major versions</td>
+<td>Align all package versions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="updating-packages">Updating Packages</h3>
+<ol>
+<li>Adjust versions in <code>apax.yml</code> / package manifest.</li>
+<li>Run <code>apax install</code> to refresh.</li>
+<li>Commit the version change as a cohesive set.</li>
+</ol>
+<h3 id="publishing-maintainers">Publishing (Maintainers)</h3>
+<p>CI handles publish. For exceptional manual publish ensure tags follow semantic versioning and coordinate with NuGet release to keep parity.</p>
+<h2 id="adding-package-to-your-project">Adding package to your project</h2>
+<pre><code class="lang-bash">apax add &quot;@inxton/axopen.components.rexroth.drives&quot;
+</code></pre>
+<h2 id="modifying-your-apaxyml">Modifying your <code>apax.yml</code></h2>
+<pre><code class="lang-yml">dependencies:
+  &quot;@inxton/axopen.components.rexroth.drives&quot;: '{axopen-version}'  
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.rexroth.drives/ctrl/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

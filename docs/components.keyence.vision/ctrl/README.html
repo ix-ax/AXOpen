@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title> | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content=" | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../docs/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.keyence.vision/ctrl/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="section">@inxton/axopen_components_keyence_vision</h1>
+
+<h1 id="keyence-vision">Keyence Vision</h1>
+<p><strong>This library is an integral component of AXOpen. AXOpen is an application framework built on the foundations of SIMATIC-AX and AX# technologies. Utilizing the components described in this document might necessitate a foundational understanding of the AXOpen framework's concepts and methodologies. Additionally, leveraging some advanced features could require a basic familiarity with AX# technology.</strong></p>
+<p><strong>Additional Resources:</strong></p>
+<ul>
+<li><a href="https://inxton.github.io/axsharp/">AX# Official Documentation</a></li>
+<li><a href="../../../docfx/articles/rendering/intro.md">UI Rendering Guide</a></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This document's content is synchronized with the source code of this library. Please note that the images and illustrative visuals included may not mirror the exact appearance in your application.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Should you identify errors, misleading content, or gaps in this documentation, kindly report the <strong><a href="https://github.com/inxton/AXOpen/issues/new?assignees=&amp;labels=documentation&amp;projects=&amp;template=documentation.md&amp;title=">issue here</a></strong>. Alternatively, you're welcome to suggest edits directly by initiating a pull request in <strong><a href="https://github.com/inxton/AXOpen">this repository</a></strong>.</p>
+</div>
+<hr>
+<h2 id="description">Description</h2>
+<p><code>axopen.components.keyence.vision</code> provides AXOpen control components for
+<a href="https://www.keyence.com/">Keyence</a> industrial vision and code-reading
+hardware over PROFINET. It encapsulates the cyclic I/O exchange,
+trigger/result handshakes, and result-data parsing required to use these
+devices from a SIMATIC AX application.</p>
+<p>The package ships:</p>
+<ul>
+<li>A <strong>PLC library</strong> (<code>@inxton/axopen.components.keyence.vision</code>) — control
+components and data types.</li>
+<li>A <strong>.NET twin</strong> (<code>AXOpen.Components.Keyence.Vision</code>) — runtime mirror of
+the PLC types for orchestration and visualization. The <code>Axo_IV3</code> twin
+additionally exposes a reverse-proxy helper that surfaces the device's
+built-in HTTP live view inside the application's web UI.</li>
+<li>A <strong>Blazor package</strong> (<code>AXOpen.Components.Keyence.Vision.blazor</code>) — UI
+rendering. The components render via the generic <code>RenderableContentControl</code>
+pattern, with a dedicated <code>Axo_IV3View</code> available when richer visualization
+is required.</li>
+</ul>
+<h2 id="components">Components</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Device family</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../docs/Axo_IV3.html"><code>Axo_IV3</code></a></td>
+<td>Keyence IV3</td>
+<td>Fixed vision sensor — pattern matching, presence/absence, with optional HTTP live view via the .NET twin's reverse-proxy helper.</td>
+</tr>
+<tr>
+<td><a href="../docs/Axo_SR_750.html"><code>Axo_SR_750</code></a></td>
+<td>Keyence SR-750</td>
+<td>Fixed barcode/2D-code reader — trigger/read cycles with result-data parsing.</td>
+</tr>
+<tr>
+<td><a href="../docs/Axo_SR_1000.html"><code>Axo_SR_1000</code></a></td>
+<td>Keyence SR-1000</td>
+<td>Fixed barcode/2D-code reader (next generation) — same usage pattern as SR-750 with the SR-1000 result/user data layout.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hardware-configuration">Hardware configuration</h2>
+<p>PROFINET device templates for each supported model live under
+<code>showcase/app/hwc/library_templates/</code>:</p>
+<ul>
+<li><code>Keyence_IV3/</code></li>
+<li><code>Keyence_SR_750/</code></li>
+<li><code>Keyence_SR_1000/</code></li>
+</ul>
+<p>The showcase <code>plc_line.hwl.yml</code> instantiates each device under the tagged
+regions <code>KeyenceIv3Device</code>, <code>KeyenceSr750Device</code>/<code>KeyenceSr750IoSystem</code>, and
+<code>KeyenceSr1000Device</code>/<code>KeyenceSr1000IoSystem</code>. See each component's
+<strong>HARDWARE</strong> tab for the live YAML references.</p>
+<h2 id="dependencies">Dependencies</h2>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@inxton/axopen.io</code></td>
+<td>Base PROFINET I/O abstractions and hardware-diagnostics infrastructure.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vendor-documentation">Vendor documentation</h2>
+<ul>
+<li><a href="https://www.keyence.com/products/vision/vision-sys/">Keyence — Vision Systems</a></li>
+<li><a href="https://www.keyence.com/products/vision/vision-sys/iv3/">Keyence — IV3 Series</a></li>
+<li><a href="https://www.keyence.com/products/barcode/handheld/sr-750/">Keyence — SR-750 Series</a></li>
+<li><a href="https://www.keyence.com/products/barcode/fixed/sr-1000/">Keyence — SR-1000 Series</a></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://inxton.github.io/AXOpen/">AXOpen documentation</a></li>
+<li><a href="../docs/TROUBLES.html">Troubleshooting</a> — common issues and resolution steps.</li>
+<li><a href="../docs/CHANGELOG.html">Changelog</a> — version history.</li>
+</ul>
+<p><strong>Apax Package Registry</strong></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>AXOpen Apax (SIMATIC AX) packages are published from the shared monorepo; keep versions aligned analogous to the NuGet guidance.</p>
+</div>
+<p>Registry is hosted on GitHub Packages (npm endpoint). Authentication references:</p>
+<ul>
+<li>Siemens AX docs (external registries): <a href="https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries">https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries</a></li>
+<li>GitHub PAT management: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens</a></li>
+</ul>
+<p>Login:</p>
+<pre><code class="lang-bash">apax login --registry https://npm.pkg.github.com --username YOUR_GITHUB_USERNAME --password YOUR_GITHUB_PAT
+</code></pre>
+<p><code>apax.yml</code> snippet:</p>
+<pre><code class="lang-yml">registries:
+  &quot;@inxton&quot;: https://npm.pkg.github.com/
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Version Alignment: Use the same version across all <code>@inxton</code> scoped packages whenever possible. Diverging major versions is unsupported; minor/patch divergence is untested and should be a temporary measure only.</p>
+</div>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>401 Unauthorized</td>
+<td>PAT missing <code>read:packages</code></td>
+<td>Recreate PAT with required scope</td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td>Registry not listed in <code>apax.yml</code></td>
+<td>Add registry block &amp; retry</td>
+</tr>
+<tr>
+<td>Version mismatch build errors</td>
+<td>Mixed major versions</td>
+<td>Align all package versions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="updating-packages">Updating Packages</h3>
+<ol>
+<li>Adjust versions in <code>apax.yml</code> / package manifest.</li>
+<li>Run <code>apax install</code> to refresh.</li>
+<li>Commit the version change as a cohesive set.</li>
+</ol>
+<h3 id="publishing-maintainers">Publishing (Maintainers)</h3>
+<p>CI handles publish. For exceptional manual publish ensure tags follow semantic versioning and coordinate with NuGet release to keep parity.</p>
+<h2 id="adding-the-package-to-your-project">Adding the package to your project</h2>
+<pre><code class="lang-bash">apax add &quot;@inxton/axopen_components_keyence_vision&quot;
+</code></pre>
+<h2 id="modifying-your-apaxyml">Modifying your <code>apax.yml</code></h2>
+<pre><code class="lang-yml">dependencies:
+  &quot;@inxton/axopen_components_keyence_vision&quot;: '{axopen-version}'  
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.keyence.vision/ctrl/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
