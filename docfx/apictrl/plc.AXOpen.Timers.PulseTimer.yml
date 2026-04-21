@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 3
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer.output
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 11
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer.elapsedTime
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 12
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer._startTime
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 16
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer._previousSignalStatus
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 17
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer._currentTimeDiff
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 18
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer.Pulse
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 22
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer.Pulse
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 32
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\Pulse.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.PulseTimer.Restore
     path: .\src\timers\ctrl\src\Pulse.st
     startLine: 82

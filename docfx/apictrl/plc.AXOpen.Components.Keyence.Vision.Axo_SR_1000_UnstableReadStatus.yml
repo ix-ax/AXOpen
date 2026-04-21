@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus.Unstable
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 5
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus.MatchingLevelUnstable
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 7
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus.ISO_IEC_15415_Unstable
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 9
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus.ISO_IEC_TR_29158_Unstable
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 11
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus.SAE_AS9132_Unstable
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st
     startLine: 13

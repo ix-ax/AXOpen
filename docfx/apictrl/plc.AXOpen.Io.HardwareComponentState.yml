@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 0
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.NoAdditionalInformation
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 4
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.TransferNotPermitted
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 5
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.DiagnosticsAvailable
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 6
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.MaintenanceRequired
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 7
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.MaintenanceDemanded
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 8
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.Error
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 9
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.ComponentAvailability
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 10
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.HardwareComponentState.ReplacementState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\HardwareComponentState.st
     startLine: 12

@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
     startLine: 0
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
     startLine: 1
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
     startLine: 3
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
     startLine: 4

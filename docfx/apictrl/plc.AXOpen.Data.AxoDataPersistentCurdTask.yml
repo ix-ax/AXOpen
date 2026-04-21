@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 2
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask.CrudOperation
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 11
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask._EntityId
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 15
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask._exist
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 16
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Invoke
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 19
@@ -209,8 +209,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Exist
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 34

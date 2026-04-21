@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 0
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_Device
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 4
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 6
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 8
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 10
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 12
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_CommandControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 14
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_SoftEventControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 16
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_7
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 18
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_8
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 20
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_9
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 22
@@ -246,8 +246,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_10
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 24
@@ -266,8 +266,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_11
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 26
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_12
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 28
@@ -306,8 +306,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_13
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 30
@@ -326,8 +326,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_14
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
     startLine: 32

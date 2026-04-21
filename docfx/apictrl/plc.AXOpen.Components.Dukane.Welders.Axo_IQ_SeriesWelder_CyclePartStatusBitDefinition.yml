@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 0
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadEnergyLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 5
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectEnergyLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 7
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectEnergyLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 9
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadEnergyLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 11
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadPowerLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 13
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectPowerLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 23
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectPowerLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 25
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadPowerLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 27
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadTimeLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 29
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectTimeLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 39
@@ -246,8 +246,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectTimeLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 41
@@ -266,8 +266,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadTimeLimit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 43
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.GoodPart
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 45
@@ -306,8 +306,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.BadPart
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 56
@@ -326,8 +326,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.SuspectPart
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
     startLine: 58

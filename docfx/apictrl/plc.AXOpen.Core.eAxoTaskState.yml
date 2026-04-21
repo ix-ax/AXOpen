@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 2
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Ready
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 3
@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Kicking
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 5
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Busy
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 6
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Done
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 7
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Aborted
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 8
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoTaskState.Error
     path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
     startLine: 9

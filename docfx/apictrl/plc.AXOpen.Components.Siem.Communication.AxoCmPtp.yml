@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 8
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataTask
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 10
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataLength
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 16
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.DataToSend
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 19
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveDataLength
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 23
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceivedData
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 28
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Progress
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 32
@@ -224,8 +224,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.RestoreTask
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 38
@@ -244,8 +244,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfigTask
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 42
@@ -264,8 +264,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveResetTask
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 46
@@ -284,8 +284,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Config
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 53
@@ -304,8 +304,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Status
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 61
@@ -324,8 +324,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Messenger
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 64
@@ -344,8 +344,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.TaskMessenger
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 65
@@ -364,8 +364,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Inputs
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 69
@@ -384,8 +384,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Outputs
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 76
@@ -404,8 +404,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.HardwareDiagnosticsTask
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 85
@@ -424,8 +424,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._progress
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 92
@@ -444,8 +444,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._infoTimer
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 93
@@ -464,8 +464,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._errorTimer
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 94
@@ -484,8 +484,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_in
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 95
@@ -504,8 +504,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_1
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 96
@@ -524,8 +524,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_2
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 97
@@ -544,8 +544,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_4
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 98
@@ -564,8 +564,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_8
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 99
@@ -584,8 +584,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_255
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 100
@@ -604,8 +604,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._word
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 103
@@ -624,8 +624,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._dword
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 104
@@ -644,8 +644,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDone
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 105
@@ -664,8 +664,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDonePV
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 106
@@ -684,8 +684,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._retval
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 107
@@ -704,8 +704,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._geoAddr
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 108
@@ -724,8 +724,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outHwid
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 109
@@ -744,8 +744,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._blink
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 109
@@ -764,8 +764,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsAddress
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 111
@@ -784,8 +784,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsCount
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 112
@@ -804,8 +804,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsAddress
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 113
@@ -824,8 +824,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsCount
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 114
@@ -844,8 +844,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfig
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 115
@@ -864,8 +864,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveReset
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 116
@@ -884,8 +884,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2P
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 118
@@ -904,8 +904,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveP2P
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 119
@@ -924,8 +924,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfigRequest
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 120
@@ -944,8 +944,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveResetRequest
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 124
@@ -964,8 +964,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2PRequest
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 124
@@ -984,8 +984,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Run
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 125
@@ -1009,8 +1009,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfig
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 475
@@ -1054,8 +1054,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveReset
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 515
@@ -1075,8 +1075,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendData
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 527
@@ -1096,8 +1096,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.NewDataReceived
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 534
@@ -1117,8 +1117,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ManualControl
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 540
@@ -1138,8 +1138,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Restore
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 544
@@ -1159,8 +1159,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.CallTimers
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
     startLine: 589

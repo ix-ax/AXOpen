@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8.Data
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
     startLine: 4

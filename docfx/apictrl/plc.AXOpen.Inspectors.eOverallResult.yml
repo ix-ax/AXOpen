@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eOverallResult
     path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
     startLine: 2
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eOverallResult.NoAction
     path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
     startLine: 3
@@ -48,8 +48,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eOverallResult.InProgress
     path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
     startLine: 4
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eOverallResult.Passed
     path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
     startLine: 5
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eOverallResult.Failed
     path: .\src\inspectors\ctrl\src\enums\eOverallResult.st
     startLine: 6

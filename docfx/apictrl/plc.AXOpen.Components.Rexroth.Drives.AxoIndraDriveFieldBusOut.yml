@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 0
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetpointAcceptance
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 31
@@ -72,8 +72,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.OperatingModeSet
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 32
@@ -92,8 +92,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveToZeroPoint
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 33
@@ -112,8 +112,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.AbsoluteRelative
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 34
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ImmediateBlockChange
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 34
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ErrorDelete
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 36
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogForward
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 37
@@ -192,8 +192,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogBackward
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 38
@@ -212,8 +212,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit0
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 39
@@ -232,8 +232,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit1
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 40
@@ -252,8 +252,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.Iposync
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 41
@@ -272,8 +272,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveHalt
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 42
@@ -292,8 +292,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveEnable
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 43
@@ -312,8 +312,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveOn
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 44
@@ -332,8 +332,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0282_CommandPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 45
@@ -352,8 +352,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0259_CommandVelocity
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 46
@@ -372,8 +372,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0260_CommandAcceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 47
@@ -392,8 +392,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0359_CommandDecceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 48
@@ -412,8 +412,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0145_SignalControlWord
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 49
@@ -432,8 +432,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0080_TorqueForceCommand
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 50
@@ -452,8 +452,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0193_CommandJerk
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
     startLine: 51

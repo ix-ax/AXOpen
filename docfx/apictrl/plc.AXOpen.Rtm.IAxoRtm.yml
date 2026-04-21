@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Rtm.IAxoRtm
     path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
     startLine: 0
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Rtm.IAxoRtm.Elapsed
     path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
     startLine: 2

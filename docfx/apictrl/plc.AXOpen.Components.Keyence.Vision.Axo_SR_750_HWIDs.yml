@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 0
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_Device
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 5
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_HandshakeAndGeneralErrorStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 7
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_BUSY_Status
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 9
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 11
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ErrorStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 13
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_TerminalStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 15
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UnstableReadStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 17
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 19
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationalResultStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 21
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ReadData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 23
@@ -246,8 +246,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_LatchAndErrorClearControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 25
@@ -266,8 +266,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationInstructionControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 27
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionClearControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 29
@@ -306,8 +306,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ParameterBankNumber
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 31
@@ -326,8 +326,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UserData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
     startLine: 33

@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 0
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 10
@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 15
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 19
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.Result
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 23
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 27
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 31
@@ -161,8 +161,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 35
@@ -181,8 +181,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 40
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.ErrorCode
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 43
@@ -221,8 +221,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.Failure
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
     startLine: 46

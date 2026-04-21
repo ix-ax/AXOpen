@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 0
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 7
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit01_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 8
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.HomingControl
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 11
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AbsoluteRelative
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 12
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ImmediateChange
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 14
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ClearError
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 16
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogPositive
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 18
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogNegative
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 20
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchToCM
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 22
@@ -227,8 +227,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchTo0M
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 24
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.CancelReferencePoint
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 26
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit11_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 28
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit12_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 31
@@ -307,8 +307,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit13_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 33
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit14_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 35
@@ -347,8 +347,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SetAbsPositionFunction
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
     startLine: 37

@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Component_Status.st
     startLine: 0

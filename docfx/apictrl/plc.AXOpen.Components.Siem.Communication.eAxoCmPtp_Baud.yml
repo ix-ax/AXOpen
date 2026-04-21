@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 2
@@ -40,8 +40,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._300
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 3
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._600
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 4
@@ -72,8 +72,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._1200
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 5
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._2400
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 6
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._4800
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 7
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._9600
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 8
@@ -136,8 +136,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._19200
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 9
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._38400
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 10
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._57600
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 11
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._76800
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 12
@@ -200,8 +200,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._115200
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 13
@@ -216,8 +216,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._250000
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
     startLine: 14

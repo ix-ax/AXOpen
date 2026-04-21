@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 2
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.NoParity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 3
@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.EvenParity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 4
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.OddParity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 5
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.MarkParity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 6
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.SpaceParity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 7
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.Any
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
     startLine: 8

@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.extFunctionNum
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.port
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
     startLine: 4
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.fiIndex
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
     startLine: 5

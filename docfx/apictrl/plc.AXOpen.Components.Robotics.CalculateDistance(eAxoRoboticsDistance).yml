@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\components.robotics\ctrl\src\AxoRobotics\CalculateDistance.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Robotics.CalculateDistance
     path: .\src\components.robotics\ctrl\src\AxoRobotics\CalculateDistance.st
     startLine: 3

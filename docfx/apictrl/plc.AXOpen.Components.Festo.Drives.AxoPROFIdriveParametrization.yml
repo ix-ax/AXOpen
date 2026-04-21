@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
     startLine: 4
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Inputs
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
     startLine: 7
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Outputs
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
     startLine: 11

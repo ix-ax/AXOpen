@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 13
@@ -588,8 +588,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.DriveStatus
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 17
@@ -608,8 +608,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.Messenger
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 21
@@ -628,8 +628,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.TaskMessenger
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 22
@@ -648,8 +648,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.HardwareDiagnosticsTask
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 25
@@ -668,8 +668,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.AxisRefExt
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 31
@@ -688,8 +688,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredPosition
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 37
@@ -708,8 +708,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualPosition
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 43
@@ -728,8 +728,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredVelocity
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 48
@@ -748,8 +748,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualVelocity
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 53
@@ -768,8 +768,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredTorque
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 59
@@ -788,8 +788,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualTorque
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 64
@@ -808,8 +808,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredAcceleration
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 69
@@ -828,8 +828,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualAcceleration
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 74
@@ -848,8 +848,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredDeceleration
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 79
@@ -868,8 +868,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualDeceleration
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 84
@@ -888,8 +888,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantRequiredJerk
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 89
@@ -908,8 +908,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.ScalingConstantActualJerk
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 95
@@ -928,8 +928,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.State
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 102
@@ -948,8 +948,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.Debug
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 106
@@ -968,8 +968,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._ScalingRead
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 111
@@ -988,8 +988,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11724
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 112
@@ -1008,8 +1008,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11725
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 112
@@ -1028,8 +1028,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11726
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 113
@@ -1048,8 +1048,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11727
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 114
@@ -1068,8 +1068,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_12345
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 115
@@ -1088,8 +1088,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11122
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 116
@@ -1108,8 +1108,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_810
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 117
@@ -1128,8 +1128,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_811
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 118
@@ -1148,8 +1148,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11203
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 119
@@ -1168,8 +1168,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11734
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 120
@@ -1188,8 +1188,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.PNU_11735
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 121
@@ -1208,8 +1208,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.Parametrization
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 124
@@ -1228,8 +1228,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._initHwCheckDone
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 126
@@ -1248,8 +1248,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._retval
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 127
@@ -1268,8 +1268,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._geoAddr
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 128
@@ -1288,8 +1288,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._outHwid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 129
@@ -1308,8 +1308,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._blink
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 130
@@ -1328,8 +1328,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._inputsAddress
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 131
@@ -1348,8 +1348,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._inputsCount
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 132
@@ -1368,8 +1368,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._outputsAddress
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 133
@@ -1388,8 +1388,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._outputsCount
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 134
@@ -1408,8 +1408,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._infoTimer
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 134
@@ -1428,8 +1428,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs._errorTimer
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 138
@@ -1448,8 +1448,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_PowerEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1040
@@ -1469,8 +1469,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_PowerCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1042
@@ -1489,8 +1489,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HomeExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1137
@@ -1510,8 +1510,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HomeErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1139
@@ -1530,8 +1530,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HomeCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1139
@@ -1550,8 +1550,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_StopExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1800
@@ -1571,8 +1571,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_StopErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1803
@@ -1591,8 +1591,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_StopCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1803
@@ -1611,8 +1611,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HaltExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1982
@@ -1632,8 +1632,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HaltErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1985
@@ -1652,8 +1652,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_HaltCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1986
@@ -1672,8 +1672,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2142
@@ -1693,8 +1693,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2142
@@ -1713,8 +1713,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2145
@@ -1733,8 +1733,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteContinuousUpdate_SV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2145
@@ -1753,8 +1753,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsolutePosition_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2146
@@ -1773,8 +1773,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteVelocity_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2146
@@ -1793,8 +1793,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteAcceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2147
@@ -1813,8 +1813,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteDeceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2148
@@ -1833,8 +1833,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteJerk_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2149
@@ -1853,8 +1853,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsoluteDirection_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2150
@@ -1873,8 +1873,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2375
@@ -1894,8 +1894,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2375
@@ -1914,8 +1914,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2376
@@ -1934,8 +1934,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeContinuousUpdate_SV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2376
@@ -1954,8 +1954,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeDistance_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2379
@@ -1974,8 +1974,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeVelocity_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2379
@@ -1994,8 +1994,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeAcceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2385
@@ -2014,8 +2014,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeDeceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2386
@@ -2034,8 +2034,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelativeJerk_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2387
@@ -2054,8 +2054,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2612
@@ -2075,8 +2075,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2612
@@ -2095,8 +2095,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2616
@@ -2115,8 +2115,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveContinuousUpdate_SV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2618
@@ -2135,8 +2135,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveDistance_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2619
@@ -2155,8 +2155,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveVelocity_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2620
@@ -2175,8 +2175,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveAcceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2624
@@ -2195,8 +2195,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveDeceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2625
@@ -2215,8 +2215,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditiveJerk_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2625
@@ -2235,8 +2235,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2858
@@ -2256,8 +2256,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2859
@@ -2276,8 +2276,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2859
@@ -2296,8 +2296,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityContinuousUpdate_SV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2860
@@ -2316,8 +2316,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityVelocity_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2861
@@ -2336,8 +2336,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityAcceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2862
@@ -2356,8 +2356,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityDeceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2867
@@ -2376,8 +2376,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityJerk_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2868
@@ -2396,8 +2396,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocityDirection_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2870
@@ -2416,8 +2416,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3125
@@ -2437,8 +2437,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3125
@@ -2457,8 +2457,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3126
@@ -2477,8 +2477,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlContinuousUpdate_SV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3126
@@ -2497,8 +2497,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorque_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3127
@@ -2517,8 +2517,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorqueRamp_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3128
@@ -2537,8 +2537,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlPositionLimit_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3128
@@ -2557,8 +2557,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlVelocity_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3129
@@ -2577,8 +2577,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlAcceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3130
@@ -2597,8 +2597,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlDeceleration_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3132
@@ -2617,8 +2617,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlJerk_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3133
@@ -2637,8 +2637,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlDirection_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3137
@@ -2657,8 +2657,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorqueA
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3141
@@ -2677,8 +2677,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlPositiveDirectionA
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3143
@@ -2697,8 +2697,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorqueWindowMin
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3145
@@ -2717,8 +2717,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorqueWindowMax
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3146
@@ -2737,8 +2737,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControlTorqueWindowTimer
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3147
@@ -2757,8 +2757,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetPositionExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3485
@@ -2778,8 +2778,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetPositionErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3486
@@ -2798,8 +2798,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetPositionCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3487
@@ -2818,8 +2818,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetPositionActualPosition
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3487
@@ -2838,8 +2838,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameterEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3980
@@ -2859,8 +2859,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3982
@@ -2879,8 +2879,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3984
@@ -2899,8 +2899,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameterValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3986
@@ -2919,8 +2919,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameterValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3987
@@ -2939,8 +2939,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameterEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4085
@@ -2960,8 +2960,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4087
@@ -2980,8 +2980,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4090
@@ -3000,8 +3000,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameterValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4091
@@ -3020,8 +3020,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameterValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4091
@@ -3040,8 +3040,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameterEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4191
@@ -3061,8 +3061,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4194
@@ -3081,8 +3081,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4195
@@ -3101,8 +3101,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameterValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4196
@@ -3121,8 +3121,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameterValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4196
@@ -3141,8 +3141,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteParameterExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4300
@@ -3162,8 +3162,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4301
@@ -3182,8 +3182,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4304
@@ -3202,8 +3202,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteRealParameterExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4412
@@ -3223,8 +3223,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteRealParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4414
@@ -3243,8 +3243,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteRealParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4415
@@ -3263,8 +3263,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteBoolParameterExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4526
@@ -3284,8 +3284,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteBoolParameterErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4527
@@ -3304,8 +3304,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteBoolParameterCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4528
@@ -3324,8 +3324,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInputEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4635
@@ -3345,8 +3345,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInputErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4636
@@ -3365,8 +3365,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInputCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4637
@@ -3385,8 +3385,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInputValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4638
@@ -3405,8 +3405,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInputValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4639
@@ -3425,8 +3425,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutputEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4758
@@ -3446,8 +3446,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutputErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4760
@@ -3466,8 +3466,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutputCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4764
@@ -3486,8 +3486,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutputValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4764
@@ -3506,8 +3506,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutputValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4765
@@ -3526,8 +3526,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteDigitalOutputExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4870
@@ -3547,8 +3547,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteDigitalOutputErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4872
@@ -3567,8 +3567,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteDigitalOutputCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4874
@@ -3587,8 +3587,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadStatusEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5089
@@ -3608,8 +3608,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadStatusDone_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5090
@@ -3628,8 +3628,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadStatusStateNumber
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5090
@@ -3648,8 +3648,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionStateEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5144
@@ -3669,8 +3669,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionStateErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5145
@@ -3689,8 +3689,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionStateCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5147
@@ -3709,8 +3709,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionStateValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5148
@@ -3729,8 +3729,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionStateValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5150
@@ -3749,8 +3749,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisErrorEnable_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5281
@@ -3770,8 +3770,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisErrorErrorID
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5282
@@ -3790,8 +3790,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisErrorCycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5283
@@ -3810,8 +3810,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisErrorValue
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5284
@@ -3830,8 +3830,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisErrorValid
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5285
@@ -3850,8 +3850,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.LastMessageCode
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5288
@@ -3870,8 +3870,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ResetExecute_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5398
@@ -3891,8 +3891,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ResetPower_PV
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5399
@@ -3911,8 +3911,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.Run
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 139
@@ -3942,8 +3942,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.UpdateInputs
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 797
@@ -3965,8 +3965,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.UpdateOutputs
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 902
@@ -3988,8 +3988,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_Power
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1046
@@ -4013,8 +4013,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_Home
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1140
@@ -4048,8 +4048,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_Stop
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1804
@@ -4077,8 +4077,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_Halt
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 1987
@@ -4106,8 +4106,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAbsolute
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2153
@@ -4145,8 +4145,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveRelative
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2391
@@ -4182,8 +4182,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveAdditive
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2626
@@ -4219,8 +4219,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_MoveVelocity
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 2875
@@ -4256,8 +4256,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_TorqueControl
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3150
@@ -4299,8 +4299,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetPosition
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3488
@@ -4330,8 +4330,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_SetOverride
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3918
@@ -4361,8 +4361,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 3988
@@ -4388,8 +4388,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadRealParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4092
@@ -4415,8 +4415,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadBoolParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4197
@@ -4442,8 +4442,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4304
@@ -4473,8 +4473,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteRealParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4416
@@ -4504,8 +4504,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteBoolParameter
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4529
@@ -4535,8 +4535,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalInput
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4641
@@ -4562,8 +4562,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadDigitalOutput
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4766
@@ -4589,8 +4589,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_WriteDigitalOutput
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4876
@@ -4620,8 +4620,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadActualPosition
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 4995
@@ -4645,8 +4645,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadActualVelocity
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5029
@@ -4670,8 +4670,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadActualTorque
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5060
@@ -4695,8 +4695,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadStatus
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5092
@@ -4720,8 +4720,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadMotionState
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5153
@@ -4747,8 +4747,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisInfo
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5202
@@ -4772,8 +4772,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_ReadAxisError
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5289
@@ -4797,8 +4797,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.MC_Reset
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5404
@@ -4822,8 +4822,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs.Restore
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\AxoCmmtAs.st
     startLine: 5496

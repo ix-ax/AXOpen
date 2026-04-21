@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 0
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.masterCommand
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 4
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.masterCycleTime
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 4
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.minCycleTime
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 5
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.frameCapability
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 6
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.ioLinkRevisionID
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 7
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.processDataIn
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 8
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.processDataOut
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 9
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.vendorID1
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 10
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.vendorID2
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 11
@@ -227,8 +227,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.deviceID1
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 12
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.deviceID2
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 13
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.deviceID3
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 14
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.functionID1
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 15
@@ -307,8 +307,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.functionID2
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 16
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.reserved1
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 17
@@ -347,8 +347,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0.reserved2
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeParameterPage0.st
     startLine: 19

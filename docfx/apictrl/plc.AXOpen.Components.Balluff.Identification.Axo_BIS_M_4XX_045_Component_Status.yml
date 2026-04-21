@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
     startLine: 0
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.UID
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
     startLine: 5
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionHighByte
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
     startLine: 6
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionLowByte
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
     startLine: 7

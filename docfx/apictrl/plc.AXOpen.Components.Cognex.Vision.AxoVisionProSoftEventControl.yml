@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl.Reset
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
     startLine: 4
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl.DataHandlerAck
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
     startLine: 5
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl.Trigger
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
     startLine: 6
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl.Reserve
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventControl.st
     startLine: 7

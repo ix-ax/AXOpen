@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 0
@@ -43,8 +43,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.TriggerRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 5
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.MasterRegistrationRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 6
@@ -83,8 +83,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramSwitchingRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 8
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.WarningClearRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 10
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.StatisticsResetRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 12
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.BufferClearRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 14
@@ -163,8 +163,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SdCardSavingStopRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 16
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SettingValueChangeRequest
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 18
@@ -203,8 +203,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ResultAcquisitionCompleteNotification
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 20
@@ -223,8 +223,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 22
@@ -243,8 +243,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_1
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 24
@@ -263,8 +263,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_2
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
     startLine: 26

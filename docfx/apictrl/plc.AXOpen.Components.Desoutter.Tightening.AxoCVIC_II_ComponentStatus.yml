@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_ComponentStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_ComponentStatus.st
     startLine: 0

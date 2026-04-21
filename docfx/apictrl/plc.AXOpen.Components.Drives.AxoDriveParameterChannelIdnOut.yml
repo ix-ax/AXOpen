@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 12
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ControlWord
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 15
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.Index
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 16
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.SubIndex
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 17
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueHigh
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 18
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueLow
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
     startLine: 19

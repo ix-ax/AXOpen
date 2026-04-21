@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 0
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.ErrorNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 5
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.WarningNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 6
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.NumberOfRemainingBuffers
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 8
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.Checksum
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 10
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.CurrentProgramNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 12
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.ProgramNoDuringJudgment
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 14
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.ResultNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 16
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords.ProcessingTime
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st
     startLine: 18

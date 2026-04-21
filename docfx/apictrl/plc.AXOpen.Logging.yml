@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging
     path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
     startLine: 6

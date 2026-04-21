@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 2
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.NONE_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 4
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_INVALID_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 4
@@ -71,8 +71,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.COMMUNICATION_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 6
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.RESOURCE_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 8
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.ACCESS_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 10
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.STATE_MACHINE_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 11
@@ -135,8 +135,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_RANGE_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 12
@@ -151,8 +151,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.CALCULATION_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 13
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.DEVICE_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 14
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.OTHER_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 16
@@ -199,8 +199,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.SYSTEM_ERROR
     path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
     startLine: 18

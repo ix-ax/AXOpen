@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 0
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LEN_ID
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 4
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.MEM_BANK
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 4
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.PSWD
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 5
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.EDIT_BLACKLIST_MODE
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 6
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DURATION
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 7
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DUR_UNIT
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 8
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_ACTION
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 9
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_MASK
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
     startLine: 10

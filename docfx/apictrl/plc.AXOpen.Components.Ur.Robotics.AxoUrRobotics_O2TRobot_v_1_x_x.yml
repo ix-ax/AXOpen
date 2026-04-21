@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TRobot_v_1_x_x
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
     startLine: 0
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TRobot_v_1_x_x.SSM_SpeedSliderFractionMask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
     startLine: 5
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TRobot_v_1_x_x.SpeedSliderFraction
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st
     startLine: 7

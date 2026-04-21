@@ -29,8 +29,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 0
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._text
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 8
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._caption
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 9
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._buttons
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 10
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._answer
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 11
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._dialogType
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 12
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._risingEdge
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 16
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._lastCall
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 16
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._createPlcCycleSpace
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 18
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._PlcCycleSpaceCounter
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 19
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.Show
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 22
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.ShowWithExternalClose
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 98
@@ -376,8 +376,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.OnRestore
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 190
@@ -397,8 +397,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithCaption
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 208
@@ -420,8 +420,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithOk
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 215
@@ -441,8 +441,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithText
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 222
@@ -464,8 +464,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithType
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 231
@@ -487,8 +487,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithYesNo
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 238
@@ -508,8 +508,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithYesNoCancel
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 246
@@ -529,8 +529,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.Answer
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
     startLine: 249

@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 0
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 5
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 6
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 8
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.WarningClearResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 10
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.StatisticsResetResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 12
@@ -157,8 +157,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferClearResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 14
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 16
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeResponse
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 18
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerFailed
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 20
@@ -237,8 +237,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationFailed
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 23
@@ -257,8 +257,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingFailed
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 25
@@ -277,8 +277,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopFailed
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 27
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeFailed
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 32
@@ -317,8 +317,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultAvailable
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 34
@@ -337,8 +337,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultUpdateComplete
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 37
@@ -357,8 +357,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BUSY
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 39
@@ -377,8 +377,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ImagingStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 41
@@ -397,8 +397,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.RUN
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 43
@@ -417,8 +417,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Ready
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 45
@@ -437,8 +437,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerReady
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 47
@@ -457,8 +457,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardIdentificationStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 49
@@ -477,8 +477,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SortingModeInformation
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 51
@@ -497,8 +497,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.InsufficientFreeSpaceOnSdCard
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 54
@@ -517,8 +517,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferOverrun
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 60
@@ -537,8 +537,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Warning
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 61
@@ -557,8 +557,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Error
     path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
     startLine: 63

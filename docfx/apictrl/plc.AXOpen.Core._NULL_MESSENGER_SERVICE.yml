@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 169
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE._isSuspended
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 184
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.QueueMessage
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 171
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.SuspendMessaging
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 187
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.ResumeMessaging
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 190
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.IsSuspended
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 194
@@ -145,8 +145,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.RequalifyDownstreamMessages
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 199
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.GetRequalifiedMessageCategory
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 206

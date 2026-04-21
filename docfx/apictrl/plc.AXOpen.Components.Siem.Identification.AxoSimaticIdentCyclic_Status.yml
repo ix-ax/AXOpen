@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 0
@@ -40,8 +40,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.NDR
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 5
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.RESETCONF
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 7
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.STOPCONF
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 9
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ANTSTATUS
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 11
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCK
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 13
@@ -140,8 +140,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.PRESENCE
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 15
@@ -160,8 +160,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ERROR_STARTUP
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 17
@@ -180,8 +180,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ACTIVECMD
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 19
@@ -200,8 +200,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCKLENGTH
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
     startLine: 21

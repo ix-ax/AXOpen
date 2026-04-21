@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 2
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 3
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 7
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 10
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 13
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 19
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 25
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.AddFailure
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 32
@@ -192,8 +192,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.AddErrorCode
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
     startLine: 38

@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 12
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._RequiredScrewingProgram
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 16
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._infoTimer
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 17
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._errorTimer
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 18
@@ -157,8 +157,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._tempDword
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 20
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._returnValue
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 21
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._data_1
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 22
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._data_2
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 23
@@ -237,8 +237,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._data_4
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 24
@@ -257,8 +257,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._initHwCheckDone
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 26
@@ -277,8 +277,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._retval
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 27
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._geoAddr
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 28
@@ -317,8 +317,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._outHwid
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 29
@@ -337,8 +337,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._startAddress
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 30
@@ -357,8 +357,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._bytesCount
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 31
@@ -377,8 +377,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._inputsAddress
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 32
@@ -397,8 +397,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._inputsCount
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 33
@@ -417,8 +417,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._outputsAddress
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 34
@@ -437,8 +437,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._outputsCount
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 35
@@ -457,8 +457,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II._progress
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 39
@@ -477,8 +477,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.ScrewingProgram
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 45
@@ -497,8 +497,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Passed
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 49
@@ -517,8 +517,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Failed
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 53
@@ -537,8 +537,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Torque
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 57
@@ -557,8 +557,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.TorqueTrend
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 61
@@ -577,8 +577,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Angle
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 65
@@ -597,8 +597,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.AngleTrend
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 69
@@ -617,8 +617,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.RestoreTask
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 76
@@ -637,8 +637,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.ResetTask
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 80
@@ -657,8 +657,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.RequiredScrewingProgram
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 85
@@ -677,8 +677,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.SetScrewingProgramTask
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 89
@@ -697,8 +697,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.StartScrewingTask
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 92
@@ -717,8 +717,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Config
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 100
@@ -737,8 +737,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Status
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 107
@@ -757,8 +757,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Messenger
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 111
@@ -777,8 +777,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.TaskMessenger
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 114
@@ -797,8 +797,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Inputs
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 116
@@ -817,8 +817,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Outputs
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 123
@@ -837,8 +837,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.HardwareDiagnosticsTask
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 133
@@ -857,8 +857,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Run
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 139
@@ -882,8 +882,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Reset
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1013
@@ -903,8 +903,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.SetScrewingProgram
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1020
@@ -926,8 +926,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.StartScrewing
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1033
@@ -949,8 +949,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.Restore
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1042
@@ -970,8 +970,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.ManualControl
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1042
@@ -991,8 +991,8 @@ items:
   source:
     remote:
       path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II.CallTimers
     path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
     startLine: 1042

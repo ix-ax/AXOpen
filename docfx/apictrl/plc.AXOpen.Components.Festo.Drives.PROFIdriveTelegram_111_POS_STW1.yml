@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 42
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.MDI_MOD
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 46
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.PosModulo
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 49
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.NegModulo
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 51
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.reserved11
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 53
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.reserved12
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 55
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.reserved13
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 58
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.SetupMode
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 60
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.MDI_Activate
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 62
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit0
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 64
@@ -227,8 +227,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit1
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 66
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit2
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 68
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit3
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 70
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit4
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 72
@@ -307,8 +307,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit5
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 74
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.travBlockBit6
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 76
@@ -347,8 +347,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1.reserved7
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
     startLine: 78

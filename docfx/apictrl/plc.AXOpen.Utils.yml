@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 0

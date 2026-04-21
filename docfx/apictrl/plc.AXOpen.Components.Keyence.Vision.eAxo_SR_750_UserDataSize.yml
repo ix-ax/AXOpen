@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 2
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize.USER_DATA_SIZE_INVALID
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 4
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize.USER_DATA_32B
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 4
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize.USER_DATA_64B
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 6
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize.USER_DATA_128B
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 7
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize.USER_DATA_252B
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_UserDataSize.st
     startLine: 8

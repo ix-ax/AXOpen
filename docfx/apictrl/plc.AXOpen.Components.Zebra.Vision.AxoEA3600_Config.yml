@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 0
@@ -38,8 +38,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.InfoTime
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 5
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ErrorTime
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 7
@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.TaskTimeout
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 9
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HWIDs
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 11
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HandshakeEnable
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 13
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.FragmentEnable
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 14
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ContinuousReading
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
     startLine: 16

@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 4
@@ -38,8 +38,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Carret
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 11
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.MinimumLevel
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 16
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.LogEntries
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 21
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Log
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 27
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Log
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 61
@@ -154,8 +154,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.SetMinimumLevel
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
     startLine: 86

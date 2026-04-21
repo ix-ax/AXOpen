@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencerContainer
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
     startLine: 0
@@ -151,8 +151,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencerContainer.Run
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
     startLine: 3
@@ -174,8 +174,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencerContainer.Main
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencerContainer.st
     startLine: 13

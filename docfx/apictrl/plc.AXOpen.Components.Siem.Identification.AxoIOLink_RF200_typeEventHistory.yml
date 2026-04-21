@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory.lastEvent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 4
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory.secondLastEvent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 4
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory.thirdLastEvent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 5
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory.fourthLastEvent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 6
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory.fifthLastEvent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeEventHistory.st
     startLine: 7

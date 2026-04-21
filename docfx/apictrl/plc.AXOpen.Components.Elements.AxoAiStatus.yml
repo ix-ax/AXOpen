@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiStatus
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiStatus.RawRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
     startLine: 8
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiStatus.RealRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
     startLine: 14
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiStatus.Scaled
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
     startLine: 19

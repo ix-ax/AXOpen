@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDigitalInspectorData
     path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
     startLine: 0
@@ -44,8 +44,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.RequiredStatus
     path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
     startLine: 9
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.DetectedStatus
     path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
     startLine: 13

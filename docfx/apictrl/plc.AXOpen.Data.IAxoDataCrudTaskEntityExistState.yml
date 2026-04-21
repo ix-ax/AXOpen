@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataCrudTaskEntityExistState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
     path: .\src\data\ctrl\src\IAxoDataCrudTaskEntityExistState.st
     startLine: 0
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataCrudTaskEntityExistState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState.Exist
     path: .\src\data\ctrl\src\IAxoDataCrudTaskEntityExistState.st
     startLine: 2

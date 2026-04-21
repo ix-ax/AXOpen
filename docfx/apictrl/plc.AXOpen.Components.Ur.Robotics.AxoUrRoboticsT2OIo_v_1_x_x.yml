@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 0
@@ -109,8 +109,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalInputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 5
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalInputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 7
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalOutputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 9
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalOutputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 11
@@ -189,8 +189,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.AnalogIoTypes
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 13
@@ -209,8 +209,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_0
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 15
@@ -229,8 +229,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 17
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_0
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 19
@@ -269,8 +269,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 21
@@ -289,8 +289,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Current
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 23
@@ -309,8 +309,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_0
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 25
@@ -329,8 +329,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 27
@@ -349,8 +349,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_2
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 29
@@ -369,8 +369,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_3
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 31
@@ -389,8 +389,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_4
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 33
@@ -409,8 +409,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_5
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 35
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_6
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 37
@@ -449,8 +449,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_7
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 39
@@ -469,8 +469,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_8
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 41
@@ -489,8 +489,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_9
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 43
@@ -509,8 +509,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_10
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 45
@@ -529,8 +529,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_11
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 47
@@ -549,8 +549,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_12
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 49
@@ -569,8 +569,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_13
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 51
@@ -589,8 +589,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_14
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 53
@@ -609,8 +609,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_15
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 55
@@ -629,8 +629,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_16
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 57
@@ -649,8 +649,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_17
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 59
@@ -669,8 +669,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_18
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 61
@@ -689,8 +689,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_19
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 63
@@ -709,8 +709,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_20
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 65
@@ -729,8 +729,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_21
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 67
@@ -749,8 +749,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_22
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 70
@@ -769,8 +769,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_23
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 72
@@ -789,8 +789,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_24
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 74
@@ -809,8 +809,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_25
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 76
@@ -829,8 +829,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_26
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 78
@@ -849,8 +849,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_27
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 80
@@ -869,8 +869,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_28
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 82
@@ -889,8 +889,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_29
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 84
@@ -909,8 +909,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_30
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 86
@@ -929,8 +929,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_31
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 88
@@ -949,8 +949,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_32
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 90
@@ -969,8 +969,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_0
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 92
@@ -989,8 +989,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 94
@@ -1009,8 +1009,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_2
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 96
@@ -1029,8 +1029,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_3
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 98
@@ -1049,8 +1049,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_4
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 100
@@ -1069,8 +1069,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_5
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 102
@@ -1089,8 +1089,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_6
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 104
@@ -1109,8 +1109,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_7
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 106
@@ -1129,8 +1129,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_8
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 108
@@ -1149,8 +1149,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_9
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 111
@@ -1169,8 +1169,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_10
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 113
@@ -1189,8 +1189,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_11
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 115
@@ -1209,8 +1209,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_12
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 117
@@ -1229,8 +1229,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_13
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 119
@@ -1249,8 +1249,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_14
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 121
@@ -1269,8 +1269,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_15
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 123
@@ -1289,8 +1289,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_16
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 125
@@ -1309,8 +1309,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_17
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 127
@@ -1329,8 +1329,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_18
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 129
@@ -1349,8 +1349,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_19
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 131
@@ -1369,8 +1369,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_20
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 133
@@ -1389,8 +1389,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_21
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 135
@@ -1409,8 +1409,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_22
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 137
@@ -1429,8 +1429,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_23
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 139
@@ -1449,8 +1449,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_24
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 141
@@ -1469,8 +1469,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_25
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 143
@@ -1489,8 +1489,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_26
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 145
@@ -1509,8 +1509,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_27
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 147
@@ -1529,8 +1529,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_28
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 149
@@ -1549,8 +1549,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_29
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 151
@@ -1569,8 +1569,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_30
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 153
@@ -1589,8 +1589,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_31
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 155
@@ -1609,8 +1609,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_32
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 157
@@ -1629,8 +1629,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724Voltage
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 159
@@ -1649,8 +1649,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724VCurrent
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
     startLine: 164

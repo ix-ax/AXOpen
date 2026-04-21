@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 6
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInTask
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 17
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutTask
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 22
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.InSensor
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 26
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.OutSensor
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 32
@@ -161,8 +161,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveInSignal
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 37
@@ -181,8 +181,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOutSignal
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 43
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 48
@@ -221,8 +221,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 51
@@ -241,8 +241,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._InSensor
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 56
@@ -261,8 +261,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._OutSensor
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 57
@@ -281,8 +281,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInSignal
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 57
@@ -301,8 +301,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutSignal
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 59
@@ -321,8 +321,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsSuspended
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 62
@@ -341,8 +341,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsSuspended
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 64
@@ -361,8 +361,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsBusy
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 65
@@ -381,8 +381,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsBusy
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 67
@@ -401,8 +401,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder._context
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 71
@@ -421,8 +421,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToOutSuspended
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 72
@@ -442,8 +442,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToInSuspended
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 79
@@ -463,8 +463,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 87
@@ -490,8 +490,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 177
@@ -511,8 +511,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 180
@@ -532,8 +532,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOut
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 189
@@ -553,8 +553,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveIn
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 196
@@ -574,8 +574,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 206
@@ -595,8 +595,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToOutWhile
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 209
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToInWhile
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 242
@@ -649,8 +649,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 274
@@ -672,8 +672,8 @@ items:
   source:
     remote:
       path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen
     path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
     startLine: 290

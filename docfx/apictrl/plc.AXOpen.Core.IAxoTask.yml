@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 0
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.Execute
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 2
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.Invoke
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 3
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.Restore
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 4
@@ -108,8 +108,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.Abort
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 5
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.Resume
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 6
@@ -150,8 +150,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.DoneWhen
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 7
@@ -173,8 +173,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.ThrowWhen
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 7
@@ -196,8 +196,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.IsReady
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 8
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.IsDone
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 10
@@ -238,8 +238,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.IsBusy
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 11
@@ -259,8 +259,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.IsEngaged
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 12
@@ -280,8 +280,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoTask.HasError
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
     startLine: 13

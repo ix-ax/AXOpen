@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 2
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.TriggerReady
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 6
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.TriggerAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 8
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.ExposureComplete
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 10
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.MissedAcquisition
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 12
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.OfflineReason0
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 14
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.OfflineReason1
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 16
@@ -157,8 +157,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.OfflineReason2
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 18
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.Online
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 20
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus.AcquisitionID
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
     startLine: 22

@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.SubordinateDiagnosticDetails
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateIOState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
     startLine: 7
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.SubordinateDiagnosticDetails.DiagnosticsEnabled
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
     startLine: 8

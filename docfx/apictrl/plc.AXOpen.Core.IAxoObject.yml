@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetIdentity
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 2
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetContext
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 2
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetContextUnsafe
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 4
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.AggregateMessage
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 4
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetParent
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 6
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.IsValid
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
     startLine: 7

@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 0
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 7
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 9
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 11
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 13
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 15
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 17
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 19
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 21
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 23
@@ -227,8 +227,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 24
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 27
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 30
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 34
@@ -307,8 +307,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 36
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 39
@@ -347,8 +347,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.Enabling
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
     startLine: 40

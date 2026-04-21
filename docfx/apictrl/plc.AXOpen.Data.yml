@@ -23,8 +23,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 0

@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoRecordAccessData
     path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessData.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoRecordAccessData.Data
     path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessData.st
     startLine: 4

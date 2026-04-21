@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 2
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.NoAnswer
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 3
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.OK
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 4
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.Yes
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 5
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.No
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 6
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.Cancel
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
     startLine: 7

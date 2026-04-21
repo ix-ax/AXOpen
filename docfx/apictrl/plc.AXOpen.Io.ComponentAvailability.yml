@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 1
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.Unknown
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 2
@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.Available
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 3
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.ApplicationReadyPending
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 3
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.LockedBySuperordinated
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 4
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.LockedByIOController
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 5
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentAvailability.LockedByIOSupervisor
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
     startLine: 6

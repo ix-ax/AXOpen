@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.QueueMessage
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 1
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.SuspendMessaging
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 7
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.ResumeMessaging
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 12
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.IsSuspended
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 18
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.RequalifyDownstreamMessages
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 24
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessagingServices.GetRequalifiedMessageCategory
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
     startLine: 36

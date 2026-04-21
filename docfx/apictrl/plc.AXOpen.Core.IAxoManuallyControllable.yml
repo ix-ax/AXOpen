@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
     startLine: 0
@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
     startLine: 1
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
     startLine: 3

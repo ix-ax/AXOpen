@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 7
@@ -48,8 +48,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.NULL_RTC
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 12
@@ -68,8 +68,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.NULL_LOGGER
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 14
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.NULL_RTM
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 16
@@ -108,8 +108,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.NULL_MESSENGER_SERVICE
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 18
@@ -128,8 +128,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.IsValid
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 22
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.CreateIdentity
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 28
@@ -170,8 +170,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.OpenCycleCount
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 29
@@ -191,8 +191,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.GetRtc
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 29
@@ -212,8 +212,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.InjectRtc
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 31
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.GetLogger
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 32
@@ -256,8 +256,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.InjectLogger
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 33
@@ -279,8 +279,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.GetRtm
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 34
@@ -300,8 +300,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.InjectRtm
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 35
@@ -323,8 +323,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.InitializeRootObject
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 36
@@ -344,8 +344,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.InjectMessengerService
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 37
@@ -367,8 +367,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_CONTEXT.GetMessengerService
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 44

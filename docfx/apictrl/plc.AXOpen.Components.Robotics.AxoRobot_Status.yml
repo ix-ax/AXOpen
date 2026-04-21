@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Robotics.AxoRobot_Status
     path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
     startLine: 2
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
     path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
     startLine: 6

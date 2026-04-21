@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 0
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent._context
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 6
@@ -73,8 +73,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent._manualControlContextCycle
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 59
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent._isManuallyControllable
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 62
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.ActivateManualControl
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 8
@@ -134,8 +134,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.IsManuallyControllable
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 21
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Restore
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 45
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.ManualControl
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 51
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Run
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
     startLine: 69

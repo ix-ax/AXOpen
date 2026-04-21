@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.InfoTime
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 5
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.ErrorTime
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 7
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.TaskTimeout
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 9
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.CameraNo
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 11
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.HWIDs
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
     startLine: 13

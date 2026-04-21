@@ -71,8 +71,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 8
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Status
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 11
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 17
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.StartSignature
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 24
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Duration
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 30
@@ -188,8 +188,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 36
@@ -208,8 +208,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.ErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 42
@@ -228,8 +228,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._openCycleCountInvoke
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 49
@@ -248,8 +248,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._openCycleCountExecute
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 49
@@ -268,8 +268,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._taskTimer
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 50
@@ -288,8 +288,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._isFirstExecutionCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 51
@@ -308,8 +308,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._suspendCyclicExecuteIsNotCalledCheck
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 53
@@ -328,8 +328,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._suspendMultipleExecuteCallCheck
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 54
@@ -348,8 +348,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._RemoteRestoreEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 55
@@ -368,8 +368,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._RemoteAbortEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 56
@@ -388,8 +388,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._restoreCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 59
@@ -408,8 +408,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._doneCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 60
@@ -428,8 +428,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._startCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 61
@@ -448,8 +448,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._errorCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 62
@@ -468,8 +468,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._abortCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 63
@@ -488,8 +488,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._resumeCycleCount
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 65
@@ -508,8 +508,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._cyclicExecuteIsNotCalled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 66
@@ -528,8 +528,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight._multipleExecuteIsCalled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 68
@@ -548,8 +548,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.GetState
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 70
@@ -569,8 +569,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.GetErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 77
@@ -590,8 +590,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsReady
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 82
@@ -611,8 +611,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsDone
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 89
@@ -632,8 +632,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsBusy
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 95
@@ -653,8 +653,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsEngaged
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 102
@@ -674,8 +674,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsAborted
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 111
@@ -695,8 +695,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.HasError
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 118
@@ -716,8 +716,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 125
@@ -737,8 +737,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 138
@@ -760,8 +760,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 158
@@ -781,8 +781,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 175
@@ -802,8 +802,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 189
@@ -823,8 +823,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 203
@@ -844,8 +844,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 216
@@ -865,8 +865,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Invoke
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 234
@@ -888,8 +888,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Restore
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 286
@@ -909,8 +909,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.DoneWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 309
@@ -932,8 +932,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Execute
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 332
@@ -955,8 +955,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.ThrowWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 426
@@ -978,8 +978,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.ThrowWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 451
@@ -1003,8 +1003,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.SetIsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 478
@@ -1026,8 +1026,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.GetIsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 487
@@ -1047,8 +1047,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Abort
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 493
@@ -1068,8 +1068,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.Resume
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 512
@@ -1089,8 +1089,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 523
@@ -1112,8 +1112,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnAbort
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 555
@@ -1133,8 +1133,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnResume
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 562
@@ -1154,8 +1154,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnDone
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 569
@@ -1175,8 +1175,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnError
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 572
@@ -1196,8 +1196,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnRestore
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 578
@@ -1217,8 +1217,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.OnStart
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 584
@@ -1238,8 +1238,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.WhileError
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 590
@@ -1259,8 +1259,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.AbortTriggered
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 596
@@ -1280,8 +1280,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.ResumeTriggered
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 607
@@ -1301,8 +1301,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.DoneReached
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 618
@@ -1322,8 +1322,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.ErrorOccured
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 629
@@ -1343,8 +1343,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.RestoreTriggered
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 641
@@ -1364,8 +1364,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskLight.StartTriggered
     path: .\src\core\ctrl\src\AxoTask\AxoTaskLight.st
     startLine: 650

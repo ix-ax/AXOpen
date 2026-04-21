@@ -45,8 +45,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 0
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemErrorStatus
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 5
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemInitiateError
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 7
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemProcessError
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 9
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GeneratorState
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 11
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeAmplitude
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 13
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeFrequency
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 14
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePower
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 16
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemStatus
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 18
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.Temperature
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 21
@@ -246,8 +246,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleCount
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 22
@@ -266,8 +266,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GoodPartCount
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 24
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.BadPartCount
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 26
@@ -306,8 +306,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SuspectPartCount
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 28
@@ -326,8 +326,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.AbortedPartCount
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 30
@@ -346,8 +346,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CyclePartStatus
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 32
@@ -366,8 +366,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldTime
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 35
@@ -386,8 +386,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldPeakPower
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 36
@@ -406,8 +406,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldEnergy
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 38
@@ -426,8 +426,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.ActiveSetup
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 40
@@ -446,8 +446,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningSetup
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 42
@@ -466,8 +466,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningMPCProbe
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 44
@@ -486,8 +486,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SelectedInputVoltage
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 46
@@ -506,8 +506,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePosition
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 49
@@ -526,8 +526,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeVelocity
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 51
@@ -546,8 +546,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_lo
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 53
@@ -566,8 +566,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_lo
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 55
@@ -586,8 +586,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_hi
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 57
@@ -606,8 +606,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_hi
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 59
@@ -626,8 +626,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerTime
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 61
@@ -646,8 +646,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerPosition
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 63
@@ -666,8 +666,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayTime
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 65
@@ -686,8 +686,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayDistance
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 67
@@ -706,8 +706,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Distance
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 70
@@ -726,8 +726,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Position
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 72
@@ -746,8 +746,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTotalTime
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
     startLine: 74

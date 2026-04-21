@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 0

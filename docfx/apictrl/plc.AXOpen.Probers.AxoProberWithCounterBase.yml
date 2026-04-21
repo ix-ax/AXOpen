@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 1
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.RequredNumberOfCycles
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 4
@@ -134,8 +134,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.CurrentCyclesCount
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 6
@@ -154,8 +154,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.Run
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 9
@@ -175,8 +175,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.Run
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 17
@@ -198,8 +198,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.Test
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 26
@@ -219,8 +219,8 @@ items:
   source:
     remote:
       path: .\src\probers\ctrl\src\Probers\AxoProber.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Probers.AxoProberWithCounterBase.OnRestore
     path: .\src\probers\ctrl\src\Probers\AxoProber.st
     startLine: 30

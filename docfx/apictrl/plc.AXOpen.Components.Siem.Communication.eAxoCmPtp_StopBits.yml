@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
     startLine: 2
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._1stopBits
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
     startLine: 3
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._2stopBits
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
     startLine: 4

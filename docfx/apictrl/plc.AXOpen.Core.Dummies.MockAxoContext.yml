@@ -40,8 +40,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 8
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._openCounter
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 13
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._closeCounter
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 15
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._identityCounter
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 16
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._messagingLevel
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 17
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTC
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 74
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._rtc
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 77
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTM
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 99
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._rtm
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 101
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_LOGGER
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 118
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._contextLogger
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 121
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_MESSENGER_SERVICE
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 147
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext._messengerService
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 150
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.Main
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 20
@@ -323,8 +323,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.Open
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 27
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.Close
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 31
@@ -366,8 +366,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.IsValid
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 36
@@ -387,8 +387,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.Run
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 44
@@ -408,8 +408,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.OpenCycleCount
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 53
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.ClosedCycleCount
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 59
@@ -450,8 +450,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.CreateIdentity
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 64
@@ -471,8 +471,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.PeekIdentity
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 69
@@ -492,8 +492,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtc
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 78
@@ -513,8 +513,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtc
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 89
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtm
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 102
@@ -559,8 +559,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtm
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 109
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.InitializeRootObject
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 123
@@ -601,8 +601,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.GetLogger
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 129
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectLogger
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 140
@@ -645,8 +645,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectMessengerService
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 154
@@ -668,8 +668,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoContext.GetMessengerService
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 159

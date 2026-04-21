@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 0
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Device
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 4
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServo
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 6
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServoSub
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 8
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_ModuleAccessPoint
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 10
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_1
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 12
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram111
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 14
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_2
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 16
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram750
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
     startLine: 18

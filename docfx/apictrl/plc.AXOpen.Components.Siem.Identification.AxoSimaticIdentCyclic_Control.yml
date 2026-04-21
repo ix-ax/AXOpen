@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 0
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.START
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 5
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.RESET
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 7
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.STOP
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 9
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.ANTOFF
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 11
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.BLOCK
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 13
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.CMD
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
     startLine: 15

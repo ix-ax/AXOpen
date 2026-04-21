@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 0
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton.Button
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 8
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton.Led
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 11
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton.Run
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 18
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton.Restore
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 44
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoBacklitButton.ManualControl
     path: .\src\components.elements\ctrl\src\AxoBacklitButton\AxoBacklitButton.st
     startLine: 52

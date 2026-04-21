@@ -83,8 +83,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 9
@@ -125,8 +125,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._infoTimer
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 12
@@ -145,8 +145,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._errorTimer
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 13
@@ -165,8 +165,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._context
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 14
@@ -185,8 +185,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._someTaskIsActive
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 15
@@ -205,8 +205,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 16
@@ -225,8 +225,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readNumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 17
@@ -245,8 +245,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 18
@@ -265,8 +265,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeNumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 19
@@ -285,8 +285,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeData
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 20
@@ -305,8 +305,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharCharacter
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 21
@@ -325,8 +325,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 22
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharNumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 23
@@ -365,8 +365,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._CommandDesignator
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 24
@@ -385,8 +385,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._NumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 26
@@ -405,8 +405,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._LastTogleBitValue
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 27
@@ -425,8 +425,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._ReadWriteData
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 28
@@ -445,8 +445,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._buffersCountToRead
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 30
@@ -465,8 +465,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readedBuffersCount
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 31
@@ -485,8 +485,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._lenghtInLastReadedBuffer
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 32
@@ -505,8 +505,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._sendingCommandHeader
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 33
@@ -525,8 +525,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._RestCharacter
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 35
@@ -545,8 +545,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWrite
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 37
@@ -565,8 +565,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWriteArr
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 38
@@ -585,8 +585,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._SendDataIndex
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 39
@@ -605,8 +605,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._singleLoopIndex
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 41
@@ -625,8 +625,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._endIndex
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 42
@@ -645,8 +645,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._codeTagPresent_PV
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 44
@@ -665,8 +665,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._power_PV
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 45
@@ -685,8 +685,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._dword
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 47
@@ -705,8 +705,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._data
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 48
@@ -725,8 +725,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.returnValue
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 49
@@ -745,8 +745,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._tempString_8
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 50
@@ -765,8 +765,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._index
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 52
@@ -785,8 +785,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._StartAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 54
@@ -805,8 +805,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._initHwCheckDone
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 55
@@ -825,8 +825,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._retval
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 56
@@ -845,8 +845,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._geoAddr
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 57
@@ -865,8 +865,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outHwid
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 58
@@ -885,8 +885,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._blink
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 58
@@ -905,8 +905,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 60
@@ -925,8 +925,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsCount
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 61
@@ -945,8 +945,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 62
@@ -965,8 +965,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsCount
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 63
@@ -985,8 +985,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.RestoreTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 71
@@ -1005,8 +1005,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 76
@@ -1025,8 +1025,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 80
@@ -1045,8 +1045,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadNumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 83
@@ -1065,8 +1065,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 87
@@ -1085,8 +1085,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 90
@@ -1105,8 +1105,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteData
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 93
@@ -1125,8 +1125,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunicationTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 97
@@ -1145,8 +1145,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReaderTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 101
@@ -1165,8 +1165,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemoryTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 105
@@ -1185,8 +1185,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharCharacter
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 108
@@ -1205,8 +1205,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharAddress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 111
@@ -1225,8 +1225,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharNumberOfBytes
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 114
@@ -1245,8 +1245,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Config
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 121
@@ -1265,8 +1265,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Status
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 128
@@ -1285,8 +1285,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Messenger
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 131
@@ -1305,8 +1305,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.TaskMessenger
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 133
@@ -1325,8 +1325,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._progress
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 136
@@ -1345,8 +1345,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Inputs
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 138
@@ -1365,8 +1365,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Outputs
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 144
@@ -1385,8 +1385,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.HardwareDiagnosticsTask
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 153
@@ -1405,8 +1405,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Run
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 159
@@ -1430,8 +1430,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ManualControl
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1167
@@ -1451,8 +1451,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Restore
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1184
@@ -1472,8 +1472,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Read
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1199
@@ -1497,8 +1497,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Write
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1210
@@ -1522,8 +1522,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunication
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1219
@@ -1543,8 +1543,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReader
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1219
@@ -1564,8 +1564,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemory
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1219
@@ -1591,8 +1591,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.CallTimers
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
     startLine: 1219

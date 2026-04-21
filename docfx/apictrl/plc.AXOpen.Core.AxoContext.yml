@@ -40,8 +40,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 9
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._openCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 15
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._closeCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 17
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._identityCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 18
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._messenger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 19
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_RTC
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 81
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._rtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 83
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_RTM
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 104
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._rtm
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 106
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_LOGGER
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 125
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._contextLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 126
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_MESSENGER_SERVICE
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 152
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._messengerService
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 154
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Main
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 26
@@ -323,8 +323,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Open
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 34
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Close
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 38
@@ -366,8 +366,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Run
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 43
@@ -387,8 +387,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.IsValid
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 52
@@ -408,8 +408,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.OpenCycleCount
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 59
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.ClosedCycleCount
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 66
@@ -450,8 +450,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.CreateIdentity
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 70
@@ -471,8 +471,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.PeekIdentity
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 75
@@ -492,8 +492,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetRtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 85
@@ -513,8 +513,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectRtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 95
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectRtm
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 107
@@ -559,8 +559,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetRtm
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 114
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InitializeRootObject
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 128
@@ -601,8 +601,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 134
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 145
@@ -645,8 +645,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectMessengerService
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 156
@@ -668,8 +668,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetMessengerService
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
     startLine: 163

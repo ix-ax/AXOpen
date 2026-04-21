@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 3
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer.output
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 11
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer.elapsedTime
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 12
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer._startTime
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 16
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer._previousSignalStatus
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 17
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer._currentTimeDiff
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 18
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer.OnDelay
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 22
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer.OnDelay
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 36
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\OnDelay.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.OnDelayTimer.Restore
     path: .\src\timers\ctrl\src\OnDelay.st
     startLine: 95

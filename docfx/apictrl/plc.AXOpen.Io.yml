@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io
     path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
     startLine: 7

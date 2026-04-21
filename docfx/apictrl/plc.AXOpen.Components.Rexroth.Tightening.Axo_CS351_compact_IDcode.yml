@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_IDcode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_IDcode.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_IDcode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode.Data
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_IDcode.st
     startLine: 4

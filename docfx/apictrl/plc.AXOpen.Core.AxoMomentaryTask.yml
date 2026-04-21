@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 0
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.State
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 13
@@ -85,8 +85,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 15
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 21
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask._openCycleCount
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 35
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask._context
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 36
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.GetState
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 40
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 46
@@ -208,8 +208,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 58
@@ -229,8 +229,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.Run
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 71
@@ -252,8 +252,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 104
@@ -275,8 +275,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 118
@@ -296,8 +296,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 125
@@ -317,8 +317,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 132
@@ -338,8 +338,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 138
@@ -359,8 +359,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 151
@@ -380,8 +380,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 169
@@ -401,8 +401,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 174
@@ -423,8 +423,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 182
@@ -445,8 +445,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 187
@@ -467,8 +467,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
     startLine: 194

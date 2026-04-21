@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoObject\AdamObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AdamAxoObject
     path: .\src\core\ctrl\src\AxoObject\AdamObject.st
     startLine: 0
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoObject\AdamObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AdamAxoObject.NULL_OBJECT
     path: .\src\core\ctrl\src\AxoObject\AdamObject.st
     startLine: 9
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoObject\AdamObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AdamAxoObject.GetParent
     path: .\src\core\ctrl\src\AxoObject\AdamObject.st
     startLine: 11

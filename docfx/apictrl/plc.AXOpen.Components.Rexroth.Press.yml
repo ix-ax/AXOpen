@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 9

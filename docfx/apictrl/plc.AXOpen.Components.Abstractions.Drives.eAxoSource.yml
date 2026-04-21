@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
     startLine: 2
@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.CommandedValue
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
     startLine: 4
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.SetValue
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
     startLine: 5
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.ActualValue
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
     startLine: 6

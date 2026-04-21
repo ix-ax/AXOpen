@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoNullMessagingServices
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 162

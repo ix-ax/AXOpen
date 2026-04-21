@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 0
@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.InfoTime
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 5
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.ErrorTime
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 7
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.TaskTimeout
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 9
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Hwid
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 11
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_1
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 13
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_2
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 15
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_3
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 17
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_4
     path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
     startLine: 19

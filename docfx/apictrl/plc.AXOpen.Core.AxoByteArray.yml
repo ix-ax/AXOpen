@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray.DataChanged
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
     startLine: 5
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray._dataChanged
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
     startLine: 13
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
     startLine: 8
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray.DataHasChanged
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
     startLine: 16

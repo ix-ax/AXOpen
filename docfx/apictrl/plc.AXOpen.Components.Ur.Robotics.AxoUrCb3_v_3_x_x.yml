@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 8
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._infoTimer
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 11
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._errorTimer
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 12
@@ -136,8 +136,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._context
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 13
@@ -156,8 +156,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._stopTasksAreActive
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 14
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._stopType
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 15
@@ -196,8 +196,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._someTaskIsActive
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 16
@@ -216,8 +216,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._initHwCheckDone
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 18
@@ -236,8 +236,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._retval
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 19
@@ -256,8 +256,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._geoAddr
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 20
@@ -276,8 +276,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._outHwid
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 21
@@ -296,8 +296,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._blink
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 22
@@ -316,8 +316,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._inputsAddress
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 23
@@ -336,8 +336,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._inputsCount
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 24
@@ -356,8 +356,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._outputsAddress
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 25
@@ -376,8 +376,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._outputsCount
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 26
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.RestoreTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 34
@@ -416,8 +416,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.PowerOnTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 39
@@ -436,8 +436,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartAtMainTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 43
@@ -456,8 +456,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartMotorsAndProgramTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 48
@@ -476,8 +476,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StopMovementsTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 52
@@ -496,8 +496,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StopMovementsAndProgramTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 56
@@ -516,8 +516,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartMovementsTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 60
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.MovementParameters
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 64
@@ -556,8 +556,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Config
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 71
@@ -576,8 +576,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Status
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 78
@@ -596,8 +596,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._power_progress
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 82
@@ -616,8 +616,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x._movement_progress
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 86
@@ -636,8 +636,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Messenger
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 90
@@ -656,8 +656,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.TaskMessenger
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 93
@@ -676,8 +676,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Inputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 95
@@ -696,8 +696,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Outputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 101
@@ -716,8 +716,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.HardwareDiagnosticsTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 110
@@ -736,8 +736,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.RebootControllerTask
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 114
@@ -756,8 +756,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Run
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 121
@@ -783,8 +783,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.ManualControl
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2713
@@ -804,8 +804,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.Restore
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2714
@@ -825,8 +825,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartAtMain
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -846,8 +846,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartMotorsAndProgram
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -867,8 +867,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StartMovements
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -888,8 +888,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StopMovements
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -911,8 +911,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.StopMovementsAndProgram
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -934,8 +934,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.CallTimers
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740
@@ -957,8 +957,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x.GetRobotModeDescription
     path: .\src\components.ur.robotics\ctrl\src\AxoUrCb3\AxoUrCb3_v_3_x_x.st
     startLine: 2740

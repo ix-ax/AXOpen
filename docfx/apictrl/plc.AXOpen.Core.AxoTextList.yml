@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTextList
     path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
     startLine: 0
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTextList.Id
     path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
     startLine: 4

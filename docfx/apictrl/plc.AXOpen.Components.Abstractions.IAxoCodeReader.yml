@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.IAxoCodeReader
     path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
     startLine: 2
@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.ClearResultData
     path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
     startLine: 3
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.Read
     path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
     startLine: 3

@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
     path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
     startLine: 0
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.EnableTurn
     path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
     startLine: 5
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.StartTurn
     path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
     startLine: 7

@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 0
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SoftEvent
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 5
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SetUserDataAck
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 6
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.Online
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 7
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemBusy
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 8
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemReady
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 9
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.JobLoadComplete
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 10
@@ -167,8 +167,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.InspectionOnline
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 11
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ResultValid
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 11
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ID_Inspection
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 13
@@ -227,8 +227,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.CurentJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 13
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 15
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadedDataVariantSize
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 16
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.WrittenDataVariantSize
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 16
@@ -307,8 +307,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 17
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerIdOperation
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 18
@@ -347,8 +347,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadDataLockerJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
     startLine: 20

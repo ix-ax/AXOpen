@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
     startLine: 2
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.Cycle
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
     startLine: 5
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideVelocityFactor
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
     startLine: 6
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideAccelerationFactor
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
     startLine: 6
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideJerkFactor
     path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
     startLine: 7

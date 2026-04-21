@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 0
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Start
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 5
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Stop
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 9
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Pause
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 11
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.MotorOn
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 13
@@ -136,8 +136,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.RunAction
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 15
@@ -156,8 +156,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.MasterMode
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 18
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_1_Retract
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 23
@@ -196,8 +196,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_1_Extend
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 27
@@ -216,8 +216,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_2_Retract
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 29
@@ -236,8 +236,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_2_Extend
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 31
@@ -256,8 +256,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_3_Retract
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 33
@@ -276,8 +276,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_3_Extend
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 35
@@ -296,8 +296,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_4_Retract
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 37
@@ -316,8 +316,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Tool_4_Extend
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 39
@@ -336,8 +336,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Zone
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 42
@@ -356,8 +356,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.InPosition
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 46
@@ -376,8 +376,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.ActionNo
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 48
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.GlobalSpeed
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 50
@@ -416,8 +416,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.ToolNo
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 52
@@ -436,8 +436,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.WorkobjectNo
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 54
@@ -456,8 +456,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.PointNo
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 56
@@ -476,8 +476,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.UserSpecSpeed1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 58
@@ -496,8 +496,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.UserSpecSpeed2
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 60
@@ -516,8 +516,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Coordinates
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 64
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Control_v_1_x_x.Outputs
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st
     startLine: 69

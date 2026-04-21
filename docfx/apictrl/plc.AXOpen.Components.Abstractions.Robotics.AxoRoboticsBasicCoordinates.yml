@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.X
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Y
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
     startLine: 6
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Z
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
     startLine: 8

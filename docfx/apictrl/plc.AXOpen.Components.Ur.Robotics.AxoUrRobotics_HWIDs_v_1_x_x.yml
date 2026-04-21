@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 0
@@ -42,8 +42,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_Device
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 5
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_State
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 8
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_IO
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 10
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_Joints
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 12
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_TCP
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 14
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 16
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 18
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 20
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_Robot_IO
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 22
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 24
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
     path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
     startLine: 26

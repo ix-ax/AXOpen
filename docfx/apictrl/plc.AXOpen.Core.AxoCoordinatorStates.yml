@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoCoordinatorStates
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
     startLine: 2
@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoCoordinatorStates.Idle
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
     startLine: 2
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoCoordinatorStates.Configuring
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
     startLine: 2
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoCoordinatorStates.Running
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
     startLine: 2

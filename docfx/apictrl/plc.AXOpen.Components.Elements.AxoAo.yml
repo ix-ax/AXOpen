@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 3
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._requiredValue
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 12
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._config
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 18
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._status
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 23
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._rawRange
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 31
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._realRange
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 33
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._unscaled
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 35
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._messengerInfo
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 35
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._signal
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 43
@@ -224,8 +224,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo._context
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 47
@@ -244,8 +244,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo.Run
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 50
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo.Restore
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 122
@@ -288,8 +288,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAo.ManualControl
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
     startLine: 125

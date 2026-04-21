@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentStateDetail
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
     startLine: 0
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentStateDetail.HardwareComponentState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
     startLine: 4
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.ComponentStateDetail.PlcState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
     startLine: 7

@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepAnalytics
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
     startLine: 9
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepAnalytics.Order
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
     startLine: 12
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepAnalytics.Duration
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
     startLine: 18
@@ -73,8 +73,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepAnalytics.Description
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
     startLine: 24

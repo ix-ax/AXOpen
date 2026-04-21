@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 5
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power._motionTaskId
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 8
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power._EnablePositive
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 9
@@ -115,8 +115,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power._EnableNegative
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 10
@@ -135,8 +135,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power._manualOverride
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 11
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.Run
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 14
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.EnabledPositive
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 60
@@ -205,8 +205,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.DisabledPositive
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 66
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.EnabledNegative
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 72
@@ -247,8 +247,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.DisabledNegative
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 78
@@ -268,8 +268,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.Axo_Power.Manual
     path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
     startLine: 86

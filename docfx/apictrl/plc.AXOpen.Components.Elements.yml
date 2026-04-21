@@ -24,8 +24,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 0

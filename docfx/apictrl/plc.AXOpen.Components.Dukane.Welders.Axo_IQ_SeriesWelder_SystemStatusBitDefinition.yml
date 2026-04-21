@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 0
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.SetupChanged
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 5
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 21
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle_No_AB
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 23
@@ -115,8 +115,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.OverTemp
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 25
@@ -135,8 +135,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_AfterBurst
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 27
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Test
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 29
@@ -175,8 +175,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_TestScan
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 31
@@ -195,8 +195,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Present
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 33
@@ -215,8 +215,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.PowerOK
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 35
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Ready
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 39
@@ -255,8 +255,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Ready
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 41
@@ -275,8 +275,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Any_Fault
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 43
@@ -295,8 +295,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Overload
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 45
@@ -315,8 +315,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Estop
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 47
@@ -335,8 +335,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Online
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 49
@@ -355,8 +355,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Hold
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 51
@@ -375,8 +375,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Good_Part
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 53
@@ -395,8 +395,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Bad_Part
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 55
@@ -415,8 +415,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Suspect_Part
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 57
@@ -435,8 +435,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.CycleStartReject
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 59
@@ -455,8 +455,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Amplitude_Regulation
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 61
@@ -475,8 +475,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Power_Regulation
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 63
@@ -495,8 +495,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Trigger_Status
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 65
@@ -515,8 +515,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.US_Status
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
     startLine: 68

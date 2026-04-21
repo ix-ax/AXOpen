@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HW_Device
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DI_64_bytes
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
     startLine: 6
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DO_64_bytes
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
     startLine: 8

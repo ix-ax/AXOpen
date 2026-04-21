@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Out.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Out
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Out.st
     startLine: 0
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Out.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Out.Control
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Out.st
     startLine: 5

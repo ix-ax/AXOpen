@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 0
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Red
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 8
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Green
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 13
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Blue
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 16
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Yellow
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 19
@@ -140,8 +140,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Horn
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 23
@@ -160,8 +160,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Run
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 31
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.Restore
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 60
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoSignalTower.ManualControl
     path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
     startLine: 71

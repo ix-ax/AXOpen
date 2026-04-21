@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Message
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 7
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.MessageCode
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 13
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Level
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 18
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Sender
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 23
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.ToDequeue
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
     startLine: 28

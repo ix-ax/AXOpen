@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 2
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._config
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 11
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._status
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 16
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._rawRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 24
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._realRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 26
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._scaled
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 27
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._messengerInfo
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 29
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._signal
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 36
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi._context
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 40
@@ -224,8 +224,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi.Run
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 43
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi.Run
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 97
@@ -274,8 +274,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi.Restore
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 110
@@ -295,8 +295,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAi.ManualControl
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
     startLine: 112

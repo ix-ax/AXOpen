@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.DiagnosticDetails
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.DiagnosticDetails.ComponentStateDetail
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
     startLine: 4
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.DiagnosticDetails.ComponentState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
     startLine: 7
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.DiagnosticDetails.IOState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
     startLine: 11
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.DiagnosticDetails.OperatingState
     path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
     startLine: 15

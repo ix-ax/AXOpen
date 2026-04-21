@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
     path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
     startLine: 0
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied._exists
     path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
     startLine: 7
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Exist
     path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
     startLine: 10
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Satisfy
     path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
     startLine: 18

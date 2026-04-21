@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 2
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.none
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 4
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_39
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 5
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Codabar
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 6
@@ -153,8 +153,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 7
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Discrete_2_of_5_DTF
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 8
@@ -185,8 +185,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.IATA
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 9
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Interleaved_2_of_5_ITF
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 10
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_93
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 11
@@ -233,8 +233,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPC_A
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 12
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPC_E
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 13
@@ -265,8 +265,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_8
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 14
@@ -281,8 +281,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_13
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 15
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_11
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 16
@@ -313,8 +313,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.MSI
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 17
@@ -329,8 +329,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 18
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPC_E1
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 19
@@ -361,8 +361,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.PDF_417
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 20
@@ -377,8 +377,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_39_Full_ASCII_Conversion
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 21
@@ -393,8 +393,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Trioptic_Code_39
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 22
@@ -409,8 +409,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Bookland_EAN
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 23
@@ -425,8 +425,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UCC_Coupon_Extended_Code
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 24
@@ -441,8 +441,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.ISBT_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 25
@@ -457,8 +457,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.MicroPDF417
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 26
@@ -473,8 +473,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Data_Matrix
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 27
@@ -489,8 +489,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.QR_Code
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 28
@@ -505,8 +505,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.US_Postnet
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 29
@@ -521,8 +521,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.US_Planet
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 30
@@ -537,8 +537,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Code_32
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 31
@@ -553,8 +553,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.ISBT_128_Concatenation
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 32
@@ -569,8 +569,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Japan_Postal
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 33
@@ -585,8 +585,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Australia_Post
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 34
@@ -601,8 +601,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Netherlands_KIX_Code
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 35
@@ -617,8 +617,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Maxicode
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 36
@@ -633,8 +633,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UK_Postal
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 37
@@ -649,8 +649,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Macro_PDF_417
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 38
@@ -665,8 +665,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Micro_QR
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 39
@@ -681,8 +681,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Aztec
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 40
@@ -697,8 +697,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.GS1_DataBar_Omnidirectional_formerly_GS1_DataBar_14
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 41
@@ -713,8 +713,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.GS1_DataBar_Limited
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 42
@@ -729,8 +729,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.GS1_DataBar_Expanded
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 43
@@ -745,8 +745,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.USPS_4CB_One_Code_Intelligent_Mail
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 44
@@ -761,8 +761,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPU_FICS_Postal
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 45
@@ -777,8 +777,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.ISSN_EAN
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 46
@@ -793,8 +793,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Matrix_2_of_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 47
@@ -809,8 +809,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCA_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 48
@@ -825,8 +825,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCE_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 49
@@ -841,8 +841,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_8_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 50
@@ -857,8 +857,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_13_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 51
@@ -873,8 +873,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCE1_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 52
@@ -889,8 +889,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_EAN_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 53
@@ -905,8 +905,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_EAN_13
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 54
@@ -921,8 +921,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_EAN_8
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 55
@@ -937,8 +937,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_RSS_Expanded
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 56
@@ -953,8 +953,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_RSS_Limited
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 57
@@ -969,8 +969,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_RSS_14
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 58
@@ -985,8 +985,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_UPC_A
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 59
@@ -1001,8 +1001,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_A_UPC_E
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 60
@@ -1017,8 +1017,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_C_EAN_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 61
@@ -1033,8 +1033,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.TLC_39
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 62
@@ -1049,8 +1049,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_EAN_128
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 63
@@ -1065,8 +1065,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_EAN_13
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 64
@@ -1081,8 +1081,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_EAN_8
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 65
@@ -1097,8 +1097,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_RSS_Expanded
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 66
@@ -1113,8 +1113,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_RSS_Limited
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 67
@@ -1129,8 +1129,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_RSS_14
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 68
@@ -1145,8 +1145,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_UPC_A
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 69
@@ -1161,8 +1161,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Composite_CC_B_UPC_E
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 70
@@ -1177,8 +1177,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Chinese_2_of_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 71
@@ -1193,8 +1193,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Korean_3_of_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 72
@@ -1209,8 +1209,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.GS1_Databar_Extended_Coupon
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 73
@@ -1225,8 +1225,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCA_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 74
@@ -1241,8 +1241,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCE_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 75
@@ -1257,8 +1257,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_8_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 76
@@ -1273,8 +1273,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.EAN_13_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 77
@@ -1289,8 +1289,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.UPCE1_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 78
@@ -1305,8 +1305,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.GS1_Data_Matrix
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 80
@@ -1321,8 +1321,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType.Han_Xin_Code
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\eAxoEA3600BarcodeType.st
     startLine: 81

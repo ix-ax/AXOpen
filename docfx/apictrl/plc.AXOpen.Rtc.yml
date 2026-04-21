@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Rtc
     path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
     startLine: 0

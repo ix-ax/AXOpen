@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoMessenger
     path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessenger.st
     startLine: 0

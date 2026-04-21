@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 3
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi._signal
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 10
@@ -83,8 +83,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi._isTrueTask
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 17
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi._isFalseTask
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 22
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi._messengerInfo
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 27
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi._context
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 34
@@ -163,8 +163,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.Restore
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 37
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.ManualControl
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 42
@@ -205,8 +205,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.Run
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 48
@@ -230,8 +230,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.IsTrue
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 79
@@ -251,8 +251,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.IsFalse
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 86
@@ -272,8 +272,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDi.SignalStatus
     path: .\src\components.elements\ctrl\src\AxoDi\AxoDi.st
     startLine: 95

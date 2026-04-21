@@ -70,8 +70,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 8
@@ -112,8 +112,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._infoTimer
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 11
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._errorTimer
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 12
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._blink
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 13
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._context
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 14
@@ -192,8 +192,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._someTaskIsActive
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 15
@@ -212,8 +212,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 17
@@ -232,8 +232,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Execute
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 18
@@ -252,8 +252,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_RepeatCommand
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 19
@@ -272,8 +272,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_SoftReset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 20
@@ -292,8 +292,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Init
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 21
@@ -312,8 +312,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_HwConnect
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 22
@@ -332,8 +332,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Cmd
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 23
@@ -352,8 +352,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Tx
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 24
@@ -372,8 +372,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Rx
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 25
@@ -392,8 +392,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Done
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 26
@@ -412,8 +412,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Busy
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 27
@@ -432,8 +432,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Error
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 28
@@ -452,8 +452,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Warning
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 29
@@ -472,8 +472,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Status
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 30
@@ -492,8 +492,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readAddress
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 33
@@ -512,8 +512,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readNumberOfBytes
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 34
@@ -532,8 +532,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readBufferOffset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 35
@@ -552,8 +552,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readData
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 36
@@ -572,8 +572,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeAddress
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 37
@@ -592,8 +592,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeNumberOfBytes
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 38
@@ -612,8 +612,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeBufferOffset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 39
@@ -632,8 +632,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeData
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 40
@@ -652,8 +652,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._messageCode
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 42
@@ -672,8 +672,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._lastMessageCode
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 43
@@ -692,8 +692,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._category
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 44
@@ -712,8 +712,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 52
@@ -732,8 +732,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadNumberOfBytes
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 57
@@ -752,8 +752,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadAddress
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 60
@@ -772,8 +772,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadBufferOffset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 63
@@ -792,8 +792,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadData
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 68
@@ -812,8 +812,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 76
@@ -832,8 +832,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteNumberOfBytes
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 81
@@ -852,8 +852,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteAddress
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 84
@@ -872,8 +872,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteBufferOffset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 87
@@ -892,8 +892,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteData
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 91
@@ -912,8 +912,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftResetTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 98
@@ -932,8 +932,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReaderTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 103
@@ -952,8 +952,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.RestoreTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 106
@@ -972,8 +972,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Config
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 113
@@ -992,8 +992,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Status
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 120
@@ -1012,8 +1012,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Messenger
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 123
@@ -1032,8 +1032,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.TaskMessenger
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 124
@@ -1052,8 +1052,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.IdentProfileMessenger
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 125
@@ -1072,8 +1072,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._progress
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 127
@@ -1092,8 +1092,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.HardwareDiagnosticsTask
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 133
@@ -1112,8 +1112,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Run
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 140
@@ -1145,8 +1145,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ManualControl
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 761
@@ -1166,8 +1166,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Restore
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 776
@@ -1187,8 +1187,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 790
@@ -1216,8 +1216,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 828
@@ -1243,8 +1243,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 864
@@ -1272,8 +1272,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 887
@@ -1299,8 +1299,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftReset
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 911
@@ -1320,8 +1320,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReader
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 911
@@ -1341,8 +1341,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.CallTimers
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
     startLine: 911

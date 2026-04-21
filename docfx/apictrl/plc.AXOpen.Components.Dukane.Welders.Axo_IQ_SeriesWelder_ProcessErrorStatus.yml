@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 0
@@ -42,8 +42,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Delay
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 5
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_DN_Limit
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 39
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_TOS_Position
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 41
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Forced_ShutDown
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 43
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Early
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 55
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Weld
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 57
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Latched_Bad_Part
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 59
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_OverTravel
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 61
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Part_Detected
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 64
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_Time
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 66
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Time
     path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
     startLine: 68

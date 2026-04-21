@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepTimedOutMessenger
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 557
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepTimedOutMessenger.MSG_STEP_TIMED_OUT
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 563
@@ -94,8 +94,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepTimedOutMessenger._refObservedStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 565
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Activate
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 565
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Deactivate
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 599

@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 3
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo._signal
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 10
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo._setTask
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 17
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo._resetTask
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 21
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo._messengerInfo
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 25
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo._context
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 33
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.Restore
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 36
@@ -185,8 +185,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.ManualControl
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 41
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.Run
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 47
@@ -229,8 +229,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.Set
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 82
@@ -250,8 +250,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.Reset
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 87
@@ -271,8 +271,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.IsTrue
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 92
@@ -292,8 +292,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoDo.IsFalse
     path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
     startLine: 97

@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 0
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.AutoOn
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 5
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.CycleOn
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 9
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.EmgStop
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 11
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Error
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 13
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.EventId
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 15
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MoveActive
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 17
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MoveInactive
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 19
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MotorOff
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 21
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MotorOn
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 24
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MotorOffState
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 28
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MotorOnState
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 30
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.ProgExecError
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 32
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.SafetyOk
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 34
@@ -342,8 +342,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.SystemInputBusy
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 36
@@ -362,8 +362,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.PpMoved
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 38
@@ -382,8 +382,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.MotionSupervision
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 40
@@ -402,8 +402,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.BatteryLow
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 42
@@ -422,8 +422,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InArea_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 45
@@ -442,8 +442,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InArea_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 49
@@ -462,8 +462,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InArea_3
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 51
@@ -482,8 +482,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InArea_4
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 53
@@ -502,8 +502,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InPosition_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 55
@@ -522,8 +522,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InPosition_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 57
@@ -542,8 +542,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InPosition_3
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 60
@@ -562,8 +562,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InPosition_4
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 62
@@ -582,8 +582,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Zone
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 65
@@ -602,8 +602,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.InPosition
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 69
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_1_Retract
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 72
@@ -642,8 +642,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_1_Extend
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 76
@@ -662,8 +662,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_2_Retract
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 78
@@ -682,8 +682,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_2_Extend
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 80
@@ -702,8 +702,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_3_Retract
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 82
@@ -722,8 +722,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_3_Extend
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 84
@@ -742,8 +742,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_4_Retract
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 86
@@ -762,8 +762,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Tool_4_Extend
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 88
@@ -782,8 +782,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.AutoStop_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 91
@@ -802,8 +802,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.AutoStop_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 96
@@ -822,8 +822,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.EmergencyStop_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 97
@@ -842,8 +842,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.EmergencyStop_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 100
@@ -862,8 +862,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.GeneralStop_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 102
@@ -882,8 +882,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.GeneralStop_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 104
@@ -902,8 +902,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Enable_1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 106
@@ -922,8 +922,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Enable_2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 109
@@ -942,8 +942,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.ActionNo
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 110
@@ -962,8 +962,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.GlobalSpeed
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 115
@@ -982,8 +982,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.ToolNo
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 117
@@ -1002,8 +1002,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.WorkobjectNo
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 119
@@ -1022,8 +1022,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.PointNo
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 121
@@ -1042,8 +1042,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.UserSpecSpeed1
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 123
@@ -1062,8 +1062,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.UserSpecSpeed2
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 126
@@ -1082,8 +1082,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x.Coordinates
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_State_v_1_x_x.st
     startLine: 128

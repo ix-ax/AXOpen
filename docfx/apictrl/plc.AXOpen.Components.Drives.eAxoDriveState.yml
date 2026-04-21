@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 2
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.Disabled
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 4
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.Errorstop
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 5
@@ -68,8 +68,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.Standstill
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 6
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.Homing
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 7
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.Stopping
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 8
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.DiscreteMotion
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 9
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.SynchronizedMotion
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 10
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoDriveState.ContinuousMotion
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
     startLine: 11

@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 3
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Create
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 6
@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Read
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 12
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Update
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 19
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Delete
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 25
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.EntityExist
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 31
@@ -153,8 +153,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.CreateOrUpdate
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 37
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Restore
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 44
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Run
     path: .\src\data\ctrl\src\IAxoDataExchange.st
     startLine: 47

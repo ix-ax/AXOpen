@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 8
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataSize
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 11
@@ -125,8 +125,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultDataSize
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 12
@@ -145,8 +145,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._progress
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 13
@@ -165,8 +165,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._infoTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 14
@@ -185,8 +185,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._errorTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 15
@@ -205,8 +205,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inspectionCompleted
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 16
@@ -225,8 +225,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_in
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 17
@@ -245,8 +245,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._jobNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 18
@@ -265,8 +265,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._softEventNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 19
@@ -285,8 +285,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataChanged
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 20
@@ -305,8 +305,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._invalidDataSize
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 22
@@ -325,8 +325,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_1
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 23
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_16
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 24
@@ -365,8 +365,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_32
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 25
@@ -385,8 +385,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_64
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 26
@@ -405,8 +405,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_128
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 27
@@ -425,8 +425,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_250
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 28
@@ -445,8 +445,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._initHwCheckDone
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 30
@@ -465,8 +465,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._retval
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 31
@@ -485,8 +485,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._geoAddr
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 32
@@ -505,8 +505,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outHwid
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 33
@@ -525,8 +525,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._startAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 34
@@ -545,8 +545,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._bytesCount
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 35
@@ -565,8 +565,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 36
@@ -585,8 +585,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 37
@@ -605,8 +605,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 38
@@ -625,8 +625,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 39
@@ -645,8 +645,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 43
@@ -665,8 +665,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 47
@@ -685,8 +685,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 55
@@ -705,8 +705,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 60
@@ -725,8 +725,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 66
@@ -745,8 +745,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 73
@@ -765,8 +765,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 78
@@ -785,8 +785,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 85
@@ -805,8 +805,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 92
@@ -825,8 +825,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 99
@@ -845,8 +845,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 107
@@ -865,8 +865,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 114
@@ -885,8 +885,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 121
@@ -905,8 +905,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 128
@@ -925,8 +925,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 134
@@ -945,8 +945,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.HardwareDiagnosticsTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 141
@@ -965,8 +965,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Messenger
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 147
@@ -985,8 +985,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.TaskMessenger
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 151
@@ -1005,8 +1005,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 152
@@ -1030,8 +1030,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1030
@@ -1051,8 +1051,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1032
@@ -1072,8 +1072,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.CallTimers
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1038
@@ -1095,8 +1095,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1044
@@ -1116,8 +1116,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1083
@@ -1137,8 +1137,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
     startLine: 1088

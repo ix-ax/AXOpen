@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HW_Head
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_CM
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
     startLine: 6
@@ -74,8 +74,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_Reader
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
     startLine: 8

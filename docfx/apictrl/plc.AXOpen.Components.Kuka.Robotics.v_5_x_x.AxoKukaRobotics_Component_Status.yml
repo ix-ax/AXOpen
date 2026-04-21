@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Component_Status.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Component_Status.st
     startLine: 0

@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoStepExecutionMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
     startLine: 2
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoStepExecutionMode.ExecuteAndContinue
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
     startLine: 3
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
     startLine: 5

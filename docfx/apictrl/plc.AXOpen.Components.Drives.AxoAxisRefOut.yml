@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 22
@@ -38,8 +38,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ParameterChannel
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 25
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.DriveControl
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 26
@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.OpModeControl
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 27
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceA
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 28
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceB
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 29
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Acceleration
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 30
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Decceleration
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 31

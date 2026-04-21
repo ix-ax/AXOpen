@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Rtc.IAxoRtc
     path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
     startLine: 0
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Rtc.IAxoRtc.NowUTC
     path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
     startLine: 2

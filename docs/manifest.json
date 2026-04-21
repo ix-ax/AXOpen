@@ -4,7 +4,7 @@
     "changefreq": "weekly",
     "priority": 0.1
   },
-  "source_base_path": "C:/W/Develop/gh/inxton/simatic-ax/pop/axopen.templates/axopen/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/simatic-ax/pop/p/AXOpen/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {

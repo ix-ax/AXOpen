@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithCaption
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 2
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithOk
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 8
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithText
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 11
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithType
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 17
@@ -125,8 +125,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNo
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 23
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
     startLine: 26

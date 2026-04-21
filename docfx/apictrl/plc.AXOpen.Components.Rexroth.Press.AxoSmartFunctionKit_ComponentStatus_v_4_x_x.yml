@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.Status
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
     startLine: 5
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.CurrentCommandParameters
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
     startLine: 6

@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogAnswer
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
     startLine: 0
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogAnswer.Answer
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
     startLine: 3

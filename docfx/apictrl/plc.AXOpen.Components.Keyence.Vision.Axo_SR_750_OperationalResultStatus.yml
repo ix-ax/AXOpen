@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 0
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.ReadResultCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 5
@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.PresetResultCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 7
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.RegisterPresetDataResultCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 9
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.TuneResultCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 11
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_0
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 13
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_1
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 15
@@ -161,8 +161,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_2
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 17
@@ -181,8 +181,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.EXT_RequestResultCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 19
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.GeneralErrorCode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 21
@@ -221,8 +221,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_3
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
     startLine: 23

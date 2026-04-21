@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogButtons
     path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
     startLine: 2
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogButtons.NoButtons
     path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
     startLine: 3
@@ -48,8 +48,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogButtons.Ok
     path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
     startLine: 4
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogButtons.YesNo
     path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
     startLine: 5
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogButtons.YesNoCancel
     path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
     startLine: 6

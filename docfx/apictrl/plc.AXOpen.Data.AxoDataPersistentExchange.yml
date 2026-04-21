@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 2
@@ -70,8 +70,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.Operation
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 5
@@ -90,8 +90,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.DEFAULT_ID
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 9
@@ -110,8 +110,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange._IsFirstReadAllDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 13
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCallerIdentity
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 15
@@ -150,8 +150,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCycleCount
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 17
@@ -170,8 +170,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.LastOperation
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 18
@@ -190,8 +190,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange._context
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 23
@@ -210,8 +210,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsNotConcurrentCall
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 27
@@ -233,8 +233,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.Run
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 76
@@ -256,8 +256,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.Restore
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 110
@@ -277,8 +277,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.EntityExistResult
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 118
@@ -298,8 +298,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeRead
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 126
@@ -323,8 +323,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadDefault
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 149
@@ -346,8 +346,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdate
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 169
@@ -371,8 +371,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateDefault
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 191
@@ -394,8 +394,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateAll
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 211
@@ -417,8 +417,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadAll
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 233
@@ -440,8 +440,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeEntityExist
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 255
@@ -465,8 +465,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 277
@@ -488,8 +488,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 297
@@ -511,8 +511,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateAllDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 317
@@ -534,8 +534,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadAllDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 337
@@ -557,8 +557,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsEntityExistDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 358
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.IsFirstReadDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 382
@@ -601,8 +601,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.AxoDataPersistentExchange.SetFirstReadDone
     path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
     startLine: 389

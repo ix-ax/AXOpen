@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 0
@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.RawLow
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 9
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.RawHigh
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 15
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.RealLow
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 21
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.RealHigh
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 29
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.Gain
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 36
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Elements.AxoAiConfig.Offset
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
     startLine: 41

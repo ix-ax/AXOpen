@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 7

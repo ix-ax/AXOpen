@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 2
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl.EnableResultsBuffering
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 6
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl.AcknowledgeInspectionResults
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 8
@@ -73,8 +73,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl.ExtendedUserDataSet
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 10
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl.ExecuteCommand
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 12
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl.ClearError
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionControl.st
     startLine: 14

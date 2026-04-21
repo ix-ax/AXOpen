@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 2
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Undefined
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 3
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Info
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 4
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Success
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 5
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Danger
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 6
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Warning
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
     startLine: 7

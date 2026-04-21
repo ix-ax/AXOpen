@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 119
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.Log
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 124
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.Log
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 134
@@ -89,8 +89,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 142

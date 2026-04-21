@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 0
@@ -43,8 +43,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Protocol
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 5
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BaudRate
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 7
@@ -83,8 +83,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Parity
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 9
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.DataBits
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 11
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.StopBits
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 13
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.FlowControl
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 15
@@ -163,8 +163,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XonChar
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 17
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XoffChar
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 19
@@ -203,8 +203,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.WaitTime
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 21
@@ -223,8 +223,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Mode
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 23
@@ -243,8 +243,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.LinePreset
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 25
@@ -263,8 +263,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BreakDetection
     path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
     startLine: 27

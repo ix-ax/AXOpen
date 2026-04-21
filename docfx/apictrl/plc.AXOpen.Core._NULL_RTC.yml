@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_RTC
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 106
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core._NULL_RTC.NowUTC
     path: .\src\core\ctrl\src\abstractions\NULLs.st
     startLine: 110

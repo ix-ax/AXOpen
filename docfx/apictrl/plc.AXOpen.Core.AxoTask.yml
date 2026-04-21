@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 8
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteInvoke
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 12
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteRestore
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 18
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteAbort
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 24
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteResume
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 31
@@ -190,8 +190,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask._messenger
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 36
@@ -211,8 +211,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 47
@@ -234,8 +234,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 63
@@ -255,8 +255,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 76
@@ -278,8 +278,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 95
@@ -299,8 +299,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Invoke
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 114
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Execute
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 135
@@ -345,8 +345,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 192
@@ -368,8 +368,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 210
@@ -389,8 +389,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 224
@@ -412,8 +412,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
     startLine: 240

@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 63
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.Create
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 64
@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.Read
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 64
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.Update
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 65
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.Delete
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 65
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.CreateOrUpdate
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 67
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.eCrudOperation.EntityExist
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
     startLine: 67

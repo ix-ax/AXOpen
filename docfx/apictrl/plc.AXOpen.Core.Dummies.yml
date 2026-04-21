@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies
     path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
     startLine: 7

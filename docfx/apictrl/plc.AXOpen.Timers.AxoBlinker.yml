@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 4
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.output
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 10
@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker._onTimer
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 14
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker._offTimer
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 15
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker._nextExpectedCycle
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 17
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker._state
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 18
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.Blink
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 21
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.Blink
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 45
@@ -195,8 +195,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.Execute
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 67
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.Execute
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 103
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers.AxoBlinker.Restore
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 141

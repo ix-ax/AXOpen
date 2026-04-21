@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
     startLine: 2
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.INVALID
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
     startLine: 4
@@ -48,8 +48,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_32
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
     startLine: 5
@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_116
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
     startLine: 6
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_128
     path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
     startLine: 7

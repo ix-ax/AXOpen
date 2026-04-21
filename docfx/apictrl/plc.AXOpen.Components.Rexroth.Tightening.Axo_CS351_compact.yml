@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 8
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.OK
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 10
@@ -140,8 +140,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.NOK
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 16
@@ -160,8 +160,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Results
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 20
@@ -180,8 +180,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Progress
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 24
@@ -200,8 +200,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ProgramNoManual
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 31
@@ -220,8 +220,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.IDcodeManual
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 35
@@ -240,8 +240,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.AutomaticStartManual
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 39
@@ -260,8 +260,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RestoreTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 43
@@ -280,8 +280,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 47
@@ -300,8 +300,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 52
@@ -320,8 +320,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 56
@@ -340,8 +340,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 60
@@ -360,8 +360,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 64
@@ -380,8 +380,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 68
@@ -400,8 +400,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFaultTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 72
@@ -420,8 +420,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResultsTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 76
@@ -440,8 +440,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgramTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 80
@@ -460,8 +460,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResultsTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 84
@@ -480,8 +480,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 88
@@ -500,8 +500,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwiseTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 92
@@ -520,8 +520,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomatTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 96
@@ -540,8 +540,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Config
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 103
@@ -560,8 +560,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Status
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 110
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Messenger
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 114
@@ -600,8 +600,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.TaskMessenger
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 117
@@ -620,8 +620,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Inputs
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 119
@@ -640,8 +640,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Outputs
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 126
@@ -660,8 +660,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.HardwareDiagnosticsTask
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 135
@@ -680,8 +680,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._progress
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 143
@@ -700,8 +700,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._infoTimer
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 144
@@ -720,8 +720,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._errorTimer
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 145
@@ -740,8 +740,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._returnValue
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 147
@@ -760,8 +760,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_in4w
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 147
@@ -780,8 +780,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out4w
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 149
@@ -800,8 +800,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out2w
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 151
@@ -820,8 +820,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._word
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 152
@@ -840,8 +840,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._dword
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 153
@@ -860,8 +860,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._initHwCheckDone
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 154
@@ -880,8 +880,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._retval
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 155
@@ -900,8 +900,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._geoAddr
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 156
@@ -920,8 +920,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outHwid
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 157
@@ -940,8 +940,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._startAddress
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 157
@@ -960,8 +960,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._bytesCount
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 158
@@ -980,8 +980,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._blink
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 159
@@ -1000,8 +1000,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._programNo
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 161
@@ -1020,8 +1020,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._IDcode
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 162
@@ -1040,8 +1040,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._automaticStart
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 163
@@ -1060,8 +1060,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsAddress
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 164
@@ -1080,8 +1080,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsCount
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 167
@@ -1100,8 +1100,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsAddress
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 168
@@ -1120,8 +1120,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsCount
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 169
@@ -1140,8 +1140,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Run
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 170
@@ -1165,8 +1165,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Disable
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3463
@@ -1186,8 +1186,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Enable
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3468
@@ -1207,8 +1207,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3471
@@ -1228,8 +1228,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3476
@@ -1249,8 +1249,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3482
@@ -1270,8 +1270,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3487
@@ -1291,8 +1291,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFault
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3490
@@ -1312,8 +1312,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResults
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3493
@@ -1333,8 +1333,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgram
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3497
@@ -1356,8 +1356,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResults
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3509
@@ -1377,8 +1377,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3511
@@ -1400,8 +1400,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwise
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3520
@@ -1423,8 +1423,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomat
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3520
@@ -1450,8 +1450,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ManualControl
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3520
@@ -1471,8 +1471,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Restore
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3520
@@ -1492,8 +1492,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.CallTimers
     path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
     startLine: 3520

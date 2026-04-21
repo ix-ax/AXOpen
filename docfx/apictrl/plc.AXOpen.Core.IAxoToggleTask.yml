@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 0
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask.Toggle
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 2
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask.SwitchOff
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 7
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask.SwitchOn
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 11
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOn
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 17
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOff
     path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
     startLine: 22

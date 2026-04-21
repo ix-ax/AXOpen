@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataEntity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataEntity
     path: .\src\data\ctrl\src\IAxoDataEntity.st
     startLine: 0
@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataEntity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataEntity.SetId
     path: .\src\data\ctrl\src\IAxoDataEntity.st
     startLine: 1
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataEntity.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataEntity.GetId
     path: .\src\data\ctrl\src\IAxoDataEntity.st
     startLine: 7

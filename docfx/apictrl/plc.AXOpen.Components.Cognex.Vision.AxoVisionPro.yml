@@ -64,8 +64,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 9
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 12
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.UserData
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 18
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Progress
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 22
@@ -166,8 +166,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.RestoreTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 29
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.HardResetAllCamerasTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 33
@@ -206,8 +206,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ResetTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 37
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.TriggerTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 41
@@ -246,8 +246,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ReadResultsTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 45
@@ -266,8 +266,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ReadResultsJobIDServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 49
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ReadResultsLengthServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 53
@@ -306,8 +306,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendDataTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 56
@@ -326,8 +326,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendDataInspectionTypeServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 60
@@ -346,8 +346,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendDataBufferIDServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 62
@@ -366,8 +366,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendResultsJobIDServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 65
@@ -386,8 +386,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendResultsLengthServiceMode
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 69
@@ -406,8 +406,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Config
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 75
@@ -426,8 +426,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Status
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 82
@@ -446,8 +446,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Messenger
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 86
@@ -466,8 +466,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.TaskMessenger
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 87
@@ -486,8 +486,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Inputs
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 91
@@ -506,8 +506,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Outputs
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 97
@@ -526,8 +526,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.HardwareDiagnosticsTask
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 106
@@ -546,8 +546,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._progress
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 114
@@ -566,8 +566,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._infoTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 114
@@ -586,8 +586,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._errorTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 115
@@ -606,8 +606,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._data_in_1301
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 118
@@ -626,8 +626,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._data_out_1301
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 119
@@ -646,8 +646,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._initHwCheckDone
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 120
@@ -666,8 +666,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._retval
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 121
@@ -686,8 +686,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._geoAddr
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 122
@@ -706,8 +706,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._startAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 123
@@ -726,8 +726,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._bytesCount
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 124
@@ -746,8 +746,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._Clock_1Hz
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 125
@@ -766,8 +766,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._readResultsJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 126
@@ -786,8 +786,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._readResultsLength
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 127
@@ -806,8 +806,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._data_
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 127
@@ -826,8 +826,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._data_out
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 129
@@ -846,8 +846,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._sendDataInspectionType
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 130
@@ -866,8 +866,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._sendDataBufferID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 131
@@ -886,8 +886,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._sendDataJobID
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 132
@@ -906,8 +906,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._sendDataLength
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 133
@@ -926,8 +926,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._inputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 134
@@ -946,8 +946,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._inputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 135
@@ -966,8 +966,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._outputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 138
@@ -986,8 +986,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro._outputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 139
@@ -1006,8 +1006,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 140
@@ -1033,8 +1033,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.HardResetAllCameras
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2376
@@ -1054,8 +1054,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Reset
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2381
@@ -1075,8 +1075,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Trigger
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2387
@@ -1096,8 +1096,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ReadResults
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2389
@@ -1121,8 +1121,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.SendData
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2408
@@ -1150,8 +1150,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.ManualControl
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2418
@@ -1171,8 +1171,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.Restore
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2418
@@ -1192,8 +1192,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro.CallTimers
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 2418

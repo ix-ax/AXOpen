@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 2
@@ -68,8 +68,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_None
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 4
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Done
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 5
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Power
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 6
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Home
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 7
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Stop
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 8
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Halt
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 9
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAbsolute
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 10
@@ -180,8 +180,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveRelative
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 11
@@ -196,8 +196,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAdditive
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 12
@@ -212,8 +212,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveSuperimposed
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 13
@@ -228,8 +228,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_HaltSuperimposed
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 13
@@ -244,8 +244,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveVelocity
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 14
@@ -260,8 +260,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousAbsolute
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 16
@@ -276,8 +276,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousRelative
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 16
@@ -292,8 +292,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TorqueControl
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 17
@@ -308,8 +308,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_PositionProfile
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 19
@@ -324,8 +324,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_VelocityProfile
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 19
@@ -340,8 +340,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AccelerationProfile
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 20
@@ -356,8 +356,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetPosition
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 21
@@ -372,8 +372,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetOverride
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 23
@@ -388,8 +388,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 24
@@ -404,8 +404,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadRealParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 25
@@ -420,8 +420,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadBoolParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 26
@@ -436,8 +436,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 27
@@ -452,8 +452,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteRealParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 28
@@ -468,8 +468,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteBoolParameter
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 29
@@ -484,8 +484,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalInput
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 30
@@ -500,8 +500,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalOutput
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 31
@@ -516,8 +516,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteDigitalOutput
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 32
@@ -532,8 +532,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualPosition
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 33
@@ -548,8 +548,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualVelocity
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 34
@@ -564,8 +564,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualTorque
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 35
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadStatus
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 37
@@ -596,8 +596,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadMotionState
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 38
@@ -612,8 +612,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisInfo
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 39
@@ -628,8 +628,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisError
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 40
@@ -644,8 +644,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Reset
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 41
@@ -660,8 +660,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_DigitalCamSwitch
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 41
@@ -676,8 +676,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TouchProbe
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 42
@@ -692,8 +692,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AbortTrigger
     path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
     startLine: 42

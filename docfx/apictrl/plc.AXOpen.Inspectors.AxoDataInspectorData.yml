@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
     startLine: 0
@@ -45,8 +45,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.RequiredStatus
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
     startLine: 9
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.DetectedStatus
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
     startLine: 13
@@ -85,8 +85,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.StarNotationEnabled
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
     startLine: 17

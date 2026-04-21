@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.IAxoLogger
     path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
     startLine: 9
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.IAxoLogger.Log
     path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
     startLine: 15
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.IAxoLogger.Log
     path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
     startLine: 45

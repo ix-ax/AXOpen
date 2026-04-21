@@ -71,8 +71,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 7
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 9
@@ -133,8 +133,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 14
@@ -153,8 +153,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 19
@@ -173,8 +173,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 23
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 27
@@ -213,8 +213,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 34
@@ -233,8 +233,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 39
@@ -253,8 +253,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 44
@@ -273,8 +273,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 53
@@ -293,8 +293,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 58
@@ -313,8 +313,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 62
@@ -333,8 +333,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 67
@@ -353,8 +353,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 71
@@ -373,8 +373,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 75
@@ -393,8 +393,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 79
@@ -413,8 +413,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 83
@@ -433,8 +433,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 87
@@ -453,8 +453,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 95
@@ -473,8 +473,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 102
@@ -493,8 +493,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 106
@@ -513,8 +513,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 109
@@ -533,8 +533,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 111
@@ -553,8 +553,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 118
@@ -573,8 +573,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 126
@@ -593,8 +593,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 134
@@ -613,8 +613,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 135
@@ -633,8 +633,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 136
@@ -653,8 +653,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 137
@@ -673,8 +673,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 140
@@ -693,8 +693,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 141
@@ -713,8 +713,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 142
@@ -733,8 +733,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 142
@@ -753,8 +753,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 144
@@ -773,8 +773,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 144
@@ -793,8 +793,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 145
@@ -813,8 +813,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 146
@@ -833,8 +833,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 147
@@ -853,8 +853,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 149
@@ -873,8 +873,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 149
@@ -893,8 +893,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 150
@@ -913,8 +913,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 151
@@ -933,8 +933,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 152
@@ -953,8 +953,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 153
@@ -973,8 +973,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 155
@@ -993,8 +993,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 156
@@ -1013,8 +1013,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 161
@@ -1038,8 +1038,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3125
@@ -1059,8 +1059,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3134
@@ -1080,8 +1080,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3136
@@ -1101,8 +1101,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3139
@@ -1122,8 +1122,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3145
@@ -1143,8 +1143,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3150
@@ -1164,8 +1164,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3152
@@ -1185,8 +1185,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1206,8 +1206,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1227,8 +1227,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1248,8 +1248,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1269,8 +1269,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1290,8 +1290,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1311,8 +1311,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162
@@ -1332,8 +1332,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
     startLine: 3162

@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 6
@@ -96,8 +96,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statExecuteOld
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 9
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDone
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 9
@@ -136,8 +136,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statBusy
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 10
@@ -156,8 +156,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statError
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 11
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statStatus
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 12
@@ -196,8 +196,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statPollingPeriod
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 13
@@ -216,8 +216,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwID
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 14
@@ -236,8 +236,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwIDprevious
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 15
@@ -256,8 +256,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadWrite
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 16
@@ -276,8 +276,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statCap
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 17
@@ -296,8 +296,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statTimeout
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 18
@@ -316,8 +316,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statLen
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 19
@@ -336,8 +336,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statSubfunctionStatus
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 20
@@ -356,8 +356,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBErrorState
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 21
@@ -376,8 +376,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBState
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 22
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statEmptyDiagnostics
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 23
@@ -416,8 +416,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instRdRec
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 24
@@ -436,8 +436,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instWrRec
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 25
@@ -456,8 +456,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instPoll
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 26
@@ -476,8 +476,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instMonitor
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 27
@@ -496,8 +496,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statRead
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 28
@@ -516,8 +516,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statWrite
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 29
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDiagnostics
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 30
@@ -556,8 +556,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadLen
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 32
@@ -576,8 +576,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_READ
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 37
@@ -596,8 +596,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_WRITE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 38
@@ -616,8 +616,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_PORT
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 39
@@ -636,8 +636,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_INDEX
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 40
@@ -656,8 +656,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_PORT_FUNC
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 41
@@ -676,8 +676,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_SUBINDEX
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 41
@@ -696,8 +696,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_DATA
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 43
@@ -716,8 +716,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.UPPER_LIMIT
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 43
@@ -736,8 +736,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_NO_PROCESSING
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 44
@@ -756,8 +756,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_WRITE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 46
@@ -776,8 +776,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_POLL
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 47
@@ -796,8 +796,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_READ_CAP
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 47
@@ -816,8 +816,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.IOL_HEADER
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 49
@@ -836,8 +836,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.LEN_HEADER
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 50
@@ -856,8 +856,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_WRITE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 51
@@ -876,8 +876,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_READ
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 52
@@ -896,8 +896,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_EXECUTION_FINISHED
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 53
@@ -916,8 +916,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_NO_CALL
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 54
@@ -936,8 +936,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_FIRST_CALL
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 55
@@ -956,8 +956,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_SUBSEQUENT_CALL
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 55
@@ -976,8 +976,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.SUB_STATUS_NO_ERROR
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 56
@@ -996,8 +996,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_PORT
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 58
@@ -1016,8 +1016,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_INDEX
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 59
@@ -1036,8 +1036,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_SUBINDEX
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 60
@@ -1056,8 +1056,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_LENGTH
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 61
@@ -1076,8 +1076,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_IO_LINK
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 62
@@ -1096,8 +1096,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_INCONSISTENT_DATA
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 62
@@ -1116,8 +1116,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_REQUEST_TIMEOUT
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 64
@@ -1136,8 +1136,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_UNDEFINED_STATE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 65
@@ -1156,8 +1156,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRREC
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 66
@@ -1176,8 +1176,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_RDREC
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 67
@@ -1196,8 +1196,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_MASK
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 68
@@ -1216,8 +1216,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RESOURCE_BUSY
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 69
@@ -1236,8 +1236,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_CAP_IOLINK
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 70
@@ -1256,8 +1256,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_LEGACY
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 70
@@ -1276,8 +1276,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_STANDARD
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 72
@@ -1296,8 +1296,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RDREC_VALID
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 73
@@ -1316,8 +1316,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B3
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 74
@@ -1336,8 +1336,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B2
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 74
@@ -1356,8 +1356,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B1
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 75
@@ -1376,8 +1376,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.Run
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
     startLine: 81

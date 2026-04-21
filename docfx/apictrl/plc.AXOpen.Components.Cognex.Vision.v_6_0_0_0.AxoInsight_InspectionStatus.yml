@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 2
@@ -40,8 +40,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.SystemBusy
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 6
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.InspectionCompleted
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 8
@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.ResultsBufferOverrun
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 10
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.ResultsValid
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 12
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.CommandExecuting
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 14
@@ -140,8 +140,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.CommandComplete
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 16
@@ -160,8 +160,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.CommandFailed
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 18
@@ -180,8 +180,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.ExtendedUserDataSetAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 20
@@ -200,8 +200,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.OverallJobPassFail
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 22
@@ -220,8 +220,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.TestRunReady
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 24
@@ -240,8 +240,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.Error
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 26
@@ -260,8 +260,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus.ErrorCode
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_InspectionStatus.st
     startLine: 28

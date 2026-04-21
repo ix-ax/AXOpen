@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 6
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent.HardwareDiagnosticsTask
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 8
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent.HardwareSubDiagnosticsTask
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 13
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent.Run
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 18
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent.ManualControl
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 37
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoIoComponent.Restore
     path: .\src\io\ctrl\src\AxoIoComponent\AxoIoComponent.st
     startLine: 42

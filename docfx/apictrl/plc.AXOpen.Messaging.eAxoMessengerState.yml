@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 1
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.Idle
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 2
@@ -50,8 +50,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAlreadyAcknowledged
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 2
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 3
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeNotRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 4
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.InactiveWaitingForAcknowledge
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 5
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessengerState.InvalidImplementation
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
     startLine: 6

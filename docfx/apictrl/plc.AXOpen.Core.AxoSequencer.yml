@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 4
@@ -160,8 +160,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.ReqSteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 7
@@ -180,8 +180,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetReqSteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 9
@@ -200,8 +200,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 11
@@ -220,8 +220,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.ReqSequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 15
@@ -240,8 +240,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetReqSequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 16
@@ -260,8 +260,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 19
@@ -280,8 +280,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CurrentOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 23
@@ -300,8 +300,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepForwardCommand
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 24
@@ -320,8 +320,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepIn
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 26
@@ -340,8 +340,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepBackwardCommand
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 28
@@ -360,8 +360,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 30
@@ -380,8 +380,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.MaxSequenceDuration
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 31
@@ -400,8 +400,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.NumberOfConfiguredSteps
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 32
@@ -420,8 +420,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._configurationFlowOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 38
@@ -440,8 +440,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._coordinatorState
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 39
@@ -460,8 +460,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._step
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 41
@@ -480,8 +480,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._openCycleCounter
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 41
@@ -500,8 +500,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._closeCycleCounter
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 42
@@ -520,8 +520,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._refStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 43
@@ -540,8 +540,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._microStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 45
@@ -560,8 +560,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._context
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 45
@@ -580,8 +580,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._analytics
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 46
@@ -600,8 +600,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._stepExecutionMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 47
@@ -620,8 +620,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._steppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 48
@@ -640,8 +640,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._sequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 50
@@ -660,8 +660,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._msgStepTimedOut
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 128
@@ -680,8 +680,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetAnalitics
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 52
@@ -703,8 +703,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Open
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 59
@@ -724,8 +724,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 130
@@ -749,8 +749,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.MoveNext
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 292
@@ -770,8 +770,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.RequestStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 316
@@ -793,8 +793,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CompleteSequence
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 340
@@ -814,8 +814,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnBeforeSequenceStart
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 372
@@ -835,8 +835,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnCompleteSequence
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 377
@@ -856,8 +856,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnEnterStepByStepMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 384
@@ -877,8 +877,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnEnterContinousMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 391
@@ -898,8 +898,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetCoordinatorState
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 400
@@ -919,8 +919,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.DetermineOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 404
@@ -942,8 +942,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetNumberOfConfiguredSteps
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 423
@@ -963,8 +963,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 440
@@ -984,8 +984,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.AbortCurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 445
@@ -1005,8 +1005,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnRestore
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 459
@@ -1026,8 +1026,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetMicroStepValue
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 461
@@ -1047,8 +1047,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetMicroStepValue
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 473
@@ -1070,8 +1070,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.AndThen
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 500
@@ -1093,8 +1093,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Close
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 515
@@ -1114,8 +1114,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetCurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 521
@@ -1135,8 +1135,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetSteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 524
@@ -1156,8 +1156,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetSteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 528
@@ -1179,8 +1179,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetSequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 544
@@ -1200,8 +1200,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SetSequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
     startLine: 550

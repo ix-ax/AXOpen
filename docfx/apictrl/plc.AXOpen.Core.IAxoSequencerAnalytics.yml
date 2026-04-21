@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoSequencerAnalytics
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
     startLine: 0
@@ -32,8 +32,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoSequencerAnalytics.UpdateAnalytics
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
     startLine: 7
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoSequencerAnalytics.Restart
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
     startLine: 18
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.IAxoSequencerAnalytics.Save
     path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
     startLine: 25

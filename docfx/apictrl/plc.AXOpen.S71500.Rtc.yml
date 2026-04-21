@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtc
     path: .\src\simatic1500\ctrl\src\Rtc.st
     startLine: 2
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtc.NowUTC
     path: .\src\simatic1500\ctrl\src\Rtc.st
     startLine: 3
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtc.SetUTC
     path: .\src\simatic1500\ctrl\src\Rtc.st
     startLine: 11

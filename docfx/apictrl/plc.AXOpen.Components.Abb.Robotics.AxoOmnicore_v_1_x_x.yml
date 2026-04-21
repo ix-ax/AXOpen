@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 9
@@ -104,8 +104,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.RestoreTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 15
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMovementsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 20
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMovementsAndProgramTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 24
@@ -164,8 +164,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopProgramTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 28
@@ -184,8 +184,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMotorsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 32
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartAtMainTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 36
@@ -224,8 +224,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotorsAndProgramTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 41
@@ -244,8 +244,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartProgramTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 45
@@ -264,8 +264,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotorsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 49
@@ -284,8 +284,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMovementsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 53
@@ -304,8 +304,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotorsProgramAndMovementsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 57
@@ -324,8 +324,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.MovementParameters
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 61
@@ -344,8 +344,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Config
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 68
@@ -364,8 +364,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Status
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 75
@@ -384,8 +384,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._power_progress
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 79
@@ -404,8 +404,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._movement_progress
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 83
@@ -424,8 +424,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Messenger
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 87
@@ -444,8 +444,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.TaskMessenger
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 88
@@ -464,8 +464,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Inputs
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 92
@@ -484,8 +484,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Outputs
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 98
@@ -504,8 +504,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.HardwareDiagnosticsTask
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 107
@@ -524,8 +524,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._infoTimer
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 114
@@ -544,8 +544,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._errorTimer
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 115
@@ -564,8 +564,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._errorTime
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 116
@@ -584,8 +584,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._blink
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 117
@@ -604,8 +604,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._context
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 119
@@ -624,8 +624,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._stopTasksAreActive
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 120
@@ -644,8 +644,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._stopType
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 122
@@ -664,8 +664,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._someTaskIsActive
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 123
@@ -684,8 +684,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._initHwCheckDone
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 124
@@ -704,8 +704,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._inputsAddress
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 125
@@ -724,8 +724,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._inputsCount
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 126
@@ -744,8 +744,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._outputsAddress
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 128
@@ -764,8 +764,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._outputsCount
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 130
@@ -784,8 +784,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._real
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 134
@@ -804,8 +804,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._dint
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 135
@@ -824,8 +824,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x._dword2
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 136
@@ -844,8 +844,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Run
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 136
@@ -869,8 +869,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.ManualControl
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1779
@@ -890,8 +890,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.Restore
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1784
@@ -911,8 +911,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartAtMain
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1807
@@ -932,8 +932,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotorsAndProgram
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1811
@@ -953,8 +953,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotorsProgramAndMovements
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1816
@@ -974,8 +974,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMotors
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -995,8 +995,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartMovements
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1016,8 +1016,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StartProgram
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1037,8 +1037,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMotors
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1058,8 +1058,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMovementsAndProgram
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1081,8 +1081,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopMovements
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1104,8 +1104,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.StopProgram
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830
@@ -1125,8 +1125,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x.CallTimers
     path: .\src\components.abb.robotics\ctrl\src\AxoOmnicore_v_1_x_x.st
     startLine: 1830

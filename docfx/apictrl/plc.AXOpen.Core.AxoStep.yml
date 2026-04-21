@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 2
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Order
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 6
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Descr
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 7
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.IsActive
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 9
@@ -178,8 +178,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.IsEnabled
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 9
@@ -198,8 +198,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.StepExecutionMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 11
@@ -218,8 +218,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep._openCycleCount
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 15
@@ -238,8 +238,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 16
@@ -258,8 +258,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 17
@@ -278,8 +278,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 18
@@ -298,8 +298,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep._context
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 22
@@ -318,8 +318,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.UpdateStepAnalitics
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 26
@@ -339,8 +339,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.GetStepOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 38
@@ -360,8 +360,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.SetStepOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 45
@@ -385,8 +385,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 58
@@ -406,8 +406,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 65
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 75
@@ -454,8 +454,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 86
@@ -481,8 +481,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 101
@@ -506,8 +506,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.ExecuteInternal
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 114
@@ -531,8 +531,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.SetIsActive
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 166
@@ -554,8 +554,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.GetIsActive
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 182
@@ -575,8 +575,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.SetIsEnabled
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 190
@@ -598,8 +598,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.GetIsEnabled
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 199
@@ -619,8 +619,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.IsFirstEntryToStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 204
@@ -640,8 +640,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.GetStepDescription
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 221
@@ -661,8 +661,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoStep.GetStepExecutionMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
     startLine: 223

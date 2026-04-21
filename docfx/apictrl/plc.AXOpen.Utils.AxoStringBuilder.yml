@@ -39,8 +39,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 3
@@ -61,8 +61,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder._workString
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 21
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Clear
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 24
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 29
@@ -125,8 +125,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 37
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 46
@@ -171,8 +171,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 54
@@ -194,8 +194,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 63
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 71
@@ -240,8 +240,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 80
@@ -263,8 +263,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 89
@@ -286,8 +286,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 97
@@ -309,8 +309,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 105
@@ -332,8 +332,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 113
@@ -355,8 +355,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 121
@@ -378,8 +378,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 129
@@ -401,8 +401,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 137
@@ -424,8 +424,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 146
@@ -447,8 +447,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 154
@@ -470,8 +470,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 163
@@ -493,8 +493,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 171
@@ -516,8 +516,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 181
@@ -539,8 +539,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 189
@@ -562,8 +562,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 197
@@ -585,8 +585,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 205
@@ -608,8 +608,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 213
@@ -631,8 +631,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 222
@@ -654,8 +654,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.Append
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 229
@@ -677,8 +677,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.AsString
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 246
@@ -698,8 +698,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoStringBuilder.AsString160
     path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
     startLine: 255

@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
     startLine: 0
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs.HW_Device
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
     startLine: 5
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs.HwId_BISM
     path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st
     startLine: 7

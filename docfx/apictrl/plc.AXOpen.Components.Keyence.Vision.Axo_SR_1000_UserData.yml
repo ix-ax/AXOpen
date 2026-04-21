@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UserData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UserData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UserData.st
     startLine: 0
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UserData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_UserData.Data
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_UserData.st
     startLine: 4

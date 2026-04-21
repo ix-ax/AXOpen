@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoObject
     path: .\src\core\ctrl\src\Mocks\MockAxoObject.st
     startLine: 3
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoObject.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoObject.InitializeWithContext_Test
     path: .\src\core\ctrl\src\Mocks\MockAxoObject.st
     startLine: 8

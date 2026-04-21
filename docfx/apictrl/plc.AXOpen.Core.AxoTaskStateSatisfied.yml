@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 0
@@ -42,8 +42,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 6
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 7
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 9
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 21
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 35
@@ -151,8 +151,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 42
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 49
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 56
@@ -214,8 +214,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 63
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
     startLine: 70

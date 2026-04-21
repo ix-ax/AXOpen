@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\utils\ctrl\src\Conversions\FromBytes\AxoBytesToInt.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Utils.AxoBytesToInt
     path: .\src\utils\ctrl\src\Conversions\FromBytes\AxoBytesToInt.st
     startLine: 3

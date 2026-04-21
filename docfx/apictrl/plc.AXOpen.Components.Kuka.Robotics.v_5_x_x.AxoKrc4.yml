@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 8
@@ -109,8 +109,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._infoTimer
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 11
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._errorTimer
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 12
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._context
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 13
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopTasksAreActive
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 14
@@ -189,8 +189,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopType
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 15
@@ -209,8 +209,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._someTaskIsActive
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 16
@@ -229,8 +229,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._dword
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 18
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._data
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 19
@@ -269,8 +269,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._initHwCheckDone
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 21
@@ -289,8 +289,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._retval
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 22
@@ -309,8 +309,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._geoAddr
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 23
@@ -329,8 +329,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outHwid
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 24
@@ -349,8 +349,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._blink
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 25
@@ -369,8 +369,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsAddress
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 26
@@ -389,8 +389,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsCount
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 27
@@ -409,8 +409,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsAddress
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 28
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsCount
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 29
@@ -449,8 +449,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movementExecuting
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 30
@@ -469,8 +469,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsManualPV
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 31
@@ -489,8 +489,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.RestoreTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 39
@@ -509,8 +509,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 44
@@ -529,8 +529,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 48
@@ -549,8 +549,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMainTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 52
@@ -569,8 +569,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovementsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 57
@@ -589,8 +589,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.MovementParameters
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 61
@@ -609,8 +609,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgramTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 66
@@ -629,8 +629,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovementsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 69
@@ -649,8 +649,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgramTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 74
@@ -669,8 +669,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 78
@@ -689,8 +689,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgramTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 82
@@ -709,8 +709,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgramTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 86
@@ -729,8 +729,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotorsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 90
@@ -749,8 +749,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Config
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 96
@@ -769,8 +769,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Status
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 103
@@ -789,8 +789,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Messenger
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 107
@@ -809,8 +809,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.TaskMessenger
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 108
@@ -829,8 +829,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._power_progress
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 110
@@ -849,8 +849,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movement_progress
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 114
@@ -869,8 +869,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Inputs
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 120
@@ -889,8 +889,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Outputs
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 127
@@ -909,8 +909,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.HardwareDiagnosticsTask
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 135
@@ -929,8 +929,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Run
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 142
@@ -954,8 +954,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ManualControl
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1874
@@ -975,8 +975,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Restore
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1878
@@ -996,8 +996,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMain
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1902
@@ -1017,8 +1017,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgram
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1907
@@ -1038,8 +1038,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovements
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1911
@@ -1059,8 +1059,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotors
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1922
@@ -1080,8 +1080,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovements
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1101,8 +1101,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgram
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1122,8 +1122,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotors
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1143,8 +1143,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgram
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1166,8 +1166,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovements
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1189,8 +1189,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgram
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1210,8 +1210,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputs
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928
@@ -1231,8 +1231,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.CallTimers
     path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
     startLine: 1928

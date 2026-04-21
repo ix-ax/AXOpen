@@ -10,8 +10,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.IAxisReference
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
     startLine: 3

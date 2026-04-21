@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoRtc
     path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
     startLine: 8
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoRtc._nowUTC
     path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
     startLine: 11
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoRtc.NowUTC
     path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
     startLine: 14
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Core.Dummies.MockAxoRtc.SetNowUTC
     path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
     startLine: 18

@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 2
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.NoAction
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 3
@@ -51,8 +51,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Running
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 4
@@ -67,8 +67,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Passed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 5
@@ -83,8 +83,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Failed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 6
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 7
@@ -115,8 +115,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Excluded
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 8
@@ -131,8 +131,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Bypassed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
     startLine: 9

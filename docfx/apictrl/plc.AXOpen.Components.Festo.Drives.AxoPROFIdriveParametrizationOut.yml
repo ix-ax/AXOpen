@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 4
@@ -38,8 +38,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadREAL
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 7
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadLINT
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 10
@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadBOOL
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 12
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Busy
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 14
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Done
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 16
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Error
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 18
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ErrorId
     path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
     startLine: 20

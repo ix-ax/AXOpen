@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x.InfoTime
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
     startLine: 5
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x.ErrorTime
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
     startLine: 7
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x.TaskTimeout
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
     startLine: 9
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x.HWIDs
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Config_v_1_x_x.st
     startLine: 11

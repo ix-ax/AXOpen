@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 5
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.NoCat
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 6
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Verbose
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 11
@@ -69,8 +69,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Debug
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 16
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Information
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 21
@@ -103,8 +103,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Warning
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 26
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Error
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 32
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Fatal
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
     startLine: 37

@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Component_Status_v_1_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abb.Robotics
     path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Component_Status_v_1_x_x.st
     startLine: 0

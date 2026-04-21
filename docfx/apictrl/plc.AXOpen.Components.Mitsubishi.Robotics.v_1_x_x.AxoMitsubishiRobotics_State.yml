@@ -51,8 +51,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 0
@@ -72,8 +72,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.OperationEnable
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 5
@@ -92,8 +92,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.AutoEnable
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 9
@@ -112,8 +112,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Start
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 11
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Stop
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 13
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ProgramReset
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 15
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ErrorReset
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 17
@@ -192,8 +192,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CycleStop
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 19
@@ -212,8 +212,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOff
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 21
@@ -232,8 +232,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOn
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 24
@@ -252,8 +252,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.HighLevelError
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 28
@@ -272,8 +272,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.LowLevelError
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 30
@@ -292,8 +292,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CautionLevelError
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 32
@@ -312,8 +312,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.EmergencyError
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 34
@@ -332,8 +332,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.RcReady
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 36
@@ -352,8 +352,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.BatteryLow
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 38
@@ -372,8 +372,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_1
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 41
@@ -392,8 +392,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_2
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 45
@@ -412,8 +412,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_3
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 47
@@ -432,8 +432,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_4
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 49
@@ -452,8 +452,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_1
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 51
@@ -472,8 +472,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_2
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 53
@@ -492,8 +492,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_3
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 55
@@ -512,8 +512,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_4
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 57
@@ -532,8 +532,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Zone
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 60
@@ -552,8 +552,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 65
@@ -572,8 +572,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Retract
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 68
@@ -592,8 +592,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Extend
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 72
@@ -612,8 +612,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Retract
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 74
@@ -632,8 +632,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Extend
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 76
@@ -652,8 +652,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Retract
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 78
@@ -672,8 +672,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Extend
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 80
@@ -692,8 +692,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Retract
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 82
@@ -712,8 +712,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Extend
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 84
@@ -732,8 +732,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ActionNo
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 87
@@ -752,8 +752,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.GlobalSpeed
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 92
@@ -772,8 +772,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ToolNo
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 94
@@ -792,8 +792,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.WorkobjectNo
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 95
@@ -812,8 +812,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.PointNo
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 98
@@ -832,8 +832,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed1
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 99
@@ -852,8 +852,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed2
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 101
@@ -872,8 +872,8 @@ items:
   source:
     remote:
       path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Coordinates
     path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
     startLine: 104

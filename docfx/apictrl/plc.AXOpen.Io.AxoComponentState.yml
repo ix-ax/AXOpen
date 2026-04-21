@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 4
@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.Good
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 5
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.Disabled
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 5
@@ -68,8 +68,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.MaintenanceRequired
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 6
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.MaintenanceDemanded
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 7
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.Error
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 8
@@ -116,8 +116,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.NotAccessible
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 9
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.Unknown
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 10
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoComponentState.IONotAvailable
     path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoComponentState.st
     startLine: 11

@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
     startLine: 2
@@ -30,8 +30,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Soft
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
     startLine: 4
@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Quick
     path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
     startLine: 5

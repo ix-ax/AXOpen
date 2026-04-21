@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 10
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._UserDataSize
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 14
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._ResultDataSize
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 15
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._progress
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 17
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._infoTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 18
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._errorTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 19
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._jobName
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 20
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._inspectionCompleted
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 21
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._data_255
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 22
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._jobNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 23
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._softEventNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 24
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._UserDataChanged
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 25
@@ -342,8 +342,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._initHwCheckDone
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 27
@@ -362,8 +362,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._retval
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 28
@@ -382,8 +382,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._geoAddr
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 29
@@ -402,8 +402,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._outHwid
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 30
@@ -422,8 +422,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._startAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 31
@@ -442,8 +442,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._bytesCount
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 32
@@ -462,8 +462,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._inputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 33
@@ -482,8 +482,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._inputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 34
@@ -502,8 +502,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._outputsAddress
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 35
@@ -522,8 +522,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._outputsCount
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 36
@@ -542,8 +542,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._userDataLength
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 37
@@ -562,8 +562,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._userData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 38
@@ -582,8 +582,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._maxUserDataIndex
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 41
@@ -602,8 +602,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TriggerTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 45
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionResults
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 51
@@ -642,8 +642,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RestoreTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 61
@@ -662,8 +662,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResultsTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 65
@@ -682,8 +682,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobName
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 68
@@ -702,8 +702,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNameTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 73
@@ -722,8 +722,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 76
@@ -742,8 +742,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNumberTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 80
@@ -762,8 +762,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredSoftEventNumber
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 84
@@ -782,8 +782,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 89
@@ -802,8 +802,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserDataToSent
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 93
@@ -822,8 +822,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserDataLength
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 98
@@ -842,8 +842,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SendUserDataTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 103
@@ -862,8 +862,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Config
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 111
@@ -882,8 +882,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Status
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 118
@@ -902,8 +902,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Results
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 123
@@ -922,8 +922,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 130
@@ -942,8 +942,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 137
@@ -962,8 +962,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 144
@@ -982,8 +982,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 151
@@ -1002,8 +1002,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 159
@@ -1022,8 +1022,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 166
@@ -1042,8 +1042,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 173
@@ -1062,8 +1062,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 180
@@ -1082,8 +1082,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 187
@@ -1102,8 +1102,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.HardwareDiagnosticsTask
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 195
@@ -1122,8 +1122,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Messenger
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 205
@@ -1142,8 +1142,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TaskMessenger
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 206
@@ -1162,8 +1162,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 208
@@ -1187,8 +1187,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CallTimers
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1740
@@ -1210,8 +1210,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SetUserData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1752
@@ -1233,8 +1233,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResults
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1793
@@ -1254,8 +1254,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Trigger
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1800
@@ -1275,8 +1275,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1807
@@ -1298,8 +1298,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1817
@@ -1321,8 +1321,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEvent
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1825
@@ -1344,8 +1344,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SendUserData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1835
@@ -1367,8 +1367,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SendUserData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1851
@@ -1388,8 +1388,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SetUserDataAsByte
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1858
@@ -1413,8 +1413,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SetUserDataAsDint
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1886
@@ -1438,8 +1438,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SetUserDataAsReal
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1918
@@ -1463,8 +1463,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SetUserDataAsString
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1954
@@ -1488,8 +1488,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearUserData
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 1993
@@ -1509,8 +1509,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ManualControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 2006
@@ -1530,8 +1530,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Restore
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
     startLine: 2012

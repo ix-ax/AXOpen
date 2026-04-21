@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareSubDiagnostics
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
     startLine: 7
@@ -112,8 +112,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareSubDiagnostics.hardwareID
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
     startLine: 10
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareSubDiagnostics.GetDiagnosticsReturnCode
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
     startLine: 13
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareSubDiagnostics.diagnosticSubDetails
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
     startLine: 17
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareSubDiagnostics.Run
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareSubDiagnostics.st
     startLine: 24

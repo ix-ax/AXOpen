@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 11
@@ -89,8 +89,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._infoTimer
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 15
@@ -109,8 +109,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._errorTimer
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 16
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._context
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 17
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._dword
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 19
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data10
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 20
@@ -189,8 +189,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data42
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 21
@@ -209,8 +209,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data48
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 22
@@ -229,8 +229,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._initHwCheckDone
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 24
@@ -249,8 +249,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._retval
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 25
@@ -269,8 +269,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._geoAddr
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 26
@@ -289,8 +289,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outHwid
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 27
@@ -309,8 +309,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._blink
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 28
@@ -329,8 +329,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsAddress
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 29
@@ -349,8 +349,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsCount
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 30
@@ -369,8 +369,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsAddress
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 31
@@ -389,8 +389,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsCount
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 32
@@ -409,8 +409,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Results
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 36
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RestoreTask
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 43
@@ -449,8 +449,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandTask
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 47
@@ -469,8 +469,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandParameters
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 51
@@ -489,8 +489,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResultsTask
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 55
@@ -509,8 +509,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurveTask
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 60
@@ -529,8 +529,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Config
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 67
@@ -549,8 +549,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Status
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 74
@@ -569,8 +569,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Messenger
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 78
@@ -589,8 +589,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.TaskMessenger
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 79
@@ -609,8 +609,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._progress
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 82
@@ -629,8 +629,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Inputs
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 84
@@ -649,8 +649,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Outputs
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 90
@@ -669,8 +669,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.HardwareDiagnosticsTask
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 99
@@ -689,8 +689,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Run
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 106
@@ -714,8 +714,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommand
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 742
@@ -737,8 +737,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResults
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 762
@@ -758,8 +758,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurve
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 767
@@ -779,8 +779,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.CallTimers
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 775
@@ -802,8 +802,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ManualControl
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 781
@@ -823,8 +823,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Restore
     path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
     startLine: 781

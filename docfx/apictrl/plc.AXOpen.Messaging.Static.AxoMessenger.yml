@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 3
@@ -73,8 +73,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 8
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 9
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 12
@@ -133,8 +133,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 14
@@ -153,8 +153,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 16
@@ -173,8 +173,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 19
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 20
@@ -213,8 +213,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 22
@@ -233,8 +233,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 24
@@ -253,8 +253,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Message
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 26
@@ -273,8 +273,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 28
@@ -293,8 +293,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger._context
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 32
@@ -313,8 +313,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger._requalifiedToCategory
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 36
@@ -333,8 +333,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.RISE_SIGNATURE
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 41
@@ -353,8 +353,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.FALL_SIGNATURE
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 42
@@ -373,8 +373,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 47
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 99
@@ -421,8 +421,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 202
@@ -448,8 +448,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Post
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 222
@@ -475,8 +475,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 244
@@ -500,8 +500,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 283
@@ -523,8 +523,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 320
@@ -544,8 +544,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 335
@@ -567,8 +567,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 352
@@ -588,8 +588,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 363
@@ -609,8 +609,8 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 378

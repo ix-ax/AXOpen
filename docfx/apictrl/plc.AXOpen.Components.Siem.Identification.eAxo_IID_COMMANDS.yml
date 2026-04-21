@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 2
@@ -43,8 +43,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eNoCommand
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 4
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eRead
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 5
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWrite
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 6
@@ -91,8 +91,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReaderStatus
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 7
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eTagStatus
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 8
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eInventory
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 9
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eFormat
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 10
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.ePut
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 11
@@ -171,8 +171,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteID
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 12
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eKillTag
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 13
@@ -203,8 +203,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eLockTagBank
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 14
@@ -219,8 +219,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eEditBlacklist
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 15
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eGetBlacklist
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 16
@@ -251,8 +251,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReadConfig
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 17
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteConfig
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
     startLine: 18

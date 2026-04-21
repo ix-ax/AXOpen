@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision
     path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
     startLine: 8

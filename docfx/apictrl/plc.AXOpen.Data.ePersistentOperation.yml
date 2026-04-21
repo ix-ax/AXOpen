@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 41
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation.Read
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 41
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation.Update
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 41
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation.EntityExist
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 42
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation.UpdateAll
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 44
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Data.ePersistentOperation.ReadAll
     path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
     startLine: 46

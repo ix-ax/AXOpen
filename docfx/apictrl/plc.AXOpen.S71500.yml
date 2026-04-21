@@ -11,8 +11,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500
     path: .\src\simatic1500\ctrl\src\Rtc.st
     startLine: 0

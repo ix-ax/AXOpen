@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 8
@@ -62,8 +62,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statExecuteReq
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 11
@@ -82,8 +82,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAntStatus
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 11
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statState
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 12
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAnt
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 13
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statSent
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 14
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statPresence
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 15
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statBusy
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 16
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartError
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 17
@@ -222,8 +222,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartStatus
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 18
@@ -242,8 +242,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIOsize
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 19
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V10
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 24
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V11
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 24
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V10
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 25
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V11
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 26
@@ -342,8 +342,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.UPPER_BOUND_IO_FIELD
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 27
@@ -362,8 +362,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_IDLE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 28
@@ -382,8 +382,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_ON
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 29
@@ -402,8 +402,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_OFF
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 30
@@ -422,8 +422,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_READY
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 31
@@ -442,8 +442,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_BLOCK
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 32
@@ -462,8 +462,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_RFID
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 33
@@ -482,8 +482,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_NO_JOB
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 34
@@ -502,8 +502,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_TAG_HAS_LEFT
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 36
@@ -522,8 +522,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_STILL_ACTIVE
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 36
@@ -542,8 +542,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_LENGTH
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 37
@@ -562,8 +562,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_ON
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 38
@@ -582,8 +582,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_OFF
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 40
@@ -602,8 +602,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_ANT_STATUS
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 41
@@ -622,8 +622,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_RFID_ERROR
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 41
@@ -642,8 +642,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_SEND_CMD
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 42
@@ -662,8 +662,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.Run
     path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
     startLine: 48

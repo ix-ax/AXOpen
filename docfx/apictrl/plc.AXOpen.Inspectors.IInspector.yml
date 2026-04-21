@@ -23,8 +23,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 2
@@ -42,8 +42,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Busy
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 3
@@ -63,8 +63,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.CommonData
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 7
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Coordinator
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 10
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Done
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 13
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.CheckOverInspection
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 17
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Result
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 20
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Dialog
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 23
@@ -193,8 +193,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.RestoreInspectorTask
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 31
@@ -214,8 +214,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.OnFail
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 35
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.UpdateComprehensiveResult
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 37
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Inspect
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 47
@@ -289,8 +289,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Inspect
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 55
@@ -316,8 +316,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Inspect
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
     startLine: 64

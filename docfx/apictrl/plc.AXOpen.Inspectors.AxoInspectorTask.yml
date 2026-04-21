@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 8
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask._onDoneFlag
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 11
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask._inspectionData
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 12
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask._passTimer
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 17
@@ -179,8 +179,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask._failTimer
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 18
@@ -199,8 +199,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.InspectionData
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 22
@@ -220,8 +220,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.SetInspectionData
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 28
@@ -243,8 +243,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.OnDoneFlag
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 36
@@ -264,8 +264,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.Execute
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 42
@@ -287,8 +287,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.OnStart
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 54
@@ -308,8 +308,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.Restore
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 83
@@ -329,8 +329,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorTask.OnDone
     path: .\src\inspectors\ctrl\src\AxoInspectorTask.st
     startLine: 87

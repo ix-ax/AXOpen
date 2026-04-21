@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
     startLine: 5
@@ -33,8 +33,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
     startLine: 6
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
     startLine: 10
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
     startLine: 14
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
     startLine: 18

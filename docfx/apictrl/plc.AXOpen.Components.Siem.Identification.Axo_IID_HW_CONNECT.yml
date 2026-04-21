@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 0
@@ -38,8 +38,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.HW_ID
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 19
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.AR_NUMBER
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 19
@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.API
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 21
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SLOT
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 22
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SUB_SLOT
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 23
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.CM_CHANNEL
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 24
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.Static
     path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
     startLine: 24

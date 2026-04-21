@@ -12,8 +12,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtm.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtm
     path: .\src\simatic1500\ctrl\src\Rtm.st
     startLine: 3
@@ -34,8 +34,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtm.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtm._timer
     path: .\src\simatic1500\ctrl\src\Rtm.st
     startLine: 5
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: .\src\simatic1500\ctrl\src\Rtm.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.S71500.Rtm.Elapsed
     path: .\src\simatic1500\ctrl\src\Rtm.st
     startLine: 7

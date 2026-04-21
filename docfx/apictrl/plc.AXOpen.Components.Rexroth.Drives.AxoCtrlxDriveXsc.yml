@@ -218,8 +218,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 12
@@ -599,8 +599,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.DriveStatus
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 15
@@ -619,8 +619,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.Messenger
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 19
@@ -639,8 +639,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.TaskMessenger
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 20
@@ -659,8 +659,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.HardwareDiagnosticsTask
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 23
@@ -679,8 +679,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.AxisRefExt
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 29
@@ -699,8 +699,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 35
@@ -719,8 +719,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 41
@@ -739,8 +739,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredVelocity
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 46
@@ -759,8 +759,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualVelocity
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 51
@@ -779,8 +779,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredTorque
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 57
@@ -799,8 +799,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualTorque
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 62
@@ -819,8 +819,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredAcceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 67
@@ -839,8 +839,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualAcceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 72
@@ -859,8 +859,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredDeceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 77
@@ -879,8 +879,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualDeceleration
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 82
@@ -899,8 +899,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantRequiredJerk
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 87
@@ -919,8 +919,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.ScalingConstantActualJerk
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 91
@@ -939,8 +939,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._State
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 97
@@ -959,8 +959,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._data2
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 106
@@ -979,8 +979,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._data4
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 107
@@ -999,8 +999,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._data8
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 108
@@ -1019,8 +1019,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._word
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 109
@@ -1039,8 +1039,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._dword
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 111
@@ -1059,8 +1059,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._lword
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 112
@@ -1079,8 +1079,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._Parameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 113
@@ -1099,8 +1099,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._Fieldbus
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 115
@@ -1119,8 +1119,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._initHwCheckDone
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 116
@@ -1139,8 +1139,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._retval
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 117
@@ -1159,8 +1159,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._geoAddr
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 118
@@ -1179,8 +1179,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._outHwid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 119
@@ -1199,8 +1199,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._blink
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 119
@@ -1219,8 +1219,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._inputsAddress
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 121
@@ -1239,8 +1239,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._inputsCount
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 122
@@ -1259,8 +1259,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._outputsAddress
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 123
@@ -1279,8 +1279,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._outputsCount
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 124
@@ -1299,8 +1299,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._ReadRecord
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 125
@@ -1319,8 +1319,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._WriteRecord
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 126
@@ -1339,8 +1339,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._ScalingRead
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 127
@@ -1359,8 +1359,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0076
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 127
@@ -1379,8 +1379,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0077
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 128
@@ -1399,8 +1399,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0078
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 129
@@ -1419,8 +1419,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0044
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 130
@@ -1439,8 +1439,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0045
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 131
@@ -1459,8 +1459,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0046
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 132
@@ -1479,8 +1479,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0160
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 133
@@ -1499,8 +1499,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0161
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 134
@@ -1519,8 +1519,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0162
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 135
@@ -1539,8 +1539,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0086
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 136
@@ -1559,8 +1559,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0093
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 137
@@ -1579,8 +1579,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0094
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 138
@@ -1599,8 +1599,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._S_0_0112
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 139
@@ -1619,8 +1619,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._P_0_0450
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 141
@@ -1639,8 +1639,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._infoTimer
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 142
@@ -1659,8 +1659,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._errorTimer
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 144
@@ -1679,8 +1679,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._tmpTimer
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 148
@@ -1699,8 +1699,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc._lastMessageCodeFromMC
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 149
@@ -1719,8 +1719,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_PowerEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1876
@@ -1740,8 +1740,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HomeExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1928
@@ -1761,8 +1761,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HomeErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1928
@@ -1781,8 +1781,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HomeCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1931
@@ -1801,8 +1801,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_StopExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2317
@@ -1822,8 +1822,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_StopErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2317
@@ -1842,8 +1842,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_StopCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2318
@@ -1862,8 +1862,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HaltExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2485
@@ -1883,8 +1883,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HaltErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2485
@@ -1903,8 +1903,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_HaltCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2488
@@ -1923,8 +1923,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2635
@@ -1944,8 +1944,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2635
@@ -1964,8 +1964,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2636
@@ -1984,8 +1984,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteContinuousUpdate_SV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2636
@@ -2004,8 +2004,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsolutePosition_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2637
@@ -2024,8 +2024,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteVelocity_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2639
@@ -2044,8 +2044,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteAcceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2640
@@ -2064,8 +2064,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteDeceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2643
@@ -2084,8 +2084,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteJerk_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2646
@@ -2104,8 +2104,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsoluteDirection_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2648
@@ -2124,8 +2124,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2877
@@ -2145,8 +2145,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2878
@@ -2165,8 +2165,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2882
@@ -2185,8 +2185,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeContinuousUpdate_SV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2882
@@ -2205,8 +2205,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeDistance_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2883
@@ -2225,8 +2225,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeVelocity_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2884
@@ -2245,8 +2245,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeAcceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2887
@@ -2265,8 +2265,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeDeceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2888
@@ -2285,8 +2285,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelativeJerk_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2891
@@ -2305,8 +2305,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3127
@@ -2326,8 +2326,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3128
@@ -2346,8 +2346,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3131
@@ -2366,8 +2366,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveContinuousUpdate_SV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3131
@@ -2386,8 +2386,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveDistance_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3132
@@ -2406,8 +2406,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveVelocity_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3132
@@ -2426,8 +2426,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveAcceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3133
@@ -2446,8 +2446,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveDeceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3134
@@ -2466,8 +2466,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditiveJerk_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3136
@@ -2486,8 +2486,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3376
@@ -2507,8 +2507,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3377
@@ -2527,8 +2527,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3380
@@ -2547,8 +2547,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityContinuousUpdate_SV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3381
@@ -2567,8 +2567,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityVelocity_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3381
@@ -2587,8 +2587,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityAcceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3384
@@ -2607,8 +2607,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityDeceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3385
@@ -2627,8 +2627,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityJerk_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3386
@@ -2647,8 +2647,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocityDirection_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3390
@@ -2667,8 +2667,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3651
@@ -2688,8 +2688,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3652
@@ -2708,8 +2708,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3654
@@ -2728,8 +2728,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlContinuousUpdate_SV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3655
@@ -2748,8 +2748,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlTorque_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3659
@@ -2768,8 +2768,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlTorqueRamp_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3660
@@ -2788,8 +2788,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlPositionLimit_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3661
@@ -2808,8 +2808,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlVelocity_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3665
@@ -2828,8 +2828,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlAcceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3666
@@ -2848,8 +2848,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlDeceleration_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3669
@@ -2868,8 +2868,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlJerk_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3670
@@ -2888,8 +2888,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControlDirection_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3671
@@ -2908,8 +2908,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPositionExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4025
@@ -2929,8 +2929,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPositionErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4026
@@ -2949,8 +2949,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPositionCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4029
@@ -2969,8 +2969,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPositionActualPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4030
@@ -2989,8 +2989,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPositionPowerStatusPV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4031
@@ -3009,8 +3009,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameterEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4318
@@ -3030,8 +3030,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4319
@@ -3050,8 +3050,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4320
@@ -3070,8 +3070,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameterValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4321
@@ -3090,8 +3090,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameterValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4322
@@ -3110,8 +3110,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameterEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4435
@@ -3131,8 +3131,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4436
@@ -3151,8 +3151,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4437
@@ -3171,8 +3171,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameterValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4438
@@ -3191,8 +3191,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameterValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4440
@@ -3211,8 +3211,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameterEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4550
@@ -3232,8 +3232,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4552
@@ -3252,8 +3252,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4554
@@ -3272,8 +3272,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameterValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4554
@@ -3292,8 +3292,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameterValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4555
@@ -3312,8 +3312,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteParameterExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4665
@@ -3333,8 +3333,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4667
@@ -3353,8 +3353,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4668
@@ -3373,8 +3373,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteRealParameterExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4786
@@ -3394,8 +3394,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteRealParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4787
@@ -3414,8 +3414,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteRealParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4790
@@ -3434,8 +3434,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteBoolParameterExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4908
@@ -3455,8 +3455,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteBoolParameterErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4909
@@ -3475,8 +3475,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteBoolParameterCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4910
@@ -3495,8 +3495,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInputEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5025
@@ -3516,8 +3516,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInputErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5026
@@ -3536,8 +3536,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInputCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5029
@@ -3556,8 +3556,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInputValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5030
@@ -3576,8 +3576,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInputValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5030
@@ -3596,8 +3596,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutputEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5147
@@ -3617,8 +3617,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutputErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5148
@@ -3637,8 +3637,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutputCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5150
@@ -3657,8 +3657,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutputValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5150
@@ -3677,8 +3677,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutputValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5151
@@ -3697,8 +3697,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteDigitalOutputExecute_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5266
@@ -3718,8 +3718,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteDigitalOutputErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5267
@@ -3738,8 +3738,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteDigitalOutputCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5269
@@ -3758,8 +3758,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteDigitalOutputParameterPV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5270
@@ -3778,8 +3778,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadStatusEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5517
@@ -3799,8 +3799,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadStatusDone_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5518
@@ -3819,8 +3819,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadStatusStateNumber
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5519
@@ -3839,8 +3839,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionStateEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5578
@@ -3860,8 +3860,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionStateErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5579
@@ -3880,8 +3880,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionStateCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5583
@@ -3900,8 +3900,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionStateValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5584
@@ -3920,8 +3920,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionStateValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5585
@@ -3940,8 +3940,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisErrorEnable_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5708
@@ -3961,8 +3961,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisErrorErrorID
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5711
@@ -3981,8 +3981,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisErrorCycle
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5711
@@ -4001,8 +4001,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisErrorValue
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5712
@@ -4021,8 +4021,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisErrorValid
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5712
@@ -4041,8 +4041,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.LastMessageCode
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5714
@@ -4061,8 +4061,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ResetState
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5837
@@ -4082,8 +4082,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ResetPower_PV
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5838
@@ -4102,8 +4102,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.Run
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 150
@@ -4133,8 +4133,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.UpdateInputs
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1559
@@ -4156,8 +4156,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.UpdateOutputs
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1693
@@ -4179,8 +4179,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_Power
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1878
@@ -4204,8 +4204,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_Home
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 1933
@@ -4239,8 +4239,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_Stop
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2318
@@ -4268,8 +4268,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_Halt
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2489
@@ -4297,8 +4297,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAbsolute
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2652
@@ -4336,8 +4336,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveRelative
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 2892
@@ -4373,8 +4373,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveAdditive
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3140
@@ -4410,8 +4410,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_MoveVelocity
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3390
@@ -4447,8 +4447,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_TorqueControl
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 3675
@@ -4490,8 +4490,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4032
@@ -4521,8 +4521,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_SetOverride
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4253
@@ -4552,8 +4552,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4323
@@ -4579,8 +4579,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadRealParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4441
@@ -4606,8 +4606,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadBoolParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4556
@@ -4633,8 +4633,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4670
@@ -4664,8 +4664,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteRealParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4792
@@ -4695,8 +4695,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteBoolParameter
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 4911
@@ -4726,8 +4726,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalInput
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5031
@@ -4753,8 +4753,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadDigitalOutput
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5152
@@ -4780,8 +4780,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_WriteDigitalOutput
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5270
@@ -4811,8 +4811,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadActualPosition
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5443
@@ -4836,8 +4836,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadActualVelocity
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5461
@@ -4861,8 +4861,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadActualTorque
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5489
@@ -4886,8 +4886,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadStatus
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5524
@@ -4911,8 +4911,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadMotionState
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5586
@@ -4938,8 +4938,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisInfo
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5636
@@ -4963,8 +4963,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_ReadAxisError
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5716
@@ -4988,8 +4988,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.MC_Reset
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5839
@@ -5013,8 +5013,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.Restore
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 5922
@@ -5034,8 +5034,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.CallTimers
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 6020
@@ -5057,8 +5057,8 @@ items:
   source:
     remote:
       path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc.CallTimers
     path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st
     startLine: 6020

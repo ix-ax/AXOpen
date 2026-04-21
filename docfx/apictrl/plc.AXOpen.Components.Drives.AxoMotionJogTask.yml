@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoMotionJogTask
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
     startLine: 3
@@ -68,8 +68,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StartMotion
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
     startLine: 6
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StopMotion
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
     startLine: 7
@@ -108,8 +108,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOn
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
     startLine: 9
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOff
     path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
     startLine: 13

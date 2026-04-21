@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspectorData
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
     startLine: 0
@@ -45,8 +45,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspectorData.RequiredMin
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
     startLine: 8
@@ -65,8 +65,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspectorData.DetectedStatus
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
     startLine: 12
@@ -85,8 +85,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspectorData.RequiredMax
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspectorData.st
     startLine: 16

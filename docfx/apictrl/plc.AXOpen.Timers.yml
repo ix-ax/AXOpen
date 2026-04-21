@@ -13,8 +13,8 @@ items:
   source:
     remote:
       path: .\src\timers\ctrl\src\AxoBlinker.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Timers
     path: .\src\timers\ctrl\src\AxoBlinker.st
     startLine: 0

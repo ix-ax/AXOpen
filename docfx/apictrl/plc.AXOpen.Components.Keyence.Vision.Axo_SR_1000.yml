@@ -80,8 +80,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 7
@@ -123,8 +123,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._ResultDataSize
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 10
@@ -143,8 +143,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._UserDataSize
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 11
@@ -163,8 +163,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._progress
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 13
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._infoTimer
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 14
@@ -203,8 +203,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._errorTimer
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 15
@@ -223,8 +223,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inspectionCompleted
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 16
@@ -243,8 +243,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_in
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 17
@@ -263,8 +263,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._Bank
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 18
@@ -283,8 +283,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._UserDataChanged
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 19
@@ -303,8 +303,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._invalidDataSize
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 21
@@ -323,8 +323,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._retVal
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 22
@@ -343,8 +343,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._word
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 23
@@ -363,8 +363,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_1
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 24
@@ -383,8 +383,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_2
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 25
@@ -403,8 +403,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_34
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 26
@@ -423,8 +423,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_66
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 27
@@ -443,8 +443,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_130
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 28
@@ -463,8 +463,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_254
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 29
@@ -483,8 +483,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._prevResultDataReadyCount
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 31
@@ -503,8 +503,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._prevResultDataUpdateCount
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 32
@@ -523,8 +523,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._resultString
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 33
@@ -543,8 +543,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._initHwCheckDone
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 35
@@ -563,8 +563,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._geoAddr
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 36
@@ -583,8 +583,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outHwid
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 37
@@ -603,8 +603,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._startAddress
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 38
@@ -623,8 +623,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._bytesCount
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 39
@@ -643,8 +643,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._blink
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 40
@@ -663,8 +663,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._programNo
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 41
@@ -683,8 +683,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._IDcode
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 42
@@ -703,8 +703,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._automaticStart
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 43
@@ -723,8 +723,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inputsAddress
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 44
@@ -743,8 +743,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inputsCount
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 45
@@ -763,8 +763,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outputsAddress
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 46
@@ -783,8 +783,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outputsCount
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 47
@@ -803,8 +803,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Bank
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 51
@@ -823,8 +823,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ReadTask
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 56
@@ -843,8 +843,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ResultData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 58
@@ -863,8 +863,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.RestoreTask
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 67
@@ -883,8 +883,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ClearResultDataTask
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 71
@@ -903,8 +903,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TuneTask
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 74
@@ -923,8 +923,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Config
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 80
@@ -943,8 +943,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Status
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 87
@@ -963,8 +963,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Results
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 92
@@ -983,8 +983,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.HandshakeAndGeneralErrorStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 99
@@ -1003,8 +1003,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.BUSY_Status
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 107
@@ -1023,8 +1023,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CompletionStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 114
@@ -1043,8 +1043,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ErrorStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 121
@@ -1063,8 +1063,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TerminalStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 128
@@ -1083,8 +1083,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.UnstableReadStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 135
@@ -1103,8 +1103,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.MatchingLevelAndTotalEvaluationGradeStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 142
@@ -1123,8 +1123,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.OperationalResultStatus
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 149
@@ -1143,8 +1143,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ReadData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 156
@@ -1163,8 +1163,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.LatchAndErrorClearControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 164
@@ -1183,8 +1183,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.OperationInstructionControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 171
@@ -1203,8 +1203,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CompletionClearControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 178
@@ -1223,8 +1223,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ParameterBankNumber
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 185
@@ -1243,8 +1243,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.User
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 192
@@ -1263,8 +1263,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.UserData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 199
@@ -1283,8 +1283,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.HardwareDiagnosticsTask
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 208
@@ -1303,8 +1303,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Messenger
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 217
@@ -1323,8 +1323,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TaskMessenger
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 218
@@ -1343,8 +1343,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Run
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 221
@@ -1368,8 +1368,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ClearResultData
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1918
@@ -1389,8 +1389,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Read
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1920
@@ -1412,8 +1412,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Tune
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1926
@@ -1435,8 +1435,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Read
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1932
@@ -1456,8 +1456,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CallTimers
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1948
@@ -1479,8 +1479,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ContinuousReading
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1959
@@ -1500,8 +1500,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ManualControl
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1982
@@ -1521,8 +1521,8 @@ items:
   source:
     remote:
       path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Restore
     path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st
     startLine: 1987

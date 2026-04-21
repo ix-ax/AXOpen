@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareDiagnostics
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
     startLine: 7
@@ -112,8 +112,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareDiagnostics.hardwareID
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
     startLine: 10
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareDiagnostics.GetDiagnosticsReturnCode
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
     startLine: 13
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareDiagnostics.diagnosticDetails
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
     startLine: 17
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Io.AxoHardwareDiagnostics.Run
     path: .\src\io\ctrl\src\AxoIoComponent\AxoHardwareDiagnostics.st
     startLine: 24

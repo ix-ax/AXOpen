@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors
     path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
     startLine: 0

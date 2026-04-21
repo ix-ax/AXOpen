@@ -36,8 +36,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 0
@@ -57,8 +57,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Fragmented
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 5
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FirstFragment
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 6
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_MiddleFragment
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 8
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_LastFragment
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 10
@@ -137,8 +137,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_12
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 12
@@ -157,8 +157,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_13
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 14
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_14
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 16
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_15
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 18
@@ -217,8 +217,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TransferEnabled
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 20
@@ -237,8 +237,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_HandshakeEnabled
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 22
@@ -257,8 +257,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FragmentationEnabled
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 24
@@ -277,8 +277,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_CacheOverflow
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 26
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_InputDataOverflow
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 28
@@ -317,8 +317,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_WaitingForHandshake
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 30
@@ -337,8 +337,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TriggerState
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 32
@@ -357,8 +357,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_ScannerType
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 34
@@ -377,8 +377,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.UpdateCounter
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 37
@@ -397,8 +397,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BarcodeType
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 38
@@ -417,8 +417,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.NumberOfAttachedScanners
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 40
@@ -437,8 +437,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryStateOfCharge
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 43
@@ -457,8 +457,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryVoltage
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 45
@@ -477,8 +477,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryTemp
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 47
@@ -497,8 +497,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryDateOfManufacture
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 50
@@ -517,8 +517,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Reserved
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 51
@@ -537,8 +537,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Length
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 53
@@ -557,8 +557,8 @@ items:
   source:
     remote:
       path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Data
     path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
     startLine: 55

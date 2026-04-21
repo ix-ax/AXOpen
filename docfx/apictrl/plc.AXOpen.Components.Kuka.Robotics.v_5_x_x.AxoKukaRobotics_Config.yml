@@ -14,8 +14,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
     startLine: 0
@@ -35,8 +35,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.InfoTime
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
     startLine: 5
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.ErrorTime
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
     startLine: 7
@@ -75,8 +75,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.TaskTimeout
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
     startLine: 9
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.HWIDs
     path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
     startLine: 11

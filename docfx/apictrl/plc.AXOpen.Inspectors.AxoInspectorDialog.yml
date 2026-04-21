@@ -26,8 +26,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 8
@@ -138,8 +138,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._isOverInspected
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 16
@@ -158,8 +158,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._dialogueRetry
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 17
@@ -178,8 +178,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._dialogueTerminate
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 18
@@ -198,8 +198,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._dialogueOverride
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 19
@@ -218,8 +218,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._inspectorIndentity
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 20
@@ -238,8 +238,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._inspectionDetails
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 20
@@ -258,8 +258,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._inspectorType
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 22
@@ -278,8 +278,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._analogInspectorData
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 23
@@ -298,8 +298,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._digitalInspectorData
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 26
@@ -318,8 +318,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._dataInspectorData
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 29
@@ -338,8 +338,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._lastCall
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 36
@@ -358,8 +358,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._createPlcCycleSpace
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 36
@@ -378,8 +378,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._isActive
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 41
@@ -398,8 +398,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog._isAnswerProvided
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 42
@@ -418,8 +418,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog.Show
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 47
@@ -445,8 +445,8 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
-      branch: INT000053_Template_V2
-      repo: https://github.com/Inxton/axopen.templates.git
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorDialog.Restore
     path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
     startLine: 143
