@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.OUT
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.IN
+  name: PROFIdriveTelegram_750
+  fullName: PROFIdriveTelegram_750
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_750
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.OUT
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.OUT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: OUT
+  fullName: OUT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.OUT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'OUT : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.IN
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.IN
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: IN
+  fullName: IN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750.IN
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'IN : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+references:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+  name: PROFIdriveTelegram_750_OUT
+  nameWithType: PROFIdriveTelegram_750_OUT
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+  name: PROFIdriveTelegram_750_IN
+  nameWithType: PROFIdriveTelegram_750_IN
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+
+

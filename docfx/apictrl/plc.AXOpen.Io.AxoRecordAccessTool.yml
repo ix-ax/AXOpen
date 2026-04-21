@@ -1,0 +1,492 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoRecordAccessTool
+  id: plc.AXOpen.Io.AxoRecordAccessTool
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoRecordAccessTool.hardwareID
+  - plc.AXOpen.Io.AxoRecordAccessTool.index
+  - plc.AXOpen.Io.AxoRecordAccessTool.length
+  - plc.AXOpen.Io.AxoRecordAccessTool.status
+  - plc.AXOpen.Io.AxoRecordAccessTool.Data
+  - plc.AXOpen.Io.AxoRecordAccessTool.ReadRecordTask
+  - plc.AXOpen.Io.AxoRecordAccessTool.WriteRecordTask
+  - plc.AXOpen.Io.AxoRecordAccessTool.RestoreTask
+  - plc.AXOpen.Io.AxoRecordAccessTool._writeRecord
+  - plc.AXOpen.Io.AxoRecordAccessTool._readRecord
+  - plc.AXOpen.Io.AxoRecordAccessTool._data
+  - plc.AXOpen.Io.AxoRecordAccessTool.Run(IAxoObject)
+  - plc.AXOpen.Io.AxoRecordAccessTool.ManualControl()
+  - plc.AXOpen.Io.AxoRecordAccessTool.Restore()
+  name: AxoRecordAccessTool
+  fullName: AxoRecordAccessTool
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoRecordAccessTool
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.hardwareID
+  id: plc.AXOpen.Io.AxoRecordAccessTool.hardwareID
+  parent: AXOpen.Io
+  children: []
+  name: hardwareID
+  fullName: hardwareID
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.hardwareID
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'hardwareID : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.index
+  id: plc.AXOpen.Io.AxoRecordAccessTool.index
+  parent: AXOpen.Io
+  children: []
+  name: index
+  fullName: index
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.index
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 14
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'index : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.length
+  id: plc.AXOpen.Io.AxoRecordAccessTool.length
+  parent: AXOpen.Io
+  children: []
+  name: length
+  fullName: length
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.length
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 17
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'length : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.status
+  id: plc.AXOpen.Io.AxoRecordAccessTool.status
+  parent: AXOpen.Io
+  children: []
+  name: status
+  fullName: status
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.status
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 21
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'status : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.Data
+  id: plc.AXOpen.Io.AxoRecordAccessTool.Data
+  parent: AXOpen.Io
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.Data
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 24
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Data : AXOpen.Io.AxoRecordAccessData'
+    return:
+      type: AXOpen.Io.AxoRecordAccessData
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.ReadRecordTask
+  id: plc.AXOpen.Io.AxoRecordAccessTool.ReadRecordTask
+  parent: AXOpen.Io
+  children: []
+  name: ReadRecordTask
+  fullName: ReadRecordTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.ReadRecordTask
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 27
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ReadRecordTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.WriteRecordTask
+  id: plc.AXOpen.Io.AxoRecordAccessTool.WriteRecordTask
+  parent: AXOpen.Io
+  children: []
+  name: WriteRecordTask
+  fullName: WriteRecordTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.WriteRecordTask
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 30
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'WriteRecordTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.RestoreTask
+  id: plc.AXOpen.Io.AxoRecordAccessTool.RestoreTask
+  parent: AXOpen.Io
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.RestoreTask
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 33
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoRecordAccessTool._writeRecord
+  id: plc.AXOpen.Io.AxoRecordAccessTool._writeRecord
+  parent: AXOpen.Io
+  children: []
+  name: _writeRecord
+  fullName: _writeRecord
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool._writeRecord
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 39
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_writeRecord : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoRecordAccessTool._readRecord
+  id: plc.AXOpen.Io.AxoRecordAccessTool._readRecord
+  parent: AXOpen.Io
+  children: []
+  name: _readRecord
+  fullName: _readRecord
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool._readRecord
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 41
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_readRecord : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoRecordAccessTool._data
+  id: plc.AXOpen.Io.AxoRecordAccessTool._data
+  parent: AXOpen.Io
+  children: []
+  name: _data
+  fullName: _data
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool._data
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 41
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_data : ARRAY [0..1] OF BYTE'
+    return:
+      type: ARRAY [0..1] OF BYTE
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.Run(IAxoObject)
+  id: plc.AXOpen.Io.AxoRecordAccessTool.Run(IAxoObject)
+  parent: AXOpen.Io.AxoRecordAccessTool
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.Run
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 45
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.ManualControl()
+  id: plc.AXOpen.Io.AxoRecordAccessTool.ManualControl()
+  parent: AXOpen.Io.AxoRecordAccessTool
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.ManualControl
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 98
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoRecordAccessTool.Restore()
+  id: plc.AXOpen.Io.AxoRecordAccessTool.Restore()
+  parent: AXOpen.Io.AxoRecordAccessTool
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoRecordAccessTool.Restore
+    path: .\src\io\ctrl\src\AxoRecordAccessTool\AxoRecordAccessTool.st
+    startLine: 103
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.AXOpen.Io.AxoRecordAccessData
+  name: AxoRecordAccessData
+  nameWithType: AxoRecordAccessData
+  fullName: AXOpen.Io.AxoRecordAccessData
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.ARRAY [0..1] OF BYTE
+  name: ARRAY [0..1] OF BYTE
+  nameWithType: ARRAY [0..1] OF BYTE
+  fullName: ARRAY [0..1] OF BYTE
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

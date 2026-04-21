@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoRoboticsMovementsParams | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoRoboticsMovementsParams | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axoroboticsmovementsparams">AxoRoboticsMovementsParams</h1>
+
+<p><em>Movement command parameters for <code>IAxoRobotics.StartMovements</code>.</em></p>
+<h2 id="description">Description</h2>
+<p><code>AxoRoboticsMovementsParams</code> (namespace <code>AXOpen.Components.Abstractions.Robotics</code>) bundles the fields that <code>IAxoRobotics.StartMovements</code> consumes via <code>VAR_IN_OUT</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ActionNo</code></td>
+<td><code>BYTE</code></td>
+<td>Action identifier recognized by the robot program.</td>
+</tr>
+<tr>
+<td><code>GlobalSpeed</code></td>
+<td><code>BYTE</code></td>
+<td>Global speed override (0-100 %).</td>
+</tr>
+<tr>
+<td><code>ToolNo</code></td>
+<td><code>BYTE</code></td>
+<td>Active tool index.</td>
+</tr>
+<tr>
+<td><code>WorkobjectNo</code></td>
+<td><code>BYTE</code></td>
+<td>Active workobject / frame index.</td>
+</tr>
+<tr>
+<td><code>PointNo</code></td>
+<td><code>BYTE</code></td>
+<td>Target point index (when the robot program selects points by index).</td>
+</tr>
+<tr>
+<td><code>UserSpecSpeed1</code></td>
+<td><code>INT</code></td>
+<td>User-defined speed 1 (vendor-specific meaning).</td>
+</tr>
+<tr>
+<td><code>UserSpecSpeed2</code></td>
+<td><code>INT</code></td>
+<td>User-defined speed 2.</td>
+</tr>
+<tr>
+<td><code>Coordinates</code></td>
+<td><a href="AxoRoboticsCoordinates.html"><code>AxoRoboticsCoordinates</code></a></td>
+<td>Target pose.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="showcase--populating-the-parameter-block">Showcase — populating the parameter block</h2>
+<pre><code class="lang-pascal">// AxoRoboticsCoordinates: 6-axis position (X, Y, Z, Rx, Ry, Rz)
+_robotCoordinates.X := REAL#100.0;
+_robotCoordinates.Y := REAL#200.0;
+_robotCoordinates.Z := REAL#50.0;
+_robotCoordinates.Rx := REAL#0.0;
+_robotCoordinates.Ry := REAL#90.0;
+_robotCoordinates.Rz := REAL#0.0;
+
+// AxoRoboticsMovementsParams: movement configuration
+_movementParams.ActionNo := BYTE#1;
+_movementParams.GlobalSpeed := BYTE#50;
+_movementParams.ToolNo := BYTE#1;
+_movementParams.WorkobjectNo := BYTE#0;
+_movementParams.Coordinates := _robotCoordinates;
+</code></pre><h2 id="source-reference">Source reference</h2>
+<p><code>axopen/src/components.abstractions/ctrl/src/AxoRobotics/AxoRoboticsMovementsParams.st</code>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

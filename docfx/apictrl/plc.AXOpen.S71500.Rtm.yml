@@ -1,0 +1,84 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.S71500.Rtm
+  id: plc.AXOpen.S71500.Rtm
+  parent: plc.AXOpen.S71500
+  children:
+  - plc.AXOpen.S71500.Rtm._timer
+  - plc.AXOpen.S71500.Rtm.Elapsed()
+  name: Rtm
+  fullName: Rtm
+  type: Class
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtm
+    path: .\src\simatic1500\ctrl\src\Rtm.st
+    startLine: 3
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: CLASS Rtm
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.S71500.Rtm._timer
+  id: plc.AXOpen.S71500.Rtm._timer
+  parent: AXOpen.S71500
+  children: []
+  name: _timer
+  fullName: _timer
+  type: Property
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtm._timer
+    path: .\src\simatic1500\ctrl\src\Rtm.st
+    startLine: 5
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: '_timer : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.S71500.Rtm.Elapsed()
+  id: plc.AXOpen.S71500.Rtm.Elapsed()
+  parent: AXOpen.S71500.Rtm
+  children: []
+  name: Elapsed
+  fullName: Elapsed
+  type: Method
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtm.Elapsed
+    path: .\src\simatic1500\ctrl\src\Rtm.st
+    startLine: 7
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: Public LTIME Elapsed()
+    parameters: []
+    return:
+      type: plc.LTIME
+references:
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  commentId: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: plc.AXOpen.Rtm.IAxoRtm
+  parent: plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

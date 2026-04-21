@@ -1,0 +1,1057 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._infoTimer
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._errorTimer
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._context
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._dword
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data10
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data42
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data48
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._initHwCheckDone
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._retval
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._geoAddr
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outHwid
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._blink
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsAddress
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsCount
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsAddress
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsCount
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Results
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RestoreTask
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandTask
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandParameters
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResultsTask
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurveTask
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Config
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Status
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Messenger
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.TaskMessenger
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._progress
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Inputs
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Outputs
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommand(REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x)
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResults()
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurve()
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.CallTimers(BOOL)
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ManualControl()
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Restore()
+  name: AxoSmartFunctionKit_v_4_x_x
+  fullName: AxoSmartFunctionKit_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_v_4_x_x
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._infoTimer
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._infoTimer
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._infoTimer
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._errorTimer
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._errorTimer
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._errorTimer
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._context
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._context
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._context
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._dword
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._dword
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._dword
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data10
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data10
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _data10
+  fullName: _data10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data10
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_data10 : ARRAY [0..9] OF BYTE'
+    return:
+      type: ARRAY [0..9] OF BYTE
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data42
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data42
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _data42
+  fullName: _data42
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data42
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_data42 : ARRAY [0..41] OF BYTE'
+    return:
+      type: ARRAY [0..41] OF BYTE
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data48
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data48
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _data48
+  fullName: _data48
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._data48
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_data48 : ARRAY [0..47] OF BYTE'
+    return:
+      type: ARRAY [0..47] OF BYTE
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._initHwCheckDone
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._initHwCheckDone
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._initHwCheckDone
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._retval
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._retval
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._retval
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._geoAddr
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._geoAddr
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._geoAddr
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outHwid
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outHwid
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outHwid
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._blink
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._blink
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._blink
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsAddress
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsAddress
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsAddress
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsCount
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsCount
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._inputsCount
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsAddress
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsAddress
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsAddress
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsCount
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsCount
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._outputsCount
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Results
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Results
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Results
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Results : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RestoreTask
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RestoreTask
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RestoreTask
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandTask
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandTask
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RunCommandTask
+  fullName: RunCommandTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandTask
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'RunCommandTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandParameters
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandParameters
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RunCommandParameters
+  fullName: RunCommandParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommandParameters
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'RunCommandParameters : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResultsTask
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResultsTask
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: GetResultsTask
+  fullName: GetResultsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResultsTask
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'GetResultsTask : AXOpen.Core.AxoRemoteTask'
+    return:
+      type: AXOpen.Core.AxoRemoteTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurveTask
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurveTask
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ExportCurveTask
+  fullName: ExportCurveTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurveTask
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'ExportCurveTask : AXOpen.Core.AxoRemoteTask'
+    return:
+      type: AXOpen.Core.AxoRemoteTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Config
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Config
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Config
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Config : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Status
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Status
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Status
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Status : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Messenger
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Messenger
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Messenger
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.TaskMessenger
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.TaskMessenger
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.TaskMessenger
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._progress
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._progress
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x._progress
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Inputs
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Inputs
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Inputs
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Inputs : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Outputs
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Outputs
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Outputs
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Outputs : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.HardwareDiagnosticsTask
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Run
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommand(REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x)
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommand(REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x)
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: RunCommand
+  fullName: RunCommand
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.RunCommand
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 742
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState RunCommand(in plc.REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x Parameters)
+    parameters:
+    - id: Parameters
+      type: plc.REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResults()
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResults()
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: GetResults
+  fullName: GetResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.GetResults
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 762
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState GetResults()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurve()
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurve()
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: ExportCurve
+  fullName: ExportCurve
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ExportCurve
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 767
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ExportCurve()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.CallTimers(BOOL)
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.CallTimers
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 775
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ManualControl()
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ManualControl()
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.ManualControl
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 781
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Restore()
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Restore()
+  parent: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x.Restore
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKit_v_4_x_x.st
+    startLine: 781
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.ARRAY [0..9] OF BYTE
+  name: ARRAY [0..9] OF BYTE
+  nameWithType: ARRAY [0..9] OF BYTE
+  fullName: ARRAY [0..9] OF BYTE
+- uid: plc.ARRAY [0..41] OF BYTE
+  name: ARRAY [0..41] OF BYTE
+  nameWithType: ARRAY [0..41] OF BYTE
+  fullName: ARRAY [0..41] OF BYTE
+- uid: plc.ARRAY [0..47] OF BYTE
+  name: ARRAY [0..47] OF BYTE
+  nameWithType: ARRAY [0..47] OF BYTE
+  fullName: ARRAY [0..47] OF BYTE
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+  name: AxoSmartFunctionKitResults_v_4_x_x
+  nameWithType: AxoSmartFunctionKitResults_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+  name: AxoSmartFunctionKitRequest_v_4_x_x
+  nameWithType: AxoSmartFunctionKitRequest_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+- uid: plc.AXOpen.Core.AxoRemoteTask
+  name: AxoRemoteTask
+  nameWithType: AxoRemoteTask
+  fullName: AXOpen.Core.AxoRemoteTask
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+  name: AxoSmartFunctionKit_Config_v_4_x_x
+  nameWithType: AxoSmartFunctionKit_Config_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  name: AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  nameWithType: AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+  name: AxoSmartFunctionKit_State_v_4_x_x
+  nameWithType: AxoSmartFunctionKit_State_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+  name: AxoSmartFunctionKit_Control_v_4_x_x
+  nameWithType: AxoSmartFunctionKit_Control_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+  name: REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+  nameWithType: REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+  fullName: REF_TO AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+
+

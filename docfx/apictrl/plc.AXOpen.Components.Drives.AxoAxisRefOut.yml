@@ -1,0 +1,185 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.ParameterChannel
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.DriveControl
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.OpModeControl
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceA
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceB
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.Acceleration
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut.Decceleration
+  name: AxoAxisRefOut
+  fullName: AxoAxisRefOut
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoAxisRefOut
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.ParameterChannel
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ParameterChannel
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ParameterChannel
+  fullName: ParameterChannel
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ParameterChannel
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ParameterChannel : AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut'
+    return:
+      type: AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.DriveControl
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.DriveControl
+  parent: AXOpen.Components.Drives
+  children: []
+  name: DriveControl
+  fullName: DriveControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.DriveControl
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'DriveControl : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.OpModeControl
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.OpModeControl
+  parent: AXOpen.Components.Drives
+  children: []
+  name: OpModeControl
+  fullName: OpModeControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.OpModeControl
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'OpModeControl : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceA
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceA
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ReferenceA
+  fullName: ReferenceA
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceA
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ReferenceA : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceB
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceB
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ReferenceB
+  fullName: ReferenceB
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.ReferenceB
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ReferenceB : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.Acceleration
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Acceleration
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Acceleration
+  fullName: Acceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Acceleration
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'Acceleration : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut.Decceleration
+  id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Decceleration
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Decceleration
+  fullName: Decceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefOut.Decceleration
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'Decceleration : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+  name: AxoDriveParameterChannelIdnOut
+  nameWithType: AxoDriveParameterChannelIdnOut
+  fullName: AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+
+

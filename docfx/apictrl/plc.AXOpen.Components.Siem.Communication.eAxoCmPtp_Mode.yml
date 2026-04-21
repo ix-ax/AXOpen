@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS232
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_ptp
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mpm
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mps
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.HalfDuplexRS485_2wire_1
+  name: eAxoCmPtp_Mode
+  fullName: eAxoCmPtp_Mode
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_Mode : USINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS232
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS232
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: FullDuplexRS232 :=   USINT#0
+  fullName: FullDuplexRS232
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS232
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_ptp
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_ptp
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: FullDuplexRS422_4wire_ptp :=   USINT#1
+  fullName: FullDuplexRS422_4wire_ptp
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_ptp
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mpm
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mpm
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: FullDuplexRS422_4wire_mpm :=   USINT#2
+  fullName: FullDuplexRS422_4wire_mpm
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mpm
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mps
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mps
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: FullDuplexRS422_4wire_mps :=   USINT#3
+  fullName: FullDuplexRS422_4wire_mps
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.FullDuplexRS422_4wire_mps
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.HalfDuplexRS485_2wire_1
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.HalfDuplexRS485_2wire_1
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: HalfDuplexRS485_2wire_1 :=   USINT#4
+  fullName: HalfDuplexRS485_2wire_1
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode.HalfDuplexRS485_2wire_1
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Mode.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+
+

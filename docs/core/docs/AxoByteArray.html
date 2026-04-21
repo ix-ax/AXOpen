@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoByteArray | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoByteArray | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axobytearray">AxoByteArray</h1>
+
+<p><code>AxoByteArray</code> provides a base class for declaring arrays of <code>BYTE</code> values with HMI integration. The display format can be configured per instance using the <code>DisplayFormat</code> attribute — either <code>&quot;hexadecimal&quot;</code> (shows <code>0xAB</code>) or <code>&quot;string&quot;</code> (interprets bytes as ASCII characters).</p>
+<h2 id="usage">Usage</h2>
+<h3 id="declare-custom-types">Declare custom types</h3>
+<p>Extend <code>AxoByteArray</code> and add a <code>Data</code> array. Set <code>DisplayFormat</code> to control rendering:</p>
+<pre><code class="lang-smalltalk">// Extend AxoByteArray and declare a Data array of the desired size.
+// DisplayFormat controls HMI rendering: &quot;hexadecimal&quot; or &quot;string&quot;.
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;Byte array type with 10 items&quot;}
+{#ix-set:DisplayFormat = &quot;hexadecimal&quot;}
+{S7.extern=ReadWrite}
+CLASS PUBLIC AxoByteArray10 EXTENDS AXOpen.Core.AxoByteArray
+    VAR PUBLIC
+        Data : ARRAY [0..9] OF BYTE;
+    END_VAR
+END_CLASS
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;Byte array type with 20 items&quot;}
+{#ix-set:DisplayFormat = &quot;string&quot;}
+{S7.extern=ReadWrite}
+CLASS PUBLIC AxoByteArray20 EXTENDS AXOpen.Core.AxoByteArray
+    VAR PUBLIC
+        Data : ARRAY [0..19] OF BYTE;
+    END_VAR
+END_CLASS
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;Byte array type with 30 items&quot;}
+{#ix-set:DisplayFormat = &quot;string&quot;}
+{S7.extern=ReadWrite}
+CLASS PUBLIC AxoByteArray30 EXTENDS AXOpen.Core.AxoByteArray
+    VAR PUBLIC
+        Data : ARRAY [0..29] OF BYTE;
+    END_VAR
+END_CLASS
+</code></pre><h3 id="declare-instances">Declare instances</h3>
+<p>Use <code>{#ix-attr:[ReadOnly()]}</code> to make arrays read-only on the HMI, or omit it to allow HMI writes:</p>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    {#ix-attr:[Container(Layout.Stack)]}
+    {#ix-set:AttributeName = &quot;Byte array instance with 10 items&quot;}
+    {#ix-attr:[ReadOnly()]}
+    MyArray10 : AxoByteArray10;
+    {#ix-attr:[Container(Layout.Stack)]}
+    {#ix-set:AttributeName = &quot;Byte array instance with 20 items&quot;}
+    {#ix-attr:[ReadOnly()]}
+    MyArray20 : AxoByteArray20;
+    {#ix-attr:[Container(Layout.Stack)]}
+    {#ix-set:AttributeName = &quot;Byte array instance with 30 items&quot;}
+    MyArray30 : AxoByteArray30;
+END_VAR
+</code></pre><h3 id="write-data-and-detect-changes">Write data and detect changes</h3>
+<p>Call <code>ToggleDataChangedFlag()</code> after PLC writes. Use <code>DataHasChanged()</code> to detect HMI writes:</p>
+<pre><code class="lang-smalltalk">METHOD PUBLIC Execute
+    VAR
+        _openCycleCount : ULINT;
+        _i : INT;
+    END_VAR
+
+    _openCycleCount := THIS.GetContext().OpenCycleCount();
+
+    // Write byte values into array each cycle
+    FOR _i := 0 TO 9 DO
+        MyArray10.Data[_i] := TO_BYTE(_openCycleCount * TO_ULINT(_i + INT#1));
+    END_FOR;
+
+    // Periodic update of second array
+    IF _openCycleCount &gt;= _openCycleCount_PV + ULINT#300 THEN
+        FOR _i := 0 TO 19 DO
+            MyArray20.Data[_i] := TO_BYTE(_openCycleCount / TO_ULINT(_i+ INT#1));
+        END_FOR;
+    END_IF;
+
+    // ToggleDataChangedFlag signals HMI that data was updated
+    IF _openCycleCount MOD ULINT#100 = ULINT#0 THEN
+        MyArray10.ToggleDataChangedFlag();
+        MyArray20.ToggleDataChangedFlag();
+    END_IF;
+
+    // DataHasChanged detects when HMI writes new values
+    IF MyArray30.DataHasChanged() THEN
+        FOR _i := 0 TO 19 DO
+            MyArray20.Data[_i] := MyArray30.Data[_i];
+        END_FOR;
+        MyArray20.ToggleDataChangedFlag();
+        _openCycleCount_PV := _openCycleCount;
+    END_IF;
+END_METHOD
+</code></pre><h2 id="key-api">Key API</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ToggleDataChangedFlag()</code></td>
+<td>Signals the HMI that array data was updated by the PLC</td>
+</tr>
+<tr>
+<td><code>DataHasChanged() : BOOL</code></td>
+<td>Returns <code>TRUE</code> when the HMI has written new values into the array</td>
+</tr>
+</tbody>
+</table>
+<h2 id="display-formats">Display Formats</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Attribute</th>
+<th>Rendering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hexadecimal</td>
+<td><code>{#ix-set:DisplayFormat = &quot;hexadecimal&quot;}</code></td>
+<td>Each byte shown as <code>0x00</code>..<code>0xFF</code></td>
+</tr>
+<tr>
+<td>String</td>
+<td><code>{#ix-set:DisplayFormat = &quot;string&quot;}</code></td>
+<td>Bytes interpreted as ASCII characters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Arrays are 0-based per AXOpen convention</li>
+<li><code>ReadOnly()</code> attribute prevents HMI from modifying values — useful for status/diagnostic arrays</li>
+<li>Writable arrays (without <code>ReadOnly</code>) support bidirectional data exchange between PLC and HMI</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

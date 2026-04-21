@@ -1,0 +1,734 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext
+  id: plc.AXOpen.Core.Dummies.MockAxoContext
+  parent: plc.AXOpen.Core.Dummies
+  children:
+  - plc.AXOpen.Core.Dummies.MockAxoContext._openCounter
+  - plc.AXOpen.Core.Dummies.MockAxoContext._closeCounter
+  - plc.AXOpen.Core.Dummies.MockAxoContext._identityCounter
+  - plc.AXOpen.Core.Dummies.MockAxoContext._messagingLevel
+  - plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTC
+  - plc.AXOpen.Core.Dummies.MockAxoContext._rtc
+  - plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTM
+  - plc.AXOpen.Core.Dummies.MockAxoContext._rtm
+  - plc.AXOpen.Core.Dummies.MockAxoContext.NULL_LOGGER
+  - plc.AXOpen.Core.Dummies.MockAxoContext._contextLogger
+  - plc.AXOpen.Core.Dummies.MockAxoContext.NULL_MESSENGER_SERVICE
+  - plc.AXOpen.Core.Dummies.MockAxoContext._messengerService
+  - plc.AXOpen.Core.Dummies.MockAxoContext.Main()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.Open()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.Close()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.IsValid()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.Run()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.OpenCycleCount()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.ClosedCycleCount()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.CreateIdentity()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.PeekIdentity()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.GetRtc()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtc(IAxoRtc)
+  - plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtm(IAxoRtm)
+  - plc.AXOpen.Core.Dummies.MockAxoContext.GetRtm()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.InitializeRootObject()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.GetLogger()
+  - plc.AXOpen.Core.Dummies.MockAxoContext.InjectLogger(IAxoLogger)
+  - plc.AXOpen.Core.Dummies.MockAxoContext.InjectMessengerService(IAxoMessagingServices)
+  - plc.AXOpen.Core.Dummies.MockAxoContext.GetMessengerService()
+  name: MockAxoContext
+  fullName: MockAxoContext
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 8
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: CLASS MockAxoContext
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._openCounter
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._openCounter
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _openCounter
+  fullName: _openCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._openCounter
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 13
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_openCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._closeCounter
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._closeCounter
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _closeCounter
+  fullName: _closeCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._closeCounter
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 15
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_closeCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._identityCounter
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._identityCounter
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _identityCounter
+  fullName: _identityCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._identityCounter
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 16
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_identityCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._messagingLevel
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._messagingLevel
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _messagingLevel
+  fullName: _messagingLevel
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._messagingLevel
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 17
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_messagingLevel : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTC
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTC
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: NULL_RTC
+  fullName: NULL_RTC
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTC
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 74
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: 'NULL_RTC : AXOpen.Core._NULL_RTC'
+    return:
+      type: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._rtc
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._rtc
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _rtc
+  fullName: _rtc
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._rtc
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 77
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_rtc : AXOpen.Rtc.IAxoRtc'
+    return:
+      type: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTM
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTM
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: NULL_RTM
+  fullName: NULL_RTM
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_RTM
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 99
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: 'NULL_RTM : AXOpen.Core._NULL_RTM'
+    return:
+      type: AXOpen.Core._NULL_RTM
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._rtm
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._rtm
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _rtm
+  fullName: _rtm
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._rtm
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 101
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_rtm : AXOpen.Rtm.IAxoRtm'
+    return:
+      type: AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_LOGGER
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_LOGGER
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: NULL_LOGGER
+  fullName: NULL_LOGGER
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_LOGGER
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 118
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: 'NULL_LOGGER : AXOpen.Core._NULL_LOGGER'
+    return:
+      type: AXOpen.Core._NULL_LOGGER
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._contextLogger
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._contextLogger
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _contextLogger
+  fullName: _contextLogger
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._contextLogger
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 121
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_contextLogger : AXOpen.Logging.IAxoLogger'
+    return:
+      type: AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_MESSENGER_SERVICE
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_MESSENGER_SERVICE
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: NULL_MESSENGER_SERVICE
+  fullName: NULL_MESSENGER_SERVICE
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.NULL_MESSENGER_SERVICE
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 147
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: 'NULL_MESSENGER_SERVICE : AXOpen.Core._NULL_MESSENGER_SERVICE'
+    return:
+      type: AXOpen.Core._NULL_MESSENGER_SERVICE
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext._messengerService
+  id: plc.AXOpen.Core.Dummies.MockAxoContext._messengerService
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _messengerService
+  fullName: _messengerService
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext._messengerService
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 150
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_messengerService : AXOpen.Core.IAxoMessagingServices'
+    return:
+      type: AXOpen.Core.IAxoMessagingServices
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.Main()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.Main()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: Main
+  fullName: Main
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.Main
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 20
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Protected VOID Main()
+    parameters: &o1 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.Open()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.Open()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: Open
+  fullName: Open
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.Open
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 27
+  namespace: plc.AXOpen.Core.Dummies
+  summary: The entry point for the context. The call tree of the context start here and all the logic of given contextmust be placed here.This method must be overridden in derived class.
+  syntax:
+    content: Public ULINT Open()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.Close()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.Close()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: Close
+  fullName: Close
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.Close
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 31
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public ULINT Close()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.IsValid()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.IsValid()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: IsValid
+  fullName: IsValid
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.IsValid
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 36
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public BOOL IsValid()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.Run()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.Run()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.Run
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 44
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID Run()
+    parameters: *o1
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.OpenCycleCount()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.OpenCycleCount()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: OpenCycleCount
+  fullName: OpenCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.OpenCycleCount
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 53
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public ULINT OpenCycleCount()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.ClosedCycleCount()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.ClosedCycleCount()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: ClosedCycleCount
+  fullName: ClosedCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.ClosedCycleCount
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 59
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public ULINT ClosedCycleCount()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.CreateIdentity()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.CreateIdentity()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: CreateIdentity
+  fullName: CreateIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.CreateIdentity
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 64
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public ULINT CreateIdentity()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.PeekIdentity()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.PeekIdentity()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: PeekIdentity
+  fullName: PeekIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.PeekIdentity
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 69
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public ULINT PeekIdentity()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtc()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtc()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: GetRtc
+  fullName: GetRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtc
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 78
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public AXOpen.Rtc.IAxoRtc GetRtc()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtc(IAxoRtc)
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtc(IAxoRtc)
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: InjectRtc
+  fullName: InjectRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtc
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 89
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID InjectRtc(in plc.AXOpen.Rtc.IAxoRtc Rtc)
+    parameters:
+    - id: Rtc
+      type: plc.AXOpen.Rtc.IAxoRtc
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtm(IAxoRtm)
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtm(IAxoRtm)
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: InjectRtm
+  fullName: InjectRtm
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectRtm
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 102
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID InjectRtm(in plc.AXOpen.Rtm.IAxoRtm inRtm)
+    parameters:
+    - id: inRtm
+      type: plc.AXOpen.Rtm.IAxoRtm
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtm()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtm()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: GetRtm
+  fullName: GetRtm
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.GetRtm
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 109
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public AXOpen.Rtm.IAxoRtm GetRtm()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.InitializeRootObject()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.InitializeRootObject()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: InitializeRootObject
+  fullName: InitializeRootObject
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.InitializeRootObject
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 123
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID InitializeRootObject()
+    parameters: *o1
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.GetLogger()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.GetLogger()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: GetLogger
+  fullName: GetLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.GetLogger
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 129
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public AXOpen.Logging.IAxoLogger GetLogger()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.InjectLogger(IAxoLogger)
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectLogger(IAxoLogger)
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: InjectLogger
+  fullName: InjectLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectLogger
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 140
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)
+    parameters:
+    - id: _logger
+      type: plc.AXOpen.Logging.IAxoLogger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.InjectMessengerService(IAxoMessagingServices)
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectMessengerService(IAxoMessagingServices)
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: InjectMessengerService
+  fullName: InjectMessengerService
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.InjectMessengerService
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 154
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID InjectMessengerService(in plc.AXOpen.Core.IAxoMessagingServices inMessengerService)
+    parameters:
+    - id: inMessengerService
+      type: plc.AXOpen.Core.IAxoMessagingServices
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext.GetMessengerService()
+  id: plc.AXOpen.Core.Dummies.MockAxoContext.GetMessengerService()
+  parent: AXOpen.Core.Dummies.MockAxoContext
+  children: []
+  name: GetMessengerService
+  fullName: GetMessengerService
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoContext.GetMessengerService
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 159
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public AXOpen.Core.IAxoMessagingServices GetMessengerService()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoMessagingServices
+references:
+- uid: plc.AXOpen.Core.IAxoContext
+  commentId: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: plc.AXOpen.Core.IAxoContext
+  parent: plc.AXOpen.Core.IAxoContext
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Core._NULL_RTC
+  name: _NULL_RTC
+  nameWithType: _NULL_RTC
+  fullName: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core._NULL_RTM
+  name: _NULL_RTM
+  nameWithType: _NULL_RTM
+  fullName: AXOpen.Core._NULL_RTM
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core._NULL_LOGGER
+  name: _NULL_LOGGER
+  nameWithType: _NULL_LOGGER
+  fullName: AXOpen.Core._NULL_LOGGER
+- uid: plc.AXOpen.Logging.IAxoLogger
+  name: IAxoLogger
+  nameWithType: IAxoLogger
+  fullName: AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE
+  name: _NULL_MESSENGER_SERVICE
+  nameWithType: _NULL_MESSENGER_SERVICE
+  fullName: AXOpen.Core._NULL_MESSENGER_SERVICE
+- uid: plc.AXOpen.Core.IAxoMessagingServices
+  name: IAxoMessagingServices
+  nameWithType: IAxoMessagingServices
+  fullName: AXOpen.Core.IAxoMessagingServices
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

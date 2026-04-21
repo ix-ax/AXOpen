@@ -1,0 +1,210 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+  parent: plc.AXOpen.Components.Desoutter.Tightening
+  children:
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMin
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMax
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ProgramChangeTimeout
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingCycleTimeout
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.InfoTime
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ErrorTime
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.TaskTimeout
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.HWIDs
+  name: AxoCVIC_II_Config
+  fullName: AxoCVIC_II_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: CLASS AxoCVIC_II_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMin
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMin
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ScrewingProgramMin
+  fullName: ScrewingProgramMin
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMin
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ScrewingProgramMin : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMax
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMax
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ScrewingProgramMax
+  fullName: ScrewingProgramMax
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingProgramMax
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ScrewingProgramMax : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ProgramChangeTimeout
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ProgramChangeTimeout
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ProgramChangeTimeout
+  fullName: ProgramChangeTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ProgramChangeTimeout
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ProgramChangeTimeout : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingCycleTimeout
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingCycleTimeout
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ScrewingCycleTimeout
+  fullName: ScrewingCycleTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ScrewingCycleTimeout
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ScrewingCycleTimeout : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.InfoTime
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.InfoTime
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.InfoTime
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ErrorTime
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ErrorTime
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.ErrorTime
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.TaskTimeout
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.TaskTimeout
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.TaskTimeout
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.HWIDs
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.HWIDs
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config.HWIDs
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Config.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs'
+    return:
+      type: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+  name: AxoCVIC_II_HWIDs
+  nameWithType: AxoCVIC_II_HWIDs
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+
+

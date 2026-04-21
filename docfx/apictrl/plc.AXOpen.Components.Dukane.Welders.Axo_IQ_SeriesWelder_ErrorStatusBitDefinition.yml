@@ -1,0 +1,387 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_3
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Under_Voltage_1
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Amplitude_Fault
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_5
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.US_Voltage_Overload
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Average_Overload
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Current_Loop
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Power_Not_OK
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Temperature
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_1
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_2
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_3
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_4
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.FrequencyOverload_1
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_2
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Positive
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Negative
+  name: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  fullName: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_3
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_3
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Frequency_Overload_3
+  fullName: Frequency_Overload_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_3
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Frequency_Overload_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Under_Voltage_1
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Under_Voltage_1
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Under_Voltage_1
+  fullName: Under_Voltage_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Under_Voltage_1
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Under_Voltage_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Amplitude_Fault
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Amplitude_Fault
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Over_Amplitude_Fault
+  fullName: Over_Amplitude_Fault
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Amplitude_Fault
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Over_Amplitude_Fault : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_5
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_5
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InternalError_5
+  fullName: InternalError_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_5
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InternalError_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.US_Voltage_Overload
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.US_Voltage_Overload
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: US_Voltage_Overload
+  fullName: US_Voltage_Overload
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.US_Voltage_Overload
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'US_Voltage_Overload : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Average_Overload
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Average_Overload
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Average_Overload
+  fullName: Average_Overload
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Average_Overload
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Average_Overload : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Current_Loop
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Current_Loop
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Current_Loop
+  fullName: Current_Loop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Current_Loop
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Current_Loop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Power_Not_OK
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Power_Not_OK
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Power_Not_OK
+  fullName: Power_Not_OK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Power_Not_OK
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Power_Not_OK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Temperature
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Temperature
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Over_Temperature
+  fullName: Over_Temperature
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Over_Temperature
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Over_Temperature : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_1
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_1
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InternalError_1
+  fullName: InternalError_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_1
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InternalError_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_2
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_2
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InternalError_2
+  fullName: InternalError_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_2
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InternalError_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_3
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_3
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InternalError_3
+  fullName: InternalError_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_3
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InternalError_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_4
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_4
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InternalError_4
+  fullName: InternalError_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.InternalError_4
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InternalError_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.FrequencyOverload_1
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.FrequencyOverload_1
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: FrequencyOverload_1
+  fullName: FrequencyOverload_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.FrequencyOverload_1
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'FrequencyOverload_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_2
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_2
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Frequency_Overload_2
+  fullName: Frequency_Overload_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Frequency_Overload_2
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Frequency_Overload_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Positive
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Positive
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Peak_Overload_Positive
+  fullName: Peak_Overload_Positive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Positive
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Peak_Overload_Positive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Negative
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Negative
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Peak_Overload_Negative
+  fullName: Peak_Overload_Negative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.Peak_Overload_Negative
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Peak_Overload_Negative : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

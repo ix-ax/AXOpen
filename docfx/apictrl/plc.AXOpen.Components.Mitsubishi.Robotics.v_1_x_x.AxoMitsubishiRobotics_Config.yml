@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+  parent: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children:
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.InfoTime
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.ErrorTime
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.TaskTimeout
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.HWIDs
+  name: AxoMitsubishiRobotics_Config
+  fullName: AxoMitsubishiRobotics_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: CLASS AxoMitsubishiRobotics_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.InfoTime
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.InfoTime
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.InfoTime
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.ErrorTime
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.ErrorTime
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.ErrorTime
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.TaskTimeout
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.TaskTimeout
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.TaskTimeout
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.HWIDs
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.HWIDs
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config.HWIDs
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs'
+    return:
+      type: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+  name: AxoMitsubishiRobotics_HWIDs
+  nameWithType: AxoMitsubishiRobotics_HWIDs
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+
+

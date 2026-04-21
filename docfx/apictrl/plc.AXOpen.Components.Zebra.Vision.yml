@@ -1,0 +1,55 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Zebra.Vision
+  id: plc.AXOpen.Components.Zebra.Vision
+  children:
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+  name: plc.AXOpen.Components.Zebra.Vision
+  fullName: Vision
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Zebra.Vision
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Zebra.Vision
+references:
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600
+  name: AxoEA3600
+  nameWithType: AxoEA3600
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+  name: AxoEA3600_Component_Status
+  nameWithType: AxoEA3600_Component_Status
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+  name: AxoEA3600_Config
+  nameWithType: AxoEA3600_Config
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+  name: AxoEA3600_HWIDs
+  nameWithType: AxoEA3600_HWIDs
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+  name: AxoEA3600_In
+  nameWithType: AxoEA3600_In
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_In
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+  name: AxoEA3600_Out
+  nameWithType: AxoEA3600_Out
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+  name: AxoEA3600_ReadData
+  nameWithType: AxoEA3600_ReadData
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+
+

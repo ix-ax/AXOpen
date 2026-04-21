@@ -1,0 +1,129 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.NoParity
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.EvenParity
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.OddParity
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.MarkParity
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.SpaceParity
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.Any
+  name: eAxoCmPtp_Parity
+  fullName: eAxoCmPtp_Parity
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_Parity : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.NoParity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.NoParity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: NoParity :=   UINT#1
+  fullName: NoParity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.NoParity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.EvenParity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.EvenParity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: EvenParity :=   UINT#2
+  fullName: EvenParity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.EvenParity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.OddParity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.OddParity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: OddParity :=   UINT#3
+  fullName: OddParity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.OddParity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.MarkParity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.MarkParity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: MarkParity :=   UINT#4
+  fullName: MarkParity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.MarkParity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.SpaceParity
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.SpaceParity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: SpaceParity :=   UINT#5
+  fullName: SpaceParity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.SpaceParity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.Any
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.Any
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Any :=   UINT#6
+  fullName: Any
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity.Any
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Parity.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

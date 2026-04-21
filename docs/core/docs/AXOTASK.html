@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoTask | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoTask | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOTASK.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -92,7 +90,7 @@
 <p>AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
 <p><strong>AxoTask initialization within a AxoContext</strong></p>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
-CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoObject         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -102,9 +100,9 @@ CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PUBLIC Initialize
         // Initialization of the context needs to be called first
         // It does not need to be called cyclically, just once
-        THIS.InitializeRootObject(_myTask);
+        _myTask.Run(THIS);
     END_METHOD
-    END_METHOD
+
 </code></pre>
 <p>There are two key methods for managing the AxoTask:</p>
 <ul>
@@ -186,7 +184,7 @@ CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext
 </code></pre>
 <p>Example of using AxoTask:</p>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
-CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoObject         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -196,11 +194,11 @@ CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PUBLIC Initialize
         // Initialization of the context needs to be called first
         // It does not need to be called cyclically, just once
-        THIS.InitializeRootObject(_myTask);
+        _myTask.Run(THIS);
     END_METHOD
 
-    METHOD PROTECTED OVERRIDE Main
-        THIS.InitializeRootObject(_myTask);
+    METHOD PUBLIC Execute
+        _myTask.Run(THIS);
         // Cyclicall call of the Execute
         IF _myTask.Execute() THEN
             _myCounter := _myCounter + ULINT#1;
@@ -209,7 +207,7 @@ CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext
         IF _myTask.IsDone() THEN
             _myCounter := ULINT#0;
         END_IF;
-    END_METHOD
+
 </code></pre>
 <p>The AxoTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
 <pre><code class="lang-smalltalk">_myTask.Invoke();
@@ -243,6 +241,15 @@ END_IF;
 <pre><code class="lang-smalltalk">IF _myTask.Invoke().HasError() THEN
     ; //Do something
 END_IF;
+</code></pre>
+<p>Aborting the running AxoTask (enters <code>Aborted</code> state, can be resumed):</p>
+<pre><code class="lang-smalltalk">_myTask.Abort();
+</code></pre>
+<p>Resuming the aborted AxoTask (returns to <code>Busy</code> state):</p>
+<pre><code class="lang-smalltalk">_myTask.Resume();
+</code></pre>
+<p>Restoring the AxoTask from any state back to <code>Ready</code>:</p>
+<pre><code class="lang-smalltalk">_myTask.Restore();
 </code></pre>
 <p>The AxoTask can be started only from the <code>Ready</code> state by calling the <code>Invoke()</code> method in the same Context cycle as the <code>Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
 <p>1.) AxoTask's <code>Restore</code> method is called (AxoTask changes it's state to <code>Ready</code> state).</p>
@@ -304,28 +311,28 @@ END_CLASS
 <p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
 You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
 Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
+<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.Ctx.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
 <p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
+<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.Ctx.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
 <p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
 Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
 <p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
 </code></pre>
 <p>The displayed result should looks like:</p>
 <p><img src="assets/AxoTaskExampleVisu.gif" alt="Alt text"></p>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOTASK.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -335,7 +342,7 @@ Again as before the element could be controlable when the value of the <code>Pre
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

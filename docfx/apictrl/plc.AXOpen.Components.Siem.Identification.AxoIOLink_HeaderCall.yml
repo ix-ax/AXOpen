@@ -1,0 +1,97 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.extFunctionNum
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.port
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.fiIndex
+  name: AxoIOLink_HeaderCall
+  fullName: AxoIOLink_HeaderCall
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_HeaderCall
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.extFunctionNum
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.extFunctionNum
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: extFunctionNum
+  fullName: extFunctionNum
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.extFunctionNum
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'extFunctionNum : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.port
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.port
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: port
+  fullName: port
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.port
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'port : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.fiIndex
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.fiIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fiIndex
+  fullName: fiIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderCall.fiIndex
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderCall.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fiIndex : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

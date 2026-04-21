@@ -1,0 +1,240 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.ReadResultCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.PresetResultCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.RegisterPresetDataResultCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.TuneResultCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_0
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.EXT_RequestResultCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.GeneralErrorCode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_3
+  name: Axo_SR_750_OperationalResultStatus
+  fullName: Axo_SR_750_OperationalResultStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_OperationalResultStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.ReadResultCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.ReadResultCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadResultCode
+  fullName: ReadResultCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.ReadResultCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadResultCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.PresetResultCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.PresetResultCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PresetResultCode
+  fullName: PresetResultCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.PresetResultCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PresetResultCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.RegisterPresetDataResultCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.RegisterPresetDataResultCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RegisterPresetDataResultCode
+  fullName: RegisterPresetDataResultCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.RegisterPresetDataResultCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RegisterPresetDataResultCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.TuneResultCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.TuneResultCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneResultCode
+  fullName: TuneResultCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.TuneResultCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneResultCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_0
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_0
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved_0
+  fullName: _Reserved_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_0
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved_1
+  fullName: _Reserved_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved_2
+  fullName: _Reserved_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.EXT_RequestResultCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.EXT_RequestResultCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: EXT_RequestResultCode
+  fullName: EXT_RequestResultCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.EXT_RequestResultCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'EXT_RequestResultCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.GeneralErrorCode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.GeneralErrorCode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: GeneralErrorCode
+  fullName: GeneralErrorCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus.GeneralErrorCode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'GeneralErrorCode : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved_3
+  fullName: _Reserved_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus._Reserved_3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationalResultStatus.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved_3 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

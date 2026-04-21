@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AXOpen.Components.Desoutter.Tightening | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AXOpen.Components.Desoutter.Tightening | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../../images/favicon.ico">
       <link rel="stylesheet" href="../../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening/README.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../../public/main.js'
-    import { init } from './../../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -95,35 +93,79 @@
 <h3 id="links-to-documentation">Links to documentation</h3>
 <p><a href="https://developer.siemens.com/simatic-ax/developer.html">Siemens AX-documentation</a></p>
 <p><a href="https://inxton.github.io/AXOpen/">AxOpen-documentation</a></p>
-<p><strong>NuGet package feed</strong></p>
+<p><strong>NuGet Package Feed</strong></p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p><strong>NuGet pacakges are now published experimentally</strong></p>
+<p>AXOpen NuGet packages are currently published from a single (monorepo) source. Treat releases as cohesive sets; mixing unrelated versions is discouraged.</p>
 </div>
-<p>This nuget package's feed is hosted on github on how to authenticate to the feed see the documentation <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry">here</a>.</p>
-<pre><code class="lang-bash">dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-inxton &quot;https://nuget.pkg.github.com/inxton/index.json&quot;
+<p>The feed is hosted on GitHub Packages. See official GitHub docs for authentication: <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry">Using the NuGet registry</a>.</p>
+<p>Add the feed:</p>
+<pre><code class="lang-bash">dotnet nuget add source \
+	--username YOUR_GITHUB_USERNAME \
+	--password YOUR_GITHUB_PAT \
+	--store-password-in-clear-text \
+	--name gh-packages-inxton \
+	&quot;https://nuget.pkg.github.com/inxton/index.json&quot;
 </code></pre>
-<p>Replace GITHUBUSERNAME with your github name
-Replace PAT with your Personal Access Token (<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">how to create your PAT</a>)</p>
+<p>Replace:</p>
+<ul>
+<li><code>YOUR_GITHUB_USERNAME</code> with your GitHub handle.</li>
+<li><code>YOUR_GITHUB_PAT</code> with a Personal Access Token having <code>read:packages</code> (and <code>write:packages</code> if you publish).</li>
+</ul>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.</p>
+<p>Version Alignment: All AXOpen packages share synchronized version numbers (semantic versioning). Always try to consume the same version across the set. Mixing majors will very likely produce runtime or source incompatibilities. Minor/patch divergence is technically possible but not tested as a matrix; proceed only if you fully understand the public surface differences.</p>
 </div>
+<h3 id="recommended-consumer-workflow">Recommended Consumer Workflow</h3>
+<ol>
+<li>Add/refresh the source (above) once per dev machine.</li>
+<li>Pin explicit versions in your <code>.csproj</code> – avoid floating versions (<code>*</code>).</li>
+<li>When upgrading, bump all AXOpen package references in a single commit/PR.</li>
+<li>Review the CHANGELOG for breaking notes between majors before updating.</li>
+</ol>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>401 Unauthorized</td>
+<td>Missing / invalid PAT scope</td>
+<td>Regenerate PAT with <code>read:packages</code></td>
+</tr>
+<tr>
+<td>404 Package not found</td>
+<td>Source not added or typo in ID</td>
+<td>Re-run add source / verify package ID</td>
+</tr>
+<tr>
+<td>Version conflict</td>
+<td>Mixed versions pulled transitively</td>
+<td>Align direct references to same version</td>
+</tr>
+</tbody>
+</table>
+<h3 id="publishing-maintainers">Publishing (Maintainers)</h3>
+<p>Publishing is handled by CI. Manual publish should only be done for emergency hotfixes; ensure GitVersion tags follow the established convention before triggering release workflows.</p>
 <h2 id="net-cli">.NET CLI</h2>
 <pre><code class="lang-bash">dotnet add package AXOpen.Components.Desoutter.Tightening --version {axopen-version}
 </code></pre>
 <h2 id="package-reference">Package reference</h2>
 <pre><code class="lang-xml">&lt;PackageReference Include=&quot;AXOpen.Components.Desoutter.Tightening&quot; Version=&quot;{axopen-version}&quot; /&gt;
 </code></pre>
-<!-- TODO: Additional information about partial extensions -->
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -133,7 +175,7 @@ Replace PAT with your Personal Access Token (<a href="https://docs.github.com/en
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

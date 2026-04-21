@@ -1,0 +1,1427 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataTask
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataLength
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.DataToSend
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveDataLength
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceivedData
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Progress
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.RestoreTask
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfigTask
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveResetTask
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Config
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Status
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Messenger
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.TaskMessenger
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Inputs
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Outputs
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._progress
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._infoTimer
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._errorTimer
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_in
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_1
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_2
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_4
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_8
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_255
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._word
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._dword
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDone
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDonePV
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._retval
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._geoAddr
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outHwid
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._blink
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsAddress
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsCount
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsAddress
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsCount
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfig
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveReset
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2P
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveP2P
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfigRequest
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveResetRequest
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2PRequest
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfig(eAxoCmPtp_Protocol,eAxoCmPtp_Baud,eAxoCmPtp_Parity,eAxoCmPtp_DataBits,eAxoCmPtp_StopBits,eAxoCmPtp_FlowControl,CHAR,CHAR,UINT,eAxoCmPtp_Mode,eAxoCmPtp_LinePreset,eAxoCmPtp_BreakDetection)
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveReset()
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendData()
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.NewDataReceived()
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ManualControl()
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Restore()
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp.CallTimers(BOOL)
+  name: AxoCmPtp
+  fullName: AxoCmPtp
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: CLASS AxoCmPtp
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataTask
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataTask
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: SendDataTask
+  fullName: SendDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataTask
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'SendDataTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataLength
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataLength
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: SendDataLength
+  fullName: SendDataLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendDataLength
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'SendDataLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.DataToSend
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.DataToSend
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: DataToSend
+  fullName: DataToSend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.DataToSend
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'DataToSend : AXOpen.Components.Siem.Communication.AxoCmPtp_Data'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveDataLength
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveDataLength
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: ReceiveDataLength
+  fullName: ReceiveDataLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveDataLength
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'ReceiveDataLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceivedData
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceivedData
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: ReceivedData
+  fullName: ReceivedData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceivedData
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'ReceivedData : AXOpen.Components.Siem.Communication.AxoCmPtp_Data'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Progress
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Progress
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Progress
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.RestoreTask
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.RestoreTask
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.RestoreTask
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfigTask
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfigTask
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: PortConfigTask
+  fullName: PortConfigTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfigTask
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'PortConfigTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveResetTask
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveResetTask
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: ReceiveResetTask
+  fullName: ReceiveResetTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveResetTask
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'ReceiveResetTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Config
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Config
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Config
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Config : AXOpen.Components.Siem.Communication.AxoCmPtp_Config'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Status
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Status
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Status
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Status : AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Messenger
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Messenger
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Messenger
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.TaskMessenger
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.TaskMessenger
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.TaskMessenger
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Inputs
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Inputs
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Inputs
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Inputs : AXOpen.Components.Siem.Communication.AxoCmPtp_In'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_In
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Outputs
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Outputs
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Outputs
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Outputs : AXOpen.Components.Siem.Communication.AxoCmPtp_Out'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.HardwareDiagnosticsTask
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 85
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._progress
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._progress
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._progress
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._infoTimer
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._infoTimer
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._infoTimer
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 93
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._errorTimer
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._errorTimer
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._errorTimer
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 94
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_in
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_in
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_in
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_in : ARRAY [0..254] OF BYTE'
+    return:
+      type: ARRAY [0..254] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_1
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_1
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_out_1
+  fullName: _data_out_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_1
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_out_1 : ARRAY [0..0] OF BYTE'
+    return:
+      type: ARRAY [0..0] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_2
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_2
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_out_2
+  fullName: _data_out_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_2
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 97
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_out_2 : ARRAY [0..1] OF BYTE'
+    return:
+      type: ARRAY [0..1] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_4
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_4
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_out_4
+  fullName: _data_out_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_4
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 98
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_out_4 : ARRAY [0..3] OF BYTE'
+    return:
+      type: ARRAY [0..3] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_8
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_8
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_out_8
+  fullName: _data_out_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_8
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_out_8 : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_255
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_255
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _data_out_255
+  fullName: _data_out_255
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._data_out_255
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 100
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_data_out_255 : ARRAY [0..254] OF BYTE'
+    return:
+      type: ARRAY [0..254] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._word
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._word
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._word
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._dword
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._dword
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._dword
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 104
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDone
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDone
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDone
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDonePV
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDonePV
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _initHwCheckDonePV
+  fullName: _initHwCheckDonePV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._initHwCheckDonePV
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_initHwCheckDonePV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._retval
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._retval
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._retval
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._geoAddr
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._geoAddr
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._geoAddr
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outHwid
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outHwid
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outHwid
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._blink
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._blink
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._blink
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsAddress
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsAddress
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsAddress
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsCount
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsCount
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._inputsCount
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 112
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsAddress
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsAddress
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsAddress
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsCount
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsCount
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._outputsCount
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfig
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfig
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _portConfig
+  fullName: _portConfig
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfig
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_portConfig : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveReset
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveReset
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _receiveReset
+  fullName: _receiveReset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveReset
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 116
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_receiveReset : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2P
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2P
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _sendP2P
+  fullName: _sendP2P
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2P
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_sendP2P : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveP2P
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveP2P
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _receiveP2P
+  fullName: _receiveP2P
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveP2P
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_receiveP2P : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfigRequest
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfigRequest
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _portConfigRequest
+  fullName: _portConfigRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._portConfigRequest
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_portConfigRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveResetRequest
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveResetRequest
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _receiveResetRequest
+  fullName: _receiveResetRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._receiveResetRequest
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_receiveResetRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2PRequest
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2PRequest
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _sendP2PRequest
+  fullName: _sendP2PRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp._sendP2PRequest
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: '_sendP2PRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Run
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.UINT hwID)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfig(eAxoCmPtp_Protocol,eAxoCmPtp_Baud,eAxoCmPtp_Parity,eAxoCmPtp_DataBits,eAxoCmPtp_StopBits,eAxoCmPtp_FlowControl,CHAR,CHAR,UINT,eAxoCmPtp_Mode,eAxoCmPtp_LinePreset,eAxoCmPtp_BreakDetection)
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfig(eAxoCmPtp_Protocol,eAxoCmPtp_Baud,eAxoCmPtp_Parity,eAxoCmPtp_DataBits,eAxoCmPtp_StopBits,eAxoCmPtp_FlowControl,CHAR,CHAR,UINT,eAxoCmPtp_Mode,eAxoCmPtp_LinePreset,eAxoCmPtp_BreakDetection)
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: PortConfig
+  fullName: PortConfig
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.PortConfig
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 475
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState PortConfig(in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol Protocol,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud BaudRate,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity Parity,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits DataBits,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits StopBits,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl FlowControl,in plc.CHAR XonChar,in plc.CHAR XoffChar,in plc.UINT WaitTime,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode Mode,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset LinePreset,in plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection BreakDetection)
+    parameters:
+    - id: Protocol
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+    - id: BaudRate
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+    - id: Parity
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+    - id: DataBits
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+    - id: StopBits
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+    - id: FlowControl
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+    - id: XonChar
+      type: plc.CHAR
+    - id: XoffChar
+      type: plc.CHAR
+    - id: WaitTime
+      type: plc.UINT
+    - id: Mode
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+    - id: LinePreset
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+    - id: BreakDetection
+      type: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveReset()
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveReset()
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: ReceiveReset
+  fullName: ReceiveReset
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ReceiveReset
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 515
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ReceiveReset()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendData()
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendData()
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: SendData
+  fullName: SendData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.SendData
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 527
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SendData()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.NewDataReceived()
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.NewDataReceived()
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: NewDataReceived
+  fullName: NewDataReceived
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.NewDataReceived
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 534
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public BOOL NewDataReceived()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ManualControl()
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ManualControl()
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.ManualControl
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 540
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Restore()
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Restore()
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.Restore
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 544
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.CallTimers(BOOL)
+  parent: AXOpen.Components.Siem.Communication.AxoCmPtp
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp.CallTimers
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 589
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+  name: AxoCmPtp_Data
+  nameWithType: AxoCmPtp_Data
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+  name: AxoCmPtp_Config
+  nameWithType: AxoCmPtp_Config
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+  name: AxoCmPtp_Component_Status
+  nameWithType: AxoCmPtp_Component_Status
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+  name: AxoCmPtp_In
+  nameWithType: AxoCmPtp_In
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_In
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+  name: AxoCmPtp_Out
+  nameWithType: AxoCmPtp_Out
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..254] OF BYTE
+  name: ARRAY [0..254] OF BYTE
+  nameWithType: ARRAY [0..254] OF BYTE
+  fullName: ARRAY [0..254] OF BYTE
+- uid: plc.ARRAY [0..0] OF BYTE
+  name: ARRAY [0..0] OF BYTE
+  nameWithType: ARRAY [0..0] OF BYTE
+  fullName: ARRAY [0..0] OF BYTE
+- uid: plc.ARRAY [0..1] OF BYTE
+  name: ARRAY [0..1] OF BYTE
+  nameWithType: ARRAY [0..1] OF BYTE
+  fullName: ARRAY [0..1] OF BYTE
+- uid: plc.ARRAY [0..3] OF BYTE
+  name: ARRAY [0..3] OF BYTE
+  nameWithType: ARRAY [0..3] OF BYTE
+  fullName: ARRAY [0..3] OF BYTE
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+  name: eAxoCmPtp_Protocol
+  nameWithType: eAxoCmPtp_Protocol
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+  name: eAxoCmPtp_Baud
+  nameWithType: eAxoCmPtp_Baud
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+  name: eAxoCmPtp_Parity
+  nameWithType: eAxoCmPtp_Parity
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+  name: eAxoCmPtp_DataBits
+  nameWithType: eAxoCmPtp_DataBits
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+  name: eAxoCmPtp_StopBits
+  nameWithType: eAxoCmPtp_StopBits
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+  name: eAxoCmPtp_FlowControl
+  nameWithType: eAxoCmPtp_FlowControl
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+- uid: plc.CHAR
+  name: CHAR
+  nameWithType: CHAR
+  fullName: CHAR
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+  name: eAxoCmPtp_Mode
+  nameWithType: eAxoCmPtp_Mode
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+  name: eAxoCmPtp_LinePreset
+  nameWithType: eAxoCmPtp_LinePreset
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+  name: eAxoCmPtp_BreakDetection
+  nameWithType: eAxoCmPtp_BreakDetection
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+
+

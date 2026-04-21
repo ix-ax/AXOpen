@@ -1,0 +1,219 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRate
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMAX
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMIN
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.LowerThreshold
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.UpperThreshold
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.DecimalPointPosition
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_3
+  name: Axo_IV3_ToolResult
+  fullName: Axo_IV3_ToolResult
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_ToolResult
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRate
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRate
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MatchingRate
+  fullName: MatchingRate
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRate
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MatchingRate : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMAX
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMAX
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MatchingRateMAX
+  fullName: MatchingRateMAX
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMAX
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MatchingRateMAX : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMIN
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMIN
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MatchingRateMIN
+  fullName: MatchingRateMIN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.MatchingRateMIN
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MatchingRateMIN : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.LowerThreshold
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.LowerThreshold
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LowerThreshold
+  fullName: LowerThreshold
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.LowerThreshold
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LowerThreshold : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.UpperThreshold
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.UpperThreshold
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: UpperThreshold
+  fullName: UpperThreshold
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.UpperThreshold
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'UpperThreshold : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.DecimalPointPosition
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.DecimalPointPosition
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: DecimalPointPosition
+  fullName: DecimalPointPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.DecimalPointPosition
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'DecimalPointPosition : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Data_1
+  fullName: Data_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Data_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Data_2
+  fullName: Data_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Data_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Data_3
+  fullName: Data_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult.Data_3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Data_3 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

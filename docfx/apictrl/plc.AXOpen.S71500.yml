@@ -1,0 +1,30 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.S71500
+  id: plc.AXOpen.S71500
+  children:
+  - plc.AXOpen.S71500.Rtc
+  - plc.AXOpen.S71500.Rtm
+  name: plc.AXOpen.S71500
+  fullName: S71500
+  type: Namespace
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500
+    path: .\src\simatic1500\ctrl\src\Rtc.st
+    startLine: 0
+  namespace: plc.AXOpen.S71500
+references:
+- uid: plc.AXOpen.S71500.Rtc
+  name: Rtc
+  nameWithType: Rtc
+  fullName: AXOpen.S71500.Rtc
+- uid: plc.AXOpen.S71500.Rtm
+  name: Rtm
+  nameWithType: Rtm
+  fullName: AXOpen.S71500.Rtm
+
+

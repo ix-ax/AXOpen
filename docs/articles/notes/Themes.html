@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AXOpen.Themes | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AXOpen.Themes | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/notes/Themes.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -65,23 +63,9 @@
     </header>
 
     <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
 
           <nav id="breadcrumb"></nav>
         </div>
@@ -89,7 +73,12 @@
         <article data-uid="">
 <h1 id="axopenthemes"><strong>AXOpen.Themes</strong></h1>
 
+<h1 id="obsolete-we-are-transitioning-to-nuget-distributed-themes">[OBSOLETE we are transitioning to NuGet distributed themes]</h1>
 <p>There is a way to change the look of the application by creating and using modified bootstrap files.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>(2025 update) If you consume AXOpen UI packages via NuGet, shared themes can be distributed as static web assets under <code>_content/{PackageId}/css/themes</code>. Prefer referencing or copying from that location during build instead of committing large compiled CSS blobs to each app. Custom project‑specific themes may still live in <code>wwwroot/css/custom</code>.</p>
+</div>
 <h2 id="1-modifying-bootstrap">1. Modifying bootstrap</h2>
 <p>Each theme is a separate bootstrap file. To get the desired color theme, bootstrap's variables need to be modified before compilation.</p>
 <p>Example of a file with modified variables:</p>
@@ -105,7 +94,18 @@ $dark:          #021301 !default;
 // scss-docs-end theme-color-variables
 </code></pre>
 <h2 id="2-compiling-bootstrap">2. Compiling bootstrap</h2>
-<p>Compile these files using the <code>sass</code> compiler:</p>
+<p>Compile these files using a <code>sass</code> compiler (e.g. <code>dart-sass</code>). Recommended build pattern:</p>
+<ol>
+<li>Place <code>.scss</code> sources under <code>themes/src</code> (keep variables overrides minimal; import bootstrap).</li>
+<li>Emit compiled &amp; minified CSS to <code>wwwroot/css/custom</code> (or a package asset folder).</li>
+<li>Add a lightweight watch script for local iteration (optional).</li>
+<li>Exclude intermediate maps from source control unless required for debugging.</li>
+</ol>
+<p>Example <code>main.scss</code> structure:</p>
+<pre><code class="lang-scss">@import &quot;bootstrap/functions&quot;;
+@import &quot;variables-overrides&quot;; // your overrides
+@import &quot;bootstrap&quot;;           // full bootstrap import last
+</code></pre>
 <h2 id="3-using-a-theme">3. Using a theme</h2>
 <p>The custom compiled bootstrap files are stored in the <code>wwwroot\css\custom</code> folder. Add your custom compiled bootstrap to this folder. In order to be able to switch to your newly created theme, you need to add the name of the theme to the <code>supportedThemes</code> array:</p>
 <pre><code class="lang-csharp">private string defaultThemeColor = &quot;Bootstrap&quot;;
@@ -128,7 +128,7 @@ private string[] supportedThemeColors = new[]
 }
 </code></pre>
 <p>This method creates a <strong>cookie</strong> with the name <code>ThemeColor</code> and the value of the selected theme. The cookie is then used to determine which stylesheet to use. The cookie <strong>expires</strong> after the browser session ends.</p>
-<p>In the <code>_Host.cshtml</code> file, the <code>css</code> file of the selected theme is loaded based on the value of the <code>theme</code> cookie:</p>
+<p>In the <code>_Host.cshtml</code> file (or equivalent layout), the <code>css</code> file of the selected theme is loaded based on the value of the <code>theme</code> cookie:</p>
 <pre><code class="lang-html">@switch (Request.Cookies[&quot;ThemeColor&quot;])
 {
     case &quot;MTS&quot;:
@@ -147,7 +147,7 @@ private string[] supportedThemeColors = new[]
 <p>Make sure that the string name of your theme in <code>supportedThemes</code> array  file matches with the correct <code>case</code> string in the <code>switch</code> statement in the <code>_Host.cshtml</code> file. In case of an unknown theme name from the <code>ThemeColor</code> cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.</p>
 <p>Theme changes in action:</p>
 <p><img src="../../images/Theme_demo.gif" alt="Theme gif"></p>
-<h1 id="change-darklight-theme">Change dark/light theme</h1>
+<h2 id="change-darklight-theme">Change dark/light theme</h2>
 <p>If you change the theme to dark/light, redirection to the <code>theme</code> uri is triggered:</p>
 <pre><code class="lang-csharp">NavigationManager.NavigateTo($&quot;/theme?theme={_theme}&quot;, true);
 </code></pre>
@@ -162,15 +162,29 @@ private string[] supportedThemeColors = new[]
 <p>In the <code>_Host.cshtml</code> file, the <code>data-bs-theme</code> is set based on the value of the <code>theme</code> cookie:</p>
 <pre><code class="lang-html">&lt;html lang=&quot;en&quot; data-bs-theme=&quot;@(Request.Cookies[&quot;Theme&quot;] == &quot;dark&quot; ? &quot;dark&quot; : &quot;light&quot;)&quot;&gt;
 </code></pre>
-<p>This theme change is implemented in bootstrap and if you have correct set colors it will be working as expected.</p>
+<h3 id="bootstrap-color-mode-dark--light">Bootstrap Color Mode (Dark / Light)</h3>
+<p>Bootstrap 5+ supports data attribute driven color modes. Ensure any semantic colors you override have both light &amp; dark suitable contrast. Keep overrides in SASS variables where possible to reduce manual duplication.</p>
+<h3 id="fallback--invalid-themes">Fallback &amp; Invalid Themes</h3>
+<p>If a cookie specifies an unknown theme:</p>
+<ol>
+<li>Log (verbose) once for diagnosis.</li>
+<li>Fall back to default (Bootstrap) silently for users.</li>
+</ol>
+<h3 id="packaging-considerations">Packaging Considerations</h3>
+<p>When exporting themes inside a reusable package:</p>
+<ul>
+<li>Include only compiled CSS + license headers for any third‑party derivative work.</li>
+<li>Provide a short <code>THEMES.md</code> describing supported names to keep app code free of hard‑coded assumptions.</li>
+<li>Consider hashing file names (cache busting) and generating a manifest consumed by UI to enumerate available themes dynamically.</li>
+</ul>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/notes/Themes.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -180,7 +194,7 @@ private string[] supportedThemeColors = new[]
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

@@ -1,0 +1,151 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagSystemDetails.HardwareID
+  - plc.AXOpen.Io.AxoHwDiagSystemDetails.GetDiagnosticsReturnCode
+  - plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentStateDetail
+  - plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentState
+  - plc.AXOpen.Io.AxoHwDiagSystemDetails.OperatingState
+  name: AxoHwDiagSystemDetails
+  fullName: AxoHwDiagSystemDetails
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiagSystemDetails
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails.HardwareID
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails.HardwareID
+  parent: AXOpen.Io
+  children: []
+  name: HardwareID
+  fullName: HardwareID
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails.HardwareID
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'HardwareID : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails.GetDiagnosticsReturnCode
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails.GetDiagnosticsReturnCode
+  parent: AXOpen.Io
+  children: []
+  name: GetDiagnosticsReturnCode
+  fullName: GetDiagnosticsReturnCode
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails.GetDiagnosticsReturnCode
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'GetDiagnosticsReturnCode : AXOpen.Io.GetDiagnosticsReturnCode'
+    return:
+      type: AXOpen.Io.GetDiagnosticsReturnCode
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentStateDetail
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentStateDetail
+  parent: AXOpen.Io
+  children: []
+  name: ComponentStateDetail
+  fullName: ComponentStateDetail
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentStateDetail
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentStateDetail : AXOpen.Io.AxoHwDiagComponentStateDetail'
+    return:
+      type: AXOpen.Io.AxoHwDiagComponentStateDetail
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentState
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentState
+  parent: AXOpen.Io
+  children: []
+  name: ComponentState
+  fullName: ComponentState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails.ComponentState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentState : AXOpen.Io.AxoHwDiagComponentState'
+    return:
+      type: AXOpen.Io.AxoHwDiagComponentState
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails.OperatingState
+  id: plc.AXOpen.Io.AxoHwDiagSystemDetails.OperatingState
+  parent: AXOpen.Io
+  children: []
+  name: OperatingState
+  fullName: OperatingState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagSystemDetails.OperatingState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st
+    startLine: 14
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'OperatingState : AXOpen.Io.AxoHwDiagOperatingState'
+    return:
+      type: AXOpen.Io.AxoHwDiagOperatingState
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode
+  name: GetDiagnosticsReturnCode
+  nameWithType: GetDiagnosticsReturnCode
+  fullName: AXOpen.Io.GetDiagnosticsReturnCode
+- uid: plc.AXOpen.Io.AxoHwDiagComponentStateDetail
+  name: AxoHwDiagComponentStateDetail
+  nameWithType: AxoHwDiagComponentStateDetail
+  fullName: AXOpen.Io.AxoHwDiagComponentStateDetail
+- uid: plc.AXOpen.Io.AxoHwDiagComponentState
+  name: AxoHwDiagComponentState
+  nameWithType: AxoHwDiagComponentState
+  fullName: AXOpen.Io.AxoHwDiagComponentState
+- uid: plc.AXOpen.Io.AxoHwDiagOperatingState
+  name: AxoHwDiagOperatingState
+  nameWithType: AxoHwDiagOperatingState
+  fullName: AXOpen.Io.AxoHwDiagOperatingState
+
+

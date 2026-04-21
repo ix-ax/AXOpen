@@ -1,0 +1,298 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+  parent: plc.AXOpen.Components.Rexroth.Tightening
+  children:
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Result
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.IDcode
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.CnoSE
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ProgramNo
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMin
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Torque
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMax
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMin
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Angle
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMax
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorCode
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorClass
+  name: Axo_CS351_compact_Results
+  fullName: Axo_CS351_compact_Results
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: CLASS Axo_CS351_compact_Results
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Result
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Result
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Result
+  fullName: Result
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Result
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Result : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.IDcode
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.IDcode
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: IDcode
+  fullName: IDcode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.IDcode
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'IDcode : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.CnoSE
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.CnoSE
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: CnoSE
+  fullName: CnoSE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.CnoSE
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'CnoSE : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ProgramNo
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ProgramNo
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ProgramNo
+  fullName: ProgramNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ProgramNo
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ProgramNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMin
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMin
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: TorqueMin
+  fullName: TorqueMin
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMin
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'TorqueMin : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Torque
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Torque
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Torque
+  fullName: Torque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Torque
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Torque : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMax
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMax
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: TorqueMax
+  fullName: TorqueMax
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.TorqueMax
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'TorqueMax : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMin
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMin
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: AngleMin
+  fullName: AngleMin
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMin
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'AngleMin : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Angle
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Angle
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Angle
+  fullName: Angle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.Angle
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Angle : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMax
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMax
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: AngleMax
+  fullName: AngleMax
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.AngleMax
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'AngleMax : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorCode
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorCode
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ErrorCode
+  fullName: ErrorCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorCode
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ErrorCode : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorClass
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorClass
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ErrorClass
+  fullName: ErrorClass
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results.ErrorClass
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ErrorClass : INT'
+    return:
+      type: INT
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode
+  name: Axo_CS351_compact_IDcode
+  nameWithType: Axo_CS351_compact_IDcode
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_IDcode
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

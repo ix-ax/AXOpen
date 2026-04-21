@@ -1,0 +1,806 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_IN_WORK
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_INITIALISATION
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_LAST_CMD_INIT
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sreset_request
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.acyc_active
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.reset_request
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_H
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_L
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_H
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_L
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_H
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_L
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_H
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_L
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_control
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_status
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_active
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_cyc
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_cyc
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_active
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.INIT_cyc
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.init_active
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.presence
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_header
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sequence_number
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.config_value
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.offset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_max
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.instruction_set
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index_set
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_repeat
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_reset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.state
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_maxdata
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.pnConfigRecord
+  name: Axo_IID_IN_SYNC
+  fullName: Axo_IID_IN_SYNC
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_IN_SYNC
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_IN_WORK
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_IN_WORK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_IN_WORK
+  fullName: STATUS_IN_WORK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_IN_WORK
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_IN_WORK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_INITIALISATION
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_INITIALISATION
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_INITIALISATION
+  fullName: STATUS_INITIALISATION
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_INITIALISATION
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_INITIALISATION : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_LAST_CMD_INIT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_LAST_CMD_INIT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_LAST_CMD_INIT
+  fullName: STATUS_LAST_CMD_INIT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.STATUS_LAST_CMD_INIT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_LAST_CMD_INIT : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sreset_request
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sreset_request
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: sreset_request
+  fullName: sreset_request
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sreset_request
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'sreset_request : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.acyc_active
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.acyc_active
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: acyc_active
+  fullName: acyc_active
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.acyc_active
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'acyc_active : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.reset_request
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.reset_request
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: reset_request
+  fullName: reset_request
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.reset_request
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'reset_request : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_H
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_H
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: AC_H
+  fullName: AC_H
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_H
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'AC_H : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_L
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_L
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: AC_L
+  fullName: AC_L
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.AC_L
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'AC_L : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_H
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_H
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CC_H
+  fullName: CC_H
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_H
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CC_H : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_L
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_L
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CC_L
+  fullName: CC_L
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.CC_L
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CC_L : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_H
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_H
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: old_CC_H
+  fullName: old_CC_H
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_H
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'old_CC_H : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_L
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_L
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: old_CC_L
+  fullName: old_CC_L
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_CC_L
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'old_CC_L : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_H
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_H
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: old_AC_H
+  fullName: old_AC_H
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_H
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'old_AC_H : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_L
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_L
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: old_AC_L
+  fullName: old_AC_L
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.old_AC_L
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'old_AC_L : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_control
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_control
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: cyc_control
+  fullName: cyc_control
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_control
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'cyc_control : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_status
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: cyc_status
+  fullName: cyc_status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.cyc_status
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'cyc_status : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_active
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_active
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SRESET_active
+  fullName: SRESET_active
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_active
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SRESET_active : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_cyc
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_cyc
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SRESET_cyc
+  fullName: SRESET_cyc
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.SRESET_cyc
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SRESET_cyc : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_cyc
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_cyc
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RPTCMD_cyc
+  fullName: RPTCMD_cyc
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_cyc
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RPTCMD_cyc : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_active
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_active
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RPTCMD_active
+  fullName: RPTCMD_active
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.RPTCMD_active
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RPTCMD_active : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.INIT_cyc
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.INIT_cyc
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INIT_cyc
+  fullName: INIT_cyc
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.INIT_cyc
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INIT_cyc : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.init_active
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.init_active
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: init_active
+  fullName: init_active
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.init_active
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'init_active : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.presence
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.presence
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: presence
+  fullName: presence
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.presence
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'presence : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_header
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_header
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: buf_header
+  fullName: buf_header
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_header
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'buf_header : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sequence_number
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sequence_number
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: sequence_number
+  fullName: sequence_number
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.sequence_number
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'sequence_number : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.config_value
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.config_value
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: config_value
+  fullName: config_value
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.config_value
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'config_value : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.offset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.offset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: offset
+  fullName: offset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.offset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'offset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: index
+  fullName: index
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'index : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_max
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_max
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: buf_max
+  fullName: buf_max
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_max
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'buf_max : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.instruction_set
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.instruction_set
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instruction_set
+  fullName: instruction_set
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.instruction_set
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instruction_set : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index_set
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index_set
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: index_set
+  fullName: index_set
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.index_set
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'index_set : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_repeat
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_repeat
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: timeout_repeat
+  fullName: timeout_repeat
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_repeat
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'timeout_repeat : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_reset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_reset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: timeout_reset
+  fullName: timeout_reset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.timeout_reset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'timeout_reset : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.state
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.state
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: state
+  fullName: state
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.state
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'state : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_maxdata
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_maxdata
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: buf_maxdata
+  fullName: buf_maxdata
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.buf_maxdata
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'buf_maxdata : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.pnConfigRecord
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.pnConfigRecord
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: pnConfigRecord
+  fullName: pnConfigRecord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC.pnConfigRecord
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_SYNC.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'pnConfigRecord : AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+  name: Axo_IID_IN_PN_CONFIGRECORD
+  nameWithType: Axo_IID_IN_PN_CONFIGRECORD
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+
+

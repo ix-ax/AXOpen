@@ -1,0 +1,49 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs_Component_Status
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs_Component_Status
+  parent: plc.AXOpen.Components.Festo.Drives
+  children: []
+  name: AxoCmmtAs_Component_Status
+  fullName: AxoCmmtAs_Component_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAs_Component_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAs_Component_Status
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAs_Component_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoCmmtAs_Component_Status
+  inheritance:
+  - plc.AXOpen.Components.Drives.AxoDrive_Status
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+references:
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  commentId: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  name: CurrentMotionTaskId
+  nameWithType: CurrentMotionTaskId
+  fullName: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  parent: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+
+

@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.NONE
+  - plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099
+  - plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099_BNI0099
+  - plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY
+  - plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY_BNI00AY
+  name: eAxoIOLinkET200SP_Balluff_PortConfig
+  fullName: eAxoIOLinkET200SP_Balluff_PortConfig
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'eAxoIOLinkET200SP_Balluff_PortConfig : INT'
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.NONE
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.NONE
+  parent: AXOpen.Io
+  children: []
+  name: NONE :=  INT#0
+  fullName: NONE
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.NONE
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099
+  parent: AXOpen.Io
+  children: []
+  name: BNI0099 :=  INT#1
+  fullName: BNI0099
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099_BNI0099
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099_BNI0099
+  parent: AXOpen.Io
+  children: []
+  name: BNI0099_BNI0099 :=  INT#2
+  fullName: BNI0099_BNI0099
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI0099_BNI0099
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY
+  parent: AXOpen.Io
+  children: []
+  name: BNI00AY :=  INT#3
+  fullName: BNI00AY
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY_BNI00AY
+  id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY_BNI00AY
+  parent: AXOpen.Io
+  children: []
+  name: BNI00AY_BNI00AY :=  INT#4
+  fullName: BNI00AY_BNI00AY
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig.BNI00AY_BNI00AY
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\eAxoIOLinkET200SP_Balluff_PortConfig.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

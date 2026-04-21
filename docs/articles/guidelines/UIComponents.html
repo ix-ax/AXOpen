@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DRAFT | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DRAFT | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="draft">DRAFT</h1>
+
+<h1 id="ui-component-guidelines">UI Component Guidelines</h1>
+<p>This document provides comprehensive guidelines for creating and using UI components in AXOpen, including sizing conventions, naming standards, and integration with the RenderableContentControl system.</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p>AXOpen UI components are designed to be:</p>
+<ul>
+<li><strong>Consistent</strong>: Follow established patterns for sizing, styling, and behavior</li>
+<li><strong>Reusable</strong>: Work across different contexts with minimal customization</li>
+<li><strong>Accessible</strong>: Support keyboard navigation, screen readers, and ARIA attributes</li>
+<li><strong>Responsive</strong>: Adapt gracefully to different screen sizes and orientations</li>
+</ul>
+<hr>
+<h2 id="component-sizing-convention">Component Sizing Convention</h2>
+<h3 id="size-variants">Size Variants</h3>
+<p>The UI components should follow a standardized sizing convention using suffix modifiers. This enables developers to choose the appropriate component size for their specific use case.</p>
+<table>
+<thead>
+<tr>
+<th>Size Suffix</th>
+<th>Description</th>
+<th>Typical Use Case</th>
+<th>Example Component Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>XS</code></td>
+<td>Extra Small</td>
+<td>Compact dashboards, dense layouts, inline indicators</td>
+<td><code>AxoTaskXSView</code></td>
+</tr>
+<tr>
+<td><code>SM</code></td>
+<td>Small</td>
+<td>Sidebar controls, compact toolbars, mobile interfaces</td>
+<td><code>AxoTaskSMView</code></td>
+</tr>
+<tr>
+<td><em>(none)</em></td>
+<td>Standard</td>
+<td>Default size for general-purpose use</td>
+<td><code>AxoTaskView</code></td>
+</tr>
+<tr>
+<td><code>LG</code></td>
+<td>Large</td>
+<td>Featured controls, primary actions, touch interfaces</td>
+<td><code>AxoTaskLGView</code></td>
+</tr>
+<tr>
+<td><code>XL</code></td>
+<td>Extra Large</td>
+<td>Kiosk interfaces, operator panels, high-visibility displays</td>
+<td><code>AxoTaskXLView</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sizing-guidelines">Sizing Guidelines</h3>
+<p><strong>General Principles:</strong></p>
+<ul>
+<li>The <strong>standard</strong> size (no suffix) should be the most commonly used variant</li>
+<li>All sizes must provide <strong>identical functionality</strong> - only visual presentation changes</li>
+<li>Maintain <strong>consistent proportions</strong> across size variants (icons, spacing, fonts scale together)</li>
+<li>Ensure <strong>touch-friendly</strong> sizes for <code>LG</code> and <code>XL</code> variants (minimum 44×44px touch targets)</li>
+</ul>
+<p><strong>Size Relationships:</strong></p>
+<pre><code>XS ≈ 60-70% of Standard
+SM ≈ 80-85% of Standard
+Standard = 100% (baseline)
+LG ≈ 130-140% of Standard (reduced from 150% for efficiency)
+XL ≈ 180-200% of Standard
+</code></pre>
+<p><strong>Example Scaling (Button Height):</strong></p>
+<pre><code>XS:       24px
+SM:       32px
+Standard: 40px
+LG:       52px
+XL:       72px
+</code></pre>
+<hr>
+<h2 id="component-naming-convention">Component Naming Convention</h2>
+<h3 id="file-structure">File Structure</h3>
+<p>Each component size variant should have its own set of files:</p>
+<pre><code>AxoTask/
+├── AxoTaskXSView.razor         # Extra small variant markup
+├── AxoTaskXSView.razor.cs      # Extra small variant code-behind
+├── AxoTaskXSView.razor.css     # Extra small variant styles
+├── AxoTaskSMView.razor         # Small variant markup
+├── AxoTaskSMView.razor.cs      # Small variant code-behind
+├── AxoTaskSMView.razor.css     # Small variant styles
+├── AxoTaskView.razor           # Standard variant markup
+├── AxoTaskView.razor.cs        # Standard variant code-behind
+├── AxoTaskView.razor.css       # Standard variant styles
+├── AxoTaskLGView.razor         # Large variant markup
+├── AxoTaskLGView.razor.cs      # Large variant code-behind
+├── AxoTaskLGView.razor.css     # Large variant styles
+└── AxoTaskXLView.razor         # Extra large variant markup
+    AxoTaskXLView.razor.cs      # Extra large variant code-behind
+    AxoTaskXLView.razor.css     # Extra large variant styles
+</code></pre>
+<h3 id="naming-rules">Naming Rules</h3>
+<ol>
+<li><strong>Component Base Name</strong>: Use PascalCase, e.g., <code>AxoTask</code>, <code>AxoSequencer</code>, <code>AxoDrive</code></li>
+<li><strong>Size Suffix</strong>: Append directly before <code>View</code>, e.g., <code>XS</code>, <code>SM</code>, <code>LG</code>, <code>XL</code></li>
+<li><strong>View Suffix</strong>: Always end with <code>View</code> to indicate it's a visual component</li>
+<li><strong>Standard Size</strong>: Omit size suffix for the default variant</li>
+</ol>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>✅ <code>AxoTaskView.razor</code> (standard)</li>
+<li>✅ <code>AxoTaskLGView.razor</code> (large)</li>
+<li>✅ <code>AxoSequencerXSView.razor</code> (extra small)</li>
+<li>❌ <code>AxoTaskLargeView.razor</code> (use <code>LG</code> not <code>Large</code>)</li>
+<li>❌ <code>AxoTaskViewLG.razor</code> (suffix before <code>View</code>, not after)</li>
+</ul>
+<hr>
+<h2 id="component-parameters">Component Parameters</h2>
+<h3 id="required-parameters">Required Parameters</h3>
+<p>All component variants should support these standard parameters:</p>
+<pre><code class="lang-csharp">[Parameter] public string? Class { get; set; }           // Additional CSS classes
+[Parameter] public string? Style { get; set; }           // Inline styles
+[Parameter] public bool Disable { get; set; }            // Disable interaction
+[Parameter] public string? Label { get; set; }           // Override default label
+</code></pre>
+<h3 id="size-specific-parameters">Size-Specific Parameters</h3>
+<p>Consider adding parameters to control density or detail level:</p>
+<pre><code class="lang-csharp">[Parameter] public bool ShowIcon { get; set; } = true;   // Hide in XS/SM variants
+[Parameter] public bool ShowText { get; set; } = true;   // Icon-only mode
+[Parameter] public bool Compact { get; set; }            // Reduce padding/spacing
+</code></pre>
+<hr>
+<h2 id="css-styling-guidelines">CSS Styling Guidelines</h2>
+<h3 id="css-class-naming">CSS Class Naming</h3>
+<p>Use BEM (Block Element Modifier) methodology with component-specific prefixes:</p>
+<pre><code class="lang-css">/* Block */
+.flux-task-lg { }
+
+/* Elements */
+.flux-task-lg__button { }
+.flux-task-lg__icon { }
+.flux-task-lg__label { }
+.flux-task-lg__state { }
+
+/* Modifiers */
+.flux-task-lg--busy { }
+.flux-task-lg--error { }
+.flux-task-lg--disabled { }
+</code></pre>
+<h3 id="scoped-styles">Scoped Styles</h3>
+<p>Always use scoped CSS files (<code>.razor.css</code>) to avoid style conflicts:</p>
+<pre><code class="lang-css">/* AxoTaskLGView.razor.css */
+.flux-task-lg__button {
+    padding: 0.67rem 1rem;
+    font-size: 0.875rem;
+    /* ... */
+}
+</code></pre>
+<h3 id="responsive-design">Responsive Design</h3>
+<p>Include breakpoints for mobile/tablet layouts:</p>
+<pre><code class="lang-css">@media (max-width: 768px) {
+    .flux-task-lg__button {
+        min-width: 160px;
+        padding: 0.58rem 0.83rem;
+    }
+}
+</code></pre>
+<h3 id="theme-support">Theme Support</h3>
+<p>Support both light and dark themes:</p>
+<pre><code class="lang-css">/* Default (dark theme) */
+.flux-task-lg__button {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Light theme specific */
+:root[data-theme=&quot;light&quot;] .flux-task-lg__button {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+</code></pre>
+<hr>
+<h2 id="renderablecontentcontrol-integration">RenderableContentControl Integration</h2>
+<h3 id="presentation-types">Presentation Types</h3>
+<p>AXOpen extends AX# with component-specific presentation types:</p>
+<table>
+<thead>
+<tr>
+<th>Presentation</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Command</code></td>
+<td>Full interaction enabled</td>
+<td>Operator controls, manual mode</td>
+</tr>
+<tr>
+<td><code>Status</code></td>
+<td>Read-only view</td>
+<td>Monitoring displays, dashboards</td>
+</tr>
+<tr>
+<td><code>Command-Control</code></td>
+<td>Enhanced command view</td>
+<td>Service mode, advanced controls</td>
+</tr>
+<tr>
+<td><code>Status-Display</code></td>
+<td>Enhanced status view</td>
+<td>Detailed diagnostics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="component-registration">Component Registration</h3>
+<p>Register your component for automatic rendering:</p>
+<pre><code class="lang-csharp">[RenderableContent]
+public partial class AxoTaskView : RenderableComplexComponentBase&lt;AxoTask&gt;
+{
+    // Implementation
+}
+</code></pre>
+<h3 id="size-selection-in-renderablecontentcontrol">Size Selection in RenderableContentControl</h3>
+<p>When using automatic rendering, you can specify the size variant:</p>
+<pre><code class="lang-xml">&lt;!-- Standard size (default) --&gt;
+&lt;RenderableContentControl Context=&quot;@Entry.Plc.Task&quot; Presentation=&quot;Command&quot;/&gt;
+
+&lt;!-- Specify size variant --&gt;
+&lt;RenderableContentControl Context=&quot;@Entry.Plc.Task&quot; 
+                         Presentation=&quot;CommandLG&quot;/&gt;
+
+&lt;!-- Multiple components with different sizes --&gt;
+&lt;RenderableContentControl Context=&quot;@Entry.Plc.Tasks&quot; 
+                         Presentation=&quot;StatusSM&quot;/&gt;
+</code></pre>
+<h3 id="custom-view-selection">Custom View Selection</h3>
+<p>For manual component usage, directly reference the size variant:</p>
+<pre><code class="lang-xml">&lt;!-- Use standard size --&gt;
+&lt;AxoTaskView Component=&quot;@Entry.Plc.Task&quot; /&gt;
+
+&lt;!-- Use large size --&gt;
+&lt;AxoTaskLGView Component=&quot;@Entry.Plc.Task&quot; /&gt;
+
+&lt;!-- Use extra small size --&gt;
+&lt;AxoTaskXSView Component=&quot;@Entry.Plc.Task&quot; /&gt;
+</code></pre>
+<hr>
+<h2 id="component-state-management">Component State Management</h2>
+<h3 id="state-indication">State Indication</h3>
+<p>Components should visually indicate their state through:</p>
+<ol>
+<li><strong>Color</strong> - Using semantic color system</li>
+<li><strong>Icons</strong> - State-appropriate glyphs/animations</li>
+<li><strong>Animation</strong> - Subtle transitions for state changes</li>
+<li><strong>Accessibility</strong> - ARIA attributes and live regions</li>
+</ol>
+<h3 id="state-color-conventions">State Color Conventions</h3>
+<pre><code class="lang-css">/* Ready/Idle State */
+.state-ready {
+    border-color: var(--border-primary);
+    color: var(--text-muted);
+}
+
+/* Active/Busy State */
+.state-busy {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: var(--color-info);
+}
+
+/* Success/Done State */
+.state-done {
+    border-color: rgba(34, 197, 94, 0.3);
+    color: var(--color-success);
+}
+
+/* Error State */
+.state-error {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: var(--color-danger);
+}
+
+/* Warning State */
+.state-warning {
+    background: rgba(251, 191, 36, 0.12);
+    border-color: rgba(251, 191, 36, 0.4);
+    color: var(--color-warning);
+}
+</code></pre>
+<hr>
+<h2 id="accessibility-requirements">Accessibility Requirements</h2>
+<!-- ### ARIA Attributes
+
+All interactive components must include:
+
+```xml
+<button type="button"
+        class="flux-task-lg__button"
+        aria-label="@Description"
+        aria-busy="@(State is Busy or Kicking)"
+        aria-disabled="@IsDisabled"
+        data-state="@State.ToString().ToLowerInvariant()">
+    <!-- Content -->
+
+``` -->
+<h3 id="keyboard-navigation">Keyboard Navigation</h3>
+<ul>
+<li>Support <code>Tab</code> navigation</li>
+<li>Support <code>Enter</code> and <code>Space</code> for activation</li>
+<li>Support <code>Escape</code> for cancellation (where applicable)</li>
+<li>Provide visible focus indicators</li>
+</ul>
+<!-- ### Screen Reader Support
+
+```xml
+<!-- Visually hidden but accessible text -->
+<p><span class="visually-hidden">Current state: @State</span></p>
+<!-- Live regions for state changes -->
+<div aria-live="polite" aria-atomic="true">
+    @if (StateChanged) {
+        <span>@StateMessage</span>
+    }
+</div>
+``` -->
+<hr>
+<h2 id="animation-guidelines">Animation Guidelines</h2>
+<h3 id="animation-sizing">Animation Sizing</h3>
+<p>All animations (spinners, checkmarks, etc.) should scale with component size:</p>
+<pre><code class="lang-css">/* Standard size - reference from AxoTaskView */
+.task-button__glyph {
+    width: 1.35rem;
+    height: 1.35rem;
+}
+
+/* Large size - maintain same proportions */
+.flux-task-lg__glyph {
+    width: 1.35rem;  /* Keep animations consistent */
+    height: 1.35rem;
+}
+</code></pre>
+<p><strong>Important</strong>: Animation elements should maintain consistent size across variants to avoid visual inconsistency. Only the container and text scale.</p>
+<h3 id="animation-performance">Animation Performance</h3>
+<ul>
+<li>Use <code>transform</code> and <code>opacity</code> for animations (GPU accelerated)</li>
+<li>Avoid animating <code>width</code>, <code>height</code>, <code>margin</code>, or <code>padding</code></li>
+<li>Use <code>will-change</code> sparingly and only when necessary</li>
+<li>Provide <code>prefers-reduced-motion</code> support</li>
+</ul>
+<pre><code class="lang-css">@keyframes task-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.glyph-busy span {
+    animation: task-spin 0.9s linear infinite;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .glyph-busy span {
+        animation: none;
+    }
+}
+</code></pre>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="do">DO:</h3>
+<p>✅ Create all size variants for public components<br>
+✅ Maintain identical functionality across sizes<br>
+✅ Use CSS variables for themeable properties<br>
+✅ Test in both light and dark themes<br>
+✅ Support keyboard and touch interaction<br>
+✅ Include loading and error states<br>
+✅ Document component parameters<br>
+✅ Provide usage examples</p>
+<h3 id="dont">DON'T:</h3>
+<p>❌ Mix size suffixes with variant names (<code>AxoTaskSmallVariantView</code>)<br>
+❌ Create size-specific functionality differences<br>
+❌ Hardcode colors - use CSS variables<br>
+❌ Forget accessibility attributes<br>
+❌ Omit responsive breakpoints<br>
+❌ Use inline styles in markup<br>
+❌ Create components without code-behind separation</p>
+<hr>
+<h2 id="example-creating-a-new-component">Example: Creating a New Component</h2>
+<h3 id="1-define-the-standard-size-component">1. Define the Standard Size Component</h3>
+<p><strong>AxoWidgetView.razor:</strong></p>
+<pre><code class="lang-xml">@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase&lt;AxoWidget&gt;
+
+&lt;div class=&quot;flux-widget @Class&quot; style=&quot;@Style&quot;&gt;
+    &lt;button type=&quot;button&quot;
+            class=&quot;flux-widget__button @StateCss&quot;
+            @onclick=&quot;OnClick&quot;
+            aria-label=&quot;@Description&quot;
+            aria-busy=&quot;@IsBusy&quot;&gt;
+        &lt;span class=&quot;flux-widget__icon&quot;&gt;@Icon&lt;/span&gt;
+        &lt;span class=&quot;flux-widget__label&quot;&gt;@Label&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>AxoWidgetView.razor.cs:</strong></p>
+<pre><code class="lang-csharp">public partial class AxoWidgetView
+{
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public string? Label { get; set; }
+    
+    private string StateCss =&gt; $&quot;state-{State.ToString().ToLowerInvariant()}&quot;;
+    private bool IsBusy =&gt; State == eWidgetState.Busy;
+    
+    private void OnClick() =&gt; Component.Execute();
+}
+</code></pre>
+<p><strong>AxoWidgetView.razor.css:</strong></p>
+<pre><code class="lang-css">.flux-widget__button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    /* ... */
+}
+</code></pre>
+<h3 id="2-create-size-variants">2. Create Size Variants</h3>
+<p><strong>AxoWidgetLGView.razor.css:</strong></p>
+<pre><code class="lang-css">.flux-widget-lg__button {
+    padding: 0.67rem 1rem;      /* 89% of standard */
+    font-size: 0.875rem;         /* Adjust proportionally */
+    /* ... mirror standard structure */
+}
+</code></pre>
+<h3 id="3-register-for-auto-rendering">3. Register for Auto-Rendering</h3>
+<pre><code class="lang-csharp">[RenderableContent(&quot;Widget-Command&quot;)]
+public partial class AxoWidgetView { }
+
+[RenderableContent(&quot;Widget-Command-LG&quot;)]
+public partial class AxoWidgetLGView { }
+</code></pre>
+<hr>
+<h2 id="testing-checklist">Testing Checklist</h2>
+<p>Before releasing a component:</p>
+<ul>
+<li>[ ] All size variants render correctly</li>
+<li>[ ] Dark and light themes display properly</li>
+<li>[ ] Responsive breakpoints work on mobile/tablet</li>
+<li>[ ] Keyboard navigation functions</li>
+<li>[ ] Screen readers announce state changes</li>
+<li>[ ] Component integrates with RenderableContentControl</li>
+<li>[ ] Performance is acceptable (no jank, smooth animations)</li>
+<li>[ ] Documentation includes usage examples</li>
+<li>[ ] Code follows established patterns</li>
+<li>[ ] CSS uses scoped stylesheets</li>
+</ul>
+<hr>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html">AX# Rendering Documentation</a></li>
+<li><a href="./AXOCOMPONENT.md">Component Attribute Guidelines</a></li>
+<li><a href="../rendering/intro.html">Layout Organization</a></li>
+<li><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/">Blazor Component Best Practices</a></li>
+</ul>
+<hr>
+<h2 id="questions">Questions?</h2>
+<p>For questions or suggestions about UI component guidelines, please:</p>
+<ul>
+<li>Review existing components for reference patterns</li>
+<li>Consult the AXOpen development team</li>
+<li>Submit improvement proposals via GitHub issues</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

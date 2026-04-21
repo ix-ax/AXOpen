@@ -1,0 +1,286 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Handle
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Command
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value1
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value2
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value3
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value4
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value5
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value6
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value7
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.VirtualIo
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarControl
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarData
+  name: AxoSmartFunctionKit_Control_v_4_x_x
+  fullName: AxoSmartFunctionKit_Control_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_Control_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Handle
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Handle
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Handle
+  fullName: Handle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Handle
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Handle : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Command
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Command
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Command
+  fullName: Command
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Command
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Command : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value1
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value1
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value1
+  fullName: Value1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value1
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value2
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value2
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value2
+  fullName: Value2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value2
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value3
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value3
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value3
+  fullName: Value3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value3
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value3 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value4
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value4
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value4
+  fullName: Value4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value4
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value4 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value5
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value5
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value5
+  fullName: Value5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value5
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value5 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value6
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value6
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value6
+  fullName: Value6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value6
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value6 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value7
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value7
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value7
+  fullName: Value7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.Value7
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value7 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.VirtualIo
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.VirtualIo
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: VirtualIo
+  fullName: VirtualIo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.VirtualIo
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'VirtualIo : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarControl
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarControl
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: FastVarControl
+  fullName: FastVarControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarControl
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'FastVarControl : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarData
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarData
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: FastVarData
+  fullName: FastVarData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Control_v_4_x_x.FastVarData
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'FastVarData : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

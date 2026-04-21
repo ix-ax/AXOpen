@@ -1,0 +1,298 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoContext
+  id: plc.AXOpen.Core.IAxoContext
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoContext.CreateIdentity()
+  - plc.AXOpen.Core.IAxoContext.OpenCycleCount()
+  - plc.AXOpen.Core.IAxoContext.GetRtc()
+  - plc.AXOpen.Core.IAxoContext.InjectRtc(IAxoRtc)
+  - plc.AXOpen.Core.IAxoContext.GetLogger()
+  - plc.AXOpen.Core.IAxoContext.InjectLogger(IAxoLogger)
+  - plc.AXOpen.Core.IAxoContext.InjectRtm(IAxoRtm)
+  - plc.AXOpen.Core.IAxoContext.GetRtm()
+  - plc.AXOpen.Core.IAxoContext.InjectMessengerService(IAxoMessagingServices)
+  - plc.AXOpen.Core.IAxoContext.GetMessengerService()
+  - plc.AXOpen.Core.IAxoContext.IsValid()
+  name: IAxoContext
+  fullName: IAxoContext
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoContext
+  implements: []
+- uid: plc.AXOpen.Core.IAxoContext.CreateIdentity()
+  id: plc.AXOpen.Core.IAxoContext.CreateIdentity
+  parent: IAxoContext
+  children: []
+  name: CreateIdentity
+  fullName: CreateIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.CreateIdentity
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT CreateIdentity()
+    parameters: &o0 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.IAxoContext.OpenCycleCount()
+  id: plc.AXOpen.Core.IAxoContext.OpenCycleCount
+  parent: IAxoContext
+  children: []
+  name: OpenCycleCount
+  fullName: OpenCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.OpenCycleCount
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT OpenCycleCount()
+    parameters: *o0
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.IAxoContext.GetRtc()
+  id: plc.AXOpen.Core.IAxoContext.GetRtc
+  parent: IAxoContext
+  children: []
+  name: GetRtc
+  fullName: GetRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.GetRtc
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Rtc.IAxoRtc GetRtc()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.IAxoContext.InjectRtc(IAxoRtc)
+  id: plc.AXOpen.Core.IAxoContext.InjectRtc
+  parent: IAxoContext
+  children: []
+  name: InjectRtc
+  fullName: InjectRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.InjectRtc
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectRtc(in plc.AXOpen.Rtc.IAxoRtc Rtc)
+    parameters:
+    - id: Rtc
+      type: plc.AXOpen.Rtc.IAxoRtc
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoContext.GetLogger()
+  id: plc.AXOpen.Core.IAxoContext.GetLogger
+  parent: IAxoContext
+  children: []
+  name: GetLogger
+  fullName: GetLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.GetLogger
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Logging.IAxoLogger GetLogger()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core.IAxoContext.InjectLogger(IAxoLogger)
+  id: plc.AXOpen.Core.IAxoContext.InjectLogger
+  parent: IAxoContext
+  children: []
+  name: InjectLogger
+  fullName: InjectLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.InjectLogger
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 11
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)
+    parameters:
+    - id: _logger
+      type: plc.AXOpen.Logging.IAxoLogger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoContext.InjectRtm(IAxoRtm)
+  id: plc.AXOpen.Core.IAxoContext.InjectRtm
+  parent: IAxoContext
+  children: []
+  name: InjectRtm
+  fullName: InjectRtm
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.InjectRtm
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectRtm(in plc.AXOpen.Rtm.IAxoRtm inRtm)
+    parameters:
+    - id: inRtm
+      type: plc.AXOpen.Rtm.IAxoRtm
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoContext.GetRtm()
+  id: plc.AXOpen.Core.IAxoContext.GetRtm
+  parent: IAxoContext
+  children: []
+  name: GetRtm
+  fullName: GetRtm
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.GetRtm
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Rtm.IAxoRtm GetRtm()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core.IAxoContext.InjectMessengerService(IAxoMessagingServices)
+  id: plc.AXOpen.Core.IAxoContext.InjectMessengerService
+  parent: IAxoContext
+  children: []
+  name: InjectMessengerService
+  fullName: InjectMessengerService
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.InjectMessengerService
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectMessengerService(in plc.AXOpen.Core.IAxoMessagingServices inMessengerService)
+    parameters:
+    - id: inMessengerService
+      type: plc.AXOpen.Core.IAxoMessagingServices
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoContext.GetMessengerService()
+  id: plc.AXOpen.Core.IAxoContext.GetMessengerService
+  parent: IAxoContext
+  children: []
+  name: GetMessengerService
+  fullName: GetMessengerService
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.GetMessengerService
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoMessagingServices GetMessengerService()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoMessagingServices
+- uid: plc.AXOpen.Core.IAxoContext.IsValid()
+  id: plc.AXOpen.Core.IAxoContext.IsValid
+  parent: IAxoContext
+  children: []
+  name: IsValid
+  fullName: IsValid
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoContext.IsValid
+    path: .\src\abstractions\ctrl\src\AxoContext\IAxoContext.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsValid()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Logging.IAxoLogger
+  name: IAxoLogger
+  nameWithType: IAxoLogger
+  fullName: AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core.IAxoMessagingServices
+  name: IAxoMessagingServices
+  nameWithType: IAxoMessagingServices
+  fullName: AXOpen.Core.IAxoMessagingServices
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

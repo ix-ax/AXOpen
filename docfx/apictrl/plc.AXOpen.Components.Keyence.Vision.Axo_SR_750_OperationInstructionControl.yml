@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.ReadRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.PresetRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.RegisterPresetDataRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.TuneRequest
+  name: Axo_SR_750_OperationInstructionControl
+  fullName: Axo_SR_750_OperationInstructionControl
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_OperationInstructionControl
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.ReadRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.ReadRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadRequest
+  fullName: ReadRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.ReadRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.PresetRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.PresetRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PresetRequest
+  fullName: PresetRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.PresetRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PresetRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.RegisterPresetDataRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.RegisterPresetDataRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RegisterPresetDataRequest
+  fullName: RegisterPresetDataRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.RegisterPresetDataRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RegisterPresetDataRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.TuneRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.TuneRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneRequest
+  fullName: TuneRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl.TuneRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_OperationInstructionControl.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneRequest : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

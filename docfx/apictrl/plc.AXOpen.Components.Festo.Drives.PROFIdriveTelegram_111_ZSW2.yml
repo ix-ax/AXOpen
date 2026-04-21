@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit8
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit9
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit10
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit11
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit0
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit1
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit2
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit3
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit0
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit1
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit2
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit3
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit4
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit5
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit6
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit7
+  name: PROFIdriveTelegram_111_ZSW2
+  fullName: PROFIdriveTelegram_111_ZSW2
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 244
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_111_ZSW2
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit8
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit8
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit8
+  fullName: deviceSpecificBit8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit8
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 247
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit9
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit9
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit9
+  fullName: deviceSpecificBit9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit9
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 250
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit10
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit10
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit10
+  fullName: deviceSpecificBit10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit10
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 252
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit11
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit11
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit11
+  fullName: deviceSpecificBit11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit11
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 254
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit0
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit0
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: doSignOfLifeBit0
+  fullName: doSignOfLifeBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit0
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 256
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'doSignOfLifeBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: doSignOfLifeBit1
+  fullName: doSignOfLifeBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 258
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'doSignOfLifeBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit2
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit2
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: doSignOfLifeBit2
+  fullName: doSignOfLifeBit2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit2
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 260
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'doSignOfLifeBit2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit3
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit3
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: doSignOfLifeBit3
+  fullName: doSignOfLifeBit3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.doSignOfLifeBit3
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 262
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'doSignOfLifeBit3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit0
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit0
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit0
+  fullName: deviceSpecificBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit0
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 264
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit1
+  fullName: deviceSpecificBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 266
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit2
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit2
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit2
+  fullName: deviceSpecificBit2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit2
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 268
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit3
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit3
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit3
+  fullName: deviceSpecificBit3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit3
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 270
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit4
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit4
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit4
+  fullName: deviceSpecificBit4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit4
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 272
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit5
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit5
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit5
+  fullName: deviceSpecificBit5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit5
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 275
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit6
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit6
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit6
+  fullName: deviceSpecificBit6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit6
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 279
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit7
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit7
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: deviceSpecificBit7
+  fullName: deviceSpecificBit7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW2.deviceSpecificBit7
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 283
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'deviceSpecificBit7 : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoCylinder | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoCylinder | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.pneumatics/docs/AXOCYLINDER.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,110 +85,87 @@
         </div>
 
         <article data-uid="">
-<h2 id="axocylinder">AxoCylinder</h2>
+<h1 id="axocylinder">AxoCylinder</h1>
 
-<p><code>AxoCylinder</code> provides the essential control and operation of a basic pneumatic cylinder, including two controlling output signals for both directions and two end-position sensors. The following preconditions need to be met to make <code>AxoCylinder</code> work as expected.</p>
-<ul>
-<li>two pneumatic valves must be used</li>
-<li>when the first valve is open and the second one is closed, the cylinder moves in one direction. When the first valve is closed and the second one is open, the cylinder moves in opposite direction</li>
-<li>when both valves are closed, the cylinder stops and does not move</li>
-</ul>
+<p><em>Pneumatic cylinder component with two positions (in / out), task-driven movement, sensor feedback, and suspend / abort control.</em></p>
+<p>The <code>AxoCylinder</code> class models a double-acting pneumatic cylinder exposing three
+tasks — <code>MoveIn</code>, <code>MoveOut</code>, <code>Stop</code> — along with suspend and abort helpers. It
+observes two position sensors (<code>InSensor</code>, <code>OutSensor</code>) and drives two valve
+signals (<code>MoveInSignal</code>, <code>MoveOutSignal</code>). The component integrates with
+<code>AxoMessenger</code> to surface categorized runtime messages (busy, done-without-sensor,
+sensor-conflict, suspend, abort).</p>
 <div class="tabGroup" id="tabgroup_1">
 <ul role="tablist">
 <li role="presentation">
 <a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
-</li>
-<li role="presentation">
 <a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
 </li>
 </ul>
 <section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
-<h3 id="implementation">Implementation</h3>
-<p>The <code>AxoCylinder</code> is designed to be used as a member of the <code>AxoContext</code> or <code>AxoObject</code>.
-Therefore, its instance must be initialized with the proper <code>AxoContext</code> or <code>AxoObject</code> before any use.
-Also, the hardware signals must be assigned first before calling any method of this instance.
-To accomplish this, call the <code>Run</code> method cyclically with the proper variables (i.e. inside the <code>Main</code> method of the relevant <code>AxoContext</code>) as in the example below:</p>
-<h3 id="example-of-the-initialization-and-hardware-signal-assignment">Example of the initialization and hardware signal assignment</h3>
-<h4 id="declare-component-and-initialization-variables">Declare component and initialization variables</h4>
-<pre><code class="lang-smalltalk">VAR PUBLIC        
-    PlcInputs : REF_TO PlcInputs;
-    PlcOutputs : REF_TO PlcOutputs;          
-    CylinderParent : AXOpen.Core.AxoObject;
-    myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+<h2 id="declare-component">Declare component</h2>
+<pre><code class="lang-pascal">VAR PUBLIC
+    {#ix-set:AttributeName = &quot;&lt;#CYLINDER 1#&gt;&quot;}
+    AxoCylinder_ : AXOpen.Components.Pneumatics.AxoCylinder;
 END_VAR
-</code></pre><h4 id="initialize--run">Initialize &amp; Run</h4>
-<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main        
-    THIS.InitializeRootObject(CylinderParent);
-    myAxoCylinder.Run(  CylinderParent, 
-                    PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
-                    PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
-                    PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
-                    PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0); 
-END_METHOD
+</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
+<pre><code class="lang-pascal">VAR PUBLIC
+    manualControl   : BOOL;
+    inHomeSensor    : BOOL;     // TRUE when cylinder is retracted
+    inWorkSensor    : BOOL;     // TRUE when cylinder is extended
+    outMoveToWork   : BOOL;     // Valve: extend
+    outMoveToHome   : BOOL;     // Valve: retract
+END_VAR
+</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
+<pre><code class="lang-pascal">AxoCylinder_.Run(inParent      := THIS,
+                 inInSensor    := inHomeSensor,
+                 inOutSensor   := inWorkSensor,
+                 outMoveInSignal  =&gt; outMoveToHome,
+                 outMoveOutSignal =&gt; outMoveToWork);
 </code></pre><div class="IMPORTANT">
 <h5>Important</h5>
 <p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
 </div>
-<h4 id="example-use">Example use</h4>
-<p>To trigger the movements, two public methods, <code>MoveToHome</code> and <code>MoveToWork</code> are present.</p>
-<p><strong>Example of using MoveToHome method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToHome().IsDone() THEN
-    ;
+<h2 id="use">Use</h2>
+<pre><code class="lang-pascal">IF AxoCylinder_.MoveIn().IsDone() THEN
+    ;// cylinder reached home position
 END_IF;
-</code></pre>
-<p><strong>Example of using MoveToWork method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToWork().IsDone() THEN
-    ;
-END_IF;
-</code></pre>
-<p>To stop the movement, when the cylinder is moving, the public <code>Stop</code> method is present.
-<strong>Example of using Stop method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.Stop().IsDone() THEN
-    ;
-END_IF;
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>If the <code>Stop</code> method does not work as expected, check if your pneumatic circuit meets the precondition.</p>
-</div>
-<p><strong>Blocking the movement</strong>
-To block the movement, there are four public methods present:
-<code>SuspendMoveToHomeWhile(Condition)</code> - Suspends the movement to the home position while the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it remains still executing and, with the falling edge of the <code>Condition</code> cylinder, continues its movement to the home position. If the task is invoked when <code>Condition</code> is already <code>TRUE</code>, the task starts to be executed, but the movement starts also with the falling edge of the <code>Condition</code>.
-<code>SuspendMoveToWorkWhile(Condition)</code> - Works exactly the same as <code>SuspendMoveToHomeWhile(Condition)</code> but in the opposite direction.
-<strong>Example of using SuspendMoveToHomeWhile method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
-</code></pre>
-<p><strong>Example of using SuspendMoveToWorkWhile method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
-</code></pre>
-<p><code>AbortMoveToHomeWhen(Condition)</code> - Aborts the movement to the home position when the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it is restored and disabled. After the falling edge of the <code>Condition</code> cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement.
-<code>AbortMoveToWorkWhen(Condition)</code> - Works exactly the same as <code>AbortMoveToHomeWhen(Condition)</code> but in the opposite direction.
-<strong>Example of using AbortMoveToHomeWhen method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);
-</code></pre>
-<p><strong>Example of using AbortMoveToWorkWhen method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToWorkWhen(_abortWorkCondition);
-</code></pre></section>
-<section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
-</section>
-<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
 
-<p><strong>How to visualize <code>AxoCylinder</code></strong>
-On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoCylinder</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.myAxoCylinder&quot; Presentation=&quot;Command&quot; /&gt;
+IF AxoCylinder_.MoveOut().IsDone() THEN
+    ;// cylinder reached work position
+END_IF;
+
+IF AxoCylinder_.Stop().IsDone() THEN
+    ;// cylinder stopped
+END_IF;
+</code></pre><h2 id="suspend--abort-helpers">Suspend / Abort helpers</h2>
+<pre><code class="lang-pascal">AxoCylinder_.SuspendMoveToInWhile(_suspendHomeCondition);
+</code></pre><pre><code class="lang-pascal">AxoCylinder_.SuspendMoveToOutWhile(_suspendWorkCondition);
+</code></pre><pre><code class="lang-pascal">AxoCylinder_.AbortMoveToHomeWhen(_abortHomeCondition);
+</code></pre><pre><code class="lang-pascal">AxoCylinder_.AbortMoveToWorkWhen(_abortWorkCondition);
+</code></pre></section>
+<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
+<h2 id="how-to-visualize-axocylinder">How to visualize <code>AxoCylinder</code></h2>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_&quot;
+                          Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_&quot;
+                          Presentation=&quot;Command-Control&quot; /&gt;
+</code></pre><h2 id="dedicated-axocylinderview">Dedicated <code>AxoCylinderView</code></h2>
+<pre><code class="lang-html">&lt;AxoCylinderView Context=&quot;@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_&quot;
+                 Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><pre><code class="lang-html">&lt;AxoCylinderView Context=&quot;@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_&quot;
+                 Presentation=&quot;Command-Control&quot; /&gt;
 </code></pre></section>
 </div>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.pneumatics/docs/AXOCYLINDER.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -200,7 +175,7 @@ On the UI side, use the <code>RenderableContentControl</code> and set its Contex
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

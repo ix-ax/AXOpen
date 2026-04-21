@@ -1,0 +1,303 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.AxisInReference
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ProgramActive
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingOk
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingNok
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SensorTared
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.PressReady
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Error
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Warning
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.RequestPossible
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ResponsAvialable
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.NotificationAvailable
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.EmergencyOffActive
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SafeStandstillActive
+  name: AxoSmartFunctionKitResponse_v_4_x_x
+  fullName: AxoSmartFunctionKitResponse_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKitResponse_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.AxisInReference
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.AxisInReference
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: AxisInReference
+  fullName: AxisInReference
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.AxisInReference
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'AxisInReference : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ProgramActive
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ProgramActive
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ProgramActive
+  fullName: ProgramActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ProgramActive
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'ProgramActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingOk
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingOk
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: LastPressingOk
+  fullName: LastPressingOk
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingOk
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'LastPressingOk : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingNok
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingNok
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: LastPressingNok
+  fullName: LastPressingNok
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.LastPressingNok
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'LastPressingNok : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SensorTared
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SensorTared
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: SensorTared
+  fullName: SensorTared
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SensorTared
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'SensorTared : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.PressReady
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.PressReady
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: PressReady
+  fullName: PressReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.PressReady
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'PressReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Error
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Error
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Error
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Warning
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Warning
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Warning
+  fullName: Warning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.Warning
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Warning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.RequestPossible
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.RequestPossible
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RequestPossible
+  fullName: RequestPossible
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.RequestPossible
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'RequestPossible : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ResponsAvialable
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ResponsAvialable
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ResponsAvialable
+  fullName: ResponsAvialable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.ResponsAvialable
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'ResponsAvialable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.NotificationAvailable
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.NotificationAvailable
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationAvailable
+  fullName: NotificationAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.NotificationAvailable
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.EmergencyOffActive
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.EmergencyOffActive
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: EmergencyOffActive
+  fullName: EmergencyOffActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.EmergencyOffActive
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'EmergencyOffActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SafeStandstillActive
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SafeStandstillActive
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: SafeStandstillActive
+  fullName: SafeStandstillActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x.SafeStandstillActive
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'SafeStandstillActive : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

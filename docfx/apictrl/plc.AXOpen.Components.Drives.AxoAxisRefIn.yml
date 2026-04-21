@@ -1,0 +1,227 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.ParameterChannel
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveStatus
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.OpModeStatus
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.MotionStatus
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveInputs
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualPosition
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualVelocity
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualTorque
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn.DiagnosticMessage
+  name: AxoAxisRefIn
+  fullName: AxoAxisRefIn
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoAxisRefIn
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.ParameterChannel
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ParameterChannel
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ParameterChannel
+  fullName: ParameterChannel
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ParameterChannel
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ParameterChannel : AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn'
+    return:
+      type: AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveStatus
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveStatus
+  parent: AXOpen.Components.Drives
+  children: []
+  name: DriveStatus
+  fullName: DriveStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveStatus
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'DriveStatus : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.OpModeStatus
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.OpModeStatus
+  parent: AXOpen.Components.Drives
+  children: []
+  name: OpModeStatus
+  fullName: OpModeStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.OpModeStatus
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'OpModeStatus : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.MotionStatus
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.MotionStatus
+  parent: AXOpen.Components.Drives
+  children: []
+  name: MotionStatus
+  fullName: MotionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.MotionStatus
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'MotionStatus : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveInputs
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveInputs
+  parent: AXOpen.Components.Drives
+  children: []
+  name: DriveInputs
+  fullName: DriveInputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DriveInputs
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'DriveInputs : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualPosition
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualPosition
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ActualPosition
+  fullName: ActualPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualPosition
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ActualPosition : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualVelocity
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualVelocity
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ActualVelocity
+  fullName: ActualVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualVelocity
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ActualVelocity : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualTorque
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualTorque
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ActualTorque
+  fullName: ActualTorque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.ActualTorque
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ActualTorque : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn.DiagnosticMessage
+  id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DiagnosticMessage
+  parent: AXOpen.Components.Drives
+  children: []
+  name: DiagnosticMessage
+  fullName: DiagnosticMessage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoAxisRefIn.DiagnosticMessage
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'DiagnosticMessage : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+  name: AxoDriveParameterChannelIdnIn
+  nameWithType: AxoDriveParameterChannelIdnIn
+  fullName: AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+
+

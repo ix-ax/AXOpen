@@ -1,0 +1,251 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Robot
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Safety
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.IO
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Tool
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Joints
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.TCP
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Bits
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Ints
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Floats
+  name: AxoUrRoboticsInputData_v_1_x_x
+  fullName: AxoUrRoboticsInputData_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsInputData_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Robot
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Robot
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Robot
+  fullName: Robot
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Robot
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Robot : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Safety
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Safety
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Safety
+  fullName: Safety
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Safety
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Safety : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.IO
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.IO
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: IO
+  fullName: IO
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.IO
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'IO : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Tool
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Tool
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool
+  fullName: Tool
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Tool
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Joints
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Joints
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Joints
+  fullName: Joints
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Joints
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Joints : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.TCP
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.TCP
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TCP
+  fullName: TCP
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.TCP
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TCP : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Bits
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Bits
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bits
+  fullName: Bits
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Bits
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bits : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Ints
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Ints
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Ints
+  fullName: Ints
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Ints
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Ints : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Floats
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Floats
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Floats
+  fullName: Floats
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x.Floats
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Floats : AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OFloatRegs_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OFloatRegs_v_1_x_x
+references:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+  name: AxoUrRoboticsT2ORobot_v_1_x_x
+  nameWithType: AxoUrRoboticsT2ORobot_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+  name: AxoUrRoboticsT2OSafety_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OSafety_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+  name: AxoUrRoboticsT2OIo_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OIo_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+  name: AxoUrRoboticsT2OTool_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OTool_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+  name: AxoUrRoboticsT2OJoints_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OJoints_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+  name: AxoUrRoboticsT2OTcp_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OTcp_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+  name: AxoUrRoboticsT2OBitRegs_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OBitRegs_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+  name: AxoUrRoboticsT2OIntRegs_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OIntRegs_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OFloatRegs_v_1_x_x
+  name: AxoUrRoboticsT2OFloatRegs_v_1_x_x
+  nameWithType: AxoUrRoboticsT2OFloatRegs_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OFloatRegs_v_1_x_x
+
+

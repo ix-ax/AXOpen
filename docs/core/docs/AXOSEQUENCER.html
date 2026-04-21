@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoSequencer | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoSequencer | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOSEQUENCER.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -125,17 +123,18 @@
 <h3 id="example-of-using-axosequencer">Example of using AxoSequencer</h3>
 <h4 id="example-of-the-declaration-of-the-axosequencer-and-axostep">Example of the declaration of the AxoSequencer and AxoStep</h4>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
-CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
+CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoObject
     VAR PUBLIC
         _mySequencer : AXOpen.Core.AxoSequencer;
         _step_1 : AxoStep;
         _step_2 : AxoStep;
         _step_3 : AxoStep;
         _myCounter : ULINT;
+    METHOD SequenceModeExamples
 </code></pre><h4 id="initialization">Initialization</h4>
 <p>Initialization of the context needs to be called first. It does not need to be called cyclically, just once.</p>
 <pre><code class="lang-smalltalk">METHOD PUBLIC Initialize
-    THIS.InitializeRootObject(_mySequencer);
+    _mySequencer.Run(THIS);
 END_METHOD
 </code></pre><h4 id="open">Open</h4>
 <p>The <code>Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition, as follows.</p>
@@ -179,28 +178,37 @@ This step is going to be executed just in the first run of the sequence, as duri
 <pre><code class="lang-smalltalk">IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter &lt;= ULINT#20) THEN
     _myCounter := _myCounter + ULINT#1;
     IF _myCounter = ULINT#20 THEN
-        // Jumping to step 1. As it is jumping backwards, the execution of step 1  
+        // Jumping to step 1. As it is jumping backwards, the execution of step 1
         // is going to be started in the next context cycle.
         _mySequencer.RequestStep(_step_1);
     END_IF;
 END_IF;
 </code></pre>
 <p>Example of use of the <code>Execute()</code> method of the <code>AxoStep</code> class with all three parameters defined.</p>
-<pre><code class="lang-smalltalk">IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
+<pre><code class="lang-smalltalk">IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := '&lt;#Process data#&gt;' ) THEN
     _myCounter := _myCounter + ULINT#1;
     IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
         // Finalize the sequence and initiate the execution from the first step.
         _mySequencer.CompleteSequence();
     END_IF;
 END_IF;
-</code></pre></article>
+</code></pre><h4 id="sequencemode">SequenceMode</h4>
+<p>The <code>SequenceMode</code> property controls whether the sequence restarts after completion or stays done:</p>
+<pre><code class="lang-smalltalk">METHOD SequenceModeExamples
+    // RunOnce: sequence executes once and stays in Done state
+    _mySequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+
+    // Cyclic: sequence restarts automatically after CompleteSequence
+    _mySequencer.SequenceMode := eAxoSequenceMode#Cyclic;
+END_METHOD
+</code></pre>
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOSEQUENCER.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -210,7 +218,7 @@ END_IF;
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

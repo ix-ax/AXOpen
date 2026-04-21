@@ -1,0 +1,163 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState
+  id: plc.AXOpen.Components.Drives.eAxoDriveState
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.eAxoDriveState.Disabled
+  - plc.AXOpen.Components.Drives.eAxoDriveState.Errorstop
+  - plc.AXOpen.Components.Drives.eAxoDriveState.Standstill
+  - plc.AXOpen.Components.Drives.eAxoDriveState.Homing
+  - plc.AXOpen.Components.Drives.eAxoDriveState.Stopping
+  - plc.AXOpen.Components.Drives.eAxoDriveState.DiscreteMotion
+  - plc.AXOpen.Components.Drives.eAxoDriveState.SynchronizedMotion
+  - plc.AXOpen.Components.Drives.eAxoDriveState.ContinuousMotion
+  name: eAxoDriveState
+  fullName: eAxoDriveState
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: eAxoDriveState
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.Disabled
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.Disabled
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Disabled
+  fullName: Disabled
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.Disabled
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.Errorstop
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.Errorstop
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Errorstop
+  fullName: Errorstop
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.Errorstop
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.Standstill
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.Standstill
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Standstill
+  fullName: Standstill
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.Standstill
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.Homing
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.Homing
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Homing
+  fullName: Homing
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.Homing
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.Stopping
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.Stopping
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Stopping
+  fullName: Stopping
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.Stopping
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.DiscreteMotion
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.DiscreteMotion
+  parent: AXOpen.Components.Drives
+  children: []
+  name: DiscreteMotion
+  fullName: DiscreteMotion
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.DiscreteMotion
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.SynchronizedMotion
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.SynchronizedMotion
+  parent: AXOpen.Components.Drives
+  children: []
+  name: SynchronizedMotion
+  fullName: SynchronizedMotion
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.SynchronizedMotion
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState.ContinuousMotion
+  id: plc.AXOpen.Components.Drives.eAxoDriveState.ContinuousMotion
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ContinuousMotion
+  fullName: ContinuousMotion
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.eAxoDriveState.ContinuousMotion
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoDriveState.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Drives
+references:
+- uid: plc.AXOpen.Components.Drives.eAxoDriveState
+  name: eAxoDriveState
+  nameWithType: eAxoDriveState
+  fullName: AXOpen.Components.Drives.eAxoDriveState
+
+

@@ -1,0 +1,73 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData.Data
+  name: Axo_SR_750_UserData
+  fullName: Axo_SR_750_UserData
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_UserData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_UserData.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_UserData
+  inheritance:
+  - plc.AXOpen.Core.AxoByteArray
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoByteArray.DataChanged
+  - plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag()
+  - plc.AXOpen.Core.AxoByteArray.DataHasChanged()
+  implements: []
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData.Data
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData.Data
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_UserData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData.Data
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_UserData.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Data : ARRAY [0..251] OF BYTE'
+    return:
+      type: ARRAY [0..251] OF BYTE
+references:
+- uid: plc.AXOpen.Core.AxoByteArray.DataChanged
+  commentId: plc.AXOpen.Core.AxoByteArray.DataChanged
+  name: DataChanged
+  nameWithType: DataChanged
+  fullName: plc.AXOpen.Core.AxoByteArray.DataChanged
+  parent: plc.AXOpen.Core.AxoByteArray.DataChanged
+- uid: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag()
+  commentId: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag()
+  name: ToggleDataChangedFlag()
+  nameWithType: ToggleDataChangedFlag()
+  fullName: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag()
+  parent: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag()
+- uid: plc.AXOpen.Core.AxoByteArray.DataHasChanged()
+  commentId: plc.AXOpen.Core.AxoByteArray.DataHasChanged()
+  name: DataHasChanged()
+  nameWithType: DataHasChanged()
+  fullName: plc.AXOpen.Core.AxoByteArray.DataHasChanged()
+  parent: plc.AXOpen.Core.AxoByteArray.DataHasChanged()
+- uid: plc.ARRAY [0..251] OF BYTE
+  name: ARRAY [0..251] OF BYTE
+  nameWithType: ARRAY [0..251] OF BYTE
+  fullName: ARRAY [0..251] OF BYTE
+
+

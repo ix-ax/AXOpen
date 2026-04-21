@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+  parent: plc.AXOpen.Components.Balluff.Identification
+  children:
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.UID
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionHighByte
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionLowByte
+  name: Axo_BIS_M_4XX_045_Component_Status
+  fullName: Axo_BIS_M_4XX_045_Component_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: CLASS Axo_BIS_M_4XX_045_Component_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.UID
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.UID
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: UID
+  fullName: UID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.UID
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'UID : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionHighByte
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionHighByte
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: VersionHighByte
+  fullName: VersionHighByte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionHighByte
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'VersionHighByte : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionLowByte
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionLowByte
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: VersionLowByte
+  fullName: VersionLowByte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status.VersionLowByte
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Component_Status.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'VersionLowByte : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

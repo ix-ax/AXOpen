@@ -1,0 +1,202 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE._isSuspended
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.QueueMessage(IAxoMessenger)
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.SuspendMessaging()
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.ResumeMessaging()
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.IsSuspended()
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.RequalifyDownstreamMessages(eAxoMessageCategory)
+  - plc.AXOpen.Core._NULL_MESSENGER_SERVICE.GetRequalifiedMessageCategory()
+  name: _NULL_MESSENGER_SERVICE
+  fullName: _NULL_MESSENGER_SERVICE
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 169
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS _NULL_MESSENGER_SERVICE
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoNullMessagingServices
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE._isSuspended
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE._isSuspended
+  parent: AXOpen.Core
+  children: []
+  name: _isSuspended
+  fullName: _isSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE._isSuspended
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 184
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_isSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.QueueMessage(IAxoMessenger)
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.QueueMessage(IAxoMessenger)
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: QueueMessage
+  fullName: QueueMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.QueueMessage
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 171
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL QueueMessage(in plc.AXOpen.Core.IAxoMessenger inMessegenger)
+    parameters:
+    - id: inMessegenger
+      type: plc.AXOpen.Core.IAxoMessenger
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.SuspendMessaging()
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.SuspendMessaging()
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: SuspendMessaging
+  fullName: SuspendMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.SuspendMessaging
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 187
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SuspendMessaging()
+    parameters: &o1 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.ResumeMessaging()
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.ResumeMessaging()
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: ResumeMessaging
+  fullName: ResumeMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.ResumeMessaging
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 190
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID ResumeMessaging()
+    parameters: *o1
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.IsSuspended()
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.IsSuspended()
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: IsSuspended
+  fullName: IsSuspended
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.IsSuspended
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 194
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsSuspended()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.RequalifyDownstreamMessages(eAxoMessageCategory)
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.RequalifyDownstreamMessages(eAxoMessageCategory)
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: RequalifyDownstreamMessages
+  fullName: RequalifyDownstreamMessages
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.RequalifyDownstreamMessages
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 199
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID RequalifyDownstreamMessages(in plc.AXOpen.Messaging.eAxoMessageCategory inMessageCategory)
+    parameters:
+    - id: inMessageCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.GetRequalifiedMessageCategory()
+  id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.GetRequalifiedMessageCategory()
+  parent: AXOpen.Core._NULL_MESSENGER_SERVICE
+  children: []
+  name: GetRequalifiedMessageCategory
+  fullName: GetRequalifiedMessageCategory
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_MESSENGER_SERVICE.GetRequalifiedMessageCategory
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 206
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Messaging.eAxoMessageCategory GetRequalifiedMessageCategory()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+references:
+- uid: plc.AXOpen.Core.IAxoNullMessagingServices
+  commentId: plc.AXOpen.Core.IAxoNullMessagingServices
+  name: IAxoNullMessagingServices
+  nameWithType: IAxoNullMessagingServices
+  fullName: plc.AXOpen.Core.IAxoNullMessagingServices
+  parent: plc.AXOpen.Core.IAxoNullMessagingServices
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: AXOpen.Core.IAxoMessenger
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+
+

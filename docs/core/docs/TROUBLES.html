@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Troubleshooting | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Troubleshooting | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h2 id="common-issues">Common Issues</h2>
+<h3 id="object-does-not-execute-or-remains-in-initial-state">Object does not execute or remains in initial state</h3>
+<p>The object's <code>Run()</code> or <code>Execute()</code> method must be called <strong>cyclically</strong> — once
+per PLC scan — from within the call tree of your <code>AxoContext.Main()</code> method. It
+does not need to be called directly in <code>Main()</code>; it can be called from any depth
+in the object hierarchy (e.g., inside another <code>AxoObject.Run()</code>, from a station
+object, from a sequencer step), as long as the call originates from the context's
+open cycle.</p>
+<p><strong>Check the following:</strong></p>
+<ul>
+<li>The object instance is declared as a VAR of an <code>AxoObject</code> or <code>AxoContext</code>
+that itself participates in the call tree</li>
+<li>The parent object's <code>Run(inParent)</code> is called before or around this object's
+execution — this establishes the context chain</li>
+<li>The call is not guarded by a condition that prevents it from executing every
+cycle</li>
+</ul>
+<h3 id="object-reports-context-related-errors">Object reports context-related errors</h3>
+<p>Each <code>AxoObject</code> must be able to resolve its <code>AxoContext</code> through the parent
+chain. If the context is <code>NULL</code>:</p>
+<ul>
+<li>Verify that <code>Run(inParent)</code> is called with a valid parent reference (<code>THIS</code>
+from the enclosing object, not a literal <code>NULL</code> or uninitialized reference)</li>
+<li>Verify the top-level context calls <code>Main()</code> inside its cyclic program</li>
+</ul>
+<h3 id="axotask-remains-in-busy-state-indefinitely">AxoTask remains in Busy state indefinitely</h3>
+<ul>
+<li>The owning object's <code>Run()</code> must continue to be called cyclically while a
+task is executing — tasks advance their state machine inside <code>Run()</code></li>
+<li>Call <code>Restore()</code> on the task between successive invocations to reset its
+state machine before issuing a new command</li>
+<li>Verify <code>DoneWhen(condition)</code> is eventually called with <code>TRUE</code> — if the
+completion condition is never met, the task stays Busy forever</li>
+</ul>
+<h3 id="axotask-stays-in-doneerror-and-wont-re-invoke">AxoTask stays in Done/Error and won't re-invoke</h3>
+<p>After completing (<code>Done</code>) or failing (<code>Error</code>), the task must be explicitly
+restored before it can be invoked again:</p>
+<ul>
+<li>Call <code>Restore()</code> to return to <code>Ready</code> state, then call <code>Invoke()</code> again</li>
+<li>Alternatively, stop calling <code>Invoke()</code> for two consecutive context cycles —
+the task auto-transitions from <code>Done</code> to <code>Ready</code></li>
+<li>From <code>Error</code> state, only <code>Restore()</code> works — there is no auto-transition</li>
+</ul>
+<h3 id="axoremotetask-enters-error-state-remote-task-is-not-initialized">AxoRemoteTask enters error state &quot;REMOTE TASK IS NOT INITIALIZED&quot;</h3>
+<p>Every <code>AxoRemoteTask</code> instance that gets <code>Invoke()</code>d from the PLC must have a
+corresponding <code>.Initialize(handler)</code> call in the .NET application's <code>Program.cs</code>.
+Without this, the <code>IsInitialized</code> flag remains <code>FALSE</code> and the task transitions
+to <code>Error</code>.</p>
+<p><strong>Check the following:</strong></p>
+<ul>
+<li><code>Program.cs</code> contains a call like:
+<code>Entry.Plc.Ctx.{path}._remoteTask.Initialize(() =&gt; { ... });</code></li>
+<li>The .NET application is running and connected to the PLC</li>
+<li>The <code>Initialize()</code> call occurs before <code>app.Run()</code> in <code>Program.cs</code></li>
+</ul>
+<h3 id="axodialog-does-not-appear-on-the-hmi">AxoDialog does not appear on the HMI</h3>
+<p>AxoDialog uses SignalR for cross-client synchronization. If dialogs don't
+appear:</p>
+<ul>
+<li>Verify <code>builder.Services.AddAxoCoreServices()</code> is called in <code>Program.cs</code></li>
+<li>Verify <code>app.MapHub&lt;SignalRDialogHub&gt;(SignalRDialogHub.HUB_URL_SUFFIX)</code> is
+called after <code>app.MapBlazorHub()</code> in <code>Program.cs</code></li>
+<li>Verify the Blazor page includes an <code>&lt;AxoDialogLocator&gt;</code> component with the
+correct <code>ObservedObjects</code> list</li>
+<li>Verify the dialog's <code>Show()</code> or <code>ShowWithExternalClose()</code> method is called
+cyclically from within the PLC context</li>
+</ul>
+<h3 id="axoalert-toast-notifications-not-showing">AxoAlert toast notifications not showing</h3>
+<ul>
+<li>Verify <code>&lt;AxoAlertToast/&gt;</code> is present in <code>MainLayout.razor</code></li>
+<li>Verify <code>&lt;AxoAlertDialogLocator&gt;</code> is placed in <code>MainLayout.razor</code> (for
+app-wide alerts) or in the specific Razor page</li>
+<li>Only one instance of <code>AxoAlertDialogLocator</code> should exist per scope</li>
+</ul>
+<h3 id="axologger-messages-not-appearing-in-net-console">AxoLogger messages not appearing in .NET console</h3>
+<p>AxoLogger requires .NET-side dequeuing to forward PLC log entries:</p>
+<ul>
+<li>Verify <code>StartDequeuing(logger, interval)</code> is called in <code>Program.cs</code>:
+<code>Entry.Plc.Ctx.{path}.Logger.StartDequeuing(new SerilogLogger(...), 250);</code></li>
+<li>Verify <code>ConstructIdentitiesAsync()</code> is awaited before logging starts —
+without identity resolution, sender information is incomplete</li>
+<li>Check that the PLC-side <code>SetMinimumLevel()</code> is not filtering out the
+messages you expect to see</li>
+<li>Remember the 100-entry queue limit — high-frequency logging can cause
+entries to be dropped before dequeuing</li>
+</ul>
+<h3 id="axosequencer-steps-execute-out-of-order-or-skip">AxoSequencer steps execute out of order or skip</h3>
+<ul>
+<li>Steps must be declared as unique instances — never reuse the same <code>AxoStep</code>
+variable for multiple steps in a sequence</li>
+<li>Do not nest step <code>Execute()</code> calls inside other steps or control structures</li>
+<li>Step order is fixed during the <code>Configuring</code> state (first cycle after
+<code>Open()</code> or <code>Run()</code>) — do not dynamically reorder steps while <code>Running</code></li>
+<li>Verify each step eventually calls <code>MoveNext()</code>, <code>RequestStep()</code>, or
+<code>CompleteSequence()</code> — a step without a transition blocks the sequence</li>
+</ul>
+<h3 id="axomessenger-does-not-display-messages">AxoMessenger does not display messages</h3>
+<ul>
+<li><code>Serve(rootObject)</code> must be called <strong>before</strong> <code>Activate()</code> or
+<code>ActivateOnCondition()</code> in the same cycle — reversed order causes messages
+to be silently dropped</li>
+<li>Verify the <code>PlcTextList</code> attribute is defined on the messenger's declaration
+with the correct <code>[code]:'&lt;#text#&gt;':'&lt;#help#&gt;'</code> format</li>
+<li>Verify the message code passed to <code>Activate()</code> matches an entry in the
+text list</li>
+</ul>
+<h3 id="unexpected-behavior-after-dependency-update">Unexpected behavior after dependency update</h3>
+<ul>
+<li>Verify that all <code>apax.yml</code> dependency versions are aligned — mismatched
+versions between foundation libraries can cause interface incompatibilities</li>
+<li>Run <code>apax clean &amp;&amp; apax install &amp;&amp; apax build</code> to ensure a clean rebuild</li>
+</ul>
+<hr>
+<h2 id="error-states">Error States</h2>
+<h3 id="eaxotaskstate">eAxoTaskState</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>Ready</code></td>
+<td>Task is idle and can be invoked. Initial state after creation or <code>Restore()</code>.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>Kicking</code></td>
+<td>Transitional state after <code>Invoke()</code> — the task is preparing to execute. Transitions to <code>Busy</code> on the next <code>Execute()</code> call.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Busy</code></td>
+<td>Task is actively executing. <code>Execute()</code> returns <code>TRUE</code> in this state. Exits via <code>DoneWhen(TRUE)</code>, <code>ThrowWhen(TRUE)</code>, or <code>Abort()</code>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Done</code></td>
+<td>Task completed successfully. <code>IsDone()</code> returns <code>TRUE</code>. Auto-transitions to <code>Ready</code> if <code>Invoke()</code> is not called for 2+ cycles.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Aborted</code></td>
+<td>Task was interrupted by <code>Abort()</code>. <code>IsAborted()</code> returns <code>TRUE</code>. Call <code>Resume()</code> to return to <code>Busy</code>, or <code>Restore()</code> to reset.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Error</code></td>
+<td>Task terminated with a failure via <code>ThrowWhen(TRUE)</code>. <code>HasError()</code> returns <code>TRUE</code>. Only <code>Restore()</code> exits this state. Check <code>ErrorDetails</code> for the message.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edialoganswer">eDialogAnswer</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>NoAnswer</code></td>
+<td>Dialog is still waiting for user response.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Ok</code></td>
+<td>User clicked OK.</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>Yes</code></td>
+<td>User clicked Yes.</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>No</code></td>
+<td>User clicked No.</td>
+</tr>
+<tr>
+<td>40</td>
+<td><code>Cancel</code></td>
+<td>User clicked Cancel.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edialogtype">eDialogType</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>Undefined</code></td>
+<td>Default, no visual type applied.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Info</code></td>
+<td>Informational dialog (blue styling).</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>Success</code></td>
+<td>Success confirmation (green styling).</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>Danger</code></td>
+<td>Critical/destructive action (red styling).</td>
+</tr>
+<tr>
+<td>40</td>
+<td><code>Warning</code></td>
+<td>Warning notification (yellow styling).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="diagnostics">Diagnostics</h2>
+<h3 id="reading-axotask-state">Reading AxoTask state</h3>
+<table>
+<thead>
+<tr>
+<th>Property / Method</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Status</code></td>
+<td><code>eAxoTaskState</code></td>
+<td>Current task state (Ready, Kicking, Busy, Done, Aborted, Error)</td>
+</tr>
+<tr>
+<td><code>IsDone()</code></td>
+<td><code>BOOL</code></td>
+<td>Returns <code>TRUE</code> when task completed successfully</td>
+</tr>
+<tr>
+<td><code>IsBusy()</code></td>
+<td><code>BOOL</code></td>
+<td>Returns <code>TRUE</code> when task is executing</td>
+</tr>
+<tr>
+<td><code>HasError()</code></td>
+<td><code>BOOL</code></td>
+<td>Returns <code>TRUE</code> when task is in Error state</td>
+</tr>
+<tr>
+<td><code>IsAborted()</code></td>
+<td><code>BOOL</code></td>
+<td>Returns <code>TRUE</code> when task was aborted</td>
+</tr>
+<tr>
+<td><code>ErrorDetails</code></td>
+<td><code>STRING</code></td>
+<td>Error message text (populated by <code>ThrowWhen</code> or remote exception)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-axoremotetask-state">Reading AxoRemoteTask state</h3>
+<p>In addition to all AxoTask diagnostics:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IsInitialized</code></td>
+<td><code>BOOL</code></td>
+<td><code>TRUE</code> when .NET handler is connected via <code>Initialize()</code></td>
+</tr>
+<tr>
+<td><code>HasRemoteException</code></td>
+<td><code>BOOL</code></td>
+<td><code>TRUE</code> when the .NET handler threw an exception</td>
+</tr>
+<tr>
+<td><code>IsBeingCalledCounter</code></td>
+<td><code>INT</code></td>
+<td>Increments each cycle <code>Execute()</code> is called while busy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-axosequencer-state">Reading AxoSequencer state</h3>
+<table>
+<thead>
+<tr>
+<th>Property / Method</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GetCoordinatorState()</code></td>
+<td><code>AxoCoordinatorStates</code></td>
+<td><code>Idle</code>, <code>Configuring</code>, or <code>Running</code></td>
+</tr>
+<tr>
+<td><code>GetNumberOfConfiguredSteps()</code></td>
+<td><code>INT</code></td>
+<td>Total steps registered during configuration</td>
+</tr>
+<tr>
+<td><code>SequenceMode</code></td>
+<td><code>eAxoSequenceMode</code></td>
+<td><code>RunOnce</code> or <code>Cyclic</code></td>
+</tr>
+<tr>
+<td><code>SteppingMode</code></td>
+<td><code>eAxoSteppingMode</code></td>
+<td><code>Continuous</code> or <code>StepByStep</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-axologger-state">Reading AxoLogger state</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Carret</code></td>
+<td><code>INT</code></td>
+<td>Current write position in the 100-entry circular buffer</td>
+</tr>
+<tr>
+<td><code>MinimumLevel</code></td>
+<td><code>eLogLevel</code></td>
+<td>Messages below this level are discarded on the PLC side</td>
+</tr>
+<tr>
+<td><code>LogEntries[n].ToDequeue</code></td>
+<td><code>BOOL</code></td>
+<td><code>TRUE</code> if this entry hasn't been read by .NET yet</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li><strong>AxoLogger queue size</strong>: Fixed at 100 entries. High-frequency logging can
+overflow the buffer before .NET dequeues entries. There is no configuration
+option to change this limit.</li>
+<li><strong>AxoDialog single-instance</strong>: Only one dialog can be active per <code>AxoDialog</code>
+instance at a time. Calling <code>Show()</code> again while a dialog is pending replaces
+the previous dialog.</li>
+<li><strong>AxoRemoteTask non-deterministic</strong>: Execution time of the .NET handler is
+not bounded — network latency, .NET garbage collection, and thread scheduling
+can introduce variable delays.</li>
+<li><strong>AxoSequencer step limit</strong>: Step arrays must be pre-allocated. The maximum
+number of steps is determined by the array size at compile time.</li>
+</ul>
+<hr>
+<h2 id="support">Support</h2>
+<p>If you encounter any issues not covered here, please <a href="https://github.com/inxton/AXOpen/issues/new/choose">file a report on our GitHub</a>. We appreciate your feedback and patience.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

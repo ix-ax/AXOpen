@@ -1,0 +1,75 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision
+  id: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Component_Status
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Out
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_ResultData
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+  name: plc.AXOpen.Components.Cognex.Vision
+  fullName: Vision
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\AxoVisionPro.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision
+references:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro
+  name: AxoVisionPro
+  nameWithType: AxoVisionPro
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+  name: AxoVisionProHWIDs
+  nameWithType: AxoVisionProHWIDs
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+  name: AxoVisionProSoftEventControl
+  nameWithType: AxoVisionProSoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+  name: AxoVisionProSoftEventStatus
+  nameWithType: AxoVisionProSoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Component_Status
+  name: AxoVisionPro_Component_Status
+  nameWithType: AxoVisionPro_Component_Status
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Component_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+  name: AxoVisionPro_Config
+  nameWithType: AxoVisionPro_Config
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+  name: AxoVisionPro_Control
+  nameWithType: AxoVisionPro_Control
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+  name: AxoVisionPro_In
+  nameWithType: AxoVisionPro_In
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Out
+  name: AxoVisionPro_Out
+  nameWithType: AxoVisionPro_Out
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Out
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_ResultData
+  name: AxoVisionPro_ResultData
+  nameWithType: AxoVisionPro_ResultData
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+  name: AxoVisionPro_Status
+  nameWithType: AxoVisionPro_Status
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+
+

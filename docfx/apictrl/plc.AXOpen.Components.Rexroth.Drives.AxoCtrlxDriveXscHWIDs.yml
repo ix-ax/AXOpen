@@ -1,0 +1,471 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Device
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Outputs
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Inputs
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0134_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0145_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0282_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0259_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0260_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0359_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0092_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0080_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0193_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0135_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0144_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0386_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0535_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0390_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_2
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0084_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_P_0_0106_0_0
+  name: AxoCtrlxDriveXscHWIDs
+  fullName: AxoCtrlxDriveXscHWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscHWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Device
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Device
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Device
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Outputs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Outputs
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_Outputs
+  fullName: HW_Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Outputs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_Outputs : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Inputs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Inputs
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_Inputs
+  fullName: HW_Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_Inputs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_Inputs : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0134_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0134_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0134_0_0
+  fullName: HW_S_0_0134_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0134_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0134_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0145_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0145_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0145_0_0
+  fullName: HW_S_0_0145_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0145_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0145_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0282_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0282_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0282_0_0
+  fullName: HW_S_0_0282_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0282_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0282_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0259_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0259_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0259_0_0
+  fullName: HW_S_0_0259_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0259_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0259_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0260_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0260_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0260_0_0
+  fullName: HW_S_0_0260_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0260_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0260_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0359_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0359_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0359_0_0
+  fullName: HW_S_0_0359_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0359_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0359_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_1720_0_1
+  fullName: HW_S_0_1720_0_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_1720_0_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0092_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0092_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0092_0_0
+  fullName: HW_S_0_0092_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0092_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0092_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0080_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0080_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0080_0_0
+  fullName: HW_S_0_0080_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0080_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0080_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0193_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0193_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0193_0_0
+  fullName: HW_S_0_0193_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0193_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0193_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0135_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0135_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0135_0_0
+  fullName: HW_S_0_0135_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0135_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0135_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0144_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0144_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0144_0_0
+  fullName: HW_S_0_0144_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0144_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0144_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0386_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0386_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0386_0_0
+  fullName: HW_S_0_0386_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0386_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0386_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0535_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0535_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0535_0_0
+  fullName: HW_S_0_0535_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0535_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0535_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0390_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0390_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0390_0_0
+  fullName: HW_S_0_0390_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0390_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0390_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_2
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_1720_0_2
+  fullName: HW_S_0_1720_0_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_1720_0_2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_1720_0_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0084_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0084_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_S_0_0084_0_0
+  fullName: HW_S_0_0084_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_S_0_0084_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_S_0_0084_0_0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_P_0_0106_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_P_0_0106_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HW_P_0_0106_0_0
+  fullName: HW_P_0_0106_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs.HW_P_0_0106_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HW_P_0_0106_0_0 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

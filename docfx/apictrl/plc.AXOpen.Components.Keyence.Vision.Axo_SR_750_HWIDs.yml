@@ -1,0 +1,345 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_Device
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_HandshakeAndGeneralErrorStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_BUSY_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ErrorStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_TerminalStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UnstableReadStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationalResultStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ReadData
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_LatchAndErrorClearControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationInstructionControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionClearControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ParameterBankNumber
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UserData
+  name: Axo_SR_750_HWIDs
+  fullName: Axo_SR_750_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_Device
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_Device
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_Device
+  fullName: HwID_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_Device
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_HandshakeAndGeneralErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_HandshakeAndGeneralErrorStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_HandshakeAndGeneralErrorStatus
+  fullName: HwID_HandshakeAndGeneralErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_HandshakeAndGeneralErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_HandshakeAndGeneralErrorStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_BUSY_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_BUSY_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_BUSY_Status
+  fullName: HwID_BUSY_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_BUSY_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_BUSY_Status : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_CompletionStatus
+  fullName: HwID_CompletionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_CompletionStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ErrorStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ErrorStatus
+  fullName: HwID_ErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ErrorStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_TerminalStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_TerminalStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_TerminalStatus
+  fullName: HwID_TerminalStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_TerminalStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_TerminalStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UnstableReadStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UnstableReadStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_UnstableReadStatus
+  fullName: HwID_UnstableReadStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UnstableReadStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_UnstableReadStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_MatchingLevelAndTotalEvaluationGradeStatus
+  fullName: HwID_MatchingLevelAndTotalEvaluationGradeStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_MatchingLevelAndTotalEvaluationGradeStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationalResultStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationalResultStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_OperationalResultStatus
+  fullName: HwID_OperationalResultStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationalResultStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_OperationalResultStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ReadData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ReadData
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ReadData
+  fullName: HwID_ReadData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ReadData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ReadData : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_LatchAndErrorClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_LatchAndErrorClearControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_LatchAndErrorClearControl
+  fullName: HwID_LatchAndErrorClearControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_LatchAndErrorClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_LatchAndErrorClearControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationInstructionControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationInstructionControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_OperationInstructionControl
+  fullName: HwID_OperationInstructionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_OperationInstructionControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_OperationInstructionControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionClearControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_CompletionClearControl
+  fullName: HwID_CompletionClearControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_CompletionClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_CompletionClearControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ParameterBankNumber
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ParameterBankNumber
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ParameterBankNumber
+  fullName: HwID_ParameterBankNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_ParameterBankNumber
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ParameterBankNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UserData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UserData
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_UserData
+  fullName: HwID_UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs.HwID_UserData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HWIDs.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_UserData : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

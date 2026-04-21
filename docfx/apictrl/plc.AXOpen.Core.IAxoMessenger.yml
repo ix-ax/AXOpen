@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoMessenger
+  id: plc.AXOpen.Core.IAxoMessenger
+  parent: plc.AXOpen.Core
+  children: []
+  name: IAxoMessenger
+  fullName: IAxoMessenger
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoMessenger
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessenger.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoMessenger
+  implements: []
+references: []
+
+

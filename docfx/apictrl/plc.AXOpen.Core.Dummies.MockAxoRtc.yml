@@ -1,0 +1,104 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtc
+  id: plc.AXOpen.Core.Dummies.MockAxoRtc
+  parent: plc.AXOpen.Core.Dummies
+  children:
+  - plc.AXOpen.Core.Dummies.MockAxoRtc._nowUTC
+  - plc.AXOpen.Core.Dummies.MockAxoRtc.NowUTC()
+  - plc.AXOpen.Core.Dummies.MockAxoRtc.SetNowUTC(LDATE_AND_TIME)
+  name: MockAxoRtc
+  fullName: MockAxoRtc
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtc
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+    startLine: 8
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: CLASS MockAxoRtc
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtc._nowUTC
+  id: plc.AXOpen.Core.Dummies.MockAxoRtc._nowUTC
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _nowUTC
+  fullName: _nowUTC
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtc._nowUTC
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+    startLine: 11
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_nowUTC : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtc.NowUTC()
+  id: plc.AXOpen.Core.Dummies.MockAxoRtc.NowUTC()
+  parent: AXOpen.Core.Dummies.MockAxoRtc
+  children: []
+  name: NowUTC
+  fullName: NowUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtc.NowUTC
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+    startLine: 14
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public LDATE_AND_TIME NowUTC()
+    parameters: []
+    return:
+      type: plc.LDATE_AND_TIME
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtc.SetNowUTC(LDATE_AND_TIME)
+  id: plc.AXOpen.Core.Dummies.MockAxoRtc.SetNowUTC(LDATE_AND_TIME)
+  parent: AXOpen.Core.Dummies.MockAxoRtc
+  children: []
+  name: SetNowUTC
+  fullName: SetNowUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtc.SetNowUTC
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtc.st
+    startLine: 18
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID SetNowUTC(in plc.LDATE_AND_TIME Set)
+    parameters:
+    - id: Set
+      type: plc.LDATE_AND_TIME
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  commentId: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: plc.AXOpen.Rtc.IAxoRtc
+  parent: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+
+

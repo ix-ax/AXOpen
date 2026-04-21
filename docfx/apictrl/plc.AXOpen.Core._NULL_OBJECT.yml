@@ -1,0 +1,264 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_OBJECT
+  id: plc.AXOpen.Core._NULL_OBJECT
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  - plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  - plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  - plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
+  - plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(IAxoMessenger)
+  - plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(ULINT)
+  - plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(LINT)
+  - plc.AXOpen.Core._NULL_OBJECT.GetParent()
+  - plc.AXOpen.Core._NULL_OBJECT.IsValid()
+  name: _NULL_OBJECT
+  fullName: _NULL_OBJECT
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 54
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS _NULL_OBJECT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoNullObject
+- uid: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  id: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  parent: AXOpen.Core
+  children: []
+  name: NULL_CONTEXT
+  fullName: NULL_CONTEXT
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 59
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_CONTEXT : AXOpen.Core._NULL_CONTEXT'
+    return:
+      type: AXOpen.Core._NULL_CONTEXT
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetIdentity
+  fullName: GetIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetIdentity
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 62
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT GetIdentity()
+    parameters: &o1 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetContext
+  fullName: GetContext
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetContext
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 65
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetContextUnsafe
+  fullName: GetContextUnsafe
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 68
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContextUnsafe()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(IAxoMessenger)
+  id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(IAxoMessenger)
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: AggregateMessage
+  fullName: AggregateMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 72
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID AggregateMessage(in plc.AXOpen.Core.IAxoMessenger Message)
+    parameters:
+    - id: Message
+      type: plc.AXOpen.Core.IAxoMessenger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(ULINT)
+  id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(ULINT)
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: AggregateMessage
+  fullName: AggregateMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 79
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID AggregateMessage(in plc.ULINT inCount)
+    parameters:
+    - id: inCount
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(LINT)
+  id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage(LINT)
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: AggregateMessage
+  fullName: AggregateMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.AggregateMessage
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 86
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID AggregateMessage(in plc.LINT inCount)
+    parameters:
+    - id: inCount
+      type: plc.LINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetParent()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetParent()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetParent
+  fullName: GetParent
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetParent
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 93
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoObject GetParent()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core._NULL_OBJECT.IsValid()
+  id: plc.AXOpen.Core._NULL_OBJECT.IsValid()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: IsValid
+  fullName: IsValid
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core._NULL_OBJECT.IsValid
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 98
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsValid()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.IAxoNullObject
+  commentId: plc.AXOpen.Core.IAxoNullObject
+  name: IAxoNullObject
+  nameWithType: IAxoNullObject
+  fullName: plc.AXOpen.Core.IAxoNullObject
+  parent: plc.AXOpen.Core.IAxoNullObject
+- uid: plc.AXOpen.Core._NULL_CONTEXT
+  name: _NULL_CONTEXT
+  nameWithType: _NULL_CONTEXT
+  fullName: AXOpen.Core._NULL_CONTEXT
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: AXOpen.Core.IAxoMessenger
+- uid: plc.LINT
+  name: LINT
+  nameWithType: LINT
+  fullName: LINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,1779 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._progress
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._infoTimer
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._errorTimer
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inspectionCompleted
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_in
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._Bank
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._UserDataChanged
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._invalidDataSize
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._retVal
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._word
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_34
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_66
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_130
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_254
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataReadyCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataUpdateCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._resultString
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._initHwCheckDone
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._geoAddr
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outHwid
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._startAddress
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._bytesCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._blink
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._programNo
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._IDcode
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._automaticStart
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsAddress
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsAddress
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Bank
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadTask
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ResultData
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.RestoreTask
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultDataTask
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TuneTask
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Config
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Results
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HandshakeAndGeneralErrorStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.BUSY_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ErrorStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TerminalStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UnstableReadStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.MatchingLevelAndTotalEvaluationGradeStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationalResultStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadData
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.LatchAndErrorClearControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationInstructionControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionClearControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ParameterBankNumber
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.User
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UserData
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Messenger
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TaskMessenger
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultData()
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read(UINT)
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Tune(UINT)
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read()
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CallTimers(BOOL)
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ContinuousReading()
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ManualControl()
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Restore()
+  name: Axo_SR_750
+  fullName: Axo_SR_750
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._progress
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._progress
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._progress
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._infoTimer
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._infoTimer
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._infoTimer
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._errorTimer
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._errorTimer
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._errorTimer
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inspectionCompleted
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inspectionCompleted
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _inspectionCompleted
+  fullName: _inspectionCompleted
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inspectionCompleted
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_inspectionCompleted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_in
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_in
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_in
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_in : ARRAY [0..254] OF BYTE'
+    return:
+      type: ARRAY [0..254] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._Bank
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._Bank
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Bank
+  fullName: _Bank
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._Bank
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Bank : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._UserDataChanged
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._UserDataChanged
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _UserDataChanged
+  fullName: _UserDataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._UserDataChanged
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_UserDataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._invalidDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._invalidDataSize
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _invalidDataSize
+  fullName: _invalidDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._invalidDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_invalidDataSize : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._retVal
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._retVal
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _retVal
+  fullName: _retVal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._retVal
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_retVal : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._word
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._word
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._word
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_1
+  fullName: _data_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_1 : ARRAY [0..0] OF BYTE'
+    return:
+      type: ARRAY [0..0] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_2
+  fullName: _data_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_2 : ARRAY [0..1] OF BYTE'
+    return:
+      type: ARRAY [0..1] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_34
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_34
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_34
+  fullName: _data_34
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_34
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_34 : ARRAY [0..33] OF BYTE'
+    return:
+      type: ARRAY [0..33] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_66
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_66
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_66
+  fullName: _data_66
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_66
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_66 : ARRAY [0..65] OF BYTE'
+    return:
+      type: ARRAY [0..65] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_130
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_130
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_130
+  fullName: _data_130
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_130
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_130 : ARRAY [0..129] OF BYTE'
+    return:
+      type: ARRAY [0..129] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_254
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_254
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _data_254
+  fullName: _data_254
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._data_254
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_data_254 : ARRAY [0..253] OF BYTE'
+    return:
+      type: ARRAY [0..253] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataReadyCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataReadyCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _prevResultDataReadyCount
+  fullName: _prevResultDataReadyCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataReadyCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_prevResultDataReadyCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataUpdateCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataUpdateCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _prevResultDataUpdateCount
+  fullName: _prevResultDataUpdateCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._prevResultDataUpdateCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_prevResultDataUpdateCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._resultString
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._resultString
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _resultString
+  fullName: _resultString
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._resultString
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_resultString : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._initHwCheckDone
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._initHwCheckDone
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._initHwCheckDone
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._geoAddr
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._geoAddr
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._geoAddr
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outHwid
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outHwid
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outHwid
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._startAddress
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._startAddress
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _startAddress
+  fullName: _startAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._startAddress
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_startAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._bytesCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._bytesCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _bytesCount
+  fullName: _bytesCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._bytesCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_bytesCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._blink
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._blink
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._blink
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._programNo
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._programNo
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _programNo
+  fullName: _programNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._programNo
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_programNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._IDcode
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._IDcode
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _IDcode
+  fullName: _IDcode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._IDcode
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_IDcode : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._automaticStart
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._automaticStart
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _automaticStart
+  fullName: _automaticStart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._automaticStart
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_automaticStart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsAddress
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsAddress
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsAddress
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._inputsCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsAddress
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsAddress
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsAddress
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750._outputsCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Bank
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Bank
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Bank
+  fullName: Bank
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Bank
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Bank : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadTask
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadTask
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadTask
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ResultData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ResultData
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultData
+  fullName: ResultData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ResultData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultData : AXOpen.Components.Keyence.Vision.Axo_SR_750_ResultData'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_ResultData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.RestoreTask
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.RestoreTask
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.RestoreTask
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultDataTask
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultDataTask
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ClearResultDataTask
+  fullName: ClearResultDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultDataTask
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ClearResultDataTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TuneTask
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TuneTask
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneTask
+  fullName: TuneTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TuneTask
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Config
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Config
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Config
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Config : AXOpen.Components.Keyence.Vision.Axo_SR_750_Config'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Status : AXOpen.Components.Keyence.Vision.Axo_SR_750_Component_Status'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_Component_Status
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Results
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Results
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Results
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 89
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Results : AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HandshakeAndGeneralErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HandshakeAndGeneralErrorStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HandshakeAndGeneralErrorStatus
+  fullName: HandshakeAndGeneralErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HandshakeAndGeneralErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HandshakeAndGeneralErrorStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.BUSY_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.BUSY_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BUSY_Status
+  fullName: BUSY_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.BUSY_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BUSY_Status : AXOpen.Components.Keyence.Vision.Axo_SR_750_BusyStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_BusyStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: CompletionStatus
+  fullName: CompletionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'CompletionStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ErrorStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ErrorStatus
+  fullName: ErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ErrorStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_ErrorStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_ErrorStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TerminalStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TerminalStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TerminalStatus
+  fullName: TerminalStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TerminalStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TerminalStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_TerminalStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_TerminalStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UnstableReadStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UnstableReadStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: UnstableReadStatus
+  fullName: UnstableReadStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UnstableReadStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 132
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'UnstableReadStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_UnstableReadStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_UnstableReadStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.MatchingLevelAndTotalEvaluationGradeStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.MatchingLevelAndTotalEvaluationGradeStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MatchingLevelAndTotalEvaluationGradeStatus
+  fullName: MatchingLevelAndTotalEvaluationGradeStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.MatchingLevelAndTotalEvaluationGradeStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 139
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MatchingLevelAndTotalEvaluationGradeStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationalResultStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationalResultStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OperationalResultStatus
+  fullName: OperationalResultStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationalResultStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 146
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OperationalResultStatus : AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadData
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadData
+  fullName: ReadData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ReadData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 153
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadData : AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.LatchAndErrorClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.LatchAndErrorClearControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LatchAndErrorClearControl
+  fullName: LatchAndErrorClearControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.LatchAndErrorClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 161
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LatchAndErrorClearControl : AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationInstructionControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationInstructionControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OperationInstructionControl
+  fullName: OperationInstructionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.OperationInstructionControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 168
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OperationInstructionControl : AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionClearControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: CompletionClearControl
+  fullName: CompletionClearControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CompletionClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 175
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'CompletionClearControl : AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionClearControl'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionClearControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ParameterBankNumber
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ParameterBankNumber
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ParameterBankNumber
+  fullName: ParameterBankNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ParameterBankNumber
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 182
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ParameterBankNumber : AXOpen.Components.Keyence.Vision.Axo_SR_750_ParameterBankNumber'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_ParameterBankNumber
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.User
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.User
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: User
+  fullName: User
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.User
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 189
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'User : AXOpen.Components.Keyence.Vision.Axo_SR_750_User'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_User
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UserData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UserData
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: UserData
+  fullName: UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.UserData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 196
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'UserData : AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.HardwareDiagnosticsTask
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 205
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Messenger
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Messenger
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Messenger
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 214
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TaskMessenger
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TaskMessenger
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.TaskMessenger
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 215
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Run
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 218
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultData()
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultData()
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: ClearResultData
+  fullName: ClearResultData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ClearResultData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1912
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearResultData()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read(UINT)
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read(UINT)
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1914
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.UINT inBank)
+    parameters:
+    - id: inBank
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Tune(UINT)
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Tune(UINT)
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: Tune
+  fullName: Tune
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Tune
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1920
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Tune(in plc.UINT inBank)
+    parameters:
+    - id: inBank
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read()
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read()
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Read
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1926
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CallTimers(BOOL)
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.CallTimers
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1942
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ContinuousReading()
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ContinuousReading()
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ContinuousReading
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1953
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Private VOID ContinuousReading()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ManualControl()
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ManualControl()
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.ManualControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1974
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Restore()
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Restore()
+  parent: AXOpen.Components.Keyence.Vision.Axo_SR_750
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750.Restore
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750.st
+    startLine: 1980
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  commentId: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  name: IAxoCodeReader
+  nameWithType: IAxoCodeReader
+  fullName: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  parent: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ARRAY [0..254] OF BYTE
+  name: ARRAY [0..254] OF BYTE
+  nameWithType: ARRAY [0..254] OF BYTE
+  fullName: ARRAY [0..254] OF BYTE
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.ARRAY [0..0] OF BYTE
+  name: ARRAY [0..0] OF BYTE
+  nameWithType: ARRAY [0..0] OF BYTE
+  fullName: ARRAY [0..0] OF BYTE
+- uid: plc.ARRAY [0..1] OF BYTE
+  name: ARRAY [0..1] OF BYTE
+  nameWithType: ARRAY [0..1] OF BYTE
+  fullName: ARRAY [0..1] OF BYTE
+- uid: plc.ARRAY [0..33] OF BYTE
+  name: ARRAY [0..33] OF BYTE
+  nameWithType: ARRAY [0..33] OF BYTE
+  fullName: ARRAY [0..33] OF BYTE
+- uid: plc.ARRAY [0..65] OF BYTE
+  name: ARRAY [0..65] OF BYTE
+  nameWithType: ARRAY [0..65] OF BYTE
+  fullName: ARRAY [0..65] OF BYTE
+- uid: plc.ARRAY [0..129] OF BYTE
+  name: ARRAY [0..129] OF BYTE
+  nameWithType: ARRAY [0..129] OF BYTE
+  fullName: ARRAY [0..129] OF BYTE
+- uid: plc.ARRAY [0..253] OF BYTE
+  name: ARRAY [0..253] OF BYTE
+  nameWithType: ARRAY [0..253] OF BYTE
+  fullName: ARRAY [0..253] OF BYTE
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ResultData
+  name: Axo_SR_750_ResultData
+  nameWithType: Axo_SR_750_ResultData
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_ResultData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+  name: Axo_SR_750_Config
+  nameWithType: Axo_SR_750_Config
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Component_Status
+  name: Axo_SR_750_Component_Status
+  nameWithType: Axo_SR_750_Component_Status
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_Component_Status
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+  name: Axo_SR_750_ReadData
+  nameWithType: Axo_SR_750_ReadData
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+  name: Axo_SR_750_HandshakeAndGeneralErrorStatus
+  nameWithType: Axo_SR_750_HandshakeAndGeneralErrorStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_BusyStatus
+  name: Axo_SR_750_BusyStatus
+  nameWithType: Axo_SR_750_BusyStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_BusyStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionStatus
+  name: Axo_SR_750_CompletionStatus
+  nameWithType: Axo_SR_750_CompletionStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ErrorStatus
+  name: Axo_SR_750_ErrorStatus
+  nameWithType: Axo_SR_750_ErrorStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_ErrorStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_TerminalStatus
+  name: Axo_SR_750_TerminalStatus
+  nameWithType: Axo_SR_750_TerminalStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_TerminalStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UnstableReadStatus
+  name: Axo_SR_750_UnstableReadStatus
+  nameWithType: Axo_SR_750_UnstableReadStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_UnstableReadStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  name: Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  nameWithType: Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+  name: Axo_SR_750_OperationalResultStatus
+  nameWithType: Axo_SR_750_OperationalResultStatus
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationalResultStatus
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+  name: Axo_SR_750_LatchAndErrorClearControl
+  nameWithType: Axo_SR_750_LatchAndErrorClearControl
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+  name: Axo_SR_750_OperationInstructionControl
+  nameWithType: Axo_SR_750_OperationInstructionControl
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_OperationInstructionControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionClearControl
+  name: Axo_SR_750_CompletionClearControl
+  nameWithType: Axo_SR_750_CompletionClearControl
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_CompletionClearControl
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ParameterBankNumber
+  name: Axo_SR_750_ParameterBankNumber
+  nameWithType: Axo_SR_750_ParameterBankNumber
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_ParameterBankNumber
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_User
+  name: Axo_SR_750_User
+  nameWithType: Axo_SR_750_User
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_User
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+  name: Axo_SR_750_UserData
+  nameWithType: Axo_SR_750_UserData
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_UserData
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

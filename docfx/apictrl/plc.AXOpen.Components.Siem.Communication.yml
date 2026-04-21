@@ -1,0 +1,65 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication
+  id: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+  name: plc.AXOpen.Components.Siem.Communication
+  fullName: Communication
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\AxoCmPtp.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp
+  name: AxoCmPtp
+  nameWithType: AxoCmPtp
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+  name: AxoCmPtp_Component_Status
+  nameWithType: AxoCmPtp_Component_Status
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Component_Status
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+  name: AxoCmPtp_Config
+  nameWithType: AxoCmPtp_Config
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+  name: AxoCmPtp_Control
+  nameWithType: AxoCmPtp_Control
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+  name: AxoCmPtp_Data
+  nameWithType: AxoCmPtp_Data
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Data
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+  name: AxoCmPtp_In
+  nameWithType: AxoCmPtp_In
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_In
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+  name: AxoCmPtp_Out
+  nameWithType: AxoCmPtp_Out
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Out
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+  name: AxoCmPtp_PortConfig
+  nameWithType: AxoCmPtp_PortConfig
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+  name: AxoCmPtp_Status
+  nameWithType: AxoCmPtp_Status
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+
+

@@ -1,0 +1,36 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Robotics.CalculateDistance(eAxoRoboticsDistance)
+  id: plc.AXOpen.Components.Robotics.CalculateDistance(eAxoRoboticsDistance)
+  parent: AXOpen.Components.Robotics
+  children: []
+  name: CalculateDistance
+  fullName: CalculateDistance
+  type: Delegate
+  source:
+    remote:
+      path: .\src\components.robotics\ctrl\src\AxoRobotics\CalculateDistance.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Robotics.CalculateDistance
+    path: .\src\components.robotics\ctrl\src\AxoRobotics\CalculateDistance.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Robotics
+  syntax:
+    content: Public REAL CalculateDistance(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance inDistType)
+    parameters:
+    - id: inDistType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+    return:
+      type: plc.REAL
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+  name: eAxoRoboticsDistance
+  nameWithType: eAxoRoboticsDistance
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+
+

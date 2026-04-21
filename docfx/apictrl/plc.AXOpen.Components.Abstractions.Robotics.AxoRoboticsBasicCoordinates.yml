@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+  parent: plc.AXOpen.Components.Abstractions.Robotics
+  children:
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.X
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Y
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Z
+  name: AxoRoboticsBasicCoordinates
+  fullName: AxoRoboticsBasicCoordinates
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: CLASS AxoRoboticsBasicCoordinates
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.X
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.X
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: X
+  fullName: X
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.X
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'X : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Y
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Y
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Y
+  fullName: Y
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Y
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Y : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Z
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Z
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Z
+  fullName: Z
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates.Z
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsBasicCoordinates.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Z : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

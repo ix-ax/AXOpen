@@ -1,0 +1,156 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  parent: plc.AXOpen.Components.Abstractions.Robotics
+  children:
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.X
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Y
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Z
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rx
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Ry
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rz
+  name: AxoRoboticsCoordinates
+  fullName: AxoRoboticsCoordinates
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: CLASS AxoRoboticsCoordinates
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.X
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.X
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: X
+  fullName: X
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.X
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'X : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Y
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Y
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Y
+  fullName: Y
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Y
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Y : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Z
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Z
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Z
+  fullName: Z
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Z
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Z : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rx
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rx
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Rx
+  fullName: Rx
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rx
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Rx : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Ry
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Ry
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Ry
+  fullName: Ry
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Ry
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Ry : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rz
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rz
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Rz
+  fullName: Rz
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates.Rz
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsCoordinates.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Rz : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

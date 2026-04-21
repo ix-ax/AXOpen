@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Balluff.Identification
+  id: plc.AXOpen.Components.Balluff.Identification
+  children:
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+  name: plc.AXOpen.Components.Balluff.Identification
+  fullName: Identification
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Balluff.Identification
+references:
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  name: Axo_BIS_M_4XX_045
+  nameWithType: Axo_BIS_M_4XX_045
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+  name: Axo_BIS_M_4XX_045_Component_Status
+  nameWithType: Axo_BIS_M_4XX_045_Component_Status
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+  name: Axo_BIS_M_4XX_045_Config
+  nameWithType: Axo_BIS_M_4XX_045_Config
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+  name: Axo_BIS_M_4XX_045_Control
+  nameWithType: Axo_BIS_M_4XX_045_Control
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+  name: Axo_BIS_M_4XX_045_HWIDs
+  nameWithType: Axo_BIS_M_4XX_045_HWIDs
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+  name: Axo_BIS_M_4XX_045_State
+  nameWithType: Axo_BIS_M_4XX_045_State
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+
+

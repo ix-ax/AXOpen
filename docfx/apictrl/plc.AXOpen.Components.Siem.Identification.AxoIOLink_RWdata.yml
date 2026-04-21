@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.header
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.data
+  name: AxoIOLink_RWdata
+  fullName: AxoIOLink_RWdata
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RWdata
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.header
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.header
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: header
+  fullName: header
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.header
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'header : AXOpen.Components.Siem.Identification.AxoIOLink_Header'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_Header
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.data
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.data
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: data
+  fullName: data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RWdata.data
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RWdata.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'data : ARRAY [0..231] OF BYTE'
+    return:
+      type: ARRAY [0..231] OF BYTE
+references:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Header
+  name: AxoIOLink_Header
+  nameWithType: AxoIOLink_Header
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_Header
+- uid: plc.ARRAY [0..231] OF BYTE
+  name: ARRAY [0..231] OF BYTE
+  nameWithType: ARRAY [0..231] OF BYTE
+  fullName: ARRAY [0..231] OF BYTE
+
+

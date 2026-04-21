@@ -1,0 +1,382 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+  parent: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SoftEvent
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SetUserDataAck
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.Online
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemBusy
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemReady
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.JobLoadComplete
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.InspectionOnline
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ResultValid
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ID_Inspection
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.CurentJobID
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataJobID
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadedDataVariantSize
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.WrittenDataVariantSize
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerJobID
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerIdOperation
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadDataLockerJobID
+  name: AxoVisionPro_Status
+  fullName: AxoVisionPro_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: CLASS AxoVisionPro_Status
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SoftEvent
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SoftEvent
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SoftEvent
+  fullName: SoftEvent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SoftEvent
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SoftEvent : AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SetUserDataAck
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SetUserDataAck
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SetUserDataAck
+  fullName: SetUserDataAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SetUserDataAck
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SetUserDataAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.Online
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.Online
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: Online
+  fullName: Online
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.Online
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'Online : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemBusy
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemBusy
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SystemBusy
+  fullName: SystemBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemBusy
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SystemBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemReady
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemReady
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SystemReady
+  fullName: SystemReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.SystemReady
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SystemReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.JobLoadComplete
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.JobLoadComplete
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: JobLoadComplete
+  fullName: JobLoadComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.JobLoadComplete
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'JobLoadComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.InspectionOnline
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.InspectionOnline
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: InspectionOnline
+  fullName: InspectionOnline
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.InspectionOnline
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'InspectionOnline : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ResultValid
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ResultValid
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ResultValid
+  fullName: ResultValid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ResultValid
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ResultValid : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ID_Inspection
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ID_Inspection
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ID_Inspection
+  fullName: ID_Inspection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ID_Inspection
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ID_Inspection : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.CurentJobID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.CurentJobID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: CurentJobID
+  fullName: CurentJobID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.CurentJobID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'CurentJobID : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataJobID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataJobID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: UserDataJobID
+  fullName: UserDataJobID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataJobID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'UserDataJobID : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadedDataVariantSize
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadedDataVariantSize
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ReadedDataVariantSize
+  fullName: ReadedDataVariantSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadedDataVariantSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ReadedDataVariantSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.WrittenDataVariantSize
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.WrittenDataVariantSize
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: WrittenDataVariantSize
+  fullName: WrittenDataVariantSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.WrittenDataVariantSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'WrittenDataVariantSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerJobID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerJobID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: UserDataLockerJobID
+  fullName: UserDataLockerJobID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerJobID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'UserDataLockerJobID : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerIdOperation
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerIdOperation
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: UserDataLockerIdOperation
+  fullName: UserDataLockerIdOperation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.UserDataLockerIdOperation
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'UserDataLockerIdOperation : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadDataLockerJobID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadDataLockerJobID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ReadDataLockerJobID
+  fullName: ReadDataLockerJobID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status.ReadDataLockerJobID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Status.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ReadDataLockerJobID : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+  name: AxoVisionProSoftEventStatus
+  nameWithType: AxoVisionProSoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

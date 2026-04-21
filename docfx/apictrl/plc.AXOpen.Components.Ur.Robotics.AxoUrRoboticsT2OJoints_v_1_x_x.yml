@@ -1,0 +1,664 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_5
+  name: AxoUrRoboticsT2OJoints_v_1_x_x
+  fullName: AxoUrRoboticsT2OJoints_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OJoints_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_0
+  fullName: JointPosition_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_1
+  fullName: JointPosition_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_2
+  fullName: JointPosition_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_3
+  fullName: JointPosition_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_3 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_4
+  fullName: JointPosition_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_4 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointPosition_5
+  fullName: JointPosition_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointPosition_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointPosition_5 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_0
+  fullName: JointVelocity_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_1
+  fullName: JointVelocity_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_2
+  fullName: JointVelocity_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_3
+  fullName: JointVelocity_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_3 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_4
+  fullName: JointVelocity_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_4 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointVelocity_5
+  fullName: JointVelocity_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointVelocity_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointVelocity_5 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_0
+  fullName: JointCurrent_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_1
+  fullName: JointCurrent_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_2
+  fullName: JointCurrent_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_3
+  fullName: JointCurrent_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_3 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_4
+  fullName: JointCurrent_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_4 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointCurrent_5
+  fullName: JointCurrent_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointCurrent_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointCurrent_5 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_0
+  fullName: JointTemperature_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_1
+  fullName: JointTemperature_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_2
+  fullName: JointTemperature_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_3
+  fullName: JointTemperature_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_3 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_4
+  fullName: JointTemperature_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_4 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointTemperature_5
+  fullName: JointTemperature_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointTemperature_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointTemperature_5 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_0
+  fullName: JointMode_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_0 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_1
+  fullName: JointMode_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_1 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_2
+  fullName: JointMode_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_2 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_3
+  fullName: JointMode_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_3 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_4
+  fullName: JointMode_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_4 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: JointMode_5
+  fullName: JointMode_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OJoints_v_1_x_x.JointMode_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'JointMode_5 : USINT'
+    return:
+      type: USINT
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+
+

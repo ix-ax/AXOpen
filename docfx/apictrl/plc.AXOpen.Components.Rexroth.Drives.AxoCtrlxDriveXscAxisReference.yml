@@ -1,0 +1,183 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Inputs
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Outputs
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.HWIDs
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Data
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Config
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Status
+  name: AxoCtrlxDriveXscAxisReference
+  fullName: AxoCtrlxDriveXscAxisReference
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscAxisReference
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Inputs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Inputs
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Inputs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Inputs : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Outputs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Outputs
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Outputs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Outputs : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.HWIDs
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.HWIDs
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.HWIDs
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Data
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Data
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Data
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Data : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Config
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Config
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Config
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Config : AXOpen.Components.Drives.AxoDrive_Config'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Status
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Status
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference.Status
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisReference.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Status : AXOpen.Components.Drives.AxoDrive_Status'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Status
+references:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  commentId: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  name: IAxoAxisReference
+  nameWithType: IAxoAxisReference
+  fullName: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  parent: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+  name: AxoCtrlxDriveXsc_Status
+  nameWithType: AxoCtrlxDriveXsc_Status
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+  name: AxoCtrlxDriveXsc_Control
+  nameWithType: AxoCtrlxDriveXsc_Control
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+  name: AxoCtrlxDriveXscHWIDs
+  nameWithType: AxoCtrlxDriveXscHWIDs
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscHWIDs
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+  name: AxoCtrlxDriveXscAxisData
+  nameWithType: AxoCtrlxDriveXscAxisData
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config
+  name: AxoDrive_Config
+  nameWithType: AxoDrive_Config
+  fullName: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status
+  name: AxoDrive_Status
+  nameWithType: AxoDrive_Status
+  fullName: AXOpen.Components.Drives.AxoDrive_Status
+
+

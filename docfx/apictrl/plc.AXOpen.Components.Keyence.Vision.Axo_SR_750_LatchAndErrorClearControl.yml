@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ResultDataLatch
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ErrorClear
+  name: Axo_SR_750_LatchAndErrorClearControl
+  fullName: Axo_SR_750_LatchAndErrorClearControl
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_LatchAndErrorClearControl
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ResultDataLatch
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ResultDataLatch
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataLatch
+  fullName: ResultDataLatch
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ResultDataLatch
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataLatch : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ErrorClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ErrorClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ErrorClear
+  fullName: ErrorClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_LatchAndErrorClearControl.ErrorClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_LatchAndErrorClearControl.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ErrorClear : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

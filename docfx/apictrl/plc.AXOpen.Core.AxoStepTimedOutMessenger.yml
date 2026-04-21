@@ -1,0 +1,389 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoStepTimedOutMessenger
+  id: plc.AXOpen.Core.AxoStepTimedOutMessenger
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoStepTimedOutMessenger.MSG_STEP_TIMED_OUT
+  - plc.AXOpen.Core.AxoStepTimedOutMessenger._refObservedStep
+  - plc.AXOpen.Core.AxoStepTimedOutMessenger.Activate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  - plc.AXOpen.Core.AxoStepTimedOutMessenger.Deactivate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  name: AxoStepTimedOutMessenger
+  fullName: AxoStepTimedOutMessenger
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoStepTimedOutMessenger
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 557
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoStepTimedOutMessenger
+  inheritance:
+  - plc.AXOpen.Messaging.Static.AxoMessenger
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  - plc.AXOpen.Core.IAxoMessenger
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.AxoStepTimedOutMessenger.MSG_STEP_TIMED_OUT
+  id: plc.AXOpen.Core.AxoStepTimedOutMessenger.MSG_STEP_TIMED_OUT
+  parent: AXOpen.Core
+  children: []
+  name: MSG_STEP_TIMED_OUT
+  fullName: MSG_STEP_TIMED_OUT
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoStepTimedOutMessenger.MSG_STEP_TIMED_OUT
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 563
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'MSG_STEP_TIMED_OUT : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Core.AxoStepTimedOutMessenger._refObservedStep
+  id: plc.AXOpen.Core.AxoStepTimedOutMessenger._refObservedStep
+  parent: AXOpen.Core
+  children: []
+  name: _refObservedStep
+  fullName: _refObservedStep
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoStepTimedOutMessenger._refObservedStep
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 565
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_refObservedStep : REF_TO AXOpen.Core.AxoStep'
+    return:
+      type: REF_TO AXOpen.Core.AxoStep
+- uid: plc.AXOpen.Core.AxoStepTimedOutMessenger.Activate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Activate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  parent: AXOpen.Core.AxoStepTimedOutMessenger
+  children: []
+  name: Activate
+  fullName: Activate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Activate
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 565
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Internal VOID Activate(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Core.AxoStep inStep)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inStep
+      type: plc.REF_TO AXOpen.Core.AxoStep
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoStepTimedOutMessenger.Deactivate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Deactivate(IAxoObject,REF_TO AXOpen.Core.AxoStep)
+  parent: AXOpen.Core.AxoStepTimedOutMessenger
+  children: []
+  name: Deactivate
+  fullName: Deactivate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoStepTimedOutMessenger.Deactivate
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 599
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Internal VOID Deactivate(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Core.AxoStep inStep)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inStep
+      type: plc.REF_TO AXOpen.Core.AxoStep
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  name: Category
+  nameWithType: Category
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  name: MessageCode
+  nameWithType: MessageCode
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  name: Risen
+  nameWithType: Risen
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  name: Fallen
+  nameWithType: Fallen
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  name: AcknowledgementRequired
+  nameWithType: AcknowledgementRequired
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  name: AcknowledgeRequest
+  nameWithType: AcknowledgeRequest
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  name: Acknowledged
+  nameWithType: Acknowledged
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  name: MessengerState
+  nameWithType: MessengerState
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  name: ActiveContextCount
+  nameWithType: ActiveContextCount
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  name: Message
+  nameWithType: Message
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  name: Sender
+  nameWithType: Sender
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  name: Serve(IAxoObject)
+  nameWithType: Serve(IAxoObject)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  name: Activate(ULINT,eAxoMessageCategory)
+  nameWithType: Activate(ULINT,eAxoMessageCategory)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  name: ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  nameWithType: ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  name: Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  nameWithType: Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  name: Deactivate(ULINT,eLogLevel)
+  nameWithType: Deactivate(ULINT,eLogLevel)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  name: Acknowledge(ULINT)
+  nameWithType: Acknowledge(ULINT)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  name: ToLogLevel(eAxoMessageCategory)
+  nameWithType: ToLogLevel(eAxoMessageCategory)
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  name: RequireAcknowledgement()
+  nameWithType: RequireAcknowledgement()
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  name: DoNotRequireAcknowledgement()
+  nameWithType: DoNotRequireAcknowledgement()
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  commentId: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  name: IsAcknowledgementRequired()
+  nameWithType: IsAcknowledgementRequired()
+  fullName: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  parent: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  commentId: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  name: IAxoMessageProperties
+  nameWithType: IAxoMessageProperties
+  fullName: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  parent: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Core.IAxoMessenger
+  commentId: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: plc.AXOpen.Core.IAxoMessenger
+  parent: plc.AXOpen.Core.IAxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.REF_TO AXOpen.Core.AxoStep
+  name: REF_TO AXOpen.Core.AxoStep
+  nameWithType: REF_TO AXOpen.Core.AxoStep
+  fullName: REF_TO AXOpen.Core.AxoStep
+
+

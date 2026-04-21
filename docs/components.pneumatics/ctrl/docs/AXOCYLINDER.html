@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AXOpenComponentsPneumatics | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AXOpenComponentsPneumatics | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../../images/favicon.ico">
       <link rel="stylesheet" href="../../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.pneumatics/ctrl/docs/AXOCYLINDER.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../../public/main.js'
-    import { init } from './../../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -65,23 +63,9 @@
     </header>
 
     <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
 
           <nav id="breadcrumb"></nav>
         </div>
@@ -104,28 +88,34 @@ Therefore, its instance must be initialized with the proper <code>AxoContext</co
 Also, the hardware signals must be assigned first before calling any method of this instance.
 To accomplish this, call the <code>Run</code> method cyclically with the proper variables (i.e. inside the <code>Main</code> method of the relevant <code>AxoContext</code>) as in the example below:</p>
 <p><strong>Example of the initialization and hardware signal assignment</strong></p>
-<pre><code class="lang-smalltalk">VAR PUBLIC        
-    PlcInputs : REF_TO PlcInputs;
-    PlcOutputs : REF_TO PlcOutputs;          
-    CylinderParent : AXOpen.Core.AxoObject;
-    myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    {#ix-set:AttributeName = &quot;&lt;#CYLINDER 1#&gt;&quot;}
+    AxoCylinder_ : AXOpen.Components.Pneumatics.AxoCylinder;
+END_VAR
+
+VAR PUBLIC
+    manualControl   : BOOL;
+    inHomeSensor    : BOOL;     // TRUE when cylinder is retracted
+    inWorkSensor    : BOOL;     // TRUE when cylinder is extended
+    outMoveToWork   : BOOL;     // Valve: extend
+    outMoveToHome   : BOOL;     // Valve: retract
 END_VAR
 </code></pre>
-<p>To trigger the movements, two public methods, <code>MoveToHome</code> and <code>MoveToWork</code> are present.
+<p>To trigger the movements, two public methods, <code>MoveToHome</code> and <code>MoveOut</code> are present.
 <strong>Example of using MoveToHome method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToHome().IsDone() THEN
-    ;
+<pre><code class="lang-smalltalk">IF AxoCylinder_.MoveIn().IsDone() THEN
+    ;// cylinder reached home position
 END_IF;
 </code></pre>
-<p><strong>Example of using MoveToWork method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToWork().IsDone() THEN
-    ;
+<p><strong>Example of using MoveOut method</strong></p>
+<pre><code class="lang-smalltalk">IF AxoCylinder_.MoveOut().IsDone() THEN
+    ;// cylinder reached work position
 END_IF;
 </code></pre>
 <p>To stop the movement, when the cylinder is moving, the public <code>Stop</code> method is present.
 <strong>Example of using Stop method</strong></p>
-<pre><code class="lang-smalltalk">IF myAxoCylinder.Stop().IsDone() THEN
-    ;
+<pre><code class="lang-smalltalk">IF AxoCylinder_.Stop().IsDone() THEN
+    ;// cylinder stopped
 END_IF;
 </code></pre>
 <div class="NOTE">
@@ -134,33 +124,32 @@ END_IF;
 </div>
 <p><strong>Blocking the movement</strong>
 To block the movement, there are four public methods present:
-<code>SuspendMoveToHomeWhile(Condition)</code> - Suspends the movement to the home position while the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it remains still executing and, with the falling edge of the <code>Condition</code> cylinder, continues its movement to the home position. If the task is invoked when <code>Condition</code> is already <code>TRUE</code>, the task starts to be executed, but the movement starts also with the falling edge of the <code>Condition</code>.
-<code>SuspendMoveToWorkWhile(Condition)</code> - Works exactly the same as <code>SuspendMoveToHomeWhile(Condition)</code> but in the opposite direction.
-<strong>Example of using SuspendMoveToHomeWhile method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
+<code>SuspendMoveToInWhile(Condition)</code> - Suspends the movement to the in position while the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it remains still executing and, with the falling edge of the <code>Condition</code> cylinder, continues its movement to the in position. If the task is invoked when <code>Condition</code> is already <code>TRUE</code>, the task starts to be executed, but the movement starts also with the falling edge of the <code>Condition</code>.
+<code>SuspendMoveToOutWhile(Condition)</code> - Works exactly the same as <code>SuspendMoveToInWhile(Condition)</code> but in the opposite direction (to the out position).
+<strong>Example of using SuspendMoveToInWhile method</strong></p>
+<pre><code class="lang-smalltalk">AxoCylinder_.SuspendMoveToInWhile(_suspendHomeCondition);
 </code></pre>
-<p><strong>Example of using SuspendMoveToWorkWhile method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
+<p><strong>Example of using SuspendMoveToOutWhile method</strong></p>
+<pre><code class="lang-smalltalk">AxoCylinder_.SuspendMoveToOutWhile(_suspendWorkCondition);
 </code></pre>
-<p><code>AbortMoveToHomeWhen(Condition)</code> - Aborts the movement to the home position when the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it is restored and disabled. After the falling edge of the <code>Condition</code> cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement.
-<code>AbortMoveToWorkWhen(Condition)</code> - Works exactly the same as <code>AbortMoveToHomeWhen(Condition)</code> but in the opposite direction.
+<p><code>AbortMoveToHomeWhen(Condition)</code> - Aborts the movement to the in position when the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it is restored and disabled. After the falling edge of the <code>Condition</code> cylinder does not continue its movement to the in position. The task needs to be invoked again to start the movement.
+<code>AbortMoveToWorkWhen(Condition)</code> - Works exactly the same as <code>AbortMoveToHomeWhen(Condition)</code> but in the opposite direction (to the out position).
 <strong>Example of using AbortMoveToHomeWhen method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);
+<pre><code class="lang-smalltalk">AxoCylinder_.AbortMoveToHomeWhen(_abortHomeCondition);
 </code></pre>
 <p><strong>Example of using AbortMoveToWorkWhen method</strong></p>
-<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToWorkWhen(_abortWorkCondition);
+<pre><code class="lang-smalltalk">AxoCylinder_.AbortMoveToWorkWhen(_abortWorkCondition);
 </code></pre>
-<p><strong>How to visualize <code>AxoCylinder</code></strong>
-On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoCylinder</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.myAxoCylinder&quot; Presentation=&quot;Command&quot; /&gt;
-</code></pre></article>
+<p><strong>How to visualize <code>AxoCylinder</code></strong></p>
+<p>On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoCylinder</code>.</p>
+
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.pneumatics/ctrl/docs/AXOCYLINDER.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -170,7 +159,7 @@ On the UI side, use the <code>RenderableContentControl</code> and set its Contex
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

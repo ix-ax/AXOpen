@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoEA3600 | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoEA3600 | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/axopen.templates/new/INT000053_Template_V2/apiSpec/new?filename=plc_AXOpen_Components_Zebra_Vision_AxoEA3600.md&amp;value=---%0Auid%3A%20plc.AXOpen.Components.Zebra.Vision.AxoEA3600%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600">
+
+
+
+  <h1 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600" class="text-break">
+Class AxoEA3600  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Components.Zebra.Vision.html">plc.AXOpen.Components.Zebra.Vision</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoEA3600</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoComponent.html">AxoComponent</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoEA3600</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent__isManuallyControllable">_isManuallyControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ActivateManualControl__">ActivateManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_IsManuallyControllable__">IsManuallyControllable()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ManualControl__">ManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ReadTask" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask">
+  ReadTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ReadData" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData">
+  ReadData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadData : AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_BarcodeType" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType">
+  BarcodeType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BarcodeType : AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_BarcodeLength" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength">
+  BarcodeLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BarcodeLength : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Progress" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress">
+  Progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_RestoreTask" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask">
+  RestoreTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RestoreTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ClearDataTask" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask">
+  ClearDataTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ClearDataTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ClearErrorTask" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask">
+  ClearErrorTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ClearErrorTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_10steps_4" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4">
+  TemplateTask_10steps_4
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_10steps_4 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_10steps_5" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5">
+  TemplateTask_10steps_5
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_10steps_5 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_10steps_6" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6">
+  TemplateTask_10steps_6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_10steps_6 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_1" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1">
+  TemplateTask_20steps_1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_1 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_2" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2">
+  TemplateTask_20steps_2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_2 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_3" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3">
+  TemplateTask_20steps_3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_3 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_4" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4">
+  TemplateTask_20steps_4
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_4 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_5" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5">
+  TemplateTask_20steps_5
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_5 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateTask_20steps_6" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6">
+  TemplateTask_20steps_6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TemplateTask_20steps_6 : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Config" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Config : AXOpen.Components.Zebra.Vision.AxoEA3600_Config</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Status" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Status : AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Messenger" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger">
+  Messenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Messenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TaskMessenger" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger">
+  TaskMessenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TaskMessenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Inputs" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs">
+  Inputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Inputs : AXOpen.Components.Zebra.Vision.AxoEA3600_In</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Outputs" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs">
+  Outputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Outputs : AXOpen.Components.Zebra.Vision.AxoEA3600_Out</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_HardwareDiagnosticsTask" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask">
+  HardwareDiagnosticsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__progress" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress">
+  _progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__infoTimer" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer">
+  _infoTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_infoTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__errorTimer" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer">
+  _errorTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_errorTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__data_in" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in">
+  _data_in
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_in : ARRAY [0..87] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__data_out" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out">
+  _data_out
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_out : ARRAY [0..7] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__word" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word">
+  _word
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_word : WORD</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__dword" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword">
+  _dword
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_dword : DWORD</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__initHwCheckDone" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone">
+  _initHwCheckDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_initHwCheckDone : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__retval" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval">
+  _retval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_retval : WORD</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__geoAddr" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr">
+  _geoAddr
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_geoAddr : UNDEFINED</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__outHwid" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid">
+  _outHwid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outHwid : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__blink" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink">
+  _blink
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_blink : AXOpen.Timers.AxoBlinker</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__inputsAddress" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress">
+  _inputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__inputsCount" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount">
+  _inputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__outputsAddress" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress">
+  _outputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__outputsCount" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount">
+  _outputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__timer" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer">
+  _timer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_timer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__updateCounterPV" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV">
+  _updateCounterPV
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_updateCounterPV : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__dataOffset" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset">
+  _dataOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_dataOffset : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__dataLength" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength">
+  _dataLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_dataLength : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600__copyCount" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount">
+  _copyCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_copyCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Run_IAxoObject_UINT_" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run(IAxoObject,UINT)">
+  Run
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.UINT hwID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>hwID</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Read__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read()">
+  Read
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Read()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ClearData__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData()">
+  ClearData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState ClearData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ClearError__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError()">
+  ClearError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState ClearError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_10steps_4__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4()">
+  TemplateMethod_10steps_4
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_4()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_10steps_5__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5()">
+  TemplateMethod_10steps_5
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_5()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_10steps_6__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6()">
+  TemplateMethod_10steps_6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_6()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_1__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1()">
+  TemplateMethod_20steps_1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_1()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_2__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2()">
+  TemplateMethod_20steps_2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_2()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_3__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3()">
+  TemplateMethod_20steps_3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_3()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_4__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4()">
+  TemplateMethod_20steps_4
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_4()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_5__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5()">
+  TemplateMethod_20steps_5
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_5()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_TemplateMethod_20steps_6__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6()">
+  TemplateMethod_20steps_6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_6()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_ManualControl__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl()">
+  ManualControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_Restore__" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore()">
+  Restore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Zebra_Vision_AxoEA3600_CallTimers_BOOL_" data-uid="plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers(BOOL)">
+  CallTimers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L3163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID CallTimers(in plc.BOOL signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,751 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  id: plc.AXOpen.Messaging.Static.AxoMessenger
+  parent: plc.AXOpen.Messaging.Static
+  children:
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  - plc.AXOpen.Messaging.Static.AxoMessenger._context
+  - plc.AXOpen.Messaging.Static.AxoMessenger._requalifiedToCategory
+  - plc.AXOpen.Messaging.Static.AxoMessenger.RISE_SIGNATURE
+  - plc.AXOpen.Messaging.Static.AxoMessenger.FALL_SIGNATURE
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  name: AxoMessenger
+  fullName: AxoMessenger
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 3
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: CLASS AxoMessenger
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  - plc.AXOpen.Core.IAxoMessenger
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Category
+  fullName: Category
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 8
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Category : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: MessageCode
+  fullName: MessageCode
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 9
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'MessageCode : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Risen
+  fullName: Risen
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 12
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Risen : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Fallen
+  fullName: Fallen
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 14
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Fallen : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: AcknowledgementRequired
+  fullName: AcknowledgementRequired
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 16
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'AcknowledgementRequired : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: AcknowledgeRequest
+  fullName: AcknowledgeRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 19
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'AcknowledgeRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Acknowledged
+  fullName: Acknowledged
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 20
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Acknowledged : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: MessengerState
+  fullName: MessengerState
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 22
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'MessengerState : AXOpen.Messaging.eAxoMessengerState'
+    return:
+      type: AXOpen.Messaging.eAxoMessengerState
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: ActiveContextCount
+  fullName: ActiveContextCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 24
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'ActiveContextCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Message
+  fullName: Message
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Message
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 26
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Message : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Sender
+  fullName: Sender
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Sender
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 28
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Sender : AXOpen.Core.IAxoObject'
+    return:
+      type: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger._context
+  id: plc.AXOpen.Messaging.Static.AxoMessenger._context
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger._context
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 32
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger._requalifiedToCategory
+  id: plc.AXOpen.Messaging.Static.AxoMessenger._requalifiedToCategory
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: _requalifiedToCategory
+  fullName: _requalifiedToCategory
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger._requalifiedToCategory
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 36
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: '_requalifiedToCategory : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.RISE_SIGNATURE
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.RISE_SIGNATURE
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: RISE_SIGNATURE
+  fullName: RISE_SIGNATURE
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.RISE_SIGNATURE
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 41
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'RISE_SIGNATURE : STRING[4]'
+    return:
+      type: STRING[4]
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.FALL_SIGNATURE
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.FALL_SIGNATURE
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: FALL_SIGNATURE
+  fullName: FALL_SIGNATURE
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.FALL_SIGNATURE
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 42
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'FALL_SIGNATURE : STRING[4]'
+    return:
+      type: STRING[4]
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Serve
+  fullName: Serve
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 47
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public VOID Serve(in plc.AXOpen.Core.IAxoObject inObject)
+    parameters:
+    - id: inObject
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Activate
+  fullName: Activate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 99
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties Activate(in plc.ULINT _messageCode,in plc.AXOpen.Messaging.eAxoMessageCategory inCategory)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    - id: inCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: ActivateOnCondition
+  fullName: ActivateOnCondition
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 202
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.ULINT _messageCode,in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    - id: _condition
+      type: plc.BOOL
+    - id: _category
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Post(IAxoObject,STRING[254],eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Post
+  fullName: Post
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Post
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 222
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties Post(in plc.AXOpen.Core.IAxoObject inParent,in plc.STRING[254] inMessage,in plc.AXOpen.Messaging.eAxoMessageCategory inCategory)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inMessage
+      type: plc.STRING[254]
+    - id: inCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT,eLogLevel)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Deactivate
+  fullName: Deactivate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 244
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Protected VOID Deactivate(in plc.ULINT _messageCode,in plc.AXOpen.Logging.eLogLevel _logLevel)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    - id: _logLevel
+      type: plc.AXOpen.Logging.eLogLevel
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Acknowledge
+  fullName: Acknowledge
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 283
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private VOID Acknowledge(in plc.ULINT _messageCode)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 320
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public VOID Restore()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: ToLogLevel
+  fullName: ToLogLevel
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 335
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private AXOpen.Logging.eLogLevel ToLogLevel(in plc.AXOpen.Messaging.eAxoMessageCategory _messageCategory)
+    parameters:
+    - id: _messageCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: RequireAcknowledgement
+  fullName: RequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 352
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties RequireAcknowledgement()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: DoNotRequireAcknowledgement
+  fullName: DoNotRequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 363
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties DoNotRequireAcknowledgement()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: IsAcknowledgementRequired
+  fullName: IsAcknowledgementRequired
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 378
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public BOOL IsAcknowledgementRequired()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  commentId: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  name: IAxoMessageProperties
+  nameWithType: IAxoMessageProperties
+  fullName: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  parent: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Core.IAxoMessenger
+  commentId: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: plc.AXOpen.Core.IAxoMessenger
+  parent: plc.AXOpen.Core.IAxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.eAxoMessengerState
+  name: eAxoMessengerState
+  nameWithType: eAxoMessengerState
+  fullName: AXOpen.Messaging.eAxoMessengerState
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.STRING[4]
+  name: STRING[4]
+  nameWithType: STRING[4]
+  fullName: STRING[4]
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+
+

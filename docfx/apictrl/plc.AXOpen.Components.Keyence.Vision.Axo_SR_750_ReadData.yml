@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataReadyCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataUpdateCount
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData._Reserved
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataSize
+  name: Axo_SR_750_ReadData
+  fullName: Axo_SR_750_ReadData
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_ReadData
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataReadyCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataReadyCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataReadyCount
+  fullName: ResultDataReadyCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataReadyCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataReadyCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataUpdateCount
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataUpdateCount
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataUpdateCount
+  fullName: ResultDataUpdateCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataUpdateCount
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataUpdateCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData._Reserved
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData._Reserved
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved
+  fullName: _Reserved
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData._Reserved
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataSize
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataSize
+  fullName: ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_ReadData.ResultDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_ReadData.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataSize : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

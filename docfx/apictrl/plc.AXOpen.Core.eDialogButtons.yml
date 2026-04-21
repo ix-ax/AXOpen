@@ -1,0 +1,95 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eDialogButtons
+  id: plc.AXOpen.Core.eDialogButtons
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eDialogButtons.NoButtons
+  - plc.AXOpen.Core.eDialogButtons.Ok
+  - plc.AXOpen.Core.eDialogButtons.YesNo
+  - plc.AXOpen.Core.eDialogButtons.YesNoCancel
+  name: eDialogButtons
+  fullName: eDialogButtons
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eDialogButtons
+    path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eDialogButtons : INT'
+- uid: plc.AXOpen.Core.eDialogButtons.NoButtons
+  id: plc.AXOpen.Core.eDialogButtons.NoButtons
+  parent: AXOpen.Core
+  children: []
+  name: NoButtons :=  0
+  fullName: NoButtons
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eDialogButtons.NoButtons
+    path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogButtons.Ok
+  id: plc.AXOpen.Core.eDialogButtons.Ok
+  parent: AXOpen.Core
+  children: []
+  name: Ok :=  10
+  fullName: Ok
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eDialogButtons.Ok
+    path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogButtons.YesNo
+  id: plc.AXOpen.Core.eDialogButtons.YesNo
+  parent: AXOpen.Core
+  children: []
+  name: YesNo :=  20
+  fullName: YesNo
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eDialogButtons.YesNo
+    path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogButtons.YesNoCancel
+  id: plc.AXOpen.Core.eDialogButtons.YesNoCancel
+  parent: AXOpen.Core
+  children: []
+  name: YesNoCancel :=  30
+  fullName: YesNoCancel
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eDialogButtons.YesNoCancel
+    path: .\src\core\ctrl\src\AxoDialog\eDialogButtons.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

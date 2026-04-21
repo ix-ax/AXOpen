@@ -1,0 +1,164 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+  parent: plc.AXOpen.Components.Balluff.Identification
+  children:
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.InfoTime
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.ErrorTime
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.TaskTimeout
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.HWIDs
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.StartAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.RfidCodeSize
+  name: Axo_BIS_M_4XX_045_Config
+  fullName: Axo_BIS_M_4XX_045_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: CLASS Axo_BIS_M_4XX_045_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.InfoTime
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.InfoTime
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.InfoTime
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.ErrorTime
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.ErrorTime
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.ErrorTime
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.TaskTimeout
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.TaskTimeout
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.TaskTimeout
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.HWIDs
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.HWIDs
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.HWIDs
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs'
+    return:
+      type: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.StartAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.StartAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: StartAddress
+  fullName: StartAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.StartAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'StartAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.RfidCodeSize
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.RfidCodeSize
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: RfidCodeSize
+  fullName: RfidCodeSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config.RfidCodeSize
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'RfidCodeSize : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+  name: Axo_BIS_M_4XX_045_HWIDs
+  nameWithType: Axo_BIS_M_4XX_045_HWIDs
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_HWIDs
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

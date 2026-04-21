@@ -1,0 +1,214 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.NONE_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_INVALID_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.COMMUNICATION_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.RESOURCE_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.ACCESS_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.STATE_MACHINE_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_RANGE_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.CALCULATION_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.DEVICE_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.OTHER_ERROR
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.SYSTEM_ERROR
+  name: eAxoIndraDriveErrorCode
+  fullName: eAxoIndraDriveErrorCode
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'eAxoIndraDriveErrorCode : WORD'
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.NONE_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.NONE_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: NONE_ERROR :=  WORD#16#0000
+  fullName: NONE_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.NONE_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_INVALID_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_INVALID_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: INPUT_INVALID_ERROR :=  WORD#16#0001
+  fullName: INPUT_INVALID_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_INVALID_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.COMMUNICATION_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.COMMUNICATION_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: COMMUNICATION_ERROR :=  WORD#16#0002
+  fullName: COMMUNICATION_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.COMMUNICATION_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.RESOURCE_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.RESOURCE_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: RESOURCE_ERROR :=  WORD#16#0003
+  fullName: RESOURCE_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.RESOURCE_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.ACCESS_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.ACCESS_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ACCESS_ERROR :=  WORD#16#0004
+  fullName: ACCESS_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.ACCESS_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.STATE_MACHINE_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.STATE_MACHINE_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: STATE_MACHINE_ERROR :=  WORD#16#0005
+  fullName: STATE_MACHINE_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.STATE_MACHINE_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_RANGE_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_RANGE_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: INPUT_RANGE_ERROR :=  WORD#16#0006
+  fullName: INPUT_RANGE_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.INPUT_RANGE_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.CALCULATION_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.CALCULATION_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CALCULATION_ERROR :=  WORD#16#0007
+  fullName: CALCULATION_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.CALCULATION_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.DEVICE_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.DEVICE_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DEVICE_ERROR :=  WORD#16#0008
+  fullName: DEVICE_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.DEVICE_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.OTHER_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.OTHER_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OTHER_ERROR :=  WORD#16#7FFE
+  fullName: OTHER_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.OTHER_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.SYSTEM_ERROR
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.SYSTEM_ERROR
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SYSTEM_ERROR :=  WORD#16#7FFF
+  fullName: SYSTEM_ERROR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode.SYSTEM_ERROR
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorCode.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

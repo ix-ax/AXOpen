@@ -1,0 +1,74 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.IAxoDataEntity
+  id: plc.AXOpen.Data.IAxoDataEntity
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.IAxoDataEntity.SetId(STRING[254])
+  - plc.AXOpen.Data.IAxoDataEntity.GetId()
+  name: IAxoDataEntity
+  fullName: IAxoDataEntity
+  type: Interface
+  source:
+    remote:
+      path: .\src\data\ctrl\src\IAxoDataEntity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Data.IAxoDataEntity
+    path: .\src\data\ctrl\src\IAxoDataEntity.st
+    startLine: 0
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: INTERFACE IAxoDataEntity
+  implements: []
+- uid: plc.AXOpen.Data.IAxoDataEntity.SetId(STRING[254])
+  id: plc.AXOpen.Data.IAxoDataEntity.SetId
+  parent: IAxoDataEntity
+  children: []
+  name: SetId
+  fullName: SetId
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\IAxoDataEntity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Data.IAxoDataEntity.SetId
+    path: .\src\data\ctrl\src\IAxoDataEntity.st
+    startLine: 1
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public VOID SetId(in plc.STRING[254] Id)
+    parameters:
+    - id: Id
+      type: plc.STRING[254]
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.IAxoDataEntity.GetId()
+  id: plc.AXOpen.Data.IAxoDataEntity.GetId
+  parent: IAxoDataEntity
+  children: []
+  name: GetId
+  fullName: GetId
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\IAxoDataEntity.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Data.IAxoDataEntity.GetId
+    path: .\src\data\ctrl\src\IAxoDataEntity.st
+    startLine: 7
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public STRING[254] GetId()
+    parameters: []
+    return:
+      type: plc.STRING[254]
+references:
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+

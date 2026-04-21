@@ -1,0 +1,26 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Out
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Out
+  parent: plc.AXOpen.Io
+  children: []
+  name: AxoIOLinkET200SP_Balluff_IO_Out
+  fullName: AxoIOLinkET200SP_Balluff_IO_Out
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Out.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Out
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Out.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoIOLinkET200SP_Balluff_IO_Out
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+references: []
+
+

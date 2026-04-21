@@ -1,0 +1,469 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.OperatingState
+  id: plc.AXOpen.Io.OperatingState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.OperatingState.Unknown
+  - plc.AXOpen.Io.OperatingState.NotSupported
+  - plc.AXOpen.Io.OperatingState.StopFirmwareUpdate
+  - plc.AXOpen.Io.OperatingState.StopMemoryReset
+  - plc.AXOpen.Io.OperatingState.StopSelfStart
+  - plc.AXOpen.Io.OperatingState.Stop
+  - plc.AXOpen.Io.OperatingState.MemoryReset
+  - plc.AXOpen.Io.OperatingState.Startup
+  - plc.AXOpen.Io.OperatingState.Run
+  - plc.AXOpen.Io.OperatingState.RunRedundant
+  - plc.AXOpen.Io.OperatingState.Hold
+  - plc.AXOpen.Io.OperatingState.Defect
+  - plc.AXOpen.Io.OperatingState.DeEnergized
+  - plc.AXOpen.Io.OperatingState.ConfigurationInRun
+  - plc.AXOpen.Io.OperatingState.StopWithoutOutputDisable
+  - plc.AXOpen.Io.OperatingState.RunWithOutputDisable
+  - plc.AXOpen.Io.OperatingState.PgmTest
+  - plc.AXOpen.Io.OperatingState.PrimaryRunBackupTest
+  - plc.AXOpen.Io.OperatingState.PrimarySyncup
+  - plc.AXOpen.Io.OperatingState.BackupSyncup
+  - plc.AXOpen.Io.OperatingState.PartnerPlcStateUnknown
+  - plc.AXOpen.Io.OperatingState.StopSystemState
+  - plc.AXOpen.Io.OperatingState.StartupSystemState
+  - plc.AXOpen.Io.OperatingState.RunSoloSystemState
+  - plc.AXOpen.Io.OperatingState.SyncupSystemState
+  - plc.AXOpen.Io.OperatingState.RunRedundantSystemState
+  name: OperatingState
+  fullName: OperatingState
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'OperatingState : UINT'
+- uid: plc.AXOpen.Io.OperatingState.Unknown
+  id: plc.AXOpen.Io.OperatingState.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown :=   UINT#255
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Unknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.NotSupported
+  id: plc.AXOpen.Io.OperatingState.NotSupported
+  parent: AXOpen.Io
+  children: []
+  name: NotSupported := 	UINT#0
+  fullName: NotSupported
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.NotSupported
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StopFirmwareUpdate
+  id: plc.AXOpen.Io.OperatingState.StopFirmwareUpdate
+  parent: AXOpen.Io
+  children: []
+  name: StopFirmwareUpdate := 	UINT#1
+  fullName: StopFirmwareUpdate
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StopFirmwareUpdate
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StopMemoryReset
+  id: plc.AXOpen.Io.OperatingState.StopMemoryReset
+  parent: AXOpen.Io
+  children: []
+  name: StopMemoryReset := 	UINT#2
+  fullName: StopMemoryReset
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StopMemoryReset
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StopSelfStart
+  id: plc.AXOpen.Io.OperatingState.StopSelfStart
+  parent: AXOpen.Io
+  children: []
+  name: StopSelfStart := 	UINT#3
+  fullName: StopSelfStart
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StopSelfStart
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.Stop
+  id: plc.AXOpen.Io.OperatingState.Stop
+  parent: AXOpen.Io
+  children: []
+  name: Stop := 	UINT#4
+  fullName: Stop
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Stop
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.MemoryReset
+  id: plc.AXOpen.Io.OperatingState.MemoryReset
+  parent: AXOpen.Io
+  children: []
+  name: MemoryReset := 	UINT#5
+  fullName: MemoryReset
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.MemoryReset
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.Startup
+  id: plc.AXOpen.Io.OperatingState.Startup
+  parent: AXOpen.Io
+  children: []
+  name: Startup := 	UINT#6
+  fullName: Startup
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Startup
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.Run
+  id: plc.AXOpen.Io.OperatingState.Run
+  parent: AXOpen.Io
+  children: []
+  name: Run := 	UINT#8
+  fullName: Run
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Run
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.RunRedundant
+  id: plc.AXOpen.Io.OperatingState.RunRedundant
+  parent: AXOpen.Io
+  children: []
+  name: RunRedundant := 	UINT#9
+  fullName: RunRedundant
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.RunRedundant
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.Hold
+  id: plc.AXOpen.Io.OperatingState.Hold
+  parent: AXOpen.Io
+  children: []
+  name: Hold := 	UINT#10
+  fullName: Hold
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Hold
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.Defect
+  id: plc.AXOpen.Io.OperatingState.Defect
+  parent: AXOpen.Io
+  children: []
+  name: Defect := 	UINT#13
+  fullName: Defect
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.Defect
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 12
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.DeEnergized
+  id: plc.AXOpen.Io.OperatingState.DeEnergized
+  parent: AXOpen.Io
+  children: []
+  name: DeEnergized := 	UINT#15
+  fullName: DeEnergized
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.DeEnergized
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 13
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.ConfigurationInRun
+  id: plc.AXOpen.Io.OperatingState.ConfigurationInRun
+  parent: AXOpen.Io
+  children: []
+  name: ConfigurationInRun := 	UINT#16
+  fullName: ConfigurationInRun
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.ConfigurationInRun
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 14
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StopWithoutOutputDisable
+  id: plc.AXOpen.Io.OperatingState.StopWithoutOutputDisable
+  parent: AXOpen.Io
+  children: []
+  name: StopWithoutOutputDisable := 	UINT#17
+  fullName: StopWithoutOutputDisable
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StopWithoutOutputDisable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 15
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.RunWithOutputDisable
+  id: plc.AXOpen.Io.OperatingState.RunWithOutputDisable
+  parent: AXOpen.Io
+  children: []
+  name: RunWithOutputDisable := 	UINT#18
+  fullName: RunWithOutputDisable
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.RunWithOutputDisable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 16
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.PgmTest
+  id: plc.AXOpen.Io.OperatingState.PgmTest
+  parent: AXOpen.Io
+  children: []
+  name: PgmTest := 	UINT#19
+  fullName: PgmTest
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.PgmTest
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 17
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.PrimaryRunBackupTest
+  id: plc.AXOpen.Io.OperatingState.PrimaryRunBackupTest
+  parent: AXOpen.Io
+  children: []
+  name: PrimaryRunBackupTest := 	UINT#20
+  fullName: PrimaryRunBackupTest
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.PrimaryRunBackupTest
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 19
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.PrimarySyncup
+  id: plc.AXOpen.Io.OperatingState.PrimarySyncup
+  parent: AXOpen.Io
+  children: []
+  name: PrimarySyncup := 	UINT#21
+  fullName: PrimarySyncup
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.PrimarySyncup
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 19
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.BackupSyncup
+  id: plc.AXOpen.Io.OperatingState.BackupSyncup
+  parent: AXOpen.Io
+  children: []
+  name: BackupSyncup := 	UINT#22
+  fullName: BackupSyncup
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.BackupSyncup
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 20
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.PartnerPlcStateUnknown
+  id: plc.AXOpen.Io.OperatingState.PartnerPlcStateUnknown
+  parent: AXOpen.Io
+  children: []
+  name: PartnerPlcStateUnknown := 	UINT#31
+  fullName: PartnerPlcStateUnknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.PartnerPlcStateUnknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 21
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StopSystemState
+  id: plc.AXOpen.Io.OperatingState.StopSystemState
+  parent: AXOpen.Io
+  children: []
+  name: StopSystemState := 	UINT#33
+  fullName: StopSystemState
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StopSystemState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 22
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.StartupSystemState
+  id: plc.AXOpen.Io.OperatingState.StartupSystemState
+  parent: AXOpen.Io
+  children: []
+  name: StartupSystemState := 	UINT#35
+  fullName: StartupSystemState
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.StartupSystemState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 23
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.RunSoloSystemState
+  id: plc.AXOpen.Io.OperatingState.RunSoloSystemState
+  parent: AXOpen.Io
+  children: []
+  name: RunSoloSystemState := 	UINT#37
+  fullName: RunSoloSystemState
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.RunSoloSystemState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 24
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.SyncupSystemState
+  id: plc.AXOpen.Io.OperatingState.SyncupSystemState
+  parent: AXOpen.Io
+  children: []
+  name: SyncupSystemState := 	UINT#38
+  fullName: SyncupSystemState
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.SyncupSystemState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 25
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.OperatingState.RunRedundantSystemState
+  id: plc.AXOpen.Io.OperatingState.RunRedundantSystemState
+  parent: AXOpen.Io
+  children: []
+  name: RunRedundantSystemState := 	UINT#40
+  fullName: RunRedundantSystemState
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.OperatingState.RunRedundantSystemState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\OperatingState.st
+    startLine: 26
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

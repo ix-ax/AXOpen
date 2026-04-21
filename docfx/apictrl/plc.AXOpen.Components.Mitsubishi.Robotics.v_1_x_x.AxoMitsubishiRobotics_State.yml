@@ -1,0 +1,903 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+  parent: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children:
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.OperationEnable
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.AutoEnable
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Start
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Stop
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ProgramReset
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ErrorReset
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CycleStop
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOff
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOn
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.HighLevelError
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.LowLevelError
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CautionLevelError
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.EmergencyError
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.RcReady
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.BatteryLow
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_1
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_2
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_3
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_4
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_1
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_2
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_3
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_4
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Zone
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Retract
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Extend
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Retract
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Extend
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Retract
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Extend
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Retract
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Extend
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ActionNo
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.GlobalSpeed
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ToolNo
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.WorkobjectNo
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.PointNo
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed1
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed2
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Coordinates
+  name: AxoMitsubishiRobotics_State
+  fullName: AxoMitsubishiRobotics_State
+  type: Class
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: CLASS AxoMitsubishiRobotics_State
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.OperationEnable
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.OperationEnable
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: OperationEnable
+  fullName: OperationEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.OperationEnable
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'OperationEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.AutoEnable
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.AutoEnable
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: AutoEnable
+  fullName: AutoEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.AutoEnable
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'AutoEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Start
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Start
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Start
+  fullName: Start
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Start
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Start : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Stop
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Stop
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Stop
+  fullName: Stop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Stop
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Stop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ProgramReset
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ProgramReset
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ProgramReset
+  fullName: ProgramReset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ProgramReset
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ProgramReset : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ErrorReset
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ErrorReset
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ErrorReset
+  fullName: ErrorReset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ErrorReset
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ErrorReset : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CycleStop
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CycleStop
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: CycleStop
+  fullName: CycleStop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CycleStop
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'CycleStop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOff
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOff
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ServoOff
+  fullName: ServoOff
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOff
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ServoOff : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOn
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOn
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ServoOn
+  fullName: ServoOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ServoOn
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ServoOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.HighLevelError
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.HighLevelError
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: HighLevelError
+  fullName: HighLevelError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.HighLevelError
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'HighLevelError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.LowLevelError
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.LowLevelError
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: LowLevelError
+  fullName: LowLevelError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.LowLevelError
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'LowLevelError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CautionLevelError
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CautionLevelError
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: CautionLevelError
+  fullName: CautionLevelError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.CautionLevelError
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'CautionLevelError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.EmergencyError
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.EmergencyError
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: EmergencyError
+  fullName: EmergencyError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.EmergencyError
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'EmergencyError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.RcReady
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.RcReady
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: RcReady
+  fullName: RcReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.RcReady
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'RcReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.BatteryLow
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.BatteryLow
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: BatteryLow
+  fullName: BatteryLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.BatteryLow
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'BatteryLow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_1
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_1
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InArea_1
+  fullName: InArea_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_1
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InArea_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_2
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_2
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InArea_2
+  fullName: InArea_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_2
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InArea_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_3
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_3
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InArea_3
+  fullName: InArea_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_3
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InArea_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_4
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_4
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InArea_4
+  fullName: InArea_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InArea_4
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InArea_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_1
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_1
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InPosition_1
+  fullName: InPosition_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_1
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InPosition_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_2
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_2
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InPosition_2
+  fullName: InPosition_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_2
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InPosition_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_3
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_3
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InPosition_3
+  fullName: InPosition_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_3
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InPosition_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_4
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_4
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InPosition_4
+  fullName: InPosition_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition_4
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InPosition_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Zone
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Zone
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Zone
+  fullName: Zone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Zone
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Zone : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.InPosition
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'InPosition : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Retract
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Retract
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_1_Retract
+  fullName: Tool_1_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Retract
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_1_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Extend
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Extend
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_1_Extend
+  fullName: Tool_1_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_1_Extend
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_1_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Retract
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Retract
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_2_Retract
+  fullName: Tool_2_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Retract
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_2_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Extend
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Extend
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_2_Extend
+  fullName: Tool_2_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_2_Extend
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_2_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Retract
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Retract
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_3_Retract
+  fullName: Tool_3_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Retract
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_3_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Extend
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Extend
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_3_Extend
+  fullName: Tool_3_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_3_Extend
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_3_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Retract
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Retract
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_4_Retract
+  fullName: Tool_4_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Retract
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_4_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Extend
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Extend
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Tool_4_Extend
+  fullName: Tool_4_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Tool_4_Extend
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Tool_4_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ActionNo
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ActionNo
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ActionNo
+  fullName: ActionNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ActionNo
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ActionNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.GlobalSpeed
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.GlobalSpeed
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: GlobalSpeed
+  fullName: GlobalSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.GlobalSpeed
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'GlobalSpeed : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ToolNo
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ToolNo
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: ToolNo
+  fullName: ToolNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.ToolNo
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 94
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'ToolNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.WorkobjectNo
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.WorkobjectNo
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: WorkobjectNo
+  fullName: WorkobjectNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.WorkobjectNo
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'WorkobjectNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.PointNo
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.PointNo
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: PointNo
+  fullName: PointNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.PointNo
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 98
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'PointNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed1
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed1
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: UserSpecSpeed1
+  fullName: UserSpecSpeed1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed1
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'UserSpecSpeed1 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed2
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed2
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: UserSpecSpeed2
+  fullName: UserSpecSpeed2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.UserSpecSpeed2
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'UserSpecSpeed2 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Coordinates
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Coordinates
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Coordinates
+  fullName: Coordinates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State.Coordinates
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_State.st
+    startLine: 104
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+
+

@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.eInspectorType
+  id: plc.AXOpen.Inspectors.eInspectorType
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.eInspectorType.Digital
+  - plc.AXOpen.Inspectors.eInspectorType.Analogue
+  - plc.AXOpen.Inspectors.eInspectorType.Data
+  name: eInspectorType
+  fullName: eInspectorType
+  type: Enum
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.eInspectorType
+    path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: eInspectorType
+- uid: plc.AXOpen.Inspectors.eInspectorType.Digital
+  id: plc.AXOpen.Inspectors.eInspectorType.Digital
+  parent: AXOpen.Inspectors
+  children: []
+  name: Digital
+  fullName: Digital
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.eInspectorType.Digital
+    path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorType.Analogue
+  id: plc.AXOpen.Inspectors.eInspectorType.Analogue
+  parent: AXOpen.Inspectors
+  children: []
+  name: Analogue
+  fullName: Analogue
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.eInspectorType.Analogue
+    path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorType.Data
+  id: plc.AXOpen.Inspectors.eInspectorType.Data
+  parent: AXOpen.Inspectors
+  children: []
+  name: Data
+  fullName: Data
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.eInspectorType.Data
+    path: .\src\inspectors\ctrl\src\AxoInspectorDialog.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+references:
+- uid: plc.AXOpen.Inspectors.eInspectorType
+  name: eInspectorType
+  nameWithType: eInspectorType
+  fullName: AXOpen.Inspectors.eInspectorType
+
+

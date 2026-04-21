@@ -1,0 +1,129 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.Unknown
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.Available
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.ApplicationReadyPending
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedBySuperordinated
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOController
+  - plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOSupervisor
+  name: AxoHwDiagComponentAvailability
+  fullName: AxoHwDiagComponentAvailability
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'AxoHwDiagComponentAvailability : UINT'
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Unknown
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown :=   UINT#255
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Unknown
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Available
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Available
+  parent: AXOpen.Io
+  children: []
+  name: Available :=   UINT#0
+  fullName: Available
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.Available
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.ApplicationReadyPending
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.ApplicationReadyPending
+  parent: AXOpen.Io
+  children: []
+  name: ApplicationReadyPending :=   UINT#1
+  fullName: ApplicationReadyPending
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.ApplicationReadyPending
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedBySuperordinated
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedBySuperordinated
+  parent: AXOpen.Io
+  children: []
+  name: LockedBySuperordinated :=   UINT#2
+  fullName: LockedBySuperordinated
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedBySuperordinated
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOController
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOController
+  parent: AXOpen.Io
+  children: []
+  name: LockedByIOController :=   UINT#3
+  fullName: LockedByIOController
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOController
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOSupervisor
+  id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOSupervisor
+  parent: AXOpen.Io
+  children: []
+  name: LockedByIOSupervisor :=   UINT#4
+  fullName: LockedByIOSupervisor
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentAvailability.LockedByIOSupervisor
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentAvailability.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

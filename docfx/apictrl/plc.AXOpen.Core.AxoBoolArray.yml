@@ -1,0 +1,116 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoBoolArray
+  id: plc.AXOpen.Core.AxoBoolArray
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoBoolArray.DataChanged
+  - plc.AXOpen.Core.AxoBoolArray._dataChanged
+  - plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  - plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  name: AxoBoolArray
+  fullName: AxoBoolArray
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoBoolArray
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoBoolArray
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  id: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  parent: AXOpen.Core
+  children: []
+  name: DataChanged
+  fullName: DataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoBoolArray.DataChanged
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'DataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoBoolArray._dataChanged
+  id: plc.AXOpen.Core.AxoBoolArray._dataChanged
+  parent: AXOpen.Core
+  children: []
+  name: _dataChanged
+  fullName: _dataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoBoolArray._dataChanged
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_dataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  id: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  parent: AXOpen.Core.AxoBoolArray
+  children: []
+  name: ToggleDataChangedFlag
+  fullName: ToggleDataChangedFlag
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID ToggleDataChangedFlag()
+    parameters: &o1 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  id: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  parent: AXOpen.Core.AxoBoolArray
+  children: []
+  name: DataHasChanged
+  fullName: DataHasChanged
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoBoolArray.DataHasChanged
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL DataHasChanged()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

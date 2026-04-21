@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eAxoStepExecutionMode
+  id: plc.AXOpen.Core.eAxoStepExecutionMode
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eAxoStepExecutionMode.ExecuteAndContinue
+  - plc.AXOpen.Core.eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
+  name: eAxoStepExecutionMode
+  fullName: eAxoStepExecutionMode
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eAxoStepExecutionMode
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eAxoStepExecutionMode : INT'
+- uid: plc.AXOpen.Core.eAxoStepExecutionMode.ExecuteAndContinue
+  id: plc.AXOpen.Core.eAxoStepExecutionMode.ExecuteAndContinue
+  parent: AXOpen.Core
+  children: []
+  name: ExecuteAndContinue :=  0
+  fullName: ExecuteAndContinue
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eAxoStepExecutionMode.ExecuteAndContinue
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
+  id: plc.AXOpen.Core.eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
+  parent: AXOpen.Core
+  children: []
+  name: SwitchToStepModeBeforeEnteringStep :=  1
+  fullName: SwitchToStepModeBeforeEnteringStep
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\eAxoStepExecutionMode.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

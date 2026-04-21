@@ -1,0 +1,492 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.Axo_Power
+  id: plc.AXOpen.Components.Drives.Axo_Power
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.Axo_Power._motionTaskId
+  - plc.AXOpen.Components.Drives.Axo_Power._EnablePositive
+  - plc.AXOpen.Components.Drives.Axo_Power._EnableNegative
+  - plc.AXOpen.Components.Drives.Axo_Power._manualOverride
+  - plc.AXOpen.Components.Drives.Axo_Power.Run(IAxoObject,BOOL,BOOL,BOOL)
+  - plc.AXOpen.Components.Drives.Axo_Power.EnabledPositive()
+  - plc.AXOpen.Components.Drives.Axo_Power.DisabledPositive()
+  - plc.AXOpen.Components.Drives.Axo_Power.EnabledNegative()
+  - plc.AXOpen.Components.Drives.Axo_Power.DisabledNegative()
+  - plc.AXOpen.Components.Drives.Axo_Power.Manual()
+  name: Axo_Power
+  fullName: Axo_Power
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS Axo_Power
+  inheritance:
+  - plc.AXOpen.Core.AxoToggleTask
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoToggleTask.State
+  - plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  - plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoToggleTask.GetState()
+  - plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.Toggle()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+- uid: plc.AXOpen.Components.Drives.Axo_Power._motionTaskId
+  id: plc.AXOpen.Components.Drives.Axo_Power._motionTaskId
+  parent: AXOpen.Components.Drives
+  children: []
+  name: _motionTaskId
+  fullName: _motionTaskId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power._motionTaskId
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: '_motionTaskId : AXOpen.Components.Drives.eAxoMotionTaskId'
+    return:
+      type: AXOpen.Components.Drives.eAxoMotionTaskId
+- uid: plc.AXOpen.Components.Drives.Axo_Power._EnablePositive
+  id: plc.AXOpen.Components.Drives.Axo_Power._EnablePositive
+  parent: AXOpen.Components.Drives
+  children: []
+  name: _EnablePositive
+  fullName: _EnablePositive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power._EnablePositive
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: '_EnablePositive : AXOpen.Core.AxoToggleTask'
+    return:
+      type: AXOpen.Core.AxoToggleTask
+- uid: plc.AXOpen.Components.Drives.Axo_Power._EnableNegative
+  id: plc.AXOpen.Components.Drives.Axo_Power._EnableNegative
+  parent: AXOpen.Components.Drives
+  children: []
+  name: _EnableNegative
+  fullName: _EnableNegative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power._EnableNegative
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: '_EnableNegative : AXOpen.Core.AxoToggleTask'
+    return:
+      type: AXOpen.Core.AxoToggleTask
+- uid: plc.AXOpen.Components.Drives.Axo_Power._manualOverride
+  id: plc.AXOpen.Components.Drives.Axo_Power._manualOverride
+  parent: AXOpen.Components.Drives
+  children: []
+  name: _manualOverride
+  fullName: _manualOverride
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power._manualOverride
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: '_manualOverride : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Drives.Axo_Power.Run(IAxoObject,BOOL,BOOL,BOOL)
+  id: plc.AXOpen.Components.Drives.Axo_Power.Run(IAxoObject,BOOL,BOOL,BOOL)
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.Run
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.BOOL Enable,in plc.BOOL EnablePositive,in plc.BOOL EnableNegative)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: Enable
+      type: plc.BOOL
+    - id: EnablePositive
+      type: plc.BOOL
+    - id: EnableNegative
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Drives.Axo_Power.EnabledPositive()
+  id: plc.AXOpen.Components.Drives.Axo_Power.EnabledPositive()
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: EnabledPositive
+  fullName: EnabledPositive
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.EnabledPositive
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public BOOL EnabledPositive()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Drives.Axo_Power.DisabledPositive()
+  id: plc.AXOpen.Components.Drives.Axo_Power.DisabledPositive()
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: DisabledPositive
+  fullName: DisabledPositive
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.DisabledPositive
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public BOOL DisabledPositive()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Drives.Axo_Power.EnabledNegative()
+  id: plc.AXOpen.Components.Drives.Axo_Power.EnabledNegative()
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: EnabledNegative
+  fullName: EnabledNegative
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.EnabledNegative
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public BOOL EnabledNegative()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Drives.Axo_Power.DisabledNegative()
+  id: plc.AXOpen.Components.Drives.Axo_Power.DisabledNegative()
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: DisabledNegative
+  fullName: DisabledNegative
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.DisabledNegative
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public BOOL DisabledNegative()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Drives.Axo_Power.Manual()
+  id: plc.AXOpen.Components.Drives.Axo_Power.Manual()
+  parent: AXOpen.Components.Drives.Axo_Power
+  children: []
+  name: Manual
+  fullName: Manual
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.Axo_Power.Manual
+    path: .\src\components.drives\ctrl\src\AxoDrives\Axo_Power.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Public VOID Manual()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoToggleTask.State
+  commentId: plc.AXOpen.Core.AxoToggleTask.State
+  name: State
+  nameWithType: State
+  fullName: plc.AXOpen.Core.AxoToggleTask.State
+  parent: plc.AXOpen.Core.AxoToggleTask.State
+- uid: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  commentId: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  name: RemoteToggle
+  nameWithType: RemoteToggle
+  fullName: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  parent: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+- uid: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  commentId: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  name: IsDisabled
+  nameWithType: IsDisabled
+  fullName: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  parent: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoToggleTask.GetState()
+  commentId: plc.AXOpen.Core.AxoToggleTask.GetState()
+  name: GetState()
+  nameWithType: GetState()
+  fullName: plc.AXOpen.Core.AxoToggleTask.GetState()
+  parent: plc.AXOpen.Core.AxoToggleTask.GetState()
+- uid: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  name: IsRunCalledInThisPlcCycle()
+  nameWithType: IsRunCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  name: WasRunCalledInPreviousPlcCycle()
+  nameWithType: WasRunCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  name: SetIsDisabled(BOOL)
+  nameWithType: SetIsDisabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  parent: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+- uid: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  commentId: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  name: GetIsDisabled()
+  nameWithType: GetIsDisabled()
+  fullName: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  parent: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  commentId: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  name: IsSwitchedOn()
+  nameWithType: IsSwitchedOn()
+  fullName: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  parent: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  commentId: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  name: IsSwitchedOff()
+  nameWithType: IsSwitchedOff()
+  fullName: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  parent: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+- uid: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  commentId: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  name: Toggle()
+  nameWithType: Toggle()
+  fullName: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  parent: plc.AXOpen.Core.AxoToggleTask.Toggle()
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  commentId: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  name: SwitchOff()
+  nameWithType: SwitchOff()
+  fullName: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  parent: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  commentId: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  name: SwitchOn()
+  nameWithType: SwitchOn()
+  fullName: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  parent: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  commentId: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  name: OnSwitchedOn()
+  nameWithType: OnSwitchedOn()
+  fullName: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  parent: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  commentId: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  name: OnSwitchedOff()
+  nameWithType: OnSwitchedOff()
+  fullName: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  parent: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+- uid: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  commentId: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  name: OnStateChanged()
+  nameWithType: OnStateChanged()
+  fullName: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  parent: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  commentId: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  name: SwitchedOn()
+  nameWithType: SwitchedOn()
+  fullName: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  parent: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  commentId: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  name: SwitchedOff()
+  nameWithType: SwitchedOff()
+  fullName: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  parent: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+  commentId: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+  name: IAxo_Power
+  nameWithType: IAxo_Power
+  fullName: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+  parent: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+  name: eAxoMotionTaskId
+  nameWithType: eAxoMotionTaskId
+  fullName: AXOpen.Components.Drives.eAxoMotionTaskId
+- uid: plc.AXOpen.Core.AxoToggleTask
+  name: AxoToggleTask
+  nameWithType: AxoToggleTask
+  fullName: AXOpen.Core.AxoToggleTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

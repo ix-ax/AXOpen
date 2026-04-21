@@ -1,0 +1,202 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDI_ToolDigitalInputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDO_ToolDigitalOutputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TAIT_ToolAnalogInputTypes
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolOutputVoltage
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolCurrent
+  name: AxoUrRoboticsT2OTool_v_1_x_x
+  fullName: AxoUrRoboticsT2OTool_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OTool_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolMode
+  fullName: ToolMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolMode : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDI_ToolDigitalInputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDI_ToolDigitalInputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TDI_ToolDigitalInputs
+  fullName: TDI_ToolDigitalInputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDI_ToolDigitalInputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TDI_ToolDigitalInputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDO_ToolDigitalOutputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDO_ToolDigitalOutputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TDO_ToolDigitalOutputs
+  fullName: TDO_ToolDigitalOutputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TDO_ToolDigitalOutputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TDO_ToolDigitalOutputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TAIT_ToolAnalogInputTypes
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TAIT_ToolAnalogInputTypes
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TAIT_ToolAnalogInputTypes
+  fullName: TAIT_ToolAnalogInputTypes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.TAIT_ToolAnalogInputTypes
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TAIT_ToolAnalogInputTypes : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolAnalogInput_0
+  fullName: ToolAnalogInput_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolAnalogInput_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolAnalogInput_1
+  fullName: ToolAnalogInput_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolAnalogInput_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolAnalogInput_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolOutputVoltage
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolOutputVoltage
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolOutputVoltage
+  fullName: ToolOutputVoltage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolOutputVoltage
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolOutputVoltage : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolCurrent
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolCurrent
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolCurrent
+  fullName: ToolCurrent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTool_v_1_x_x.ToolCurrent
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolCurrent : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

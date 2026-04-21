@@ -1,0 +1,40 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Timers
+  id: plc.AXOpen.Timers
+  children:
+  - plc.AXOpen.Timers.AxoBlinker
+  - plc.AXOpen.Timers.OffDelayTimer
+  - plc.AXOpen.Timers.OnDelayTimer
+  - plc.AXOpen.Timers.PulseTimer
+  name: plc.AXOpen.Timers
+  fullName: Timers
+  type: Namespace
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 0
+  namespace: plc.AXOpen.Timers
+references:
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Timers.OffDelayTimer
+  name: OffDelayTimer
+  nameWithType: OffDelayTimer
+  fullName: AXOpen.Timers.OffDelayTimer
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Timers.PulseTimer
+  name: PulseTimer
+  nameWithType: PulseTimer
+  fullName: AXOpen.Timers.PulseTimer
+
+

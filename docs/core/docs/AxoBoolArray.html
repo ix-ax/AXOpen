@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoBoolArray | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoBoolArray | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axoboolarray">AxoBoolArray</h1>
+
+<p><code>AxoBoolArray</code> provides a base class for declaring arrays of <code>BOOL</code> values with HMI integration. Each element renders as an individual bit indicator on the Blazor UI, with automatic change-detection for efficient polling.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="declare-a-custom-type">Declare a custom type</h3>
+<p>Extend <code>AxoBoolArray</code> and add a <code>Data</code> array of the desired size:</p>
+<pre><code class="lang-smalltalk">// Extend AxoBoolArray and declare a Data array of the desired size.
+// The HMI renders each element as an individual bit indicator.
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;Bool array type with 8 items&quot;}
+{S7.extern=ReadWrite}
+CLASS PUBLIC AxoBoolArray8 EXTENDS AXOpen.Core.AxoBoolArray
+    VAR PUBLIC
+        Data : ARRAY [0..7] OF BOOL;
+    END_VAR
+END_CLASS
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;Byte array type with 16 items&quot;}
+{S7.extern=ReadWrite}
+CLASS PUBLIC AxoBoolArray16 EXTENDS AXOpen.Core.AxoBoolArray
+    VAR PUBLIC
+        Data : ARRAY [0..15] OF BOOL;
+    END_VAR
+END_CLASS
+</code></pre><h3 id="declare-instances">Declare instances</h3>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    {#ix-attr:[Container(Layout.Stack)]}
+    {#ix-set:AttributeName = &quot;Bool array instance with 8 items&quot;}
+    MyArray8 : AxoBoolArray8;
+    {#ix-attr:[Container(Layout.Stack)]}
+    {#ix-set:AttributeName = &quot;Bool array instance with 16 items&quot;}
+    MyArray16 : AxoBoolArray16;
+END_VAR
+</code></pre><h3 id="write-data-and-signal-changes">Write data and signal changes</h3>
+<p>Call <code>ToggleDataChangedFlag()</code> after writing new values to notify the HMI that the display should update:</p>
+<pre><code class="lang-smalltalk">METHOD PUBLIC Execute
+    VAR
+        _openCycleCount : ULINT;
+        _i : INT;
+    END_VAR
+
+    _openCycleCount := THIS.GetContext().OpenCycleCount();
+
+    // Write boolean values into the array each cycle
+    FOR _i := 0 TO 7 DO
+        MyArray8.Data[_i] :=  THIS.RandomBool(_openCycleCount * TO_ULINT(_i + INT#1));
+        MyArray16.Data[_i] := THIS.RandomBool(_openCycleCount / TO_ULINT(_i+ INT#1));
+    END_FOR;
+    FOR _i := 8 TO 15 DO
+        MyArray16.Data[_i] := TO_BOOL(_openCycleCount / TO_ULINT(_i+ INT#1));
+    END_FOR;
+
+    // ToggleDataChangedFlag signals the HMI that data was updated
+    IF _openCycleCount MOD ULINT#100 = ULINT#0 THEN
+        MyArray8.ToggleDataChangedFlag();
+        MyArray16.ToggleDataChangedFlag();
+    END_IF;
+END_METHOD
+</code></pre><h2 id="key-api">Key API</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ToggleDataChangedFlag()</code></td>
+<td>Signals the HMI that array data was updated and should be re-read</td>
+</tr>
+<tr>
+<td><code>DataHasChanged() : BOOL</code></td>
+<td>Returns <code>TRUE</code> when the HMI has written new values into the array</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The array size is determined at compile time by the <code>Data</code> VAR declaration</li>
+<li>Arrays are 0-based per AXOpen convention</li>
+<li>The HMI renders each element individually — large arrays may impact rendering performance</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

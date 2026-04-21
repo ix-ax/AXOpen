@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoContext | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoContext | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOCONTEXT.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -115,8 +113,8 @@
 <p>Base class for the AxoContext is <code>AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code>Main</code> method. Notice that the <code>AxoContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>AxoContext</code> and derived classes.</p>
 <p><strong>How to extend AxoContext class</strong></p>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
-CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
-    METHOD PROTECTED OVERRIDE Main 
+CLASS PUBLIC AxoContextExample EXTENDS AXOpen.Core.AxoContext
+    METHOD PROTECTED OVERRIDE Main
         // Here goes all your logic for given AxoContext.
         ;
     END_METHOD
@@ -127,19 +125,90 @@ END_CLASS
 <pre><code class="lang-smalltalk">PROGRAM ProgramExample
     VAR
         MyContext : AxoContextExample;
-    END_VAR    
+    END_VAR
 
     MyContext.Run();
 
 END_PROGRAM
-</code></pre></article>
+</code></pre><h2 id="injecting-services">Injecting services</h2>
+<p>AxoContext provides injection methods for framework services: Logger, Messenger Service, RTC (Real-Time Clock), and RTM (Real-Time Monitor). These must be called in <code>Main</code> before any object that depends on them:</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoContextWithServicesExample EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        // Service instances declared as PUBLIC for .NET twin visibility
+        Lgr : AXOpen.Logging.AxoLogger;
+        MsgSvc : AXOpen.Messaging.AxoMessengerService;
+        Root : AXOpen.Core.AxoObject;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        // 1. Inject services into the context (called every cycle, idempotent)
+        THIS.InjectLogger(Lgr);
+        THIS.InjectMessengerService(MsgSvc);
+
+        // 2. Set minimum log level
+        THIS.GetLogger().SetMinimumLevel(eLogLevel#Information);
+
+        // 3. Initialize root object — establishes the object tree
+        THIS.InitializeRootObject(Root);
+
+        // 4. All application logic starts from here
+        // Objects call Run(Root) or Run(THIS) to join the context tree
+    END_METHOD
+END_CLASS
+</code></pre><h2 id="initializing-root-objects">Initializing root objects</h2>
+<p><code>InitializeRootObject</code> wires an AxoObject into the context's object tree. It must be called before any other method on the object. Multiple root objects can be initialized:</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoContextInitExample EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        _unit1 : AXOpen.Core.AxoObject;
+        _unit2 : AXOpen.Core.AxoObject;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        // InitializeRootObject wires the object into this context's tree.
+        // Must be called before any other method on the object.
+        THIS.InitializeRootObject(_unit1);
+        THIS.InitializeRootObject(_unit2);
+
+        // After initialization, objects can use GetContext() to access
+        // context services (logger, messenger, RTC, RTM).
+    END_METHOD
+END_CLASS
+</code></pre><h2 id="net-side-setup">.NET-side setup</h2>
+<p>On the .NET side, the connector and AxoApplication must be configured before the context runs. The following shows the essential setup in Program.cs:</p>
+<h3 id="connector-configuration">Connector configuration</h3>
+<pre><code class="lang-csharp">Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
+
+Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File(&quot;connector.log&quot;,
+        outputTemplate: &quot;{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}&quot;,
+        fileSizeLimitBytes: 100000)
+    .MinimumLevel.Information()
+    .CreateLogger());
+
+_ = Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+</code></pre><h3 id="axoapplication-builder">AxoApplication builder</h3>
+<pre><code class="lang-csharp">AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+    .WriteTo.Console().MinimumLevel.Verbose()
+    .CreateLogger()));
+</code></pre><h3 id="blazor-service-registration">Blazor service registration</h3>
+<pre><code class="lang-csharp">builder.Services.AddIxBlazorServices();
+builder.Services.AddAxoCoreServices();
+</code></pre><h3 id="signalr-dialog-hub">SignalR dialog hub</h3>
+<pre><code class="lang-csharp">// SignalR hub for dialog/alert cross-client synchronization
+app.MapHub&lt;SignalRDialogHub&gt;(SignalRDialogHub.HUB_URL_SUFFIX);
+</code></pre>
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOCONTEXT.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -149,7 +218,7 @@ END_PROGRAM
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

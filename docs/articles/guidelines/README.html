@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | System.Dynamic.ExpandoObject </title>
+      <title>AXOpen Development Guidelines | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="AXOpen Development Guidelines | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/guidelines/README.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -65,37 +63,81 @@
     </header>
 
     <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
 
           <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="">
+<h1 id="axopen-development-guidelines">AXOpen Development Guidelines</h1>
+
+<p>This section groups documents that define how to design, implement, test, document and package code inside the AXOpen framework.</p>
+<h2 id="scope">Scope</h2>
+<p>Use these guideline articles when you:</p>
+<ul>
+<li>Create or extend a component (<code>AxoComponent</code> derivative)</li>
+<li>Add or modify tasks / operations (<code>AxoTask</code> usage inside components – see <code>TemplateComponent</code> examples)</li>
+<li>Introduce new data contracts (config / status) or abstractions</li>
+<li>Add UI (auto–rendered via <code>RenderableContentControl</code> or custom Blazor pages)</li>
+<li>Integrate security (roles, groups, repositories)</li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Document</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naming, layout &amp; code style</td>
+<td><code>Conventions.md</code></td>
+</tr>
+<tr>
+<td>Performance / controller sizing</td>
+<td><code>PERFORMANCE.md</code></td>
+</tr>
+<tr>
+<td>Component structure &amp; lifecycle</td>
+<td><code>components.md</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="core-concepts-quick-recap">Core Concepts (Quick Recap)</h2>
+<ul>
+<li><strong>AxoComponent</strong> – Abstract base in <code>AXOpen.Core</code>, requires <code>Restore()</code> and <code>ManualControl()</code> implementation. Use additional <code>Run(...)</code> methods for cyclic logic, task invocation and IO marshaling. See <code>src/core/docs/AXOCOMPONENT.md</code> for extended examples.</li>
+<li><strong>Tasks (<code>AxoTask</code>)</strong> – Encapsulate multi‑cycle or even single‑cycle actions; always expose actions through methods returning <code>IAxoTaskState</code> (see <code>TemplateComponent</code> methods like <code>TemplateMethod_10steps_1</code>).</li>
+<li><strong>Configuration vs Status</strong> – Configuration (STRUCT or CLASS per component guideline) supplies tunables; Status reports runtime state, errors, diagnostic / trace data. Both should be accessible through <code>GetConfig</code> / <code>GetStatus</code> patterns and documented inline.</li>
+<li><strong>Rendering</strong> – Prefer auto rendering using <code>&lt;RenderableContentControl Context=&quot;...&quot; Presentation=&quot;Command|Status&quot; /&gt;</code>. Use layout attributes (<code>ComponentHeader</code>, <code>ComponentDetails</code>) defined on members of the component to shape generated UI.</li>
+<li><strong>Security</strong> – Added through <code>builder.Services.ConfigureAxBlazorSecurity((userRepo, groupRepo), Roles.CreateRoles())</code>. Roles are simple string constants collected in a static factory (e.g. <code>process_settings_access</code>).</li>
+</ul>
+<h2 id="expectations-for-new--updated-code">Expectations for New / Updated Code</h2>
+<ol>
+<li>Follow naming &amp; access modifier rules (see <code>Conventions.md</code>).</li>
+<li>Public &amp; protected members: document with XML / docfx comments and provide code snippets or example usage when non‑trivial.</li>
+<li>Maintain semantic versioning discipline: breaking contract changes (public surface) only with major version increments.</li>
+<li>Place tests near their domain (axunit for ST logic; integration tests for data / repository / remote tasks) – mirror existing <code>tests</code> folder patterns.</li>
+<li>Keep cyclic <code>Run</code> methods lean: split IO marshaling, task invocation and housekeeping into clearly separated regions or private helpers.</li>
+</ol>
+<h2 id="when-something-differs-from-these-docs">When Something Differs From These Docs</h2>
+<p>If you spot divergence between implementation (e.g., signature changes, renamed roles, updated rendering attributes) and these articles:</p>
+<ul>
+<li>Update the article in the same pull request as the code change OR</li>
+<li>Open an issue using the documentation template (link present in <code>LIBRARYHEADER.md</code>).</li>
+</ul>
+<hr>
+<p>For deeper dives start with <code>components.md</code> and <code>AXOCOMPONENT.md</code>, then explore examples under <code>src/*/app/src/Examples</code> and Blazor pages under <code>app/ix-blazor</code>.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/docfx/articles/guidelines/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -105,7 +147,7 @@
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

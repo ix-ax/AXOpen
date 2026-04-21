@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Status
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Data
+  name: AxoSimaticIdentCyclic_In
+  fullName: AxoSimaticIdentCyclic_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Status
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Status
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Status : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Data
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Data
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In.Data
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Data : ARRAY [0..123] OF BYTE'
+    return:
+      type: ARRAY [0..123] OF BYTE
+references:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+  name: AxoSimaticIdentCyclic_Status
+  nameWithType: AxoSimaticIdentCyclic_Status
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+- uid: plc.ARRAY [0..123] OF BYTE
+  name: ARRAY [0..123] OF BYTE
+  nameWithType: ARRAY [0..123] OF BYTE
+  fullName: ARRAY [0..123] OF BYTE
+
+

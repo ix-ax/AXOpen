@@ -1,0 +1,198 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.eventMessage
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.operatingMode
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.readyDelay
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataHoldingTime
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.rfParameters
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.modulation
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.subcarrier
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataTransfer
+  name: AxoIOLink_RF200_typeParameters
+  fullName: AxoIOLink_RF200_typeParameters
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_typeParameters
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.eventMessage
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.eventMessage
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eventMessage
+  fullName: eventMessage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.eventMessage
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'eventMessage : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.operatingMode
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.operatingMode
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: operatingMode
+  fullName: operatingMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.operatingMode
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'operatingMode : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.readyDelay
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.readyDelay
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: readyDelay
+  fullName: readyDelay
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.readyDelay
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'readyDelay : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataHoldingTime
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataHoldingTime
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: dataHoldingTime
+  fullName: dataHoldingTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataHoldingTime
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'dataHoldingTime : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.rfParameters
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.rfParameters
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: rfParameters
+  fullName: rfParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.rfParameters
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'rfParameters : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.modulation
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.modulation
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: modulation
+  fullName: modulation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.modulation
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'modulation : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.subcarrier
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.subcarrier
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: subcarrier
+  fullName: subcarrier
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.subcarrier
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'subcarrier : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataTransfer
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataTransfer
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: dataTransfer
+  fullName: dataTransfer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters.dataTransfer
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeParameters.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'dataTransfer : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

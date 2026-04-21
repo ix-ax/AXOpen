@@ -1,0 +1,104 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtm
+  id: plc.AXOpen.Core.Dummies.MockAxoRtm
+  parent: plc.AXOpen.Core.Dummies
+  children:
+  - plc.AXOpen.Core.Dummies.MockAxoRtm._elapsed
+  - plc.AXOpen.Core.Dummies.MockAxoRtm.Elapsed()
+  - plc.AXOpen.Core.Dummies.MockAxoRtm.SetElapsed(LTIME)
+  name: MockAxoRtm
+  fullName: MockAxoRtm
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtm
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+    startLine: 8
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: CLASS MockAxoRtm
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtm._elapsed
+  id: plc.AXOpen.Core.Dummies.MockAxoRtm._elapsed
+  parent: AXOpen.Core.Dummies
+  children: []
+  name: _elapsed
+  fullName: _elapsed
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtm._elapsed
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+    startLine: 11
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: '_elapsed : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtm.Elapsed()
+  id: plc.AXOpen.Core.Dummies.MockAxoRtm.Elapsed()
+  parent: AXOpen.Core.Dummies.MockAxoRtm
+  children: []
+  name: Elapsed
+  fullName: Elapsed
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtm.Elapsed
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+    startLine: 14
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public LTIME Elapsed()
+    parameters: []
+    return:
+      type: plc.LTIME
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtm.SetElapsed(LTIME)
+  id: plc.AXOpen.Core.Dummies.MockAxoRtm.SetElapsed(LTIME)
+  parent: AXOpen.Core.Dummies.MockAxoRtm
+  children: []
+  name: SetElapsed
+  fullName: SetElapsed
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies.MockAxoRtm.SetElapsed
+    path: .\src\core\ctrl\src\Mocks\MockAxoRtm.st
+    startLine: 18
+  namespace: plc.AXOpen.Core.Dummies
+  syntax:
+    content: Public VOID SetElapsed(in plc.LTIME Set)
+    parameters:
+    - id: Set
+      type: plc.LTIME
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  commentId: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: plc.AXOpen.Rtm.IAxoRtm
+  parent: plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

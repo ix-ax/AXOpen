@@ -1,0 +1,1103 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoDialog
+  id: plc.AXOpen.Core.AxoDialog
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoDialog._text
+  - plc.AXOpen.Core.AxoDialog._caption
+  - plc.AXOpen.Core.AxoDialog._buttons
+  - plc.AXOpen.Core.AxoDialog._answer
+  - plc.AXOpen.Core.AxoDialog._dialogType
+  - plc.AXOpen.Core.AxoDialog._risingEdge
+  - plc.AXOpen.Core.AxoDialog._lastCall
+  - plc.AXOpen.Core.AxoDialog._createPlcCycleSpace
+  - plc.AXOpen.Core.AxoDialog._PlcCycleSpaceCounter
+  - plc.AXOpen.Core.AxoDialog.Show(IAxoObject)
+  - plc.AXOpen.Core.AxoDialog.ShowWithExternalClose(IAxoObject,BOOL,BOOL,BOOL,BOOL)
+  - plc.AXOpen.Core.AxoDialog.OnRestore()
+  - plc.AXOpen.Core.AxoDialog.WithCaption(STRING)
+  - plc.AXOpen.Core.AxoDialog.WithOk()
+  - plc.AXOpen.Core.AxoDialog.WithText(STRING)
+  - plc.AXOpen.Core.AxoDialog.WithType(eDialogType)
+  - plc.AXOpen.Core.AxoDialog.WithYesNo()
+  - plc.AXOpen.Core.AxoDialog.WithYesNoCancel()
+  - plc.AXOpen.Core.AxoDialog.Answer()
+  name: AxoDialog
+  fullName: AxoDialog
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoDialog
+  inheritance:
+  - plc.AXOpen.Core.AxoDialogBase
+  - plc.AXOpen.Core.AxoRemoteTask
+  - plc.AXOpen.Core.AxoTask
+  - plc.AXOpen.Core.AxoTaskLight
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoDialogBase._closeSignal
+  - plc.AXOpen.Core.AxoRemoteTask.DoneSignature
+  - plc.AXOpen.Core.AxoRemoteTask.IsInitialized
+  - plc.AXOpen.Core.AxoRemoteTask.HasRemoteException
+  - plc.AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter
+  - plc.AXOpen.Core.AxoRemoteTask._remoteTaskMessenger
+  - plc.AXOpen.Core.AxoTask.RemoteInvoke
+  - plc.AXOpen.Core.AxoTask.RemoteRestore
+  - plc.AXOpen.Core.AxoTask.RemoteAbort
+  - plc.AXOpen.Core.AxoTask.RemoteResume
+  - plc.AXOpen.Core.AxoTask._messenger
+  - plc.AXOpen.Core.AxoTaskLight.Status
+  - plc.AXOpen.Core.AxoTaskLight.IsDisabled
+  - plc.AXOpen.Core.AxoTaskLight.StartSignature
+  - plc.AXOpen.Core.AxoTaskLight.Duration
+  - plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
+  - plc.AXOpen.Core.AxoTaskLight.ErrorDetails
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoDialogBase.Restore()
+  - plc.AXOpen.Core.AxoDialogBase.OnRestore()
+  - plc.AXOpen.Core.AxoRemoteTask.Execute(IAxoObject)
+  - plc.AXOpen.Core.AxoRemoteTask.Restore()
+  - plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
+  - plc.AXOpen.Core.AxoRemoteTask.SetDoneSignature()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  - plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  - plc.AXOpen.Core.AxoTask.Invoke(IAxoObject)
+  - plc.AXOpen.Core.AxoTask.Execute(IAxoObject)
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  - plc.AXOpen.Core.AxoTaskLight.GetState()
+  - plc.AXOpen.Core.AxoTaskLight.GetErrorDetails()
+  - plc.AXOpen.Core.AxoTaskLight.IsReady()
+  - plc.AXOpen.Core.AxoTaskLight.IsDone()
+  - plc.AXOpen.Core.AxoTaskLight.IsBusy()
+  - plc.AXOpen.Core.AxoTaskLight.IsEngaged()
+  - plc.AXOpen.Core.AxoTaskLight.IsAborted()
+  - plc.AXOpen.Core.AxoTaskLight.HasError()
+  - plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  - plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  - plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall()
+  - plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall()
+  - plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTaskLight.Invoke(IAxoObject)
+  - plc.AXOpen.Core.AxoTaskLight.Restore()
+  - plc.AXOpen.Core.AxoTaskLight.DoneWhen(BOOL)
+  - plc.AXOpen.Core.AxoTaskLight.Execute(IAxoObject)
+  - plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL)
+  - plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL,STRING[254])
+  - plc.AXOpen.Core.AxoTaskLight.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoTaskLight.GetIsDisabled()
+  - plc.AXOpen.Core.AxoTaskLight.Abort()
+  - plc.AXOpen.Core.AxoTaskLight.Resume()
+  - plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTaskLight.OnAbort()
+  - plc.AXOpen.Core.AxoTaskLight.OnResume()
+  - plc.AXOpen.Core.AxoTaskLight.OnDone()
+  - plc.AXOpen.Core.AxoTaskLight.OnError()
+  - plc.AXOpen.Core.AxoTaskLight.OnRestore()
+  - plc.AXOpen.Core.AxoTaskLight.OnStart()
+  - plc.AXOpen.Core.AxoTaskLight.WhileError()
+  - plc.AXOpen.Core.AxoTaskLight.AbortTriggered()
+  - plc.AXOpen.Core.AxoTaskLight.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTaskLight.DoneReached()
+  - plc.AXOpen.Core.AxoTaskLight.ErrorOccured()
+  - plc.AXOpen.Core.AxoTaskLight.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTaskLight.StartTriggered()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoDialogAnswer
+  - plc.AXOpen.Core.IAxoTask
+  - plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoDialog._text
+  id: plc.AXOpen.Core.AxoDialog._text
+  parent: AXOpen.Core
+  children: []
+  name: _text
+  fullName: _text
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._text
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_text : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Core.AxoDialog._caption
+  id: plc.AXOpen.Core.AxoDialog._caption
+  parent: AXOpen.Core
+  children: []
+  name: _caption
+  fullName: _caption
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._caption
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_caption : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Core.AxoDialog._buttons
+  id: plc.AXOpen.Core.AxoDialog._buttons
+  parent: AXOpen.Core
+  children: []
+  name: _buttons
+  fullName: _buttons
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._buttons
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_buttons : AXOpen.Core.eDialogButtons'
+    return:
+      type: AXOpen.Core.eDialogButtons
+- uid: plc.AXOpen.Core.AxoDialog._answer
+  id: plc.AXOpen.Core.AxoDialog._answer
+  parent: AXOpen.Core
+  children: []
+  name: _answer
+  fullName: _answer
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._answer
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 11
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_answer : AXOpen.Core.eDialogAnswer'
+    return:
+      type: AXOpen.Core.eDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog._dialogType
+  id: plc.AXOpen.Core.AxoDialog._dialogType
+  parent: AXOpen.Core
+  children: []
+  name: _dialogType
+  fullName: _dialogType
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._dialogType
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_dialogType : AXOpen.Core.eDialogType'
+    return:
+      type: AXOpen.Core.eDialogType
+- uid: plc.AXOpen.Core.AxoDialog._risingEdge
+  id: plc.AXOpen.Core.AxoDialog._risingEdge
+  parent: AXOpen.Core
+  children: []
+  name: _risingEdge
+  fullName: _risingEdge
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._risingEdge
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_risingEdge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoDialog._lastCall
+  id: plc.AXOpen.Core.AxoDialog._lastCall
+  parent: AXOpen.Core
+  children: []
+  name: _lastCall
+  fullName: _lastCall
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._lastCall
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_lastCall : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoDialog._createPlcCycleSpace
+  id: plc.AXOpen.Core.AxoDialog._createPlcCycleSpace
+  parent: AXOpen.Core
+  children: []
+  name: _createPlcCycleSpace
+  fullName: _createPlcCycleSpace
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._createPlcCycleSpace
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 18
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_createPlcCycleSpace : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoDialog._PlcCycleSpaceCounter
+  id: plc.AXOpen.Core.AxoDialog._PlcCycleSpaceCounter
+  parent: AXOpen.Core
+  children: []
+  name: _PlcCycleSpaceCounter
+  fullName: _PlcCycleSpaceCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog._PlcCycleSpaceCounter
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 19
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_PlcCycleSpaceCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Core.AxoDialog.Show(IAxoObject)
+  id: plc.AXOpen.Core.AxoDialog.Show(IAxoObject)
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: Show
+  fullName: Show
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.Show
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 22
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogFormat Show(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: plc.AXOpen.Core.IAxoDialogFormat
+- uid: plc.AXOpen.Core.AxoDialog.ShowWithExternalClose(IAxoObject,BOOL,BOOL,BOOL,BOOL)
+  id: plc.AXOpen.Core.AxoDialog.ShowWithExternalClose(IAxoObject,BOOL,BOOL,BOOL,BOOL)
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: ShowWithExternalClose
+  fullName: ShowWithExternalClose
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.ShowWithExternalClose
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 98
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogFormat ShowWithExternalClose(in plc.AXOpen.Core.IAxoObject inParent,in plc.BOOL inOkAnswerSignal,in plc.BOOL inYesAnswerSignal,in plc.BOOL inNoAnswerSignal,in plc.BOOL inCancelAnswerSignal)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inOkAnswerSignal
+      type: plc.BOOL
+    - id: inYesAnswerSignal
+      type: plc.BOOL
+    - id: inNoAnswerSignal
+      type: plc.BOOL
+    - id: inCancelAnswerSignal
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoDialogFormat
+- uid: plc.AXOpen.Core.AxoDialog.OnRestore()
+  id: plc.AXOpen.Core.AxoDialog.OnRestore()
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: OnRestore
+  fullName: OnRestore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.OnRestore
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 190
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected VOID OnRestore()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoDialog.WithCaption(STRING)
+  id: plc.AXOpen.Core.AxoDialog.WithCaption(STRING)
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithCaption
+  fullName: WithCaption
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithCaption
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 208
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithCaption(in plc.STRING inCaption)
+    parameters:
+    - id: inCaption
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.WithOk()
+  id: plc.AXOpen.Core.AxoDialog.WithOk()
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithOk
+  fullName: WithOk
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithOk
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 215
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithOk()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.WithText(STRING)
+  id: plc.AXOpen.Core.AxoDialog.WithText(STRING)
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithText
+  fullName: WithText
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithText
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 222
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithText(in plc.STRING inText)
+    parameters:
+    - id: inText
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.WithType(eDialogType)
+  id: plc.AXOpen.Core.AxoDialog.WithType(eDialogType)
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithType
+  fullName: WithType
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithType
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 231
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithType(in plc.AXOpen.Core.eDialogType inDialogType)
+    parameters:
+    - id: inDialogType
+      type: plc.AXOpen.Core.eDialogType
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.WithYesNo()
+  id: plc.AXOpen.Core.AxoDialog.WithYesNo()
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithYesNo
+  fullName: WithYesNo
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithYesNo
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 238
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithYesNo()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.WithYesNoCancel()
+  id: plc.AXOpen.Core.AxoDialog.WithYesNoCancel()
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: WithYesNoCancel
+  fullName: WithYesNoCancel
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.WithYesNoCancel
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 246
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithYesNoCancel()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.AxoDialog.Answer()
+  id: plc.AXOpen.Core.AxoDialog.Answer()
+  parent: AXOpen.Core.AxoDialog
+  children: []
+  name: Answer
+  fullName: Answer
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoDialog.Answer
+    path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
+    startLine: 249
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.eDialogAnswer Answer()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.eDialogAnswer
+references:
+- uid: plc.AXOpen.Core.AxoDialogBase._closeSignal
+  commentId: plc.AXOpen.Core.AxoDialogBase._closeSignal
+  name: _closeSignal
+  nameWithType: _closeSignal
+  fullName: plc.AXOpen.Core.AxoDialogBase._closeSignal
+  parent: plc.AXOpen.Core.AxoDialogBase._closeSignal
+- uid: plc.AXOpen.Core.AxoRemoteTask.DoneSignature
+  commentId: plc.AXOpen.Core.AxoRemoteTask.DoneSignature
+  name: DoneSignature
+  nameWithType: DoneSignature
+  fullName: plc.AXOpen.Core.AxoRemoteTask.DoneSignature
+  parent: plc.AXOpen.Core.AxoRemoteTask.DoneSignature
+- uid: plc.AXOpen.Core.AxoRemoteTask.IsInitialized
+  commentId: plc.AXOpen.Core.AxoRemoteTask.IsInitialized
+  name: IsInitialized
+  nameWithType: IsInitialized
+  fullName: plc.AXOpen.Core.AxoRemoteTask.IsInitialized
+  parent: plc.AXOpen.Core.AxoRemoteTask.IsInitialized
+- uid: plc.AXOpen.Core.AxoRemoteTask.HasRemoteException
+  commentId: plc.AXOpen.Core.AxoRemoteTask.HasRemoteException
+  name: HasRemoteException
+  nameWithType: HasRemoteException
+  fullName: plc.AXOpen.Core.AxoRemoteTask.HasRemoteException
+  parent: plc.AXOpen.Core.AxoRemoteTask.HasRemoteException
+- uid: plc.AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter
+  commentId: plc.AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter
+  name: IsBeingCalledCounter
+  nameWithType: IsBeingCalledCounter
+  fullName: plc.AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter
+  parent: plc.AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter
+- uid: plc.AXOpen.Core.AxoRemoteTask._remoteTaskMessenger
+  commentId: plc.AXOpen.Core.AxoRemoteTask._remoteTaskMessenger
+  name: _remoteTaskMessenger
+  nameWithType: _remoteTaskMessenger
+  fullName: plc.AXOpen.Core.AxoRemoteTask._remoteTaskMessenger
+  parent: plc.AXOpen.Core.AxoRemoteTask._remoteTaskMessenger
+- uid: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  commentId: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  name: RemoteInvoke
+  nameWithType: RemoteInvoke
+  fullName: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  parent: plc.AXOpen.Core.AxoTask.RemoteInvoke
+- uid: plc.AXOpen.Core.AxoTask.RemoteRestore
+  commentId: plc.AXOpen.Core.AxoTask.RemoteRestore
+  name: RemoteRestore
+  nameWithType: RemoteRestore
+  fullName: plc.AXOpen.Core.AxoTask.RemoteRestore
+  parent: plc.AXOpen.Core.AxoTask.RemoteRestore
+- uid: plc.AXOpen.Core.AxoTask.RemoteAbort
+  commentId: plc.AXOpen.Core.AxoTask.RemoteAbort
+  name: RemoteAbort
+  nameWithType: RemoteAbort
+  fullName: plc.AXOpen.Core.AxoTask.RemoteAbort
+  parent: plc.AXOpen.Core.AxoTask.RemoteAbort
+- uid: plc.AXOpen.Core.AxoTask.RemoteResume
+  commentId: plc.AXOpen.Core.AxoTask.RemoteResume
+  name: RemoteResume
+  nameWithType: RemoteResume
+  fullName: plc.AXOpen.Core.AxoTask.RemoteResume
+  parent: plc.AXOpen.Core.AxoTask.RemoteResume
+- uid: plc.AXOpen.Core.AxoTask._messenger
+  commentId: plc.AXOpen.Core.AxoTask._messenger
+  name: _messenger
+  nameWithType: _messenger
+  fullName: plc.AXOpen.Core.AxoTask._messenger
+  parent: plc.AXOpen.Core.AxoTask._messenger
+- uid: plc.AXOpen.Core.AxoTaskLight.Status
+  commentId: plc.AXOpen.Core.AxoTaskLight.Status
+  name: Status
+  nameWithType: Status
+  fullName: plc.AXOpen.Core.AxoTaskLight.Status
+  parent: plc.AXOpen.Core.AxoTaskLight.Status
+- uid: plc.AXOpen.Core.AxoTaskLight.IsDisabled
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsDisabled
+  name: IsDisabled
+  nameWithType: IsDisabled
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsDisabled
+  parent: plc.AXOpen.Core.AxoTaskLight.IsDisabled
+- uid: plc.AXOpen.Core.AxoTaskLight.StartSignature
+  commentId: plc.AXOpen.Core.AxoTaskLight.StartSignature
+  name: StartSignature
+  nameWithType: StartSignature
+  fullName: plc.AXOpen.Core.AxoTaskLight.StartSignature
+  parent: plc.AXOpen.Core.AxoTaskLight.StartSignature
+- uid: plc.AXOpen.Core.AxoTaskLight.Duration
+  commentId: plc.AXOpen.Core.AxoTaskLight.Duration
+  name: Duration
+  nameWithType: Duration
+  fullName: plc.AXOpen.Core.AxoTaskLight.Duration
+  parent: plc.AXOpen.Core.AxoTaskLight.Duration
+- uid: plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
+  commentId: plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
+  name: StartTimeStamp
+  nameWithType: StartTimeStamp
+  fullName: plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
+  parent: plc.AXOpen.Core.AxoTaskLight.StartTimeStamp
+- uid: plc.AXOpen.Core.AxoTaskLight.ErrorDetails
+  commentId: plc.AXOpen.Core.AxoTaskLight.ErrorDetails
+  name: ErrorDetails
+  nameWithType: ErrorDetails
+  fullName: plc.AXOpen.Core.AxoTaskLight.ErrorDetails
+  parent: plc.AXOpen.Core.AxoTaskLight.ErrorDetails
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoDialogBase.Restore()
+  commentId: plc.AXOpen.Core.AxoDialogBase.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoDialogBase.Restore()
+  parent: plc.AXOpen.Core.AxoDialogBase.Restore()
+- uid: plc.AXOpen.Core.AxoDialogBase.OnRestore()
+  commentId: plc.AXOpen.Core.AxoDialogBase.OnRestore()
+  name: OnRestore()
+  nameWithType: OnRestore()
+  fullName: plc.AXOpen.Core.AxoDialogBase.OnRestore()
+  parent: plc.AXOpen.Core.AxoDialogBase.OnRestore()
+- uid: plc.AXOpen.Core.AxoRemoteTask.Execute(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoRemoteTask.Execute(IAxoObject)
+  name: Execute(IAxoObject)
+  nameWithType: Execute(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoRemoteTask.Execute(IAxoObject)
+  parent: plc.AXOpen.Core.AxoRemoteTask.Execute(IAxoObject)
+- uid: plc.AXOpen.Core.AxoRemoteTask.Restore()
+  commentId: plc.AXOpen.Core.AxoRemoteTask.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoRemoteTask.Restore()
+  parent: plc.AXOpen.Core.AxoRemoteTask.Restore()
+- uid: plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
+  commentId: plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
+  name: GetStartSignature()
+  nameWithType: GetStartSignature()
+  fullName: plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
+  parent: plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
+- uid: plc.AXOpen.Core.AxoRemoteTask.SetDoneSignature()
+  commentId: plc.AXOpen.Core.AxoRemoteTask.SetDoneSignature()
+  name: SetDoneSignature()
+  nameWithType: SetDoneSignature()
+  fullName: plc.AXOpen.Core.AxoRemoteTask.SetDoneSignature()
+  parent: plc.AXOpen.Core.AxoRemoteTask.SetDoneSignature()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  name: SetSuspendMultipleExecuteCallCheck(BOOL)
+  nameWithType: SetSuspendMultipleExecuteCallCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  name: GetSuspendMultipleExecuteCallCheckState()
+  nameWithType: GetSuspendMultipleExecuteCallCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  name: SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  nameWithType: SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  name: GetSuspendCyclicExecuteIsNotCalledCheckState()
+  nameWithType: GetSuspendCyclicExecuteIsNotCalledCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendCyclicExecuteIsNotCalledCheckState()
+- uid: plc.AXOpen.Core.AxoTask.Invoke(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTask.Invoke(IAxoObject)
+  name: Invoke(IAxoObject)
+  nameWithType: Invoke(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTask.Invoke(IAxoObject)
+  parent: plc.AXOpen.Core.AxoTask.Invoke(IAxoObject)
+- uid: plc.AXOpen.Core.AxoTask.Execute(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTask.Execute(IAxoObject)
+  name: Execute(IAxoObject)
+  nameWithType: Execute(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTask.Execute(IAxoObject)
+  parent: plc.AXOpen.Core.AxoTask.Execute(IAxoObject)
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  name: GetRemoteRestoreEnabled()
+  nameWithType: GetRemoteRestoreEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  name: SetRemoteAbortEnabled(BOOL)
+  nameWithType: SetRemoteAbortEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  name: GetRemoteAbortEnabled()
+  nameWithType: GetRemoteAbortEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+- uid: plc.AXOpen.Core.AxoTaskLight.GetState()
+  commentId: plc.AXOpen.Core.AxoTaskLight.GetState()
+  name: GetState()
+  nameWithType: GetState()
+  fullName: plc.AXOpen.Core.AxoTaskLight.GetState()
+  parent: plc.AXOpen.Core.AxoTaskLight.GetState()
+- uid: plc.AXOpen.Core.AxoTaskLight.GetErrorDetails()
+  commentId: plc.AXOpen.Core.AxoTaskLight.GetErrorDetails()
+  name: GetErrorDetails()
+  nameWithType: GetErrorDetails()
+  fullName: plc.AXOpen.Core.AxoTaskLight.GetErrorDetails()
+  parent: plc.AXOpen.Core.AxoTaskLight.GetErrorDetails()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsReady()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsReady()
+  name: IsReady()
+  nameWithType: IsReady()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsReady()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsReady()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsDone()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsDone()
+  name: IsDone()
+  nameWithType: IsDone()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsDone()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsDone()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsBusy()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsBusy()
+  name: IsBusy()
+  nameWithType: IsBusy()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsBusy()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsBusy()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsEngaged()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsEngaged()
+  name: IsEngaged()
+  nameWithType: IsEngaged()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsEngaged()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsEngaged()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsAborted()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsAborted()
+  name: IsAborted()
+  nameWithType: IsAborted()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsAborted()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsAborted()
+- uid: plc.AXOpen.Core.AxoTaskLight.HasError()
+  commentId: plc.AXOpen.Core.AxoTaskLight.HasError()
+  name: HasError()
+  nameWithType: HasError()
+  fullName: plc.AXOpen.Core.AxoTaskLight.HasError()
+  parent: plc.AXOpen.Core.AxoTaskLight.HasError()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle()
+  name: IsFirstExecutionCycle()
+  nameWithType: IsFirstExecutionCycle()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsFirstExecutionCycle()
+- uid: plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  name: SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  nameWithType: SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTaskLight.SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  commentId: plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  name: GetSuspendCyclicExecuteIsNotCalledCheckState()
+  nameWithType: GetSuspendCyclicExecuteIsNotCalledCheckState()
+  fullName: plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState()
+  parent: plc.AXOpen.Core.AxoTaskLight.GetSuspendCyclicExecuteIsNotCalledCheckState()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall()
+  name: IsNewInvokeCall()
+  nameWithType: IsNewInvokeCall()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsNewInvokeCall()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall()
+  name: IsNewExecuteCall()
+  nameWithType: IsNewExecuteCall()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsNewExecuteCall()
+- uid: plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle()
+  name: IsExecuteCalledInThisPlcCycle()
+  nameWithType: IsExecuteCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoTaskLight.IsExecuteCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle()
+  name: WasExecuteCalledInPreviousPlcCycle()
+  nameWithType: WasExecuteCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoTaskLight.WasExecuteCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoTaskLight.Invoke(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTaskLight.Invoke(IAxoObject)
+  name: Invoke(IAxoObject)
+  nameWithType: Invoke(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTaskLight.Invoke(IAxoObject)
+  parent: plc.AXOpen.Core.AxoTaskLight.Invoke(IAxoObject)
+- uid: plc.AXOpen.Core.AxoTaskLight.Restore()
+  commentId: plc.AXOpen.Core.AxoTaskLight.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoTaskLight.Restore()
+  parent: plc.AXOpen.Core.AxoTaskLight.Restore()
+- uid: plc.AXOpen.Core.AxoTaskLight.DoneWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTaskLight.DoneWhen(BOOL)
+  name: DoneWhen(BOOL)
+  nameWithType: DoneWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTaskLight.DoneWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTaskLight.DoneWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTaskLight.Execute(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTaskLight.Execute(IAxoObject)
+  name: Execute(IAxoObject)
+  nameWithType: Execute(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTaskLight.Execute(IAxoObject)
+  parent: plc.AXOpen.Core.AxoTaskLight.Execute(IAxoObject)
+- uid: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL)
+  name: ThrowWhen(BOOL)
+  nameWithType: ThrowWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL,STRING[254])
+  commentId: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL,STRING[254])
+  name: ThrowWhen(BOOL,STRING[254])
+  nameWithType: ThrowWhen(BOOL,STRING[254])
+  fullName: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL,STRING[254])
+  parent: plc.AXOpen.Core.AxoTaskLight.ThrowWhen(BOOL,STRING[254])
+- uid: plc.AXOpen.Core.AxoTaskLight.SetIsDisabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTaskLight.SetIsDisabled(BOOL)
+  name: SetIsDisabled(BOOL)
+  nameWithType: SetIsDisabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTaskLight.SetIsDisabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTaskLight.SetIsDisabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTaskLight.GetIsDisabled()
+  commentId: plc.AXOpen.Core.AxoTaskLight.GetIsDisabled()
+  name: GetIsDisabled()
+  nameWithType: GetIsDisabled()
+  fullName: plc.AXOpen.Core.AxoTaskLight.GetIsDisabled()
+  parent: plc.AXOpen.Core.AxoTaskLight.GetIsDisabled()
+- uid: plc.AXOpen.Core.AxoTaskLight.Abort()
+  commentId: plc.AXOpen.Core.AxoTaskLight.Abort()
+  name: Abort()
+  nameWithType: Abort()
+  fullName: plc.AXOpen.Core.AxoTaskLight.Abort()
+  parent: plc.AXOpen.Core.AxoTaskLight.Abort()
+- uid: plc.AXOpen.Core.AxoTaskLight.Resume()
+  commentId: plc.AXOpen.Core.AxoTaskLight.Resume()
+  name: Resume()
+  nameWithType: Resume()
+  fullName: plc.AXOpen.Core.AxoTaskLight.Resume()
+  parent: plc.AXOpen.Core.AxoTaskLight.Resume()
+- uid: plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTaskLight.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTaskLight.OnAbort()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnAbort()
+  name: OnAbort()
+  nameWithType: OnAbort()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnAbort()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnAbort()
+- uid: plc.AXOpen.Core.AxoTaskLight.OnResume()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnResume()
+  name: OnResume()
+  nameWithType: OnResume()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnResume()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnResume()
+- uid: plc.AXOpen.Core.AxoTaskLight.OnDone()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnDone()
+  name: OnDone()
+  nameWithType: OnDone()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnDone()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnDone()
+- uid: plc.AXOpen.Core.AxoTaskLight.OnError()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnError()
+  name: OnError()
+  nameWithType: OnError()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnError()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnError()
+- uid: plc.AXOpen.Core.AxoTaskLight.OnRestore()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnRestore()
+  name: OnRestore()
+  nameWithType: OnRestore()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnRestore()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnRestore()
+- uid: plc.AXOpen.Core.AxoTaskLight.OnStart()
+  commentId: plc.AXOpen.Core.AxoTaskLight.OnStart()
+  name: OnStart()
+  nameWithType: OnStart()
+  fullName: plc.AXOpen.Core.AxoTaskLight.OnStart()
+  parent: plc.AXOpen.Core.AxoTaskLight.OnStart()
+- uid: plc.AXOpen.Core.AxoTaskLight.WhileError()
+  commentId: plc.AXOpen.Core.AxoTaskLight.WhileError()
+  name: WhileError()
+  nameWithType: WhileError()
+  fullName: plc.AXOpen.Core.AxoTaskLight.WhileError()
+  parent: plc.AXOpen.Core.AxoTaskLight.WhileError()
+- uid: plc.AXOpen.Core.AxoTaskLight.AbortTriggered()
+  commentId: plc.AXOpen.Core.AxoTaskLight.AbortTriggered()
+  name: AbortTriggered()
+  nameWithType: AbortTriggered()
+  fullName: plc.AXOpen.Core.AxoTaskLight.AbortTriggered()
+  parent: plc.AXOpen.Core.AxoTaskLight.AbortTriggered()
+- uid: plc.AXOpen.Core.AxoTaskLight.ResumeTriggered()
+  commentId: plc.AXOpen.Core.AxoTaskLight.ResumeTriggered()
+  name: ResumeTriggered()
+  nameWithType: ResumeTriggered()
+  fullName: plc.AXOpen.Core.AxoTaskLight.ResumeTriggered()
+  parent: plc.AXOpen.Core.AxoTaskLight.ResumeTriggered()
+- uid: plc.AXOpen.Core.AxoTaskLight.DoneReached()
+  commentId: plc.AXOpen.Core.AxoTaskLight.DoneReached()
+  name: DoneReached()
+  nameWithType: DoneReached()
+  fullName: plc.AXOpen.Core.AxoTaskLight.DoneReached()
+  parent: plc.AXOpen.Core.AxoTaskLight.DoneReached()
+- uid: plc.AXOpen.Core.AxoTaskLight.ErrorOccured()
+  commentId: plc.AXOpen.Core.AxoTaskLight.ErrorOccured()
+  name: ErrorOccured()
+  nameWithType: ErrorOccured()
+  fullName: plc.AXOpen.Core.AxoTaskLight.ErrorOccured()
+  parent: plc.AXOpen.Core.AxoTaskLight.ErrorOccured()
+- uid: plc.AXOpen.Core.AxoTaskLight.RestoreTriggered()
+  commentId: plc.AXOpen.Core.AxoTaskLight.RestoreTriggered()
+  name: RestoreTriggered()
+  nameWithType: RestoreTriggered()
+  fullName: plc.AXOpen.Core.AxoTaskLight.RestoreTriggered()
+  parent: plc.AXOpen.Core.AxoTaskLight.RestoreTriggered()
+- uid: plc.AXOpen.Core.AxoTaskLight.StartTriggered()
+  commentId: plc.AXOpen.Core.AxoTaskLight.StartTriggered()
+  name: StartTriggered()
+  nameWithType: StartTriggered()
+  fullName: plc.AXOpen.Core.AxoTaskLight.StartTriggered()
+  parent: plc.AXOpen.Core.AxoTaskLight.StartTriggered()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoDialogAnswer
+  commentId: plc.AXOpen.Core.IAxoDialogAnswer
+  name: IAxoDialogAnswer
+  nameWithType: IAxoDialogAnswer
+  fullName: plc.AXOpen.Core.IAxoDialogAnswer
+  parent: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoTask
+  commentId: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: plc.AXOpen.Core.IAxoTask
+  parent: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.IAxoTaskState
+  commentId: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: plc.AXOpen.Core.IAxoTaskState
+  parent: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Core.eDialogButtons
+  name: eDialogButtons
+  nameWithType: eDialogButtons
+  fullName: AXOpen.Core.eDialogButtons
+- uid: plc.AXOpen.Core.eDialogAnswer
+  name: eDialogAnswer
+  nameWithType: eDialogAnswer
+  fullName: AXOpen.Core.eDialogAnswer
+- uid: plc.AXOpen.Core.eDialogType
+  name: eDialogType
+  nameWithType: eDialogType
+  fullName: AXOpen.Core.eDialogType
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Core.IAxoDialogFormat
+  name: IAxoDialogFormat
+  nameWithType: IAxoDialogFormat
+  fullName: AXOpen.Core.IAxoDialogFormat
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

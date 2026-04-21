@@ -1,0 +1,452 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.NO_TABLE_USED
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.SERCOS_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLDS_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLC_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MTX_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLP_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PLC_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INDRV_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DIAX_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ECO_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PB_DP_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DEVICENET_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ETHERNET_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INTERBUS_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.F_RELATED_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER1_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER2_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER3_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER4_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER5_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER6_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER7_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER8_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER9_TABLE
+  - plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER10_TABLE
+  name: eAxoIndraDriveErrorTable
+  fullName: eAxoIndraDriveErrorTable
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'eAxoIndraDriveErrorTable : WORD'
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.NO_TABLE_USED
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.NO_TABLE_USED
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: NO_TABLE_USED :=  WORD#16#0000
+  fullName: NO_TABLE_USED
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.NO_TABLE_USED
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.SERCOS_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.SERCOS_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SERCOS_TABLE :=  WORD#16#0010
+  fullName: SERCOS_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.SERCOS_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLDS_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLDS_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MLDS_TABLE :=  WORD#16#0020
+  fullName: MLDS_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLDS_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLC_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLC_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MLC_TABLE :=  WORD#16#0030
+  fullName: MLC_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLC_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MTX_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MTX_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MTX_TABLE :=  WORD#16#0040
+  fullName: MTX_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MTX_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLP_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLP_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MLP_TABLE :=  WORD#16#0050
+  fullName: MLP_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.MLP_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PLC_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PLC_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PLC_TABLE :=  WORD#16#0060
+  fullName: PLC_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PLC_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INDRV_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INDRV_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: INDRV_TABLE :=  WORD#16#0070
+  fullName: INDRV_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INDRV_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DIAX_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DIAX_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DIAX_TABLE :=  WORD#16#0080
+  fullName: DIAX_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DIAX_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ECO_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ECO_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ECO_TABLE :=  WORD#16#0090
+  fullName: ECO_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ECO_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PB_DP_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PB_DP_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PB_DP_TABLE :=  WORD#16#0130
+  fullName: PB_DP_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.PB_DP_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DEVICENET_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DEVICENET_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DEVICENET_TABLE :=  WORD#16#0140
+  fullName: DEVICENET_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.DEVICENET_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ETHERNET_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ETHERNET_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ETHERNET_TABLE :=  WORD#16#0150
+  fullName: ETHERNET_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.ETHERNET_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INTERBUS_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INTERBUS_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: INTERBUS_TABLE :=  WORD#16#0160
+  fullName: INTERBUS_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.INTERBUS_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.F_RELATED_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.F_RELATED_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: F_RELATED_TABLE :=  WORD#16#0170
+  fullName: F_RELATED_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.F_RELATED_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER1_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER1_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER1_TABLE :=  WORD#16#1000
+  fullName: USER1_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER1_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER2_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER2_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER2_TABLE :=  WORD#16#1001
+  fullName: USER2_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER2_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER3_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER3_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER3_TABLE :=  WORD#16#1002
+  fullName: USER3_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER3_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER4_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER4_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER4_TABLE :=  WORD#16#1003
+  fullName: USER4_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER4_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER5_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER5_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER5_TABLE :=  WORD#16#1004
+  fullName: USER5_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER5_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER6_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER6_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER6_TABLE :=  WORD#16#1005
+  fullName: USER6_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER6_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER7_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER7_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER7_TABLE :=  WORD#16#1006
+  fullName: USER7_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER7_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER8_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER8_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER8_TABLE :=  WORD#16#1007
+  fullName: USER8_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER8_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER9_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER9_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER9_TABLE :=  WORD#16#1008
+  fullName: USER9_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER9_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER10_TABLE
+  id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER10_TABLE
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: USER10_TABLE :=  WORD#16#1009
+  fullName: USER10_TABLE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable.USER10_TABLE
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\eAxoIndraDriveErrorTable.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

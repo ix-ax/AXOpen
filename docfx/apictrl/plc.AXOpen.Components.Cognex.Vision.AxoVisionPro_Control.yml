@@ -1,0 +1,189 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+  parent: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SoftEvent
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SetUserdata
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InitiateJobLoad
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InspectionResultsAck
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.ID_Inspection
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.JobLoadID
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.WriteDataID
+  name: AxoVisionPro_Control
+  fullName: AxoVisionPro_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: CLASS AxoVisionPro_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SoftEvent
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SoftEvent
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SoftEvent
+  fullName: SoftEvent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SoftEvent
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SoftEvent : AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SetUserdata
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SetUserdata
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: SetUserdata
+  fullName: SetUserdata
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.SetUserdata
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'SetUserdata : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InitiateJobLoad
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InitiateJobLoad
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: InitiateJobLoad
+  fullName: InitiateJobLoad
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InitiateJobLoad
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'InitiateJobLoad : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InspectionResultsAck
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InspectionResultsAck
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: InspectionResultsAck
+  fullName: InspectionResultsAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.InspectionResultsAck
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'InspectionResultsAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.ID_Inspection
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.ID_Inspection
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ID_Inspection
+  fullName: ID_Inspection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.ID_Inspection
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ID_Inspection : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.JobLoadID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.JobLoadID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: JobLoadID
+  fullName: JobLoadID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.JobLoadID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'JobLoadID : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.WriteDataID
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.WriteDataID
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: WriteDataID
+  fullName: WriteDataID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Control.WriteDataID
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Control.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'WriteDataID : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+  name: AxoVisionProSoftEventControl
+  nameWithType: AxoVisionProSoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventControl
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

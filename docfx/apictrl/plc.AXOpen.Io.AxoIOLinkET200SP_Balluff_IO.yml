@@ -1,0 +1,960 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.RestoreTask
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ConfigTask
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Config
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Status
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Messenger
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.TaskMessenger
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Progress
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Inputs
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.HardwareDiagnosticsTask
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._progress
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._infoTimer
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._errorTimer
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_in_32
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_config_54
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDone
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDonePV
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._retval
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._geoAddr
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outHwid
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._blink
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsAddress
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsCount
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsAddress
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsCount
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._writeRecord
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecord
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecordLastLength
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Run(IAxoObject,UINT,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig)
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.BytesToBox(IAxoObject,BYTE,BYTE)
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Configure()
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ManualControl()
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Restore()
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.CallTimers(BOOL)
+  name: AxoIOLinkET200SP_Balluff_IO
+  fullName: AxoIOLinkET200SP_Balluff_IO
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoIOLinkET200SP_Balluff_IO
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.RestoreTask
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.RestoreTask
+  parent: AXOpen.Io
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.RestoreTask
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ConfigTask
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ConfigTask
+  parent: AXOpen.Io
+  children: []
+  name: ConfigTask
+  fullName: ConfigTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ConfigTask
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 15
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ConfigTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Config
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Config
+  parent: AXOpen.Io
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Config
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 21
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Config : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Status
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Status
+  parent: AXOpen.Io
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Status
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 28
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Status : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Component_Status'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Component_Status
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Messenger
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Messenger
+  parent: AXOpen.Io
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Messenger
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 32
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.TaskMessenger
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.TaskMessenger
+  parent: AXOpen.Io
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.TaskMessenger
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 33
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Progress
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Progress
+  parent: AXOpen.Io
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Progress
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 34
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Inputs
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Inputs
+  parent: AXOpen.Io
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Inputs
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 40
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Inputs : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.HardwareDiagnosticsTask
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.HardwareDiagnosticsTask
+  parent: AXOpen.Io
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.HardwareDiagnosticsTask
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 49
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._progress
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._progress
+  parent: AXOpen.Io
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._progress
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 57
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._infoTimer
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._infoTimer
+  parent: AXOpen.Io
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._infoTimer
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 57
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._errorTimer
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._errorTimer
+  parent: AXOpen.Io
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._errorTimer
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 58
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_in_32
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_in_32
+  parent: AXOpen.Io
+  children: []
+  name: _data_in_32
+  fullName: _data_in_32
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_in_32
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 59
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_data_in_32 : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_config_54
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_config_54
+  parent: AXOpen.Io
+  children: []
+  name: _data_config_54
+  fullName: _data_config_54
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._data_config_54
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 60
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_data_config_54 : ARRAY [0..53] OF BYTE'
+    return:
+      type: ARRAY [0..53] OF BYTE
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDone
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDone
+  parent: AXOpen.Io
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDone
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 63
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDonePV
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDonePV
+  parent: AXOpen.Io
+  children: []
+  name: _initHwCheckDonePV
+  fullName: _initHwCheckDonePV
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._initHwCheckDonePV
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 64
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_initHwCheckDonePV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._retval
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._retval
+  parent: AXOpen.Io
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._retval
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 65
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._geoAddr
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._geoAddr
+  parent: AXOpen.Io
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._geoAddr
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 66
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outHwid
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outHwid
+  parent: AXOpen.Io
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outHwid
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 67
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._blink
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._blink
+  parent: AXOpen.Io
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._blink
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 67
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsAddress
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsAddress
+  parent: AXOpen.Io
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsAddress
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 69
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsCount
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsCount
+  parent: AXOpen.Io
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._inputsCount
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 70
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsAddress
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsAddress
+  parent: AXOpen.Io
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsAddress
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 71
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsCount
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsCount
+  parent: AXOpen.Io
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._outputsCount
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 73
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._writeRecord
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._writeRecord
+  parent: AXOpen.Io
+  children: []
+  name: _writeRecord
+  fullName: _writeRecord
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._writeRecord
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 74
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_writeRecord : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecord
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecord
+  parent: AXOpen.Io
+  children: []
+  name: _readRecord
+  fullName: _readRecord
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecord
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 75
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_readRecord : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecordLastLength
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecordLastLength
+  parent: AXOpen.Io
+  children: []
+  name: _readRecordLastLength
+  fullName: _readRecordLastLength
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO._readRecordLastLength
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 78
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_readRecordLastLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Run(IAxoObject,UINT,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig)
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Run(IAxoObject,UINT,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig,eAxoIOLinkET200SP_Balluff_PortConfig)
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Run
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 80
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID,in plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig Port_1,in plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig Port_2,in plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig Port_3,in plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig Port_4)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    - id: Port_1
+      type: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+    - id: Port_2
+      type: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+    - id: Port_3
+      type: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+    - id: Port_4
+      type: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.BytesToBox(IAxoObject,BYTE,BYTE)
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.BytesToBox(IAxoObject,BYTE,BYTE)
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: BytesToBox
+  fullName: BytesToBox
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.BytesToBox
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 1650
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Private VOID BytesToBox(in plc.AXOpen.Core.IAxoObject inParent,in plc.BYTE in1,in plc.BYTE in2)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: in1
+      type: plc.BYTE
+    - id: in2
+      type: plc.BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Configure()
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Configure()
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: Configure
+  fullName: Configure
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Configure
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 1678
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Configure()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ManualControl()
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ManualControl()
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.ManualControl
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 1678
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Restore()
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Restore()
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.Restore
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 1678
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.CallTimers(BOOL)
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.CallTimers(BOOL)
+  parent: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO.CallTimers
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st
+    startLine: 1678
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+  name: AxoIOLinkET200SP_Balluff_IO_Config
+  nameWithType: AxoIOLinkET200SP_Balluff_IO_Config
+  fullName: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Component_Status
+  name: AxoIOLinkET200SP_Balluff_IO_Component_Status
+  nameWithType: AxoIOLinkET200SP_Balluff_IO_Component_Status
+  fullName: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+  name: AxoIOLinkET200SP_Balluff_IO_In
+  nameWithType: AxoIOLinkET200SP_Balluff_IO_In
+  fullName: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..31] OF BYTE
+  name: ARRAY [0..31] OF BYTE
+  nameWithType: ARRAY [0..31] OF BYTE
+  fullName: ARRAY [0..31] OF BYTE
+- uid: plc.ARRAY [0..53] OF BYTE
+  name: ARRAY [0..53] OF BYTE
+  nameWithType: ARRAY [0..53] OF BYTE
+  fullName: ARRAY [0..53] OF BYTE
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+  name: eAxoIOLinkET200SP_Balluff_PortConfig
+  nameWithType: eAxoIOLinkET200SP_Balluff_PortConfig
+  fullName: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

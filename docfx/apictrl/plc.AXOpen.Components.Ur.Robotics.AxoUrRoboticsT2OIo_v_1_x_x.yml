@@ -1,0 +1,1676 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalInputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalInputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalOutputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalOutputs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.AnalogIoTypes
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Current
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_12
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_13
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_14
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_15
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_16
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_17
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_18
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_19
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_20
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_21
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_22
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_23
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_24
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_25
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_26
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_27
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_28
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_29
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_30
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_31
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_32
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_12
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_13
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_14
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_15
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_16
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_17
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_18
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_19
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_20
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_21
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_22
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_23
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_24
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_25
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_26
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_27
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_28
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_29
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_30
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_31
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_32
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724Voltage
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724VCurrent
+  name: AxoUrRoboticsT2OIo_v_1_x_x
+  fullName: AxoUrRoboticsT2OIo_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OIo_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalInputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalInputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardDigitalInputs
+  fullName: StandardDigitalInputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalInputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardDigitalInputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalInputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalInputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ConfigurableDigitalInputs
+  fullName: ConfigurableDigitalInputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalInputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ConfigurableDigitalInputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalOutputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalOutputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardDigitalOutputs
+  fullName: StandardDigitalOutputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardDigitalOutputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardDigitalOutputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalOutputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalOutputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ConfigurableDigitalOutputs
+  fullName: ConfigurableDigitalOutputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.ConfigurableDigitalOutputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ConfigurableDigitalOutputs : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.AnalogIoTypes
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.AnalogIoTypes
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: AnalogIoTypes
+  fullName: AnalogIoTypes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.AnalogIoTypes
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'AnalogIoTypes : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardAnalogInput_0
+  fullName: StandardAnalogInput_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardAnalogInput_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardAnalogInput_1
+  fullName: StandardAnalogInput_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogInput_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardAnalogInput_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardAnalogOutput_0
+  fullName: StandardAnalogOutput_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardAnalogOutput_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: StandardAnalogOutput_1
+  fullName: StandardAnalogOutput_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.StandardAnalogOutput_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'StandardAnalogOutput_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Current
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Current
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Current
+  fullName: Current
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Current
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Current : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_0
+  fullName: Euromap67InputBit_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_1
+  fullName: Euromap67InputBit_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_2
+  fullName: Euromap67InputBit_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_3
+  fullName: Euromap67InputBit_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_4
+  fullName: Euromap67InputBit_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_5
+  fullName: Euromap67InputBit_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_6
+  fullName: Euromap67InputBit_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_7
+  fullName: Euromap67InputBit_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_7 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_8
+  fullName: Euromap67InputBit_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_9
+  fullName: Euromap67InputBit_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_10
+  fullName: Euromap67InputBit_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_11
+  fullName: Euromap67InputBit_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_12
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_12
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_12
+  fullName: Euromap67InputBit_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_12
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_13
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_13
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_13
+  fullName: Euromap67InputBit_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_13
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_14
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_14
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_14
+  fullName: Euromap67InputBit_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_14
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_15
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_15
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_15
+  fullName: Euromap67InputBit_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_15
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_16
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_16
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_16
+  fullName: Euromap67InputBit_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_16
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_16 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_17
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_17
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_17
+  fullName: Euromap67InputBit_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_17
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_17 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_18
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_18
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_18
+  fullName: Euromap67InputBit_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_18
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_18 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_19
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_19
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_19
+  fullName: Euromap67InputBit_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_19
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_19 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_20
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_20
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_20
+  fullName: Euromap67InputBit_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_20
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_20 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_21
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_21
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_21
+  fullName: Euromap67InputBit_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_21
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_21 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_22
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_22
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_22
+  fullName: Euromap67InputBit_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_22
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_22 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_23
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_23
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_23
+  fullName: Euromap67InputBit_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_23
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_23 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_24
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_24
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_24
+  fullName: Euromap67InputBit_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_24
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_24 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_25
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_25
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_25
+  fullName: Euromap67InputBit_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_25
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_25 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_26
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_26
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_26
+  fullName: Euromap67InputBit_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_26
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_26 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_27
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_27
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_27
+  fullName: Euromap67InputBit_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_27
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_27 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_28
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_28
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_28
+  fullName: Euromap67InputBit_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_28
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_28 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_29
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_29
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_29
+  fullName: Euromap67InputBit_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_29
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_29 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_30
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_30
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_30
+  fullName: Euromap67InputBit_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_30
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_30 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_31
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_31
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_31
+  fullName: Euromap67InputBit_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_31
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_31 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_32
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_32
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67InputBit_32
+  fullName: Euromap67InputBit_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67InputBit_32
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67InputBit_32 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_0
+  fullName: Euromap67outputBit_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_1
+  fullName: Euromap67outputBit_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 94
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_2
+  fullName: Euromap67outputBit_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_3
+  fullName: Euromap67outputBit_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 98
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_4
+  fullName: Euromap67outputBit_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 100
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_5
+  fullName: Euromap67outputBit_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 102
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_6
+  fullName: Euromap67outputBit_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 104
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_7
+  fullName: Euromap67outputBit_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_7 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_8
+  fullName: Euromap67outputBit_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_9
+  fullName: Euromap67outputBit_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_10
+  fullName: Euromap67outputBit_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_11
+  fullName: Euromap67outputBit_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_12
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_12
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_12
+  fullName: Euromap67outputBit_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_12
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_13
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_13
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_13
+  fullName: Euromap67outputBit_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_13
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_14
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_14
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_14
+  fullName: Euromap67outputBit_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_14
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_15
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_15
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_15
+  fullName: Euromap67outputBit_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_15
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_16
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_16
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_16
+  fullName: Euromap67outputBit_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_16
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_16 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_17
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_17
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_17
+  fullName: Euromap67outputBit_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_17
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_17 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_18
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_18
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_18
+  fullName: Euromap67outputBit_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_18
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 129
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_18 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_19
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_19
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_19
+  fullName: Euromap67outputBit_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_19
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_19 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_20
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_20
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_20
+  fullName: Euromap67outputBit_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_20
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 133
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_20 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_21
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_21
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_21
+  fullName: Euromap67outputBit_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_21
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_21 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_22
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_22
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_22
+  fullName: Euromap67outputBit_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_22
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 137
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_22 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_23
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_23
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_23
+  fullName: Euromap67outputBit_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_23
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 139
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_23 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_24
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_24
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_24
+  fullName: Euromap67outputBit_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_24
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 141
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_24 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_25
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_25
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_25
+  fullName: Euromap67outputBit_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_25
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 143
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_25 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_26
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_26
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_26
+  fullName: Euromap67outputBit_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_26
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 145
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_26 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_27
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_27
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_27
+  fullName: Euromap67outputBit_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_27
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_27 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_28
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_28
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_28
+  fullName: Euromap67outputBit_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_28
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 149
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_28 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_29
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_29
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_29
+  fullName: Euromap67outputBit_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_29
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_29 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_30
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_30
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_30
+  fullName: Euromap67outputBit_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_30
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 153
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_30 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_31
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_31
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_31
+  fullName: Euromap67outputBit_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_31
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 155
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_31 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_32
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_32
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap67outputBit_32
+  fullName: Euromap67outputBit_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap67outputBit_32
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 157
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap67outputBit_32 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724Voltage
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724Voltage
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap6724Voltage
+  fullName: Euromap6724Voltage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724Voltage
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 159
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap6724Voltage : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724VCurrent
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724VCurrent
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Euromap6724VCurrent
+  fullName: Euromap6724VCurrent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIo_v_1_x_x.Euromap6724VCurrent
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st
+    startLine: 164
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Euromap6724VCurrent : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

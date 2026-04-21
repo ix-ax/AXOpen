@@ -1,0 +1,256 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.DriveControlWord_S_0_0134_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SignalControlWord_S_0_0145_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandPosition_S_0_0282_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandVelocity_S_0_0259_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandAcceleration_S_0_0260_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandDecceleration_S_0_0359_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SupplyUnitControlWord_S_0_1720_0_1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.BipolarTorqueLimitation_S_0_0092_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandTorque_S_0_0080_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandJerk_S_0_0193_0_0
+  name: AxoCtrlxDriveXsc_Control
+  fullName: AxoCtrlxDriveXsc_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXsc_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.DriveControlWord_S_0_0134_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.DriveControlWord_S_0_0134_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveControlWord_S_0_0134_0_0
+  fullName: DriveControlWord_S_0_0134_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.DriveControlWord_S_0_0134_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveControlWord_S_0_0134_0_0 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SignalControlWord_S_0_0145_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SignalControlWord_S_0_0145_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SignalControlWord_S_0_0145_0_0
+  fullName: SignalControlWord_S_0_0145_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SignalControlWord_S_0_0145_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SignalControlWord_S_0_0145_0_0 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandPosition_S_0_0282_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandPosition_S_0_0282_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandPosition_S_0_0282_0_0
+  fullName: CommandPosition_S_0_0282_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandPosition_S_0_0282_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandPosition_S_0_0282_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandVelocity_S_0_0259_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandVelocity_S_0_0259_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandVelocity_S_0_0259_0_0
+  fullName: CommandVelocity_S_0_0259_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandVelocity_S_0_0259_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandVelocity_S_0_0259_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandAcceleration_S_0_0260_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandAcceleration_S_0_0260_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandAcceleration_S_0_0260_0_0
+  fullName: CommandAcceleration_S_0_0260_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandAcceleration_S_0_0260_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandAcceleration_S_0_0260_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandDecceleration_S_0_0359_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandDecceleration_S_0_0359_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandDecceleration_S_0_0359_0_0
+  fullName: CommandDecceleration_S_0_0359_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandDecceleration_S_0_0359_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandDecceleration_S_0_0359_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SupplyUnitControlWord_S_0_1720_0_1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SupplyUnitControlWord_S_0_1720_0_1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SupplyUnitControlWord_S_0_1720_0_1
+  fullName: SupplyUnitControlWord_S_0_1720_0_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.SupplyUnitControlWord_S_0_1720_0_1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SupplyUnitControlWord_S_0_1720_0_1 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.BipolarTorqueLimitation_S_0_0092_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.BipolarTorqueLimitation_S_0_0092_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: BipolarTorqueLimitation_S_0_0092_0_0
+  fullName: BipolarTorqueLimitation_S_0_0092_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.BipolarTorqueLimitation_S_0_0092_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'BipolarTorqueLimitation_S_0_0092_0_0 : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandTorque_S_0_0080_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandTorque_S_0_0080_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandTorque_S_0_0080_0_0
+  fullName: CommandTorque_S_0_0080_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandTorque_S_0_0080_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandTorque_S_0_0080_0_0 : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandJerk_S_0_0193_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandJerk_S_0_0193_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandJerk_S_0_0193_0_0
+  fullName: CommandJerk_S_0_0193_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Control.CommandJerk_S_0_0193_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandJerk_S_0_0193_0_0 : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0
+  name: AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0
+  nameWithType: AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  name: AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  nameWithType: AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  name: AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  nameWithType: AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

@@ -1,0 +1,1227 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.instTonR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statState
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerIn
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerPt
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statStatusByte
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDat
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statRecDat
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresence
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statExecuteReq
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statLength
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statAddr
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteOffset
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresenceFf
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteData
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDiffToIOsizeNetto
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBytemove
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDone
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBusy
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statError
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartError
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statReturnMoveBlkVar
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsize
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsizeNetto
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataLowIndex
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataHighIndex
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V10
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V11
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V10
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V11
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_IO_FIELD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_MAX_DATA_FIELD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DATA_HEADER_SIZE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_BLOCK
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_RFID
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_NO_JOB
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_TAG_HAS_LEFT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_STILL_ACTIVE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_LENGTH
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_IDLE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_WRITE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_TELEGRAM
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_ERROR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DETECTION_TIME_TAG_OFF_FIELD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_WRITE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_RESET
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_CMD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_RFID_ERROR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_HIGH
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_LOW
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_SOURCE_DATA
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_REC_STATUS
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.Run(BOOL,WORD,WORD,UINT,INT,USINT,REF_TO ARRAY [*] OF BYTE)
+  name: AxoIOLink_RF200_WriteTag
+  fullName: AxoIOLink_RF200_WriteTag
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_WriteTag
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.instTonR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.instTonR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instTonR
+  fullName: instTonR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.instTonR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instTonR : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statState
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statState
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statState
+  fullName: statState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statState
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statState : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerIn
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerIn
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTimerIn
+  fullName: statTimerIn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerIn
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTimerIn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTimerR
+  fullName: statTimerR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTimerR : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerPt
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerPt
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTimerPt
+  fullName: statTimerPt
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statTimerPt
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTimerPt : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statStatusByte
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statStatusByte
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statStatusByte
+  fullName: statStatusByte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statStatusByte
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statStatusByte : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDat
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDat
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDat
+  fullName: statDat
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDat
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDat : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statRecDat
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statRecDat
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statRecDat
+  fullName: statRecDat
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statRecDat
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statRecDat : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresence
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresence
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPresence
+  fullName: statPresence
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresence
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPresence : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statExecuteReq
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statExecuteReq
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statExecuteReq
+  fullName: statExecuteReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statExecuteReq
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statExecuteReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statLength
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statLength
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLength
+  fullName: statLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statLength
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLength : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statAddr
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statAddr
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statAddr
+  fullName: statAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statAddr
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statAddr : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteOffset
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statWriteOffset
+  fullName: statWriteOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteOffset
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statWriteOffset : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresenceFf
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresenceFf
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPresenceFf
+  fullName: statPresenceFf
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statPresenceFf
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPresenceFf : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteData
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteData
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statWriteData
+  fullName: statWriteData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statWriteData
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statWriteData : ARRAY [0..1999] OF BYTE'
+    return:
+      type: ARRAY [0..1999] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDiffToIOsizeNetto
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDiffToIOsizeNetto
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDiffToIOsizeNetto
+  fullName: statDiffToIOsizeNetto
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDiffToIOsizeNetto
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDiffToIOsizeNetto : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBytemove
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBytemove
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statBytemove
+  fullName: statBytemove
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBytemove
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statBytemove : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDone
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDone
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDone
+  fullName: statDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statDone
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBusy
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBusy
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statBusy
+  fullName: statBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statBusy
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statError
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statError
+  fullName: statError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statError
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartError
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIoPartError
+  fullName: statIoPartError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartError
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIoPartError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIoPartStatus
+  fullName: statIoPartStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIoPartStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIoPartStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statReturnMoveBlkVar
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statReturnMoveBlkVar
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statReturnMoveBlkVar
+  fullName: statReturnMoveBlkVar
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statReturnMoveBlkVar
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statReturnMoveBlkVar : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsize
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIOsize
+  fullName: statIOsize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsize
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIOsize : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsizeNetto
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsizeNetto
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIOsizeNetto
+  fullName: statIOsizeNetto
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIOsizeNetto
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIOsizeNetto : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataLowIndex
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataLowIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIdentDataLowIndex
+  fullName: statIdentDataLowIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataLowIndex
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIdentDataLowIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataHighIndex
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataHighIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIdentDataHighIndex
+  fullName: statIdentDataHighIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.statIdentDataHighIndex
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIdentDataHighIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V10
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V10
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOL_V10
+  fullName: IOL_V10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V10
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOL_V10 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V11
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V11
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOL_V11
+  fullName: IOL_V11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.IOL_V11
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOL_V11 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V10
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V10
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_DATA_V10
+  fullName: LEN_DATA_V10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V10
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_DATA_V10 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V11
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V11
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_DATA_V11
+  fullName: LEN_DATA_V11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.LEN_DATA_V11
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_DATA_V11 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_IO_FIELD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_IO_FIELD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: UPPER_BOUND_IO_FIELD
+  fullName: UPPER_BOUND_IO_FIELD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_IO_FIELD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'UPPER_BOUND_IO_FIELD : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_MAX_DATA_FIELD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_MAX_DATA_FIELD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: UPPER_BOUND_MAX_DATA_FIELD
+  fullName: UPPER_BOUND_MAX_DATA_FIELD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.UPPER_BOUND_MAX_DATA_FIELD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'UPPER_BOUND_MAX_DATA_FIELD : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DATA_HEADER_SIZE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DATA_HEADER_SIZE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: DATA_HEADER_SIZE
+  fullName: DATA_HEADER_SIZE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DATA_HEADER_SIZE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'DATA_HEADER_SIZE : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_BLOCK
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_BLOCK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_IDENT_BLOCK
+  fullName: STATUS_ERROR_IDENT_BLOCK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_BLOCK
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_IDENT_BLOCK : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_RFID
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_RFID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_IDENT_RFID
+  fullName: STATUS_ERROR_IDENT_RFID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_IDENT_RFID
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_IDENT_RFID : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_NO_JOB
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_NO_JOB
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_NO_JOB
+  fullName: STATUS_NO_JOB
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_NO_JOB
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_NO_JOB : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_TAG_HAS_LEFT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_TAG_HAS_LEFT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_TAG_HAS_LEFT
+  fullName: STATUS_ERROR_TAG_HAS_LEFT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_TAG_HAS_LEFT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_TAG_HAS_LEFT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_STILL_ACTIVE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_STILL_ACTIVE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_STILL_ACTIVE
+  fullName: STATUS_ERROR_STILL_ACTIVE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_STILL_ACTIVE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_STILL_ACTIVE : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_LENGTH
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_LENGTH
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_LENGTH
+  fullName: STATUS_ERROR_LENGTH
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATUS_ERROR_LENGTH
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_LENGTH : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_IDLE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_IDLE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_IDLE
+  fullName: STATE_IDLE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_IDLE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_IDLE : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_WRITE
+  fullName: STATE_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_WRITE : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_TELEGRAM
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_TELEGRAM
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_TELEGRAM
+  fullName: STATE_TELEGRAM
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_TELEGRAM
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_TELEGRAM : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_ERROR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_ERROR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_ERROR
+  fullName: STATE_ERROR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.STATE_ERROR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_ERROR : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DETECTION_TIME_TAG_OFF_FIELD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DETECTION_TIME_TAG_OFF_FIELD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: DETECTION_TIME_TAG_OFF_FIELD
+  fullName: DETECTION_TIME_TAG_OFF_FIELD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.DETECTION_TIME_TAG_OFF_FIELD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'DETECTION_TIME_TAG_OFF_FIELD : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD_WRITE
+  fullName: CMD_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD_WRITE : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_RESET
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_RESET
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD_RESET
+  fullName: CMD_RESET
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.CMD_RESET
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD_RESET : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_CMD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_CMD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_CMD
+  fullName: INDEX_CMD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_CMD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_CMD : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_RFID_ERROR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_RFID_ERROR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_RFID_ERROR
+  fullName: INDEX_RFID_ERROR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_RFID_ERROR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_RFID_ERROR : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_HIGH
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_HIGH
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_ADDR_HIGH
+  fullName: INDEX_ADDR_HIGH
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_HIGH
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_ADDR_HIGH : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_LOW
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_LOW
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_ADDR_LOW
+  fullName: INDEX_ADDR_LOW
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_ADDR_LOW
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_ADDR_LOW : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_SOURCE_DATA
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_SOURCE_DATA
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_SOURCE_DATA
+  fullName: INDEX_SOURCE_DATA
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_SOURCE_DATA
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_SOURCE_DATA : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_REC_STATUS
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_REC_STATUS
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_REC_STATUS
+  fullName: INDEX_REC_STATUS
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.INDEX_REC_STATUS
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_REC_STATUS : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.Run(BOOL,WORD,WORD,UINT,INT,USINT,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.Run(BOOL,WORD,WORD,UINT,INT,USINT,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_WriteTag.Run
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_WriteTag.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.BOOL execute,in plc.WORD addrTag,in plc.WORD length,in plc.UINT hwID,in plc.INT portAddr,in plc.USINT version,in plc.REF_TO ARRAY [*] OF BYTE identData)
+    parameters:
+    - id: execute
+      type: plc.BOOL
+    - id: addrTag
+      type: plc.WORD
+    - id: length
+      type: plc.WORD
+    - id: hwID
+      type: plc.UINT
+    - id: portAddr
+      type: plc.INT
+    - id: version
+      type: plc.USINT
+    - id: identData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+references:
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.ARRAY [0..31] OF BYTE
+  name: ARRAY [0..31] OF BYTE
+  nameWithType: ARRAY [0..31] OF BYTE
+  fullName: ARRAY [0..31] OF BYTE
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.ARRAY [0..1999] OF BYTE
+  name: ARRAY [0..1999] OF BYTE
+  nameWithType: ARRAY [0..1999] OF BYTE
+  fullName: ARRAY [0..1999] OF BYTE
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.REF_TO ARRAY [*] OF BYTE
+  name: REF_TO ARRAY [*] OF BYTE
+  nameWithType: REF_TO ARRAY [*] OF BYTE
+  fullName: REF_TO ARRAY [*] OF BYTE
+
+

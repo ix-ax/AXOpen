@@ -1,0 +1,139 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoDrive_Config.InfoTime
+  - plc.AXOpen.Components.Drives.AxoDrive_Config.ErrorTime
+  - plc.AXOpen.Components.Drives.AxoDrive_Config.TaskTimeout
+  - plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowPerCent
+  - plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowTime
+  name: AxoDrive_Config
+  fullName: AxoDrive_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoDrive_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config.InfoTime
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config.InfoTime
+  parent: AXOpen.Components.Drives
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config.InfoTime
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config.ErrorTime
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config.ErrorTime
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config.ErrorTime
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config.TaskTimeout
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config.TaskTimeout
+  parent: AXOpen.Components.Drives
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config.TaskTimeout
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowPerCent
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowPerCent
+  parent: AXOpen.Components.Drives
+  children: []
+  name: InTorqueWindowPerCent
+  fullName: InTorqueWindowPerCent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowPerCent
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'InTorqueWindowPerCent : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowTime
+  id: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowTime
+  parent: AXOpen.Components.Drives
+  children: []
+  name: InTorqueWindowTime
+  fullName: InTorqueWindowTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Config.InTorqueWindowTime
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'InTorqueWindowTime : LTIME'
+    return:
+      type: LTIME
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+
+

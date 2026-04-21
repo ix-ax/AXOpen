@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.NoFlowControl
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.XON_XOFF
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysON
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSswitched
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysONignoreDTR_DSR
+  name: eAxoCmPtp_FlowControl
+  fullName: eAxoCmPtp_FlowControl
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_FlowControl : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.NoFlowControl
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.NoFlowControl
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: NoFlowControl :=   UINT#1
+  fullName: NoFlowControl
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.NoFlowControl
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.XON_XOFF
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.XON_XOFF
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: XON_XOFF :=   UINT#2
+  fullName: XON_XOFF
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.XON_XOFF
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysON
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysON
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: HardwareRTSalwaysON :=   UINT#3
+  fullName: HardwareRTSalwaysON
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysON
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSswitched
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSswitched
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: HardwareRTSswitched :=   UINT#4
+  fullName: HardwareRTSswitched
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSswitched
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysONignoreDTR_DSR
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysONignoreDTR_DSR
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: HardwareRTSalwaysONignoreDTR_DSR :=   UINT#5
+  fullName: HardwareRTSalwaysONignoreDTR_DSR
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl.HardwareRTSalwaysONignoreDTR_DSR
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_FlowControl.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

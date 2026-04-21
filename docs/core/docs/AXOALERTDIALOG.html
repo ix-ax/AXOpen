@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AlertDialog | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AlertDialog | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -146,19 +144,66 @@
 <li><strong>time</strong>: Specifies the duration in <em>seconds</em> for which the alert will be displayed</li>
 </ul>
 <h2 id="invoking-alerts-from-plc">Invoking alerts from PLC</h2>
-<p>Alerts can be invoked from PLC similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
-<pre><code>VAR PUBLIC
-    _alertDialog : AXOpen.Core.AxoAlertDialog;
+<p>Alerts can be invoked from PLC similarly like <a href="AxoDialog.html">AxoDialog</a>, however there is no need for user interaction.</p>
+<h3 id="declaration">Declaration</h3>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    {#ix-set:AttributeName = &quot;&lt;#Process Alert#&gt;&quot;}
+    _alert : AXOpen.Core.AxoAlert;
 END_VAR
-//...
-IF(_alertDialog.Show(THIS)
-    .WithTitle('Plc alert')
+</code></pre><h3 id="show-pattern">Show pattern</h3>
+<pre><code class="lang-smalltalk">// AxoAlert shows a timed notification banner on the HMI.
+// Unlike AxoDialog, it does NOT wait for user response.
+// IsShown() returns TRUE once the alert has been displayed and dismissed.
+IF _triggerAlert THEN
+    IF _alert.Show(THIS)
+        .WithTitle('&lt;#Process Notification#&gt;')
+        .WithType(eDialogType#Info)
+        .WithMessage('&lt;#Cycle completed successfully.#&gt;')
+        .WithTimeToBurn(UINT#5).IsShown() THEN
+        // Alert was displayed and timed out
+        _alertWasShown := TRUE;
+        _triggerAlert := FALSE;
+    END_IF;
+END_IF;
+</code></pre><h3 id="alert-types-info-success-warning-danger">Alert types (Info, Success, Warning, Danger)</h3>
+<pre><code class="lang-smalltalk">// Info alert — general information
+IF _alert.Show(THIS)
+    .WithTitle('&lt;#Info#&gt;')
+    .WithType(eDialogType#Info)
+    .WithMessage('&lt;#Operation started.#&gt;')
+    .WithTimeToBurn(UINT#3).IsShown() THEN
+    ;
+END_IF;
+
+// Success alert — operation completed
+IF _alert.Show(THIS)
+    .WithTitle('&lt;#Success#&gt;')
     .WithType(eDialogType#Success)
-    .WithMessage('This is alert invoked from plc!')
-    .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-    //when task is done, move next
-    THIS.MoveNext(); 
-END_IF;	
+    .WithMessage('&lt;#Part inspection passed.#&gt;')
+    .WithTimeToBurn(UINT#5).IsShown() THEN
+    ;
+END_IF;
+
+// Warning alert — attention needed
+IF _alert.Show(THIS)
+    .WithTitle('&lt;#Warning#&gt;')
+    .WithType(eDialogType#Warning)
+    .WithMessage('&lt;#Approaching maintenance interval.#&gt;')
+    .WithTimeToBurn(UINT#8).IsShown() THEN
+    ;
+END_IF;
+
+// Danger alert — critical condition
+IF _alert.Show(THIS)
+    .WithTitle('&lt;#Danger#&gt;')
+    .WithType(eDialogType#Danger)
+    .WithMessage('&lt;#Emergency stop triggered.#&gt;')
+    .WithTimeToBurn(UINT#10).IsShown() THEN
+    ;
+END_IF;
+</code></pre><h3 id="restore">Restore</h3>
+<pre><code class="lang-smalltalk">// Restore clears the alert state, allowing it to be shown again
+_alert.Restore();
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
@@ -182,14 +227,14 @@ END_IF;
 </div>
 <pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
 </code></pre>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -199,7 +244,7 @@ END_IF;
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

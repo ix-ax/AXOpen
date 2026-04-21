@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  - plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_32B
+  - plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_64B
+  - plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_128B
+  - plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_246B
+  name: eAxo_SR_750_ResultDataSize
+  fullName: eAxo_SR_750_ResultDataSize
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'eAxo_SR_750_ResultDataSize : INT'
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RESULT_DATA_SIZE_INVALID :=  0
+  fullName: RESULT_DATA_SIZE_INVALID
+  type: Field
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_SIZE_INVALID
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Keyence.Vision
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_32B
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_32B
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RESULT_DATA_32B :=  32
+  fullName: RESULT_DATA_32B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_32B
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_64B
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_64B
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RESULT_DATA_64B :=  64
+  fullName: RESULT_DATA_64B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_64B
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_128B
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_128B
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RESULT_DATA_128B :=  128
+  fullName: RESULT_DATA_128B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_128B
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_246B
+  id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_246B
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RESULT_DATA_246B :=  246
+  fullName: RESULT_DATA_246B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize.RESULT_DATA_246B
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\eAxo_SR_750_ResultDataSize.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

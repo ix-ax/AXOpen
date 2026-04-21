@@ -1,0 +1,66 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status
+  id: plc.AXOpen.Components.Drives.AxoDrive_Status
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  name: AxoDrive_Status
+  fullName: AxoDrive_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Status
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Status.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoDrive_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  id: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+  parent: AXOpen.Components.Drives
+  children: []
+  name: CurrentMotionTaskId
+  fullName: CurrentMotionTaskId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.AxoDrive_Status.CurrentMotionTaskId
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDrive_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'CurrentMotionTaskId : AXOpen.Components.Drives.eAxoMotionTaskId'
+    return:
+      type: AXOpen.Components.Drives.eAxoMotionTaskId
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+  name: eAxoMotionTaskId
+  nameWithType: eAxoMotionTaskId
+  fullName: AXOpen.Components.Drives.eAxoMotionTaskId
+
+

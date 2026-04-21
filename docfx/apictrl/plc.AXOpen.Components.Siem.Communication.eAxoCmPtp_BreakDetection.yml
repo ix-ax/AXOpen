@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.deactivated
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.activated
+  name: eAxoCmPtp_BreakDetection
+  fullName: eAxoCmPtp_BreakDetection
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_BreakDetection : USINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.deactivated
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.deactivated
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: deactivated :=  USINT#0
+  fullName: deactivated
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.deactivated
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.activated
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.activated
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: activated :=  USINT#1
+  fullName: activated
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection.activated
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_BreakDetection.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+
+

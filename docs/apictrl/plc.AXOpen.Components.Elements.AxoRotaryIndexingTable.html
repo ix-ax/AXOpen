@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoRotaryIndexingTable | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoRotaryIndexingTable | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/axopen.templates/new/INT000053_Template_V2/apiSpec/new?filename=plc_AXOpen_Components_Elements_AxoRotaryIndexingTable.md&amp;value=---%0Auid%3A%20plc.AXOpen.Components.Elements.AxoRotaryIndexingTable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable">
+
+
+
+  <h1 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable" class="text-break">
+Class AxoRotaryIndexingTable  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Components.Elements.html">plc.AXOpen.Components.Elements</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoRotaryIndexingTable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoComponent.html">AxoComponent</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoRotaryIndexingTable</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent__isManuallyControllable">_isManuallyControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ActivateManualControl__">ActivateManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_IsManuallyControllable__">IsManuallyControllable()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ManualControl__">ManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_TurnTask" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.TurnTask">
+  TurnTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TurnTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_CurrentPosition" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.CurrentPosition">
+  CurrentPosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CurrentPosition : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_RestoreTask" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.RestoreTask">
+  RestoreTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RestoreTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_InitPositionTask" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.InitPositionTask">
+  InitPositionTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">InitPositionTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Config" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Config : AXOpen.Components.Elements.AxoRotaryIndexingTable_Config</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Status" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Status : AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Messenger" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Messenger">
+  Messenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Messenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_TaskMessenger" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.TaskMessenger">
+  TaskMessenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TaskMessenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Inputs" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Inputs">
+  Inputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Inputs : AXOpen.Components.Elements.AxoRotaryIndexingTable_State</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Outputs" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Outputs">
+  Outputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Outputs : AXOpen.Components.Elements.AxoRotaryIndexingTable_Control</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__progress" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._progress">
+  _progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__infoTimer" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._infoTimer">
+  _infoTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_infoTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__errorTimer" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._errorTimer">
+  _errorTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_errorTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__timeoutTimer" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._timeoutTimer">
+  _timeoutTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_timeoutTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__movementIsSuspended" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._movementIsSuspended">
+  _movementIsSuspended
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_movementIsSuspended : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable__suspentionCycleCount" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable._suspentionCycleCount">
+  _suspentionCycleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_suspentionCycleCount : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Run_IAxoObject_BOOL_BOOL_BOOL_UINT_" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Run(IAxoObject,BOOL,BOOL,BOOL,UINT)">
+  Run
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.BOOL inSafetyCondition,in plc.BOOL inPosition,in plc.BOOL inPrecisePosition,in plc.UINT inCodingPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>inSafetyCondition</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+    <dt><code>inPosition</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+    <dt><code>inPrecisePosition</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+    <dt><code>inCodingPosition</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Turn__" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Turn()">
+  Turn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L394"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Turn()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_InitPosition__" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.InitPosition()">
+  InitPosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L398"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState InitPosition()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_SuspendMovementWhile_BOOL_STRING_" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.SuspendMovementWhile(BOOL,STRING)">
+  SuspendMovementWhile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SuspendMovementWhile(in plc.BOOL inCondition,in plc.STRING inMessage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inCondition</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+    <dt><code>inMessage</code> <span class="xref">STRING</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_ManualControl__" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.ManualControl()">
+  ManualControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L425"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_Restore__" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.Restore()">
+  Restore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L430"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Elements_AxoRotaryIndexingTable_CallTimers_BOOL_" data-uid="plc.AXOpen.Components.Elements.AxoRotaryIndexingTable.CallTimers(BOOL)">
+  CallTimers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID CallTimers(in plc.BOOL signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

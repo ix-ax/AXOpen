@@ -1,0 +1,965 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoInspector
+  id: plc.AXOpen.Inspectors.AxoInspector
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  - plc.AXOpen.Inspectors.AxoInspector._coordinator
+  - plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  - plc.AXOpen.Inspectors.AxoInspector._busy
+  - plc.AXOpen.Inspectors.AxoInspector._commonData
+  - plc.AXOpen.Inspectors.AxoInspector._comprehensiveResult
+  - plc.AXOpen.Inspectors.AxoInspector._comprehensiveResultUpdateCycle
+  - plc.AXOpen.Inspectors.AxoInspector._updateOverallResult
+  - plc.AXOpen.Inspectors.AxoInspector._FailureDescription
+  - plc.AXOpen.Inspectors.AxoInspector._ErrorCode
+  - plc.AXOpen.Inspectors.AxoInspector._DL
+  - plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  - plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  - plc.AXOpen.Inspectors.AxoInspector.WithCoordinator(IAxoCoordinator)
+  - plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  - plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.Restore()
+  - plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  - plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult(IAxoComprehensiveResult,STRING,STRING)
+  - plc.AXOpen.Inspectors.AxoInspector.UpdateOverallResult()
+  - plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  - plc.AXOpen.Inspectors.AxoInspector.Busy()
+  - plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  - plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  - plc.AXOpen.Inspectors.AxoInspector.Done()
+  - plc.AXOpen.Inspectors.AxoInspector.Result()
+  - plc.AXOpen.Inspectors.AxoInspector.UpdateDialogInfo()
+  - plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData,LREAL)
+  - plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDataInspectorData,STRING)
+  - plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDigitalInspectorData,BOOL)
+  - plc.AXOpen.Inspectors.AxoInspector.OnDone()
+  - plc.AXOpen.Inspectors.AxoInspector.IsCharNumber(CHAR)
+  name: AxoInspector
+  fullName: AxoInspector
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: CLASS AxoInspector
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Inspectors.IInspector
+  - plc.AXOpen.Inspectors.IOnFail
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  id: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  parent: AXOpen.Inspectors
+  children: []
+  name: _inspectorTask
+  fullName: _inspectorTask
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 12
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_inspectorTask : AXOpen.Inspectors.AxoInspectorTask'
+    return:
+      type: AXOpen.Inspectors.AxoInspectorTask
+- uid: plc.AXOpen.Inspectors.AxoInspector._coordinator
+  id: plc.AXOpen.Inspectors.AxoInspector._coordinator
+  parent: AXOpen.Inspectors
+  children: []
+  name: _coordinator
+  fullName: _coordinator
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._coordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 14
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_coordinator : AXOpen.Core.IAxoCoordinator'
+    return:
+      type: AXOpen.Core.IAxoCoordinator
+- uid: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  id: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  parent: AXOpen.Inspectors
+  children: []
+  name: _isOverInspected
+  fullName: _isOverInspected
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 15
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_isOverInspected : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._busy
+  id: plc.AXOpen.Inspectors.AxoInspector._busy
+  parent: AXOpen.Inspectors
+  children: []
+  name: _busy
+  fullName: _busy
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._busy
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 16
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_busy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._commonData
+  id: plc.AXOpen.Inspectors.AxoInspector._commonData
+  parent: AXOpen.Inspectors
+  children: []
+  name: _commonData
+  fullName: _commonData
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._commonData
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 17
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_commonData : REF_TO AXOpen.Inspectors.AxoInspectorData'
+    return:
+      type: REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResult
+  id: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResult
+  parent: AXOpen.Inspectors
+  children: []
+  name: _comprehensiveResult
+  fullName: _comprehensiveResult
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 19
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_comprehensiveResult : AXOpen.Inspectors.IAxoComprehensiveResult'
+    return:
+      type: AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResultUpdateCycle
+  id: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResultUpdateCycle
+  parent: AXOpen.Inspectors
+  children: []
+  name: _comprehensiveResultUpdateCycle
+  fullName: _comprehensiveResultUpdateCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._comprehensiveResultUpdateCycle
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 20
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_comprehensiveResultUpdateCycle : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Inspectors.AxoInspector._updateOverallResult
+  id: plc.AXOpen.Inspectors.AxoInspector._updateOverallResult
+  parent: AXOpen.Inspectors
+  children: []
+  name: _updateOverallResult
+  fullName: _updateOverallResult
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._updateOverallResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 20
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_updateOverallResult : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._FailureDescription
+  id: plc.AXOpen.Inspectors.AxoInspector._FailureDescription
+  parent: AXOpen.Inspectors
+  children: []
+  name: _FailureDescription
+  fullName: _FailureDescription
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._FailureDescription
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 22
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_FailureDescription : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoInspector._ErrorCode
+  id: plc.AXOpen.Inspectors.AxoInspector._ErrorCode
+  parent: AXOpen.Inspectors
+  children: []
+  name: _ErrorCode
+  fullName: _ErrorCode
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._ErrorCode
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 23
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_ErrorCode : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoInspector._DL
+  id: plc.AXOpen.Inspectors.AxoInspector._DL
+  parent: AXOpen.Inspectors
+  children: []
+  name: _DL
+  fullName: _DL
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector._DL
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 29
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_DL : AXOpen.Inspectors.AxoInspectorDialog'
+    return:
+      type: AXOpen.Inspectors.AxoInspectorDialog
+- uid: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  id: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CheckOverInspection
+  fullName: CheckOverInspection
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 33
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL CheckOverInspection()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  id: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: IsOverInspected
+  fullName: IsOverInspected
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 46
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Protected BOOL IsOverInspected()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.WithCoordinator(IAxoCoordinator)
+  id: plc.AXOpen.Inspectors.AxoInspector.WithCoordinator(IAxoCoordinator)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: WithCoordinator
+  fullName: WithCoordinator
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.WithCoordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 63
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector WithCoordinator(in plc.AXOpen.Core.IAxoCoordinator inCoordinator)
+    parameters:
+    - id: inCoordinator
+      type: plc.AXOpen.Core.IAxoCoordinator
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  id: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: OnFail
+  fullName: OnFail
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.OnFail
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 75
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IOnFail OnFail()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Inspectors.IOnFail
+- uid: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Dialog
+  fullName: Dialog
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Dialog
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 83
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL Dialog(in plc.AXOpen.Core.IAxoStep inRetryStep,in plc.AXOpen.Core.IAxoStep inTerminateStep)
+    parameters:
+    - id: inRetryStep
+      type: plc.AXOpen.Core.IAxoStep
+    - id: inTerminateStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: RetryWithStep
+  fullName: RetryWithStep
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 97
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL RetryWithStep(in plc.AXOpen.Core.IAxoStep inRetryStep)
+    parameters:
+    - id: inRetryStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.Restore()
+  id: plc.AXOpen.Inspectors.AxoInspector.Restore()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Restore
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 124
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  id: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CarryOn
+  fullName: CarryOn
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CarryOn
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 134
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL CarryOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: TerminateWithStep
+  fullName: TerminateWithStep
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 152
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL TerminateWithStep(in plc.AXOpen.Core.IAxoStep inTerminateStep)
+    parameters:
+    - id: inTerminateStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult(IAxoComprehensiveResult,STRING,STRING)
+  id: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult(IAxoComprehensiveResult,STRING,STRING)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: UpdateComprehensiveResult
+  fullName: UpdateComprehensiveResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 179
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector UpdateComprehensiveResult(in plc.AXOpen.Inspectors.IAxoComprehensiveResult inResult,in plc.STRING inFailureDescription,in plc.STRING inErrorCode)
+    parameters:
+    - id: inResult
+      type: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+    - id: inFailureDescription
+      type: plc.STRING
+    - id: inErrorCode
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.UpdateOverallResult()
+  id: plc.AXOpen.Inspectors.AxoInspector.UpdateOverallResult()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: UpdateOverallResult
+  fullName: UpdateOverallResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.UpdateOverallResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 215
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Internal VOID UpdateOverallResult()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  id: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: RestoreInspectorTask
+  fullName: RestoreInspectorTask
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 263
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL RestoreInspectorTask()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  id: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Busy
+  fullName: Busy
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Busy
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 270
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL Busy()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  id: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CommonData
+  fullName: CommonData
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CommonData
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 277
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public REF_TO AXOpen.Inspectors.AxoInspectorData CommonData()
+    parameters: *o0
+    return:
+      type: plc.REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  id: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Coordinator
+  fullName: Coordinator
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Coordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 284
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Core.IAxoCoordinator Coordinator()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoCoordinator
+- uid: plc.AXOpen.Inspectors.AxoInspector.Done()
+  id: plc.AXOpen.Inspectors.AxoInspector.Done()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Done
+  fullName: Done
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Done
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 292
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public BOOL Done()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.Result()
+  id: plc.AXOpen.Inspectors.AxoInspector.Result()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Result
+  fullName: Result
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Result
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 300
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.eInspectorResult Result()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Inspectors.eInspectorResult
+- uid: plc.AXOpen.Inspectors.AxoInspector.UpdateDialogInfo()
+  id: plc.AXOpen.Inspectors.AxoInspector.UpdateDialogInfo()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: UpdateDialogInfo
+  fullName: UpdateDialogInfo
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.UpdateDialogInfo
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 317
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Private VOID UpdateDialogInfo()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData,LREAL)
+  id: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData,LREAL)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Inspect
+  fullName: Inspect
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Inspect
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 330
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData inData,in plc.LREAL Status)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inData
+      type: plc.REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
+    - id: Status
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDataInspectorData,STRING)
+  id: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDataInspectorData,STRING)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Inspect
+  fullName: Inspect
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Inspect
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 402
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData inData,in plc.STRING Status)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inData
+      type: plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData
+    - id: Status
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDigitalInspectorData,BOOL)
+  id: plc.AXOpen.Inspectors.AxoInspector.Inspect(IAxoObject,REF_TO AXOpen.Inspectors.AxoDigitalInspectorData,BOOL)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Inspect
+  fullName: Inspect
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Inspect
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 493
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO AXOpen.Inspectors.AxoDigitalInspectorData inData,in plc.BOOL Status)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inData
+      type: plc.REF_TO AXOpen.Inspectors.AxoDigitalInspectorData
+    - id: Status
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.OnDone()
+  id: plc.AXOpen.Inspectors.AxoInspector.OnDone()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: OnDone
+  fullName: OnDone
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.OnDone
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 552
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Protected VOID OnDone()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoInspector.IsCharNumber(CHAR)
+  id: plc.AXOpen.Inspectors.AxoInspector.IsCharNumber(CHAR)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: IsCharNumber
+  fullName: IsCharNumber
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Inspectors.AxoInspector.IsCharNumber
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 556
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Protected BOOL IsCharNumber(in plc.CHAR inCharacter)
+    parameters:
+    - id: inCharacter
+      type: plc.CHAR
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Inspectors.IInspector
+  commentId: plc.AXOpen.Inspectors.IInspector
+  name: IInspector
+  nameWithType: IInspector
+  fullName: plc.AXOpen.Inspectors.IInspector
+  parent: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.IOnFail
+  commentId: plc.AXOpen.Inspectors.IOnFail
+  name: IOnFail
+  nameWithType: IOnFail
+  fullName: plc.AXOpen.Inspectors.IOnFail
+  parent: plc.AXOpen.Inspectors.IOnFail
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoInspectorTask
+  name: AxoInspectorTask
+  nameWithType: AxoInspectorTask
+  fullName: AXOpen.Inspectors.AxoInspectorTask
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  name: IAxoCoordinator
+  nameWithType: IAxoCoordinator
+  fullName: AXOpen.Core.IAxoCoordinator
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.REF_TO AXOpen.Inspectors.AxoInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  name: IAxoComprehensiveResult
+  nameWithType: IAxoComprehensiveResult
+  fullName: AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Inspectors.AxoInspectorDialog
+  name: AxoInspectorDialog
+  nameWithType: AxoInspectorDialog
+  fullName: AXOpen.Inspectors.AxoInspectorDialog
+- uid: plc.AXOpen.Core.IAxoStep
+  name: IAxoStep
+  nameWithType: IAxoStep
+  fullName: AXOpen.Core.IAxoStep
+- uid: plc.AXOpen.Inspectors.eInspectorResult
+  name: eInspectorResult
+  nameWithType: eInspectorResult
+  fullName: AXOpen.Inspectors.eInspectorResult
+- uid: plc.REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+- uid: plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+- uid: plc.REF_TO AXOpen.Inspectors.AxoDigitalInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoDigitalInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoDigitalInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoDigitalInspectorData
+- uid: plc.CHAR
+  name: CHAR
+  nameWithType: CHAR
+  fullName: CHAR
+
+

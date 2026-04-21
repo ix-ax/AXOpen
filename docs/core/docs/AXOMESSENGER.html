@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoMessenger | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoMessenger | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOMESSENGER.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -107,13 +105,24 @@
 </div>
 <p><code>Restore()</code> - restores all members of this instance to their initial states.</p>
 <p>Depending on the <a href="../../../docs/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a> the messenger should require the acknowledgement.</p>
-<p>By default the acknowledgement is not required for the levels <code>Trace</code>,<code>Debug</code>,<code>Info</code>,<code>TimedOut</code>,<code>Notification</code> and <code>Warning</code>.
+<p>By default the acknowledgement is not required for the levels <code>Trace</code>, <code>Debug</code>, <code>Info</code>, <code>Notification</code>, <code>Potential</code> and <code>Warning</code>.
 This could be overwritten by calling the <code>RequireAcknowledgement()</code> method.
-Contrariwise, the acknowledgement is required for the levels <code>Error</code>,<code>ProgrammingError</code>,<code>Critical</code>,<code>Fatal</code> and <code>Catastrophic</code> by default. This could be overwritten by calling the <code>DoNotRequireAcknowledgement()</code> method.</p>
+Contrariwise, the acknowledgement is required for the levels <code>Error</code>, <code>ProgrammingError</code>, <code>Critical</code>, <code>Fatal</code> and <code>Catastrophic</code> by default. This could be overwritten by calling the <code>DoNotRequireAcknowledgement()</code> method.</p>
+<h3 id="potential-message-category-and-requalification">Potential Message Category and Requalification</h3>
+<p>The <code>Potential</code> message category (severity level 150) represents potential problems that may escalate to <code>Warning</code> or <code>Error</code> states depending on system configuration. This category is useful for:</p>
+<ul>
+<li>Identifying emerging issues that may require escalation</li>
+<li>Implementing hierarchical error handling in complex workflows</li>
+<li>Allowing downstream components to determine severity based on context</li>
+</ul>
+<p>A <code>Potential</code> message can be automatically requalified to <code>Warning</code> or <code>Error</code> by configuring the messenger service through the <code>RequalifyDownstreamMessages(category)</code> method. This is particularly useful in sequencers and multi-step processes where conditions may escalate over time (e.g., a step taking longer than expected may be initially reported as <code>Potential</code> and then escalated to <code>Error</code> if it exceeds the configured time threshold).</p>
 <p><strong>Attributes <code>MessageText</code>, <code>Help</code> and <code>PlcTextList</code></strong></p>
 <p>These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time, transferred to .NET counterpart and set as constant strings. Therefore, they can't be changed at the runtime.</p>
 <p>Example of declaration of the instance and defining the attributes <code>MessageText</code> and <code>Help</code>.</p>
-<pre><code class="lang-smalltalk"></code></pre>
+<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Messenger 4 - textlist in PLC#&gt;&quot;}
+{#ix-set:PlcTextList = &quot;[1]:'&lt;#Messenger 4: static message text for message code 1 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 1 declared in the PLC code#&gt;'[2]:'&lt;#Messenger 4: static message text for message code 2 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 2 declared in the PLC code#&gt;'&quot;}
+_messenger4 : AXOpen.Messaging.Static.AxoMessenger;
+</code></pre>
 <p>Example of declaration of the instance and defining the attribute <code>PlcTextList</code>.</p>
 <pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Messenger 4 - textlist in PLC#&gt;&quot;}
 {#ix-set:PlcTextList = &quot;[1]:'&lt;#Messenger 4: static message text for message code 1 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 1 declared in the PLC code#&gt;'[2]:'&lt;#Messenger 4: static message text for message code 2 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 2 declared in the PLC code#&gt;'&quot;}
@@ -126,7 +135,7 @@ The <code>Activate</code> method should be used called the required condition, o
 In the case of <code>ActivateOnCondition</code> method is used without <code>_messageCode</code> parameter for the <code>MessageText</code> and <code>Help</code>, the values from the attributes <code>MessageText</code> and <code>Help</code> defined in the PLC code are used.
 In the case of <code>ActivateOnCondition</code> method is used with <code>_messageCode</code> parameter greater than zero for the <code>MessageText</code> and <code>Help</code>, the values from the text list are used.
 In the case of <code>PlcTextList</code> attribute is defined, the parsed values from this attribute are used. In the case of <code>PlcTextList</code> attribute is not defined, the text list should be defined on the .NET side as in the example below.</p>
-<pre><code class="lang-csharp">public partial class Messengers : AXOpen.Core.AxoContext
+<pre><code class="lang-csharp">public partial class Messengers : AXOpen.Core.AxoObject
 {
     partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
     {
@@ -169,17 +178,17 @@ _messenger2.ActivateOnCondition(_messenger2code,_messenger2condition,eAxoMessage
 </code></pre>
 <p><strong>How to visualize <code>AxoMessenger</code></strong></p>
 <p>On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoMessenger</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMessengersDocu._messenger1&quot; Presentation=&quot;Command-Control&quot; Class=&quot;ps-2&quot;/&gt;
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.AxoMessengersDocu._messenger1&quot; Presentation=&quot;Command-Control&quot; Class=&quot;pl-2&quot;/&gt;
 </code></pre>
-<p>See also <a href="AXOLOGGER.html#axologger-and-axomessenger">AxoLogger</a></p>
+<p>See also <a href="AxoLogger.html#axologger-and-axomessenger">AxoLogger</a></p>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOMESSENGER.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -189,7 +198,7 @@ _messenger2.ActivateOnCondition(_messenger2code,_messenger2condition,eAxoMessage
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

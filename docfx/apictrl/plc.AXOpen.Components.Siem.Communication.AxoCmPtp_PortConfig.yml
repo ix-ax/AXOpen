@@ -1,0 +1,322 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Protocol
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BaudRate
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Parity
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.DataBits
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.StopBits
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.FlowControl
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XonChar
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XoffChar
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.WaitTime
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Mode
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.LinePreset
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BreakDetection
+  name: AxoCmPtp_PortConfig
+  fullName: AxoCmPtp_PortConfig
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: CLASS AxoCmPtp_PortConfig
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Protocol
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Protocol
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Protocol
+  fullName: Protocol
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Protocol
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Protocol : AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BaudRate
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BaudRate
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: BaudRate
+  fullName: BaudRate
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BaudRate
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'BaudRate : AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Parity
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Parity
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Parity
+  fullName: Parity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Parity
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Parity : AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.DataBits
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.DataBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: DataBits
+  fullName: DataBits
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.DataBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'DataBits : AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.StopBits
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.StopBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: StopBits
+  fullName: StopBits
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.StopBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'StopBits : AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.FlowControl
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.FlowControl
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: FlowControl
+  fullName: FlowControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.FlowControl
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'FlowControl : AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XonChar
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XonChar
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: XonChar
+  fullName: XonChar
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XonChar
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'XonChar : CHAR'
+    return:
+      type: CHAR
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XoffChar
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XoffChar
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: XoffChar
+  fullName: XoffChar
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.XoffChar
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'XoffChar : CHAR'
+    return:
+      type: CHAR
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.WaitTime
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.WaitTime
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: WaitTime
+  fullName: WaitTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.WaitTime
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'WaitTime : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Mode
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Mode
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Mode
+  fullName: Mode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.Mode
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Mode : AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.LinePreset
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.LinePreset
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: LinePreset
+  fullName: LinePreset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.LinePreset
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'LinePreset : AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BreakDetection
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BreakDetection
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: BreakDetection
+  fullName: BreakDetection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig.BreakDetection
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'BreakDetection : AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection'
+    return:
+      type: AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+references:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+  name: eAxoCmPtp_Protocol
+  nameWithType: eAxoCmPtp_Protocol
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+  name: eAxoCmPtp_Baud
+  nameWithType: eAxoCmPtp_Baud
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+  name: eAxoCmPtp_Parity
+  nameWithType: eAxoCmPtp_Parity
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Parity
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+  name: eAxoCmPtp_DataBits
+  nameWithType: eAxoCmPtp_DataBits
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+  name: eAxoCmPtp_StopBits
+  nameWithType: eAxoCmPtp_StopBits
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+  name: eAxoCmPtp_FlowControl
+  nameWithType: eAxoCmPtp_FlowControl
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_FlowControl
+- uid: plc.CHAR
+  name: CHAR
+  nameWithType: CHAR
+  fullName: CHAR
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+  name: eAxoCmPtp_Mode
+  nameWithType: eAxoCmPtp_Mode
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_Mode
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+  name: eAxoCmPtp_LinePreset
+  nameWithType: eAxoCmPtp_LinePreset
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+  name: eAxoCmPtp_BreakDetection
+  nameWithType: eAxoCmPtp_BreakDetection
+  fullName: AXOpen.Components.Siem.Communication.eAxoCmPtp_BreakDetection
+
+

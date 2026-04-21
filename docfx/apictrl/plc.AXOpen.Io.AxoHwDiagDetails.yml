@@ -1,0 +1,160 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagDetails.PLCDiagnosticDetails
+  - plc.AXOpen.Io.AxoHwDiagDetails.IoSystemDiagnosticDetails
+  - plc.AXOpen.Io.AxoHwDiagDetails.StationDiagnosticDetails
+  - plc.AXOpen.Io.AxoHwDiagDetails.ModuleDiagnosticDetails
+  - plc.AXOpen.Io.AxoHwDiagDetails.SubModuleDiagnosticDetails
+  - plc.AXOpen.Io.AxoHwDiagDetails.FaultyItemDetails
+  name: AxoHwDiagDetails
+  fullName: AxoHwDiagDetails
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiagDetails
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.PLCDiagnosticDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.PLCDiagnosticDetails
+  parent: AXOpen.Io
+  children: []
+  name: PLCDiagnosticDetails
+  fullName: PLCDiagnosticDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.PLCDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'PLCDiagnosticDetails : AXOpen.Io.AxoHwDiagCommonDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.IoSystemDiagnosticDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.IoSystemDiagnosticDetails
+  parent: AXOpen.Io
+  children: []
+  name: IoSystemDiagnosticDetails
+  fullName: IoSystemDiagnosticDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.IoSystemDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'IoSystemDiagnosticDetails : AXOpen.Io.AxoHwDiagCommonDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.StationDiagnosticDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.StationDiagnosticDetails
+  parent: AXOpen.Io
+  children: []
+  name: StationDiagnosticDetails
+  fullName: StationDiagnosticDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.StationDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 17
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'StationDiagnosticDetails : AXOpen.Io.AxoHwDiagCommonDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.ModuleDiagnosticDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.ModuleDiagnosticDetails
+  parent: AXOpen.Io
+  children: []
+  name: ModuleDiagnosticDetails
+  fullName: ModuleDiagnosticDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.ModuleDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 23
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ModuleDiagnosticDetails : AXOpen.Io.AxoHwDiagCommonDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.SubModuleDiagnosticDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.SubModuleDiagnosticDetails
+  parent: AXOpen.Io
+  children: []
+  name: SubModuleDiagnosticDetails
+  fullName: SubModuleDiagnosticDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.SubModuleDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 29
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'SubModuleDiagnosticDetails : AXOpen.Io.AxoHwDiagCommonDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagDetails.FaultyItemDetails
+  id: plc.AXOpen.Io.AxoHwDiagDetails.FaultyItemDetails
+  parent: AXOpen.Io
+  children: []
+  name: FaultyItemDetails
+  fullName: FaultyItemDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagDetails.FaultyItemDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st
+    startLine: 35
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'FaultyItemDetails : AXOpen.Io.AxoHwDiagSystemDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagSystemDetails
+references:
+- uid: plc.AXOpen.Io.AxoHwDiagCommonDetails
+  name: AxoHwDiagCommonDetails
+  nameWithType: AxoHwDiagCommonDetails
+  fullName: AXOpen.Io.AxoHwDiagCommonDetails
+- uid: plc.AXOpen.Io.AxoHwDiagSystemDetails
+  name: AxoHwDiagSystemDetails
+  nameWithType: AxoHwDiagSystemDetails
+  fullName: AXOpen.Io.AxoHwDiagSystemDetails
+
+

@@ -1,0 +1,139 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nIndex
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nLen
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nTrans
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nReserve
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.buf
+  name: Axo_IID_IN_PN_RECORDDATA
+  fullName: Axo_IID_IN_PN_RECORDDATA
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_IN_PN_RECORDDATA
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nIndex
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nIndex
+  fullName: nIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nIndex
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nIndex : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nLen
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nLen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nLen
+  fullName: nLen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nLen
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nLen : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nTrans
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nTrans
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nTrans
+  fullName: nTrans
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nTrans
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nTrans : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nReserve
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nReserve
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nReserve
+  fullName: nReserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.nReserve
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nReserve : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.buf
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.buf
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: buf
+  fullName: buf
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA.buf
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_RECORDDATA.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'buf : ARRAY [0..1034] OF BYTE'
+    return:
+      type: ARRAY [0..1034] OF BYTE
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.ARRAY [0..1034] OF BYTE
+  name: ARRAY [0..1034] OF BYTE
+  nameWithType: ARRAY [0..1034] OF BYTE
+  fullName: ARRAY [0..1034] OF BYTE
+
+

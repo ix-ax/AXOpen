@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.IAxisReference
+  id: plc.AXOpen.Components.Drives.IAxisReference
+  parent: plc.AXOpen.Components.Drives
+  children: []
+  name: IAxisReference
+  fullName: IAxisReference
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives.IAxisReference
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: INTERFACE IAxisReference
+  implements: []
+references: []
+
+

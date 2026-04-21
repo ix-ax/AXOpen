@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoDialogs | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoDialogs | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -112,9 +110,13 @@ END_IF;
 <ol>
 <li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file. Also, map <code>dialoghub</code> which is needed for dialog synchronization using SignalR technology.</li>
 </ol>
-<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
-//...
-app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
+<p>Service registration:</p>
+<pre><code class="lang-csharp">builder.Services.AddIxBlazorServices();
+builder.Services.AddAxoCoreServices();
+</code></pre>
+<p>SignalR dialog hub mapping:</p>
+<pre><code class="lang-csharp">// SignalR hub for dialog/alert cross-client synchronization
+app.MapHub&lt;SignalRDialogHub&gt;(SignalRDialogHub.HUB_URL_SUFFIX);
 </code></pre>
 <ol start="2">
 <li>Go to your page, where you wish to have dialogs and include <code>AxoDialogLocator</code> component at the end of that page.</li>
@@ -148,7 +150,22 @@ app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
 <h2 id="answer-synchronization-on-multiple-clients">Answer synchronization on multiple clients</h2>
 <p>Answers of dialogs are synchronized across multiple clients with the SignalR technology.</p>
 <p><img src="assets/dialog-sync.gif" alt="Dialog sync"></p>
-<h2 id="closing-a-dialog-with-external-signal">Closing a dialog with external signal</h2>
+<h3 id="show--simple-dialog-hmi-only-response">Show() — Simple dialog (HMI-only response)</h3>
+<p>The simplest way to show a dialog and wait for user response via the Blazor HMI:</p>
+<pre><code class="lang-smalltalk">//----------------------  SIMPLE DIALOG (HMI-only response) -------
+IF(_callDialog) THEN
+   _answer := _dialog.Show(THIS)
+                      .WithCaption(Caption)
+                      .WithText(Question)
+                      .WithYesNoCancel()
+                      .WithType(eDialogType#Warning)
+                      .Answer();
+
+    IF _answer &lt;&gt; eDialogAnswer#NoAnswer THEN
+        _callDialog := FALSE;
+    END_IF;
+END_IF;
+</code></pre><h2 id="closing-a-dialog-with-external-signal">Closing a dialog with external signal</h2>
 <p>External signals can be provided to dialog instance within a <code>ShowWithExternalClose</code> method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).</p>
 <p>4 different signals can be monitored in <code>ShowWithExternalClose</code> method:</p>
 <ul>
@@ -178,7 +195,21 @@ IF(_dialog3Answer = eDialogAnswer#Ok) THEN
 END_IF;	
 </code></pre>
 <p><img src="assets/dialog-external-close.gif" alt="Dialog sync"></p>
-<h2 id="creation-of-own-modal-dialog">Creation of own modal dialog</h2>
+<p>Full showcase example with external close signals:</p>
+<pre><code class="lang-smalltalk">//----------------------  DIALOG WITH EXTERNAL CLOSE SIGNALS -------
+IF(_callDialog) THEN
+   _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                                    .WithYesNoCancel()
+                                    .WithType(eDialogType#Warning)
+                                    .WithCaption(Caption)
+                                    .WithText(Question)
+                                    .Answer();
+
+    IF _answer &lt;&gt; eDialogAnswer#NoAnswer THEN
+        _callDialog := FALSE;
+    END_IF;
+END_IF;
+</code></pre><h2 id="creation-of-own-modal-dialog">Creation of own modal dialog</h2>
 <h3 id="plc-side">PLC side</h3>
 <ul>
 <li><p>Create own PLC instance of dialog, which extends <code>AxoDialogBase</code>.</p>
@@ -266,14 +297,14 @@ For example, when Dialog plc type is <code>MyCustomModal</code>, the view must b
     AxoDialogContainer &quot;1&quot; -- &quot;1&quot; SignalRDialogClient : uses
 
 </code></pre>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -283,7 +314,7 @@ For example, when Dialog plc type is <code>MyCustomModal</code>, the view must b
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

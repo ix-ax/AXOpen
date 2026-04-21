@@ -1,0 +1,44 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Utils.AxoBytesToInt(AX.ST.Semantic.Model.Declarations.Types.UndefinedTypeDeclaration,BYTE,BYTE)
+  id: plc.AXOpen.Utils.AxoBytesToInt(AX.ST.Semantic.Model.Declarations.Types.UndefinedTypeDeclaration,BYTE,BYTE)
+  parent: AXOpen.Utils
+  children: []
+  name: AxoBytesToInt
+  fullName: AxoBytesToInt
+  type: Delegate
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Conversions\FromBytes\AxoBytesToInt.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Utils.AxoBytesToInt
+    path: .\src\utils\ctrl\src\Conversions\FromBytes\AxoBytesToInt.st
+    startLine: 3
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public DINT AxoBytesToInt(in plc.UNDEFINED inFormat,in plc.BYTE inByte0,in plc.BYTE inByte1)
+    parameters:
+    - id: inFormat
+      type: plc.UNDEFINED
+    - id: inByte0
+      type: plc.BYTE
+    - id: inByte1
+      type: plc.BYTE
+    return:
+      type: plc.DINT
+references:
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

@@ -1,0 +1,40 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.Dummies
+  id: plc.AXOpen.Core.Dummies
+  children:
+  - plc.AXOpen.Core.Dummies.MockAxoContext
+  - plc.AXOpen.Core.Dummies.MockAxoObject
+  - plc.AXOpen.Core.Dummies.MockAxoRtc
+  - plc.AXOpen.Core.Dummies.MockAxoRtm
+  name: plc.AXOpen.Core.Dummies
+  fullName: Dummies
+  type: Namespace
+  source:
+    remote:
+      path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.Dummies
+    path: .\src\core\ctrl\src\Mocks\MockAxoContext.st
+    startLine: 7
+  namespace: plc.AXOpen.Core.Dummies
+references:
+- uid: plc.AXOpen.Core.Dummies.MockAxoContext
+  name: MockAxoContext
+  nameWithType: MockAxoContext
+  fullName: AXOpen.Core.Dummies.MockAxoContext
+- uid: plc.AXOpen.Core.Dummies.MockAxoObject
+  name: MockAxoObject
+  nameWithType: MockAxoObject
+  fullName: AXOpen.Core.Dummies.MockAxoObject
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtc
+  name: MockAxoRtc
+  nameWithType: MockAxoRtc
+  fullName: AXOpen.Core.Dummies.MockAxoRtc
+- uid: plc.AXOpen.Core.Dummies.MockAxoRtm
+  name: MockAxoRtm
+  nameWithType: MockAxoRtm
+  fullName: AXOpen.Core.Dummies.MockAxoRtm
+
+

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>AxoObject | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="AxoObject | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOOBJECT.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,14 +87,19 @@
         <article data-uid="">
 <h1 id="axoobject">AxoObject</h1>
 
-<p>AxoObject is the base class for any other classes of AXOpen.Core. It provides access to the parent AxoObject and the AxoContext in which it was initialized.</p>
+<p><code>AxoObject</code> is the base class for all AXOpen framework objects. It provides access to the parent object, the root <code>AxoContext</code>, and framework services (logger, messenger, RTC, RTM) through the context chain.</p>
+<p>Every object in an AXOpen application forms a tree rooted at an <code>AxoContext</code>. The tree is built by calling <code>Run(inParent)</code> cyclically — this establishes the parent chain and gives each object access to context services.</p>
 <pre><code class="lang-mermaid">  classDiagram
-    class Object{
-        +Initialize(IAxoContext context)
-        +Initialize(IAxoObject parent)        
-    }     
+    class AxoObject{
+        +Run(inParent : IAxoObject)
+        +GetContext() : IAxoContext
+        +GetParent() : IAxoObject
+        +GetIdentity() : ULINT
+    }
 </code></pre>
-<p><strong>AxoObject initialization within a AxoContext</strong></p>
+<h2 id="initialization">Initialization</h2>
+<h3 id="within-an-axocontext-root-level">Within an AxoContext (root level)</h3>
+<p>Use <code>InitializeRootObject()</code> on the context to wire a top-level object:</p>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
 CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
     VAR
@@ -106,8 +109,8 @@ CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
         THIS.InitializeRootObject(_myObject);            
     END_METHOD
 END_CLASS
-</code></pre>
-<p><strong>AxoObject initialization within another AxoObject</strong></p>
+</code></pre><h3 id="within-another-axoobject-nested">Within another AxoObject (nested)</h3>
+<p>Call <code>Run(THIS)</code> from the parent object — the child inherits the parent's context automatically:</p>
 <pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
 CLASS PUBLIC MyParentObject  EXTENDS AxoContext
     VAR
@@ -117,14 +120,54 @@ CLASS PUBLIC MyParentObject  EXTENDS AxoContext
         THIS.InitializeRootObject(_myChildObject);            
     END_METHOD
 END_CLASS
-</code></pre></article>
+</code></pre><h2 id="key-api">Key API</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Run(inParent)</code></td>
+<td>—</td>
+<td>Must be called <strong>cyclically</strong>. Establishes context chain and executes the object. Call <code>SUPER.Run(inParent)</code> first when overriding.</td>
+</tr>
+<tr>
+<td><code>GetContext()</code></td>
+<td><code>IAxoContext</code></td>
+<td>Returns the root context. Use to access services: <code>THIS.GetContext().GetLogger()</code>, <code>THIS.GetContext().GetRtc()</code></td>
+</tr>
+<tr>
+<td><code>GetParent()</code></td>
+<td><code>IAxoObject</code></td>
+<td>Returns the immediate parent in the object tree</td>
+</tr>
+<tr>
+<td><code>GetIdentity()</code></td>
+<td><code>ULINT</code></td>
+<td>Returns a unique identity assigned by the context — used for .NET twin mapping and logger sender tracking</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rules">Rules</h2>
+<ul>
+<li><code>Run(inParent)</code> must be called <strong>every PLC cycle</strong> and <strong>before</strong> any other method on the object</li>
+<li>When overriding <code>Run()</code>, always call <code>SUPER.Run(inParent)</code> <strong>first</strong></li>
+<li>Guard against <code>NULL</code> parent: <code>IF (inParent = NULL) THEN RETURN; END_IF;</code></li>
+<li>Zero-argument <code>Run()</code> is <strong>not allowed</strong> for types deriving from <code>AxoObject</code> — always pass a parent</li>
+<li>Do not use <code>AxoObject</code> where <code>AxoComponent</code> is more appropriate (technology units with Restore/ManualControl should extend <code>AxoComponent</code>)</li>
+</ul>
+
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AXOOBJECT.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -134,7 +177,7 @@ END_CLASS
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

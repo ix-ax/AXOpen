@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.followingErrorInTolerance
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.controlRequest
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.targetPosReached
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.homePosSet
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.acknowledgeTraversingBlockActivated
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.driveStopped
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisAccelerates
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisDecelerates
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.readyForSwitchOn
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.ready
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.operationEnabled
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.faultPresent
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noCoastingActive
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noQuickStopActive
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.switchingOnInhibitedActive
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.warningActive
+  name: PROFIdriveTelegram_111_ZSW1
+  fullName: PROFIdriveTelegram_111_ZSW1
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 204
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_111_ZSW1
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.followingErrorInTolerance
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.followingErrorInTolerance
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: followingErrorInTolerance
+  fullName: followingErrorInTolerance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.followingErrorInTolerance
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 206
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'followingErrorInTolerance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.controlRequest
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.controlRequest
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: controlRequest
+  fullName: controlRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.controlRequest
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 210
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'controlRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.targetPosReached
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.targetPosReached
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: targetPosReached
+  fullName: targetPosReached
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.targetPosReached
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 212
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'targetPosReached : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.homePosSet
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.homePosSet
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: homePosSet
+  fullName: homePosSet
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.homePosSet
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 213
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'homePosSet : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.acknowledgeTraversingBlockActivated
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.acknowledgeTraversingBlockActivated
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: acknowledgeTraversingBlockActivated
+  fullName: acknowledgeTraversingBlockActivated
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.acknowledgeTraversingBlockActivated
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 215
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'acknowledgeTraversingBlockActivated : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.driveStopped
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.driveStopped
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: driveStopped
+  fullName: driveStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.driveStopped
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 218
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'driveStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisAccelerates
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisAccelerates
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: axisAccelerates
+  fullName: axisAccelerates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisAccelerates
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 220
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'axisAccelerates : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisDecelerates
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisDecelerates
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: axisDecelerates
+  fullName: axisDecelerates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.axisDecelerates
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 222
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'axisDecelerates : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.readyForSwitchOn
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.readyForSwitchOn
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: readyForSwitchOn
+  fullName: readyForSwitchOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.readyForSwitchOn
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 224
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'readyForSwitchOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.ready
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.ready
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ready
+  fullName: ready
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.ready
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 226
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ready : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.operationEnabled
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.operationEnabled
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: operationEnabled
+  fullName: operationEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.operationEnabled
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 228
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'operationEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.faultPresent
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.faultPresent
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: faultPresent
+  fullName: faultPresent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.faultPresent
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 230
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'faultPresent : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noCoastingActive
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noCoastingActive
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: noCoastingActive
+  fullName: noCoastingActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noCoastingActive
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 232
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'noCoastingActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noQuickStopActive
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noQuickStopActive
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: noQuickStopActive
+  fullName: noQuickStopActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.noQuickStopActive
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 234
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'noQuickStopActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.switchingOnInhibitedActive
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.switchingOnInhibitedActive
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: switchingOnInhibitedActive
+  fullName: switchingOnInhibitedActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.switchingOnInhibitedActive
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 237
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'switchingOnInhibitedActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.warningActive
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.warningActive
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: warningActive
+  fullName: warningActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_ZSW1.warningActive
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 242
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'warningActive : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

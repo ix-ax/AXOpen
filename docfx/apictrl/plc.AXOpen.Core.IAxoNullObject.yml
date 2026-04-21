@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoNullObject
+  id: plc.AXOpen.Core.IAxoNullObject
+  parent: plc.AXOpen.Core
+  children: []
+  name: IAxoNullObject
+  fullName: IAxoNullObject
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoNullObject
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 49
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoNullObject
+  implements: []
+references: []
+
+

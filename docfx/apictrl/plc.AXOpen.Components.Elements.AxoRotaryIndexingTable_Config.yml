@@ -1,0 +1,164 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.InfoTime
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.ErrorTime
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.TaskTimeout
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Direction
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.NumberOfPositions
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Offset
+  name: AxoRotaryIndexingTable_Config
+  fullName: AxoRotaryIndexingTable_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoRotaryIndexingTable_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.InfoTime
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.InfoTime
+  parent: AXOpen.Components.Elements
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.InfoTime
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.ErrorTime
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.ErrorTime
+  parent: AXOpen.Components.Elements
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.ErrorTime
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.TaskTimeout
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.TaskTimeout
+  parent: AXOpen.Components.Elements
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.TaskTimeout
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Direction
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Direction
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Direction
+  fullName: Direction
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Direction
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Direction : AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection'
+    return:
+      type: AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.NumberOfPositions
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.NumberOfPositions
+  parent: AXOpen.Components.Elements
+  children: []
+  name: NumberOfPositions
+  fullName: NumberOfPositions
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.NumberOfPositions
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'NumberOfPositions : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Offset
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Offset
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Offset
+  fullName: Offset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config.Offset
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Offset : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+  name: eAxoRotaryIndexingTableDirection
+  nameWithType: eAxoRotaryIndexingTableDirection
+  fullName: AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

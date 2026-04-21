@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.NoInitialState
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_5VsignalRB_0V
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_0VsignalRB_5V
+  name: eAxoCmPtp_LinePreset
+  fullName: eAxoCmPtp_LinePreset
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_LinePreset : USINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.NoInitialState
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.NoInitialState
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: NoInitialState :=  USINT#0
+  fullName: NoInitialState
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.NoInitialState
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_5VsignalRB_0V
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_5VsignalRB_0V
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: SignalRA_5VsignalRB_0V :=  USINT#1
+  fullName: SignalRA_5VsignalRB_0V
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_5VsignalRB_0V
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_0VsignalRB_5V
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_0VsignalRB_5V
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: SignalRA_0VsignalRB_5V :=  USINT#2
+  fullName: SignalRA_0VsignalRB_5V
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_LinePreset.SignalRA_0VsignalRB_5V
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_LinePreset.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+
+

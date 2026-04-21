@@ -1,0 +1,534 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_12
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_13
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_14
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_15
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_16
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_17
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_18
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_19
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_20
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_21
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_22
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_23
+  name: AxoUrRoboticsT2OIntRegs_v_1_x_x
+  fullName: AxoUrRoboticsT2OIntRegs_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OIntRegs_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_0
+  fullName: Register_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_1
+  fullName: Register_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_1 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_2
+  fullName: Register_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_2 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_3
+  fullName: Register_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_3 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_4
+  fullName: Register_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_4 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_5
+  fullName: Register_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_5 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_6
+  fullName: Register_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_6 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_7
+  fullName: Register_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_7 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_8
+  fullName: Register_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_8 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_9
+  fullName: Register_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_9 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_10
+  fullName: Register_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_10 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_11
+  fullName: Register_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_11 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_12
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_12
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_12
+  fullName: Register_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_12
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_12 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_13
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_13
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_13
+  fullName: Register_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_13
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_13 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_14
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_14
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_14
+  fullName: Register_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_14
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_14 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_15
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_15
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_15
+  fullName: Register_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_15
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_15 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_16
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_16
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_16
+  fullName: Register_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_16
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_16 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_17
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_17
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_17
+  fullName: Register_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_17
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_17 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_18
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_18
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_18
+  fullName: Register_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_18
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_18 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_19
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_19
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_19
+  fullName: Register_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_19
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_19 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_20
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_20
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_20
+  fullName: Register_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_20
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_20 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_21
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_21
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_21
+  fullName: Register_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_21
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_21 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_22
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_22
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_22
+  fullName: Register_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_22
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_22 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_23
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_23
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_23
+  fullName: Register_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OIntRegs_v_1_x_x.Register_23
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_23 : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+
+

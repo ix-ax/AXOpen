@@ -1,0 +1,231 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._300
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._600
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._1200
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._2400
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._4800
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._9600
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._19200
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._38400
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._57600
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._76800
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._115200
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._250000
+  name: eAxoCmPtp_Baud
+  fullName: eAxoCmPtp_Baud
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_Baud : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._300
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._300
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _300 :=  UINT#1
+  fullName: _300
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._300
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._600
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._600
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _600 :=  UINT#2
+  fullName: _600
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._600
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._1200
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._1200
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _1200 :=  UINT#3
+  fullName: _1200
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._1200
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._2400
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._2400
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _2400 :=  UINT#4
+  fullName: _2400
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._2400
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._4800
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._4800
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _4800 :=  UINT#5
+  fullName: _4800
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._4800
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._9600
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._9600
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _9600 :=  UINT#6
+  fullName: _9600
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._9600
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._19200
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._19200
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _19200 :=  UINT#7
+  fullName: _19200
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._19200
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._38400
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._38400
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _38400 :=  UINT#8
+  fullName: _38400
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._38400
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._57600
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._57600
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _57600 :=  UINT#9
+  fullName: _57600
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._57600
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._76800
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._76800
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _76800 :=  UINT#10
+  fullName: _76800
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._76800
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._115200
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._115200
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _115200 :=  UINT#11
+  fullName: _115200
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._115200
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._250000
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._250000
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _250000 :=  UINT#12
+  fullName: _250000
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Baud._250000
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Baud.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

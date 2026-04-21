@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+  parent: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children:
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.InfoTime
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.ErrorTime
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.TaskTimeout
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.HWIDs
+  name: AxoKukaRobotics_Config
+  fullName: AxoKukaRobotics_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: CLASS AxoKukaRobotics_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.InfoTime
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.InfoTime
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.InfoTime
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.ErrorTime
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.ErrorTime
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.ErrorTime
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.TaskTimeout
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.TaskTimeout
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.TaskTimeout
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.HWIDs
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.HWIDs
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config.HWIDs
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs'
+    return:
+      type: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+  name: AxoKukaRobotics_HWIDs
+  nameWithType: AxoKukaRobotics_HWIDs
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+
+

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>Component_1 | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Component_1 | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/template.axolibrary/docs/ComponentTemplate.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -104,160 +102,59 @@
 <section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
 <h1 id="how-to-use-component-in-controller">How to use component in controller</h1>
 <h2 id="declare-component">Declare component</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                
-    ExampleComponent : Template.Axolibrary.TemplateComponent;             
-END_VAR
-</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h2 id="declare-initialization-variables">Declare initialization variables</h2>
 <p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
-<pre><code class="lang-pascal">VAR PUBLIC              
-    {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
-    ActivateManualControl : BOOL;         
-END_VAR
-</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">ExampleComponent.Run(
-                    parent  :=   THIS,
-                    hwID    :=   WORD#60,
-                    hwID_1  :=   WORD#61,
-                    hwID_2  :=   WORD#62,
-                    hwID_3  :=   WORD#63,
-                    hwID_4  :=   WORD#64,
-                    hwID_5  :=   WORD#65,
-                    hwID_6  :=   WORD#66,
-                    hwID_7  :=   WORD#67,
-                    hwID_8  :=   WORD#68,
-                    hwID_9  :=   WORD#69,
-                    hwID_10 :=   WORD#70,
-                    hwID_11 :=   WORD#71,
-                    hwID_12 :=   WORD#72,
-                    hwID_13 :=   WORD#73,
-                    hwID_14 :=   WORD#74,
-                    hwID_15 :=   WORD#75,
-                    hwID_16 :=   WORD#76,
-                    hwID_17 :=   WORD#77,
-                    hwID_18 :=   WORD#78,
-                    hwID_19 :=   WORD#79,
-                    hwID_20 :=   WORD#80);
-</code></pre><div class="IMPORTANT">
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h2 id="initialize--run">Initialize &amp; Run</h2>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><div class="IMPORTANT">
 <h5>Important</h5>
 <p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
 </div>
 <h2 id="use">Use</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                       
-    Sequencer : AxoSequencer;       
-    Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
-END_VAR
-
-METHOD PRIVATE UseInSequencer   
-    IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
-        Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-    END_IF;
-
-    Sequencer.Run(THIS);
-    Sequencer.Open();
-
-    IF(Steps[0].Execute(Sequencer, 'TemplateMethod_10steps_1')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_1().IsDone()) THEN                
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;
-
-    IF(Steps[1].Execute(Sequencer, 'TemplateMethod_10steps_2')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_2().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[2].Execute(Sequencer, 'TemplateMethod_10steps_3')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_3().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[3].Execute(Sequencer, 'TemplateMethod_10steps_4')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_4().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[4].Execute(Sequencer, 'TemplateMethod_10steps_5')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_5().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[5].Execute(Sequencer, 'TemplateMethod_10steps_6')) THEN
-        IF(ExampleComponent.TemplateMethod_10steps_6().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[6].Execute(Sequencer, 'TemplateMethod_20steps_1')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_1().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[7].Execute(Sequencer, 'TemplateMethod_20steps_2')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_2().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[8].Execute(Sequencer, 'TemplateMethod_20steps_3')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_3().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[9].Execute(Sequencer, 'TemplateMethod_20steps_4')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_4().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[10].Execute(Sequencer, 'TemplateMethod_20steps_5')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_5().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[11].Execute(Sequencer, 'TemplateMethod_20steps_6')) THEN
-        IF(ExampleComponent.TemplateMethod_20steps_6().IsDone()) THEN     
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-
-    IF(Steps[12].Execute(Sequencer, 'Restore')) THEN
-        ExampleComponent.Restore();
-        Sequencer.CompleteSequence();    
-    END_IF;       
-
-END_METHOD
-
-</code></pre></section>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div></section>
 <section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
-<pre><code class="lang-csharp"></code></pre></section>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div></section>
 <section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
 <h2 id="generic-read-only-view">Generic Read-Only view</h2>
-<pre><code class="lang-html">&lt;AxoComponentStatusView Component=&quot;@Entry.Plc.documentation.componentOne.ExampleComponent&quot; /&gt;
-</code></pre><h2 id="generic-control-view">Generic control view</h2>
-<pre><code class="lang-html">&lt;AxoComponentCommandView Component=&quot;@Entry.Plc.documentation.componentOne.ExampleComponent&quot; /&gt;
-</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-status-read-only-view">Type agnostic using RenderableContentControl status (Read-Only) view</h2>
-<pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
-&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Status-Display&quot; /&gt;
-</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-control-view">Type agnostic using RenderableContentControl control view</h2>
-<pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
-&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Command-Control&quot; /&gt;
-</code></pre></section>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h2 id="generic-control-view">Generic control view</h2>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h2 id="type-agnostic-using-renderablecontentcontrol-status-read-only-view">Type agnostic using RenderableContentControl status (Read-Only) view</h2>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h2 id="type-agnostic-using-renderablecontentcontrol-control-view">Type agnostic using RenderableContentControl control view</h2>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div></section>
 </div>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/template.axolibrary/docs/ComponentTemplate.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -267,7 +164,7 @@ END_METHOD
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

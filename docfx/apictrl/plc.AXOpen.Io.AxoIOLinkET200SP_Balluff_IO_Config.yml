@@ -1,0 +1,206 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.InfoTime
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.ErrorTime
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.TaskTimeout
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Hwid
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_1
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_2
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_3
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_4
+  name: AxoIOLinkET200SP_Balluff_IO_Config
+  fullName: AxoIOLinkET200SP_Balluff_IO_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoIOLinkET200SP_Balluff_IO_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.InfoTime
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.InfoTime
+  parent: AXOpen.Io
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.InfoTime
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.ErrorTime
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.ErrorTime
+  parent: AXOpen.Io
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.ErrorTime
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.TaskTimeout
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.TaskTimeout
+  parent: AXOpen.Io
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.TaskTimeout
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Hwid
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Hwid
+  parent: AXOpen.Io
+  children: []
+  name: Hwid
+  fullName: Hwid
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Hwid
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Hwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_1
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_1
+  parent: AXOpen.Io
+  children: []
+  name: Port_1
+  fullName: Port_1
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_1
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Port_1 : AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig'
+    return:
+      type: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_2
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_2
+  parent: AXOpen.Io
+  children: []
+  name: Port_2
+  fullName: Port_2
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_2
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Port_2 : AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig'
+    return:
+      type: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_3
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_3
+  parent: AXOpen.Io
+  children: []
+  name: Port_3
+  fullName: Port_3
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_3
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 17
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Port_3 : AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig'
+    return:
+      type: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_4
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_4
+  parent: AXOpen.Io
+  children: []
+  name: Port_4
+  fullName: Port_4
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Config.Port_4
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st
+    startLine: 19
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Port_4 : AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig'
+    return:
+      type: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+  name: eAxoIOLinkET200SP_Balluff_PortConfig
+  nameWithType: eAxoIOLinkET200SP_Balluff_PortConfig
+  fullName: AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig
+
+

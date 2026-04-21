@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.ReadCompleteClear
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.PresetCompleteClear
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.RegisterPresetDataCompleteClear
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.TuneCompleteClear
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.EXT_RequestCompleteClear
+  name: Axo_SR_1000_CompletionClearControl
+  fullName: Axo_SR_1000_CompletionClearControl
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_1000_CompletionClearControl
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.ReadCompleteClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.ReadCompleteClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadCompleteClear
+  fullName: ReadCompleteClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.ReadCompleteClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadCompleteClear : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.PresetCompleteClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.PresetCompleteClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PresetCompleteClear
+  fullName: PresetCompleteClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.PresetCompleteClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PresetCompleteClear : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.RegisterPresetDataCompleteClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.RegisterPresetDataCompleteClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RegisterPresetDataCompleteClear
+  fullName: RegisterPresetDataCompleteClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.RegisterPresetDataCompleteClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RegisterPresetDataCompleteClear : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.TuneCompleteClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.TuneCompleteClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneCompleteClear
+  fullName: TuneCompleteClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.TuneCompleteClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneCompleteClear : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.EXT_RequestCompleteClear
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.EXT_RequestCompleteClear
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: EXT_RequestCompleteClear
+  fullName: EXT_RequestCompleteClear
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl.EXT_RequestCompleteClear
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'EXT_RequestCompleteClear : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.InTargetPosition
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.PositionCommandAck
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.DriveStandstill
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CommandChangeBit
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit6_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit7_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.LockedByHardware
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit9_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit10_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit11_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit12_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit13_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit14_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit15_Reserve
+  name: AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  fullName: AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CmPmOmBit0
+  fullName: CmPmOmBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CmPmOmBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CmPmOmBit1
+  fullName: CmPmOmBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CmPmOmBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CmPmOmBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.InTargetPosition
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.InTargetPosition
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InTargetPosition
+  fullName: InTargetPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.InTargetPosition
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InTargetPosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.PositionCommandAck
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.PositionCommandAck
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PositionCommandAck
+  fullName: PositionCommandAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.PositionCommandAck
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PositionCommandAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.DriveStandstill
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.DriveStandstill
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveStandstill
+  fullName: DriveStandstill
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.DriveStandstill
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveStandstill : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CommandChangeBit
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CommandChangeBit
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandChangeBit
+  fullName: CommandChangeBit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.CommandChangeBit
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandChangeBit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit6_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit6_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit6_Reserve
+  fullName: _bit6_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit6_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit6_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit7_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit7_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit7_Reserve
+  fullName: _bit7_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit7_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit7_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.LockedByHardware
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.LockedByHardware
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: LockedByHardware
+  fullName: LockedByHardware
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.LockedByHardware
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'LockedByHardware : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit9_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit9_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit9_Reserve
+  fullName: _bit9_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit9_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit9_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit10_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit10_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit10_Reserve
+  fullName: _bit10_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit10_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit10_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit11_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit11_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit11_Reserve
+  fullName: _bit11_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit11_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit11_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit12_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit12_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit12_Reserve
+  fullName: _bit12_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit12_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit12_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit13_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit13_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit13_Reserve
+  fullName: _bit13_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit13_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit13_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit14_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit14_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit14_Reserve
+  fullName: _bit14_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit14_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit14_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit15_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit15_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit15_Reserve
+  fullName: _bit15_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0._bit15_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit15_Reserve : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoAiStatus
+  id: plc.AXOpen.Components.Elements.AxoAiStatus
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoAiStatus.RawRange
+  - plc.AXOpen.Components.Elements.AxoAiStatus.RealRange
+  - plc.AXOpen.Components.Elements.AxoAiStatus.Scaled
+  name: AxoAiStatus
+  fullName: AxoAiStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoAiStatus
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoAiStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Elements.AxoAiStatus.RawRange
+  id: plc.AXOpen.Components.Elements.AxoAiStatus.RawRange
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RawRange
+  fullName: RawRange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoAiStatus.RawRange
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RawRange : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Elements.AxoAiStatus.RealRange
+  id: plc.AXOpen.Components.Elements.AxoAiStatus.RealRange
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RealRange
+  fullName: RealRange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoAiStatus.RealRange
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RealRange : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Elements.AxoAiStatus.Scaled
+  id: plc.AXOpen.Components.Elements.AxoAiStatus.Scaled
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Scaled
+  fullName: Scaled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoAiStatus.Scaled
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Scaled : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

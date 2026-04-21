@@ -1,0 +1,345 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadEnergyLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectEnergyLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectEnergyLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadEnergyLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadPowerLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectPowerLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectPowerLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadPowerLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadTimeLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectTimeLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectTimeLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadTimeLimit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.GoodPart
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.BadPart
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.SuspectPart
+  name: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  fullName: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadEnergyLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadEnergyLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerBadEnergyLimit
+  fullName: LowerBadEnergyLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadEnergyLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerBadEnergyLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectEnergyLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectEnergyLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerSuspectEnergyLimit
+  fullName: LowerSuspectEnergyLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectEnergyLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerSuspectEnergyLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectEnergyLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectEnergyLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperSuspectEnergyLimit
+  fullName: UpperSuspectEnergyLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectEnergyLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperSuspectEnergyLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadEnergyLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadEnergyLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperBadEnergyLimit
+  fullName: UpperBadEnergyLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadEnergyLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperBadEnergyLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadPowerLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadPowerLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerBadPowerLimit
+  fullName: LowerBadPowerLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadPowerLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerBadPowerLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectPowerLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectPowerLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerSuspectPowerLimit
+  fullName: LowerSuspectPowerLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectPowerLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerSuspectPowerLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectPowerLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectPowerLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperSuspectPowerLimit
+  fullName: UpperSuspectPowerLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectPowerLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperSuspectPowerLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadPowerLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadPowerLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperBadPowerLimit
+  fullName: UpperBadPowerLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadPowerLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperBadPowerLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadTimeLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadTimeLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerBadTimeLimit
+  fullName: LowerBadTimeLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerBadTimeLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerBadTimeLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectTimeLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectTimeLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: LowerSuspectTimeLimit
+  fullName: LowerSuspectTimeLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.LowerSuspectTimeLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'LowerSuspectTimeLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectTimeLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectTimeLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperSuspectTimeLimit
+  fullName: UpperSuspectTimeLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperSuspectTimeLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperSuspectTimeLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadTimeLimit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadTimeLimit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: UpperBadTimeLimit
+  fullName: UpperBadTimeLimit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.UpperBadTimeLimit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'UpperBadTimeLimit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.GoodPart
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.GoodPart
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: GoodPart
+  fullName: GoodPart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.GoodPart
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'GoodPart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.BadPart
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.BadPart
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: BadPart
+  fullName: BadPart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.BadPart
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'BadPart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.SuspectPart
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.SuspectPart
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SuspectPart
+  fullName: SuspectPart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.SuspectPart
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SuspectPart : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

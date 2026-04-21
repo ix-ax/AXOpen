@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AXOpen Styling | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXOpen Styling | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopen-styling">AXOpen Styling</h1>
+
+<p>This package provides the standard styling and UI components for AXOpen applications. It is built on top of <a href="https://tailwindcss.com/">Tailwind CSS v4</a> and offers a consistent, modern look and feel for your Blazor applications.</p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li><p><strong>Add the NuGet package</strong> to your Blazor project:</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;AXOpen.Operon.Blazor&quot; Version=&quot;*&quot; /&gt;
+</code></pre>
+</li>
+<li><p><strong>Reference the stylesheet</strong> in your application's host file.</p>
+<ul>
+<li>For <strong>Blazor WebAssembly</strong>, add it to <code>wwwroot/index.html</code>.</li>
+<li>For <strong>Blazor Server</strong> or <strong>Blazor Web App</strong>, add it to <code>Components/App.razor</code> (or <code>Pages/_Host.cshtml</code> in older versions).</li>
+</ul>
+<p>Add the following lines to the <code>&lt;head&gt;</code> section:</p>
+<pre><code class="lang-html">&lt;link href=&quot;_content/Inxton.Operon/css/momentum.css&quot; rel=&quot;stylesheet&quot; /&gt;  (core styles)
+&lt;link href=&quot;_content/AXSharp.Presentation.Blazor.Controls/css/momentum.css&quot; rel=&quot;stylesheet&quot; /&gt; (if using AXSharp controls)
+&lt;link href=&quot;_content/AXOpen.Operon.Blazor/css/momentum.css&quot; rel=&quot;stylesheet&quot; /&gt;               
+</code></pre>
+</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<p>Once the stylesheet is referenced, standard HTML elements will automatically receive the AXOpen styling. The package also provides Tailwind CSS utility classes for custom styling.</p>
+<h3 id="theme-support">Theme Support</h3>
+<p>The styling supports both light and dark modes. The theme is determined by the <code>data-theme</code> attribute on a parent element (usually <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code>).</p>
+<pre><code class="lang-html">&lt;!-- Dark Mode --&gt;
+&lt;html data-theme=&quot;dark&quot;&gt;
+...
+&lt;/html&gt;
+</code></pre>
+<h3 id="css-variables">CSS Variables</h3>
+<p>The styling is based on CSS variables, which can be overridden in your application's CSS to customize colors, spacing, and other design tokens.</p>
+<h4 id="color-variables">Color Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Light Mode</th>
+<th>Dark Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--color-background</code></td>
+<td><code>#f8fafc</code></td>
+<td><code>#020617</code></td>
+<td>Main background color</td>
+</tr>
+<tr>
+<td><code>--color-background-light</code></td>
+<td><code>#f1f5f9</code></td>
+<td><code>#0f172a</code></td>
+<td>Light background variant</td>
+</tr>
+<tr>
+<td><code>--color-background-dark</code></td>
+<td><code>#e2e8f0</code></td>
+<td><code>#1e293b</code></td>
+<td>Dark background variant</td>
+</tr>
+<tr>
+<td><code>--color-text</code></td>
+<td><code>#0f172a</code></td>
+<td><code>#e2e8f0</code></td>
+<td>Primary text color</td>
+</tr>
+<tr>
+<td><code>--color-text-light</code></td>
+<td><code>#475569</code></td>
+<td><code>#94a3b8</code></td>
+<td>Secondary text color</td>
+</tr>
+<tr>
+<td><code>--color-border</code></td>
+<td><code>#64748b</code></td>
+<td><code>#94a3b8</code></td>
+<td>Border color</td>
+</tr>
+<tr>
+<td><code>--color-primary</code></td>
+<td><code>#0a319e</code></td>
+<td><code>#818cf8</code></td>
+<td>Primary accent color</td>
+</tr>
+<tr>
+<td><code>--color-success</code></td>
+<td><code>#00703C</code></td>
+<td><code>#00703C</code></td>
+<td>Success state color</td>
+</tr>
+<tr>
+<td><code>--color-warning</code></td>
+<td><code>#EC9811</code></td>
+<td><code>#EC9811</code></td>
+<td>Warning state color</td>
+</tr>
+<tr>
+<td><code>--color-danger</code></td>
+<td><code>#f43f5e</code></td>
+<td><code>#f43f5e</code></td>
+<td>Danger/error state color</td>
+</tr>
+<tr>
+<td><code>--color-info</code></td>
+<td><code>#2B8CC4</code></td>
+<td><code>#2B8CC4</code></td>
+<td>Info state color</td>
+</tr>
+<tr>
+<td><code>--color-link</code></td>
+<td><code>#0369a1</code></td>
+<td><code>#82cfff</code></td>
+<td>Link color</td>
+</tr>
+<tr>
+<td><code>--color-link-hover</code></td>
+<td><code>#0c4a6e</code></td>
+<td><code>#e0f2fe</code></td>
+<td>Link hover color</td>
+</tr>
+</tbody>
+</table>
+<h4 id="radius-variables">Radius Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--radius-small</code></td>
+<td><code>1rem</code></td>
+<td>Base small radius</td>
+</tr>
+<tr>
+<td><code>--radius-button</code></td>
+<td><code>calc(infinity * 1px)</code></td>
+<td>Button border radius (fully rounded)</td>
+</tr>
+<tr>
+<td><code>--radius-input</code></td>
+<td><code>var(--radius-small)</code></td>
+<td>Input field radius</td>
+</tr>
+<tr>
+<td><code>--radius-card</code></td>
+<td><code>var(--radius-small)</code></td>
+<td>Card border radius</td>
+</tr>
+<tr>
+<td><code>--radius-modal</code></td>
+<td><code>var(--radius-small)</code></td>
+<td>Modal border radius</td>
+</tr>
+<tr>
+<td><code>--radius-nav</code></td>
+<td><code>var(--radius-small)</code></td>
+<td>Navigation element radius</td>
+</tr>
+</tbody>
+</table>
+<h3 id="customization-example">Customization Example</h3>
+<pre><code class="lang-css">:root {
+    --color-primary: #0056b3; /* Override primary color */
+    --radius-button: 0.5rem;  /* Override button radius */
+    --radius-small: 0.75rem;  /* Override base radius */
+}
+</code></pre>
+<h2 id="development">Development</h2>
+<h3 id="building-the-css">Building the CSS</h3>
+<p>The styling uses Tailwind CSS v4. To build or watch for changes:</p>
+<pre><code class="lang-bash"># Navigate to the src directory
+cd src/styling/src
+
+# Install dependencies
+npm install
+
+# Build the CSS (minified)
+npm run build:css
+
+# Watch for changes during development
+npm run watch:css
+</code></pre>
+<p>The source Tailwind configuration is in <code>wwwroot/css/tailwind.css</code> and the compiled output is <code>wwwroot/css/momentum.css</code>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

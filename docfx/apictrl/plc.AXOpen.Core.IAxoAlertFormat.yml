@@ -1,0 +1,162 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoAlertFormat
+  id: plc.AXOpen.Core.IAxoAlertFormat
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoAlertFormat.WithTitle(STRING)
+  - plc.AXOpen.Core.IAxoAlertFormat.WithMessage(STRING)
+  - plc.AXOpen.Core.IAxoAlertFormat.WithTimeToBurn(UINT)
+  - plc.AXOpen.Core.IAxoAlertFormat.WithType(eDialogType)
+  - plc.AXOpen.Core.IAxoAlertFormat.IsShown()
+  name: IAxoAlertFormat
+  fullName: IAxoAlertFormat
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoAlertFormat
+  implements: []
+- uid: plc.AXOpen.Core.IAxoAlertFormat.WithTitle(STRING)
+  id: plc.AXOpen.Core.IAxoAlertFormat.WithTitle
+  parent: IAxoAlertFormat
+  children: []
+  name: WithTitle
+  fullName: WithTitle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat.WithTitle
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertFormat WithTitle(in plc.STRING inTitle)
+    parameters:
+    - id: inTitle
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoAlertFormat
+- uid: plc.AXOpen.Core.IAxoAlertFormat.WithMessage(STRING)
+  id: plc.AXOpen.Core.IAxoAlertFormat.WithMessage
+  parent: IAxoAlertFormat
+  children: []
+  name: WithMessage
+  fullName: WithMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat.WithMessage
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertFormat WithMessage(in plc.STRING inMessage)
+    parameters:
+    - id: inMessage
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoAlertFormat
+- uid: plc.AXOpen.Core.IAxoAlertFormat.WithTimeToBurn(UINT)
+  id: plc.AXOpen.Core.IAxoAlertFormat.WithTimeToBurn
+  parent: IAxoAlertFormat
+  children: []
+  name: WithTimeToBurn
+  fullName: WithTimeToBurn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat.WithTimeToBurn
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertFormat WithTimeToBurn(in plc.UINT inSeconds)
+    parameters:
+    - id: inSeconds
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoAlertFormat
+- uid: plc.AXOpen.Core.IAxoAlertFormat.WithType(eDialogType)
+  id: plc.AXOpen.Core.IAxoAlertFormat.WithType
+  parent: IAxoAlertFormat
+  children: []
+  name: WithType
+  fullName: WithType
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat.WithType
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 20
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertFormat WithType(in plc.AXOpen.Core.eDialogType inDialogType)
+    parameters:
+    - id: inDialogType
+      type: plc.AXOpen.Core.eDialogType
+    return:
+      type: plc.AXOpen.Core.IAxoAlertFormat
+- uid: plc.AXOpen.Core.IAxoAlertFormat.IsShown()
+  id: plc.AXOpen.Core.IAxoAlertFormat.IsShown
+  parent: IAxoAlertFormat
+  children: []
+  name: IsShown
+  fullName: IsShown
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.IAxoAlertFormat.IsShown
+    path: .\src\core\ctrl\src\AxoAlert\IAxoAlertFormat.st
+    startLine: 26
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsShown()
+    parameters: []
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.IAxoAlertFormat
+  name: IAxoAlertFormat
+  nameWithType: IAxoAlertFormat
+  fullName: AXOpen.Core.IAxoAlertFormat
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Core.eDialogType
+  name: eDialogType
+  nameWithType: eDialogType
+  fullName: AXOpen.Core.eDialogType
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

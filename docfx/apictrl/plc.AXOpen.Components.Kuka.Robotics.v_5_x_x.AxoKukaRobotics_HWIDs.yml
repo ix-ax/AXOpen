@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+  parent: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children:
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_Device
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_None
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_512_DI_DO
+  name: AxoKukaRobotics_HWIDs
+  fullName: AxoKukaRobotics_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: CLASS AxoKukaRobotics_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_Device
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_Device
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: HwID_Device
+  fullName: HwID_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_Device
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'HwID_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_None
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_None
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: HwID_None
+  fullName: HwID_None
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_None
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'HwID_None : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_512_DI_DO
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_512_DI_DO
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: HwID_512_DI_DO
+  fullName: HwID_512_DI_DO
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs.HwID_512_DI_DO
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'HwID_512_DI_DO : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

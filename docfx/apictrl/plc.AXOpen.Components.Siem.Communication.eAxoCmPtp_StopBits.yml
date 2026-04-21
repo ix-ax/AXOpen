@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._1stopBits
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._2stopBits
+  name: eAxoCmPtp_StopBits
+  fullName: eAxoCmPtp_StopBits
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_StopBits : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._1stopBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._1stopBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _1stopBits :=  UINT#1
+  fullName: _1stopBits
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._1stopBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._2stopBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._2stopBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _2stopBits :=  UINT#2
+  fullName: _2stopBits
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_StopBits._2stopBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_StopBits.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

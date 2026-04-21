@@ -1,0 +1,479 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InReference
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InStandstill
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointReached
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.CommandChangeBit
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.OperatingModeError
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.StatusSetpointProcess
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointAcknowledge
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.MessageZKL3
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.WarningZKL2
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.DriveErrorZKL1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0051_ActualPosition
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0040_ActualVelocity
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0390_Diagnosis
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0144_SignalStatusWord
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0084_ActualTorque
+  name: AxoIndraDriveFieldBusIn
+  fullName: AxoIndraDriveFieldBusIn
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoIndraDriveFieldBusIn
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PhaseAcknowledgeBit0
+  fullName: PhaseAcknowledgeBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PhaseAcknowledgeBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PhaseAcknowledgeBit1
+  fullName: PhaseAcknowledgeBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.PhaseAcknowledgeBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PhaseAcknowledgeBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InReference
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InReference
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InReference
+  fullName: InReference
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InReference
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InReference : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InStandstill
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InStandstill
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InStandstill
+  fullName: InStandstill
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.InStandstill
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InStandstill : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointReached
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointReached
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetpointReached
+  fullName: SetpointReached
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointReached
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetpointReached : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.CommandChangeBit
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.CommandChangeBit
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandChangeBit
+  fullName: CommandChangeBit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.CommandChangeBit
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandChangeBit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.OperatingModeError
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.OperatingModeError
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OperatingModeError
+  fullName: OperatingModeError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.OperatingModeError
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OperatingModeError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.StatusSetpointProcess
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.StatusSetpointProcess
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: StatusSetpointProcess
+  fullName: StatusSetpointProcess
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.StatusSetpointProcess
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'StatusSetpointProcess : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualOperatingModeBit0
+  fullName: ActualOperatingModeBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualOperatingModeBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualOperatingModeBit1
+  fullName: ActualOperatingModeBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ActualOperatingModeBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualOperatingModeBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointAcknowledge
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointAcknowledge
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetpointAcknowledge
+  fullName: SetpointAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.SetpointAcknowledge
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetpointAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.MessageZKL3
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.MessageZKL3
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MessageZKL3
+  fullName: MessageZKL3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.MessageZKL3
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'MessageZKL3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.WarningZKL2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.WarningZKL2
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WarningZKL2
+  fullName: WarningZKL2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.WarningZKL2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WarningZKL2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.DriveErrorZKL1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.DriveErrorZKL1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveErrorZKL1
+  fullName: DriveErrorZKL1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.DriveErrorZKL1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveErrorZKL1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadyToOperateBit0
+  fullName: ReadyToOperateBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadyToOperateBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadyToOperateBit1
+  fullName: ReadyToOperateBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.ReadyToOperateBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadyToOperateBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0051_ActualPosition
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0051_ActualPosition
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0051_ActualPosition
+  fullName: S_0_0051_ActualPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0051_ActualPosition
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0051_ActualPosition : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0040_ActualVelocity
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0040_ActualVelocity
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0040_ActualVelocity
+  fullName: S_0_0040_ActualVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0040_ActualVelocity
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0040_ActualVelocity : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0390_Diagnosis
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0390_Diagnosis
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0390_Diagnosis
+  fullName: S_0_0390_Diagnosis
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0390_Diagnosis
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0390_Diagnosis : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0144_SignalStatusWord
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0144_SignalStatusWord
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0144_SignalStatusWord
+  fullName: S_0_0144_SignalStatusWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0144_SignalStatusWord
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0144_SignalStatusWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0084_ActualTorque
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0084_ActualTorque
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0084_ActualTorque
+  fullName: S_0_0084_ActualTorque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn.S_0_0084_ActualTorque
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusIn.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0084_ActualTorque : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

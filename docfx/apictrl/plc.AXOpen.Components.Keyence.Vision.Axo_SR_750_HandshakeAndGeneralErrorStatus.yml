@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.Error
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataAvailable
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataStrobe
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.BufferOverflowError
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.GeneralError
+  name: Axo_SR_750_HandshakeAndGeneralErrorStatus
+  fullName: Axo_SR_750_HandshakeAndGeneralErrorStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_HandshakeAndGeneralErrorStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.Error
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.Error
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.Error
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataAvailable
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataAvailable
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataAvailable
+  fullName: ResultDataAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataAvailable
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataStrobe
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataStrobe
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataStrobe
+  fullName: ResultDataStrobe
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.ResultDataStrobe
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataStrobe : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.BufferOverflowError
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.BufferOverflowError
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BufferOverflowError
+  fullName: BufferOverflowError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.BufferOverflowError
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BufferOverflowError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.GeneralError
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.GeneralError
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: GeneralError
+  fullName: GeneralError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HandshakeAndGeneralErrorStatus.GeneralError
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_HandshakeAndGeneralErrorStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'GeneralError : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

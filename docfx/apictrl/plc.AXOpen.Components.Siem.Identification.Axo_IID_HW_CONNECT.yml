@@ -1,0 +1,189 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.HW_ID
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.AR_NUMBER
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.API
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SLOT
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SUB_SLOT
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.CM_CHANNEL
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.Static
+  name: Axo_IID_HW_CONNECT
+  fullName: Axo_IID_HW_CONNECT
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_HW_CONNECT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.HW_ID
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.HW_ID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HW_ID
+  fullName: HW_ID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.HW_ID
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HW_ID : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.AR_NUMBER
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.AR_NUMBER
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: AR_NUMBER
+  fullName: AR_NUMBER
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.AR_NUMBER
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'AR_NUMBER : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.API
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.API
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: API
+  fullName: API
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.API
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'API : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SLOT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SLOT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SLOT
+  fullName: SLOT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SLOT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SLOT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SUB_SLOT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SUB_SLOT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SUB_SLOT
+  fullName: SUB_SLOT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.SUB_SLOT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SUB_SLOT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.CM_CHANNEL
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.CM_CHANNEL
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CM_CHANNEL
+  fullName: CM_CHANNEL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.CM_CHANNEL
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CM_CHANNEL : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.Static
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.Static
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Static
+  fullName: Static
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT.Static
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_HW_CONNECT.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Static : AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+  name: Axo_IID_IN_SYNC
+  nameWithType: Axo_IID_IN_SYNC
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_IN_SYNC
+
+

@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.EnableTurn
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.StartTurn
+  name: AxoRotaryIndexingTable_Control
+  fullName: AxoRotaryIndexingTable_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoRotaryIndexingTable_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.EnableTurn
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.EnableTurn
+  parent: AXOpen.Components.Elements
+  children: []
+  name: EnableTurn
+  fullName: EnableTurn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.EnableTurn
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'EnableTurn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.StartTurn
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.StartTurn
+  parent: AXOpen.Components.Elements
+  children: []
+  name: StartTurn
+  fullName: StartTurn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control.StartTurn
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'StartTurn : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

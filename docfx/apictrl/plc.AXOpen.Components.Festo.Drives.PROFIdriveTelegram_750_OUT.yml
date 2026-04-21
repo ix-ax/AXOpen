@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_ADD1
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_POS
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_NEG
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.Reserved
+  name: PROFIdriveTelegram_750_OUT
+  fullName: PROFIdriveTelegram_750_OUT
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_750_OUT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_ADD1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_ADD1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: M_ADD1
+  fullName: M_ADD1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_ADD1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'M_ADD1 : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_POS
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_POS
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: M_LIMIT_POS
+  fullName: M_LIMIT_POS
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_POS
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'M_LIMIT_POS : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_NEG
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_NEG
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: M_LIMIT_NEG
+  fullName: M_LIMIT_NEG
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.M_LIMIT_NEG
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'M_LIMIT_NEG : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.Reserved
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.Reserved
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Reserved
+  fullName: Reserved
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT.Reserved
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Reserved : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

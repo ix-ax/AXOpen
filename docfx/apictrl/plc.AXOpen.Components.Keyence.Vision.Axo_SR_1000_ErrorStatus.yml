@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.ReadFailure
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.PresetFailure
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.RegisterPresetDataFailure
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.TuneFailure
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.EXT_RequestFailure
+  name: Axo_SR_1000_ErrorStatus
+  fullName: Axo_SR_1000_ErrorStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_1000_ErrorStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.ReadFailure
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.ReadFailure
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadFailure
+  fullName: ReadFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.ReadFailure
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.PresetFailure
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.PresetFailure
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PresetFailure
+  fullName: PresetFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.PresetFailure
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PresetFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.RegisterPresetDataFailure
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.RegisterPresetDataFailure
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RegisterPresetDataFailure
+  fullName: RegisterPresetDataFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.RegisterPresetDataFailure
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RegisterPresetDataFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.TuneFailure
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.TuneFailure
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneFailure
+  fullName: TuneFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.TuneFailure
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.EXT_RequestFailure
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.EXT_RequestFailure
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: EXT_RequestFailure
+  fullName: EXT_RequestFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus.EXT_RequestFailure
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'EXT_RequestFailure : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN.M_Actual
+  name: PROFIdriveTelegram_750_IN
+  fullName: PROFIdriveTelegram_750_IN
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_750_IN
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN.M_Actual
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN.M_Actual
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: M_Actual
+  fullName: M_Actual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN.M_Actual
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_750.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'M_Actual : INT'
+    return:
+      type: INT
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

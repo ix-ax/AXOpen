@@ -1,0 +1,357 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMajorVersion
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMinorVersion
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.Reserved
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineSeconds
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMilliseconds
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMinutes
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineHours
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineDays
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotCurrent
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PW_IsPowerOn
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PR_IsProgramRunning
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.TB_IsTeachButtonPressed
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PB_IsPowerButtonPressed
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.SpeedSliderFraction
+  name: AxoUrRoboticsT2ORobot_v_1_x_x
+  fullName: AxoUrRoboticsT2ORobot_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2ORobot_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMajorVersion
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMajorVersion
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ControllerMajorVersion
+  fullName: ControllerMajorVersion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMajorVersion
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ControllerMajorVersion : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMinorVersion
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMinorVersion
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ControllerMinorVersion
+  fullName: ControllerMinorVersion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.ControllerMinorVersion
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ControllerMinorVersion : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.Reserved
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.Reserved
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Reserved
+  fullName: Reserved
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.Reserved
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Reserved : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RobotMode
+  fullName: RobotMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RobotMode : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineSeconds
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineSeconds
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RealtimeMachineSeconds
+  fullName: RealtimeMachineSeconds
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineSeconds
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RealtimeMachineSeconds : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMilliseconds
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMilliseconds
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RealtimeMachineMilliseconds
+  fullName: RealtimeMachineMilliseconds
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMilliseconds
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RealtimeMachineMilliseconds : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMinutes
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMinutes
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RealtimeMachineMinutes
+  fullName: RealtimeMachineMinutes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineMinutes
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RealtimeMachineMinutes : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineHours
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineHours
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RealtimeMachineHours
+  fullName: RealtimeMachineHours
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineHours
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RealtimeMachineHours : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineDays
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineDays
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RealtimeMachineDays
+  fullName: RealtimeMachineDays
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RealtimeMachineDays
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RealtimeMachineDays : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotCurrent
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotCurrent
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RobotCurrent
+  fullName: RobotCurrent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.RobotCurrent
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RobotCurrent : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PW_IsPowerOn
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PW_IsPowerOn
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: PW_IsPowerOn
+  fullName: PW_IsPowerOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PW_IsPowerOn
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'PW_IsPowerOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PR_IsProgramRunning
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PR_IsProgramRunning
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: PR_IsProgramRunning
+  fullName: PR_IsProgramRunning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PR_IsProgramRunning
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'PR_IsProgramRunning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.TB_IsTeachButtonPressed
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.TB_IsTeachButtonPressed
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TB_IsTeachButtonPressed
+  fullName: TB_IsTeachButtonPressed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.TB_IsTeachButtonPressed
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TB_IsTeachButtonPressed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PB_IsPowerButtonPressed
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PB_IsPowerButtonPressed
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: PB_IsPowerButtonPressed
+  fullName: PB_IsPowerButtonPressed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.PB_IsPowerButtonPressed
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'PB_IsPowerButtonPressed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.SpeedSliderFraction
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.SpeedSliderFraction
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: SpeedSliderFraction
+  fullName: SpeedSliderFraction
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2ORobot_v_1_x_x.SpeedSliderFraction
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'SpeedSliderFraction : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

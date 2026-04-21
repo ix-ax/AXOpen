@@ -1,0 +1,345 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+  parent: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_Device
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_CommandControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_SoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_7
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_8
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_9
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_10
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_11
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_12
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_13
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_14
+  name: AxoInsight_HWIDs
+  fullName: AxoInsight_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: CLASS AxoInsight_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_Device
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_Device
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_AcquisitionControl
+  fullName: HW_AcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_AcquisitionControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_AcquisitionStatus
+  fullName: HW_AcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_AcquisitionStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_InspectionControl
+  fullName: HW_InspectionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_InspectionControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_InspectionStatus
+  fullName: HW_InspectionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_InspectionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_InspectionStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_CommandControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_CommandControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_CommandControl
+  fullName: HW_CommandControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_CommandControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_CommandControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_SoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_SoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_SoftEventControl
+  fullName: HW_SoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_SoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_SoftEventControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_7
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_7
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_UserDataSlot_7
+  fullName: HW_UserDataSlot_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_7
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_UserDataSlot_7 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_8
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_8
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_UserDataSlot_8
+  fullName: HW_UserDataSlot_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_8
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_UserDataSlot_8 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_9
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_9
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_UserDataSlot_9
+  fullName: HW_UserDataSlot_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_9
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_UserDataSlot_9 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_10
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_10
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_UserDataSlot_10
+  fullName: HW_UserDataSlot_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_UserDataSlot_10
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_UserDataSlot_10 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_11
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_11
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_ResultData_Slot_11
+  fullName: HW_ResultData_Slot_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_11
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_ResultData_Slot_11 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_12
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_12
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_ResultData_Slot_12
+  fullName: HW_ResultData_Slot_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_12
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_ResultData_Slot_12 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_13
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_13
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_ResultData_Slot_13
+  fullName: HW_ResultData_Slot_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_13
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_ResultData_Slot_13 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_14
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_14
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HW_ResultData_Slot_14
+  fullName: HW_ResultData_Slot_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs.HW_ResultData_Slot_14
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HW_ResultData_Slot_14 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

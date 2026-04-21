@@ -1,0 +1,1569 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._infoTimer
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._errorTimer
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._blink
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._context
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._someTaskIsActive
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Execute
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_RepeatCommand
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_SoftReset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Init
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_HwConnect
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Cmd
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Tx
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Rx
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Done
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Busy
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Error
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Warning
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Status
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readAddress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readNumberOfBytes
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readBufferOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readData
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeAddress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeNumberOfBytes
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeBufferOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeData
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._messageCode
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._lastMessageCode
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._category
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadNumberOfBytes
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadAddress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadBufferOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadData
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteNumberOfBytes
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteAddress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteBufferOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteData
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftResetTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReaderTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.RestoreTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Config
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Status
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Messenger
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.TaskMessenger
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.IdentProfileMessenger
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._progress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Run(IAxoObject,UINT,DWORD,WORD,WORD,UINT)
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ManualControl()
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Restore()
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,WORD,UINT,REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256)
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,UINT,UINT)
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256,DWORD,WORD,UINT)
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(STRING,DWORD,UINT)
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftReset()
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReader()
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.CallTimers(BOOL)
+  name: Axo_IdentDevice
+  fullName: Axo_IdentDevice
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IdentDevice
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._infoTimer
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._infoTimer
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._infoTimer
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._errorTimer
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._errorTimer
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._errorTimer
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._blink
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._blink
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._blink
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._context
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._context
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._context
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._someTaskIsActive
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._someTaskIsActive
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _someTaskIsActive
+  fullName: _someTaskIsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._someTaskIsActive
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_someTaskIsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile
+  fullName: _identProfile
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile : AXOpen.Components.Siem.Identification.Axo_IdentProfile'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IdentProfile
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Execute
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Execute
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Execute
+  fullName: _identProfile_Execute
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Execute
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Execute : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_RepeatCommand
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_RepeatCommand
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_RepeatCommand
+  fullName: _identProfile_RepeatCommand
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_RepeatCommand
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_RepeatCommand : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_SoftReset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_SoftReset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_SoftReset
+  fullName: _identProfile_SoftReset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_SoftReset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_SoftReset : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Init
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Init
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Init
+  fullName: _identProfile_Init
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Init
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Init : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_HwConnect
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_HwConnect
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_HwConnect
+  fullName: _identProfile_HwConnect
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_HwConnect
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_HwConnect : AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Cmd
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Cmd
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Cmd
+  fullName: _identProfile_Cmd
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Cmd
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Cmd : AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Tx
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Tx
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Tx
+  fullName: _identProfile_Tx
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Tx
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Tx : ARRAY [0..255] OF BYTE'
+    return:
+      type: ARRAY [0..255] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Rx
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Rx
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Rx
+  fullName: _identProfile_Rx
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Rx
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Rx : ARRAY [0..255] OF BYTE'
+    return:
+      type: ARRAY [0..255] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Done
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Done
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Done
+  fullName: _identProfile_Done
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Done
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Done : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Busy
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Busy
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Busy
+  fullName: _identProfile_Busy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Busy
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Busy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Error
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Error
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Error
+  fullName: _identProfile_Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Error
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Warning
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Warning
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Warning
+  fullName: _identProfile_Warning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Warning
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Warning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Status
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _identProfile_Status
+  fullName: _identProfile_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._identProfile_Status
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_identProfile_Status : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readAddress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readAddress
+  fullName: _readAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readAddress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readAddress : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readNumberOfBytes
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readNumberOfBytes
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readNumberOfBytes
+  fullName: _readNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readNumberOfBytes
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readBufferOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readBufferOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readBufferOffset
+  fullName: _readBufferOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readBufferOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readBufferOffset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readData
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readData
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readData
+  fullName: _readData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._readData
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readData : AXOpen.Components.Siem.Identification.AxoByteArray256'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeAddress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeAddress
+  fullName: _writeAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeAddress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeAddress : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeNumberOfBytes
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeNumberOfBytes
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeNumberOfBytes
+  fullName: _writeNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeNumberOfBytes
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeBufferOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeBufferOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeBufferOffset
+  fullName: _writeBufferOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeBufferOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeBufferOffset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeData
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeData
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeData
+  fullName: _writeData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._writeData
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeData : AXOpen.Components.Siem.Identification.AxoByteArray256'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._messageCode
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._messageCode
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _messageCode
+  fullName: _messageCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._messageCode
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_messageCode : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._lastMessageCode
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._lastMessageCode
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _lastMessageCode
+  fullName: _lastMessageCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._lastMessageCode
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_lastMessageCode : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._category
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._category
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _category
+  fullName: _category
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._category
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_category : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadNumberOfBytes
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadNumberOfBytes
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadNumberOfBytes
+  fullName: ReadNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadNumberOfBytes
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadAddress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadAddress
+  fullName: ReadAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadAddress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadBufferOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadBufferOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadBufferOffset
+  fullName: ReadBufferOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadBufferOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadBufferOffset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadData
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadData
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadData
+  fullName: ReadData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ReadData
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadData : AXOpen.Components.Siem.Identification.AxoByteArray256'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteTask
+  fullName: WriteTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteNumberOfBytes
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteNumberOfBytes
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteNumberOfBytes
+  fullName: WriteNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteNumberOfBytes
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 81
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteAddress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteAddress
+  fullName: WriteAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteAddress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteBufferOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteBufferOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteBufferOffset
+  fullName: WriteBufferOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteBufferOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteBufferOffset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteData
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteData
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteData
+  fullName: WriteData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.WriteData
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteData : AXOpen.Components.Siem.Identification.AxoByteArray256'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftResetTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftResetTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SoftResetTask
+  fullName: SoftResetTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftResetTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 98
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SoftResetTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReaderTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReaderTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ResetReaderTask
+  fullName: ResetReaderTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReaderTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ResetReaderTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.RestoreTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.RestoreTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.RestoreTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Config
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Config
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Config
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Config : AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Status
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Status
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Status : AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Messenger
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Messenger
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Messenger
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.TaskMessenger
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.TaskMessenger
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.TaskMessenger
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.IdentProfileMessenger
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.IdentProfileMessenger
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IdentProfileMessenger
+  fullName: IdentProfileMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.IdentProfileMessenger
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IdentProfileMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._progress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._progress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice._progress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.HardwareDiagnosticsTask
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 133
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Run(IAxoObject,UINT,DWORD,WORD,WORD,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Run(IAxoObject,UINT,DWORD,WORD,WORD,UINT)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Run
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 140
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT HW_ID,in plc.DWORD API,in plc.WORD SLOT,in plc.WORD SUB_SLOT,in plc.UINT CM_CHANNEL)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: HW_ID
+      type: plc.UINT
+    - id: API
+      type: plc.DWORD
+    - id: SLOT
+      type: plc.WORD
+    - id: SUB_SLOT
+      type: plc.WORD
+    - id: CM_CHANNEL
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ManualControl()
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ManualControl()
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ManualControl
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 761
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Restore()
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Restore()
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Restore
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 776
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,WORD,UINT,REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,WORD,UINT,REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 790
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.DWORD Address,in plc.WORD NumberOfBytes,in plc.UINT BufferOffset,in plc.REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256 Data)
+    parameters:
+    - id: Address
+      type: plc.DWORD
+    - id: NumberOfBytes
+      type: plc.WORD
+    - id: BufferOffset
+      type: plc.UINT
+    - id: Data
+      type: plc.REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,UINT,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read(DWORD,UINT,UINT)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Read
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 828
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.DWORD Address,in plc.UINT NumberOfChars,in plc.UINT BufferOffset)
+    parameters:
+    - id: Address
+      type: plc.DWORD
+    - id: NumberOfChars
+      type: plc.UINT
+    - id: BufferOffset
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256,DWORD,WORD,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256,DWORD,WORD,UINT)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Write
+  fullName: Write
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 864
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Write(in plc.REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256 Data,in plc.DWORD Address,in plc.WORD NumberOfBytes,in plc.UINT BufferOffset)
+    parameters:
+    - id: Data
+      type: plc.REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+    - id: Address
+      type: plc.DWORD
+    - id: NumberOfBytes
+      type: plc.WORD
+    - id: BufferOffset
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(STRING,DWORD,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write(STRING,DWORD,UINT)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: Write
+  fullName: Write
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.Write
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 887
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Write(in plc.STRING Data,in plc.DWORD Address,in plc.UINT BufferOffset)
+    parameters:
+    - id: Data
+      type: plc.STRING
+    - id: Address
+      type: plc.DWORD
+    - id: BufferOffset
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftReset()
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftReset()
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: SoftReset
+  fullName: SoftReset
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.SoftReset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 911
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SoftReset()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReader()
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReader()
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: ResetReader
+  fullName: ResetReader
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.ResetReader
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 911
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetReader()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.CallTimers(BOOL)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentDevice
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice.CallTimers
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentDevice.st
+    startLine: 911
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile
+  name: Axo_IdentProfile
+  nameWithType: Axo_IdentProfile
+  fullName: AXOpen.Components.Siem.Identification.Axo_IdentProfile
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  name: Axo_IID_HW_CONNECT
+  nameWithType: Axo_IID_HW_CONNECT
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  name: Axo_IID_CMD_STRUCT
+  nameWithType: Axo_IID_CMD_STRUCT
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+- uid: plc.ARRAY [0..255] OF BYTE
+  name: ARRAY [0..255] OF BYTE
+  nameWithType: ARRAY [0..255] OF BYTE
+  fullName: ARRAY [0..255] OF BYTE
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoByteArray256
+  name: AxoByteArray256
+  nameWithType: AxoByteArray256
+  fullName: AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+  name: Axo_IdentDevice_Config
+  nameWithType: Axo_IdentDevice_Config
+  fullName: AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+  name: Axo_IdentDevice_Component_Status
+  nameWithType: Axo_IdentDevice_Component_Status
+  fullName: AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+  name: REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+  nameWithType: REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+  fullName: REF_TO AXOpen.Components.Siem.Identification.AxoByteArray256
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

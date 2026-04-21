@@ -1,0 +1,101 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.status
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.subfunctionStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.stateNumber
+  name: AxoIOLink_typeDiagnostics
+  fullName: AxoIOLink_typeDiagnostics
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_typeDiagnostics
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.status
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: status
+  fullName: status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.status
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'status : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.subfunctionStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.subfunctionStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: subfunctionStatus
+  fullName: subfunctionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.subfunctionStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'subfunctionStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.stateNumber
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.stateNumber
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: stateNumber
+  fullName: stateNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics.stateNumber
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_typeDiagnostics.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'stateNumber : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+
+

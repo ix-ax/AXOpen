@@ -1,0 +1,328 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearSetup
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunScan
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunContinuously
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunWeld
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunTest
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearError
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_AmplitudeEnable
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.CycleStop
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_0
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_1
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_Amp_Setpoint
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ActiveSetupSelection
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningSetupSelection
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningMPCProbeSelection
+  name: Axo_IQ_SeriesWelder_SystemOutputs
+  fullName: Axo_IQ_SeriesWelder_SystemOutputs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_SystemOutputs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearSetup
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearSetup
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ClearSetup
+  fullName: ClearSetup
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearSetup
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ClearSetup : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunScan
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunScan
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunScan
+  fullName: RunScan
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunScan
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunScan : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunContinuously
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunContinuously
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunContinuously
+  fullName: RunContinuously
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunContinuously
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunContinuously : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunWeld
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunWeld
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunWeld
+  fullName: RunWeld
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunWeld
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunWeld : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunTest
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunTest
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunTest
+  fullName: RunTest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunTest
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunTest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearError
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearError
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ClearError
+  fullName: ClearError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ClearError
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ClearError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_AmplitudeEnable
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_AmplitudeEnable
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: OTF_AmplitudeEnable
+  fullName: OTF_AmplitudeEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_AmplitudeEnable
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'OTF_AmplitudeEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.CycleStop
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.CycleStop
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleStop
+  fullName: CycleStop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.CycleStop
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleStop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_0
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_0
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: FrontPanelLockout_0
+  fullName: FrontPanelLockout_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_0
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'FrontPanelLockout_0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_1
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_1
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: FrontPanelLockout_1
+  fullName: FrontPanelLockout_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.FrontPanelLockout_1
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'FrontPanelLockout_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_Amp_Setpoint
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_Amp_Setpoint
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: OTF_Amp_Setpoint
+  fullName: OTF_Amp_Setpoint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.OTF_Amp_Setpoint
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'OTF_Amp_Setpoint : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ActiveSetupSelection
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ActiveSetupSelection
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ActiveSetupSelection
+  fullName: ActiveSetupSelection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.ActiveSetupSelection
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ActiveSetupSelection : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningSetupSelection
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningSetupSelection
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunningSetupSelection
+  fullName: RunningSetupSelection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningSetupSelection
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunningSetupSelection : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningMPCProbeSelection
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningMPCProbeSelection
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunningMPCProbeSelection
+  fullName: RunningMPCProbeSelection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs.RunningMPCProbeSelection
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunningMPCProbeSelection : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+
+

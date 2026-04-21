@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.GetDiagnosticsReturnCode.Unknown
+  - plc.AXOpen.Io.GetDiagnosticsReturnCode.NoError
+  - plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDInvalid
+  - plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDisInvalid
+  - plc.AXOpen.Io.GetDiagnosticsReturnCode.OutOfResources
+  name: GetDiagnosticsReturnCode
+  fullName: GetDiagnosticsReturnCode
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'GetDiagnosticsReturnCode : INT'
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode.Unknown
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown := 	INT#-1
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode.Unknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode.NoError
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode.NoError
+  parent: AXOpen.Io
+  children: []
+  name: NoError := 	INT#0
+  fullName: NoError
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode.NoError
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDInvalid
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDInvalid
+  parent: AXOpen.Io
+  children: []
+  name: HardwareIDInvalid := 	INT#-32642
+  fullName: HardwareIDInvalid
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDInvalid
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDisInvalid
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDisInvalid
+  parent: AXOpen.Io
+  children: []
+  name: HardwareIDisInvalid := 	INT#-32624
+  fullName: HardwareIDisInvalid
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode.HardwareIDisInvalid
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.GetDiagnosticsReturnCode.OutOfResources
+  id: plc.AXOpen.Io.GetDiagnosticsReturnCode.OutOfResources
+  parent: AXOpen.Io
+  children: []
+  name: OutOfResources := 	INT#-32575
+  fullName: OutOfResources
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.GetDiagnosticsReturnCode.OutOfResources
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\GetDiagnosticsReturnCode.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

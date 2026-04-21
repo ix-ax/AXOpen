@@ -1,0 +1,164 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.InfoTime
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.ErrorTime
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.TaskTimeout
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.HWIDs
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.CurveExportLocation
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.IpAddress
+  name: AxoSmartFunctionKit_Config_v_4_x_x
+  fullName: AxoSmartFunctionKit_Config_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_Config_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.InfoTime
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.InfoTime
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.InfoTime
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.ErrorTime
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.ErrorTime
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.ErrorTime
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.TaskTimeout
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.TaskTimeout
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.TaskTimeout
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.HWIDs
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.HWIDs
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.HWIDs
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.CurveExportLocation
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.CurveExportLocation
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: CurveExportLocation
+  fullName: CurveExportLocation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.CurveExportLocation
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'CurveExportLocation : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.IpAddress
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.IpAddress
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: IpAddress
+  fullName: IpAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_Config_v_4_x_x.IpAddress
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'IpAddress : STRING'
+    return:
+      type: STRING
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+  name: AxoSmartFunctionKit_HWIDs_v_4_x_x
+  nameWithType: AxoSmartFunctionKit_HWIDs_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

@@ -1,0 +1,70 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives
+  id: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.IAxisReference
+  - plc.AXOpen.Components.Drives.AxoAxisRefIn
+  - plc.AXOpen.Components.Drives.AxoAxisRefOut
+  - plc.AXOpen.Components.Drives.AxoDrive
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+  - plc.AXOpen.Components.Drives.AxoDrive_Config
+  - plc.AXOpen.Components.Drives.AxoDrive_Status
+  - plc.AXOpen.Components.Drives.AxoMotionJogTask
+  - plc.AXOpen.Components.Drives.Axo_Power
+  name: plc.AXOpen.Components.Drives
+  fullName: Drives
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Drives
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoAxisRef.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Drives
+references:
+- uid: plc.AXOpen.Components.Drives.IAxisReference
+  name: IAxisReference
+  nameWithType: IAxisReference
+  fullName: AXOpen.Components.Drives.IAxisReference
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefIn
+  name: AxoAxisRefIn
+  nameWithType: AxoAxisRefIn
+  fullName: AXOpen.Components.Drives.AxoAxisRefIn
+- uid: plc.AXOpen.Components.Drives.AxoAxisRefOut
+  name: AxoAxisRefOut
+  nameWithType: AxoAxisRefOut
+  fullName: AXOpen.Components.Drives.AxoAxisRefOut
+- uid: plc.AXOpen.Components.Drives.AxoDrive
+  name: AxoDrive
+  nameWithType: AxoDrive
+  fullName: AXOpen.Components.Drives.AxoDrive
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+  name: AxoDriveParameterChannelIdnIn
+  nameWithType: AxoDriveParameterChannelIdnIn
+  fullName: AXOpen.Components.Drives.AxoDriveParameterChannelIdnIn
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+  name: AxoDriveParameterChannelIdnOut
+  nameWithType: AxoDriveParameterChannelIdnOut
+  fullName: AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config
+  name: AxoDrive_Config
+  nameWithType: AxoDrive_Config
+  fullName: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status
+  name: AxoDrive_Status
+  nameWithType: AxoDrive_Status
+  fullName: AXOpen.Components.Drives.AxoDrive_Status
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask
+  name: AxoMotionJogTask
+  nameWithType: AxoMotionJogTask
+  fullName: AXOpen.Components.Drives.AxoMotionJogTask
+- uid: plc.AXOpen.Components.Drives.Axo_Power
+  name: Axo_Power
+  nameWithType: Axo_Power
+  fullName: AXOpen.Components.Drives.Axo_Power
+
+

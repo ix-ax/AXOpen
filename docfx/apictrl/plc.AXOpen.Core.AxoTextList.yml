@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoTextList
+  id: plc.AXOpen.Core.AxoTextList
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoTextList.Id
+  name: AxoTextList
+  fullName: AxoTextList
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoTextList
+    path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoTextList
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Core.AxoTextList.Id
+  id: plc.AXOpen.Core.AxoTextList.Id
+  parent: AXOpen.Core
+  children: []
+  name: Id
+  fullName: Id
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Core.AxoTextList.Id
+    path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Id : ULINT'
+    return:
+      type: ULINT
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+
+

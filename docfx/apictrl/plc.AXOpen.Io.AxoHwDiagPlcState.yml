@@ -1,0 +1,177 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState
+  id: plc.AXOpen.Io.AxoHwDiagPlcState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagPlcState.ModuleDisabled
+  - plc.AXOpen.Io.AxoHwDiagPlcState.ConfigurationInRunActive
+  - plc.AXOpen.Io.AxoHwDiagPlcState.InputNotAvailable
+  - plc.AXOpen.Io.AxoHwDiagPlcState.OutputNotAvailable
+  - plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsBufferOverflow
+  - plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsNotAvailable
+  - plc.AXOpen.Io.AxoHwDiagPlcState.PartialDeviceFailure
+  name: AxoHwDiagPlcState
+  fullName: AxoHwDiagPlcState
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiagPlcState
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.ModuleDisabled
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.ModuleDisabled
+  parent: AXOpen.Io
+  children: []
+  name: ModuleDisabled
+  fullName: ModuleDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.ModuleDisabled
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ModuleDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.ConfigurationInRunActive
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.ConfigurationInRunActive
+  parent: AXOpen.Io
+  children: []
+  name: ConfigurationInRunActive
+  fullName: ConfigurationInRunActive
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.ConfigurationInRunActive
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ConfigurationInRunActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.InputNotAvailable
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.InputNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: InputNotAvailable
+  fullName: InputNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.InputNotAvailable
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'InputNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.OutputNotAvailable
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.OutputNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: OutputNotAvailable
+  fullName: OutputNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.OutputNotAvailable
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'OutputNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsBufferOverflow
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsBufferOverflow
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsBufferOverflow
+  fullName: DiagnosticsBufferOverflow
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsBufferOverflow
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsBufferOverflow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsNotAvailable
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsNotAvailable
+  fullName: DiagnosticsNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.DiagnosticsNotAvailable
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagPlcState.PartialDeviceFailure
+  id: plc.AXOpen.Io.AxoHwDiagPlcState.PartialDeviceFailure
+  parent: AXOpen.Io
+  children: []
+  name: PartialDeviceFailure
+  fullName: PartialDeviceFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Io.AxoHwDiagPlcState.PartialDeviceFailure
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagPlcState.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'PartialDeviceFailure : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

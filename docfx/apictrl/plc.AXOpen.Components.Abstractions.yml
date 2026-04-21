@@ -1,0 +1,35 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions
+  id: plc.AXOpen.Components.Abstractions
+  children:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  name: plc.AXOpen.Components.Abstractions
+  fullName: Abstractions
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abstractions
+    path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abstractions
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  name: AxoComponent_Status
+  nameWithType: AxoComponent_Status
+  fullName: AXOpen.Components.Abstractions.AxoComponent_Status
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  name: IAxoCodeReader
+  nameWithType: IAxoCodeReader
+  fullName: AXOpen.Components.Abstractions.IAxoCodeReader
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  name: IAxoVisionSensor
+  nameWithType: IAxoVisionSensor
+  fullName: AXOpen.Components.Abstractions.IAxoVisionSensor
+
+

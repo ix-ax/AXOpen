@@ -1,0 +1,87 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.S71500.Rtc
+  id: plc.AXOpen.S71500.Rtc
+  parent: plc.AXOpen.S71500
+  children:
+  - plc.AXOpen.S71500.Rtc.NowUTC()
+  - plc.AXOpen.S71500.Rtc.SetUTC(LDATE_AND_TIME)
+  name: Rtc
+  fullName: Rtc
+  type: Class
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtc
+    path: .\src\simatic1500\ctrl\src\Rtc.st
+    startLine: 2
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: CLASS Rtc
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.S71500.Rtc.NowUTC()
+  id: plc.AXOpen.S71500.Rtc.NowUTC()
+  parent: AXOpen.S71500.Rtc
+  children: []
+  name: NowUTC
+  fullName: NowUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtc.NowUTC
+    path: .\src\simatic1500\ctrl\src\Rtc.st
+    startLine: 3
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: Public LDATE_AND_TIME NowUTC()
+    parameters: []
+    return:
+      type: plc.LDATE_AND_TIME
+- uid: plc.AXOpen.S71500.Rtc.SetUTC(LDATE_AND_TIME)
+  id: plc.AXOpen.S71500.Rtc.SetUTC(LDATE_AND_TIME)
+  parent: AXOpen.S71500.Rtc
+  children: []
+  name: SetUTC
+  fullName: SetUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\simatic1500\ctrl\src\Rtc.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.S71500.Rtc.SetUTC
+    path: .\src\simatic1500\ctrl\src\Rtc.st
+    startLine: 11
+  namespace: plc.AXOpen.S71500
+  syntax:
+    content: Public WORD SetUTC(in plc.LDATE_AND_TIME Value)
+    parameters:
+    - id: Value
+      type: plc.LDATE_AND_TIME
+    return:
+      type: plc.WORD
+references:
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  commentId: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: plc.AXOpen.Rtc.IAxoRtc
+  parent: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

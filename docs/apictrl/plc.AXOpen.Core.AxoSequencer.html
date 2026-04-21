@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoSequencer | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoSequencer | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/axopen.templates/new/INT000053_Template_V2/apiSpec/new?filename=plc_AXOpen_Core_AxoSequencer.md&amp;value=---%0Auid%3A%20plc.AXOpen.Core.AxoSequencer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Core.AxoSequencer">
+
+
+
+  <h1 id="plc_AXOpen_Core_AxoSequencer" data-uid="plc.AXOpen.Core.AxoSequencer" class="text-break">
+Class AxoSequencer  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L5"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoSequencer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoTask.html">AxoTask</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html">AxoTaskLight</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoSequencer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoSequencer.html">IAxoSequencer</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteInvoke">RemoteInvoke</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteRestore">RemoteRestore</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteAbort">RemoteAbort</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteResume">RemoteResume</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask__messenger">_messenger</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Status">Status</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsDisabled">IsDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_StartSignature">StartSignature</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Duration">Duration</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_StartTimeStamp">StartTimeStamp</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_ErrorDetails">ErrorDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_SetSuspendMultipleExecuteCallCheck_BOOL_">SetSuspendMultipleExecuteCallCheck(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetSuspendMultipleExecuteCallCheckState__">GetSuspendMultipleExecuteCallCheckState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_SetSuspendCyclicExecuteIsNotCalledCheck_BOOL_">SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetSuspendCyclicExecuteIsNotCalledCheckState__">GetSuspendCyclicExecuteIsNotCalledCheckState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Invoke_IAxoObject_">Invoke(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Execute_IAxoObject_">Execute(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_SetRemoteRestoreEnabled_BOOL_">SetRemoteRestoreEnabled(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetRemoteRestoreEnabled__">GetRemoteRestoreEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_SetRemoteAbortEnabled_BOOL_">SetRemoteAbortEnabled(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetRemoteAbortEnabled__">GetRemoteAbortEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_GetState__">GetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_GetErrorDetails__">GetErrorDetails()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsReady__">IsReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsDone__">IsDone()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsBusy__">IsBusy()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsEngaged__">IsEngaged()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsAborted__">IsAborted()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_HasError__">HasError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsFirstExecutionCycle__">IsFirstExecutionCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_SetSuspendCyclicExecuteIsNotCalledCheck_BOOL_">SetSuspendCyclicExecuteIsNotCalledCheck(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_GetSuspendCyclicExecuteIsNotCalledCheckState__">GetSuspendCyclicExecuteIsNotCalledCheckState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsNewInvokeCall__">IsNewInvokeCall()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsNewExecuteCall__">IsNewExecuteCall()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_IsExecuteCalledInThisPlcCycle__">IsExecuteCalledInThisPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_WasExecuteCalledInPreviousPlcCycle__">WasExecuteCalledInPreviousPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Invoke_IAxoObject_">Invoke(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_DoneWhen_BOOL_">DoneWhen(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Execute_IAxoObject_">Execute(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_ThrowWhen_BOOL_">ThrowWhen(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_ThrowWhen_BOOL_STRING_254__">ThrowWhen(BOOL,STRING[254])</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_SetIsDisabled_BOOL_">SetIsDisabled(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_GetIsDisabled__">GetIsDisabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Abort__">Abort()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_Resume__">Resume()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_SetRemoteRestoreEnabled_BOOL_">SetRemoteRestoreEnabled(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnAbort__">OnAbort()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnResume__">OnResume()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnDone__">OnDone()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnError__">OnError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnRestore__">OnRestore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_OnStart__">OnStart()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_WhileError__">WhileError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_AbortTriggered__">AbortTriggered()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_ResumeTriggered__">ResumeTriggered()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_DoneReached__">DoneReached()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_ErrorOccured__">ErrorOccured()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_RestoreTriggered__">RestoreTriggered()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTaskLight.html#plc_AXOpen_Core_AxoTaskLight_StartTriggered__">StartTriggered()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_ReqSteppingMode" data-uid="plc.AXOpen.Core.AxoSequencer.ReqSteppingMode">
+  ReqSteppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L8"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReqSteppingMode : AXOpen.Core.eAxoSteppingMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetReqSteppingMode" data-uid="plc.AXOpen.Core.AxoSequencer.SetReqSteppingMode">
+  SetReqSteppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SetReqSteppingMode : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SteppingMode" data-uid="plc.AXOpen.Core.AxoSequencer.SteppingMode">
+  SteppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SteppingMode : AXOpen.Core.eAxoSteppingMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_ReqSequenceMode" data-uid="plc.AXOpen.Core.AxoSequencer.ReqSequenceMode">
+  ReqSequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReqSequenceMode : AXOpen.Core.eAxoSequenceMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetReqSequenceMode" data-uid="plc.AXOpen.Core.AxoSequencer.SetReqSequenceMode">
+  SetReqSequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SetReqSequenceMode : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SequenceMode" data-uid="plc.AXOpen.Core.AxoSequencer.SequenceMode">
+  SequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SequenceMode : AXOpen.Core.eAxoSequenceMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_CurrentOrder" data-uid="plc.AXOpen.Core.AxoSequencer.CurrentOrder">
+  CurrentOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CurrentOrder : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_StepForwardCommand" data-uid="plc.AXOpen.Core.AxoSequencer.StepForwardCommand">
+  StepForwardCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StepForwardCommand : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_StepIn" data-uid="plc.AXOpen.Core.AxoSequencer.StepIn">
+  StepIn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StepIn : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_StepBackwardCommand" data-uid="plc.AXOpen.Core.AxoSequencer.StepBackwardCommand">
+  StepBackwardCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StepBackwardCommand : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_CurrentStep" data-uid="plc.AXOpen.Core.AxoSequencer.CurrentStep">
+  CurrentStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CurrentStep : AXOpen.Core.AxoStep</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_MaxSequenceDuration" data-uid="plc.AXOpen.Core.AxoSequencer.MaxSequenceDuration">
+  MaxSequenceDuration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MaxSequenceDuration : LTIME</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_NumberOfConfiguredSteps" data-uid="plc.AXOpen.Core.AxoSequencer.NumberOfConfiguredSteps">
+  NumberOfConfiguredSteps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NumberOfConfiguredSteps : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__configurationFlowOrder" data-uid="plc.AXOpen.Core.AxoSequencer._configurationFlowOrder">
+  _configurationFlowOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_configurationFlowOrder : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__coordinatorState" data-uid="plc.AXOpen.Core.AxoSequencer._coordinatorState">
+  _coordinatorState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_coordinatorState : AXOpen.Core.AxoCoordinatorStates</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__step" data-uid="plc.AXOpen.Core.AxoSequencer._step">
+  _step
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_step : AXOpen.Core.IAxoStep</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__openCycleCounter" data-uid="plc.AXOpen.Core.AxoSequencer._openCycleCounter">
+  _openCycleCounter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_openCycleCounter : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__closeCycleCounter" data-uid="plc.AXOpen.Core.AxoSequencer._closeCycleCounter">
+  _closeCycleCounter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_closeCycleCounter : ULINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__refStep" data-uid="plc.AXOpen.Core.AxoSequencer._refStep">
+  _refStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_refStep : REF_TO AXOpen.Core.AxoStep</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__microStep" data-uid="plc.AXOpen.Core.AxoSequencer._microStep">
+  _microStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_microStep : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__context" data-uid="plc.AXOpen.Core.AxoSequencer._context">
+  _context
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_context : AXOpen.Core.IAxoContext</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__analytics" data-uid="plc.AXOpen.Core.AxoSequencer._analytics">
+  _analytics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_analytics : AXOpen.Core.IAxoSequencerAnalytics</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__stepExecutionMode" data-uid="plc.AXOpen.Core.AxoSequencer._stepExecutionMode">
+  _stepExecutionMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_stepExecutionMode : AXOpen.Core.eAxoStepExecutionMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__steppingMode" data-uid="plc.AXOpen.Core.AxoSequencer._steppingMode">
+  _steppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_steppingMode : AXOpen.Core.eAxoSteppingMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__sequenceMode" data-uid="plc.AXOpen.Core.AxoSequencer._sequenceMode">
+  _sequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_sequenceMode : AXOpen.Core.eAxoSequenceMode</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer__msgStepTimedOut" data-uid="plc.AXOpen.Core.AxoSequencer._msgStepTimedOut">
+  _msgStepTimedOut
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_msgStepTimedOut : AXOpen.Core.AxoStepTimedOutMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetAnalitics_IAxoSequencerAnalytics_" data-uid="plc.AXOpen.Core.AxoSequencer.SetAnalitics(IAxoSequencerAnalytics)">
+  SetAnalitics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetAnalitics(in plc.AXOpen.Core.IAxoSequencerAnalytics inAnalytics)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inAnalytics</code> <a class="xref" href="plc.AXOpen.Core.IAxoSequencerAnalytics.html">IAxoSequencerAnalytics</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_Open__" data-uid="plc.AXOpen.Core.AxoSequencer.Open()">
+  Open
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Open()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_Execute_IAxoStep_BOOL_" data-uid="plc.AXOpen.Core.AxoSequencer.Execute(IAxoStep,BOOL)">
+  Execute
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Internal BOOL Execute(in plc.AXOpen.Core.IAxoStep step,in plc.BOOL Enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>step</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+    <dt><code>Enable</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_MoveNext__" data-uid="plc.AXOpen.Core.AxoSequencer.MoveNext()">
+  MoveNext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID MoveNext()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_RequestStep_IAxoStep_" data-uid="plc.AXOpen.Core.AxoSequencer.RequestStep(IAxoStep)">
+  RequestStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID RequestStep(in plc.AXOpen.Core.IAxoStep RequestedStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>RequestedStep</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_CompleteSequence__" data-uid="plc.AXOpen.Core.AxoSequencer.CompleteSequence()">
+  CompleteSequence
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L341"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID CompleteSequence()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_OnBeforeSequenceStart__" data-uid="plc.AXOpen.Core.AxoSequencer.OnBeforeSequenceStart()">
+  OnBeforeSequenceStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnBeforeSequenceStart()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_OnCompleteSequence__" data-uid="plc.AXOpen.Core.AxoSequencer.OnCompleteSequence()">
+  OnCompleteSequence
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnCompleteSequence()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_OnEnterStepByStepMode__" data-uid="plc.AXOpen.Core.AxoSequencer.OnEnterStepByStepMode()">
+  OnEnterStepByStepMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnEnterStepByStepMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_OnEnterContinousMode__" data-uid="plc.AXOpen.Core.AxoSequencer.OnEnterContinousMode()">
+  OnEnterContinousMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L392"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnEnterContinousMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetCoordinatorState__" data-uid="plc.AXOpen.Core.AxoSequencer.GetCoordinatorState()">
+  GetCoordinatorState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.AxoCoordinatorStates GetCoordinatorState()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.AxoCoordinatorStates.html">AxoCoordinatorStates</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_DetermineOrder_IAxoStep_" data-uid="plc.AXOpen.Core.AxoSequencer.DetermineOrder(IAxoStep)">
+  DetermineOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private ULINT DetermineOrder(in plc.AXOpen.Core.IAxoStep step)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>step</code> <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ULINT</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetNumberOfConfiguredSteps__" data-uid="plc.AXOpen.Core.AxoSequencer.GetNumberOfConfiguredSteps()">
+  GetNumberOfConfiguredSteps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L424"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public ULINT GetNumberOfConfiguredSteps()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ULINT</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_DisableAllSteppingComands__" data-uid="plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands()">
+  DisableAllSteppingComands
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID DisableAllSteppingComands()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_AbortCurrentStep__" data-uid="plc.AXOpen.Core.AxoSequencer.AbortCurrentStep()">
+  AbortCurrentStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID AbortCurrentStep()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_OnRestore__" data-uid="plc.AXOpen.Core.AxoSequencer.OnRestore()">
+  OnRestore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnRestore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetMicroStepValue__" data-uid="plc.AXOpen.Core.AxoSequencer.GetMicroStepValue()">
+  GetMicroStepValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L462"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public UINT GetMicroStepValue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetMicroStepValue_UINT_" data-uid="plc.AXOpen.Core.AxoSequencer.SetMicroStepValue(UINT)">
+  SetMicroStepValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public UINT SetMicroStepValue(in plc.UINT MicroStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>MicroStep</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_AndThen_IAxoTask_" data-uid="plc.AXOpen.Core.AxoSequencer.AndThen(IAxoTask)">
+  AndThen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L501"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID AndThen(in plc.AXOpen.Core.IAxoTask tsk)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tsk</code> <a class="xref" href="plc.AXOpen.Core.IAxoTask.html">IAxoTask</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_Close__" data-uid="plc.AXOpen.Core.AxoSequencer.Close()">
+  Close
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L516"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID Close()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetCurrentStep__" data-uid="plc.AXOpen.Core.AxoSequencer.GetCurrentStep()">
+  GetCurrentStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L522"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoStep GetCurrentStep()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetSteppingMode__" data-uid="plc.AXOpen.Core.AxoSequencer.GetSteppingMode()">
+  GetSteppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L525"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.eAxoSteppingMode GetSteppingMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.eAxoSteppingMode.html">eAxoSteppingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetSteppingMode_eAxoSteppingMode_" data-uid="plc.AXOpen.Core.AxoSequencer.SetSteppingMode(eAxoSteppingMode)">
+  SetSteppingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L529"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetSteppingMode(in plc.AXOpen.Core.eAxoSteppingMode inSteppingMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inSteppingMode</code> <a class="xref" href="plc.AXOpen.Core.eAxoSteppingMode.html">eAxoSteppingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_GetSequenceMode__" data-uid="plc.AXOpen.Core.AxoSequencer.GetSequenceMode()">
+  GetSequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L545"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.eAxoSequenceMode GetSequenceMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.eAxoSequenceMode.html">eAxoSequenceMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoSequencer_SetSequenceMode_eAxoSequenceMode_" data-uid="plc.AXOpen.Core.AxoSequencer.SetSequenceMode(eAxoSequenceMode)">
+  SetSequenceMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetSequenceMode(in plc.AXOpen.Core.eAxoSequenceMode inSequenceMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inSequenceMode</code> <a class="xref" href="plc.AXOpen.Core.eAxoSequenceMode.html">eAxoSequenceMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/axopen.templates/blob/INT000053_Template_V2/.\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st/#L5" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

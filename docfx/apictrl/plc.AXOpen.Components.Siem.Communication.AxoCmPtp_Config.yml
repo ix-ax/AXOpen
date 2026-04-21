@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.InfoTime
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.ErrorTime
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.TaskTimeout
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.PortConfig
+  name: AxoCmPtp_Config
+  fullName: AxoCmPtp_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: CLASS AxoCmPtp_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.InfoTime
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.InfoTime
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.InfoTime
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.ErrorTime
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.ErrorTime
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.ErrorTime
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.TaskTimeout
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.TaskTimeout
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.TaskTimeout
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.PortConfig
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.PortConfig
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: PortConfig
+  fullName: PortConfig
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Config.PortConfig
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'PortConfig : AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+  name: AxoCmPtp_PortConfig
+  nameWithType: AxoCmPtp_PortConfig
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_PortConfig
+
+

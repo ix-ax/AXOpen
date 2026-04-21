@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+  parent: plc.AXOpen.Components.Abb.Robotics
+  children:
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HW_Device
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DI_64_bytes
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DO_64_bytes
+  name: AxoAbbRobotics_HWIDs
+  fullName: AxoAbbRobotics_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: CLASS AxoAbbRobotics_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HW_Device
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HW_Device
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DI_64_bytes
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DI_64_bytes
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: HwID_DI_64_bytes
+  fullName: HwID_DI_64_bytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DI_64_bytes
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'HwID_DI_64_bytes : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DO_64_bytes
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DO_64_bytes
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: HwID_DO_64_bytes
+  fullName: HwID_DO_64_bytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs.HwID_DO_64_bytes
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'HwID_DO_64_bytes : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

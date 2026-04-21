@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.Enabling
+  name: AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  fullName: AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit0_Reserve
+  fullName: _bit0_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit0_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit1_Reserve
+  fullName: _bit1_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit1_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit2_Reserve
+  fullName: _bit2_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit2_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit3_Reserve
+  fullName: _bit3_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit3_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit4_Reserve
+  fullName: _bit4_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit4_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit5_Reserve
+  fullName: _bit5_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit5_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit6_Reserve
+  fullName: _bit6_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit6_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit7_Reserve
+  fullName: _bit7_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit7_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ModeSelectionBit0
+  fullName: ModeSelectionBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ModeSelectionBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ModeSelectionBit1
+  fullName: ModeSelectionBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ModeSelectionBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DCbusDischarge
+  fullName: DCbusDischarge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DCbusDischarge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit11_Reserve
+  fullName: _bit11_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit11_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ControllingTheReadyForOperationRelay
+  fullName: ControllingTheReadyForOperationRelay
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ControllingTheReadyForOperationRelay : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit13_Reserve
+  fullName: _bit13_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit13_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ControllingDCbusChargingAndMainsContactor
+  fullName: ControllingDCbusChargingAndMainsContactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ControllingDCbusChargingAndMainsContactor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.Enabling
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.Enabling
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Enabling
+  fullName: Enabling
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.Enabling
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Enabling : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

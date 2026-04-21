@@ -1,0 +1,95 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.INVALID
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_32
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_116
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_128
+  name: eAxoSimaticIdentCyclic_IOsize
+  fullName: eAxoSimaticIdentCyclic_IOsize
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'eAxoSimaticIdentCyclic_IOsize : UINT'
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.INVALID
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.INVALID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INVALID :=  UINT#0
+  fullName: INVALID
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.INVALID
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_32
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_32
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BYTES_32 :=  UINT#32
+  fullName: BYTES_32
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_32
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_116
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_116
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BYTES_116 :=  UINT#116
+  fullName: BYTES_116
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_116
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_128
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_128
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BYTES_128 :=  UINT#128
+  fullName: BYTES_128
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize.BYTES_128
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_IOsize.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

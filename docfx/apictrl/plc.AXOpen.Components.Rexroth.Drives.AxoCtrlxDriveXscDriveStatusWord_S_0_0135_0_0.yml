@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit00_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit01_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit02_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.CommandProcessingStatus
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InStandstill
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InReference
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit06_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.HardwareLock
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit11_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.WarningZKL2
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.DriveErrorZKL1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1
+  name: AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  fullName: AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit00_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit00_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit00_Reserve
+  fullName: _bit00_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit00_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit00_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit01_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit01_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit01_Reserve
+  fullName: _bit01_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit01_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit01_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit02_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit02_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit02_Reserve
+  fullName: _bit02_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit02_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit02_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.CommandProcessingStatus
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.CommandProcessingStatus
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandProcessingStatus
+  fullName: CommandProcessingStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.CommandProcessingStatus
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandProcessingStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InStandstill
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InStandstill
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InStandstill
+  fullName: InStandstill
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InStandstill
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InStandstill : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InReference
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InReference
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InReference
+  fullName: InReference
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.InReference
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InReference : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit06_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit06_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit06_Reserve
+  fullName: _bit06_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit06_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit06_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.HardwareLock
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.HardwareLock
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HardwareLock
+  fullName: HardwareLock
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.HardwareLock
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HardwareLock : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualOperatingModeBit0
+  fullName: ActualOperatingModeBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualOperatingModeBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualOperatingModeBit1
+  fullName: ActualOperatingModeBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualOperatingModeBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualOperatingModeBit2
+  fullName: ActualOperatingModeBit2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualOperatingModeBit2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit11_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit11_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit11_Reserve
+  fullName: _bit11_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0._bit11_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit11_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.WarningZKL2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.WarningZKL2
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WarningZKL2
+  fullName: WarningZKL2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.WarningZKL2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WarningZKL2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.DriveErrorZKL1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.DriveErrorZKL1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveErrorZKL1
+  fullName: DriveErrorZKL1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.DriveErrorZKL1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveErrorZKL1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadyForOperationBit0
+  fullName: ReadyForOperationBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadyForOperationBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadyForOperationBit1
+  fullName: ReadyForOperationBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadyForOperationBit1 : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

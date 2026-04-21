@@ -1,0 +1,206 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LEN_ID
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.MEM_BANK
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.PSWD
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.EDIT_BLACKLIST_MODE
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DURATION
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DUR_UNIT
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_ACTION
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_MASK
+  name: Axo_IID_IN_EXT_UHF
+  fullName: Axo_IID_IN_EXT_UHF
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_IN_EXT_UHF
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LEN_ID
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LEN_ID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_ID
+  fullName: LEN_ID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LEN_ID
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_ID : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.MEM_BANK
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.MEM_BANK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MEM_BANK
+  fullName: MEM_BANK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.MEM_BANK
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MEM_BANK : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.PSWD
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.PSWD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: PSWD
+  fullName: PSWD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.PSWD
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'PSWD : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.EDIT_BLACKLIST_MODE
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.EDIT_BLACKLIST_MODE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: EDIT_BLACKLIST_MODE
+  fullName: EDIT_BLACKLIST_MODE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.EDIT_BLACKLIST_MODE
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'EDIT_BLACKLIST_MODE : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DURATION
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DURATION
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INVENTORY_DURATION
+  fullName: INVENTORY_DURATION
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DURATION
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INVENTORY_DURATION : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DUR_UNIT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DUR_UNIT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INVENTORY_DUR_UNIT
+  fullName: INVENTORY_DUR_UNIT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.INVENTORY_DUR_UNIT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INVENTORY_DUR_UNIT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_ACTION
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_ACTION
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LOCK_TAG_BANK_ACTION
+  fullName: LOCK_TAG_BANK_ACTION
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_ACTION
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LOCK_TAG_BANK_ACTION : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_MASK
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_MASK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LOCK_TAG_BANK_MASK
+  fullName: LOCK_TAG_BANK_MASK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF.LOCK_TAG_BANK_MASK
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_EXT_UHF.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LOCK_TAG_BANK_MASK : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

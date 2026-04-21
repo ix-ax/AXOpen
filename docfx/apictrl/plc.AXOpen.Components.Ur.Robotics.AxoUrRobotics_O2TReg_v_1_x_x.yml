@@ -1,0 +1,1214 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_12
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_13
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_14
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_15
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_16
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_17
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_18
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_19
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_20
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_21
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_22
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_23
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_24
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_25
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_26
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_27
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_28
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_29
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_30
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_31
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_11
+  name: AxoUrRobotics_O2TReg_v_1_x_x
+  fullName: AxoUrRobotics_O2TReg_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRobotics_O2TReg_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_0
+  fullName: Bit_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_1
+  fullName: Bit_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_2
+  fullName: Bit_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_3
+  fullName: Bit_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_4
+  fullName: Bit_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_5
+  fullName: Bit_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_6
+  fullName: Bit_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_7
+  fullName: Bit_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_7 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_8
+  fullName: Bit_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_9
+  fullName: Bit_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_10
+  fullName: Bit_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_11
+  fullName: Bit_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_12
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_12
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_12
+  fullName: Bit_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_12
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_13
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_13
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_13
+  fullName: Bit_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_13
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_14
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_14
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_14
+  fullName: Bit_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_14
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_15
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_15
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_15
+  fullName: Bit_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_15
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_16
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_16
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_16
+  fullName: Bit_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_16
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_16 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_17
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_17
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_17
+  fullName: Bit_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_17
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_17 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_18
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_18
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_18
+  fullName: Bit_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_18
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_18 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_19
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_19
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_19
+  fullName: Bit_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_19
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_19 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_20
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_20
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_20
+  fullName: Bit_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_20
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_20 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_21
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_21
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_21
+  fullName: Bit_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_21
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_21 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_22
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_22
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_22
+  fullName: Bit_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_22
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_22 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_23
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_23
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_23
+  fullName: Bit_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_23
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_23 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_24
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_24
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_24
+  fullName: Bit_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_24
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_24 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_25
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_25
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_25
+  fullName: Bit_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_25
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_25 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_26
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_26
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_26
+  fullName: Bit_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_26
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_26 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_27
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_27
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_27
+  fullName: Bit_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_27
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_27 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_28
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_28
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_28
+  fullName: Bit_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_28
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_28 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_29
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_29
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_29
+  fullName: Bit_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_29
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_29 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_30
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_30
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_30
+  fullName: Bit_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_30
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_30 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_31
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_31
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Bit_31
+  fullName: Bit_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Bit_31
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Bit_31 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_0
+  fullName: Int_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_1
+  fullName: Int_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_1 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_2
+  fullName: Int_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_2 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_3
+  fullName: Int_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_3 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_4
+  fullName: Int_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_4 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_5
+  fullName: Int_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_5 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_6
+  fullName: Int_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_6 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_7
+  fullName: Int_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_7 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_8
+  fullName: Int_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_8 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_9
+  fullName: Int_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 89
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_9 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_10
+  fullName: Int_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_10 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Int_11
+  fullName: Int_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Int_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 93
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Int_11 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_0
+  fullName: Float_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_0 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_1
+  fullName: Float_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 97
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_2
+  fullName: Float_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_3
+  fullName: Float_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_3 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_4
+  fullName: Float_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_4 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_5
+  fullName: Float_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_5 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_6
+  fullName: Float_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_6 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_7
+  fullName: Float_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_7 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_8
+  fullName: Float_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_8 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_9
+  fullName: Float_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_9 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_10
+  fullName: Float_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_10 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Float_11
+  fullName: Float_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_O2TReg_v_1_x_x.Float_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TReg_v_1_x_x.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Float_11 : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

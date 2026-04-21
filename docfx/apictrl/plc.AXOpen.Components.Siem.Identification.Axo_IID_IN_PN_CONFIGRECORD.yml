@@ -1,0 +1,164 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nRW
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nNrAr
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nApi
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSlot
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSubslot
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.record
+  name: Axo_IID_IN_PN_CONFIGRECORD
+  fullName: Axo_IID_IN_PN_CONFIGRECORD
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_IN_PN_CONFIGRECORD
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nRW
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nRW
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nRW
+  fullName: nRW
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nRW
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nRW : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nNrAr
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nNrAr
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nNrAr
+  fullName: nNrAr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nNrAr
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nNrAr : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nApi
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nApi
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nApi
+  fullName: nApi
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nApi
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nApi : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSlot
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSlot
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nSlot
+  fullName: nSlot
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSlot
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nSlot : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSubslot
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSubslot
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nSubslot
+  fullName: nSubslot
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.nSubslot
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nSubslot : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.record
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.record
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: record
+  fullName: record
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_CONFIGRECORD.record
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_IN_PN_CONFIGRECORD.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'record : AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+  name: Axo_IID_IN_PN_RECORDDATA
+  nameWithType: Axo_IID_IN_PN_RECORDDATA
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_IN_PN_RECORDDATA
+
+

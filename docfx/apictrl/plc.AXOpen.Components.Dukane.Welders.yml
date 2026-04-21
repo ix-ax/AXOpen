@@ -1,0 +1,75 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders
+  id: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  name: plc.AXOpen.Components.Dukane.Welders
+  fullName: Welders
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Dukane.Welders
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Dukane.Welders
+references:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  name: Axo_IQ_SeriesWelder
+  nameWithType: Axo_IQ_SeriesWelder
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+  name: Axo_IQ_SeriesWelder_Component_Status
+  nameWithType: Axo_IQ_SeriesWelder_Component_Status
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+  name: Axo_IQ_SeriesWelder_Config
+  nameWithType: Axo_IQ_SeriesWelder_Config
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+  name: Axo_IQ_SeriesWelder_HWIDs
+  nameWithType: Axo_IQ_SeriesWelder_HWIDs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+  name: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  nameWithType: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+  name: Axo_IQ_SeriesWelder_SystemInputs
+  nameWithType: Axo_IQ_SeriesWelder_SystemInputs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+  name: Axo_IQ_SeriesWelder_SystemOutputs
+  nameWithType: Axo_IQ_SeriesWelder_SystemOutputs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+
+

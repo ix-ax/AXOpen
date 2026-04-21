@@ -1,0 +1,225 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Timers.PulseTimer
+  id: plc.AXOpen.Timers.PulseTimer
+  parent: plc.AXOpen.Timers
+  children:
+  - plc.AXOpen.Timers.PulseTimer.output
+  - plc.AXOpen.Timers.PulseTimer.elapsedTime
+  - plc.AXOpen.Timers.PulseTimer._startTime
+  - plc.AXOpen.Timers.PulseTimer._previousSignalStatus
+  - plc.AXOpen.Timers.PulseTimer._currentTimeDiff
+  - plc.AXOpen.Timers.PulseTimer.Pulse(IAxoObject,BOOL,LTIME)
+  - plc.AXOpen.Timers.PulseTimer.Pulse(IAxoContext,BOOL,LTIME)
+  - plc.AXOpen.Timers.PulseTimer.Restore()
+  name: PulseTimer
+  fullName: PulseTimer
+  type: Class
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 3
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: CLASS PulseTimer
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Timers.PulseTimer.output
+  id: plc.AXOpen.Timers.PulseTimer.output
+  parent: AXOpen.Timers
+  children: []
+  name: output
+  fullName: output
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer.output
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 11
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'output : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.PulseTimer.elapsedTime
+  id: plc.AXOpen.Timers.PulseTimer.elapsedTime
+  parent: AXOpen.Timers
+  children: []
+  name: elapsedTime
+  fullName: elapsedTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer.elapsedTime
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 12
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'elapsedTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.PulseTimer._startTime
+  id: plc.AXOpen.Timers.PulseTimer._startTime
+  parent: AXOpen.Timers
+  children: []
+  name: _startTime
+  fullName: _startTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer._startTime
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 16
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_startTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.PulseTimer._previousSignalStatus
+  id: plc.AXOpen.Timers.PulseTimer._previousSignalStatus
+  parent: AXOpen.Timers
+  children: []
+  name: _previousSignalStatus
+  fullName: _previousSignalStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer._previousSignalStatus
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 17
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_previousSignalStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.PulseTimer._currentTimeDiff
+  id: plc.AXOpen.Timers.PulseTimer._currentTimeDiff
+  parent: AXOpen.Timers
+  children: []
+  name: _currentTimeDiff
+  fullName: _currentTimeDiff
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer._currentTimeDiff
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 18
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_currentTimeDiff : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.PulseTimer.Pulse(IAxoObject,BOOL,LTIME)
+  id: plc.AXOpen.Timers.PulseTimer.Pulse(IAxoObject,BOOL,LTIME)
+  parent: AXOpen.Timers.PulseTimer
+  children: []
+  name: Pulse
+  fullName: Pulse
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer.Pulse
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 22
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL Pulse(in plc.AXOpen.Core.IAxoObject Parent,in plc.BOOL inSignal,in plc.LTIME PulseLenght)
+    parameters:
+    - id: Parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inSignal
+      type: plc.BOOL
+    - id: PulseLenght
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.PulseTimer.Pulse(IAxoContext,BOOL,LTIME)
+  id: plc.AXOpen.Timers.PulseTimer.Pulse(IAxoContext,BOOL,LTIME)
+  parent: AXOpen.Timers.PulseTimer
+  children: []
+  name: Pulse
+  fullName: Pulse
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer.Pulse
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 32
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL Pulse(in plc.AXOpen.Core.IAxoContext Context,in plc.BOOL inSignal,in plc.LTIME PulseLenght)
+    parameters:
+    - id: Context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: inSignal
+      type: plc.BOOL
+    - id: PulseLenght
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.PulseTimer.Restore()
+  id: plc.AXOpen.Timers.PulseTimer.Restore()
+  parent: AXOpen.Timers.PulseTimer
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\Pulse.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Timers.PulseTimer.Restore
+    path: .\src\timers\ctrl\src\Pulse.st
+    startLine: 82
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

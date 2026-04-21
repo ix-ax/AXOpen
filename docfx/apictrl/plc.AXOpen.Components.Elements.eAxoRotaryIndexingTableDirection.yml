@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+  id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Cw
+  - plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Ccw
+  name: eAxoRotaryIndexingTableDirection
+  fullName: eAxoRotaryIndexingTableDirection
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: eAxoRotaryIndexingTableDirection
+- uid: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Cw
+  id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Cw
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Cw
+  fullName: Cw
+  type: Field
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Cw
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Elements
+- uid: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Ccw
+  id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Ccw
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Ccw
+  fullName: Ccw
+  type: Field
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection.Ccw
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\eAxoRotaryIndexingTableDirection.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Elements
+references:
+- uid: plc.AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+  name: eAxoRotaryIndexingTableDirection
+  nameWithType: eAxoRotaryIndexingTableDirection
+  fullName: AXOpen.Components.Elements.eAxoRotaryIndexingTableDirection
+
+

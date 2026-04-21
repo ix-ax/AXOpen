@@ -1,0 +1,2059 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  parent: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_7
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_8
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_9
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_10
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_11
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_12
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_13
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_14
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._progress
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._infoTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._errorTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobName
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inspectionCompleted
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._data_255
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._softEventNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataChanged
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._initHwCheckDone
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._retval
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._geoAddr
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outHwid
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._startAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._bytesCount
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsCount
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsCount
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._offset
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._fromFor
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._toFor
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userDataLength
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userData
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxUserDataIndex
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxResultDataIndex
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TriggerTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionResults
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Progress
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RestoreTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResultsTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobName
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNameTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNumberTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredSoftEventNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataToSent
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataLength
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserDataTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Config
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Status
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Results
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserData
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Messenger
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TaskMessenger
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CallTimers(BOOL)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserData(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResults()
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Trigger()
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(STRING)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEvent(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData()
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsByte(BYTE,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsDint(DINT,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsReal(REAL,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsString(STRING,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearUserData()
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ManualControl()
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Restore()
+  name: AxoInsight
+  fullName: AxoInsight
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: CLASS AxoInsight
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_7
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_7
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataSize_Slot_7
+  fullName: _UserDataSize_Slot_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_7
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataSize_Slot_7 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_8
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_8
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataSize_Slot_8
+  fullName: _UserDataSize_Slot_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_8
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataSize_Slot_8 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_9
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_9
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataSize_Slot_9
+  fullName: _UserDataSize_Slot_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_9
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataSize_Slot_9 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_10
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_10
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataSize_Slot_10
+  fullName: _UserDataSize_Slot_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize_Slot_10
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataSize_Slot_10 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataSize
+  fullName: _UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_11
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_11
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _ResultDataSize_Slot_11
+  fullName: _ResultDataSize_Slot_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_11
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_ResultDataSize_Slot_11 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_12
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_12
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _ResultDataSize_Slot_12
+  fullName: _ResultDataSize_Slot_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_12
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_ResultDataSize_Slot_12 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_13
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_13
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _ResultDataSize_Slot_13
+  fullName: _ResultDataSize_Slot_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_13
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_ResultDataSize_Slot_13 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_14
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_14
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _ResultDataSize_Slot_14
+  fullName: _ResultDataSize_Slot_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize_Slot_14
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_ResultDataSize_Slot_14 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _ResultDataSize
+  fullName: _ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_ResultDataSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._progress
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._progress
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._progress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._infoTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._infoTimer
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._infoTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._errorTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._errorTimer
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._errorTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobName
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobName
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _jobName
+  fullName: _jobName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobName
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_jobName : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inspectionCompleted
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inspectionCompleted
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _inspectionCompleted
+  fullName: _inspectionCompleted
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inspectionCompleted
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_inspectionCompleted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._data_255
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._data_255
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _data_255
+  fullName: _data_255
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._data_255
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_data_255 : ARRAY [0..254] OF BYTE'
+    return:
+      type: ARRAY [0..254] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _jobNumber
+  fullName: _jobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._jobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_jobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._softEventNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._softEventNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _softEventNumber
+  fullName: _softEventNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._softEventNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_softEventNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataChanged
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataChanged
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _UserDataChanged
+  fullName: _UserDataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._UserDataChanged
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_UserDataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._initHwCheckDone
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._initHwCheckDone
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._initHwCheckDone
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._retval
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._retval
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._retval
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._geoAddr
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._geoAddr
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._geoAddr
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outHwid
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outHwid
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outHwid
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._startAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._startAddress
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _startAddress
+  fullName: _startAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._startAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_startAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._bytesCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._bytesCount
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _bytesCount
+  fullName: _bytesCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._bytesCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_bytesCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsAddress
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsCount
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._inputsCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsAddress
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsCount
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._outputsCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._offset
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._offset
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _offset
+  fullName: _offset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._offset
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_offset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._fromFor
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._fromFor
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _fromFor
+  fullName: _fromFor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._fromFor
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_fromFor : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._toFor
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._toFor
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _toFor
+  fullName: _toFor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._toFor
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_toFor : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userDataLength
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userDataLength
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _userDataLength
+  fullName: _userDataLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userDataLength
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_userDataLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userData
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userData
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _userData
+  fullName: _userData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._userData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_userData : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxUserDataIndex
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxUserDataIndex
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _maxUserDataIndex
+  fullName: _maxUserDataIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxUserDataIndex
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_maxUserDataIndex : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxResultDataIndex
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxResultDataIndex
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: _maxResultDataIndex
+  fullName: _maxResultDataIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight._maxResultDataIndex
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: '_maxResultDataIndex : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TriggerTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TriggerTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: TriggerTask
+  fullName: TriggerTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TriggerTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'TriggerTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionResults
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionResults
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: InspectionResults
+  fullName: InspectionResults
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionResults
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'InspectionResults : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Progress
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Progress
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Progress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RestoreTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RestoreTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RestoreTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResultsTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResultsTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: ClearInspectionResultsTask
+  fullName: ClearInspectionResultsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResultsTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'ClearInspectionResultsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobName
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobName
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: RequiredJobName
+  fullName: RequiredJobName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobName
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 83
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'RequiredJobName : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNameTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNameTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: ChangeJobByNameTask
+  fullName: ChangeJobByNameTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNameTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'ChangeJobByNameTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: RequiredJobNumber
+  fullName: RequiredJobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredJobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'RequiredJobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNumberTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNumberTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: ChangeJobByNumberTask
+  fullName: ChangeJobByNumberTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJobByNumberTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'ChangeJobByNumberTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredSoftEventNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredSoftEventNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: RequiredSoftEventNumber
+  fullName: RequiredSoftEventNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.RequiredSoftEventNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'RequiredSoftEventNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: SoftEventTask
+  fullName: SoftEventTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 104
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'SoftEventTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataToSent
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataToSent
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: UserDataToSent
+  fullName: UserDataToSent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataToSent
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'UserDataToSent : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataLength
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataLength
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: UserDataLength
+  fullName: UserDataLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserDataLength
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'UserDataLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserDataTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserDataTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: SendUserDataTask
+  fullName: SendUserDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserDataTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'SendUserDataTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Config
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Config : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Status
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 132
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Status : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Results
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Results
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Results
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 137
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Results : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Results'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: AcquisitionControl
+  fullName: AcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'AcquisitionControl : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: AcquisitionStatus
+  fullName: AcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'AcquisitionStatus : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: InspectionControl
+  fullName: InspectionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 159
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'InspectionControl : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: InspectionStatus
+  fullName: InspectionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.InspectionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 166
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'InspectionStatus : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: CommandControl
+  fullName: CommandControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 173
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'CommandControl : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: CommandStatus
+  fullName: CommandStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CommandStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 180
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'CommandStatus : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: SoftEventControl
+  fullName: SoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 187
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'SoftEventControl : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventStatus
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: SoftEventStatus
+  fullName: SoftEventStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 194
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'SoftEventStatus : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserData
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserData
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: UserData
+  fullName: UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.UserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 201
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'UserData : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.HardwareDiagnosticsTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 210
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Messenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Messenger
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Messenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 219
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TaskMessenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TaskMessenger
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.TaskMessenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 220
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 223
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CallTimers(BOOL)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.CallTimers
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2434
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserData(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserData(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SetUserData
+  fullName: SetUserData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2446
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Private BOOL SetUserData(in plc.UINT Length)
+    parameters:
+    - id: Length
+      type: plc.UINT
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResults()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResults()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: ClearInspectionResults
+  fullName: ClearInspectionResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearInspectionResults
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2483
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearInspectionResults()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Trigger()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Trigger()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: Trigger
+  fullName: Trigger
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Trigger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2490
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Trigger()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2496
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.UINT Job)
+    parameters:
+    - id: Job
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(STRING)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob(STRING)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ChangeJob
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2507
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.STRING Job)
+    parameters:
+    - id: Job
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEvent(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEvent(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SoftEvent
+  fullName: SoftEvent
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SoftEvent
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2517
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SoftEvent(in plc.UINT EventNumber)
+    parameters:
+    - id: EventNumber
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SendUserData
+  fullName: SendUserData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2528
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SendUserData(in plc.UINT Length)
+    parameters:
+    - id: Length
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SendUserData
+  fullName: SendUserData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SendUserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2538
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SendUserData()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsByte(BYTE,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsByte(BYTE,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SetUserDataAsByte
+  fullName: SetUserDataAsByte
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsByte
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2549
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public BOOL SetUserDataAsByte(in plc.BYTE inValue,in plc.UINT inPosition)
+    parameters:
+    - id: inValue
+      type: plc.BYTE
+    - id: inPosition
+      type: plc.UINT
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsDint(DINT,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsDint(DINT,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SetUserDataAsDint
+  fullName: SetUserDataAsDint
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsDint
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2573
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public BOOL SetUserDataAsDint(in plc.DINT inValue,in plc.UINT inPosition)
+    parameters:
+    - id: inValue
+      type: plc.DINT
+    - id: inPosition
+      type: plc.UINT
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsReal(REAL,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsReal(REAL,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SetUserDataAsReal
+  fullName: SetUserDataAsReal
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsReal
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2606
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public BOOL SetUserDataAsReal(in plc.REAL inValue,in plc.UINT inPosition)
+    parameters:
+    - id: inValue
+      type: plc.REAL
+    - id: inPosition
+      type: plc.UINT
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsString(STRING,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsString(STRING,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: SetUserDataAsString
+  fullName: SetUserDataAsString
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.SetUserDataAsString
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2646
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public BOOL SetUserDataAsString(in plc.STRING inValue,in plc.UINT inPosition)
+    parameters:
+    - id: inValue
+      type: plc.STRING
+    - id: inPosition
+      type: plc.UINT
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearUserData()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearUserData()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: ClearUserData
+  fullName: ClearUserData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ClearUserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2680
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearUserData()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ManualControl()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ManualControl()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.ManualControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2691
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Restore()
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Restore()
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight.Restore
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\AxoInsight.st
+    startLine: 2698
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  commentId: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  name: IAxoVisionSensor
+  nameWithType: IAxoVisionSensor
+  fullName: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  parent: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ARRAY [0..254] OF BYTE
+  name: ARRAY [0..254] OF BYTE
+  nameWithType: ARRAY [0..254] OF BYTE
+  fullName: ARRAY [0..254] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData
+  name: AxoInsight_UserData
+  nameWithType: AxoInsight_UserData
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData
+  name: AxoInsight_ResultData
+  nameWithType: AxoInsight_ResultData
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+  name: AxoInsight_Config
+  nameWithType: AxoInsight_Config
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+  name: AxoInsight_Status
+  nameWithType: AxoInsight_Status
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Results
+  name: AxoInsight_Results
+  nameWithType: AxoInsight_Results
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionControl
+  name: AxoInsight_AcquisitionControl
+  nameWithType: AxoInsight_AcquisitionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus
+  name: AxoInsight_AcquisitionStatus
+  nameWithType: AxoInsight_AcquisitionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionControl
+  name: AxoInsight_InspectionControl
+  nameWithType: AxoInsight_InspectionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionStatus
+  name: AxoInsight_InspectionStatus
+  nameWithType: AxoInsight_InspectionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_InspectionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandControl
+  name: AxoInsight_CommandControl
+  nameWithType: AxoInsight_CommandControl
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandStatus
+  name: AxoInsight_CommandStatus
+  nameWithType: AxoInsight_CommandStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_CommandStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventControl
+  name: AxoInsight_SoftEventControl
+  nameWithType: AxoInsight_SoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventStatus
+  name: AxoInsight_SoftEventStatus
+  nameWithType: AxoInsight_SoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_SoftEventStatus
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

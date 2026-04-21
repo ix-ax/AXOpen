@@ -1,0 +1,513 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentOK
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.PositionCorrection
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC3
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC4
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentNG
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_3
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_4
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_5
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_6
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_7
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_8
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_9
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_10
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_11
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_12
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_13
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_14
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_15
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_16
+  name: Axo_IV3_DeviceResultBits_1
+  fullName: Axo_IV3_DeviceResultBits_1
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_DeviceResultBits_1
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentOK
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentOK
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OverallJudgmentOK
+  fullName: OverallJudgmentOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentOK
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OverallJudgmentOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.PositionCorrection
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.PositionCorrection
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PositionCorrection
+  fullName: PositionCorrection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.PositionCorrection
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PositionCorrection : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LOGIC1
+  fullName: LOGIC1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LOGIC1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LOGIC2
+  fullName: LOGIC2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LOGIC2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LOGIC3
+  fullName: LOGIC3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LOGIC3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC4
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC4
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: LOGIC4
+  fullName: LOGIC4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.LOGIC4
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'LOGIC4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentNG
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentNG
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OverallJudgmentNG
+  fullName: OverallJudgmentNG
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.OverallJudgmentNG
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OverallJudgmentNG : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_1
+  fullName: Tool_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_2
+  fullName: Tool_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_3
+  fullName: Tool_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_4
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_4
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_4
+  fullName: Tool_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_4
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_5
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_5
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_5
+  fullName: Tool_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_5
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_6
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_6
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_6
+  fullName: Tool_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_6
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_7
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_7
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_7
+  fullName: Tool_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_7
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_7 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_8
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_8
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_8
+  fullName: Tool_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_8
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_9
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_9
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_9
+  fullName: Tool_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_9
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_10
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_10
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_10
+  fullName: Tool_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_10
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_11
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_11
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_11
+  fullName: Tool_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_11
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_12
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_12
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_12
+  fullName: Tool_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_12
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_13
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_13
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_13
+  fullName: Tool_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_13
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_14
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_14
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_14
+  fullName: Tool_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_14
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_15
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_15
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_15
+  fullName: Tool_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_15
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_16
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_16
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Tool_16
+  fullName: Tool_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1.Tool_16
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Tool_16 : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

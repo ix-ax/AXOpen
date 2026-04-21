@@ -1,0 +1,1524 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.CommandStatusBits
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatusWords
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatistics
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.PositionAdjustResult
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_3
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_4
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_5
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_6
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_7
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_8
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_9
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_10
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_11
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_12
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_13
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_14
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_15
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_16
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_17
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_18
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_19
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_20
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_21
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_22
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_23
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_24
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_25
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_26
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_27
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_28
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_29
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_30
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_31
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_32
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_33
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_34
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_35
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_36
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_37
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_38
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_39
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_40
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_41
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_42
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_43
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_44
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_45
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_46
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_47
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_48
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_49
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_50
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_51
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_52
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_53
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_54
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_55
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_56
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_57
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_58
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_59
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_60
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_61
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_62
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_63
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_64
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_2
+  name: Axo_IV3_In
+  fullName: Axo_IV3_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.CommandStatusBits
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.CommandStatusBits
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: CommandStatusBits
+  fullName: CommandStatusBits
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.CommandStatusBits
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'CommandStatusBits : AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: DeviceResultBits_1
+  fullName: DeviceResultBits_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'DeviceResultBits_1 : AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatusWords
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatusWords
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: DeviceStatusWords
+  fullName: DeviceStatusWords
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatusWords
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'DeviceStatusWords : AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatistics
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatistics
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: DeviceStatistics
+  fullName: DeviceStatistics
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceStatistics
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'DeviceStatistics : AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.PositionAdjustResult
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.PositionAdjustResult
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PositionAdjustResult
+  fullName: PositionAdjustResult
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.PositionAdjustResult
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PositionAdjustResult : AXOpen.Components.Keyence.Vision.Axo_IV3_PositionAdjustResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_PositionAdjustResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_1
+  fullName: ToolResult_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_1 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_2
+  fullName: ToolResult_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_2 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_3
+  fullName: ToolResult_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_3 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_4
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_4
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_4
+  fullName: ToolResult_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_4
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_4 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_5
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_5
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_5
+  fullName: ToolResult_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_5
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_5 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_6
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_6
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_6
+  fullName: ToolResult_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_6
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_6 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_7
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_7
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_7
+  fullName: ToolResult_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_7
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_7 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_8
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_8
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_8
+  fullName: ToolResult_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_8
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_8 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_9
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_9
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_9
+  fullName: ToolResult_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_9
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_9 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_10
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_10
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_10
+  fullName: ToolResult_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_10
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_10 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_11
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_11
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_11
+  fullName: ToolResult_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_11
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 75
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_11 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_12
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_12
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_12
+  fullName: ToolResult_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_12
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_12 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_13
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_13
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_13
+  fullName: ToolResult_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_13
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 83
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_13 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_14
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_14
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_14
+  fullName: ToolResult_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_14
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_14 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_15
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_15
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_15
+  fullName: ToolResult_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_15
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_15 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_16
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_16
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_16
+  fullName: ToolResult_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_16
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_16 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_17
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_17
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_17
+  fullName: ToolResult_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_17
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_17 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_18
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_18
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_18
+  fullName: ToolResult_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_18
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_18 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_19
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_19
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_19
+  fullName: ToolResult_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_19
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_19 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_20
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_20
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_20
+  fullName: ToolResult_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_20
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_20 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_21
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_21
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_21
+  fullName: ToolResult_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_21
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_21 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_22
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_22
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_22
+  fullName: ToolResult_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_22
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_22 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_23
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_23
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_23
+  fullName: ToolResult_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_23
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_23 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_24
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_24
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_24
+  fullName: ToolResult_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_24
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 128
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_24 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_25
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_25
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_25
+  fullName: ToolResult_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_25
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 132
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_25 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_26
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_26
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_26
+  fullName: ToolResult_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_26
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 136
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_26 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_27
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_27
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_27
+  fullName: ToolResult_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_27
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 140
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_27 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_28
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_28
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_28
+  fullName: ToolResult_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_28
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_28 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_29
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_29
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_29
+  fullName: ToolResult_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_29
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 148
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_29 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_30
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_30
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_30
+  fullName: ToolResult_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_30
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_30 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_31
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_31
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_31
+  fullName: ToolResult_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_31
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 156
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_31 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_32
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_32
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_32
+  fullName: ToolResult_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_32
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 160
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_32 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_33
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_33
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_33
+  fullName: ToolResult_33
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_33
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 164
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_33 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_34
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_34
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_34
+  fullName: ToolResult_34
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_34
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 168
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_34 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_35
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_35
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_35
+  fullName: ToolResult_35
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_35
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 173
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_35 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_36
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_36
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_36
+  fullName: ToolResult_36
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_36
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 177
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_36 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_37
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_37
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_37
+  fullName: ToolResult_37
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_37
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 181
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_37 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_38
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_38
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_38
+  fullName: ToolResult_38
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_38
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 185
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_38 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_39
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_39
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_39
+  fullName: ToolResult_39
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_39
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 189
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_39 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_40
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_40
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_40
+  fullName: ToolResult_40
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_40
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 193
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_40 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_41
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_41
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_41
+  fullName: ToolResult_41
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_41
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 197
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_41 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_42
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_42
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_42
+  fullName: ToolResult_42
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_42
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 201
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_42 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_43
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_43
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_43
+  fullName: ToolResult_43
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_43
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 205
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_43 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_44
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_44
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_44
+  fullName: ToolResult_44
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_44
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 209
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_44 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_45
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_45
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_45
+  fullName: ToolResult_45
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_45
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 213
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_45 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_46
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_46
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_46
+  fullName: ToolResult_46
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_46
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 217
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_46 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_47
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_47
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_47
+  fullName: ToolResult_47
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_47
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 221
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_47 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_48
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_48
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_48
+  fullName: ToolResult_48
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_48
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 225
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_48 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_49
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_49
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_49
+  fullName: ToolResult_49
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_49
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 229
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_49 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_50
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_50
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_50
+  fullName: ToolResult_50
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_50
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 234
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_50 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_51
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_51
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_51
+  fullName: ToolResult_51
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_51
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 238
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_51 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_52
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_52
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_52
+  fullName: ToolResult_52
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_52
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 242
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_52 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_53
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_53
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_53
+  fullName: ToolResult_53
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_53
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 246
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_53 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_54
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_54
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_54
+  fullName: ToolResult_54
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_54
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 250
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_54 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_55
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_55
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_55
+  fullName: ToolResult_55
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_55
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 254
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_55 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_56
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_56
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_56
+  fullName: ToolResult_56
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_56
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 258
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_56 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_57
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_57
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_57
+  fullName: ToolResult_57
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_57
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 262
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_57 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_58
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_58
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_58
+  fullName: ToolResult_58
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_58
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 266
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_58 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_59
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_59
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_59
+  fullName: ToolResult_59
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_59
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 270
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_59 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_60
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_60
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_60
+  fullName: ToolResult_60
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_60
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 274
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_60 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_61
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_61
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_61
+  fullName: ToolResult_61
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_61
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 278
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_61 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_62
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_62
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_62
+  fullName: ToolResult_62
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_62
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 282
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_62 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_63
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_63
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_63
+  fullName: ToolResult_63
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_63
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 286
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_63 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_64
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_64
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ToolResult_64
+  fullName: ToolResult_64
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.ToolResult_64
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 290
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ToolResult_64 : AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: DeviceResultBits_2
+  fullName: DeviceResultBits_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+      branch: INT000053_Template_V2
+      repo: https://github.com/Inxton/axopen.templates.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_In.DeviceResultBits_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st
+    startLine: 296
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'DeviceResultBits_2 : AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_2'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_2
+references:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+  name: Axo_IV3_CommandStatusBits
+  nameWithType: Axo_IV3_CommandStatusBits
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+  name: Axo_IV3_DeviceResultBits_1
+  nameWithType: Axo_IV3_DeviceResultBits_1
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_1
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords
+  name: Axo_IV3_DeviceStatusWords
+  nameWithType: Axo_IV3_DeviceStatusWords
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatusWords
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+  name: Axo_IV3_DeviceStatistics
+  nameWithType: Axo_IV3_DeviceStatistics
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_PositionAdjustResult
+  name: Axo_IV3_PositionAdjustResult
+  nameWithType: Axo_IV3_PositionAdjustResult
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_PositionAdjustResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+  name: Axo_IV3_ToolResult
+  nameWithType: Axo_IV3_ToolResult
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_ToolResult
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_2
+  name: Axo_IV3_DeviceResultBits_2
+  nameWithType: Axo_IV3_DeviceResultBits_2
+  fullName: AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceResultBits_2
+
+
