@@ -29,3 +29,26 @@
 - `AxoKrc4_v_5_x_x.md` — HARDWARE tab now opens with a "Library-shipped
   assets" section linking the GSDML and hw template on GitHub, so
   integrators see where the raw assets live inside this package.
+
+### 0.51.0
+
+**New features:**
+- Added **KUKA KRC5** controller support: the library now ships the KRC5
+  GSDML (`ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml`) and
+  the matching PROFINET device template (`ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml`).
+  The existing `AxoKrc4` class drives both KRC4 and KRC5 — the DIO512 slot
+  layout is identical between the two controllers.
+
+**Other:**
+- `README.md` — Hardware-assets table extended with KRC5 rows; description
+  updated to call out support for both KRC4 and KRC5 controllers.
+- `AxoKrc4_v_5_x_x.md` — subtitle and intro updated to cover KRC4/KRC5;
+  HARDWARE tab split into per-controller asset sections; new "KRC5 example"
+  code-reference block pointing at the `AxoKrc4_v_5_x_x_Krc5Showcase.st`
+  showcase file; added KRC5 device instantiation + IO system wiring
+  `[!code-yaml[]]` blocks.
+- Showcase: added `AxoKrc4_v_5_x_x_Krc5Showcase.st` (third instance, driven
+  by `kuka_rb2_HwID`); wired into the `KukaRobotics` documentation context;
+  added an "AxoKrc4 on KRC5" tab to the Blazor page with live rendering,
+  code reference, hardware configuration, and sequencer views; added KRC5
+  search-registry entries.

@@ -1,13 +1,18 @@
 # AxoKrc4_v_5_x_x
 
-_KUKA KRC4 industrial robot controller_
+_KUKA KRC4 / KRC5 industrial robot controller_
 
 `AxoKrc4` (namespace `AXOpen.Components.Kuka.Robotics.v_5_x_x`) is the
-controller proxy for robots driven by a KUKA KRC4. It extends
-`AXOpen.Core.AxoComponent` and implements
+controller proxy for robots driven by a KUKA **KRC4 or KRC5** controller.
+It extends `AXOpen.Core.AxoComponent` and implements
 `AXOpen.Components.Abstractions.Robotics.IAxoRobotics`, exposing all programme
 and motion commands as `AxoTask` instances that advance their state machine
 inside the component's `Run()` call.
+
+Both controller families share an identical AXOpen slot layout (slot 1
+reserved, slot 2 = `DIO512` with 64-byte cyclic I/O). The component source
+and API are therefore **identical** for KRC4 and KRC5 — only the GSDML and
+PROFINET device template differ at hardware configuration time.
 
 ## Capabilities
 
@@ -79,6 +84,17 @@ zeroing it out for commissioning.
 [!code-pascal[](../../showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase2.st?name=ComponentDeclaration)]
 [!code-pascal[](../../showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase2.st?name=Initialization)]
 
+## KRC5 example
+
+A third wired-up instance (`AxoKrc4_v_5_x_x_Krc5Showcase`) drives a **KUKA
+KRC5** cell using the same `AxoKrc4` proxy. The only difference at
+application level is the hardware identifier — it points at `kuka_rb2`
+which is provisioned by the `kuka_krc5_dio512` template in
+`plc_line.hwl.yml`.
+
+[!code-pascal[](../../showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Krc5Showcase.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Krc5Showcase.st?name=Initialization)]
+
 ## Source
 
 View the library source at [`AxoKrc4_v_5_x_x.st`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/ctrl/src/AxoKrc4_v_5_x_x.st).
@@ -120,17 +136,27 @@ View the Blazor package at [`AXOpen.Components.Kuka.Robotics.blazor`](https://gi
 
 ## Library-shipped assets
 
-The raw KRC4 GSDML and the matching PROFINET device template live inside
-the library package so `AxoKrc4` can be wired up without fetching files
-from the vendor:
+The raw GSDMLs and matching PROFINET device templates for both KRC4 and
+KRC5 live inside the library package so `AxoKrc4` can be wired up without
+fetching files from the vendor:
+
+### KRC4
 
 - GSDML — [`ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml)
   — vendor GSDML for Siemens hardware-catalog import.
 - HW template — [`ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml)
   — PROFINET device template expected by `Run()` (slot 1 empty, slot 2 = `512_DI_DO`, 64-byte cyclic I/O).
 
-The showcase copies the template into `showcase/app/hwc/library_templates/kuka_krc4/`
-so application builds do not need a catalog round-trip.
+### KRC5
+
+- GSDML — [`ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml`](<https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml>)
+  — vendor GSDML for KR C5 (2022-07-04). The filename contains a space.
+- HW template — [`ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml)
+  — same slot 1 / slot 2 = `DIO512` layout as KRC4, using the newer hwc
+  address schema (`Type: IPv4/Profinet`) and a 4-port switch interface.
+
+The showcase copies both templates into `showcase/app/hwc/library_templates/kuka_krc4/`
+and `.../kuka_krc5/` so application builds do not need a catalog round-trip.
 
 ## Device template
 
@@ -145,8 +171,8 @@ The template provisions a KRC4 as a PROFINET device with two slots:
 
 ## I/O mapping
 
-`Run()` takes a single `hwID : UINT` that identifies the KRC4 device in the
-configured hardware layout. The component then:
+`Run()` takes a single `hwID : UINT` that identifies the KRC4 or KRC5 device
+in the configured hardware layout. The component then:
 
 1. Calls `ReadSlotFromHardwareID(hwID)` to obtain the device's geographic
    address.
@@ -160,15 +186,23 @@ configured hardware layout. The component then:
    `WriteData` transfer the 64-byte blocks bound to `Inputs` / `Outputs`.
 
 Use the `AXOpen.Showcase.HwIdentifiers#{device}_HwID` constants to supply
-`hwID` from application code (as the showcase does with
-`kuka_rb1_HwID`).
+`hwID` from application code (as the showcase does with `kuka_rb1_HwID`
+for the KRC4 instance and `kuka_rb2_HwID` for the KRC5 instance).
 
-## Device instantiation
+## KRC4 device instantiation
 
 [!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KukaKrc4Device)]
 
-## IO system wiring
+## KRC4 IO system wiring
 
 [!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KukaKrc4IoSystem)]
+
+## KRC5 device instantiation
+
+[!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KukaKrc5Device)]
+
+## KRC5 IO system wiring
+
+[!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KukaKrc5IoSystem)]
 
 ---
