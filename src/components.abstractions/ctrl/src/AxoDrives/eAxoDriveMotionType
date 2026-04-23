@@ -1,0 +1,9 @@
+NAMESPACE AXOpen.Components.Abstractions.Drives
+    TYPE PUBLIC
+        eAxoDriveMotionType :
+        (		
+            Linear,
+            Rotary
+        );
+    END_TYPE
+END_NAMESPACE
