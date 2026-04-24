@@ -1,8 +1,9 @@
+using AXOpen.Components.Abstractions.Drives;
+using AXOpen.Components.Drives;
+using AXOpen.Core.Blazor;
+using AXSharp.Connector.ValueTypes;
 using System;
 using System.Globalization;
-using AXOpen.Core.Blazor;
-using AXOpen.Components.Drives;
-using AXSharp.Connector.ValueTypes;
 
 namespace AXOpen.Components.Festo.Drives
 {
@@ -34,9 +35,27 @@ namespace AXOpen.Components.Festo.Drives
             _ => "badge-secondary"
         };
 
-        public string FormattedPosition => FormatValue(Component?.ActualPosition, "mm");
+        public string PositionUnit => (eAxoDriveAxisType)Component.AxisType.Cyclic switch
+        {
+            eAxoDriveAxisType.Linear => "mm",
+            eAxoDriveAxisType.Rotary => "deg",
+            eAxoDriveAxisType.Error => "!!!",
+            eAxoDriveAxisType.Undefined => "???",
+            _ => "???"
+        };
 
-        public string FormattedVelocity => FormatValue(Component?.ActualVelocity, "mm/s");
+        public string VelocityUnit => (eAxoDriveAxisType)Component.AxisType.Cyclic switch
+        {
+            eAxoDriveAxisType.Linear => "mm/s",
+            eAxoDriveAxisType.Rotary => "deg/s",
+            eAxoDriveAxisType.Error => "!!!",
+            eAxoDriveAxisType.Undefined => "???",
+            _ => "???"
+        };
+
+        public string FormattedPosition => FormatValue(Component?.ActualPosition, PositionUnit);
+
+        public string FormattedVelocity => FormatValue(Component?.ActualVelocity, VelocityUnit);
 
         public string FormattedTorque => FormatValue(Component?.ActualTorque, "Nm");
 
