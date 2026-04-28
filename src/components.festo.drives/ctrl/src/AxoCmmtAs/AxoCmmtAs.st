@@ -795,7 +795,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         _scalingReadState := UINT#28;
                     END_IF;       
                 END_IF;       
-
+                //Rotary
                 IF _scalingReadState = UINT#27 THEN
                     ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) )];               // TODO verify scaling with Automation Suite
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;     // TODO verify scaling with Automation Suite
@@ -803,21 +803,21 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) )];                // TODO verify scaling with Automation Suite
                     ScalingConstantActualVelocity := PNU_12345 * _exp[(TO_INT(PNU_11725) + 3)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824    // TODO verify scaling with Automation Suite
 
-                    ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_810;  //  16#4000 ~~ 16384
+                    ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)+3] / PNU_810;  //  16#4000 ~~ 16384
                     ScalingConstantActualAcceleration := LREAL#1.0 / ScalingConstantRequiredAcceleration;
 
-                    ScalingConstantRequiredDeceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_811; //  16#4000 ~~ 16384
+                    ScalingConstantRequiredDeceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)+3] / PNU_811; //  16#4000 ~~ 16384
                     ScalingConstantActualDeceleration := LREAL#1.0 / ScalingConstantRequiredDeceleration;
 
                     ScalingConstantRequiredTorque := 1;
                     ScalingConstantActualTorque := PNU_11122 / 16384; //  16#4000 ~~ 16384
 
-                    ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)];
+                    ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)+3];
                     ScalingConstantActualJerk := LREAL#1.0 / ScalingConstantRequiredJerk;
 
                     _scalingReadState := UINT#29;
                 END_IF;     
-
+                //Linear
                 IF _scalingReadState = UINT#28 THEN
                     ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
@@ -1722,7 +1722,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.HWIDs.HW_ModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
+                    IF AxisType = eAxoDriveAxisType#Rotary THEN
+                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000.0);
+                    ELSIF AxisType = eAxoDriveAxisType#Linear THEN
+                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
+                    END_IF;  
+
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#48;
                     END_IF;
