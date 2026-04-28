@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Channels;
 
 namespace AXOpen.Components.Cognex.Vision.VisionProtocol;
 
@@ -49,16 +50,19 @@ public sealed class VisionTcpClientOptions
     public VisionConnectionMode ConnectionMode { get; init; } = VisionConnectionMode.Persistent;
 
     /// <summary>How long to wait for a TriggerAccepted / TriggerRejected after sending TriggerRequest.</summary>
-    public TimeSpan TriggerAcceptTimeout { get; init; } = TimeSpan.FromMilliseconds(500);
+    public TimeSpan TriggerAcceptTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
 
     /// <summary>How long to wait for InspectionCompleted after sending InspectionResultRequest.</summary>
-    public TimeSpan InspectionResultTimeout { get; init; } = TimeSpan.FromMilliseconds(500);
+    public TimeSpan InspectionResultTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
 
     /// <summary>How long to wait for SendSpecificDataCompleted after sending SendSpecificDataRequest.</summary>
-    public TimeSpan SendSpecificDataTimeout { get; init; } = TimeSpan.FromMilliseconds(500);
+    public TimeSpan SendSpecificDataTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+
+    /// <summary>How long to wait for ReceiveSpecificDataCompleted after sending ReceiveSpecificDataRequest.</summary>
+    public TimeSpan ReceiveSpecificDataTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
 
     /// <summary>How long to wait for SetRecipeCompleted after sending SetRecipeRequest.</summary>
-    public TimeSpan SetRecipeTimeout { get; init; } = TimeSpan.FromMilliseconds(500);
+    public TimeSpan SetRecipeTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
 
     /// <summary>How long to attempt reconnecting before giving up one cycle.</summary>
     public TimeSpan ReconnectDelay { get; init; } = TimeSpan.FromSeconds(2);
@@ -76,7 +80,7 @@ public sealed class VisionTcpClientOptions
 /// </para>
 /// <para>
 /// Concurrency: a single background receive loop dispatches responses using
-/// <see cref="TaskCompletionSource{T}"/> keyed by the outgoing <c>MessageId</c>.
+/// per-request channels keyed by the outgoing <c>MessageId</c>.
 /// The Vision PC echoes that ID back in <c>CorrelationId</c>.
 /// </para>
 /// </summary>
@@ -92,8 +96,9 @@ public sealed class VisionTcpClient : IAsyncDisposable
 
     private long _sequenceNumber;
 
-    // Pending awaits: key = MessageId we sent, value = completion source waiting for Vision response.
-    private readonly ConcurrentDictionary<string, TaskCompletionSource<VisionEnvelope>> _pending = new();
+    // Pending awaits: key = MessageId we sent, value = channel with one or more correlated responses.
+    private readonly ConcurrentDictionary<string, Channel<VisionEnvelope>> _pending = new();
+    private string? _lastInboundSummary;
 
     public bool IsConnected => _tcp?.Connected ?? false;
 
@@ -134,8 +139,8 @@ public sealed class VisionTcpClient : IAsyncDisposable
     // ──────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Sends a <c>TriggerRequest</c> and awaits a <c>TriggerAccepted</c> or
-    /// <c>TriggerRejected</c> response from Vision PC.
+    /// Sends a <c>TriggerRequest</c> and awaits one of the supported trigger responses
+    /// from Vision PC.
     /// </summary>
     /// <param name="payload">Data to forward from PLC.</param>
     /// <param name="ct">Cancellation token from the RemoteTask handler.</param>
@@ -155,30 +160,37 @@ public sealed class VisionTcpClient : IAsyncDisposable
             payload,
             ackRequired: true);
 
-        // Register a completion source keyed by our own MessageId.
-        // Vision echoes MessageId back as CorrelationId in its response.
-        var tcs = new TaskCompletionSource<VisionEnvelope>(
-            TaskCreationOptions.RunContinuationsAsynchronously);
-
-        _pending[envelope.MessageId] = tcs;
+        // Register a response queue keyed by our own MessageId.
+        // Vision echoes MessageId back as CorrelationId in its responses.
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
 
         try
         {
             await SendAsync(envelope, ct);
 
-            // Wait for TriggerAccepted / TriggerRejected with the configured timeout.
-            using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-            timeoutCts.CancelAfter(_options.TriggerAcceptTimeout);
-
-            VisionEnvelope response = await tcs.Task.WaitAsync(timeoutCts.Token);
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.TriggerAcceptTimeout,
+                ct);
 
             return response.MessageType switch
             {
                 VisionEnvelope.MessageTypes.TriggerAccepted =>
-                    ToTriggerResult(response),
+                    await AwaitTriggerCompletionAfterAcceptedAsync(
+                        acceptedResponse: response,
+                        responseReader: responseChannel.Reader,
+                        ct),
 
                 VisionEnvelope.MessageTypes.TriggerRejected =>
                     ToTriggerRejectedResult(response),
+
+                // Some Vision implementations send the inspection result directly
+                // as a completion of the trigger request.
+                VisionEnvelope.MessageTypes.InspectionCompleted =>
+                    ToTriggerResultFromInspectionCompleted(response),
+
+                VisionEnvelope.MessageTypes.InspectionFault =>
+                    ToTriggerFaultResult(response),
 
                 _ => TriggerResult.Fail(
                         $"Unexpected message type: {response.MessageType}")
@@ -187,7 +199,9 @@ public sealed class VisionTcpClient : IAsyncDisposable
         catch (OperationCanceledException) when (!ct.IsCancellationRequested)
         {
             // Timeout path (inner token fired, outer token is still valid)
-            return TriggerResult.Fail("TriggerAccepted not received within timeout.", -2);
+            return TriggerResult.Fail(
+                BuildTimeoutReason("TriggerAccepted/TriggerRejected/InspectionCompleted/InspectionFault", envelope.MessageId),
+                -2);
         }
         finally
         {
@@ -215,19 +229,16 @@ public sealed class VisionTcpClient : IAsyncDisposable
             payload,
             ackRequired: true);
 
-        var tcs = new TaskCompletionSource<VisionEnvelope>(
-            TaskCreationOptions.RunContinuationsAsynchronously);
-
-        _pending[envelope.MessageId] = tcs;
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
 
         try
         {
             await SendAsync(envelope, ct);
 
-            using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-            timeoutCts.CancelAfter(_options.InspectionResultTimeout);
-
-            VisionEnvelope response = await tcs.Task.WaitAsync(timeoutCts.Token);
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.InspectionResultTimeout,
+                ct);
 
             return response.MessageType switch
             {
@@ -240,7 +251,9 @@ public sealed class VisionTcpClient : IAsyncDisposable
         }
         catch (OperationCanceledException) when (!ct.IsCancellationRequested)
         {
-            return VisionRequestResult.Fail("InspectionCompleted not received within timeout.", -2);
+            return VisionRequestResult.Fail(
+                BuildTimeoutReason("InspectionCompleted", envelope.MessageId),
+                -2);
         }
         finally
         {
@@ -259,32 +272,53 @@ public sealed class VisionTcpClient : IAsyncDisposable
         SendSpecificDataRequestPayload payload,
         CancellationToken ct = default)
     {
+        return await SendSpecificDataCoreAsync(
+            payload,
+            VisionEnvelope.MessageTypes.SendSpecificDataRequest,
+            VisionEnvelope.MessageTypes.SendSpecificDataCompleted,
+            ct);
+    }
+
+    public async Task<VisionRequestResult> SendSpecificDataTypesAsync(
+        SendSpecificDataRequestPayload payload,
+        CancellationToken ct = default)
+    {
+        return await SendSpecificDataCoreAsync(
+            payload,
+            VisionEnvelope.MessageTypes.SendSpecificDataTypesRequest,
+            VisionEnvelope.MessageTypes.SendSpecificDataTypesCompleted,
+            ct);
+    }
+
+    private async Task<VisionRequestResult> SendSpecificDataCoreAsync(
+        SendSpecificDataRequestPayload payload,
+        string requestMessageType,
+        string completedMessageType,
+        CancellationToken ct = default)
+    {
         bool disconnectAfterRequest = _options.ConnectionMode == VisionConnectionMode.PerRequest;
 
         await ConnectAsync(ct);
 
         VisionEnvelope envelope = BuildEnvelope(
-            VisionEnvelope.MessageTypes.SendSpecificDataRequest,
+            requestMessageType,
             payload,
             ackRequired: true);
 
-        var tcs = new TaskCompletionSource<VisionEnvelope>(
-            TaskCreationOptions.RunContinuationsAsynchronously);
-
-        _pending[envelope.MessageId] = tcs;
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
 
         try
         {
             await SendAsync(envelope, ct);
 
-            using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-            timeoutCts.CancelAfter(_options.SendSpecificDataTimeout);
-
-            VisionEnvelope response = await tcs.Task.WaitAsync(timeoutCts.Token);
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.SendSpecificDataTimeout,
+                ct);
 
             return response.MessageType switch
             {
-                VisionEnvelope.MessageTypes.SendSpecificDataCompleted =>
+                _ when response.MessageType == completedMessageType =>
                     ToVisionRequestResult(response),
 
                 _ => VisionRequestResult.Fail(
@@ -293,7 +327,61 @@ public sealed class VisionTcpClient : IAsyncDisposable
         }
         catch (OperationCanceledException) when (!ct.IsCancellationRequested)
         {
-            return VisionRequestResult.Fail("SendSpecificDataCompleted not received within timeout.", -2);
+            return VisionRequestResult.Fail(
+                BuildTimeoutReason(completedMessageType, envelope.MessageId),
+                -2);
+        }
+        finally
+        {
+            _pending.TryRemove(envelope.MessageId, out _);
+
+            if (disconnectAfterRequest)
+                await DisconnectInternalAsync();
+        }
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // ReceiveSpecificData flow
+    // ──────────────────────────────────────────────────────────
+
+    public async Task<VisionRequestResult> ReceiveSpecificDataAsync(
+        ReceiveSpecificDataRequestPayload payload,
+        CancellationToken ct = default)
+    {
+        bool disconnectAfterRequest = _options.ConnectionMode == VisionConnectionMode.PerRequest;
+
+        await ConnectAsync(ct);
+
+        VisionEnvelope envelope = BuildEnvelope(
+            VisionEnvelope.MessageTypes.ReceiveSpecificDataRequest,
+            payload,
+            ackRequired: true);
+
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
+
+        try
+        {
+            await SendAsync(envelope, ct);
+
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.ReceiveSpecificDataTimeout,
+                ct);
+
+            return response.MessageType switch
+            {
+                VisionEnvelope.MessageTypes.ReceiveSpecificDataCompleted =>
+                    ToVisionRequestResult(response),
+
+                _ => VisionRequestResult.Fail(
+                        $"Unexpected message type: {response.MessageType}")
+            };
+        }
+        catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+        {
+            return VisionRequestResult.Fail(
+                BuildTimeoutReason("ReceiveSpecificDataCompleted", envelope.MessageId),
+                -2);
         }
         finally
         {
@@ -321,19 +409,16 @@ public sealed class VisionTcpClient : IAsyncDisposable
             payload,
             ackRequired: true);
 
-        var tcs = new TaskCompletionSource<VisionEnvelope>(
-            TaskCreationOptions.RunContinuationsAsynchronously);
-
-        _pending[envelope.MessageId] = tcs;
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
 
         try
         {
             await SendAsync(envelope, ct);
 
-            using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-            timeoutCts.CancelAfter(_options.SetRecipeTimeout);
-
-            VisionEnvelope response = await tcs.Task.WaitAsync(timeoutCts.Token);
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.SetRecipeTimeout,
+                ct);
 
             return response.MessageType switch
             {
@@ -346,7 +431,9 @@ public sealed class VisionTcpClient : IAsyncDisposable
         }
         catch (OperationCanceledException) when (!ct.IsCancellationRequested)
         {
-            return VisionRequestResult.Fail("SetRecipeCompleted not received within timeout.", -2);
+            return VisionRequestResult.Fail(
+                BuildTimeoutReason("SetRecipeCompleted", envelope.MessageId),
+                -2);
         }
         finally
         {
@@ -360,6 +447,72 @@ public sealed class VisionTcpClient : IAsyncDisposable
     // ──────────────────────────────────────────────────────────
     // Internal helpers
     // ──────────────────────────────────────────────────────────
+
+    private Channel<VisionEnvelope> RegisterPending(string messageId)
+    {
+        var channel = Channel.CreateUnbounded<VisionEnvelope>(new UnboundedChannelOptions
+        {
+            SingleReader = true,
+            SingleWriter = false
+        });
+
+        _pending[messageId] = channel;
+        return channel;
+    }
+
+    private static async Task<VisionEnvelope> ReadPendingAsync(
+        ChannelReader<VisionEnvelope> responseReader,
+        TimeSpan timeout,
+        CancellationToken ct)
+    {
+        using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        timeoutCts.CancelAfter(timeout);
+        return await responseReader.ReadAsync(timeoutCts.Token);
+    }
+
+    private async Task<TriggerResult> AwaitTriggerCompletionAfterAcceptedAsync(
+        VisionEnvelope acceptedResponse,
+        ChannelReader<VisionEnvelope> responseReader,
+        CancellationToken ct)
+    {
+        TriggerResult accepted = ToTriggerResult(acceptedResponse);
+        if (!accepted.Accepted)
+            return accepted;
+
+        // If inspection completion follows TriggerAccepted on the same correlation,
+        // consume it here so one TriggerAsync call handles both messages.
+        try
+        {
+            VisionEnvelope followUp = await ReadPendingAsync(
+                responseReader,
+                _options.InspectionResultTimeout,
+                ct);
+
+            return followUp.MessageType switch
+            {
+                VisionEnvelope.MessageTypes.InspectionCompleted =>
+                    ToTriggerResultFromInspectionCompleted(followUp),
+
+                VisionEnvelope.MessageTypes.InspectionFault =>
+                    ToTriggerFaultResult(followUp),
+
+                // Duplicate or out-of-order ack. Keep the accepted result.
+                VisionEnvelope.MessageTypes.TriggerAccepted => accepted,
+
+                VisionEnvelope.MessageTypes.TriggerRejected =>
+                    ToTriggerRejectedResult(followUp),
+
+                _ => TriggerResult.Fail(
+                        $"Unexpected follow-up message type: {followUp.MessageType}")
+            };
+        }
+        catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+        {
+            // Keep backward compatibility: accepted trigger is still considered success
+            // when no follow-up frame arrives within completion timeout.
+            return accepted;
+        }
+    }
 
     private VisionEnvelope BuildEnvelope<T>(string messageType, T payload, bool ackRequired = false)
     {
@@ -416,7 +569,11 @@ public sealed class VisionTcpClient : IAsyncDisposable
                 }
 
                 if (envelope is not null)
+                {
+                    _lastInboundSummary =
+                        $"type={envelope.MessageType}, corr={envelope.CorrelationId ?? "<null>"}, msg={envelope.MessageId}";
                     Dispatch(envelope);
+                }
             }
         }
         catch (OperationCanceledException) { /* intentional shutdown */ }
@@ -429,12 +586,42 @@ public sealed class VisionTcpClient : IAsyncDisposable
     /// </summary>
     private void Dispatch(VisionEnvelope envelope)
     {
-        if (envelope.CorrelationId is not null &&
-            _pending.TryGetValue(envelope.CorrelationId, out var tcs))
+        // Primary path: Vision echoes request MessageId as CorrelationId.
+        if (!string.IsNullOrWhiteSpace(envelope.CorrelationId) &&
+            _pending.TryGetValue(envelope.CorrelationId, out var responseChannel))
         {
-            tcs.TrySetResult(envelope);
+            responseChannel.Writer.TryWrite(envelope);
+            return;
         }
+
+        // Compatibility fallback: some servers mirror the request id in MessageId
+        // and omit CorrelationId entirely.
+        if (!string.IsNullOrWhiteSpace(envelope.MessageId) &&
+            _pending.TryGetValue(envelope.MessageId, out responseChannel))
+        {
+            responseChannel.Writer.TryWrite(envelope);
+            return;
+        }
+
+        // Last-resort compatibility: if there is exactly one pending request,
+        // complete it with the inbound response even if IDs are not correlated.
+        // This helps interop with simple servers that omit correlation metadata.
+        if (_pending.Count == 1)
+        {
+            foreach (var pending in _pending)
+            {
+                pending.Value.Writer.TryWrite(envelope);
+                return;
+            }
+        }
+
+        // Unmatched responses are ignored by design (unsolicited messages/events).
         // Future: route unsolicited messages (InspectionFault, etc.) to an event.
+    }
+
+    private string BuildTimeoutReason(string expectedResponseType, string requestMessageId)
+    {
+        return $"{expectedResponseType} not received within timeout. requestMessageId={requestMessageId}, pending={_pending.Count}, lastInbound={_lastInboundSummary ?? "<none>"}";
     }
 
     // ──────────────────────────────────────────────────────────
@@ -445,7 +632,7 @@ public sealed class VisionTcpClient : IAsyncDisposable
     {
         var payload = envelope.GetPayload<TriggerAcceptedPayload>();
         return payload?.Accepted == true
-            ? TriggerResult.Ok()
+            ? TriggerResult.Ok(payload?.TriggerId ?? 0)
             : TriggerResult.Fail("Vision responded Accepted=false");
     }
 
@@ -454,7 +641,28 @@ public sealed class VisionTcpClient : IAsyncDisposable
         var payload = envelope.GetPayload<TriggerRejectedPayload>();
         return TriggerResult.Fail(
             payload?.Reason ?? "TriggerRejected",
-            payload?.ErrorCode ?? -1);
+            payload?.ErrorCode ?? -1,
+            payload?.TriggerId ?? 0);
+    }
+
+    private static TriggerResult ToTriggerResultFromInspectionCompleted(VisionEnvelope envelope)
+    {
+        var payload = envelope.GetPayload<InspectionResultCompletedPayload>();
+
+        // Treat completion without explicit success flag as successful completion.
+        if (payload is null || payload.Success)
+            return TriggerResult.Ok();
+
+        return TriggerResult.Fail("InspectionCompleted with Success=false");
+    }
+
+    private static TriggerResult ToTriggerFaultResult(VisionEnvelope envelope)
+    {
+        var payload = envelope.GetPayload<InspectionFaultPayload>();
+        return TriggerResult.Fail(
+            payload?.Reason ?? "InspectionFault",
+            payload?.ErrorCode ?? -1,
+            payload?.TriggerId ?? 0);
     }
 
     private static VisionRequestResult ToVisionRequestResult(VisionEnvelope envelope)

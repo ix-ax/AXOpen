@@ -39,11 +39,15 @@ namespace AXOpen.Components.Cognex.Vision
 
 
           
-                this.TriggerTask.Initialize(() => Trigger());
-                this.InspectionResultTask.Initialize(() => InspectionResult());
-                this.SendSpecificDataTask.Initialize(() => SendSpecificData());
-                this.SetRecipeTask.Initialize(() => SetRecipe());
-                
+                this.TriggerTask.InitializeExclusively(() => Trigger());
+                this.SetRecipeTask.InitializeExclusively(() => SetRecipe());
+                this.InspectionResultTask.InitializeExclusively(() => InspectionResult());
+                this.SendSpecificDataTask.InitializeExclusively(() => SendSpecificData());
+                this.ReceiveSpecificDataTask.InitializeExclusively(() => ReceiveSpecificData());
+                this.SendSpecificDataAndTypesTask.InitializeExclusively(() => SendSpecificDataTypes());
+                this.TriggerWithSpecificDataTask.InitializeExclusively(() => TriggerWithSpecificData());
+
+
             }
             catch (Exception)
             {
@@ -140,7 +144,17 @@ namespace AXOpen.Components.Cognex.Vision
             var container = SpecificDataContainer;
             if (container == null) return;
 
-            var method = container.GetType().GetMethod("PlainToOnlineAsync");
+            var method = container
+                .GetType()
+                .GetMethods(BindingFlags.Instance | BindingFlags.Public)
+                .Where(m => m.Name == "PlainToOnlineAsync")
+                .Select(m => new { Method = m, Params = m.GetParameters() })
+                .Where(x => x.Params.Length == 2
+                            && x.Params[1].ParameterType == typeof(eAccessPriority)
+                            && x.Params[0].ParameterType.IsAssignableFrom(plain.GetType()))
+                .Select(x => x.Method)
+                .FirstOrDefault();
+
             if (method == null) return;
 
             var taskObj = method.Invoke(container, new object[] { plain, priority });

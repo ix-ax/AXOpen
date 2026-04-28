@@ -63,17 +63,17 @@ public sealed class VisionEnvelope
         public const string TriggerAccepted        = "TriggerAccepted";
         public const string TriggerRejected        = "TriggerRejected";
         public const string InspectionResultRequest= "InspectionResultRequest";
-        public const string InspectionCompleted    = "InspectionCompleted";
-        public const string InspectionFault        = "InspectionFault";
-        public const string SendSpecificDataRequest  = "SendSpecificDataRequest";
-        public const string SendSpecificDataCompleted= "SendSpecificDataCompleted";
-        public const string SetRecipeRequest         = "SetRecipeRequest";
-        public const string SetRecipeCompleted       = "SetRecipeCompleted";
-        //public const string TransportAck           = "TransportAck";
-        //public const string TransportNack          = "TransportNack";
-        //public const string ResetCompleted         = "ResetCompleted";
-        //public const string ReadResultsCompleted   = "ReadResultsCompleted";
-        //public const string SetUserDataCompleted   = "SetUserDataCompleted";
+        public const string InspectionCompleted         = "InspectionCompleted";
+        public const string InspectionFault             = "InspectionFault";
+        public const string SendSpecificDataRequest     = "SendSpecificDataRequest";
+        public const string SendSpecificDataCompleted   = "SendSpecificDataCompleted";
+        public const string SendSpecificDataTypesRequest   = "SendSpecificDataTypesRequest";
+        public const string SendSpecificDataTypesCompleted = "SendSpecificDataTypesCompleted";
+        public const string ReceiveSpecificDataRequest  = "ReceiveSpecificDataRequest";
+        public const string ReceiveSpecificDataCompleted= "ReceiveSpecificDataCompleted";
+        public const string SetRecipeRequest           = "SetRecipeRequest";
+        public const string SetRecipeCompleted         = "SetRecipeCompleted";
+      
     }
 }
 

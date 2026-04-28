@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
-            {#ix-set:AttributeName = "<#Trigger #>"}
+            {#ix-set:AttributeName = "<#Trigger#>"}
             TriggerTask : AXOpen.Core.AxoRemoteTask;
   
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -36,6 +36,25 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#SendSpecificData#>"}
             SendSpecificDataTask : AXOpen.Core.AxoRemoteTask;
+
+
+         
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#ReceiveSpecificData#>"}
+            ReceiveSpecificDataTask : AXOpen.Core.AxoRemoteTask;
+
+             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#TriggerWithSpecificData#>"}
+            TriggerWithSpecificDataTask : AXOpen.Core.AxoRemoteTask;
+
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendSpecificDataAndTypes#>"}
+            SendSpecificDataAndTypesTask : AXOpen.Core.AxoRemoteTask;
        
         END_VAR
         
@@ -94,7 +113,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             InspectionResultTask.Execute(THIS);
             SetRecipeTask.Execute(THIS);  
             SendSpecificDataTask.Execute(THIS);
-         
+            ReceiveSpecificDataTask.Execute(THIS);
+            TriggerWithSpecificDataTask.Execute(THIS);
+            SendSpecificDataAndTypesTask.Execute(THIS);
 
 
             //*************RESTORE********************
@@ -125,6 +146,16 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             SendSpecificData := SendSpecificDataTask.Invoke(THIS);
         END_METHOD
 
+        METHOD PUBLIC ReceiveSpecificData : IAxoTaskState
+            ReceiveSpecificData := ReceiveSpecificDataTask.Invoke(THIS);  
+        END_METHOD
+        METHOD PUBLIC TriggerWithSpecificData : IAxoTaskState
+            TriggerWithSpecificData := TriggerWithSpecificDataTask.Invoke(THIS);
+        END_METHOD
+        METHOD PUBLIC SendSpecificDataAndTypes : IAxoTaskState
+            SendSpecificDataAndTypes := SendSpecificDataAndTypesTask.Invoke(THIS);
+        END_METHOD
+
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := TRUE;
 
@@ -143,8 +174,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             TriggerTask.Restore();
             SetRecipeTask.Restore();
             SendSpecificDataTask.Restore();
+            SendSpecificDataAndTypesTask.Restore();
             InspectionResultTask.Restore();
-
+            ReceiveSpecificDataTask.Restore();
+            TriggerWithSpecificDataTask.Restore();
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
 

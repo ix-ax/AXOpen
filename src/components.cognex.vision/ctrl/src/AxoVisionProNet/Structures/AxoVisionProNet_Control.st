@@ -5,8 +5,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
         VAR PUBLIC 
             TriggerId : INT;
             PartId : STRING;
-            Recipe : STRING;
-            Carrier : STRING;
+            VariantId : STRING;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

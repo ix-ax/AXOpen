@@ -13,13 +13,17 @@ namespace AXOpen.Components.Cognex.Vision.VisionProtocol;
 /// </summary>
 public sealed class TriggerRequestPayload
 {
+    [JsonPropertyName("triggerid")]
+    /// <summary>Trigger identification forwarded from PLC.</summary>
+    public short TriggerId { get; set; }
+
     /// <summary>Part identification forwarded from PLC.</summary>
     [JsonPropertyName("partId")]
     public string? PartId { get; set; }
 
     /// <summary>Variant / recipe selector.</summary>
     [JsonPropertyName("variant")]
-    public ushort Variant { get; set; }
+    public string? Variant { get; set; }
 
     /// <summary>Serialized specific data from the PLC twin.</summary>
     [JsonPropertyName("data")]
@@ -37,6 +41,9 @@ public sealed class TriggerAcceptedPayload
 {
     [JsonPropertyName("accepted")]
     public bool Accepted { get; set; }
+
+    [JsonPropertyName("triggerId")]
+    public short TriggerId { get; set; }
 }
 
 /// <summary>
@@ -44,11 +51,14 @@ public sealed class TriggerAcceptedPayload
 /// </summary>
 public sealed class TriggerRejectedPayload
 {
+    [JsonPropertyName("triggerId")]
+    public short TriggerId { get; set; }
+
     [JsonPropertyName("reason")]
     public string? Reason { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public int ErrorCode { get; set; }
+    public short ErrorCode { get; set; }
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -61,14 +71,15 @@ public sealed class TriggerRejectedPayload
 public sealed class TriggerResult
 {
     public bool     Accepted    { get; init; }
-    public int      ErrorCode   { get; init; }
+    public short    TriggerId   { get; init; }
+    public short    ErrorCode   { get; init; }
     public string?  RejectReason { get; init; }
 
-    public static TriggerResult Ok() =>
-        new() { Accepted = true };
+    public static TriggerResult Ok(short triggerId = 0) =>
+        new() { Accepted = true, TriggerId = triggerId };
 
-    public static TriggerResult Fail(string reason, int code = -1) =>
-        new() { Accepted = false, RejectReason = reason, ErrorCode = code };
+    public static TriggerResult Fail(string reason, short code = -1, short triggerId = 0) =>
+        new() { Accepted = false, RejectReason = reason, ErrorCode = code, TriggerId = triggerId };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -90,17 +101,29 @@ public sealed class InspectionResultCompletedPayload
     public JsonElement? Data { get; set; }
 }
 
+public sealed class InspectionFaultPayload
+{
+    [JsonPropertyName("triggerId")]
+    public short TriggerId { get; set; }
+
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
+
+    [JsonPropertyName("errorCode")]
+    public short ErrorCode { get; set; }
+}
+
 public sealed class VisionRequestResult
 {
     public bool    Success     { get; init; }
-    public int     ErrorCode   { get; init; }
+    public short     ErrorCode   { get; init; }
     public string? Reason      { get; init; }
     public JsonElement? Data   { get; init; }
 
     public static VisionRequestResult Ok(JsonElement? data = null) =>
         new() { Success = true, Data = data };
 
-    public static VisionRequestResult Fail(string reason, int code = -1) =>
+    public static VisionRequestResult Fail(string reason, short code = -1) =>
         new() { Success = false, Reason = reason, ErrorCode = code };
 }
 
@@ -110,6 +133,7 @@ public sealed class VisionRequestResult
 
 public sealed class SendSpecificDataRequestPayload
 {
+
     [JsonPropertyName("data")]
     public JsonElement? Data { get; set; }
 }
@@ -121,11 +145,36 @@ public sealed class SendSpecificDataCompletedPayload
 }
 
 // ──────────────────────────────────────────────────────────────
+// ReceiveSpecificData  (Gateway → Vision)
+// ──────────────────────────────────────────────────────────────
+
+public sealed class ReceiveSpecificDataRequestPayload
+{
+
+
+    [JsonPropertyName("data")]
+    public JsonElement? Data { get; set; }
+}
+
+public sealed class ReceiveSpecificDataCompletedPayload
+{
+    [JsonPropertyName("success")]
+    public bool Success { get; set; }
+
+    [JsonPropertyName("data")]
+    public JsonElement? Data { get; set; }
+}
+
+// ──────────────────────────────────────────────────────────────
 // SetRecipe  (Gateway → Vision)
 // ──────────────────────────────────────────────────────────────
 
 public sealed class SetRecipeRequestPayload
 {
+    /// <summary>Variant / recipe selector.</summary>
+    [JsonPropertyName("variant")]
+    public string? Variant { get; set; }
+
     [JsonPropertyName("data")]
     public JsonElement? Data { get; set; }
 }

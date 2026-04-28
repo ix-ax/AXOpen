@@ -52,7 +52,93 @@ public partial class AxoVisionProNet
     /// <summary>
     /// Executed by <see cref="TriggerTask"/> when PLC invokes the remote call.
     /// </summary>
+    /// <param name="withSpecificData">If true, includes specific data in the trigger request.</param>
     private async Task Trigger()
+    {
+        if (_visionClient is null)
+            throw new InvalidOperationException(
+                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+
+        var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
+
+        JsonElement? dataElement = null;
+       
+
+        var payload = new TriggerRequestPayload
+        {
+            TriggerId = control.TriggerId,
+            PartId = control.PartId,
+            Variant = control.VariantId,
+            Data = dataElement
+        };
+
+        var result = await _visionClient.TriggerAsync(payload);
+
+        if (!result.Accepted)
+            throw new InvalidOperationException(
+                $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+
+        var status = Status.CreateEmptyPoco();
+        status.Accepted = result.Accepted;
+        status.TriggerId = result.TriggerId;
+        status.ErrorCode = result.ErrorCode;
+        status.RejectReason = result.RejectReason;
+        await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+    }
+
+    /// <summary>
+    /// Executed by <see cref="SetRecipeTask"/> when PLC invokes the remote call.
+    /// </summary>
+    private async Task SetRecipe()
+    {
+        if (_visionClient is null)
+            throw new InvalidOperationException(
+                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+
+
+
+        JsonElement? dataElement = null;
+        var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
+
+        var payload = new SetRecipeRequestPayload
+        {
+            Variant = control.VariantId,
+            Data = dataElement
+        };
+
+        var result = await _visionClient.SetRecipeAsync(payload);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"SetRecipeRequest failed: [{result.ErrorCode}] {result.Reason}");
+
+        var status = Status.CreateEmptyPoco();
+        status.Accepted = result.Success;
+        status.TriggerId = 0;
+        status.ErrorCode = result.ErrorCode;
+        status.RejectReason = result.Reason;
+        await Status.PlainToOnline(status, priority: eAccessPriority.High);
+    }
+
+
+    /// <summary>
+    /// Executed by <see cref="SendSpecificDataTask"/> when PLC invokes the remote call.
+    /// </summary>
+    private async Task SendSpecificData()
+    {
+        await SendSpecificDataCore(includeTypes: false);
+    }
+
+    /// <summary>
+    /// Executed by <see cref="SendSpecificDataAndTypesTask"/> when PLC invokes the remote call.
+    /// </summary>
+    private async Task SendSpecificDataTypes()
+    {
+        await SendSpecificDataCore(includeTypes: true);
+    }
+
+    private async Task SendSpecificDataCore(bool includeTypes)
     {
         if (_visionClient is null)
             throw new InvalidOperationException(
@@ -64,18 +150,121 @@ public partial class AxoVisionProNet
         var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
         if (plainData == null) return;
 
-        var payload = new TriggerRequestPayload
+        var payload = new SendSpecificDataRequestPayload
+        {
+            Data = includeTypes
+                ? VisionTypedPayloadSerializer.SerializeToElement(plainData)
+                : JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
+        };
+
+        var result = includeTypes
+            ? await _visionClient.SendSpecificDataTypesAsync(payload)
+            : await _visionClient.SendSpecificDataAsync(payload);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"{(includeTypes ? VisionEnvelope.MessageTypes.SendSpecificDataTypesRequest : VisionEnvelope.MessageTypes.SendSpecificDataRequest)} failed: [{result.ErrorCode}] {result.Reason}");
+
+        var status = Status.CreateEmptyPoco();
+        status.Accepted = result.Success;
+        status.TriggerId = 0;
+        status.ErrorCode = result.ErrorCode;
+        status.RejectReason = result.Reason;
+        await Status.PlainToOnline(status, priority: eAccessPriority.High);
+    }
+
+
+    /// <summary>
+    /// Executed by <see cref="ReceiveSpecificDataTask"/> when PLC invokes the remote call.
+    /// </summary>
+    private async Task ReceiveSpecificData()
+    {
+        if (_visionClient is null)
+            throw new InvalidOperationException(
+                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+
+
+
+        var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
+        
+
+        if (plainData == null) return;
+
+        var payload = new ReceiveSpecificDataRequestPayload
         {
             Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
         };
 
-        var result = await _visionClient.TriggerAsync(payload);
+        var result = await _visionClient.ReceiveSpecificDataAsync(payload);
 
-        if (!result.Accepted)
+        if (!result.Success)
             throw new InvalidOperationException(
-                $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+                $"ReceiveSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
 
-        //await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
+
+        var status = Status.CreateEmptyPoco();
+        status.Accepted = result.Success;
+        status.TriggerId = 0;
+        status.ErrorCode = result.ErrorCode;
+        status.RejectReason = result.Reason;
+
+        await Status.PlainToOnline(status, priority: eAccessPriority.High);
+        if (!result.Data.HasValue)
+            return;
+
+        var data = result.Data.Value.Deserialize(plainData.GetType(), VisionJsonOptions.Default);
+        if (data == null)
+            return;
+
+        await PlainToOnlineAsync(data, eAccessPriority.Normal);
+    }
+
+
+    private async Task TriggerWithSpecificData()
+    {
+        //if (_visionClient is null)
+        //    throw new InvalidOperationException(
+        //        "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+
+        //var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
+        //var container = SpecificDataContainer;
+        //if (container == null) return;
+
+        //var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
+        //if (plainData == null) return;
+
+
+        //var payload = new TriggerRequestPayload
+        //{
+        //    TriggerId = control.TriggerId,
+        //    PartId = control.PartId,
+        //    Variant = control.VariantId,
+        //    Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
+        //};
+
+
+
+        //var result = await _visionClient.TriggerAsync(payload);
+
+        //if (!result.Accepted)
+        //    throw new InvalidOperationException(
+        //        $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+
+        //var status = Status.CreateEmptyPoco();
+        //status.Accepted = result.Accepted;
+        //status.TriggerId = result.TriggerId;
+        //status.ErrorCode = result.ErrorCode;
+        //status.RejectReason = result.RejectReason;
+        //await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+        //if (!result.Data.HasValue)
+        //    return;
+
+        //var data = result.Data.Value.Deserialize(plainData.GetType(), VisionJsonOptions.Default);
+        //if (data == null)
+        //    return;
+
+        //await PlainToOnlineAsync(data, eAccessPriority.Normal);
     }
 
     /// <summary>
@@ -95,7 +284,7 @@ public partial class AxoVisionProNet
 
         var payload = new InspectionResultRequestPayload
         {
-            Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
+            Data = VisionTypedPayloadSerializer.SerializeToElement(plainData)
         };
 
         var result = await _visionClient.InspectionResultAsync(payload);
@@ -107,61 +296,9 @@ public partial class AxoVisionProNet
         await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
     }
 
-    /// <summary>
-    /// Executed by <see cref="SendSpecificDataTask"/> when PLC invokes the remote call.
-    /// </summary>
-    private async Task SendSpecificData()
-    {
-        if (_visionClient is null)
-            throw new InvalidOperationException(
-                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+   
 
-        var container = SpecificDataContainer;
-        if (container == null) return;
+   
 
-        var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
-        if (plainData == null) return;
-
-        var payload = new SendSpecificDataRequestPayload
-        {
-            Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
-        };
-
-        var result = await _visionClient.SendSpecificDataAsync(payload);
-
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"SendSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
-
-        //await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
-    }
-
-    /// <summary>
-    /// Executed by <see cref="SetRecipeTask"/> when PLC invokes the remote call.
-    /// </summary>
-    private async Task SetRecipe()
-    {
-        if (_visionClient is null)
-            throw new InvalidOperationException(
-                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
-
-        var container = SpecificDataContainer;
-        if (container == null) return;
-
-        var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
-        if (plainData == null) return;
-
-        var payload = new SetRecipeRequestPayload
-        {
-            Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
-        };
-
-        var result = await _visionClient.SetRecipeAsync(payload);
-
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"SetRecipeRequest failed: [{result.ErrorCode}] {result.Reason}");
-
-        //await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
-    }
+    
 }
