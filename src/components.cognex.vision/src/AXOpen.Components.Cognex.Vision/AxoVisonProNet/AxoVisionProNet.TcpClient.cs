@@ -222,49 +222,49 @@ public partial class AxoVisionProNet
 
     private async Task TriggerWithSpecificData()
     {
-        //if (_visionClient is null)
-        //    throw new InvalidOperationException(
-        //        "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+        if (_visionClient is null)
+            throw new InvalidOperationException(
+                "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
 
-        //var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
-        //var container = SpecificDataContainer;
-        //if (container == null) return;
+        var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
+        var container = SpecificDataContainer;
+        if (container == null) return;
 
-        //var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
-        //if (plainData == null) return;
-
-
-        //var payload = new TriggerRequestPayload
-        //{
-        //    TriggerId = control.TriggerId,
-        //    PartId = control.PartId,
-        //    Variant = control.VariantId,
-        //    Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
-        //};
+        var plainData = (await GetDataAsync(eAccessPriority.Normal))?.Plain;
+        if (plainData == null) return;
 
 
+        var payload = new TriggerRequestPayload
+        {
+            TriggerId = control.TriggerId,
+            PartId = control.PartId,
+            Variant = control.VariantId,
+            Data = JsonSerializer.SerializeToElement(plainData, plainData.GetType(), VisionJsonOptions.Default)
+        };
 
-        //var result = await _visionClient.TriggerAsync(payload);
 
-        //if (!result.Accepted)
-        //    throw new InvalidOperationException(
-        //        $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
 
-        //var status = Status.CreateEmptyPoco();
-        //status.Accepted = result.Accepted;
-        //status.TriggerId = result.TriggerId;
-        //status.ErrorCode = result.ErrorCode;
-        //status.RejectReason = result.RejectReason;
-        //await Status.PlainToOnline(status, priority: eAccessPriority.High);
+        var result = await _visionClient.TriggerWithSpecificDataAsync(payload);
 
-        //if (!result.Data.HasValue)
-        //    return;
+        if (!result.Accepted)
+            throw new InvalidOperationException(
+                $"TriggerWithSpecificDataRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
 
-        //var data = result.Data.Value.Deserialize(plainData.GetType(), VisionJsonOptions.Default);
-        //if (data == null)
-        //    return;
+        var status = Status.CreateEmptyPoco();
+        status.Accepted = result.Accepted;
+        status.TriggerId = result.TriggerId;
+        status.ErrorCode = result.ErrorCode;
+        status.RejectReason = result.RejectReason;
+        await Status.PlainToOnline(status, priority: eAccessPriority.High);
 
-        //await PlainToOnlineAsync(data, eAccessPriority.Normal);
+        if (!result.Data.HasValue)
+            return;
+
+        var data = result.Data.Value.Deserialize(plainData.GetType(), VisionJsonOptions.Default);
+        if (data == null)
+            return;
+
+        await PlainToOnlineAsync(data, eAccessPriority.Normal);
     }
 
     /// <summary>

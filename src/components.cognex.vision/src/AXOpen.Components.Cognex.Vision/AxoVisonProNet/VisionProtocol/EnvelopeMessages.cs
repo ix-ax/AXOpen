@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Components.Cognex.Vision.VisionProtocol;
 
@@ -42,8 +43,13 @@ public sealed class TriggerAcceptedPayload
     [JsonPropertyName("accepted")]
     public bool Accepted { get; set; }
 
+
     [JsonPropertyName("triggerId")]
     public short TriggerId { get; set; }
+
+    [JsonPropertyName("data")]
+    public JsonElement? Data { get; set; }
+
 }
 
 /// <summary>
@@ -74,9 +80,10 @@ public sealed class TriggerResult
     public short    TriggerId   { get; init; }
     public short    ErrorCode   { get; init; }
     public string?  RejectReason { get; init; }
+    public JsonElement? Data { get; init; }
 
-    public static TriggerResult Ok(short triggerId = 0) =>
-        new() { Accepted = true, TriggerId = triggerId };
+    public static TriggerResult Ok(short triggerId = 0, JsonElement? data = null) =>
+        new() { Accepted = true, TriggerId = triggerId, Data = data };
 
     public static TriggerResult Fail(string reason, short code = -1, short triggerId = 0) =>
         new() { Accepted = false, RejectReason = reason, ErrorCode = code, TriggerId = triggerId };
@@ -94,6 +101,9 @@ public sealed class InspectionResultRequestPayload
 
 public sealed class InspectionResultCompletedPayload
 {
+    [JsonPropertyName("triggerId")]
+    public short TriggerId { get; set; }
+
     [JsonPropertyName("success")]
     public bool Success { get; set; }
 

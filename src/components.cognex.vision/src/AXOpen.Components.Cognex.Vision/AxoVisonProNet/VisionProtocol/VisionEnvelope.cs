@@ -73,6 +73,8 @@ public sealed class VisionEnvelope
         public const string ReceiveSpecificDataCompleted= "ReceiveSpecificDataCompleted";
         public const string SetRecipeRequest           = "SetRecipeRequest";
         public const string SetRecipeCompleted         = "SetRecipeCompleted";
+        public const string TriggerWithSpecificDataRequest   = "TriggerWithSpecificDataRequest";
+        public const string TriggerWithSpecificDataCompleted = "TriggerWithSpecificDataCompleted";
       
     }
 }

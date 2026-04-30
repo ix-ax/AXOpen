@@ -64,6 +64,9 @@ public sealed class VisionTcpClientOptions
     /// <summary>How long to wait for SetRecipeCompleted after sending SetRecipeRequest.</summary>
     public TimeSpan SetRecipeTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
 
+    /// <summary>How long to wait for a TriggerWithSpecificData response after sending TriggerWithSpecificDataRequest.</summary>
+    public TimeSpan TriggerWithSpecificDataAcceptTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+
     /// <summary>How long to attempt reconnecting before giving up one cycle.</summary>
     public TimeSpan ReconnectDelay { get; init; } = TimeSpan.FromSeconds(2);
 }
@@ -201,6 +204,92 @@ public sealed class VisionTcpClient : IAsyncDisposable
             // Timeout path (inner token fired, outer token is still valid)
             return TriggerResult.Fail(
                 BuildTimeoutReason("TriggerAccepted/TriggerRejected/InspectionCompleted/InspectionFault", envelope.MessageId),
+                -2);
+        }
+        finally
+        {
+            _pending.TryRemove(envelope.MessageId, out _);
+
+            if (disconnectAfterRequest)
+                await DisconnectInternalAsync();
+        }
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // TriggerWithSpecificData flow
+    // ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Sends a <c>TriggerWithSpecificDataRequest</c> and awaits one of the supported
+    /// trigger responses from Vision PC. Mirrors <see cref="TriggerAsync"/> but uses
+    /// the dedicated TriggerWithSpecificData message type so the Vision PC can
+    /// distinguish a plain trigger from a trigger that carries specific payload data.
+    /// </summary>
+    /// <param name="payload">Data to forward from PLC.</param>
+    /// <param name="ct">Cancellation token from the RemoteTask handler.</param>
+    /// <returns>
+    /// <see cref="TriggerResult.Accepted"/> is true when Vision accepted the trigger.
+    /// </returns>
+    public async Task<TriggerResult> TriggerWithSpecificDataAsync(
+        TriggerRequestPayload payload,
+        CancellationToken ct = default)
+    {
+        bool disconnectAfterRequest = _options.ConnectionMode == VisionConnectionMode.PerRequest;
+
+        await ConnectAsync(ct);
+
+        VisionEnvelope envelope = BuildEnvelope(
+            VisionEnvelope.MessageTypes.TriggerWithSpecificDataRequest,
+            payload,
+            ackRequired: true);
+
+        // Register a response queue keyed by our own MessageId.
+        // Vision echoes MessageId back as CorrelationId in its responses.
+        Channel<VisionEnvelope> responseChannel = RegisterPending(envelope.MessageId);
+
+        try
+        {
+            await SendAsync(envelope, ct);
+
+            VisionEnvelope response = await ReadPendingAsync(
+                responseChannel.Reader,
+                _options.TriggerWithSpecificDataAcceptTimeout,
+                ct);
+
+            return response.MessageType switch
+            {
+                VisionEnvelope.MessageTypes.TriggerAccepted =>
+                    await AwaitTriggerCompletionAfterAcceptedAsync(
+                        acceptedResponse: response,
+                        responseReader: responseChannel.Reader,
+                        ct),
+
+                VisionEnvelope.MessageTypes.TriggerRejected =>
+                    ToTriggerRejectedResult(response),
+
+                // Vision may complete the trigger directly with the dedicated
+                // TriggerWithSpecificDataCompleted message instead of going through
+                // the InspectionCompleted path.
+                VisionEnvelope.MessageTypes.TriggerWithSpecificDataCompleted =>
+                    ToTriggerResultFromInspectionCompleted(response),
+
+                // Some Vision implementations send the inspection result directly
+                // as a completion of the trigger request.
+                VisionEnvelope.MessageTypes.InspectionCompleted =>
+                    ToTriggerResultFromInspectionCompleted(response),
+
+                VisionEnvelope.MessageTypes.InspectionFault =>
+                    ToTriggerFaultResult(response),
+
+                _ => TriggerResult.Fail(
+                        $"Unexpected message type: {response.MessageType}")
+            };
+        }
+        catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+        {
+            // Timeout path (inner token fired, outer token is still valid)
+            return TriggerResult.Fail(
+                BuildTimeoutReason("TriggerAccepted/TriggerRejected/TriggerWithSpecificDataCompleted/InspectionCompleted/InspectionFault", envelope.MessageId),
                 -2);
         }
         finally
@@ -650,8 +739,8 @@ public sealed class VisionTcpClient : IAsyncDisposable
         var payload = envelope.GetPayload<InspectionResultCompletedPayload>();
 
         // Treat completion without explicit success flag as successful completion.
-        if (payload is null || payload.Success)
-            return TriggerResult.Ok();
+        if (payload.Success)
+            return TriggerResult.Ok(payload.TriggerId,payload.Data);
 
         return TriggerResult.Fail("InspectionCompleted with Success=false");
     }
