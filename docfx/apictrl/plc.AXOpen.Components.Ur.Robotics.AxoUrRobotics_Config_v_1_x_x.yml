@@ -1,0 +1,193 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.InfoTime
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.ErrorTime
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.TaskTimeout
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.HWIDs
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnEnabled
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnPulse
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.IpAddress
+  name: AxoUrRobotics_Config_v_1_x_x
+  fullName: AxoUrRobotics_Config_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRobotics_Config_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.InfoTime
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.InfoTime
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.InfoTime
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.ErrorTime
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.ErrorTime
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.ErrorTime
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.TaskTimeout
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.TaskTimeout
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.TaskTimeout
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.HWIDs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.HWIDs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.HWIDs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnEnabled
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnEnabled
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RemotePowerOnEnabled
+  fullName: RemotePowerOnEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnEnabled
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RemotePowerOnEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnPulse
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnPulse
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RemotePowerOnPulse
+  fullName: RemotePowerOnPulse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.RemotePowerOnPulse
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RemotePowerOnPulse : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.IpAddress
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.IpAddress
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: IpAddress
+  fullName: IpAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_Config_v_1_x_x.IpAddress
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'IpAddress : STRING'
+    return:
+      type: STRING
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+  name: AxoUrRobotics_HWIDs_v_1_x_x
+  nameWithType: AxoUrRobotics_HWIDs_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

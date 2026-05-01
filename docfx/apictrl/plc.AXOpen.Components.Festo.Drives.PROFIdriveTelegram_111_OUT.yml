@@ -1,0 +1,264 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW1
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW1
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW2
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW2
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.Override_
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_TARPOS
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_VELOCITY
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_ACC
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_DEC
+  - plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.reserved11
+  name: PROFIdriveTelegram_111_OUT
+  fullName: PROFIdriveTelegram_111_OUT
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 166
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS PROFIdriveTelegram_111_OUT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: STW1
+  fullName: STW1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 169
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'STW1 : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW1'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW1
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW1
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: POS_STW1
+  fullName: POS_STW1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW1
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 173
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'POS_STW1 : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW2
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW2
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: POS_STW2
+  fullName: POS_STW2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.POS_STW2
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 177
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'POS_STW2 : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW2'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW2
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW2
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW2
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: STW2
+  fullName: STW2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.STW2
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 181
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'STW2 : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW2'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW2
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.Override_
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.Override_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Override_
+  fullName: Override_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.Override_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 185
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Override_ : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_TARPOS
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_TARPOS
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: MDI_TARPOS
+  fullName: MDI_TARPOS
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_TARPOS
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 189
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'MDI_TARPOS : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_VELOCITY
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_VELOCITY
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: MDI_VELOCITY
+  fullName: MDI_VELOCITY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_VELOCITY
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 191
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'MDI_VELOCITY : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_ACC
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_ACC
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: MDI_ACC
+  fullName: MDI_ACC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_ACC
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 193
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'MDI_ACC : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_DEC
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_DEC
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: MDI_DEC
+  fullName: MDI_DEC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.MDI_DEC
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 197
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'MDI_DEC : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.reserved11
+  id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.reserved11
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: reserved11
+  fullName: reserved11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT.reserved11
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\PROFIdriveTelegram_111.st
+    startLine: 201
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'reserved11 : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW1
+  name: PROFIdriveTelegram_111_STW1
+  nameWithType: PROFIdriveTelegram_111_STW1
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW1
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1
+  name: PROFIdriveTelegram_111_POS_STW1
+  nameWithType: PROFIdriveTelegram_111_POS_STW1
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW1
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW2
+  name: PROFIdriveTelegram_111_POS_STW2
+  nameWithType: PROFIdriveTelegram_111_POS_STW2
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_POS_STW2
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW2
+  name: PROFIdriveTelegram_111_STW2
+  nameWithType: PROFIdriveTelegram_111_STW2
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_STW2
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

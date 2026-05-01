@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._8dataBits
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._7dataBits
+  name: eAxoCmPtp_DataBits
+  fullName: eAxoCmPtp_DataBits
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_DataBits : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._8dataBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._8dataBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _8dataBits :=  UINT#1
+  fullName: _8dataBits
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._8dataBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._7dataBits
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._7dataBits
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _7dataBits :=  UINT#2
+  fullName: _7dataBits
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_DataBits._7dataBits
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_DataBits.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

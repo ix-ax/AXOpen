@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.ActiveProgramNumber
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.RemainingStorageSpaceOnIPC
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentPosition
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentTravelSpeed
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentForce
+  name: eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  fullName: eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'eAxoSmartFunctionKitStatusInformation_v_4_x_x : UINT'
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.ActiveProgramNumber
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.ActiveProgramNumber
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ActiveProgramNumber :=  UINT#301
+  fullName: ActiveProgramNumber
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.ActiveProgramNumber
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.RemainingStorageSpaceOnIPC
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.RemainingStorageSpaceOnIPC
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RemainingStorageSpaceOnIPC :=  UINT#302
+  fullName: RemainingStorageSpaceOnIPC
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.RemainingStorageSpaceOnIPC
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentPosition
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentPosition
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: CurrentPosition :=  UINT#401
+  fullName: CurrentPosition
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentPosition
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentTravelSpeed
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentTravelSpeed
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: CurrentTravelSpeed :=  UINT#402
+  fullName: CurrentTravelSpeed
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentTravelSpeed
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentForce
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentForce
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: CurrentForce :=  UINT#403
+  fullName: CurrentForce
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x.CurrentForce
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitStatusInformation_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

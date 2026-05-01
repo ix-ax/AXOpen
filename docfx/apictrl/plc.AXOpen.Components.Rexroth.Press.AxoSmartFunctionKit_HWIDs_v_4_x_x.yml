@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Device
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_ParamCh_IDN
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_F_ModulNotUsed
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Input_24_Words
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Output_21_Words
+  name: AxoSmartFunctionKit_HWIDs_v_4_x_x
+  fullName: AxoSmartFunctionKit_HWIDs_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_HWIDs_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Device
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Device
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Device
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_ParamCh_IDN
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_ParamCh_IDN
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HW_ParamCh_IDN
+  fullName: HW_ParamCh_IDN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_ParamCh_IDN
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HW_ParamCh_IDN : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_F_ModulNotUsed
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_F_ModulNotUsed
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HW_F_ModulNotUsed
+  fullName: HW_F_ModulNotUsed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_F_ModulNotUsed
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HW_F_ModulNotUsed : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Input_24_Words
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Input_24_Words
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HW_Input_24_Words
+  fullName: HW_Input_24_Words
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Input_24_Words
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HW_Input_24_Words : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Output_21_Words
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Output_21_Words
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: HW_Output_21_Words
+  fullName: HW_Output_21_Words
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_HWIDs_v_4_x_x.HW_Output_21_Words
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'HW_Output_21_Words : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

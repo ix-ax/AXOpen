@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoIrc5_v_1_x_x | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoIrc5_v_1_x_x | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/new/dev/apiSpec/new?filename=plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x.md&amp;value=---%0Auid%3A%20plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x">
+
+
+
+  <h1 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x" class="text-break">
+Class AxoIrc5_v_1_x_x  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Components.Abb.Robotics.html">plc.AXOpen.Components.Abb.Robotics</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoIrc5_v_1_x_x</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoComponent.html">AxoComponent</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoIrc5_v_1_x_x</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics.html">IAxoRobotics</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent__isManuallyControllable">_isManuallyControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ActivateManualControl__">ActivateManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_IsManuallyControllable__">IsManuallyControllable()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ManualControl__">ManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Progress" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Progress">
+  Progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_RestoreTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.RestoreTask">
+  RestoreTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RestoreTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMovementsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsTask">
+  StopMovementsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StopMovementsTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMovementsAndProgramTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgramTask">
+  StopMovementsAndProgramTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StopMovementsAndProgramTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopProgramTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgramTask">
+  StopProgramTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StopProgramTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMotorsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotorsTask">
+  StopMotorsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StopMotorsTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartAtMainTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMainTask">
+  StartAtMainTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartAtMainTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotorsAndProgramTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgramTask">
+  StartMotorsAndProgramTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartMotorsAndProgramTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartProgramTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgramTask">
+  StartProgramTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartProgramTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotorsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsTask">
+  StartMotorsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartMotorsTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMovementsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovementsTask">
+  StartMovementsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartMovementsTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotorsProgramAndMovementsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovementsTask">
+  StartMotorsProgramAndMovementsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartMotorsProgramAndMovementsTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_MovementParameters" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.MovementParameters">
+  MovementParameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Config" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Config : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Status" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Status : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Messenger" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Messenger">
+  Messenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Messenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_TaskMessenger" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.TaskMessenger">
+  TaskMessenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TaskMessenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__progress" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._progress">
+  _progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Inputs" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Inputs">
+  Inputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Inputs : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Outputs" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Outputs">
+  Outputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Outputs : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_HardwareDiagnosticsTask" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.HardwareDiagnosticsTask">
+  HardwareDiagnosticsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__infoTimer" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._infoTimer">
+  _infoTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_infoTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__errorTimer" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTimer">
+  _errorTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_errorTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__errorTime" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTime">
+  _errorTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_errorTime : LTIME</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__blink" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._blink">
+  _blink
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_blink : AXOpen.Timers.AxoBlinker</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__context" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._context">
+  _context
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_context : AXOpen.Core.IAxoContext</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__stopTasksAreActive" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopTasksAreActive">
+  _stopTasksAreActive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_stopTasksAreActive : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__stopType" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopType">
+  _stopType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_stopType : AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__someTaskIsActive" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._someTaskIsActive">
+  _someTaskIsActive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_someTaskIsActive : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__initHwCheckDone" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._initHwCheckDone">
+  _initHwCheckDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_initHwCheckDone : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__inputsAddress" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsAddress">
+  _inputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__inputsCount" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsCount">
+  _inputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__outputsAddress" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsAddress">
+  _outputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x__outputsCount" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsCount">
+  _outputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Run_IAxoObject_UINT_" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Run(IAxoObject,UINT)">
+  Run
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>hwID</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_ManualControl__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.ManualControl()">
+  ManualControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1727"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_Restore__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Restore()">
+  Restore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1731"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartAtMain__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMain()">
+  StartAtMain
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1752"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartAtMain()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotorsAndProgram__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgram()">
+  StartMotorsAndProgram
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1755"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartMotorsAndProgram()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotorsProgramAndMovements__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements()">
+  StartMotorsProgramAndMovements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1760"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartMotorsProgramAndMovements()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMotors__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotors()">
+  StartMotors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartMotors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartMovements__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovements()">
+  StartMovements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartMovements()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StartProgram__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgram()">
+  StartProgram
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StartProgram()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMotors__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotors()">
+  StopMotors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StopMotors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMovementsAndProgram_eAxoRoboticsStopType_" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgram(eAxoRoboticsStopType)">
+  StopMovementsAndProgram
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StopMovementsAndProgram(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inStopType</code> <a class="xref" href="plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.html">eAxoRoboticsStopType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopMovements_eAxoRoboticsStopType_" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovements(eAxoRoboticsStopType)">
+  StopMovements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StopMovements(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inStopType</code> <a class="xref" href="plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.html">eAxoRoboticsStopType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_StopProgram__" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgram()">
+  StopProgram
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState StopProgram()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Abb_Robotics_AxoIrc5_v_1_x_x_CallTimers_BOOL_" data-uid="plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.CallTimers(BOOL)">
+  CallTimers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L1778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID CallTimers(in plc.BOOL signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

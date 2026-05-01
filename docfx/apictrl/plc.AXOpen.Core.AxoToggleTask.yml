@@ -1,0 +1,600 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoToggleTask
+  id: plc.AXOpen.Core.AxoToggleTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoToggleTask.State
+  - plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  - plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  - plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  - plc.AXOpen.Core.AxoToggleTask._context
+  - plc.AXOpen.Core.AxoToggleTask.GetState()
+  - plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.Toggle()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  name: AxoToggleTask
+  fullName: AxoToggleTask
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoToggleTask
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Core.AxoToggleTask.State
+  id: plc.AXOpen.Core.AxoToggleTask.State
+  parent: AXOpen.Core
+  children: []
+  name: State
+  fullName: State
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.State
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'State : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  id: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  parent: AXOpen.Core
+  children: []
+  name: RemoteToggle
+  fullName: RemoteToggle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'RemoteToggle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  id: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  parent: AXOpen.Core
+  children: []
+  name: IsDisabled
+  fullName: IsDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 21
+  namespace: plc.AXOpen.Core
+  summary: Remote request to toggle the state of this task.
+  syntax:
+    content: 'IsDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  id: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _openCycleCount
+  fullName: _openCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 35
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoToggleTask._context
+  id: plc.AXOpen.Core.AxoToggleTask._context
+  parent: AXOpen.Core
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask._context
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 36
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.AxoToggleTask.GetState()
+  id: plc.AXOpen.Core.AxoToggleTask.GetState()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: GetState
+  fullName: GetState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.GetState
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 40
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL GetState()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  id: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsRunCalledInThisPlcCycle
+  fullName: IsRunCalledInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 46
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsRunCalledInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  id: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: WasRunCalledInPreviousPlcCycle
+  fullName: WasRunCalledInPreviousPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 58
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL WasRunCalledInPreviousPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  id: plc.AXOpen.Core.AxoToggleTask.Run(IAxoObject)
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.Run
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 71
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  id: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SetIsDisabled
+  fullName: SetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 104
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetIsDisabled(in plc.BOOL Disabled)
+    parameters:
+    - id: Disabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  id: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: GetIsDisabled
+  fullName: GetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 115
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL GetIsDisabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsSwitchedOn
+  fullName: IsSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 122
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsSwitchedOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsSwitchedOff
+  fullName: IsSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 129
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsSwitchedOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  id: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: Toggle
+  fullName: Toggle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.Toggle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 136
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL Toggle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchOff
+  fullName: SwitchOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 166
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL SwitchOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchOn
+  fullName: SwitchOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 191
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL SwitchOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnSwitchedOn
+  fullName: OnSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 216
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected VOID OnSwitchedOn()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnSwitchedOff
+  fullName: OnSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 221
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state from '''FALSE''' to '''TRUE'''.
+  syntax:
+    content: Protected VOID OnSwitchedOff()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  id: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnStateChanged
+  fullName: OnStateChanged
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnStateChanged
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 227
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state from '''TRUE''' to '''FALSE'''.
+  syntax:
+    content: Protected VOID OnStateChanged()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchedOn
+  fullName: SwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 232
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state.
+  syntax:
+    content: Protected VOID SwitchedOn()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchedOff
+  fullName: SwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 238
+  namespace: plc.AXOpen.Core
+  summary: Executes while the task is in `On` state.
+  syntax:
+    content: Protected VOID SwitchedOff()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoToggleTask
+  commentId: plc.AXOpen.Core.IAxoToggleTask
+  name: IAxoToggleTask
+  nameWithType: IAxoToggleTask
+  fullName: plc.AXOpen.Core.IAxoToggleTask
+  parent: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

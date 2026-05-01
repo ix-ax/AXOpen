@@ -1,0 +1,214 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.ResponseStatus
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationId
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationToDisplay
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationPosition
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationVelocity
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationForce
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.DigitalIoMapping
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.VirtualIo
+  name: AxoSmartFunctionKitStatus_v_4_x_x
+  fullName: AxoSmartFunctionKitStatus_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKitStatus_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.ResponseStatus
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.ResponseStatus
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ResponseStatus
+  fullName: ResponseStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.ResponseStatus
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'ResponseStatus : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationId
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationId
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationId
+  fullName: NotificationId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationId
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationToDisplay
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationToDisplay
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationToDisplay
+  fullName: NotificationToDisplay
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationToDisplay
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationToDisplay : AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationPosition
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationPosition
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationPosition
+  fullName: NotificationPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationPosition
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationPosition : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationVelocity
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationVelocity
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationVelocity
+  fullName: NotificationVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationVelocity
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationVelocity : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationForce
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationForce
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationForce
+  fullName: NotificationForce
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.NotificationForce
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationForce : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.DigitalIoMapping
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.DigitalIoMapping
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: DigitalIoMapping
+  fullName: DigitalIoMapping
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.DigitalIoMapping
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'DigitalIoMapping : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.VirtualIo
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.VirtualIo
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: VirtualIo
+  fullName: VirtualIo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x.VirtualIo
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'VirtualIo : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+  name: AxoSmartFunctionKitResponse_v_4_x_x
+  nameWithType: AxoSmartFunctionKitResponse_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResponse_v_4_x_x
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  name: eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  nameWithType: eAxoSmartFunctionKitStatusInformation_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitStatusInformation_v_4_x_x
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

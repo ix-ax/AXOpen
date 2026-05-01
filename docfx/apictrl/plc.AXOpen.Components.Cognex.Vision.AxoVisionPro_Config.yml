@@ -1,0 +1,143 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+  parent: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.InfoTime
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.ErrorTime
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.TaskTimeout
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.CameraNo
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.HWIDs
+  name: AxoVisionPro_Config
+  fullName: AxoVisionPro_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: CLASS AxoVisionPro_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.InfoTime
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.InfoTime
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.InfoTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.ErrorTime
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.ErrorTime
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.ErrorTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.TaskTimeout
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.TaskTimeout
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.TaskTimeout
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.CameraNo
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.CameraNo
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: CameraNo
+  fullName: CameraNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.CameraNo
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'CameraNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.HWIDs
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.HWIDs
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Config.HWIDs
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs'
+    return:
+      type: AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+  name: AxoVisionProHWIDs
+  nameWithType: AxoVisionProHWIDs
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionProHWIDs
+
+

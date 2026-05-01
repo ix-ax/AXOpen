@@ -1,0 +1,25 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Robotics
+  id: plc.AXOpen.Components.Robotics
+  children:
+  - plc.AXOpen.Components.Robotics.AxoRobot_Status
+  name: plc.AXOpen.Components.Robotics
+  fullName: Robotics
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Robotics
+    path: .\src\components.robotics\ctrl\src\AxoRobotics\AxoRobot_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Robotics
+references:
+- uid: plc.AXOpen.Components.Robotics.AxoRobot_Status
+  name: AxoRobot_Status
+  nameWithType: AxoRobot_Status
+  fullName: AXOpen.Components.Robotics.AxoRobot_Status
+
+

@@ -1,0 +1,1094 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  parent: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children:
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._infoTimer
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._errorTimer
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._blink
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._context
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._dword
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._data
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._initHwCheckDone
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._retval
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._geoAddr
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outHwid
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsAddress
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsCount
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsAddress
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsCount
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.RestoreTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMainTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgramTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgramTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovementsTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.MovementParameters
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Config
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Status
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._power_progress
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._movement_progress
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Messenger
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.TaskMessenger
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Inputs
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Outputs
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.ManualControl()
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Restore()
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMain()
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgram()
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovements()
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovements(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgram(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.CallTimers(BOOL)
+  name: AxoCr800
+  fullName: AxoCr800
+  type: Class
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: CLASS AxoCr800
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._infoTimer
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._infoTimer
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._infoTimer
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._errorTimer
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._errorTimer
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._errorTimer
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._blink
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._blink
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._blink
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._context
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._context
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._context
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._dword
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._dword
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._dword
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._data
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._data
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _data
+  fullName: _data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._data
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_data : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._initHwCheckDone
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._initHwCheckDone
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._initHwCheckDone
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._retval
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._retval
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._retval
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._geoAddr
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._geoAddr
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._geoAddr
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outHwid
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outHwid
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outHwid
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsAddress
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsAddress
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsAddress
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsCount
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsCount
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._inputsCount
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsAddress
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsAddress
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsAddress
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsCount
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsCount
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._outputsCount
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.RestoreTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.RestoreTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.RestoreTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMainTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMainTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: StartAtMainTask
+  fullName: StartAtMainTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMainTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'StartAtMainTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgramTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgramTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: StartMotorsAndProgramTask
+  fullName: StartMotorsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgramTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'StartMotorsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: StopMovementsTask
+  fullName: StopMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'StopMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgramTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgramTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: StopMovementsAndProgramTask
+  fullName: StopMovementsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgramTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'StopMovementsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovementsTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovementsTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: StartMovementsTask
+  fullName: StartMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovementsTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'StartMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.MovementParameters
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.MovementParameters
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: MovementParameters
+  fullName: MovementParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.MovementParameters
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Config
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Config
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Config
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Config : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config'
+    return:
+      type: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Status
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Status
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Status
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Status : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status'
+    return:
+      type: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._power_progress
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._power_progress
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _power_progress
+  fullName: _power_progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._power_progress
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_power_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._movement_progress
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._movement_progress
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: _movement_progress
+  fullName: _movement_progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800._movement_progress
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 81
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: '_movement_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Messenger
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Messenger
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Messenger
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 85
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.TaskMessenger
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.TaskMessenger
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.TaskMessenger
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Inputs
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Inputs
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Inputs
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Inputs : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State'
+    return:
+      type: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Outputs
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Outputs
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Outputs
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'Outputs : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control'
+    return:
+      type: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.HardwareDiagnosticsTask
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Run
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 112
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.ManualControl()
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.ManualControl()
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.ManualControl
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1138
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Restore()
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Restore()
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.Restore
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1143
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMain()
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMain()
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: StartAtMain
+  fullName: StartAtMain
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartAtMain
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1161
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartAtMain()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgram()
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgram()
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: StartMotorsAndProgram
+  fullName: StartMotorsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMotorsAndProgram
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1164
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotorsAndProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovements()
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovements()
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: StartMovements
+  fullName: StartMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StartMovements
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1174
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMovements()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovements(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovements(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: StopMovements
+  fullName: StopMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovements
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1174
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovements(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgram(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgram(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: StopMovementsAndProgram
+  fullName: StopMovementsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.StopMovementsAndProgram
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1174
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovementsAndProgram(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.CallTimers(BOOL)
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800.CallTimers
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 1174
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  commentId: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  name: IAxoRobotics
+  nameWithType: IAxoRobotics
+  fullName: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  parent: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+  name: AxoRoboticsMovementsParams
+  nameWithType: AxoRoboticsMovementsParams
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+  name: AxoMitsubishiRobotics_Config
+  nameWithType: AxoMitsubishiRobotics_Config
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+  name: AxoMitsubishiRobotics_Component_Status
+  nameWithType: AxoMitsubishiRobotics_Component_Status
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+  name: AxoMitsubishiRobotics_State
+  nameWithType: AxoMitsubishiRobotics_State
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+  name: AxoMitsubishiRobotics_Control
+  nameWithType: AxoMitsubishiRobotics_Control
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  name: eAxoRoboticsStopType
+  nameWithType: eAxoRoboticsStopType
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+
+

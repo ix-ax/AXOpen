@@ -1,0 +1,185 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+  parent: plc.AXOpen.Components.Zebra.Vision
+  children:
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.InfoTime
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ErrorTime
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.TaskTimeout
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HWIDs
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HandshakeEnable
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.FragmentEnable
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ContinuousReading
+  name: AxoEA3600_Config
+  fullName: AxoEA3600_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: CLASS AxoEA3600_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.InfoTime
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.InfoTime
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.InfoTime
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ErrorTime
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ErrorTime
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ErrorTime
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.TaskTimeout
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.TaskTimeout
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.TaskTimeout
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HWIDs
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HWIDs
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HWIDs
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HandshakeEnable
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HandshakeEnable
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: HandshakeEnable
+  fullName: HandshakeEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.HandshakeEnable
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'HandshakeEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.FragmentEnable
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.FragmentEnable
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: FragmentEnable
+  fullName: FragmentEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.FragmentEnable
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'FragmentEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ContinuousReading
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ContinuousReading
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config.ContinuousReading
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ContinuousReading : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+  name: AxoEA3600_HWIDs
+  nameWithType: AxoEA3600_HWIDs
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_HWIDs
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

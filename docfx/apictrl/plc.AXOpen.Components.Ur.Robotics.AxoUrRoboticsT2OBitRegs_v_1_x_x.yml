@@ -1,0 +1,1374 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_0
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_5
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_6
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_7
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_8
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_9
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_10
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_11
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_12
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_13
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_14
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_15
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_16
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_17
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_18
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_19
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_20
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_21
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_22
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_23
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_24
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_25
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_26
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_27
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_28
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_29
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_30
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_31
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_32
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_33
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_34
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_35
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_36
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_37
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_38
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_39
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_40
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_41
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_42
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_43
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_44
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_45
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_46
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_47
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_48
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_49
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_50
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_51
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_52
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_53
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_54
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_55
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_56
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_57
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_58
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_59
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_60
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_61
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_62
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_63
+  name: AxoUrRoboticsT2OBitRegs_v_1_x_x
+  fullName: AxoUrRoboticsT2OBitRegs_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OBitRegs_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_0
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_0
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_0
+  fullName: Register_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_0
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_1
+  fullName: Register_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_2
+  fullName: Register_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_3
+  fullName: Register_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_4
+  fullName: Register_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_5
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_5
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_5
+  fullName: Register_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_5
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_5 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_6
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_6
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_6
+  fullName: Register_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_6
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_6 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_7
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_7
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_7
+  fullName: Register_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_7
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_7 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_8
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_8
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_8
+  fullName: Register_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_8
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_9
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_9
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_9
+  fullName: Register_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_9
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_10
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_10
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_10
+  fullName: Register_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_10
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_11
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_11
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_11
+  fullName: Register_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_11
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_12
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_12
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_12
+  fullName: Register_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_12
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_13
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_13
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_13
+  fullName: Register_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_13
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_14
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_14
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_14
+  fullName: Register_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_14
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_15
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_15
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_15
+  fullName: Register_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_15
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_16
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_16
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_16
+  fullName: Register_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_16
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_16 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_17
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_17
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_17
+  fullName: Register_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_17
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_17 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_18
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_18
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_18
+  fullName: Register_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_18
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_18 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_19
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_19
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_19
+  fullName: Register_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_19
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_19 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_20
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_20
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_20
+  fullName: Register_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_20
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_20 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_21
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_21
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_21
+  fullName: Register_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_21
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_21 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_22
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_22
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_22
+  fullName: Register_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_22
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_22 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_23
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_23
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_23
+  fullName: Register_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_23
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_23 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_24
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_24
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_24
+  fullName: Register_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_24
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_24 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_25
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_25
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_25
+  fullName: Register_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_25
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_25 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_26
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_26
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_26
+  fullName: Register_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_26
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_26 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_27
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_27
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_27
+  fullName: Register_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_27
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_27 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_28
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_28
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_28
+  fullName: Register_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_28
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_28 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_29
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_29
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_29
+  fullName: Register_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_29
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_29 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_30
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_30
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_30
+  fullName: Register_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_30
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_30 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_31
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_31
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_31
+  fullName: Register_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_31
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_31 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_32
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_32
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_32
+  fullName: Register_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_32
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_32 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_33
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_33
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_33
+  fullName: Register_33
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_33
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_33 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_34
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_34
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_34
+  fullName: Register_34
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_34
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_34 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_35
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_35
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_35
+  fullName: Register_35
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_35
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_35 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_36
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_36
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_36
+  fullName: Register_36
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_36
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_36 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_37
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_37
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_37
+  fullName: Register_37
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_37
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_37 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_38
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_38
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_38
+  fullName: Register_38
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_38
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_38 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_39
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_39
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_39
+  fullName: Register_39
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_39
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_39 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_40
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_40
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_40
+  fullName: Register_40
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_40
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_40 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_41
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_41
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_41
+  fullName: Register_41
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_41
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_41 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_42
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_42
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_42
+  fullName: Register_42
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_42
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_42 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_43
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_43
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_43
+  fullName: Register_43
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_43
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_43 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_44
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_44
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_44
+  fullName: Register_44
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_44
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_44 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_45
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_45
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_45
+  fullName: Register_45
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_45
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 97
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_45 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_46
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_46
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_46
+  fullName: Register_46
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_46
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_46 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_47
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_47
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_47
+  fullName: Register_47
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_47
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_47 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_48
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_48
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_48
+  fullName: Register_48
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_48
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_48 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_49
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_49
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_49
+  fullName: Register_49
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_49
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_49 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_50
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_50
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_50
+  fullName: Register_50
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_50
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_50 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_51
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_51
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_51
+  fullName: Register_51
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_51
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_51 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_52
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_52
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_52
+  fullName: Register_52
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_52
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_52 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_53
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_53
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_53
+  fullName: Register_53
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_53
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_53 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_54
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_54
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_54
+  fullName: Register_54
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_54
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_54 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_55
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_55
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_55
+  fullName: Register_55
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_55
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_55 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_56
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_56
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_56
+  fullName: Register_56
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_56
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_56 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_57
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_57
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_57
+  fullName: Register_57
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_57
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_57 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_58
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_58
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_58
+  fullName: Register_58
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_58
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_58 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_59
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_59
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_59
+  fullName: Register_59
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_59
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_59 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_60
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_60
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_60
+  fullName: Register_60
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_60
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_60 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_61
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_61
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_61
+  fullName: Register_61
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_61
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 129
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_61 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_62
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_62
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_62
+  fullName: Register_62
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_62
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_62 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_63
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_63
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Register_63
+  fullName: Register_63
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OBitRegs_v_1_x_x.Register_63
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Register_63 : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,129 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.ComponentAvailability
+  id: plc.AXOpen.Io.ComponentAvailability
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.ComponentAvailability.Unknown
+  - plc.AXOpen.Io.ComponentAvailability.Available
+  - plc.AXOpen.Io.ComponentAvailability.ApplicationReadyPending
+  - plc.AXOpen.Io.ComponentAvailability.LockedBySuperordinated
+  - plc.AXOpen.Io.ComponentAvailability.LockedByIOController
+  - plc.AXOpen.Io.ComponentAvailability.LockedByIOSupervisor
+  name: ComponentAvailability
+  fullName: ComponentAvailability
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentAvailability : UINT'
+- uid: plc.AXOpen.Io.ComponentAvailability.Unknown
+  id: plc.AXOpen.Io.ComponentAvailability.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown :=   UINT#255
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.Unknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentAvailability.Available
+  id: plc.AXOpen.Io.ComponentAvailability.Available
+  parent: AXOpen.Io
+  children: []
+  name: Available :=   UINT#0
+  fullName: Available
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.Available
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentAvailability.ApplicationReadyPending
+  id: plc.AXOpen.Io.ComponentAvailability.ApplicationReadyPending
+  parent: AXOpen.Io
+  children: []
+  name: ApplicationReadyPending :=   UINT#1
+  fullName: ApplicationReadyPending
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.ApplicationReadyPending
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentAvailability.LockedBySuperordinated
+  id: plc.AXOpen.Io.ComponentAvailability.LockedBySuperordinated
+  parent: AXOpen.Io
+  children: []
+  name: LockedBySuperordinated :=   UINT#2
+  fullName: LockedBySuperordinated
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.LockedBySuperordinated
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentAvailability.LockedByIOController
+  id: plc.AXOpen.Io.ComponentAvailability.LockedByIOController
+  parent: AXOpen.Io
+  children: []
+  name: LockedByIOController :=   UINT#3
+  fullName: LockedByIOController
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.LockedByIOController
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentAvailability.LockedByIOSupervisor
+  id: plc.AXOpen.Io.ComponentAvailability.LockedByIOSupervisor
+  parent: AXOpen.Io
+  children: []
+  name: LockedByIOSupervisor :=   UINT#4
+  fullName: LockedByIOSupervisor
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentAvailability.LockedByIOSupervisor
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentAvailability.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

@@ -1,0 +1,576 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Position
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.ErrorStatus
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldDistance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldEnergy
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldDistance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalCycleTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.FinalHoldPosition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1PeakForce
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Distance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Energy
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Power
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Time
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Distance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Energy
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Power
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Position
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPosition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.AverageSensingVelocity
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPressure
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerForce
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayDistance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Time
+  name: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  fullName: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Position
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Position
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1Position
+  fullName: Weld1Position
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Position
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1Position : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.ErrorStatus
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.ErrorStatus
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ErrorStatus
+  fullName: ErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.ErrorStatus
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ErrorStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TotalWeldTime
+  fullName: TotalWeldTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TotalWeldTime : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldDistance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldDistance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TotalWeldDistance
+  fullName: TotalWeldDistance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldDistance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TotalWeldDistance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldEnergy
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldEnergy
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TotalWeldEnergy
+  fullName: TotalWeldEnergy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalWeldEnergy
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TotalWeldEnergy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HoldTime
+  fullName: HoldTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HoldTime : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldDistance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldDistance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HoldDistance
+  fullName: HoldDistance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.HoldDistance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HoldDistance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalCycleTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalCycleTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TotalCycleTime
+  fullName: TotalCycleTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TotalCycleTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TotalCycleTime : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.FinalHoldPosition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.FinalHoldPosition
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: FinalHoldPosition
+  fullName: FinalHoldPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.FinalHoldPosition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'FinalHoldPosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1PeakForce
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1PeakForce
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1PeakForce
+  fullName: Weld1PeakForce
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1PeakForce
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1PeakForce : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Distance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Distance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1Distance
+  fullName: Weld1Distance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Distance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1Distance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Energy
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Energy
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1Energy
+  fullName: Weld1Energy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Energy
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1Energy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Power
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Power
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1Power
+  fullName: Weld1Power
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Power
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1Power : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Time
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Time
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld2Time
+  fullName: Weld2Time
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Time
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld2Time : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Distance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Distance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld2Distance
+  fullName: Weld2Distance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Distance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld2Distance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Energy
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Energy
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld2Energy
+  fullName: Weld2Energy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Energy
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld2Energy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Power
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Power
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld2Power
+  fullName: Weld2Power
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Power
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld2Power : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Position
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Position
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld2Position
+  fullName: Weld2Position
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld2Position
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld2Position : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerTime
+  fullName: TriggerTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerTime : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPosition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPosition
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerPosition
+  fullName: TriggerPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPosition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerPosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.AverageSensingVelocity
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.AverageSensingVelocity
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: AverageSensingVelocity
+  fullName: AverageSensingVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.AverageSensingVelocity
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'AverageSensingVelocity : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPressure
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPressure
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerPressure
+  fullName: TriggerPressure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerPressure
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerPressure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerForce
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerForce
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerForce
+  fullName: TriggerForce
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerForce
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerForce : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerDelayTime
+  fullName: TriggerDelayTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerDelayTime : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayDistance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayDistance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TriggerDelayDistance
+  fullName: TriggerDelayDistance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.TriggerDelayDistance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TriggerDelayDistance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Time
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Time
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Weld1Time
+  fullName: Weld1Time
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.Weld1Time
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Weld1Time : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

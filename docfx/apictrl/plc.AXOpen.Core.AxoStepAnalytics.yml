@@ -1,0 +1,101 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoStepAnalytics
+  id: plc.AXOpen.Core.AxoStepAnalytics
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoStepAnalytics.Order
+  - plc.AXOpen.Core.AxoStepAnalytics.Duration
+  - plc.AXOpen.Core.AxoStepAnalytics.Description
+  name: AxoStepAnalytics
+  fullName: AxoStepAnalytics
+  type: Struct
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoStepAnalytics
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  summary: Represents analytics data for a specific step in a process or sequence.This structure is used to store and analyze information about individual steps,including their execution order, duration, and description.
+  syntax:
+    content: STRUCT AxoStepAnalytics
+- uid: plc.AXOpen.Core.AxoStepAnalytics.Order
+  id: plc.AXOpen.Core.AxoStepAnalytics.Order
+  parent: AXOpen.Core
+  children: []
+  name: Order
+  fullName: Order
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoStepAnalytics.Order
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Order : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoStepAnalytics.Duration
+  id: plc.AXOpen.Core.AxoStepAnalytics.Duration
+  parent: AXOpen.Core
+  children: []
+  name: Duration
+  fullName: Duration
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoStepAnalytics.Duration
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+    startLine: 18
+  namespace: plc.AXOpen.Core
+  summary: The execution order of the step. This is a identifierrepresenting the sequence in which the step is executed.
+  syntax:
+    content: 'Duration : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Core.AxoStepAnalytics.Description
+  id: plc.AXOpen.Core.AxoStepAnalytics.Description
+  parent: AXOpen.Core
+  children: []
+  name: Description
+  fullName: Description
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoStepAnalytics.Description
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\AxoStepAnalytics.st
+    startLine: 24
+  namespace: plc.AXOpen.Core
+  summary: The duration of the step execution, measured in long time (LTIME).This value represents the time taken to complete the step.
+  syntax:
+    content: 'Description : STRING[120]'
+    return:
+      type: STRING[120]
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.STRING[120]
+  name: STRING[120]
+  nameWithType: STRING[120]
+  fullName: STRING[120]
+
+

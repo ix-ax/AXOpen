@@ -1,0 +1,247 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CMD
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ATTRIBUTES
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.OFFSETBUFFER
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EPCID_UID
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.LEN_DATA
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ADDR_TAG
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CONFIG
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CHAINED
+  - plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EXT_UHF
+  name: Axo_IID_CMD_STRUCT
+  fullName: Axo_IID_CMD_STRUCT
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IID_CMD_STRUCT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CMD
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CMD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD
+  fullName: CMD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CMD
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD : AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS'
+    return:
+      type: AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ATTRIBUTES
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ATTRIBUTES
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ATTRIBUTES
+  fullName: ATTRIBUTES
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ATTRIBUTES
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ATTRIBUTES : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.OFFSETBUFFER
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.OFFSETBUFFER
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: OFFSETBUFFER
+  fullName: OFFSETBUFFER
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.OFFSETBUFFER
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'OFFSETBUFFER : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EPCID_UID
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EPCID_UID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: EPCID_UID
+  fullName: EPCID_UID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EPCID_UID
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'EPCID_UID : ARRAY [1..62] OF BYTE'
+    return:
+      type: ARRAY [1..62] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.LEN_DATA
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.LEN_DATA
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_DATA
+  fullName: LEN_DATA
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.LEN_DATA
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_DATA : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ADDR_TAG
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ADDR_TAG
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ADDR_TAG
+  fullName: ADDR_TAG
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.ADDR_TAG
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ADDR_TAG : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CONFIG
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CONFIG
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CONFIG
+  fullName: CONFIG
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CONFIG
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CONFIG : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CHAINED
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CHAINED
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CHAINED
+  fullName: CHAINED
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.CHAINED
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CHAINED : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EXT_UHF
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EXT_UHF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: EXT_UHF
+  fullName: EXT_UHF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT.EXT_UHF
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IID_CMD_STRUCT.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'EXT_UHF : AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+references:
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+  name: eAxo_IID_COMMANDS
+  nameWithType: eAxo_IID_COMMANDS
+  fullName: AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.ARRAY [1..62] OF BYTE
+  name: ARRAY [1..62] OF BYTE
+  nameWithType: ARRAY [1..62] OF BYTE
+  fullName: ARRAY [1..62] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+  name: Axo_IID_IN_EXT_UHF
+  nameWithType: Axo_IID_IN_EXT_UHF
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_IN_EXT_UHF
+
+

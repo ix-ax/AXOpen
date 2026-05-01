@@ -1,0 +1,824 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Utils.AxoStringBuilder
+  id: plc.AXOpen.Utils.AxoStringBuilder
+  parent: plc.AXOpen.Utils
+  children:
+  - plc.AXOpen.Utils.AxoStringBuilder._workString
+  - plc.AXOpen.Utils.AxoStringBuilder.Clear()
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(BOOL)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(BYTE)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(WORD)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(DWORD)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LWORD)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(SINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(INT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(DINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(USINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(UINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(UDINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(ULINT)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(REAL)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LREAL)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(TIME)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(DATE)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(TIME_OF_DAY)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME_OF_DAY)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(DATE_AND_TIME)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE_AND_TIME)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(CHAR)
+  - plc.AXOpen.Utils.AxoStringBuilder.Append(STRING[254])
+  - plc.AXOpen.Utils.AxoStringBuilder.AsString()
+  - plc.AXOpen.Utils.AxoStringBuilder.AsString160()
+  name: AxoStringBuilder
+  fullName: AxoStringBuilder
+  type: Class
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 3
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: CLASS AxoStringBuilder
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder._workString
+  id: plc.AXOpen.Utils.AxoStringBuilder._workString
+  parent: AXOpen.Utils
+  children: []
+  name: _workString
+  fullName: _workString
+  type: Property
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder._workString
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 21
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: '_workString : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Clear()
+  id: plc.AXOpen.Utils.AxoStringBuilder.Clear()
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Clear
+  fullName: Clear
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Clear
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 24
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Clear()
+    parameters: &o1 []
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(BOOL)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(BOOL)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 29
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.BOOL Data)
+    parameters:
+    - id: Data
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(BYTE)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(BYTE)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 37
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.BYTE Data)
+    parameters:
+    - id: Data
+      type: plc.BYTE
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(WORD)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(WORD)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 46
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.WORD Data)
+    parameters:
+    - id: Data
+      type: plc.WORD
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(DWORD)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(DWORD)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 54
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.DWORD Data)
+    parameters:
+    - id: Data
+      type: plc.DWORD
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LWORD)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LWORD)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 63
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LWORD Data)
+    parameters:
+    - id: Data
+      type: plc.LWORD
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(SINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(SINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 71
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.SINT Data)
+    parameters:
+    - id: Data
+      type: plc.SINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(INT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(INT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 80
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.INT Data)
+    parameters:
+    - id: Data
+      type: plc.INT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(DINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(DINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 89
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.DINT Data)
+    parameters:
+    - id: Data
+      type: plc.DINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 97
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LINT Data)
+    parameters:
+    - id: Data
+      type: plc.LINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(USINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(USINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 105
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.USINT Data)
+    parameters:
+    - id: Data
+      type: plc.USINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(UINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(UINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 113
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.UINT Data)
+    parameters:
+    - id: Data
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(UDINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(UDINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 121
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.UDINT Data)
+    parameters:
+    - id: Data
+      type: plc.UDINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(ULINT)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(ULINT)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 129
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.ULINT Data)
+    parameters:
+    - id: Data
+      type: plc.ULINT
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(REAL)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(REAL)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 137
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.REAL Data)
+    parameters:
+    - id: Data
+      type: plc.REAL
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LREAL)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LREAL)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 146
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LREAL Data)
+    parameters:
+    - id: Data
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(TIME)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(TIME)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 154
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.TIME Data)
+    parameters:
+    - id: Data
+      type: plc.TIME
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 163
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LTIME Data)
+    parameters:
+    - id: Data
+      type: plc.LTIME
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(DATE)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(DATE)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 171
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.DATE Data)
+    parameters:
+    - id: Data
+      type: plc.DATE
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 181
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LDATE Data)
+    parameters:
+    - id: Data
+      type: plc.LDATE
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(TIME_OF_DAY)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(TIME_OF_DAY)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 189
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.TIME_OF_DAY Data)
+    parameters:
+    - id: Data
+      type: plc.TIME_OF_DAY
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME_OF_DAY)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LTIME_OF_DAY)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 197
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LTIME_OF_DAY Data)
+    parameters:
+    - id: Data
+      type: plc.LTIME_OF_DAY
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(DATE_AND_TIME)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(DATE_AND_TIME)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 205
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.DATE_AND_TIME Data)
+    parameters:
+    - id: Data
+      type: plc.DATE_AND_TIME
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE_AND_TIME)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(LDATE_AND_TIME)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 213
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.LDATE_AND_TIME Data)
+    parameters:
+    - id: Data
+      type: plc.LDATE_AND_TIME
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(CHAR)
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(CHAR)
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 222
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.CHAR Data)
+    parameters:
+    - id: Data
+      type: plc.CHAR
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.Append(STRING[254])
+  id: plc.AXOpen.Utils.AxoStringBuilder.Append(STRING[254])
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: Append
+  fullName: Append
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.Append
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 229
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public AXOpen.Utils.IAxoStringBuilder Append(in plc.STRING[254] Data)
+    parameters:
+    - id: Data
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.AXOpen.Utils.AxoStringBuilder.AsString()
+  id: plc.AXOpen.Utils.AxoStringBuilder.AsString()
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: AsString
+  fullName: AsString
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.AsString
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 246
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public STRING[254] AsString()
+    parameters: *o1
+    return:
+      type: plc.STRING[254]
+- uid: plc.AXOpen.Utils.AxoStringBuilder.AsString160()
+  id: plc.AXOpen.Utils.AxoStringBuilder.AsString160()
+  parent: AXOpen.Utils.AxoStringBuilder
+  children: []
+  name: AsString160
+  fullName: AsString160
+  type: Method
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoStringBuilder.AsString160
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 255
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public STRING[160] AsString160()
+    parameters: *o1
+    return:
+      type: plc.STRING[160]
+references:
+- uid: plc.AXOpen.Utils.IAxoStringBuilder
+  commentId: plc.AXOpen.Utils.IAxoStringBuilder
+  name: IAxoStringBuilder
+  nameWithType: IAxoStringBuilder
+  fullName: plc.AXOpen.Utils.IAxoStringBuilder
+  parent: plc.AXOpen.Utils.IAxoStringBuilder
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.LWORD
+  name: LWORD
+  nameWithType: LWORD
+  fullName: LWORD
+- uid: plc.SINT
+  name: SINT
+  nameWithType: SINT
+  fullName: SINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.LINT
+  name: LINT
+  nameWithType: LINT
+  fullName: LINT
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.DATE
+  name: DATE
+  nameWithType: DATE
+  fullName: DATE
+- uid: plc.LDATE
+  name: LDATE
+  nameWithType: LDATE
+  fullName: LDATE
+- uid: plc.TIME_OF_DAY
+  name: TIME_OF_DAY
+  nameWithType: TIME_OF_DAY
+  fullName: TIME_OF_DAY
+- uid: plc.LTIME_OF_DAY
+  name: LTIME_OF_DAY
+  nameWithType: LTIME_OF_DAY
+  fullName: LTIME_OF_DAY
+- uid: plc.DATE_AND_TIME
+  name: DATE_AND_TIME
+  nameWithType: DATE_AND_TIME
+  fullName: DATE_AND_TIME
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.CHAR
+  name: CHAR
+  nameWithType: CHAR
+  fullName: CHAR
+- uid: plc.STRING[160]
+  name: STRING[160]
+  nameWithType: STRING[160]
+  fullName: STRING[160]
+
+

@@ -1,0 +1,335 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask
+  id: plc.AXOpen.Components.Drives.AxoMotionJogTask
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoMotionJogTask.StartMotion
+  - plc.AXOpen.Components.Drives.AxoMotionJogTask.StopMotion
+  - plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOn()
+  - plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOff()
+  name: AxoMotionJogTask
+  fullName: AxoMotionJogTask
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoMotionJogTask
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoMotionJogTask
+  inheritance:
+  - plc.AXOpen.Core.AxoMomentaryTask
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoMomentaryTask.State
+  - plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  - plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoMomentaryTask.GetState()
+  - plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoMomentaryTask.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()
+  - plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()
+  - plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()
+  - plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()
+  - plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()
+  - plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()
+  - plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()
+  - plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()
+  - plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoMomentaryTask
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask.StartMotion
+  id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StartMotion
+  parent: AXOpen.Components.Drives
+  children: []
+  name: StartMotion
+  fullName: StartMotion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StartMotion
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'StartMotion : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask.StopMotion
+  id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StopMotion
+  parent: AXOpen.Components.Drives
+  children: []
+  name: StopMotion
+  fullName: StopMotion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoMotionJogTask.StopMotion
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'StopMotion : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOn()
+  id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOn()
+  parent: AXOpen.Components.Drives.AxoMotionJogTask
+  children: []
+  name: OnSwitchedOn
+  fullName: OnSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOn
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Protected VOID OnSwitchedOn()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOff()
+  id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOff()
+  parent: AXOpen.Components.Drives.AxoMotionJogTask
+  children: []
+  name: OnSwitchedOff
+  fullName: OnSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoMotionJogTask.OnSwitchedOff
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoMotionJogTask.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: Protected VOID OnSwitchedOff()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoMomentaryTask.State
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.State
+  name: State
+  nameWithType: State
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.State
+  parent: plc.AXOpen.Core.AxoMomentaryTask.State
+- uid: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  name: RemoteSwitchOn
+  nameWithType: RemoteSwitchOn
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  parent: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+- uid: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  name: IsDisabled
+  nameWithType: IsDisabled
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  parent: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoMomentaryTask.GetState()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.GetState()
+  name: GetState()
+  nameWithType: GetState()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.GetState()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.GetState()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()
+  name: IsRunCalledInThisPlcCycle()
+  nameWithType: IsRunCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()
+  name: WasRunCalledInPreviousPlcCycle()
+  nameWithType: WasRunCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoMomentaryTask.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)
+  name: SetIsDisabled(BOOL)
+  nameWithType: SetIsDisabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)
+  parent: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)
+- uid: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()
+  name: GetIsDisabled()
+  nameWithType: GetIsDisabled()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()
+  name: IsSwitchedOn()
+  nameWithType: IsSwitchedOn()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()
+  name: IsSwitchedOff()
+  nameWithType: IsSwitchedOff()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()
+  name: SwitchOff()
+  nameWithType: SwitchOff()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()
+  name: SwitchOn()
+  nameWithType: SwitchOn()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()
+  name: OnSwitchedOn()
+  nameWithType: OnSwitchedOn()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()
+  name: OnSwitchedOff()
+  nameWithType: OnSwitchedOff()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()
+  name: OnStateChanged()
+  nameWithType: OnStateChanged()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()
+  name: SwitchedOn()
+  nameWithType: SwitchedOn()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()
+- uid: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()
+  commentId: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()
+  name: SwitchedOff()
+  nameWithType: SwitchedOff()
+  fullName: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()
+  parent: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoMomentaryTask
+  commentId: plc.AXOpen.Core.IAxoMomentaryTask
+  name: IAxoMomentaryTask
+  nameWithType: IAxoMomentaryTask
+  fullName: plc.AXOpen.Core.IAxoMomentaryTask
+  parent: plc.AXOpen.Core.IAxoMomentaryTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

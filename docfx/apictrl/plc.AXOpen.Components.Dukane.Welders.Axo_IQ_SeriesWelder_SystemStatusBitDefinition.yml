@@ -1,0 +1,534 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.SetupChanged
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle_No_AB
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.OverTemp
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_AfterBurst
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Test
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_TestScan
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Present
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.PowerOK
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Ready
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Ready
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Any_Fault
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Overload
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Estop
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Online
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Hold
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Good_Part
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Bad_Part
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Suspect_Part
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.CycleStartReject
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Amplitude_Regulation
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Power_Regulation
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Trigger_Status
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.US_Status
+  name: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  fullName: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.SetupChanged
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.SetupChanged
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SetupChanged
+  fullName: SetupChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.SetupChanged
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SetupChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InCycle
+  fullName: InCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle_No_AB
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle_No_AB
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InCycle_No_AB
+  fullName: InCycle_No_AB
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.InCycle_No_AB
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InCycle_No_AB : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.OverTemp
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.OverTemp
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: OverTemp
+  fullName: OverTemp
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.OverTemp
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'OverTemp : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_AfterBurst
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_AfterBurst
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: In_AfterBurst
+  fullName: In_AfterBurst
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_AfterBurst
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'In_AfterBurst : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Test
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Test
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: In_Test
+  fullName: In_Test
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Test
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'In_Test : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_TestScan
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_TestScan
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: In_TestScan
+  fullName: In_TestScan
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_TestScan
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'In_TestScan : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Present
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Present
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: MPC_Present
+  fullName: MPC_Present
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Present
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'MPC_Present : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.PowerOK
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.PowerOK
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PowerOK
+  fullName: PowerOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.PowerOK
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PowerOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Ready
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Ready
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: MPC_Ready
+  fullName: MPC_Ready
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.MPC_Ready
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'MPC_Ready : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Ready
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Ready
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Ready
+  fullName: Ready
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Ready
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Ready : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Any_Fault
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Any_Fault
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Any_Fault
+  fullName: Any_Fault
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Any_Fault
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Any_Fault : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Overload
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Overload
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Overload
+  fullName: Overload
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Overload
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Overload : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Estop
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Estop
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Estop
+  fullName: Estop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Estop
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Estop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Online
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Online
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Online
+  fullName: Online
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Online
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Online : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Hold
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Hold
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: In_Hold
+  fullName: In_Hold
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.In_Hold
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'In_Hold : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Good_Part
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Good_Part
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Good_Part
+  fullName: Good_Part
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Good_Part
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Good_Part : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Bad_Part
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Bad_Part
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Bad_Part
+  fullName: Bad_Part
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Bad_Part
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Bad_Part : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Suspect_Part
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Suspect_Part
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Suspect_Part
+  fullName: Suspect_Part
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Suspect_Part
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Suspect_Part : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.CycleStartReject
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.CycleStartReject
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleStartReject
+  fullName: CycleStartReject
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.CycleStartReject
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleStartReject : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Amplitude_Regulation
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Amplitude_Regulation
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Amplitude_Regulation
+  fullName: Amplitude_Regulation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Amplitude_Regulation
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Amplitude_Regulation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Power_Regulation
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Power_Regulation
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Power_Regulation
+  fullName: Power_Regulation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Power_Regulation
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Power_Regulation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Trigger_Status
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Trigger_Status
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Trigger_Status
+  fullName: Trigger_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.Trigger_Status
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Trigger_Status : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.US_Status
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.US_Status
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: US_Status
+  fullName: US_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition.US_Status
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'US_Status : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

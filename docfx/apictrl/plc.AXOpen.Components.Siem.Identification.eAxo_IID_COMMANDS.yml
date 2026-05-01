@@ -1,0 +1,282 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eNoCommand
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eRead
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWrite
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReaderStatus
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eTagStatus
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eInventory
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eFormat
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.ePut
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteID
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eKillTag
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eLockTagBank
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eEditBlacklist
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eGetBlacklist
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReadConfig
+  - plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteConfig
+  name: eAxo_IID_COMMANDS
+  fullName: eAxo_IID_COMMANDS
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'eAxo_IID_COMMANDS : WORD'
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eNoCommand
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eNoCommand
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eNoCommand :=   WORD#16#00
+  fullName: eNoCommand
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eNoCommand
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eRead
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eRead
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eRead :=   WORD#16#70
+  fullName: eRead
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eRead
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWrite
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWrite
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eWrite :=   WORD#16#71
+  fullName: eWrite
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWrite
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReaderStatus
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReaderStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eReaderStatus :=   WORD#16#74
+  fullName: eReaderStatus
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReaderStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eTagStatus
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eTagStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eTagStatus :=   WORD#16#73
+  fullName: eTagStatus
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eTagStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eInventory
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eInventory
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eInventory :=   WORD#16#69
+  fullName: eInventory
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eInventory
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eFormat
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eFormat
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eFormat :=   WORD#16#66
+  fullName: eFormat
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eFormat
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.ePut
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.ePut
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ePut :=   WORD#16#65
+  fullName: ePut
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.ePut
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteID
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eWriteID :=   WORD#16#67
+  fullName: eWriteID
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteID
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eKillTag
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eKillTag
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eKillTag :=   WORD#16#6A
+  fullName: eKillTag
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eKillTag
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eLockTagBank
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eLockTagBank
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eLockTagBank :=   WORD#16#79
+  fullName: eLockTagBank
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eLockTagBank
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eEditBlacklist
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eEditBlacklist
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eEditBlacklist :=   WORD#16#7A
+  fullName: eEditBlacklist
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eEditBlacklist
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eGetBlacklist
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eGetBlacklist
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eGetBlacklist :=   WORD#16#6C
+  fullName: eGetBlacklist
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eGetBlacklist
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReadConfig
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReadConfig
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eReadConfig :=   WORD#16#61
+  fullName: eReadConfig
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eReadConfig
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteConfig
+  id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteConfig
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eWriteConfig :=   WORD#16#78
+  fullName: eWriteConfig
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxo_IID_COMMANDS.eWriteConfig
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\eAxo_IID_COMMANDS.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

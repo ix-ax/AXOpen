@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Troubleshooting | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Troubleshooting | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/components.zebra.vision/docs/TROUBLES.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h2 id="common-issues">Common issues</h2>
+<h3 id="scanner-does-not-respond-to-read">Scanner does not respond to <code>Read()</code></h3>
+<p><strong>Symptom:</strong> <code>Read()</code> task stays <code>Busy</code> and eventually times out per <code>Config.TaskTimeout</code>.</p>
+<p><strong>Cause:</strong> PROFINET communication or scanner-side state. The component requires the scanner to be online and in a state ready to accept read commands.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>The scanner is reachable on the network — TIA/PROFINET diagnostics should show the device green.</li>
+<li><code>Config.HWIDs</code> are populated correctly — usually auto-filled by the I/O system from the GSDML mapping.</li>
+<li><code>AxoEA3600.Run()</code> is being called cyclically from the application's <code>AxoContext</code> call tree (it does not have to be in <code>Main()</code> directly, but the parent chain must reach it).</li>
+<li>The scanner is not in an error condition — call <code>ClearError()</code> and retry.</li>
+</ul>
+<h3 id="read-returns-truncated-payload-64-bytes">Read returns truncated payload (&gt;64 bytes)</h3>
+<p><strong>Symptom:</strong> Long barcodes are cut off at the 64-byte boundary.</p>
+<p><strong>Cause:</strong> Fragment reassembly is disabled.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Set <code>Config.FragmentEnable := TRUE</code> (default).</li>
+<li>Confirm the scanner firmware advertises fragmented payload support.</li>
+</ul>
+<h3 id="clearerror-does-not-clear-the-error-state"><code>ClearError()</code> does not clear the error state</h3>
+<p><strong>Symptom:</strong> Status remains in error after <code>ClearError()</code> task completes.</p>
+<p><strong>Cause:</strong> The underlying fault is still active (hardware fault, configuration mismatch, or persistent communication loss). <code>ClearError()</code> only acknowledges the current latched error — it does not fix the root cause.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Look at the scanner's status indicators and TIA diagnostic events for the underlying fault.</li>
+<li>After resolving the root cause, call <code>ClearError()</code> again.</li>
+<li>If the error persists, restart the scanner and verify the PROFINET configuration matches the device profile.</li>
+</ul>
+<h3 id="ack-handshake-errors--spurious-retries">ACK handshake errors / spurious retries</h3>
+<p><strong>Symptom:</strong> Task duration is unexpectedly long; messenger reports protocol-level info messages repeatedly.</p>
+<p><strong>Cause:</strong> Handshake bit toggling between PLC and scanner is out of sync.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Set <code>Config.HandshakeEnable := TRUE</code> (default) — disabling it bypasses the protocol's ACK mechanism and is only intended for debugging.</li>
+<li>Verify cycle time is stable; large jitter can starve the handshake state machine.</li>
+</ul>
+<h3 id="continuous-reading-mode-does-not-produce-data">Continuous reading mode does not produce data</h3>
+<p><strong>Symptom:</strong> With <code>Config.ContinuousReading := TRUE</code> and the scanner aimed at a barcode, no data appears in <code>ReadData</code>.</p>
+<p><strong>Cause:</strong> Continuous mode requires the scanner firmware to be configured for continuous output. The PLC-side flag only enables consumption of the continuous stream — it does not configure the scanner.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Configure the scanner's trigger/scan mode using Zebra's tooling (123Scan, web UI, or the device's configuration barcodes).</li>
+<li>Verify the scanner firmware version supports continuous PROFINET output.</li>
+</ul>
+<h2 id="diagnostics">Diagnostics</h2>
+<p>The component exposes status through:</p>
+<ul>
+<li><code>AxoEA3600.Status</code> — <code>AxoEA3600_Component_Status</code> with action and error IDs.</li>
+<li><code>AxoEA3600.ReadData</code> — last successful read payload and barcode type.</li>
+<li><code>Messenger</code> — internal diagnostic message stream (info/warning/error).</li>
+</ul>
+<p>For PROFINET-level diagnostics use the <code>axopen.io</code> <code>AxoHwDiag</code> infrastructure
+or TIA online diagnostics.</p>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>Maximum payload size is bounded by the configured PROFINET module
+(typical: 64 bytes per frame; up to ~256 bytes when fragments are
+reassembled).</li>
+<li>The <code>TemplateMethod_*</code> slots are device-profile-dependent placeholders;
+their semantics depend on the specific scanner firmware/profile loaded
+via the GSDML.</li>
+</ul>
+<h2 id="support">Support</h2>
+<p>Report issues at <a href="https://github.com/Inxton/AXOpen/issues">GitHub Issues</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/components.zebra.vision/docs/TROUBLES.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

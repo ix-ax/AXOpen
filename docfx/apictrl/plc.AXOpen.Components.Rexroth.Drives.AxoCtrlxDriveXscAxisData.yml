@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.Cycle
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideVelocityFactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideAccelerationFactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideJerkFactor
+  name: AxoCtrlxDriveXscAxisData
+  fullName: AxoCtrlxDriveXscAxisData
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscAxisData
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.Cycle
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.Cycle
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Cycle
+  fullName: Cycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.Cycle
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Cycle : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideVelocityFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideVelocityFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideVelocityFactor
+  fullName: OverrideVelocityFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideVelocityFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideVelocityFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideAccelerationFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideAccelerationFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideAccelerationFactor
+  fullName: OverrideAccelerationFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideAccelerationFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideAccelerationFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideJerkFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideJerkFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideJerkFactor
+  fullName: OverrideJerkFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData.OverrideJerkFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscAxisData.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideJerkFactor : LREAL'
+    return:
+      type: LREAL
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+
+

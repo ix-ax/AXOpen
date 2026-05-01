@@ -1,0 +1,66 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status.IdentProfile_Status
+  name: Axo_IdentDevice_Component_Status
+  fullName: Axo_IdentDevice_Component_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Component_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IdentDevice_Component_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status.IdentProfile_Status
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status.IdentProfile_Status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IdentProfile_Status
+  fullName: IdentProfile_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Component_Status.IdentProfile_Status
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Component_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IdentProfile_Status : AXOpen.Core.AxoTextList'
+    return:
+      type: AXOpen.Core.AxoTextList
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.AXOpen.Core.AxoTextList
+  name: AxoTextList
+  nameWithType: AxoTextList
+  fullName: AXOpen.Core.AxoTextList
+
+

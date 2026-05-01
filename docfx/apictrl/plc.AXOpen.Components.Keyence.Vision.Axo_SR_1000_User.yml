@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User.UserDataSize
+  name: Axo_SR_1000_User
+  fullName: Axo_SR_1000_User
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_User.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_User.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_1000_User
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User.UserDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User.UserDataSize
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: UserDataSize
+  fullName: UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_User.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_User.UserDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_User.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'UserDataSize : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

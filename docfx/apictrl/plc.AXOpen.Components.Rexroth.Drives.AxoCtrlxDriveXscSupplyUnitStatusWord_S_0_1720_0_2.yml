@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit0_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit1_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit2_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit3_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.MainsStatus
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.HardwareEnable
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BbContact
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Warning
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Error
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Enabling
+  name: AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  fullName: AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit0_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit0_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit0_Reserve
+  fullName: _bit0_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit0_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit0_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit1_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit1_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit1_Reserve
+  fullName: _bit1_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit1_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit1_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit2_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit2_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit2_Reserve
+  fullName: _bit2_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit2_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit2_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit3_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit3_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit3_Reserve
+  fullName: _bit3_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2._bit3_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit3_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.MainsStatus
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.MainsStatus
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MainsStatus
+  fullName: MainsStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.MainsStatus
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'MainsStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.HardwareEnable
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.HardwareEnable
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HardwareEnable
+  fullName: HardwareEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.HardwareEnable
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HardwareEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ControllingTheMainsConnection
+  fullName: ControllingTheMainsConnection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ControllingTheMainsConnection : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BbContact
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BbContact
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: BbContact
+  fullName: BbContact
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BbContact
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'BbContact : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PreselectedOPmodesFB_bit0
+  fullName: PreselectedOPmodesFB_bit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PreselectedOPmodesFB_bit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PreselectedOPmodesFB_bit01
+  fullName: PreselectedOPmodesFB_bit01
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PreselectedOPmodesFB_bit01 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DCbusDischarge
+  fullName: DCbusDischarge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DCbusDischarge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: BrakingResistor
+  fullName: BrakingResistor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'BrakingResistor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Warning
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Warning
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Warning
+  fullName: Warning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Warning
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Warning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Error
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Error
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Error
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadyForEnabling
+  fullName: ReadyForEnabling
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadyForEnabling : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Enabling
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Enabling
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Enabling
+  fullName: Enabling
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.Enabling
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Enabling : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

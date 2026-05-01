@@ -1,0 +1,198 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Device
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServo
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServoSub
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_ModuleAccessPoint
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_1
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram111
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_2
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram750
+  name: AxoCmmtAsAxisHWIDs
+  fullName: AxoCmmtAsAxisHWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoCmmtAsAxisHWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Device
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Device
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Device
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServo
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServo
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_DoServo
+  fullName: HW_DoServo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServo
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_DoServo : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServoSub
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServoSub
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_DoServoSub
+  fullName: HW_DoServoSub
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_DoServoSub
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_DoServoSub : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_ModuleAccessPoint
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_ModuleAccessPoint
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_ModuleAccessPoint
+  fullName: HW_ModuleAccessPoint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_ModuleAccessPoint
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_ModuleAccessPoint : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_1
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_1
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_EmptyModule_1
+  fullName: HW_EmptyModule_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_1
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_EmptyModule_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram111
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram111
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_Telegram111
+  fullName: HW_Telegram111
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram111
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_Telegram111 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_2
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_2
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_EmptyModule_2
+  fullName: HW_EmptyModule_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_EmptyModule_2
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_EmptyModule_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram750
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram750
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HW_Telegram750
+  fullName: HW_Telegram750
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs.HW_Telegram750
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HW_Telegram750 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

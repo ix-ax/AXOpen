@@ -1,0 +1,25 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging
+  id: plc.AXOpen.Messaging
+  children:
+  - plc.AXOpen.Messaging.AxoMessengerService
+  name: plc.AXOpen.Messaging
+  fullName: Messaging
+  type: Namespace
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 5
+  namespace: plc.AXOpen.Messaging
+references:
+- uid: plc.AXOpen.Messaging.AxoMessengerService
+  name: AxoMessengerService
+  nameWithType: AxoMessengerService
+  fullName: AXOpen.Messaging.AxoMessengerService
+
+

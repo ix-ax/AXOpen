@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoSequencerContainer | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoSequencerContainer | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AxoSequencerContainer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axosequencercontainer">AxoSequencerContainer</h1>
+
+<p><code>AxoSequencerContainer</code> extends <code>AxoSequencer</code> and is the <strong>preferred way</strong> to implement sequences in AXOpen applications. Unlike <code>AxoSequencer</code> which requires explicit <code>Open()</code> calls, <code>AxoSequencerContainer</code> is self-managing — you extend it, override <code>Main</code>, and place all step logic there.</p>
+<h2 id="key-differences-from-axosequencer">Key differences from AxoSequencer</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>AxoSequencer</th>
+<th>AxoSequencerContainer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instantiation</td>
+<td>Direct</td>
+<td>Abstract — must extend</td>
+</tr>
+<tr>
+<td>Open() call</td>
+<td>Manual (required)</td>
+<td>Automatic (handled by <code>Run()</code>)</td>
+</tr>
+<tr>
+<td>Logic location</td>
+<td>Inline in calling code</td>
+<td>Encapsulated in <code>Main</code> override</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>Single-use</td>
+<td>Reusable class pattern</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-to-use">When to use</h2>
+<p>Use <code>AxoSequencerContainer</code> for production sequences (Automat, Ground, Service modes). Use <code>AxoSequencer</code> for simple inline demos or one-off sequences.</p>
+<h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
+<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
+    VAR PUBLIC
+        _step_1 : AxoStep;
+        _step_s : ARRAY[0..10] OF AxoStep;
+        _myCounter : ULINT;
+    END_VAR
+
+</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
+<p>All the custom logic of the sequencer needs to be placed here.</p>
+<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main
+    _myCounter := _myCounter + ULINT#1;
+
+    IF(_step_1.Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100 ) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[0].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[1].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[2].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[3].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[4].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[5].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[6].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[7].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[8].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[9].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF(_step_s[10].Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.CompleteSequence();
+        END_IF;
+    END_IF;
+END_METHOD
+</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    _mySequencerContainer : AxoSequencerContainerDocuExample;
+END_VAR
+</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">_mySequencerContainer.Run(_rootObject);
+</code></pre><h3 id="sequencemode--runonce-with-localizable-descriptions">SequenceMode — RunOnce with localizable descriptions</h3>
+<p>The following example demonstrates <code>eAxoSequenceMode#RunOnce</code> mode with localizable step descriptions and <code>RequestStep</code> for conditional branching back to a previous step:</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoSequencerContainerRunOnceExample EXTENDS AXOpen.Core.AxoSequencerContainer
+    VAR PUBLIC
+        _restoreStep : AxoStep;
+        _processStep : AxoStep;
+        _checkStep : AxoStep;
+        _finalStep : AxoStep;
+        _myCounter : ULINT;
+        _checkPassed : BOOL;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        // RunOnce mode: sequence executes once and stays Done
+        THIS.SequenceMode := eAxoSequenceMode#RunOnce;
+
+        _myCounter := _myCounter + ULINT#1;
+
+        IF(_restoreStep.Execute(THIS, TRUE, '&lt;#RESTORE STATE#&gt;')) THEN
+            _myCounter := ULINT#0;
+            _checkPassed := FALSE;
+            THIS.MoveNext();
+        END_IF;
+
+        IF(_processStep.Execute(THIS, TRUE, '&lt;#PROCESS DATA#&gt;')) THEN
+            IF(_myCounter &gt;= ULINT#100) THEN
+                _myCounter := ULINT#0;
+                THIS.MoveNext();
+            END_IF;
+        END_IF;
+
+        IF(_checkStep.Execute(THIS, TRUE, '&lt;#CHECK RESULT#&gt;')) THEN
+            IF(_myCounter &gt;= ULINT#50) THEN
+                _myCounter := ULINT#0;
+                IF _checkPassed THEN
+                    THIS.MoveNext();
+                ELSE
+                    // Branch back to process step on failure
+                    THIS.RequestStep(_processStep);
+                END_IF;
+            END_IF;
+        END_IF;
+
+        IF(_finalStep.Execute(THIS, TRUE, '&lt;#FINALIZE#&gt;')) THEN
+            THIS.CompleteSequence();
+        END_IF;
+    END_METHOD
+END_CLASS
+</code></pre><h3 id="branching-with-requeststep">Branching with RequestStep</h3>
+<p>Use <code>RequestStep</code> to branch to different steps based on runtime conditions. When the target step is declared after the current one, it executes in the same cycle; when before, in the next cycle:</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoSequencerContainerBranchingExample EXTENDS AXOpen.Core.AxoSequencerContainer
+    VAR PUBLIC
+        _initStep : AxoStep;
+        _evaluateStep : AxoStep;
+        _pathAStep : AxoStep;
+        _pathBStep : AxoStep;
+        _doneStep : AxoStep;
+        _condition : BOOL;
+        _myCounter : ULINT;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        THIS.SequenceMode := eAxoSequenceMode#Cyclic;
+
+        _myCounter := _myCounter + ULINT#1;
+
+        IF(_initStep.Execute(THIS, TRUE, '&lt;#INITIALIZE#&gt;')) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;
+
+        IF(_evaluateStep.Execute(THIS, TRUE, '&lt;#EVALUATE CONDITION#&gt;')) THEN
+            // Branch to different steps based on condition
+            IF _condition THEN
+                THIS.RequestStep(_pathAStep);
+            ELSE
+                THIS.RequestStep(_pathBStep);
+            END_IF;
+        END_IF;
+
+        IF(_pathAStep.Execute(THIS, TRUE, '&lt;#PATH A - CONDITION MET#&gt;')) THEN
+            IF(_myCounter &gt;= ULINT#100) THEN
+                _myCounter := ULINT#0;
+                THIS.RequestStep(_doneStep);
+            END_IF;
+        END_IF;
+
+        IF(_pathBStep.Execute(THIS, TRUE, '&lt;#PATH B - CONDITION NOT MET#&gt;')) THEN
+            IF(_myCounter &gt;= ULINT#100) THEN
+                _myCounter := ULINT#0;
+                THIS.RequestStep(_doneStep);
+            END_IF;
+        END_IF;
+
+        IF(_doneStep.Execute(THIS, TRUE, '&lt;#COMPLETE#&gt;')) THEN
+            THIS.CompleteSequence();
+        END_IF;
+    END_METHOD
+END_CLASS
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/core/docs/AxoSequencerContainer.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abb.Robotics
+  id: plc.AXOpen.Components.Abb.Robotics
+  children:
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  - plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x
+  name: plc.AXOpen.Components.Abb.Robotics
+  fullName: Robotics
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Component_Status_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Component_Status_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abb.Robotics
+references:
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+  name: AxoAbbRobotics_Component_Status_v_1_x_x
+  nameWithType: AxoAbbRobotics_Component_Status_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+  name: AxoAbbRobotics_Config_v_1_x_x
+  nameWithType: AxoAbbRobotics_Config_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+  name: AxoAbbRobotics_Control_v_1_x_x
+  nameWithType: AxoAbbRobotics_Control_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+  name: AxoAbbRobotics_HWIDs
+  nameWithType: AxoAbbRobotics_HWIDs
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_HWIDs
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+  name: AxoAbbRobotics_State_v_1_x_x
+  nameWithType: AxoAbbRobotics_State_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  name: AxoIrc5_v_1_x_x
+  nameWithType: AxoIrc5_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x
+  name: AxoOmnicore_v_1_x_x
+  nameWithType: AxoOmnicore_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x
+
+

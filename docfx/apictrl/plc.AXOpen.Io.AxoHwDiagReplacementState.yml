@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagReplacementState.Unknown
+  - plc.AXOpen.Io.AxoHwDiagReplacementState.OK
+  - plc.AXOpen.Io.AxoHwDiagReplacementState.Substitute
+  - plc.AXOpen.Io.AxoHwDiagReplacementState.Incompatible
+  - plc.AXOpen.Io.AxoHwDiagReplacementState.Missing
+  name: AxoHwDiagReplacementState
+  fullName: AxoHwDiagReplacementState
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'AxoHwDiagReplacementState : UINT'
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState.Unknown
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown := 	UINT#255
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState.Unknown
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState.OK
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState.OK
+  parent: AXOpen.Io
+  children: []
+  name: OK := 	UINT#0
+  fullName: OK
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState.OK
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState.Substitute
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState.Substitute
+  parent: AXOpen.Io
+  children: []
+  name: Substitute := 	UINT#1
+  fullName: Substitute
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState.Substitute
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState.Incompatible
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState.Incompatible
+  parent: AXOpen.Io
+  children: []
+  name: Incompatible := 	UINT#2
+  fullName: Incompatible
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState.Incompatible
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState.Missing
+  id: plc.AXOpen.Io.AxoHwDiagReplacementState.Missing
+  parent: AXOpen.Io
+  children: []
+  name: Missing := 	UINT#3
+  fullName: Missing
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagReplacementState.Missing
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagReplacementState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

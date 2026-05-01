@@ -1,0 +1,294 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.TriggerRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.MasterRegistrationRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramSwitchingRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.WarningClearRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.StatisticsResetRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.BufferClearRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SdCardSavingStopRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SettingValueChangeRequest
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ResultAcquisitionCompleteNotification
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramNo
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_2
+  name: Axo_IV3_CommandControl
+  fullName: Axo_IV3_CommandControl
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_CommandControl
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.TriggerRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.TriggerRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TriggerRequest
+  fullName: TriggerRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.TriggerRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TriggerRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.MasterRegistrationRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.MasterRegistrationRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MasterRegistrationRequest
+  fullName: MasterRegistrationRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.MasterRegistrationRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MasterRegistrationRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramSwitchingRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramSwitchingRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProgramSwitchingRequest
+  fullName: ProgramSwitchingRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramSwitchingRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProgramSwitchingRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.WarningClearRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.WarningClearRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: WarningClearRequest
+  fullName: WarningClearRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.WarningClearRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'WarningClearRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.StatisticsResetRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.StatisticsResetRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: StatisticsResetRequest
+  fullName: StatisticsResetRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.StatisticsResetRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'StatisticsResetRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.BufferClearRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.BufferClearRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BufferClearRequest
+  fullName: BufferClearRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.BufferClearRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BufferClearRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SdCardSavingStopRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SdCardSavingStopRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SdCardSavingStopRequest
+  fullName: SdCardSavingStopRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SdCardSavingStopRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SdCardSavingStopRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SettingValueChangeRequest
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SettingValueChangeRequest
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SettingValueChangeRequest
+  fullName: SettingValueChangeRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.SettingValueChangeRequest
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SettingValueChangeRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ResultAcquisitionCompleteNotification
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ResultAcquisitionCompleteNotification
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultAcquisitionCompleteNotification
+  fullName: ResultAcquisitionCompleteNotification
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ResultAcquisitionCompleteNotification
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultAcquisitionCompleteNotification : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramNo
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramNo
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProgramNo
+  fullName: ProgramNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.ProgramNo
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProgramNo : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Function_1
+  fullName: Function_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Function_1 : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Function_2
+  fullName: Function_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandControl.Function_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Function_2 : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

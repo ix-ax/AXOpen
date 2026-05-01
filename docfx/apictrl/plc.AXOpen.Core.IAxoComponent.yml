@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoComponent
+  id: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core
+  children: []
+  name: IAxoComponent
+  fullName: IAxoComponent
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoComponent.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoComponent
+    path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoComponent.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoComponent
+  implements: []
+references: []
+
+

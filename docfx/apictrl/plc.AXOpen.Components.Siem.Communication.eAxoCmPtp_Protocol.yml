@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol.Freeport
+  - plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol._3964R
+  name: eAxoCmPtp_Protocol
+  fullName: eAxoCmPtp_Protocol
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'eAxoCmPtp_Protocol : UINT'
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol.Freeport
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol.Freeport
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Freeport :=  UINT#0
+  fullName: Freeport
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol.Freeport
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Communication
+- uid: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol._3964R
+  id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol._3964R
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: _3964R :=  UINT#1
+  fullName: _3964R
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.eAxoCmPtp_Protocol._3964R
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\eAxoCmPtp_Protocol.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Communication
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

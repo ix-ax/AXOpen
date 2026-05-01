@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-      <title>AXOpenElements.AxoDi | System.Dynamic.ExpandoObject </title>
+      <title>AxoDi | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="AXOpenElements.AxoDi | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="AxoDi | System.Dynamic.ExpandoObject ">
+      
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -27,19 +28,16 @@
       <meta name="loc:themeAuto" content="Auto">
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module">
-    import options from './../../public/main.js'
-    import { init } from './../../public/docfx.min.js'
-    init(options)
-  </script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -56,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -79,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h2 id="axopenelementsaxodi">AXOpenElements.AxoDi</h2>
+<h1 id="axodi">AxoDi</h1>
 
 <p>AxoDi is used for checking values of digital inputs.</p>
 <h1 id="how-to">How to</h1>
@@ -106,34 +104,49 @@
 <section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
 <h1 id="how-to-use-component-in-controller">How to use component in controller</h1>
 <h2 id="declare-component">Declare component</h2>
-<pre><code class="lang-smalltalk">VAR PUBLIC
-    _testDi : AXOpen.Elements.AxoDi;
+<pre><code class="lang-pascal">VAR PUBLIC
+    _testDi : AXOpen.Components.Elements.AxoDi;
 END_VAR
 </code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
 <p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
-<pre><code class="lang-smalltalk">VAR PUBLIC
+<pre><code class="lang-pascal">VAR PUBLIC
     _testsignal : BOOL;
 END_VAR
 </code></pre><h2 id="manual-control">Manual Control</h2>
-<pre><code class="lang-smalltalk">_testDi.ActivateManualControl();
+<pre><code class="lang-pascal">_testDi.ActivateManualControl();
 </code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-smalltalk">_testDi.Run(THIS, _testsignal);
+<pre><code class="lang-pascal">_testDi.Run(THIS, _testsignal);
 </code></pre><div class="IMPORTANT">
 <h5>Important</h5>
 <p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
 </div>
 <h2 id="use">Use</h2>
-<pre><code class="lang-smalltalk">IF _testDi.IsTrue() THEN
+<pre><code class="lang-pascal">IF _testDi.IsTrue() THEN
     ;// handle signal on
 END_IF;
 </code></pre></section>
 <section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
+<h2 id="source">Source</h2>
+<p>View the .NET twin source at <a href="https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.elements/src/"><code>components.elements</code></a>.</p>
 </section>
 <section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
 
+<p><code>AxoDi</code> ships a dedicated Blazor view (<code>AxoDiView</code>) supporting multiple presentations.</p>
+<h2 id="status-display">Status display</h2>
+<pre><code class="lang-html">&lt;AxoDiView Context=&quot;@Entry.Plc.Ctx.elements_documentation.Cu._testDi&quot; Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><h2 id="command-control">Command control</h2>
+<pre><code class="lang-html">&lt;AxoDiView Context=&quot;@Entry.Plc.Ctx.elements_documentation.Cu._testDi&quot; Presentation=&quot;Command-Control&quot; /&gt;
+</code></pre><h2 id="generic-rendering-via-renderablecontentcontrol">Generic rendering via <code>RenderableContentControl</code></h2>
+<p>Alternatively, render via <code>RenderableContentControl</code> which inspects the component at runtime and selects the matching view based on the <code>Presentation</code> attribute:</p>
+<pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton&quot; Presentation=&quot;Status-Display&quot; /&gt;
+</code></pre><pre><code class="lang-html">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton&quot; Presentation=&quot;Command-Control&quot; /&gt;
+</code></pre>
 <p><img src="assets/axodi.gif" alt="AxoDi"></p>
+<h2 id="source-1">Source</h2>
+<p>View the dedicated view at <a href="https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.elements/src/AXOpen.Components.Elements.blazor/AxoDiView.razor"><code>AxoDiView.razor</code></a>.</p>
 </section>
 </div>
+
 </article>
 
         <div class="contribution d-print-none">
@@ -141,7 +154,7 @@ END_IF;
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
-        
+
       </div>
 
       <div class="affix">
@@ -151,7 +164,7 @@ END_IF;
 
     <div class="container-xxl search-results" id="search-results"></div>
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
            Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors

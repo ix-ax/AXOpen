@@ -1,0 +1,143 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.InfoTime
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.ErrorTime
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.StartAddress
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.RfidCodeSize
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.HardwareConfig
+  name: Axo_IdentDevice_Config
+  fullName: Axo_IdentDevice_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IdentDevice_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.InfoTime
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.InfoTime
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.InfoTime
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.ErrorTime
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.ErrorTime
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.ErrorTime
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.StartAddress
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.StartAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: StartAddress
+  fullName: StartAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.StartAddress
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'StartAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.RfidCodeSize
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.RfidCodeSize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RfidCodeSize
+  fullName: RfidCodeSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.RfidCodeSize
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RfidCodeSize : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.HardwareConfig
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.HardwareConfig
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HardwareConfig
+  fullName: HardwareConfig
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentDevice_Config.HardwareConfig
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HardwareConfig : AXOpen.Components.Siem.Identification.AxoByteArray16'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoByteArray16
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoByteArray16
+  name: AxoByteArray16
+  nameWithType: AxoByteArray16
+  fullName: AXOpen.Components.Siem.Identification.AxoByteArray16
+
+

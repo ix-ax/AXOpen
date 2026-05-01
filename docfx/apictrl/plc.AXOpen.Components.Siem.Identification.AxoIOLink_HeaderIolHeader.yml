@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.control
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexHighByte
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexLowByte
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.subindex
+  name: AxoIOLink_HeaderIolHeader
+  fullName: AxoIOLink_HeaderIolHeader
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_HeaderIolHeader
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.control
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.control
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: control
+  fullName: control
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.control
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'control : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexHighByte
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexHighByte
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: indexHighByte
+  fullName: indexHighByte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexHighByte
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'indexHighByte : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexLowByte
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexLowByte
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: indexLowByte
+  fullName: indexLowByte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.indexLowByte
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'indexLowByte : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.subindex
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.subindex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: subindex
+  fullName: subindex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_HeaderIolHeader.subindex
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_HeaderIolHeader.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'subindex : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

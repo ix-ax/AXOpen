@@ -1,0 +1,181 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
+  id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied._exists
+  - plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Exist()
+  - plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Satisfy(eAxoTaskState,BOOL)
+  name: AxoDataCrudTaskEntityExistsSatisfied
+  fullName: AxoDataCrudTaskEntityExistsSatisfied
+  type: Class
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
+    path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+    startLine: 0
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: CLASS AxoDataCrudTaskEntityExistsSatisfied
+  inheritance:
+  - plc.AXOpen.Core.AxoTaskStateSatisfied
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  implements:
+  - plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+- uid: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied._exists
+  id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied._exists
+  parent: AXOpen.Data
+  children: []
+  name: _exists
+  fullName: _exists
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied._exists
+    path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+    startLine: 7
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: '_exists : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Exist()
+  id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Exist()
+  parent: AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
+  children: []
+  name: Exist
+  fullName: Exist
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Exist
+    path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+    startLine: 10
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public BOOL Exist()
+    parameters: []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Satisfy(eAxoTaskState,BOOL)
+  id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Satisfy(eAxoTaskState,BOOL)
+  parent: AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied
+  children: []
+  name: Satisfy
+  fullName: Satisfy
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataCrudTaskEntityExistsSatisfied.Satisfy
+    path: .\src\data\ctrl\src\AxoDataCrudTaskEntityExistsSatisfied.st
+    startLine: 18
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public AXOpen.Data.IAxoDataCrudTaskEntityExistState Satisfy(in plc.AXOpen.Core.eAxoTaskState inStatus,in plc.BOOL inDoesExist)
+    parameters:
+    - id: inStatus
+      type: plc.AXOpen.Core.eAxoTaskState
+    - id: inDoesExist
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+references:
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  name: Status
+  nameWithType: Status
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  name: ErrorDetails
+  nameWithType: ErrorDetails
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  name: Satisfy(eAxoTaskState)
+  nameWithType: Satisfy(eAxoTaskState)
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  name: Satisfy(eAxoTaskState,STRING[254])
+  nameWithType: Satisfy(eAxoTaskState,STRING[254])
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  name: IsReady()
+  nameWithType: IsReady()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  name: IsDone()
+  nameWithType: IsDone()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  name: IsBusy()
+  nameWithType: IsBusy()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  name: IsAborted()
+  nameWithType: IsAborted()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  name: HasError()
+  nameWithType: HasError()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  commentId: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  name: GetErrorDetails()
+  nameWithType: GetErrorDetails()
+  fullName: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  parent: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+- uid: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+  commentId: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+  name: IAxoDataCrudTaskEntityExistState
+  nameWithType: IAxoDataCrudTaskEntityExistState
+  fullName: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+  parent: plc.AXOpen.Data.IAxoDataCrudTaskEntityExistState
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.eAxoTaskState
+  name: eAxoTaskState
+  nameWithType: eAxoTaskState
+  fullName: AXOpen.Core.eAxoTaskState
+
+

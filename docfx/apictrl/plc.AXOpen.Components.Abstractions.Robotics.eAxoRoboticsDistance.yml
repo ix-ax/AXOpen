@@ -1,0 +1,146 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+  parent: plc.AXOpen.Components.Abstractions.Robotics
+  children:
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.X
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Y
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Z
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XY
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XZ
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.YZ
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XYZ
+  name: eAxoRoboticsDistance
+  fullName: eAxoRoboticsDistance
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: eAxoRoboticsDistance
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.X
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.X
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: X
+  fullName: X
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.X
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Y
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Y
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Y
+  fullName: Y
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Y
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Z
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Z
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Z
+  fullName: Z
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.Z
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XY
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XY
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: XY
+  fullName: XY
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XY
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XZ
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XZ
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: XZ
+  fullName: XZ
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XZ
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.YZ
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.YZ
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: YZ
+  fullName: YZ
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.YZ
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XYZ
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XYZ
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: XYZ
+  fullName: XYZ
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance.XYZ
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsDistance.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+references:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+  name: eAxoRoboticsDistance
+  nameWithType: eAxoRoboticsDistance
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance
+
+

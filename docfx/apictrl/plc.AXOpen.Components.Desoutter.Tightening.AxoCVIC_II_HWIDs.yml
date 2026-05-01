@@ -1,0 +1,219 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+  parent: plc.AXOpen.Components.Desoutter.Tightening
+  children:
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwID_Device
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_1
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_2
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_1
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_1
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_2
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_2
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_1
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_2
+  name: AxoCVIC_II_HWIDs
+  fullName: AxoCVIC_II_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: CLASS AxoCVIC_II_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwID_Device
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwID_Device
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwID_Device
+  fullName: HwID_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwID_Device
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwID_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_1
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_1
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_1_byte_1
+  fullName: HwId_Input_1_byte_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_1
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_1_byte_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_2
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_2
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_1_byte_2
+  fullName: HwId_Input_1_byte_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_byte_2
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_1_byte_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_1
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_1
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_2_word_1
+  fullName: HwId_Input_2_word_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_1
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_2_word_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_1
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_1
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_1_word_1
+  fullName: HwId_Input_1_word_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_1
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_1_word_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_2
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_2
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_2_word_2
+  fullName: HwId_Input_2_word_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_2_word_2
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_2_word_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_2
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_2
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Input_1_word_2
+  fullName: HwId_Input_1_word_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Input_1_word_2
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Input_1_word_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_1
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_1
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Output_1_byte_1
+  fullName: HwId_Output_1_byte_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_1
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Output_1_byte_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_2
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_2
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: HwId_Output_1_byte_2
+  fullName: HwId_Output_1_byte_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs.HwId_Output_1_byte_2
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_HWIDs.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'HwId_Output_1_byte_2 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

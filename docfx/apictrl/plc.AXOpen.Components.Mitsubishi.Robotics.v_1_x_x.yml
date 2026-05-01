@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children:
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+  name: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  fullName: v_1_x_x
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoCr800_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+references:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+  name: AxoCr800
+  nameWithType: AxoCr800
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+  name: AxoMitsubishiRobotics_Component_Status
+  nameWithType: AxoMitsubishiRobotics_Component_Status
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+  name: AxoMitsubishiRobotics_Config
+  nameWithType: AxoMitsubishiRobotics_Config
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Config
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+  name: AxoMitsubishiRobotics_Control
+  nameWithType: AxoMitsubishiRobotics_Control
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Control
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+  name: AxoMitsubishiRobotics_HWIDs
+  nameWithType: AxoMitsubishiRobotics_HWIDs
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+  name: AxoMitsubishiRobotics_State
+  nameWithType: AxoMitsubishiRobotics_State
+  fullName: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_State
+
+

@@ -1,0 +1,248 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartProgram
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetProgramActive
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Positioning
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Jog
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ClearError
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StopMovement
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.RestartDrive
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Tare
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartHoming
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetSystemVariable
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.LockParticipant
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetReference
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ReadSystemVariable
+  name: eAxoSmartFunctionKitCommand_v_4_x_x
+  fullName: eAxoSmartFunctionKitCommand_v_4_x_x
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'eAxoSmartFunctionKitCommand_v_4_x_x : INT'
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartProgram
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartProgram
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: StartProgram :=  1
+  fullName: StartProgram
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartProgram
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetProgramActive
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetProgramActive
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: SetProgramActive :=  2
+  fullName: SetProgramActive
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetProgramActive
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Positioning
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Positioning
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Positioning :=  3
+  fullName: Positioning
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Positioning
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Jog
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Jog
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Jog :=  4
+  fullName: Jog
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Jog
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ClearError
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ClearError
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ClearError :=  5
+  fullName: ClearError
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ClearError
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StopMovement
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StopMovement
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: StopMovement :=  6
+  fullName: StopMovement
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StopMovement
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.RestartDrive
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.RestartDrive
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: RestartDrive :=  7
+  fullName: RestartDrive
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.RestartDrive
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Tare
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Tare
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Tare :=  9
+  fullName: Tare
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.Tare
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartHoming
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartHoming
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: StartHoming :=  10
+  fullName: StartHoming
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.StartHoming
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetSystemVariable
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetSystemVariable
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: SetSystemVariable :=  11
+  fullName: SetSystemVariable
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetSystemVariable
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.LockParticipant
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.LockParticipant
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: LockParticipant :=  12
+  fullName: LockParticipant
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.LockParticipant
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetReference
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetReference
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: SetReference :=  13
+  fullName: SetReference
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.SetReference
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ReadSystemVariable
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ReadSystemVariable
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: ReadSystemVariable :=  14
+  fullName: ReadSystemVariable
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x.ReadSystemVariable
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitCommand_v_4_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Press
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

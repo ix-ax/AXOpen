@@ -1,0 +1,479 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetpointAcceptance
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.OperatingModeSet
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveToZeroPoint
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.AbsoluteRelative
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ImmediateBlockChange
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ErrorDelete
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogForward
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogBackward
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit1
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.Iposync
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveHalt
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveEnable
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveOn
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0282_CommandPosition
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0259_CommandVelocity
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0260_CommandAcceleration
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0359_CommandDecceleration
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0145_SignalControlWord
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0080_TorqueForceCommand
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0193_CommandJerk
+  name: AxoIndraDriveFieldBusOut
+  fullName: AxoIndraDriveFieldBusOut
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoIndraDriveFieldBusOut
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetpointAcceptance
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetpointAcceptance
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetpointAcceptance
+  fullName: SetpointAcceptance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetpointAcceptance
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetpointAcceptance : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.OperatingModeSet
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.OperatingModeSet
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OperatingModeSet
+  fullName: OperatingModeSet
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.OperatingModeSet
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OperatingModeSet : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveToZeroPoint
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveToZeroPoint
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveToZeroPoint
+  fullName: DriveToZeroPoint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveToZeroPoint
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveToZeroPoint : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.AbsoluteRelative
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.AbsoluteRelative
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: AbsoluteRelative
+  fullName: AbsoluteRelative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.AbsoluteRelative
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'AbsoluteRelative : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ImmediateBlockChange
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ImmediateBlockChange
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ImmediateBlockChange
+  fullName: ImmediateBlockChange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ImmediateBlockChange
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ImmediateBlockChange : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ErrorDelete
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ErrorDelete
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorDelete
+  fullName: ErrorDelete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.ErrorDelete
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorDelete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogForward
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogForward
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogForward
+  fullName: JogForward
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogForward
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogForward : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogBackward
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogBackward
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogBackward
+  fullName: JogBackward
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.JogBackward
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogBackward : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetOperatingModeBit0
+  fullName: SetOperatingModeBit0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetOperatingModeBit0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit1
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit1
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetOperatingModeBit1
+  fullName: SetOperatingModeBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.SetOperatingModeBit1
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetOperatingModeBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.Iposync
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.Iposync
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Iposync
+  fullName: Iposync
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.Iposync
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Iposync : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveHalt
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveHalt
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveHalt
+  fullName: DriveHalt
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveHalt
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveHalt : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveEnable
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveEnable
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveEnable
+  fullName: DriveEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveEnable
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveOn
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveOn
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveOn
+  fullName: DriveOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.DriveOn
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0282_CommandPosition
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0282_CommandPosition
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0282_CommandPosition
+  fullName: S_0_0282_CommandPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0282_CommandPosition
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0282_CommandPosition : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0259_CommandVelocity
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0259_CommandVelocity
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0259_CommandVelocity
+  fullName: S_0_0259_CommandVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0259_CommandVelocity
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0259_CommandVelocity : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0260_CommandAcceleration
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0260_CommandAcceleration
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0260_CommandAcceleration
+  fullName: S_0_0260_CommandAcceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0260_CommandAcceleration
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0260_CommandAcceleration : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0359_CommandDecceleration
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0359_CommandDecceleration
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0359_CommandDecceleration
+  fullName: S_0_0359_CommandDecceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0359_CommandDecceleration
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0359_CommandDecceleration : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0145_SignalControlWord
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0145_SignalControlWord
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0145_SignalControlWord
+  fullName: S_0_0145_SignalControlWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0145_SignalControlWord
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0145_SignalControlWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0080_TorqueForceCommand
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0080_TorqueForceCommand
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0080_TorqueForceCommand
+  fullName: S_0_0080_TorqueForceCommand
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0080_TorqueForceCommand
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0080_TorqueForceCommand : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0193_CommandJerk
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0193_CommandJerk
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0193_CommandJerk
+  fullName: S_0_0193_CommandJerk
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut.S_0_0193_CommandJerk
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveFieldBusOut.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0193_CommandJerk : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

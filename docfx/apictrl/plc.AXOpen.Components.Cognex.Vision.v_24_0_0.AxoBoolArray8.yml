@@ -1,0 +1,73 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8
+  parent: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8.Data
+  name: AxoBoolArray8
+  fullName: AxoBoolArray8
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: CLASS AxoBoolArray8
+  inheritance:
+  - plc.AXOpen.Core.AxoBoolArray
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoBoolArray.DataChanged
+  - plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  - plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  implements: []
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8.Data
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8.Data
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoBoolArray8.Data
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoBoolArray8.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'Data : ARRAY [0..7] OF BOOL'
+    return:
+      type: ARRAY [0..7] OF BOOL
+references:
+- uid: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  commentId: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  name: DataChanged
+  nameWithType: DataChanged
+  fullName: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  parent: plc.AXOpen.Core.AxoBoolArray.DataChanged
+- uid: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  commentId: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  name: ToggleDataChangedFlag()
+  nameWithType: ToggleDataChangedFlag()
+  fullName: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  parent: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+- uid: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  commentId: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  name: DataHasChanged()
+  nameWithType: DataHasChanged()
+  fullName: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+  parent: plc.AXOpen.Core.AxoBoolArray.DataHasChanged()
+- uid: plc.ARRAY [0..7] OF BOOL
+  name: ARRAY [0..7] OF BOOL
+  nameWithType: ARRAY [0..7] OF BOOL
+  fullName: ARRAY [0..7] OF BOOL
+
+

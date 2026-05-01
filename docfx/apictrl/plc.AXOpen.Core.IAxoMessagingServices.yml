@@ -1,0 +1,175 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoMessagingServices
+  id: plc.AXOpen.Core.IAxoMessagingServices
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoMessagingServices.QueueMessage(IAxoMessenger)
+  - plc.AXOpen.Core.IAxoMessagingServices.SuspendMessaging()
+  - plc.AXOpen.Core.IAxoMessagingServices.ResumeMessaging()
+  - plc.AXOpen.Core.IAxoMessagingServices.IsSuspended()
+  - plc.AXOpen.Core.IAxoMessagingServices.RequalifyDownstreamMessages(eAxoMessageCategory)
+  - plc.AXOpen.Core.IAxoMessagingServices.GetRequalifiedMessageCategory()
+  name: IAxoMessagingServices
+  fullName: IAxoMessagingServices
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoMessagingServices
+  implements: []
+- uid: plc.AXOpen.Core.IAxoMessagingServices.QueueMessage(IAxoMessenger)
+  id: plc.AXOpen.Core.IAxoMessagingServices.QueueMessage
+  parent: IAxoMessagingServices
+  children: []
+  name: QueueMessage
+  fullName: QueueMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.QueueMessage
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL QueueMessage(in plc.AXOpen.Core.IAxoMessenger inMessegenger)
+    parameters:
+    - id: inMessegenger
+      type: plc.AXOpen.Core.IAxoMessenger
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoMessagingServices.SuspendMessaging()
+  id: plc.AXOpen.Core.IAxoMessagingServices.SuspendMessaging
+  parent: IAxoMessagingServices
+  children: []
+  name: SuspendMessaging
+  fullName: SuspendMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.SuspendMessaging
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SuspendMessaging()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoMessagingServices.ResumeMessaging()
+  id: plc.AXOpen.Core.IAxoMessagingServices.ResumeMessaging
+  parent: IAxoMessagingServices
+  children: []
+  name: ResumeMessaging
+  fullName: ResumeMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.ResumeMessaging
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  summary: Suspends the messaging system. When suspended, messages will not be sent to subscribers until the system is resumed.This is useful for scenarios where you want to temporarily prevent messages from being processed.
+  syntax:
+    content: Public VOID ResumeMessaging()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoMessagingServices.IsSuspended()
+  id: plc.AXOpen.Core.IAxoMessagingServices.IsSuspended
+  parent: IAxoMessagingServices
+  children: []
+  name: IsSuspended
+  fullName: IsSuspended
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.IsSuspended
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 18
+  namespace: plc.AXOpen.Core
+  summary: Resumes the messaging system. When resumed, messages that arose while the system was suspended will NOT be sent to subscribers.
+  syntax:
+    content: Public BOOL IsSuspended()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoMessagingServices.RequalifyDownstreamMessages(eAxoMessageCategory)
+  id: plc.AXOpen.Core.IAxoMessagingServices.RequalifyDownstreamMessages
+  parent: IAxoMessagingServices
+  children: []
+  name: RequalifyDownstreamMessages
+  fullName: RequalifyDownstreamMessages
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.RequalifyDownstreamMessages
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 24
+  namespace: plc.AXOpen.Core
+  summary: Checks if the messaging system is currently suspended.Returns true if the messaging system is suspended, false otherwise.
+  syntax:
+    content: Public VOID RequalifyDownstreamMessages(in plc.AXOpen.Messaging.eAxoMessageCategory inMessageCategory)
+    parameters:
+    - id: inMessageCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoMessagingServices.GetRequalifiedMessageCategory()
+  id: plc.AXOpen.Core.IAxoMessagingServices.GetRequalifiedMessageCategory
+  parent: IAxoMessagingServices
+  children: []
+  name: GetRequalifiedMessageCategory
+  fullName: GetRequalifiedMessageCategory
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMessagingServices.GetRequalifiedMessageCategory
+    path: .\src\abstractions\ctrl\src\AxoMessenger\IAxoMessengerService.st
+    startLine: 36
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Messaging.eAxoMessageCategory GetRequalifiedMessageCategory()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: AXOpen.Core.IAxoMessenger
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+
+

@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Axo_SR_1000 | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Axo_SR_1000 | System.Dynamic.ExpandoObject ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/new/dev/apiSpec/new?filename=plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000.md&amp;value=---%0Auid%3A%20plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000">
+
+
+
+  <h1 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000" class="text-break">
+Class Axo_SR_1000  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Components.Keyence.Vision.html">plc.AXOpen.Components.Keyence.Vision</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS Axo_SR_1000</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoComponent.html">AxoComponent</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">Axo_SR_1000</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Components.Abstractions.IAxoCodeReader.html">IAxoCodeReader</a></div>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent__isManuallyControllable">_isManuallyControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_MsgCnt">MsgCnt</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject__dg_">_dg_</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ActivateManualControl__">ActivateManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_IsManuallyControllable__">IsManuallyControllable()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_ManualControl__">ManualControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoComponent.html#plc_AXOpen_Core_AxoComponent_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContextUnsafe__">GetContextUnsafe()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Run_IAxoObject_">Run(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_InitializeWithContext_IAxoContext_">InitializeWithContext(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_AggregateMessage_LINT_">AggregateMessage(LINT)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_IsValid__">IsValid()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__ResultDataSize" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._ResultDataSize">
+  _ResultDataSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_ResultDataSize : AXOpen.Components.Keyence.Vision.eAxo_SR_1000_ResultDataSize</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__UserDataSize" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._UserDataSize">
+  _UserDataSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_UserDataSize : AXOpen.Components.Keyence.Vision.eAxo_SR_1000_UserDataSize</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__progress" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._progress">
+  _progress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_progress : INT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__infoTimer" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._infoTimer">
+  _infoTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_infoTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__errorTimer" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._errorTimer">
+  _errorTimer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_errorTimer : AXOpen.Timers.OnDelayTimer</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__inspectionCompleted" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inspectionCompleted">
+  _inspectionCompleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inspectionCompleted : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_in" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_in">
+  _data_in
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_in : ARRAY [0..254] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__Bank" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._Bank">
+  _Bank
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_Bank : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__UserDataChanged" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._UserDataChanged">
+  _UserDataChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_UserDataChanged : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__invalidDataSize" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._invalidDataSize">
+  _invalidDataSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_invalidDataSize : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__retVal" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._retVal">
+  _retVal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_retVal : WORD</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__word" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._word">
+  _word
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_word : WORD</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_1" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_1">
+  _data_1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_1 : ARRAY [0..0] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_2" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_2">
+  _data_2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_2 : ARRAY [0..1] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_34" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_34">
+  _data_34
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_34 : ARRAY [0..33] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_66" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_66">
+  _data_66
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_66 : ARRAY [0..65] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_130" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_130">
+  _data_130
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_130 : ARRAY [0..129] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__data_254" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._data_254">
+  _data_254
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_data_254 : ARRAY [0..253] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__prevResultDataReadyCount" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._prevResultDataReadyCount">
+  _prevResultDataReadyCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_prevResultDataReadyCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__prevResultDataUpdateCount" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._prevResultDataUpdateCount">
+  _prevResultDataUpdateCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_prevResultDataUpdateCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__resultString" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._resultString">
+  _resultString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_resultString : STRING[254]</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__initHwCheckDone" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._initHwCheckDone">
+  _initHwCheckDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_initHwCheckDone : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__geoAddr" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._geoAddr">
+  _geoAddr
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_geoAddr : UNDEFINED</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__outHwid" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outHwid">
+  _outHwid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outHwid : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__startAddress" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._startAddress">
+  _startAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_startAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__bytesCount" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._bytesCount">
+  _bytesCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_bytesCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__blink" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._blink">
+  _blink
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_blink : AXOpen.Timers.AxoBlinker</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__programNo" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._programNo">
+  _programNo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_programNo : BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__IDcode" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._IDcode">
+  _IDcode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_IDcode : ARRAY [0..63] OF BYTE</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__automaticStart" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._automaticStart">
+  _automaticStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_automaticStart : BOOL</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__inputsAddress" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inputsAddress">
+  _inputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__inputsCount" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._inputsCount">
+  _inputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__outputsAddress" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outputsAddress">
+  _outputsAddress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsAddress : UDINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000__outputsCount" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000._outputsCount">
+  _outputsCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_outputsCount : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Bank" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Bank">
+  Bank
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Bank : UINT</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ReadTask" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ReadTask">
+  ReadTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ResultData" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ResultData">
+  ResultData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResultData : AXOpen.Components.Keyence.Vision.Axo_SR_1000_ResultData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_RestoreTask" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.RestoreTask">
+  RestoreTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RestoreTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ClearResultDataTask" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ClearResultDataTask">
+  ClearResultDataTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ClearResultDataTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_TuneTask" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TuneTask">
+  TuneTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TuneTask : AXOpen.Core.AxoTask</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Config" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Config : AXOpen.Components.Keyence.Vision.Axo_SR_1000_Config</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Status" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Status : AXOpen.Components.Keyence.Vision.Axo_SR_1000_Component_Status</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Results" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Results">
+  Results
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Results : AXOpen.Components.Keyence.Vision.Axo_SR_1000_ReadData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_HandshakeAndGeneralErrorStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.HandshakeAndGeneralErrorStatus">
+  HandshakeAndGeneralErrorStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HandshakeAndGeneralErrorStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_HandshakeAndGeneralErrorStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_BUSY_Status" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.BUSY_Status">
+  BUSY_Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BUSY_Status : AXOpen.Components.Keyence.Vision.Axo_SR_1000_BusyStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_CompletionStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CompletionStatus">
+  CompletionStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CompletionStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ErrorStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ErrorStatus">
+  ErrorStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ErrorStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_ErrorStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_TerminalStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TerminalStatus">
+  TerminalStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TerminalStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_UnstableReadStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.UnstableReadStatus">
+  UnstableReadStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">UnstableReadStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_UnstableReadStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.MatchingLevelAndTotalEvaluationGradeStatus">
+  MatchingLevelAndTotalEvaluationGradeStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MatchingLevelAndTotalEvaluationGradeStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_OperationalResultStatus" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.OperationalResultStatus">
+  OperationalResultStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">OperationalResultStatus : AXOpen.Components.Keyence.Vision.Axo_SR_1000_OperationalResultStatus</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ReadData" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ReadData">
+  ReadData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadData : AXOpen.Components.Keyence.Vision.Axo_SR_1000_ReadData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_LatchAndErrorClearControl" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.LatchAndErrorClearControl">
+  LatchAndErrorClearControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">LatchAndErrorClearControl : AXOpen.Components.Keyence.Vision.Axo_SR_1000_LatchAndErrorClearControl</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_OperationInstructionControl" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.OperationInstructionControl">
+  OperationInstructionControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">OperationInstructionControl : AXOpen.Components.Keyence.Vision.Axo_SR_1000_OperationInstructionControl</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_CompletionClearControl" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CompletionClearControl">
+  CompletionClearControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CompletionClearControl : AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionClearControl</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ParameterBankNumber" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ParameterBankNumber">
+  ParameterBankNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ParameterBankNumber : AXOpen.Components.Keyence.Vision.Axo_SR_1000_ParameterBankNumber</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_User" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.User">
+  User
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">User : AXOpen.Components.Keyence.Vision.Axo_SR_1000_User</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_UserData" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.UserData">
+  UserData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">UserData : AXOpen.Components.Keyence.Vision.Axo_SR_1000_UserData</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_HardwareDiagnosticsTask" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.HardwareDiagnosticsTask">
+  HardwareDiagnosticsTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Messenger" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Messenger">
+  Messenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Messenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_TaskMessenger" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.TaskMessenger">
+  TaskMessenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TaskMessenger : AXOpen.Messaging.Static.AxoMessenger</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Run_IAxoObject_UINT_" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Run(IAxoObject,UINT)">
+  Run
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inParent</code> <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+    <dd></dd>
+    <dt><code>hwID</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ClearResultData__" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ClearResultData()">
+  ClearResultData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1919"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState ClearResultData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Read_UINT_" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Read(UINT)">
+  Read
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1921"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Read(in plc.UINT inBank)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inBank</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Tune_UINT_" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Tune(UINT)">
+  Tune
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1927"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Tune(in plc.UINT inBank)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inBank</code> <span class="xref">UINT</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Read__" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Read()">
+  Read
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1933"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Read()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_CallTimers_BOOL_" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.CallTimers(BOOL)">
+  CallTimers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1949"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID CallTimers(in plc.BOOL signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ContinuousReading__" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ContinuousReading()">
+  ContinuousReading
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1960"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID ContinuousReading()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_ManualControl__" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.ManualControl()">
+  ManualControl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1983"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Components_Keyence_Vision_Axo_SR_1000_Restore__" data-uid="plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000.Restore()">
+  Restore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L1988"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/.\src\components.keyence.vision\ctrl\src\Axo_SR_1000.st/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

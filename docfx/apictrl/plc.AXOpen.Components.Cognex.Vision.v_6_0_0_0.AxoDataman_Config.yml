@@ -1,0 +1,190 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ContinuousReading
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.InfoTime
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ErrorTime
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.TaskTimeout
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.HWIDs
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ResultDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.UserDataSize
+  name: AxoDataman_Config
+  fullName: AxoDataman_Config
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoDataman_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ContinuousReading
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ContinuousReading
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ContinuousReading
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ContinuousReading : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.InfoTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.InfoTime
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.InfoTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ErrorTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ErrorTime
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ErrorTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.TaskTimeout
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.TaskTimeout
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.TaskTimeout
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.HWIDs
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.HWIDs
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.HWIDs
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_HWIDs'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_HWIDs
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ResultDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultDataSize
+  fullName: ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.UserDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.UserDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UserDataSize
+  fullName: UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.UserDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Config.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UserDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_HWIDs
+  name: AxoDataman_HWIDs
+  nameWithType: AxoDataman_HWIDs
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_HWIDs
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+  name: eAxoDataman_ResultDataSize
+  nameWithType: eAxoDataman_ResultDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+  name: eAxoDataman_UserDataSize
+  nameWithType: eAxoDataman_UserDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+
+

@@ -1,0 +1,36 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Utils.AxoCRC_8(STRING[254])
+  id: plc.AXOpen.Utils.AxoCRC_8(STRING[254])
+  parent: AXOpen.Utils
+  children: []
+  name: AxoCRC_8
+  fullName: AxoCRC_8
+  type: Delegate
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\AXOpenUtils\AxoCRC_8.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoCRC_8
+    path: .\src\utils\ctrl\src\AXOpenUtils\AxoCRC_8.st
+    startLine: 4
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public BYTE AxoCRC_8(in plc.STRING[254] In)
+    parameters:
+    - id: In
+      type: plc.STRING[254]
+    return:
+      type: plc.BYTE
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+

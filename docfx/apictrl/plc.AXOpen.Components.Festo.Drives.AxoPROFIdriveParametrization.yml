@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Inputs
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Outputs
+  name: AxoPROFIdriveParametrization
+  fullName: AxoPROFIdriveParametrization
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoPROFIdriveParametrization
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Inputs
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Inputs
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Inputs
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Inputs : AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Outputs
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Outputs
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrization.Outputs
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrization.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Outputs : AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+references:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+  name: AxoPROFIdriveParametrizationIn
+  nameWithType: AxoPROFIdriveParametrizationIn
+  fullName: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+  name: AxoPROFIdriveParametrizationOut
+  nameWithType: AxoPROFIdriveParametrizationOut
+  fullName: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+
+

@@ -1,0 +1,261 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_Device
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_State
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_IO
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_Joints
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_TCP
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_Robot_IO
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+  name: AxoUrRobotics_HWIDs_v_1_x_x
+  fullName: AxoUrRobotics_HWIDs_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRobotics_HWIDs_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_Device
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_Device
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_Device
+  fullName: HwId_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_Device
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_State
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_State
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_State
+  fullName: HwId_AxoUrRobotics_T2O_State
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_State
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_State : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_IO
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_IO
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_IO
+  fullName: HwId_AxoUrRobotics_T2O_IO
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_IO
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_IO : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_Joints
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_Joints
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_Joints
+  fullName: HwId_AxoUrRobotics_T2O_Joints
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_Joints
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_Joints : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_TCP
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_TCP
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_TCP
+  fullName: HwId_AxoUrRobotics_T2O_TCP
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_TCP
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_TCP : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+  fullName: HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+  fullName: HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+  fullName: HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_Robot_IO
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_Robot_IO
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_O2T_Robot_IO
+  fullName: HwId_AxoUrRobotics_O2T_Robot_IO
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_Robot_IO
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_O2T_Robot_IO : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+  fullName: HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+  fullName: HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_HWIDs_v_1_x_x.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

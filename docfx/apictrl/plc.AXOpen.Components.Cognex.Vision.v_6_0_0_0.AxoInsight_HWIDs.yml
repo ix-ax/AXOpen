@@ -1,0 +1,219 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HW_Device
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdCommandControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdSoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdUserData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdResultData
+  name: AxoInsight_HWIDs
+  fullName: AxoInsight_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoInsight_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HW_Device
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HW_Device
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdAcquisitionControl
+  fullName: HwIdAcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdAcquisitionControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdAcquisitionStatus
+  fullName: HwIdAcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdAcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdAcquisitionStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdInspectionControl
+  fullName: HwIdInspectionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdInspectionControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdInspectionStatus
+  fullName: HwIdInspectionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdInspectionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdInspectionStatus : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdCommandControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdCommandControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdCommandControl
+  fullName: HwIdCommandControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdCommandControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdCommandControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdSoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdSoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdSoftEventControl
+  fullName: HwIdSoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdSoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdSoftEventControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdUserData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdUserData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdUserData
+  fullName: HwIdUserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdUserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdUserData : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdResultData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdResultData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HwIdResultData
+  fullName: HwIdResultData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_HWIDs.HwIdResultData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_HWIDs.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HwIdResultData : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

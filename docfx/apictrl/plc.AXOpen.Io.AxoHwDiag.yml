@@ -1,0 +1,1052 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiag
+  id: plc.AXOpen.Io.AxoHwDiag
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiag.UpdateDiagnosticTask
+  - plc.AXOpen.Io.AxoHwDiag.RestoreTask
+  - plc.AXOpen.Io.AxoHwDiag.Progress
+  - plc.AXOpen.Io.AxoHwDiag.AxoHwDiagDetails
+  - plc.AXOpen.Io.AxoHwDiag.Config
+  - plc.AXOpen.Io.AxoHwDiag.Status
+  - plc.AXOpen.Io.AxoHwDiag.Messenger
+  - plc.AXOpen.Io.AxoHwDiag.TaskMessenger
+  - plc.AXOpen.Io.AxoHwDiag._progress
+  - plc.AXOpen.Io.AxoHwDiag._infoTimer
+  - plc.AXOpen.Io.AxoHwDiag._errorTimer
+  - plc.AXOpen.Io.AxoHwDiag._initCheckDone
+  - plc.AXOpen.Io.AxoHwDiag._retval
+  - plc.AXOpen.Io.AxoHwDiag._geoAddr
+  - plc.AXOpen.Io.AxoHwDiag._blink
+  - plc.AXOpen.Io.AxoHwDiag._loIndex
+  - plc.AXOpen.Io.AxoHwDiag._hiIndex
+  - plc.AXOpen.Io.AxoHwDiag._currentHwID
+  - plc.AXOpen.Io.AxoHwDiag._currentIndex
+  - plc.AXOpen.Io.AxoHwDiag._plcIndex
+  - plc.AXOpen.Io.AxoHwDiag._plcHwId
+  - plc.AXOpen.Io.AxoHwDiag._ioSystemIndex
+  - plc.AXOpen.Io.AxoHwDiag._ioSystemHwId
+  - plc.AXOpen.Io.AxoHwDiag._ioSystemNumber
+  - plc.AXOpen.Io.AxoHwDiag._stationIndex
+  - plc.AXOpen.Io.AxoHwDiag._stationHwId
+  - plc.AXOpen.Io.AxoHwDiag._stationNumber
+  - plc.AXOpen.Io.AxoHwDiag._moduleIndex
+  - plc.AXOpen.Io.AxoHwDiag._moduleHwId
+  - plc.AXOpen.Io.AxoHwDiag._slotNumber
+  - plc.AXOpen.Io.AxoHwDiag._subModuleIndex
+  - plc.AXOpen.Io.AxoHwDiag._subModuleHwId
+  - plc.AXOpen.Io.AxoHwDiag._subSlotNumber
+  - plc.AXOpen.Io.AxoHwDiag.Run(IAxoObject,ARRAY [*] OF UINT)
+  - plc.AXOpen.Io.AxoHwDiag.UpdateDiagnostic()
+  - plc.AXOpen.Io.AxoHwDiag.ManualControl()
+  - plc.AXOpen.Io.AxoHwDiag.Restore()
+  - plc.AXOpen.Io.AxoHwDiag.ClearDiagResult()
+  - plc.AXOpen.Io.AxoHwDiag.CallTimers(BOOL)
+  name: AxoHwDiag
+  fullName: AxoHwDiag
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiag
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnosticTask
+  id: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnosticTask
+  parent: AXOpen.Io
+  children: []
+  name: UpdateDiagnosticTask
+  fullName: UpdateDiagnosticTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnosticTask
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'UpdateDiagnosticTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoHwDiag.RestoreTask
+  id: plc.AXOpen.Io.AxoHwDiag.RestoreTask
+  parent: AXOpen.Io
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.RestoreTask
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 15
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Io.AxoHwDiag.Progress
+  id: plc.AXOpen.Io.AxoHwDiag.Progress
+  parent: AXOpen.Io
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Progress
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 18
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag.AxoHwDiagDetails
+  id: plc.AXOpen.Io.AxoHwDiag.AxoHwDiagDetails
+  parent: AXOpen.Io
+  children: []
+  name: AxoHwDiagDetails
+  fullName: AxoHwDiagDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.AxoHwDiagDetails
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 23
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'AxoHwDiagDetails : AXOpen.Io.AxoHwDiagDetails'
+    return:
+      type: AXOpen.Io.AxoHwDiagDetails
+- uid: plc.AXOpen.Io.AxoHwDiag.Config
+  id: plc.AXOpen.Io.AxoHwDiag.Config
+  parent: AXOpen.Io
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Config
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 30
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Config : AXOpen.Io.AxoHwDiag_Config'
+    return:
+      type: AXOpen.Io.AxoHwDiag_Config
+- uid: plc.AXOpen.Io.AxoHwDiag.Status
+  id: plc.AXOpen.Io.AxoHwDiag.Status
+  parent: AXOpen.Io
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Status
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 37
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Status : AXOpen.Io.AxoHwDiag_Component_Status'
+    return:
+      type: AXOpen.Io.AxoHwDiag_Component_Status
+- uid: plc.AXOpen.Io.AxoHwDiag.Messenger
+  id: plc.AXOpen.Io.AxoHwDiag.Messenger
+  parent: AXOpen.Io
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Messenger
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 41
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Io.AxoHwDiag.TaskMessenger
+  id: plc.AXOpen.Io.AxoHwDiag.TaskMessenger
+  parent: AXOpen.Io
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.TaskMessenger
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 42
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Io.AxoHwDiag._progress
+  id: plc.AXOpen.Io.AxoHwDiag._progress
+  parent: AXOpen.Io
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._progress
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 47
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._infoTimer
+  id: plc.AXOpen.Io.AxoHwDiag._infoTimer
+  parent: AXOpen.Io
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._infoTimer
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 47
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Io.AxoHwDiag._errorTimer
+  id: plc.AXOpen.Io.AxoHwDiag._errorTimer
+  parent: AXOpen.Io
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._errorTimer
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 48
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Io.AxoHwDiag._initCheckDone
+  id: plc.AXOpen.Io.AxoHwDiag._initCheckDone
+  parent: AXOpen.Io
+  children: []
+  name: _initCheckDone
+  fullName: _initCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._initCheckDone
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 51
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_initCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiag._retval
+  id: plc.AXOpen.Io.AxoHwDiag._retval
+  parent: AXOpen.Io
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._retval
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 52
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Io.AxoHwDiag._geoAddr
+  id: plc.AXOpen.Io.AxoHwDiag._geoAddr
+  parent: AXOpen.Io
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._geoAddr
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 54
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Io.AxoHwDiag._blink
+  id: plc.AXOpen.Io.AxoHwDiag._blink
+  parent: AXOpen.Io
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._blink
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 54
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Io.AxoHwDiag._loIndex
+  id: plc.AXOpen.Io.AxoHwDiag._loIndex
+  parent: AXOpen.Io
+  children: []
+  name: _loIndex
+  fullName: _loIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._loIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 56
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_loIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._hiIndex
+  id: plc.AXOpen.Io.AxoHwDiag._hiIndex
+  parent: AXOpen.Io
+  children: []
+  name: _hiIndex
+  fullName: _hiIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._hiIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 58
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_hiIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._currentHwID
+  id: plc.AXOpen.Io.AxoHwDiag._currentHwID
+  parent: AXOpen.Io
+  children: []
+  name: _currentHwID
+  fullName: _currentHwID
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._currentHwID
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 59
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_currentHwID : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._currentIndex
+  id: plc.AXOpen.Io.AxoHwDiag._currentIndex
+  parent: AXOpen.Io
+  children: []
+  name: _currentIndex
+  fullName: _currentIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._currentIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 60
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_currentIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._plcIndex
+  id: plc.AXOpen.Io.AxoHwDiag._plcIndex
+  parent: AXOpen.Io
+  children: []
+  name: _plcIndex
+  fullName: _plcIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._plcIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 61
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_plcIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._plcHwId
+  id: plc.AXOpen.Io.AxoHwDiag._plcHwId
+  parent: AXOpen.Io
+  children: []
+  name: _plcHwId
+  fullName: _plcHwId
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._plcHwId
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 62
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_plcHwId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._ioSystemIndex
+  id: plc.AXOpen.Io.AxoHwDiag._ioSystemIndex
+  parent: AXOpen.Io
+  children: []
+  name: _ioSystemIndex
+  fullName: _ioSystemIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._ioSystemIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 63
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_ioSystemIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._ioSystemHwId
+  id: plc.AXOpen.Io.AxoHwDiag._ioSystemHwId
+  parent: AXOpen.Io
+  children: []
+  name: _ioSystemHwId
+  fullName: _ioSystemHwId
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._ioSystemHwId
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 64
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_ioSystemHwId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._ioSystemNumber
+  id: plc.AXOpen.Io.AxoHwDiag._ioSystemNumber
+  parent: AXOpen.Io
+  children: []
+  name: _ioSystemNumber
+  fullName: _ioSystemNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._ioSystemNumber
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 65
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_ioSystemNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._stationIndex
+  id: plc.AXOpen.Io.AxoHwDiag._stationIndex
+  parent: AXOpen.Io
+  children: []
+  name: _stationIndex
+  fullName: _stationIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._stationIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 66
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_stationIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._stationHwId
+  id: plc.AXOpen.Io.AxoHwDiag._stationHwId
+  parent: AXOpen.Io
+  children: []
+  name: _stationHwId
+  fullName: _stationHwId
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._stationHwId
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 67
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_stationHwId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._stationNumber
+  id: plc.AXOpen.Io.AxoHwDiag._stationNumber
+  parent: AXOpen.Io
+  children: []
+  name: _stationNumber
+  fullName: _stationNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._stationNumber
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 68
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_stationNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._moduleIndex
+  id: plc.AXOpen.Io.AxoHwDiag._moduleIndex
+  parent: AXOpen.Io
+  children: []
+  name: _moduleIndex
+  fullName: _moduleIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._moduleIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 69
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_moduleIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._moduleHwId
+  id: plc.AXOpen.Io.AxoHwDiag._moduleHwId
+  parent: AXOpen.Io
+  children: []
+  name: _moduleHwId
+  fullName: _moduleHwId
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._moduleHwId
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 70
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_moduleHwId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._slotNumber
+  id: plc.AXOpen.Io.AxoHwDiag._slotNumber
+  parent: AXOpen.Io
+  children: []
+  name: _slotNumber
+  fullName: _slotNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._slotNumber
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 71
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_slotNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._subModuleIndex
+  id: plc.AXOpen.Io.AxoHwDiag._subModuleIndex
+  parent: AXOpen.Io
+  children: []
+  name: _subModuleIndex
+  fullName: _subModuleIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._subModuleIndex
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 72
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_subModuleIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Io.AxoHwDiag._subModuleHwId
+  id: plc.AXOpen.Io.AxoHwDiag._subModuleHwId
+  parent: AXOpen.Io
+  children: []
+  name: _subModuleHwId
+  fullName: _subModuleHwId
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._subModuleHwId
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 73
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_subModuleHwId : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag._subSlotNumber
+  id: plc.AXOpen.Io.AxoHwDiag._subSlotNumber
+  parent: AXOpen.Io
+  children: []
+  name: _subSlotNumber
+  fullName: _subSlotNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag._subSlotNumber
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 76
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: '_subSlotNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Io.AxoHwDiag.Run(IAxoObject,ARRAY [*] OF UINT)
+  id: plc.AXOpen.Io.AxoHwDiag.Run(IAxoObject,ARRAY [*] OF UINT)
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Run
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 78
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.ARRAY [*] OF UINT hwIDsList)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwIDsList
+      type: plc.ARRAY [*] OF UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnostic()
+  id: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnostic()
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: UpdateDiagnostic
+  fullName: UpdateDiagnostic
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.UpdateDiagnostic
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 918
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState UpdateDiagnostic()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Io.AxoHwDiag.ManualControl()
+  id: plc.AXOpen.Io.AxoHwDiag.ManualControl()
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.ManualControl
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 921
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoHwDiag.Restore()
+  id: plc.AXOpen.Io.AxoHwDiag.Restore()
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.Restore
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 923
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoHwDiag.ClearDiagResult()
+  id: plc.AXOpen.Io.AxoHwDiag.ClearDiagResult()
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: ClearDiagResult
+  fullName: ClearDiagResult
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.ClearDiagResult
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 933
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Private VOID ClearDiagResult()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Io.AxoHwDiag.CallTimers(BOOL)
+  id: plc.AXOpen.Io.AxoHwDiag.CallTimers(BOOL)
+  parent: AXOpen.Io.AxoHwDiag
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag.CallTimers
+    path: .\src\io\ctrl\src\AxoHwDiag\AxoHwDiag.st
+    startLine: 1053
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Io.AxoHwDiagDetails
+  name: AxoHwDiagDetails
+  nameWithType: AxoHwDiagDetails
+  fullName: AXOpen.Io.AxoHwDiagDetails
+- uid: plc.AXOpen.Io.AxoHwDiag_Config
+  name: AxoHwDiag_Config
+  nameWithType: AxoHwDiag_Config
+  fullName: AXOpen.Io.AxoHwDiag_Config
+- uid: plc.AXOpen.Io.AxoHwDiag_Component_Status
+  name: AxoHwDiag_Component_Status
+  nameWithType: AxoHwDiag_Component_Status
+  fullName: AXOpen.Io.AxoHwDiag_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.ARRAY [*] OF UINT
+  name: ARRAY [*] OF UINT
+  nameWithType: ARRAY [*] OF UINT
+  fullName: ARRAY [*] OF UINT
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

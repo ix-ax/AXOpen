@@ -1,0 +1,286 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.timeSinceStartup
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagsInTheField
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.antennaStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagChanges
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.lineDriverRev
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCounterPassive
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.abortCounter
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.codeErrorCounter
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.signatureErrorCounter
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.crcErrorCounter
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.currentCommandStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCount
+  name: AxoIOLink_RF200_typeReaderStatus
+  fullName: AxoIOLink_RF200_typeReaderStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_typeReaderStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.timeSinceStartup
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.timeSinceStartup
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: timeSinceStartup
+  fullName: timeSinceStartup
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.timeSinceStartup
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'timeSinceStartup : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagsInTheField
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagsInTheField
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: tagsInTheField
+  fullName: tagsInTheField
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagsInTheField
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'tagsInTheField : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.antennaStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.antennaStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: antennaStatus
+  fullName: antennaStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.antennaStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'antennaStatus : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagChanges
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagChanges
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: tagChanges
+  fullName: tagChanges
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.tagChanges
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'tagChanges : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.lineDriverRev
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.lineDriverRev
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: lineDriverRev
+  fullName: lineDriverRev
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.lineDriverRev
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'lineDriverRev : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCounterPassive
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCounterPassive
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: errorCounterPassive
+  fullName: errorCounterPassive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCounterPassive
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'errorCounterPassive : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.abortCounter
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.abortCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: abortCounter
+  fullName: abortCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.abortCounter
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'abortCounter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.codeErrorCounter
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.codeErrorCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: codeErrorCounter
+  fullName: codeErrorCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.codeErrorCounter
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'codeErrorCounter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.signatureErrorCounter
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.signatureErrorCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: signatureErrorCounter
+  fullName: signatureErrorCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.signatureErrorCounter
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'signatureErrorCounter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.crcErrorCounter
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.crcErrorCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: crcErrorCounter
+  fullName: crcErrorCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.crcErrorCounter
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'crcErrorCounter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.currentCommandStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.currentCommandStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: currentCommandStatus
+  fullName: currentCommandStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.currentCommandStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'currentCommandStatus : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCount
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCount
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: errorCount
+  fullName: errorCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus.errorCount
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeReaderStatus.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'errorCount : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

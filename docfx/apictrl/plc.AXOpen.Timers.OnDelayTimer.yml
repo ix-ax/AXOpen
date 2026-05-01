@@ -1,0 +1,225 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  id: plc.AXOpen.Timers.OnDelayTimer
+  parent: plc.AXOpen.Timers
+  children:
+  - plc.AXOpen.Timers.OnDelayTimer.output
+  - plc.AXOpen.Timers.OnDelayTimer.elapsedTime
+  - plc.AXOpen.Timers.OnDelayTimer._startTime
+  - plc.AXOpen.Timers.OnDelayTimer._previousSignalStatus
+  - plc.AXOpen.Timers.OnDelayTimer._currentTimeDiff
+  - plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoObject,BOOL,LTIME)
+  - plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoContext,BOOL,LTIME)
+  - plc.AXOpen.Timers.OnDelayTimer.Restore()
+  name: OnDelayTimer
+  fullName: OnDelayTimer
+  type: Class
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 3
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: CLASS OnDelayTimer
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Timers.OnDelayTimer.output
+  id: plc.AXOpen.Timers.OnDelayTimer.output
+  parent: AXOpen.Timers
+  children: []
+  name: output
+  fullName: output
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer.output
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 11
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'output : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.OnDelayTimer.elapsedTime
+  id: plc.AXOpen.Timers.OnDelayTimer.elapsedTime
+  parent: AXOpen.Timers
+  children: []
+  name: elapsedTime
+  fullName: elapsedTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer.elapsedTime
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 12
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'elapsedTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OnDelayTimer._startTime
+  id: plc.AXOpen.Timers.OnDelayTimer._startTime
+  parent: AXOpen.Timers
+  children: []
+  name: _startTime
+  fullName: _startTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer._startTime
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 16
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_startTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OnDelayTimer._previousSignalStatus
+  id: plc.AXOpen.Timers.OnDelayTimer._previousSignalStatus
+  parent: AXOpen.Timers
+  children: []
+  name: _previousSignalStatus
+  fullName: _previousSignalStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer._previousSignalStatus
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 17
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_previousSignalStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.OnDelayTimer._currentTimeDiff
+  id: plc.AXOpen.Timers.OnDelayTimer._currentTimeDiff
+  parent: AXOpen.Timers
+  children: []
+  name: _currentTimeDiff
+  fullName: _currentTimeDiff
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer._currentTimeDiff
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 18
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_currentTimeDiff : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoObject,BOOL,LTIME)
+  id: plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoObject,BOOL,LTIME)
+  parent: AXOpen.Timers.OnDelayTimer
+  children: []
+  name: OnDelay
+  fullName: OnDelay
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer.OnDelay
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 22
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL OnDelay(in plc.AXOpen.Core.IAxoObject Parent,in plc.BOOL inSignal,in plc.LTIME TimeDelay)
+    parameters:
+    - id: Parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inSignal
+      type: plc.BOOL
+    - id: TimeDelay
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoContext,BOOL,LTIME)
+  id: plc.AXOpen.Timers.OnDelayTimer.OnDelay(IAxoContext,BOOL,LTIME)
+  parent: AXOpen.Timers.OnDelayTimer
+  children: []
+  name: OnDelay
+  fullName: OnDelay
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer.OnDelay
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 36
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL OnDelay(in plc.AXOpen.Core.IAxoContext Context,in plc.BOOL inSignal,in plc.LTIME TimeDelay)
+    parameters:
+    - id: Context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: inSignal
+      type: plc.BOOL
+    - id: TimeDelay
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.OnDelayTimer.Restore()
+  id: plc.AXOpen.Timers.OnDelayTimer.Restore()
+  parent: AXOpen.Timers.OnDelayTimer
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OnDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OnDelayTimer.Restore
+    path: .\src\timers\ctrl\src\OnDelay.st
+    startLine: 95
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

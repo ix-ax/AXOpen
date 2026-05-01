@@ -1,0 +1,91 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.Status
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.CurrentCommandParameters
+  name: AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  fullName: AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_ComponentStatus_v_4_x_x
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.Status
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.Status
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.Status
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Status : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.CurrentCommandParameters
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.CurrentCommandParameters
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: CurrentCommandParameters
+  fullName: CurrentCommandParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_ComponentStatus_v_4_x_x.CurrentCommandParameters
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'CurrentCommandParameters : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x'
+    return:
+      type: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+  name: AxoSmartFunctionKitStatus_v_4_x_x
+  nameWithType: AxoSmartFunctionKitStatus_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitStatus_v_4_x_x
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+  name: AxoSmartFunctionKitRequest_v_4_x_x
+  nameWithType: AxoSmartFunctionKitRequest_v_4_x_x
+  fullName: AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x
+
+

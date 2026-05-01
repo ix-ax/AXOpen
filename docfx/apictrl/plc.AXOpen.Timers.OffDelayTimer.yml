@@ -1,0 +1,246 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Timers.OffDelayTimer
+  id: plc.AXOpen.Timers.OffDelayTimer
+  parent: plc.AXOpen.Timers
+  children:
+  - plc.AXOpen.Timers.OffDelayTimer.output
+  - plc.AXOpen.Timers.OffDelayTimer.elapsedTime
+  - plc.AXOpen.Timers.OffDelayTimer._startTime
+  - plc.AXOpen.Timers.OffDelayTimer._previousSignalStatus
+  - plc.AXOpen.Timers.OffDelayTimer._currentTimeDiff
+  - plc.AXOpen.Timers.OffDelayTimer._isCounting
+  - plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoObject,BOOL,LTIME)
+  - plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoContext,BOOL,LTIME)
+  - plc.AXOpen.Timers.OffDelayTimer.Restore()
+  name: OffDelayTimer
+  fullName: OffDelayTimer
+  type: Class
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 4
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: CLASS OffDelayTimer
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Timers.OffDelayTimer.output
+  id: plc.AXOpen.Timers.OffDelayTimer.output
+  parent: AXOpen.Timers
+  children: []
+  name: output
+  fullName: output
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer.output
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 11
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'output : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.OffDelayTimer.elapsedTime
+  id: plc.AXOpen.Timers.OffDelayTimer.elapsedTime
+  parent: AXOpen.Timers
+  children: []
+  name: elapsedTime
+  fullName: elapsedTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer.elapsedTime
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 12
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'elapsedTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OffDelayTimer._startTime
+  id: plc.AXOpen.Timers.OffDelayTimer._startTime
+  parent: AXOpen.Timers
+  children: []
+  name: _startTime
+  fullName: _startTime
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer._startTime
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 16
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_startTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OffDelayTimer._previousSignalStatus
+  id: plc.AXOpen.Timers.OffDelayTimer._previousSignalStatus
+  parent: AXOpen.Timers
+  children: []
+  name: _previousSignalStatus
+  fullName: _previousSignalStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer._previousSignalStatus
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 17
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_previousSignalStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.OffDelayTimer._currentTimeDiff
+  id: plc.AXOpen.Timers.OffDelayTimer._currentTimeDiff
+  parent: AXOpen.Timers
+  children: []
+  name: _currentTimeDiff
+  fullName: _currentTimeDiff
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer._currentTimeDiff
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 18
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_currentTimeDiff : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Timers.OffDelayTimer._isCounting
+  id: plc.AXOpen.Timers.OffDelayTimer._isCounting
+  parent: AXOpen.Timers
+  children: []
+  name: _isCounting
+  fullName: _isCounting
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer._isCounting
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 19
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_isCounting : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoObject,BOOL,LTIME)
+  id: plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoObject,BOOL,LTIME)
+  parent: AXOpen.Timers.OffDelayTimer
+  children: []
+  name: OffDelay
+  fullName: OffDelay
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer.OffDelay
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 23
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL OffDelay(in plc.AXOpen.Core.IAxoObject Parent,in plc.BOOL inSignal,in plc.LTIME TimeDelay)
+    parameters:
+    - id: Parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inSignal
+      type: plc.BOOL
+    - id: TimeDelay
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoContext,BOOL,LTIME)
+  id: plc.AXOpen.Timers.OffDelayTimer.OffDelay(IAxoContext,BOOL,LTIME)
+  parent: AXOpen.Timers.OffDelayTimer
+  children: []
+  name: OffDelay
+  fullName: OffDelay
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer.OffDelay
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 40
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL OffDelay(in plc.AXOpen.Core.IAxoContext Context,in plc.BOOL inSignal,in plc.LTIME TimeDelay)
+    parameters:
+    - id: Context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: inSignal
+      type: plc.BOOL
+    - id: TimeDelay
+      type: plc.LTIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.OffDelayTimer.Restore()
+  id: plc.AXOpen.Timers.OffDelayTimer.Restore()
+  parent: AXOpen.Timers.OffDelayTimer
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\OffDelay.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.OffDelayTimer.Restore
+    path: .\src\timers\ctrl\src\OffDelay.st
+    startLine: 112
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

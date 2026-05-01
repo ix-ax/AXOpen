@@ -1,0 +1,182 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+  parent: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.InfoTime
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ErrorTime
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.TaskTimeout
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.HWIDs
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.MaxJobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ResultDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.UserDataSize
+  name: AxoInsight_Config
+  fullName: AxoInsight_Config
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: STRUCT AxoInsight_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.InfoTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.InfoTime
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.InfoTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ErrorTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ErrorTime
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ErrorTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.TaskTimeout
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.TaskTimeout
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.TaskTimeout
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.HWIDs
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.HWIDs
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.HWIDs
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.MaxJobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.MaxJobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: MaxJobNumber
+  fullName: MaxJobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.MaxJobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'MaxJobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ResultDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: ResultDataSize
+  fullName: ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'ResultDataSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.UserDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.UserDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: UserDataSize
+  fullName: UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Config.UserDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Config.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'UserDataSize : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+  name: AxoInsight_HWIDs
+  nameWithType: AxoInsight_HWIDs
+  fullName: AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_HWIDs
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

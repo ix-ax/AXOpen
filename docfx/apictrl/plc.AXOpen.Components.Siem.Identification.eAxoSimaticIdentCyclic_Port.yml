@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.NONE
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X21
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X22
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X23
+  - plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X24
+  name: eAxoSimaticIdentCyclic_Port
+  fullName: eAxoSimaticIdentCyclic_Port
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'eAxoSimaticIdentCyclic_Port : UINT'
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.NONE
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.NONE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: NONE :=  UINT#0
+  fullName: NONE
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.NONE
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X21
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X21
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: X21 :=  UINT#2
+  fullName: X21
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X21
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X22
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X22
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: X22 :=  UINT#3
+  fullName: X22
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X22
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X23
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X23
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: X23 :=  UINT#4
+  fullName: X23
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X23
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X24
+  id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X24
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: X24 :=  UINT#5
+  fullName: X24
+  type: Field
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port.X24
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\eAxoSimaticIdentCyclic_Port.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

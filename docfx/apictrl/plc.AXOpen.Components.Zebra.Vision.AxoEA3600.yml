@@ -1,0 +1,1552 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600
+  parent: plc.AXOpen.Components.Zebra.Vision
+  children:
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore()
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers(BOOL)
+  name: AxoEA3600
+  fullName: AxoEA3600
+  type: Class
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: CLASS AxoEA3600
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadTask
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ReadData
+  fullName: ReadData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ReadData
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ReadData : AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BarcodeType
+  fullName: BarcodeType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeType
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BarcodeType : AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType'
+    return:
+      type: AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BarcodeLength
+  fullName: BarcodeLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.BarcodeLength
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BarcodeLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Progress
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.RestoreTask
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ClearDataTask
+  fullName: ClearDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearDataTask
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ClearDataTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: ClearErrorTask
+  fullName: ClearErrorTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearErrorTask
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'ClearErrorTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_10steps_4
+  fullName: TemplateTask_10steps_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_4
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_10steps_4 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_10steps_5
+  fullName: TemplateTask_10steps_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_5
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_10steps_5 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_10steps_6
+  fullName: TemplateTask_10steps_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_10steps_6
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_10steps_6 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_1
+  fullName: TemplateTask_20steps_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_1
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_1 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_2
+  fullName: TemplateTask_20steps_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_2
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_2 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_3
+  fullName: TemplateTask_20steps_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_3
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 75
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_3 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_4
+  fullName: TemplateTask_20steps_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_4
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_4 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_5
+  fullName: TemplateTask_20steps_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_5
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 83
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_5 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TemplateTask_20steps_6
+  fullName: TemplateTask_20steps_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateTask_20steps_6
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TemplateTask_20steps_6 : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Config
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Config : AXOpen.Components.Zebra.Vision.AxoEA3600_Config'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Status
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 102
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status : AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Messenger
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TaskMessenger
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Inputs
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Inputs : AXOpen.Components.Zebra.Vision.AxoEA3600_In'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_In
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Outputs
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Outputs : AXOpen.Components.Zebra.Vision.AxoEA3600_Out'
+    return:
+      type: AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.HardwareDiagnosticsTask
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 126
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._progress
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 134
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._infoTimer
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._errorTimer
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 136
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_in
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 137
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_data_in : ARRAY [0..87] OF BYTE'
+    return:
+      type: ARRAY [0..87] OF BYTE
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _data_out
+  fullName: _data_out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._data_out
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 140
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_data_out : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._word
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 141
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dword
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._initHwCheckDone
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._retval
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._geoAddr
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outHwid
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 145
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._blink
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 146
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsAddress
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._inputsCount
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 149
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsAddress
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 149
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._outputsCount
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 150
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _timer
+  fullName: _timer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._timer
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_timer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _updateCounterPV
+  fullName: _updateCounterPV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._updateCounterPV
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_updateCounterPV : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _dataOffset
+  fullName: _dataOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataOffset
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 153
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_dataOffset : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _dataLength
+  fullName: _dataLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._dataLength
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 155
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_dataLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: _copyCount
+  fullName: _copyCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600._copyCount
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 156
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: '_copyCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Run
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 161
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.UINT hwID)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Read
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3125
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: ClearData
+  fullName: ClearData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearData
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3134
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearData()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: ClearError
+  fullName: ClearError
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ClearError
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3136
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearError()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_10steps_4
+  fullName: TemplateMethod_10steps_4
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_4
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3139
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_4()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_10steps_5
+  fullName: TemplateMethod_10steps_5
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_5
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3145
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_5()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_10steps_6
+  fullName: TemplateMethod_10steps_6
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_10steps_6
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3150
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_10steps_6()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_1
+  fullName: TemplateMethod_20steps_1
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_1
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3152
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_1()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_2
+  fullName: TemplateMethod_20steps_2
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_2
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_2()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_3
+  fullName: TemplateMethod_20steps_3
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_3
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_3()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_4
+  fullName: TemplateMethod_20steps_4
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_4
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_4()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_5
+  fullName: TemplateMethod_20steps_5
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_5
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_5()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: TemplateMethod_20steps_6
+  fullName: TemplateMethod_20steps_6
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.TemplateMethod_20steps_6
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState TemplateMethod_20steps_6()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.ManualControl
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore()
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore()
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.Restore
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers(BOOL)
+  parent: AXOpen.Components.Zebra.Vision.AxoEA3600
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600.CallTimers
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\AxoEA3600.st
+    startLine: 3162
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+  name: AxoEA3600_ReadData
+  nameWithType: AxoEA3600_ReadData
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_ReadData
+- uid: plc.AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType
+  name: eAxoEA3600BarcodeType
+  nameWithType: eAxoEA3600BarcodeType
+  fullName: AXOpen.Components.Zebra.Vision.eAxoEA3600BarcodeType
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+  name: AxoEA3600_Config
+  nameWithType: AxoEA3600_Config
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Config
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+  name: AxoEA3600_Component_Status
+  nameWithType: AxoEA3600_Component_Status
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+  name: AxoEA3600_In
+  nameWithType: AxoEA3600_In
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_In
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+  name: AxoEA3600_Out
+  nameWithType: AxoEA3600_Out
+  fullName: AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..87] OF BYTE
+  name: ARRAY [0..87] OF BYTE
+  nameWithType: ARRAY [0..87] OF BYTE
+  fullName: ARRAY [0..87] OF BYTE
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

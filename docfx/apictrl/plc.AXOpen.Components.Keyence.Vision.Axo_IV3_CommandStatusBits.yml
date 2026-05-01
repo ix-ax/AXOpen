@@ -1,0 +1,576 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.WarningClearResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.StatisticsResetResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferClearResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeResponse
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerFailed
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationFailed
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingFailed
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopFailed
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeFailed
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultAvailable
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultUpdateComplete
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BUSY
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ImagingStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.RUN
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Ready
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerReady
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardIdentificationStatus
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SortingModeInformation
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.InsufficientFreeSpaceOnSdCard
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferOverrun
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Warning
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Error
+  name: Axo_IV3_CommandStatusBits
+  fullName: Axo_IV3_CommandStatusBits
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_CommandStatusBits
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TriggerResponse
+  fullName: TriggerResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TriggerResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MasterRegistrationResponse
+  fullName: MasterRegistrationResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MasterRegistrationResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProgramSwitchingResponse
+  fullName: ProgramSwitchingResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProgramSwitchingResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.WarningClearResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.WarningClearResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: WarningClearResponse
+  fullName: WarningClearResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.WarningClearResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'WarningClearResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.StatisticsResetResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.StatisticsResetResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: StatisticsResetResponse
+  fullName: StatisticsResetResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.StatisticsResetResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'StatisticsResetResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferClearResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferClearResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BufferClearResponse
+  fullName: BufferClearResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferClearResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BufferClearResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SdCardSavingStopResponse
+  fullName: SdCardSavingStopResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SdCardSavingStopResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeResponse
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeResponse
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SettingValueChangeResponse
+  fullName: SettingValueChangeResponse
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeResponse
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SettingValueChangeResponse : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerFailed
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerFailed
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TriggerFailed
+  fullName: TriggerFailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerFailed
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TriggerFailed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationFailed
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationFailed
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MasterRegistrationFailed
+  fullName: MasterRegistrationFailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.MasterRegistrationFailed
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MasterRegistrationFailed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingFailed
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingFailed
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProgramSwitchingFailed
+  fullName: ProgramSwitchingFailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ProgramSwitchingFailed
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProgramSwitchingFailed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopFailed
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopFailed
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SdCardSavingStopFailed
+  fullName: SdCardSavingStopFailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardSavingStopFailed
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SdCardSavingStopFailed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeFailed
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeFailed
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SettingValueChangeFailed
+  fullName: SettingValueChangeFailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SettingValueChangeFailed
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SettingValueChangeFailed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultAvailable
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultAvailable
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultAvailable
+  fullName: ResultAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultAvailable
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultUpdateComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultUpdateComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultUpdateComplete
+  fullName: ResultUpdateComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ResultUpdateComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultUpdateComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BUSY
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BUSY
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BUSY
+  fullName: BUSY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BUSY
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BUSY : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ImagingStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ImagingStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ImagingStatus
+  fullName: ImagingStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.ImagingStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ImagingStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.RUN
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.RUN
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RUN
+  fullName: RUN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.RUN
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RUN : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Ready
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Ready
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Ready
+  fullName: Ready
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Ready
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Ready : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerReady
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerReady
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TriggerReady
+  fullName: TriggerReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.TriggerReady
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TriggerReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardIdentificationStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardIdentificationStatus
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SdCardIdentificationStatus
+  fullName: SdCardIdentificationStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SdCardIdentificationStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SdCardIdentificationStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SortingModeInformation
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SortingModeInformation
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: SortingModeInformation
+  fullName: SortingModeInformation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.SortingModeInformation
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'SortingModeInformation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.InsufficientFreeSpaceOnSdCard
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.InsufficientFreeSpaceOnSdCard
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: InsufficientFreeSpaceOnSdCard
+  fullName: InsufficientFreeSpaceOnSdCard
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.InsufficientFreeSpaceOnSdCard
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'InsufficientFreeSpaceOnSdCard : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferOverrun
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferOverrun
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: BufferOverrun
+  fullName: BufferOverrun
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.BufferOverrun
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'BufferOverrun : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Warning
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Warning
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Warning
+  fullName: Warning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Warning
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Warning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Error
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Error
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_CommandStatusBits.Error
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

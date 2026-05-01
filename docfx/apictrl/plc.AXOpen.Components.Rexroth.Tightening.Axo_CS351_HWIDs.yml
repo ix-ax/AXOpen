@@ -1,0 +1,597 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+  parent: plc.AXOpen.Components.Rexroth.Tightening
+  children:
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HW_Device
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_1
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_2
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_3
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_4
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_5
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_6
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_7
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_8
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_9
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_10
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_11
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_12
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_13
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_14
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_15
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_16
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_17
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_18
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_19
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_20
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_21
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_22
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_23
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_24
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_25
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_26
+  name: Axo_CS351_HWIDs
+  fullName: Axo_CS351_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: CLASS Axo_CS351_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HW_Device
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HW_Device
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_1
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_1
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_1
+  fullName: HwID_Slot_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_1
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_2
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_2
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_2
+  fullName: HwID_Slot_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_2
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_3
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_3
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_3
+  fullName: HwID_Slot_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_3
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_3 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_4
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_4
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_4
+  fullName: HwID_Slot_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_4
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_4 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_5
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_5
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_5
+  fullName: HwID_Slot_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_5
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_5 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_6
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_6
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_6
+  fullName: HwID_Slot_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_6
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_6 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_7
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_7
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_7
+  fullName: HwID_Slot_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_7
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_7 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_8
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_8
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_8
+  fullName: HwID_Slot_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_8
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_8 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_9
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_9
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_9
+  fullName: HwID_Slot_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_9
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_9 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_10
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_10
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_10
+  fullName: HwID_Slot_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_10
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_10 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_11
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_11
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_11
+  fullName: HwID_Slot_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_11
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_11 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_12
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_12
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_12
+  fullName: HwID_Slot_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_12
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_12 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_13
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_13
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_13
+  fullName: HwID_Slot_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_13
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_13 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_14
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_14
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_14
+  fullName: HwID_Slot_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_14
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_14 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_15
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_15
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_15
+  fullName: HwID_Slot_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_15
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_15 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_16
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_16
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_16
+  fullName: HwID_Slot_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_16
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_16 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_17
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_17
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_17
+  fullName: HwID_Slot_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_17
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_17 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_18
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_18
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_18
+  fullName: HwID_Slot_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_18
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_18 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_19
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_19
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_19
+  fullName: HwID_Slot_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_19
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_19 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_20
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_20
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_20
+  fullName: HwID_Slot_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_20
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_20 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_21
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_21
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_21
+  fullName: HwID_Slot_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_21
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_21 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_22
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_22
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_22
+  fullName: HwID_Slot_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_22
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_22 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_23
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_23
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_23
+  fullName: HwID_Slot_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_23
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_23 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_24
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_24
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_24
+  fullName: HwID_Slot_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_24
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_24 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_25
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_25
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_25
+  fullName: HwID_Slot_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_25
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_25 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_26
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_26
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HwID_Slot_26
+  fullName: HwID_Slot_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs.HwID_Slot_26
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HwID_Slot_26 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

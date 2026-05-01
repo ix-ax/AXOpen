@@ -1,0 +1,160 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig
+  id: plc.AXOpen.Components.Elements.AxoAiConfig
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoAiConfig.RawLow
+  - plc.AXOpen.Components.Elements.AxoAiConfig.RawHigh
+  - plc.AXOpen.Components.Elements.AxoAiConfig.RealLow
+  - plc.AXOpen.Components.Elements.AxoAiConfig.RealHigh
+  - plc.AXOpen.Components.Elements.AxoAiConfig.Gain
+  - plc.AXOpen.Components.Elements.AxoAiConfig.Offset
+  name: AxoAiConfig
+  fullName: AxoAiConfig
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoAiConfig
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.RawLow
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.RawLow
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RawLow
+  fullName: RawLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.RawLow
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RawLow : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.RawHigh
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.RawHigh
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RawHigh
+  fullName: RawHigh
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.RawHigh
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RawHigh : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.RealLow
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.RealLow
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RealLow
+  fullName: RealLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.RealLow
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RealLow : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.RealHigh
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.RealHigh
+  parent: AXOpen.Components.Elements
+  children: []
+  name: RealHigh
+  fullName: RealHigh
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.RealHigh
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'RealHigh : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.Gain
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.Gain
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Gain
+  fullName: Gain
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.Gain
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Gain : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig.Offset
+  id: plc.AXOpen.Components.Elements.AxoAiConfig.Offset
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Offset
+  fullName: Offset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoAiConfig.Offset
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAiConfig.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Offset : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

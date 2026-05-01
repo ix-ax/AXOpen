@@ -1,3 +1,4 @@
+USING AXOpen.Components.Drives;
 USING AXOpen.Core;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
@@ -96,6 +97,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-set:AttributeName = "<#Scaling constant actual jerk#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantActualJerk        :   LREAL   :=  LREAL#1000.0;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Axis type#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            AxisType    :   eAxoDriveAxisType := eAxoDriveAxisType#Undefined;
         END_VAR
 
         VAR PUBLIC //   Debug
@@ -104,11 +110,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
             State : UINT;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentHeader()]}
+            ScalingReadState : UINT;
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentHeader()]}
             Debug : LINT;
         END_VAR
 
         VAR PRIVATE
-            _ScalingRead             :   BOOL := FALSE;
+            _ScalingRead            :   BOOL := FALSE;
             PNU_11724               :   LINT;       //  Resolution position (P1.7841.0.0)
             PNU_11725               :   LINT;       //  Resolution velocity (P1.7842.0.0)
             PNU_11726               :   LINT;       //  Resolution acceleration (P1.7843.0.0)
@@ -120,6 +129,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             PNU_11203               :   BOOL;       //  Move to axis zero point after homing (P1.841.0.0)
             PNU_11734               :   LINT;       //  Axis zero point offset (P1.8416.0.0)
             PNU_11735               :   LINT;       //  Referencing method (P1.8417.0.0)
+            PNU_12694               :   LINT;       //  User unit position (P1.7851.0.0)
+            PNU_12695               :   LINT;       //  User unit velocity (P1.7852.0.0)
+            PNU_12696               :   LINT;       //  User unit acceleration (P1.7853.0.0)
+            PNU_12697               :   LINT;       //  User unit jerk (P1.7854.0.0)
+
             Parametrization         :   AxoReadWritePROFIdriveParameter; 
 
             _initHwCheckDone        :   BOOL;
@@ -133,6 +147,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _outputsCount           :   UINT; 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _scalingReadState       :   UINT;
+
         END_VAR
 
         ///<summary>
@@ -155,6 +171,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_VAR
             SUPER.Run(inParent);
             Messenger.Serve(THIS);
+
+            ScalingReadState       :=  _scalingReadState;
 
             IF NOT _initHwCheckDone THEN
                 IF inParent = NULL THEN
@@ -524,11 +542,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
                 Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Potential);            
-                IF State = UINT#0 THEN
+                IF _scalingReadState = UINT#0 THEN
+                    AxisType := eAxoDriveAxisType#Undefined;
+                    _scalingReadState := UINT#1;
                     State := UINT#1;
                 END_IF;
                 //Reading PNU 11724 Factor group Position
-                IF State = UINT#1 THEN
+                IF _scalingReadState = UINT#1 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 11724;
@@ -537,17 +557,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11724 := Parametrization.Outputs.ValueReadLINT;
-                        State := UINT#2;
+                        _scalingReadState := UINT#2;
                     END_IF;
                 END_IF;
-                IF State = UINT#2 THEN
+                IF _scalingReadState = UINT#2 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#3;
+                        _scalingReadState := UINT#3;
                     END_IF;
                 END_IF;
                 //Reading PNU 11725 Factor group Velocity
-                IF State = UINT#3 THEN
+                IF _scalingReadState = UINT#3 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 11725;
@@ -556,17 +576,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11725 := Parametrization.Outputs.ValueReadLINT;
-                        State := UINT#4;
+                        _scalingReadState := UINT#4;
                     END_IF;
                 END_IF;
-                IF State = UINT#4 THEN
+                IF _scalingReadState = UINT#4 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#5;
+                        _scalingReadState := UINT#5;
                     END_IF;
                 END_IF;                
                 //Reading PNU 12345 Base value velocity
-                IF State = UINT#5 THEN
+                IF _scalingReadState = UINT#5 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 12345;
@@ -575,17 +595,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_12345 := Parametrization.Outputs.ValueReadREAL;
-                        State := UINT#6;
+                        _scalingReadState := UINT#6;
                     END_IF;
                 END_IF;
-                IF State = UINT#6 THEN
+                IF _scalingReadState = UINT#6 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#7;
+                        _scalingReadState := UINT#7;
                     END_IF;
                 END_IF;  
                 //Reading PNU 11122 Maximum motor torque/servo drive 
-                IF State = UINT#7 THEN
+                IF _scalingReadState = UINT#7 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 11122;
@@ -594,17 +614,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11122 := Parametrization.Outputs.ValueReadREAL;
-                        State := UINT#8;
+                        _scalingReadState := UINT#8;
                     END_IF;
                 END_IF;
-                IF State = UINT#8 THEN
+                IF _scalingReadState = UINT#8 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#9;
+                        _scalingReadState := UINT#9;
                     END_IF;
                 END_IF;
                 //Reading PNU 810 Base value acceleration
-                IF State = UINT#9 THEN
+                IF _scalingReadState = UINT#9 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 810;
@@ -613,17 +633,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_810 := Parametrization.Outputs.ValueReadREAL;
-                        State := UINT#10;
+                        _scalingReadState := UINT#10;
                     END_IF;
                 END_IF;
-                IF State = UINT#10 THEN
+                IF _scalingReadState = UINT#10 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#11;
+                        _scalingReadState := UINT#11;
                     END_IF;
                 END_IF;    
                 //Reading PNU 811 Base value deceleration
-                IF State = UINT#11 THEN
+                IF _scalingReadState = UINT#11 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 811;
@@ -632,17 +652,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_811 := Parametrization.Outputs.ValueReadREAL;
-                        State := UINT#12;
+                        _scalingReadState := UINT#12;
                     END_IF;
                 END_IF;
-                IF State = UINT#12 THEN
+                IF _scalingReadState = UINT#12 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#13;
+                        _scalingReadState := UINT#13;
                     END_IF;
                 END_IF;    
                 //Reading PNU 11726 Resolution acceleration (P1.7843.0.0)
-                IF State = UINT#13 THEN
+                IF _scalingReadState = UINT#13 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 11726;
@@ -651,17 +671,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11726 := Parametrization.Outputs.ValueReadLINT;
-                        State := UINT#14;
+                        _scalingReadState := UINT#14;
                     END_IF;
                 END_IF;
-                IF State = UINT#14 THEN
+                IF _scalingReadState = UINT#14 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#15;
+                        _scalingReadState := UINT#15;
                     END_IF;
                 END_IF;                   
                 //Reading PNU 11727 Resolution jerk (P1.7844.0.0)
-                IF State = UINT#15 THEN
+                IF _scalingReadState = UINT#15 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     Parametrization.Inputs.ParameterNo := 11727;
@@ -670,16 +690,135 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11727 := Parametrization.Outputs.ValueReadLINT;
-                        State := UINT#16;
+                        _scalingReadState := UINT#16;
                     END_IF;
                 END_IF;
-                IF State = UINT#16 THEN
+                IF _scalingReadState = UINT#16 THEN
                     Parametrization.Inputs.Enable := FALSE;
                     IF NOT Parametrization.Outputs.Done THEN
-                        State := UINT#17;
+                        _scalingReadState := UINT#17;
                     END_IF;
                 END_IF;                   
-                IF State = UINT#17 THEN
+                //Reading PNU PNU 12694 User unit position (P1.7851.0.0)
+                IF _scalingReadState = UINT#17 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 12694;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_12694 := Parametrization.Outputs.ValueReadLINT;
+                        _scalingReadState := UINT#18;
+                    END_IF;
+                END_IF;
+                IF _scalingReadState = UINT#18 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        _scalingReadState := UINT#19;
+                    END_IF;
+                END_IF;          
+                //Reading PNU PNU 12695 User unit velocity (P1.7852.0.0)
+                IF _scalingReadState = UINT#19 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 12695;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_12695 := Parametrization.Outputs.ValueReadLINT;
+                        _scalingReadState := UINT#20;
+                    END_IF;
+                END_IF;
+                IF _scalingReadState = UINT#20 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        _scalingReadState := UINT#21;
+                    END_IF;
+                END_IF;          
+                //Reading PNU PNU 12696 User unit acceleration (P1.7853.0.0)
+                IF _scalingReadState = UINT#21 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 12696;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_12696 := Parametrization.Outputs.ValueReadLINT;
+                        _scalingReadState := UINT#22;
+                    END_IF;
+                END_IF;
+                IF _scalingReadState = UINT#22 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        _scalingReadState := UINT#23;
+                    END_IF;
+                END_IF;          
+                //Reading PNU PNU 12697 User unit jerk (P1.7854.0.0)
+                IF _scalingReadState = UINT#23 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 12697;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := AxisRefExt.HWIDs.HW_ModuleAccessPoint;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_12697 := Parametrization.Outputs.ValueReadLINT;
+                        _scalingReadState := UINT#24;
+                    END_IF;
+                END_IF;
+                IF _scalingReadState = UINT#24 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        _scalingReadState := UINT#25;
+                    END_IF;
+                END_IF;          
+                //Check setting PNU 12694-12697 User unit position, velocity, acceleration and jerk are read correctly or not. If not, scaling will be wrong, so set the flag to FALSE to indicate the error.
+                IF _scalingReadState = UINT#25 THEN
+                    IF PNU_12694 = 16640 AND PNU_12695 = 16643 AND PNU_12696 = 16727 AND PNU_12697 = 16800 THEN
+                        AxisType := eAxoDriveAxisType#Rotary;
+                        _scalingReadState := UINT#26;
+                    ELSIF PNU_12694 = 256 AND PNU_12695 = 259 AND PNU_12696 = 343 AND PNU_12697 = 416 THEN
+                        AxisType := eAxoDriveAxisType#Linear;
+                        _scalingReadState := UINT#26;
+                    ELSE
+                        AxisType := eAxoDriveAxisType#Error;
+                        Messenger.Activate(ULINT#1801 , eAxoMessageCategory#Error);
+                    END_IF;
+                END_IF;          
+                IF _scalingReadState = UINT#26 THEN
+                    IF AxisType = eAxoDriveAxisType#Rotary THEN
+                        _scalingReadState := UINT#27;
+                    ELSIF AxisType = eAxoDriveAxisType#Linear THEN
+                        _scalingReadState := UINT#28;
+                    END_IF;       
+                END_IF;       
+
+                IF _scalingReadState = UINT#27 THEN
+                    ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) )];               // TODO verify scaling with Automation Suite
+                    ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;     // TODO verify scaling with Automation Suite
+
+                    ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) )];                // TODO verify scaling with Automation Suite
+                    ScalingConstantActualVelocity := PNU_12345 * _exp[(TO_INT(PNU_11725) + 3)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824    // TODO verify scaling with Automation Suite
+
+                    ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_810;  //  16#4000 ~~ 16384
+                    ScalingConstantActualAcceleration := LREAL#1.0 / ScalingConstantRequiredAcceleration;
+
+                    ScalingConstantRequiredDeceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_811; //  16#4000 ~~ 16384
+                    ScalingConstantActualDeceleration := LREAL#1.0 / ScalingConstantRequiredDeceleration;
+
+                    ScalingConstantRequiredTorque := 1;
+                    ScalingConstantActualTorque := PNU_11122 / 16384; //  16#4000 ~~ 16384
+
+                    ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)];
+                    ScalingConstantActualJerk := LREAL#1.0 / ScalingConstantRequiredJerk;
+
+                    _scalingReadState := UINT#29;
+                END_IF;     
+
+                IF _scalingReadState = UINT#28 THEN
                     ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
 
@@ -698,8 +837,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)];
                     ScalingConstantActualJerk := LREAL#1.0 / ScalingConstantRequiredJerk;
 
+                    _scalingReadState := UINT#29;
+                END_IF;       
+
+
+                IF _scalingReadState = UINT#29 THEN
 
                     _ScalingRead := TRUE;
+                    _scalingReadState := UINT#0;
                     State := UINT#0;
 
                     AxoStop_Deceleration := 1000.0;         // mm/s2

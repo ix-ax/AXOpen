@@ -1,0 +1,197 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DriveStatusWord_S_0_0135_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SignalStatusWord_S_0_0144_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualPosition_S_0_0386_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualVelocity_S_0_0535_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DiagnosticMessage_S_0_0390_0_0
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SupplyUnitStatusWord_S_0_1720_0_2
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualTorque_S_0_0084_0_0
+  name: AxoCtrlxDriveXsc_Status
+  fullName: AxoCtrlxDriveXsc_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXsc_Status
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DriveStatusWord_S_0_0135_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DriveStatusWord_S_0_0135_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveStatusWord_S_0_0135_0_0
+  fullName: DriveStatusWord_S_0_0135_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DriveStatusWord_S_0_0135_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveStatusWord_S_0_0135_0_0 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SignalStatusWord_S_0_0144_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SignalStatusWord_S_0_0144_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SignalStatusWord_S_0_0144_0_0
+  fullName: SignalStatusWord_S_0_0144_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SignalStatusWord_S_0_0144_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SignalStatusWord_S_0_0144_0_0 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualPosition_S_0_0386_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualPosition_S_0_0386_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualPosition_S_0_0386_0_0
+  fullName: ActualPosition_S_0_0386_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualPosition_S_0_0386_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualPosition_S_0_0386_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualVelocity_S_0_0535_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualVelocity_S_0_0535_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualVelocity_S_0_0535_0_0
+  fullName: ActualVelocity_S_0_0535_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualVelocity_S_0_0535_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualVelocity_S_0_0535_0_0 : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DiagnosticMessage_S_0_0390_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DiagnosticMessage_S_0_0390_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DiagnosticMessage_S_0_0390_0_0
+  fullName: DiagnosticMessage_S_0_0390_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.DiagnosticMessage_S_0_0390_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DiagnosticMessage_S_0_0390_0_0 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SupplyUnitStatusWord_S_0_1720_0_2
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SupplyUnitStatusWord_S_0_1720_0_2
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SupplyUnitStatusWord_S_0_1720_0_2
+  fullName: SupplyUnitStatusWord_S_0_1720_0_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.SupplyUnitStatusWord_S_0_1720_0_2
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SupplyUnitStatusWord_S_0_1720_0_2 : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualTorque_S_0_0084_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualTorque_S_0_0084_0_0
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualTorque_S_0_0084_0_0
+  fullName: ActualTorque_S_0_0084_0_0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Status.ActualTorque_S_0_0084_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualTorque_S_0_0084_0_0 : INT'
+    return:
+      type: INT
+references:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  name: AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  nameWithType: AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  name: AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  nameWithType: AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  name: AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  nameWithType: AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+  fullName: AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

@@ -1,0 +1,208 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_In
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_Out
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_In
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_Out
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Data
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Config
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Status
+  name: AxoIndraDriveAxisReference
+  fullName: AxoIndraDriveAxisReference
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoIndraDriveAxisReference
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_In
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_In
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: FieldBus_In
+  fullName: FieldBus_In
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_In
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'FieldBus_In : AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_Out
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_Out
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: FieldBus_Out
+  fullName: FieldBus_Out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.FieldBus_Out
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'FieldBus_Out : AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_In
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_In
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Parameter_In
+  fullName: Parameter_In
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_In
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Parameter_In : AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterIn'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterIn
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_Out
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_Out
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Parameter_Out
+  fullName: Parameter_Out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Parameter_Out
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Parameter_Out : AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterOut'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterOut
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Data
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Data
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Data
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Data : AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Config
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Config
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Config
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Config : AXOpen.Components.Drives.AxoDrive_Config'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Status
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Status
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference.Status
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisReference.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Status : AXOpen.Components.Drives.AxoDrive_Status'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Status
+references:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  commentId: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  name: IAxoAxisReference
+  nameWithType: IAxoAxisReference
+  fullName: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  parent: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+  name: AxoIndraDriveFieldBusIn
+  nameWithType: AxoIndraDriveFieldBusIn
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+  name: AxoIndraDriveFieldBusOut
+  nameWithType: AxoIndraDriveFieldBusOut
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusOut
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterIn
+  name: AxoIndraDriveParameterIn
+  nameWithType: AxoIndraDriveParameterIn
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterIn
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterOut
+  name: AxoIndraDriveParameterOut
+  nameWithType: AxoIndraDriveParameterOut
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveParameterOut
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+  name: AxoIndraDriveAxisData
+  nameWithType: AxoIndraDriveAxisData
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config
+  name: AxoDrive_Config
+  nameWithType: AxoDrive_Config
+  fullName: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status
+  name: AxoDrive_Status
+  nameWithType: AxoDrive_Status
+  fullName: AXOpen.Components.Drives.AxoDrive_Status
+
+

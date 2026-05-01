@@ -1,0 +1,707 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_None
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Done
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Power
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Home
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Stop
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Halt
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAbsolute
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveRelative
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAdditive
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveSuperimposed
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_HaltSuperimposed
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveVelocity
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousAbsolute
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousRelative
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TorqueControl
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_PositionProfile
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_VelocityProfile
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AccelerationProfile
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetPosition
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetOverride
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadRealParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadBoolParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteRealParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteBoolParameter
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalInput
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalOutput
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteDigitalOutput
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualPosition
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualVelocity
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualTorque
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadStatus
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadMotionState
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisInfo
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisError
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Reset
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_DigitalCamSwitch
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TouchProbe
+  - plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AbortTrigger
+  name: eAxoMotionTaskId
+  fullName: eAxoMotionTaskId
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: eAxoMotionTaskId
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_None
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_None
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_None
+  fullName: Axo_None
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_None
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Done
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Done
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Done
+  fullName: Axo_Done
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Done
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Power
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Power
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Power
+  fullName: Axo_Power
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Power
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Home
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Home
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Home
+  fullName: Axo_Home
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Home
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Stop
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Stop
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Stop
+  fullName: Axo_Stop
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Stop
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Halt
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Halt
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Halt
+  fullName: Axo_Halt
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Halt
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAbsolute
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAbsolute
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveAbsolute
+  fullName: Axo_MoveAbsolute
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAbsolute
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveRelative
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveRelative
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveRelative
+  fullName: Axo_MoveRelative
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveRelative
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAdditive
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAdditive
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveAdditive
+  fullName: Axo_MoveAdditive
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveAdditive
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveSuperimposed
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveSuperimposed
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveSuperimposed
+  fullName: Axo_MoveSuperimposed
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveSuperimposed
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_HaltSuperimposed
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_HaltSuperimposed
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_HaltSuperimposed
+  fullName: Axo_HaltSuperimposed
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_HaltSuperimposed
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveVelocity
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveVelocity
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveVelocity
+  fullName: Axo_MoveVelocity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveVelocity
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousAbsolute
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousAbsolute
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveContinuousAbsolute
+  fullName: Axo_MoveContinuousAbsolute
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousAbsolute
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousRelative
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousRelative
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_MoveContinuousRelative
+  fullName: Axo_MoveContinuousRelative
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_MoveContinuousRelative
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TorqueControl
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TorqueControl
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_TorqueControl
+  fullName: Axo_TorqueControl
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TorqueControl
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_PositionProfile
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_PositionProfile
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_PositionProfile
+  fullName: Axo_PositionProfile
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_PositionProfile
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_VelocityProfile
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_VelocityProfile
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_VelocityProfile
+  fullName: Axo_VelocityProfile
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_VelocityProfile
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AccelerationProfile
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AccelerationProfile
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_AccelerationProfile
+  fullName: Axo_AccelerationProfile
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AccelerationProfile
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetPosition
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetPosition
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_SetPosition
+  fullName: Axo_SetPosition
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetPosition
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetOverride
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetOverride
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_SetOverride
+  fullName: Axo_SetOverride
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_SetOverride
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadParameter
+  fullName: Axo_ReadParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadRealParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadRealParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadRealParameter
+  fullName: Axo_ReadRealParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadRealParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadBoolParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadBoolParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadBoolParameter
+  fullName: Axo_ReadBoolParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadBoolParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_WriteParameter
+  fullName: Axo_WriteParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteRealParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteRealParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_WriteRealParameter
+  fullName: Axo_WriteRealParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteRealParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteBoolParameter
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteBoolParameter
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_WriteBoolParameter
+  fullName: Axo_WriteBoolParameter
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteBoolParameter
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalInput
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalInput
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadDigitalInput
+  fullName: Axo_ReadDigitalInput
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalInput
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalOutput
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalOutput
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadDigitalOutput
+  fullName: Axo_ReadDigitalOutput
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadDigitalOutput
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteDigitalOutput
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteDigitalOutput
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_WriteDigitalOutput
+  fullName: Axo_WriteDigitalOutput
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_WriteDigitalOutput
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualPosition
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualPosition
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadActualPosition
+  fullName: Axo_ReadActualPosition
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualPosition
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualVelocity
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualVelocity
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadActualVelocity
+  fullName: Axo_ReadActualVelocity
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualVelocity
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualTorque
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualTorque
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadActualTorque
+  fullName: Axo_ReadActualTorque
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadActualTorque
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadStatus
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadStatus
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadStatus
+  fullName: Axo_ReadStatus
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadStatus
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadMotionState
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadMotionState
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadMotionState
+  fullName: Axo_ReadMotionState
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadMotionState
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisInfo
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisInfo
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadAxisInfo
+  fullName: Axo_ReadAxisInfo
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisInfo
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisError
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisError
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_ReadAxisError
+  fullName: Axo_ReadAxisError
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_ReadAxisError
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Reset
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Reset
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_Reset
+  fullName: Axo_Reset
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_Reset
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_DigitalCamSwitch
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_DigitalCamSwitch
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_DigitalCamSwitch
+  fullName: Axo_DigitalCamSwitch
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_DigitalCamSwitch
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TouchProbe
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TouchProbe
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_TouchProbe
+  fullName: Axo_TouchProbe
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_TouchProbe
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Drives
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AbortTrigger
+  id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AbortTrigger
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Axo_AbortTrigger
+  fullName: Axo_AbortTrigger
+  type: Field
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.eAxoMotionTaskId.Axo_AbortTrigger
+    path: .\src\components.drives\ctrl\src\AxoDrives\eAxoMotionTaskId.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Drives
+references:
+- uid: plc.AXOpen.Components.Drives.eAxoMotionTaskId
+  name: eAxoMotionTaskId
+  nameWithType: eAxoMotionTaskId
+  fullName: AXOpen.Components.Drives.eAxoMotionTaskId
+
+

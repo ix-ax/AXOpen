@@ -1,0 +1,588 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+  parent: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children:
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ExternalStart
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MoveEnable
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ErrorConfirmation
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOff
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOn
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActivateInterface
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.StartAtMain
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MasterMode
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Retract
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Extend
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Retract
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Extend
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Retract
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Extend
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Retract
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Extend
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Zone
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.InPosition
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActionNo
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.GlobalSpeed
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ToolNo
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.WorkobjectNo
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.PointNo
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed1
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed2
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Coordinates
+  name: AxoKukaRobotics_Control
+  fullName: AxoKukaRobotics_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: CLASS AxoKukaRobotics_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ExternalStart
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ExternalStart
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ExternalStart
+  fullName: ExternalStart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ExternalStart
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ExternalStart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MoveEnable
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MoveEnable
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: MoveEnable
+  fullName: MoveEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MoveEnable
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'MoveEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ErrorConfirmation
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ErrorConfirmation
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ErrorConfirmation
+  fullName: ErrorConfirmation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ErrorConfirmation
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ErrorConfirmation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOff
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOff
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: DrivesOff
+  fullName: DrivesOff
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOff
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'DrivesOff : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOn
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOn
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: DrivesOn
+  fullName: DrivesOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.DrivesOn
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'DrivesOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActivateInterface
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActivateInterface
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ActivateInterface
+  fullName: ActivateInterface
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActivateInterface
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ActivateInterface : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.StartAtMain
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.StartAtMain
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartAtMain
+  fullName: StartAtMain
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.StartAtMain
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartAtMain : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MasterMode
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MasterMode
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: MasterMode
+  fullName: MasterMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.MasterMode
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'MasterMode : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Retract
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Retract
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_1_Retract
+  fullName: Tool_1_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Retract
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_1_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Extend
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Extend
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_1_Extend
+  fullName: Tool_1_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_1_Extend
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_1_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Retract
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Retract
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_2_Retract
+  fullName: Tool_2_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Retract
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_2_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Extend
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Extend
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_2_Extend
+  fullName: Tool_2_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_2_Extend
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_2_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Retract
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Retract
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_3_Retract
+  fullName: Tool_3_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Retract
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_3_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Extend
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Extend
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_3_Extend
+  fullName: Tool_3_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_3_Extend
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_3_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Retract
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Retract
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_4_Retract
+  fullName: Tool_4_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Retract
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_4_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Extend
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Extend
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Tool_4_Extend
+  fullName: Tool_4_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Tool_4_Extend
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Tool_4_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Zone
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Zone
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Zone
+  fullName: Zone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Zone
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Zone : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.InPosition
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.InPosition
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.InPosition
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'InPosition : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActionNo
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActionNo
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ActionNo
+  fullName: ActionNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ActionNo
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ActionNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.GlobalSpeed
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.GlobalSpeed
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: GlobalSpeed
+  fullName: GlobalSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.GlobalSpeed
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'GlobalSpeed : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ToolNo
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ToolNo
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ToolNo
+  fullName: ToolNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.ToolNo
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ToolNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.WorkobjectNo
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.WorkobjectNo
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: WorkobjectNo
+  fullName: WorkobjectNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.WorkobjectNo
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'WorkobjectNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.PointNo
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.PointNo
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: PointNo
+  fullName: PointNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.PointNo
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'PointNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed1
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed1
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: UserSpecSpeed1
+  fullName: UserSpecSpeed1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed1
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'UserSpecSpeed1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed2
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed2
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: UserSpecSpeed2
+  fullName: UserSpecSpeed2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.UserSpecSpeed2
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'UserSpecSpeed2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Coordinates
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Coordinates
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Coordinates
+  fullName: Coordinates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control.Coordinates
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+
+

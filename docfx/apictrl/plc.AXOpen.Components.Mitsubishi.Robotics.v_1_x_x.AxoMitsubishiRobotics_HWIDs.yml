@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+  parent: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children:
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_Device
+  - plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_InOut_64_byte
+  name: AxoMitsubishiRobotics_HWIDs
+  fullName: AxoMitsubishiRobotics_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: CLASS AxoMitsubishiRobotics_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_Device
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_Device
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: HwID_Device
+  fullName: HwID_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_Device
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'HwID_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_InOut_64_byte
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_InOut_64_byte
+  parent: AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: HwID_InOut_64_byte
+  fullName: HwID_InOut_64_byte
+  type: Property
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_HWIDs.HwID_InOut_64_byte
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_HWIDs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: 'HwID_InOut_64_byte : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.InfoTime
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.ErrorTime
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.TaskTimeout
+  name: AxoCtrlxDriveXsc_Config
+  fullName: AxoCtrlxDriveXsc_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXsc_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.InfoTime
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.InfoTime
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.InfoTime
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.ErrorTime
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.ErrorTime
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.ErrorTime
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.TaskTimeout
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.TaskTimeout
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc_Config.TaskTimeout
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

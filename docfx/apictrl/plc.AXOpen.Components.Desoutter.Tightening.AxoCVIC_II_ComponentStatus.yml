@@ -1,0 +1,41 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+  parent: plc.AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: AxoCVIC_II_ComponentStatus
+  fullName: AxoCVIC_II_ComponentStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_ComponentStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_ComponentStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: CLASS AxoCVIC_II_ComponentStatus
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+
+

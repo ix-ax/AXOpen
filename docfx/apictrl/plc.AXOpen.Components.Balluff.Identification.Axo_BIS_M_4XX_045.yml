@@ -1,0 +1,1823 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  parent: plc.AXOpen.Components.Balluff.Identification
+  children:
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._infoTimer
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._errorTimer
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._context
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._someTaskIsActive
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readNumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeNumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeData
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharCharacter
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharNumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._CommandDesignator
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._NumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._LastTogleBitValue
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._ReadWriteData
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._buffersCountToRead
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readedBuffersCount
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._lenghtInLastReadedBuffer
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._sendingCommandHeader
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._RestCharacter
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWrite
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWriteArr
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._SendDataIndex
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._singleLoopIndex
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._endIndex
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._codeTagPresent_PV
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._power_PV
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._dword
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._data
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.returnValue
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._tempString_8
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._index
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._StartAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._initHwCheckDone
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._retval
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._geoAddr
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outHwid
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._blink
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsCount
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsCount
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.RestoreTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadNumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteData
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunicationTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReaderTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemoryTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharCharacter
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharAddress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharNumberOfBytes
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Config
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Status
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Messenger
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.TaskMessenger
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._progress
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Inputs
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Outputs
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ManualControl()
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Restore()
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Read(WORD,WORD)
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Write(WORD,STRING)
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunication()
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReader()
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemory(BYTE,WORD,WORD)
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.CallTimers(BOOL)
+  name: Axo_BIS_M_4XX_045
+  fullName: Axo_BIS_M_4XX_045
+  type: Class
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: CLASS Axo_BIS_M_4XX_045
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._infoTimer
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._infoTimer
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._infoTimer
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._errorTimer
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._errorTimer
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._errorTimer
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._context
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._context
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._context
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._someTaskIsActive
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._someTaskIsActive
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _someTaskIsActive
+  fullName: _someTaskIsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._someTaskIsActive
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_someTaskIsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _readAddress
+  fullName: _readAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_readAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readNumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readNumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _readNumberOfBytes
+  fullName: _readNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readNumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_readNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeAddress
+  fullName: _writeAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeNumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeNumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeNumberOfBytes
+  fullName: _writeNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeNumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeData
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeData
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeData
+  fullName: _writeData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeData
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeData : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharCharacter
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharCharacter
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeCharCharacter
+  fullName: _writeCharCharacter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharCharacter
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeCharCharacter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeCharAddress
+  fullName: _writeCharAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeCharAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharNumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharNumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _writeCharNumberOfBytes
+  fullName: _writeCharNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._writeCharNumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_writeCharNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._CommandDesignator
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._CommandDesignator
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _CommandDesignator
+  fullName: _CommandDesignator
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._CommandDesignator
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_CommandDesignator : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._NumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._NumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _NumberOfBytes
+  fullName: _NumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._NumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_NumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._LastTogleBitValue
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._LastTogleBitValue
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _LastTogleBitValue
+  fullName: _LastTogleBitValue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._LastTogleBitValue
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_LastTogleBitValue : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._ReadWriteData
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._ReadWriteData
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _ReadWriteData
+  fullName: _ReadWriteData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._ReadWriteData
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_ReadWriteData : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._buffersCountToRead
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._buffersCountToRead
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _buffersCountToRead
+  fullName: _buffersCountToRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._buffersCountToRead
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_buffersCountToRead : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readedBuffersCount
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readedBuffersCount
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _readedBuffersCount
+  fullName: _readedBuffersCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._readedBuffersCount
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_readedBuffersCount : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._lenghtInLastReadedBuffer
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._lenghtInLastReadedBuffer
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _lenghtInLastReadedBuffer
+  fullName: _lenghtInLastReadedBuffer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._lenghtInLastReadedBuffer
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_lenghtInLastReadedBuffer : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._sendingCommandHeader
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._sendingCommandHeader
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _sendingCommandHeader
+  fullName: _sendingCommandHeader
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._sendingCommandHeader
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_sendingCommandHeader : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._RestCharacter
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._RestCharacter
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _RestCharacter
+  fullName: _RestCharacter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._RestCharacter
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_RestCharacter : STRING[1]'
+    return:
+      type: STRING[1]
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWrite
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWrite
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _DataToWrite
+  fullName: _DataToWrite
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWrite
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_DataToWrite : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWriteArr
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWriteArr
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _DataToWriteArr
+  fullName: _DataToWriteArr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._DataToWriteArr
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_DataToWriteArr : ARRAY [0..255] OF BYTE'
+    return:
+      type: ARRAY [0..255] OF BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._SendDataIndex
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._SendDataIndex
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _SendDataIndex
+  fullName: _SendDataIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._SendDataIndex
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_SendDataIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._singleLoopIndex
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._singleLoopIndex
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _singleLoopIndex
+  fullName: _singleLoopIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._singleLoopIndex
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_singleLoopIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._endIndex
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._endIndex
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _endIndex
+  fullName: _endIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._endIndex
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_endIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._codeTagPresent_PV
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._codeTagPresent_PV
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _codeTagPresent_PV
+  fullName: _codeTagPresent_PV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._codeTagPresent_PV
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_codeTagPresent_PV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._power_PV
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._power_PV
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _power_PV
+  fullName: _power_PV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._power_PV
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_power_PV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._dword
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._dword
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._dword
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._data
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._data
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _data
+  fullName: _data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._data
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_data : ARRAY [0..9] OF BYTE'
+    return:
+      type: ARRAY [0..9] OF BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.returnValue
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.returnValue
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: returnValue
+  fullName: returnValue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.returnValue
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'returnValue : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._tempString_8
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._tempString_8
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _tempString_8
+  fullName: _tempString_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._tempString_8
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_tempString_8 : STRING[8]'
+    return:
+      type: STRING[8]
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._index
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._index
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _index
+  fullName: _index
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._index
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_index : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._StartAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._StartAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _StartAddress
+  fullName: _StartAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._StartAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_StartAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._initHwCheckDone
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._initHwCheckDone
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._initHwCheckDone
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._retval
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._retval
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._retval
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._geoAddr
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._geoAddr
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._geoAddr
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outHwid
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outHwid
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outHwid
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._blink
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._blink
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._blink
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsCount
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsCount
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._inputsCount
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsCount
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsCount
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._outputsCount
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.RestoreTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.RestoreTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.RestoreTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ReadAddress
+  fullName: ReadAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ReadAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadNumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadNumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ReadNumberOfBytes
+  fullName: ReadNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ReadNumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 83
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ReadNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteTask
+  fullName: WriteTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteAddress
+  fullName: WriteAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteData
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteData
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteData
+  fullName: WriteData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteData
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 93
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteData : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunicationTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunicationTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ResetCommunicationTask
+  fullName: ResetCommunicationTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunicationTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 97
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ResetCommunicationTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReaderTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReaderTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: ResetReaderTask
+  fullName: ResetReaderTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReaderTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'ResetReaderTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemoryTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemoryTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteCharToMemoryTask
+  fullName: WriteCharToMemoryTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemoryTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteCharToMemoryTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharCharacter
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharCharacter
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteCharCharacter
+  fullName: WriteCharCharacter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharCharacter
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteCharCharacter : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharAddress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharAddress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteCharAddress
+  fullName: WriteCharAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharAddress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteCharAddress : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharNumberOfBytes
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharNumberOfBytes
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: WriteCharNumberOfBytes
+  fullName: WriteCharNumberOfBytes
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharNumberOfBytes
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'WriteCharNumberOfBytes : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Config
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Config
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Config
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Config : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config'
+    return:
+      type: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Status
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Status
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Status
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 128
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Status : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status'
+    return:
+      type: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Messenger
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Messenger
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Messenger
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.TaskMessenger
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.TaskMessenger
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.TaskMessenger
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 133
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._progress
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._progress
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045._progress
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 136
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Inputs
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Inputs
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Inputs
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 138
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Inputs : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State'
+    return:
+      type: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Outputs
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Outputs
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Outputs
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Outputs : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control'
+    return:
+      type: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.HardwareDiagnosticsTask
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 153
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Run
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 159
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ManualControl()
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ManualControl()
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ManualControl
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1167
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Restore()
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Restore()
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Restore
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1184
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Read(WORD,WORD)
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Read(WORD,WORD)
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Read
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1199
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.WORD Address,in plc.WORD NumberOfBytes)
+    parameters:
+    - id: Address
+      type: plc.WORD
+    - id: NumberOfBytes
+      type: plc.WORD
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Write(WORD,STRING)
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Write(WORD,STRING)
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: Write
+  fullName: Write
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.Write
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1210
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Write(in plc.WORD Address,in plc.STRING Data)
+    parameters:
+    - id: Address
+      type: plc.WORD
+    - id: Data
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunication()
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunication()
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: ResetCommunication
+  fullName: ResetCommunication
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetCommunication
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1219
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetCommunication()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReader()
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReader()
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: ResetReader
+  fullName: ResetReader
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.ResetReader
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1219
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetReader()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemory(BYTE,WORD,WORD)
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemory(BYTE,WORD,WORD)
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: WriteCharToMemory
+  fullName: WriteCharToMemory
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.WriteCharToMemory
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1219
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState WriteCharToMemory(in plc.BYTE character,in plc.WORD Address,in plc.WORD NumberOfBytes)
+    parameters:
+    - id: character
+      type: plc.BYTE
+    - id: Address
+      type: plc.WORD
+    - id: NumberOfBytes
+      type: plc.WORD
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.CallTimers(BOOL)
+  parent: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045.CallTimers
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045.st
+    startLine: 1219
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.STRING[1]
+  name: STRING[1]
+  nameWithType: STRING[1]
+  fullName: STRING[1]
+- uid: plc.ARRAY [0..255] OF BYTE
+  name: ARRAY [0..255] OF BYTE
+  nameWithType: ARRAY [0..255] OF BYTE
+  fullName: ARRAY [0..255] OF BYTE
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.ARRAY [0..9] OF BYTE
+  name: ARRAY [0..9] OF BYTE
+  nameWithType: ARRAY [0..9] OF BYTE
+  fullName: ARRAY [0..9] OF BYTE
+- uid: plc.STRING[8]
+  name: STRING[8]
+  nameWithType: STRING[8]
+  fullName: STRING[8]
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+  name: Axo_BIS_M_4XX_045_Config
+  nameWithType: Axo_BIS_M_4XX_045_Config
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Config
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+  name: Axo_BIS_M_4XX_045_Component_Status
+  nameWithType: Axo_BIS_M_4XX_045_Component_Status
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+  name: Axo_BIS_M_4XX_045_State
+  nameWithType: Axo_BIS_M_4XX_045_State
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+  name: Axo_BIS_M_4XX_045_Control
+  nameWithType: Axo_BIS_M_4XX_045_Control
+  fullName: AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_Control
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

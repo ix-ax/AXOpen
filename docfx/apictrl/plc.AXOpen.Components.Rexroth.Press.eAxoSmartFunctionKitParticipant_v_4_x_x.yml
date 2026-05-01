@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.WebInterface
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.Fieldbus
+  - plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.PhysicalInputsOutputs
+  name: eAxoSmartFunctionKitParticipant_v_4_x_x
+  fullName: eAxoSmartFunctionKitParticipant_v_4_x_x
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'eAxoSmartFunctionKitParticipant_v_4_x_x : INT'
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.WebInterface
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.WebInterface
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: WebInterface :=  1
+  fullName: WebInterface
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.WebInterface
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.Fieldbus
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.Fieldbus
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Fieldbus :=  2
+  fullName: Fieldbus
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.Fieldbus
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+- uid: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.PhysicalInputsOutputs
+  id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.PhysicalInputsOutputs
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: PhysicalInputsOutputs :=  3
+  fullName: PhysicalInputsOutputs
+  type: Field
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitParticipant_v_4_x_x.PhysicalInputsOutputs
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\eAxoSmartFunctionKitParticipant_v_4_x_x.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Press
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

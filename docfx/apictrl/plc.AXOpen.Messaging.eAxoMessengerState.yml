@@ -1,0 +1,129 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.eAxoMessengerState
+  id: plc.AXOpen.Messaging.eAxoMessengerState
+  parent: plc.AXOpen.Messaging
+  children:
+  - plc.AXOpen.Messaging.eAxoMessengerState.Idle
+  - plc.AXOpen.Messaging.eAxoMessengerState.ActiveAlreadyAcknowledged
+  - plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeRequired
+  - plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeNotRequired
+  - plc.AXOpen.Messaging.eAxoMessengerState.InactiveWaitingForAcknowledge
+  - plc.AXOpen.Messaging.eAxoMessengerState.InvalidImplementation
+  name: eAxoMessengerState
+  fullName: eAxoMessengerState
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 1
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: eAxoMessengerState
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.Idle
+  id: plc.AXOpen.Messaging.eAxoMessengerState.Idle
+  parent: AXOpen.Messaging
+  children: []
+  name: Idle
+  fullName: Idle
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.Idle
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 2
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAlreadyAcknowledged
+  id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAlreadyAcknowledged
+  parent: AXOpen.Messaging
+  children: []
+  name: ActiveAlreadyAcknowledged
+  fullName: ActiveAlreadyAcknowledged
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAlreadyAcknowledged
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 2
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeRequired
+  id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeRequired
+  parent: AXOpen.Messaging
+  children: []
+  name: ActiveAcknowledgeRequired
+  fullName: ActiveAcknowledgeRequired
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 3
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeNotRequired
+  id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeNotRequired
+  parent: AXOpen.Messaging
+  children: []
+  name: ActiveAcknowledgeNotRequired
+  fullName: ActiveAcknowledgeNotRequired
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.ActiveAcknowledgeNotRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 4
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.InactiveWaitingForAcknowledge
+  id: plc.AXOpen.Messaging.eAxoMessengerState.InactiveWaitingForAcknowledge
+  parent: AXOpen.Messaging
+  children: []
+  name: InactiveWaitingForAcknowledge
+  fullName: InactiveWaitingForAcknowledge
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.InactiveWaitingForAcknowledge
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 5
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessengerState.InvalidImplementation
+  id: plc.AXOpen.Messaging.eAxoMessengerState.InvalidImplementation
+  parent: AXOpen.Messaging
+  children: []
+  name: InvalidImplementation
+  fullName: InvalidImplementation
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessengerState.InvalidImplementation
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessengerState.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging
+references:
+- uid: plc.AXOpen.Messaging.eAxoMessengerState
+  name: eAxoMessengerState
+  nameWithType: eAxoMessengerState
+  fullName: AXOpen.Messaging.eAxoMessengerState
+
+

@@ -1,0 +1,416 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+  parent: plc.AXOpen.Components.Rexroth.Tightening
+  children:
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ProgramNo
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.Enable
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetFault
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartClockwise
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartCounterClockwise
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetResults
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.NokAck
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn1
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn2
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Green
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Yellow
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Red
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ActiveEnable
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwLock
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwLock
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwAnd
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwAND
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.IDcode
+  name: Axo_CS351_compact_Out
+  fullName: Axo_CS351_compact_Out
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: CLASS Axo_CS351_compact_Out
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ProgramNo
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ProgramNo
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ProgramNo
+  fullName: ProgramNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ProgramNo
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ProgramNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.Enable
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.Enable
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Enable
+  fullName: Enable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.Enable
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Enable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetFault
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetFault
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ResetFault
+  fullName: ResetFault
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetFault
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ResetFault : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartClockwise
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartClockwise
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: StartClockwise
+  fullName: StartClockwise
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'StartClockwise : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartCounterClockwise
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartCounterClockwise
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: StartCounterClockwise
+  fullName: StartCounterClockwise
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.StartCounterClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'StartCounterClockwise : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetResults
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetResults
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ResetResults
+  fullName: ResetResults
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ResetResults
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ResetResults : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.NokAck
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.NokAck
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: NokAck
+  fullName: NokAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.NokAck
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'NokAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn1
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn1
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: UsrIn1
+  fullName: UsrIn1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn1
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'UsrIn1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn2
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn2
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: UsrIn2
+  fullName: UsrIn2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.UsrIn2
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'UsrIn2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Green
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Green
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ES_LED_Green
+  fullName: ES_LED_Green
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Green
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ES_LED_Green : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Yellow
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Yellow
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ES_LED_Yellow
+  fullName: ES_LED_Yellow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Yellow
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ES_LED_Yellow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Red
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Red
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ES_LED_Red
+  fullName: ES_LED_Red
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ES_LED_Red
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ES_LED_Red : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ActiveEnable
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ActiveEnable
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ActiveEnable
+  fullName: ActiveEnable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.ActiveEnable
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ActiveEnable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwLock
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwLock
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: CcwLock
+  fullName: CcwLock
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwLock
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'CcwLock : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwLock
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwLock
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: CwLock
+  fullName: CwLock
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwLock
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'CwLock : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwAnd
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwAnd
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: CwAnd
+  fullName: CwAnd
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CwAnd
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'CwAnd : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwAND
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwAND
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: CcwAND
+  fullName: CcwAND
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.CcwAND
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'CcwAND : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.IDcode
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.IDcode
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: IDcode
+  fullName: IDcode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out.IDcode
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'IDcode : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+
+

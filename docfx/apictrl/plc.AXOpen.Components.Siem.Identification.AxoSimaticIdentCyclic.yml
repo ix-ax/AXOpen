@@ -1,0 +1,1591 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Progress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.RestoreTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID_Task
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldLengthManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadAddressManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadLengthManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteAddressManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteLengthManual
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ResetTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Config
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Status
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Messenger
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.TaskMessenger
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Inputs
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Outputs
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._progress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._infoTimer
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._errorTimer
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_in
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_1
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_2
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_32
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_116
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_128
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._word
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dword
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._initHwCheckDone
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._retval
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._geoAddr
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outHwid
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._blink
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsAddress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsCount
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsAddress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsCount
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._NDR_PV
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dataBufferOffset
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readTagField
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagField
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagFieldLength
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._bytesToWrite
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readAddress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readLength
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeAddress
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeLength
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Run(IAxoObject,UINT,eAxoSimaticIdentCyclic_Port)
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID()
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagField(UINT)
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagField(UINT,UINT)
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Read(UDINT,UINT)
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Write(UDINT,UINT)
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Reset()
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ManualControl()
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Restore()
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.CallTimers(BOOL)
+  name: AxoSimaticIdentCyclic
+  fullName: AxoSimaticIdentCyclic
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Progress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Progress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Progress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.RestoreTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.RestoreTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.RestoreTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID_Task
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID_Task
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadUID_Task
+  fullName: ReadUID_Task
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID_Task
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadUID_Task : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadTagFieldManual
+  fullName: ReadTagFieldManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadTagFieldManual : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadTagFieldTask
+  fullName: ReadTagFieldTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagFieldTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadTagFieldTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteTagFieldManual
+  fullName: WriteTagFieldManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteTagFieldManual : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldLengthManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldLengthManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteTagFieldLengthManual
+  fullName: WriteTagFieldLengthManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldLengthManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteTagFieldLengthManual : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteTagFieldTask
+  fullName: WriteTagFieldTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagFieldTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteTagFieldTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadAddressManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadAddressManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadAddressManual
+  fullName: ReadAddressManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadAddressManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadAddressManual : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadLengthManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadLengthManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadLengthManual
+  fullName: ReadLengthManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadLengthManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadLengthManual : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteAddressManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteAddressManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteAddressManual
+  fullName: WriteAddressManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteAddressManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteAddressManual : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteLengthManual
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteLengthManual
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteLengthManual
+  fullName: WriteLengthManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteLengthManual
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteLengthManual : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: WriteTask
+  fullName: WriteTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'WriteTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ResetTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ResetTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ResetTask
+  fullName: ResetTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ResetTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ResetTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Config
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Config
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Config
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Config : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Status
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Status
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Status
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Status : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Component_Status'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Component_Status
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Messenger
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Messenger
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Messenger
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.TaskMessenger
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.TaskMessenger
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.TaskMessenger
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Inputs
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Inputs
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Inputs
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Inputs : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Outputs
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Outputs
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Outputs
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 102
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Outputs : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Out'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Out
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.HardwareDiagnosticsTask
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._progress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._progress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._progress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._infoTimer
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._infoTimer
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._infoTimer
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._errorTimer
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._errorTimer
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._errorTimer
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_in
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_in
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_in
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 122
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_in : ARRAY [0..127] OF BYTE'
+    return:
+      type: ARRAY [0..127] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_1
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_out_1
+  fullName: _data_out_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_1
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_out_1 : ARRAY [0..0] OF BYTE'
+    return:
+      type: ARRAY [0..0] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_2
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_out_2
+  fullName: _data_out_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_2
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_out_2 : ARRAY [0..1] OF BYTE'
+    return:
+      type: ARRAY [0..1] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_32
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_32
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_out_32
+  fullName: _data_out_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_32
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_out_32 : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_116
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_116
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_out_116
+  fullName: _data_out_116
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_116
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 126
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_out_116 : ARRAY [0..115] OF BYTE'
+    return:
+      type: ARRAY [0..115] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_128
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_128
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _data_out_128
+  fullName: _data_out_128
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._data_out_128
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_data_out_128 : ARRAY [0..127] OF BYTE'
+    return:
+      type: ARRAY [0..127] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._word
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._word
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._word
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 130
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dword
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dword
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dword
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 130
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._initHwCheckDone
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._initHwCheckDone
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._initHwCheckDone
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._retval
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._retval
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._retval
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 132
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._geoAddr
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._geoAddr
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._geoAddr
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 133
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outHwid
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outHwid
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outHwid
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 134
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._blink
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._blink
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._blink
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsAddress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsAddress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 136
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsCount
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsCount
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._inputsCount
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 137
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsAddress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsAddress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 138
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsCount
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsCount
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._outputsCount
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 139
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._NDR_PV
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._NDR_PV
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _NDR_PV
+  fullName: _NDR_PV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._NDR_PV
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 141
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_NDR_PV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dataBufferOffset
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dataBufferOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _dataBufferOffset
+  fullName: _dataBufferOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._dataBufferOffset
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_dataBufferOffset : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readTagField
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readTagField
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readTagField
+  fullName: _readTagField
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readTagField
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 143
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readTagField : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagField
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagField
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeTagField
+  fullName: _writeTagField
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagField
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeTagField : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagFieldLength
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagFieldLength
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeTagFieldLength
+  fullName: _writeTagFieldLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeTagFieldLength
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 145
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeTagFieldLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._bytesToWrite
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._bytesToWrite
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _bytesToWrite
+  fullName: _bytesToWrite
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._bytesToWrite
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 146
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_bytesToWrite : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readAddress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readAddress
+  fullName: _readAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readAddress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readLength
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readLength
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _readLength
+  fullName: _readLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._readLength
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 148
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_readLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeAddress
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeAddress
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeAddress
+  fullName: _writeAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeAddress
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeLength
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeLength
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: _writeLength
+  fullName: _writeLength
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic._writeLength
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: '_writeLength : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Run(IAxoObject,UINT,eAxoSimaticIdentCyclic_Port)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Run(IAxoObject,UINT,eAxoSimaticIdentCyclic_Port)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Run
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID,in plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port Port)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    - id: Port
+      type: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID()
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID()
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: ReadUID
+  fullName: ReadUID
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadUID
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1545
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ReadUID()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagField(UINT)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagField(UINT)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: ReadTagField
+  fullName: ReadTagField
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ReadTagField
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1547
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ReadTagField(in plc.UINT TagField)
+    parameters:
+    - id: TagField
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagField(UINT,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagField(UINT,UINT)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: WriteTagField
+  fullName: WriteTagField
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.WriteTagField
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1551
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState WriteTagField(in plc.UINT TagField,in plc.UINT TagFieldLength)
+    parameters:
+    - id: TagField
+      type: plc.UINT
+    - id: TagFieldLength
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Read(UDINT,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Read(UDINT,UINT)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Read
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1564
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.UDINT Address,in plc.UINT Length)
+    parameters:
+    - id: Address
+      type: plc.UDINT
+    - id: Length
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Write(UDINT,UINT)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Write(UDINT,UINT)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: Write
+  fullName: Write
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Write
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1574
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Write(in plc.UDINT Address,in plc.UINT Length)
+    parameters:
+    - id: Address
+      type: plc.UDINT
+    - id: Length
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Reset()
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Reset()
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: Reset
+  fullName: Reset
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Reset
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1582
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Reset()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ManualControl()
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ManualControl()
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.ManualControl
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1584
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Restore()
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Restore()
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.Restore
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1600
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.CallTimers(BOOL)
+  parent: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic.CallTimers
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st
+    startLine: 1639
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+  name: AxoSimaticIdentCyclic_Config
+  nameWithType: AxoSimaticIdentCyclic_Config
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Component_Status
+  name: AxoSimaticIdentCyclic_Component_Status
+  nameWithType: AxoSimaticIdentCyclic_Component_Status
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+  name: AxoSimaticIdentCyclic_In
+  nameWithType: AxoSimaticIdentCyclic_In
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_In
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Out
+  name: AxoSimaticIdentCyclic_Out
+  nameWithType: AxoSimaticIdentCyclic_Out
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Out
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..127] OF BYTE
+  name: ARRAY [0..127] OF BYTE
+  nameWithType: ARRAY [0..127] OF BYTE
+  fullName: ARRAY [0..127] OF BYTE
+- uid: plc.ARRAY [0..0] OF BYTE
+  name: ARRAY [0..0] OF BYTE
+  nameWithType: ARRAY [0..0] OF BYTE
+  fullName: ARRAY [0..0] OF BYTE
+- uid: plc.ARRAY [0..1] OF BYTE
+  name: ARRAY [0..1] OF BYTE
+  nameWithType: ARRAY [0..1] OF BYTE
+  fullName: ARRAY [0..1] OF BYTE
+- uid: plc.ARRAY [0..31] OF BYTE
+  name: ARRAY [0..31] OF BYTE
+  nameWithType: ARRAY [0..31] OF BYTE
+  fullName: ARRAY [0..31] OF BYTE
+- uid: plc.ARRAY [0..115] OF BYTE
+  name: ARRAY [0..115] OF BYTE
+  nameWithType: ARRAY [0..115] OF BYTE
+  fullName: ARRAY [0..115] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+  name: eAxoSimaticIdentCyclic_Port
+  nameWithType: eAxoSimaticIdentCyclic_Port
+  fullName: AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

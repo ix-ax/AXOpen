@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagComponentStateDetail
+  id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagComponentStateDetail.HardwareComponentState
+  - plc.AXOpen.Io.AxoHwDiagComponentStateDetail.IOState
+  name: AxoHwDiagComponentStateDetail
+  fullName: AxoHwDiagComponentStateDetail
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiagComponentStateDetail
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.HardwareComponentState
+  id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.HardwareComponentState
+  parent: AXOpen.Io
+  children: []
+  name: HardwareComponentState
+  fullName: HardwareComponentState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.HardwareComponentState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'HardwareComponentState : AXOpen.Io.AxoHwDiagHardwareComponentState'
+    return:
+      type: AXOpen.Io.AxoHwDiagHardwareComponentState
+- uid: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.IOState
+  id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.IOState
+  parent: AXOpen.Io
+  children: []
+  name: IOState
+  fullName: IOState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagComponentStateDetail.IOState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'IOState : AXOpen.Io.AxoHwDiagIoState'
+    return:
+      type: AXOpen.Io.AxoHwDiagIoState
+references:
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState
+  name: AxoHwDiagHardwareComponentState
+  nameWithType: AxoHwDiagHardwareComponentState
+  fullName: AXOpen.Io.AxoHwDiagHardwareComponentState
+- uid: plc.AXOpen.Io.AxoHwDiagIoState
+  name: AxoHwDiagIoState
+  nameWithType: AxoHwDiagIoState
+  fullName: AXOpen.Io.AxoHwDiagIoState
+
+

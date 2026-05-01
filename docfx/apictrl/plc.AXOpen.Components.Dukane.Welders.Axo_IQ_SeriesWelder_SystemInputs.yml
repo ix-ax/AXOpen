@@ -1,0 +1,785 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemErrorStatus
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemInitiateError
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemProcessError
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GeneratorState
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeAmplitude
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeFrequency
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePower
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemStatus
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.Temperature
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GoodPartCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.BadPartCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SuspectPartCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.AbortedPartCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CyclePartStatus
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldPeakPower
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldEnergy
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.ActiveSetup
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningSetup
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningMPCProbe
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SelectedInputVoltage
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePosition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeVelocity
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_lo
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_lo
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_hi
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_hi
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerPosition
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayDistance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Distance
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Position
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTotalTime
+  name: Axo_IQ_SeriesWelder_SystemInputs
+  fullName: Axo_IQ_SeriesWelder_SystemInputs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_SystemInputs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemErrorStatus
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemErrorStatus
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SystemErrorStatus
+  fullName: SystemErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemErrorStatus
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SystemErrorStatus : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemInitiateError
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemInitiateError
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SystemInitiateError
+  fullName: SystemInitiateError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemInitiateError
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SystemInitiateError : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemProcessError
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemProcessError
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SystemProcessError
+  fullName: SystemProcessError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemProcessError
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SystemProcessError : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GeneratorState
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GeneratorState
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: GeneratorState
+  fullName: GeneratorState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GeneratorState
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'GeneratorState : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeAmplitude
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeAmplitude
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RealTimeAmplitude
+  fullName: RealTimeAmplitude
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeAmplitude
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RealTimeAmplitude : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeFrequency
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeFrequency
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RealTimeFrequency
+  fullName: RealTimeFrequency
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeFrequency
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RealTimeFrequency : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePower
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePower
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RealTimePower
+  fullName: RealTimePower
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePower
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RealTimePower : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemStatus
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemStatus
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SystemStatus
+  fullName: SystemStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SystemStatus
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SystemStatus : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.Temperature
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.Temperature
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Temperature
+  fullName: Temperature
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.Temperature
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Temperature : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleCount
+  fullName: CycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleCount : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GoodPartCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GoodPartCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: GoodPartCount
+  fullName: GoodPartCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.GoodPartCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'GoodPartCount : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.BadPartCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.BadPartCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: BadPartCount
+  fullName: BadPartCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.BadPartCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'BadPartCount : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SuspectPartCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SuspectPartCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SuspectPartCount
+  fullName: SuspectPartCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SuspectPartCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SuspectPartCount : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.AbortedPartCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.AbortedPartCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: AbortedPartCount
+  fullName: AbortedPartCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.AbortedPartCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'AbortedPartCount : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CyclePartStatus
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CyclePartStatus
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CyclePartStatus
+  fullName: CyclePartStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CyclePartStatus
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CyclePartStatus : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleWeldTime
+  fullName: CycleWeldTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleWeldTime : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldPeakPower
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldPeakPower
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleWeldPeakPower
+  fullName: CycleWeldPeakPower
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldPeakPower
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleWeldPeakPower : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldEnergy
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldEnergy
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleWeldEnergy
+  fullName: CycleWeldEnergy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeldEnergy
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleWeldEnergy : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.ActiveSetup
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.ActiveSetup
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ActiveSetup
+  fullName: ActiveSetup
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.ActiveSetup
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ActiveSetup : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningSetup
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningSetup
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunningSetup
+  fullName: RunningSetup
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningSetup
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunningSetup : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningMPCProbe
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningMPCProbe
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunningMPCProbe
+  fullName: RunningMPCProbe
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RunningMPCProbe
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunningMPCProbe : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SelectedInputVoltage
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SelectedInputVoltage
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: SelectedInputVoltage
+  fullName: SelectedInputVoltage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.SelectedInputVoltage
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'SelectedInputVoltage : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePosition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePosition
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RealTimePosition
+  fullName: RealTimePosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimePosition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RealTimePosition : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeVelocity
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeVelocity
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RealTimeVelocity
+  fullName: RealTimeVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.RealTimeVelocity
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RealTimeVelocity : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_lo
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_lo
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PressPartStatus_Bad_lo
+  fullName: PressPartStatus_Bad_lo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_lo
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PressPartStatus_Bad_lo : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_lo
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_lo
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PressPartStatus_Sus_lo
+  fullName: PressPartStatus_Sus_lo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_lo
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PressPartStatus_Sus_lo : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_hi
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_hi
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PressPartStatus_Sus_hi
+  fullName: PressPartStatus_Sus_hi
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Sus_hi
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PressPartStatus_Sus_hi : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_hi
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_hi
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PressPartStatus_Bad_hi
+  fullName: PressPartStatus_Bad_hi
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.PressPartStatus_Bad_hi
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PressPartStatus_Bad_hi : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleTriggerTime
+  fullName: CycleTriggerTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleTriggerTime : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerPosition
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerPosition
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleTriggerPosition
+  fullName: CycleTriggerPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerPosition
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleTriggerPosition : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleTriggerDelayTime
+  fullName: CycleTriggerDelayTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleTriggerDelayTime : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayDistance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayDistance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleTriggerDelayDistance
+  fullName: CycleTriggerDelayDistance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTriggerDelayDistance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleTriggerDelayDistance : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Distance
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Distance
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleWeld1Distance
+  fullName: CycleWeld1Distance
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Distance
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleWeld1Distance : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Position
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Position
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleWeld1Position
+  fullName: CycleWeld1Position
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleWeld1Position
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleWeld1Position : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTotalTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTotalTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleTotalTime
+  fullName: CycleTotalTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs.CycleTotalTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleTotalTime : DINT'
+    return:
+      type: DINT
+references:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ErrorStatusBitDefinition
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+  name: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  nameWithType: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  name: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  nameWithType: Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_PressPartStatusBitDefinition
+
+

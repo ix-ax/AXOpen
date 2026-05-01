@@ -1,0 +1,177 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.PlcState
+  id: plc.AXOpen.Io.PlcState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.PlcState.ModuleDisabled
+  - plc.AXOpen.Io.PlcState.ConfigurationInRunActive
+  - plc.AXOpen.Io.PlcState.InputNotAvailable
+  - plc.AXOpen.Io.PlcState.OutputNotAvailable
+  - plc.AXOpen.Io.PlcState.DiagnosticsBufferOverflow
+  - plc.AXOpen.Io.PlcState.DiagnosticsNotAvailable
+  - plc.AXOpen.Io.PlcState.PartialDeviceFailure
+  name: PlcState
+  fullName: PlcState
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS PlcState
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.PlcState.ModuleDisabled
+  id: plc.AXOpen.Io.PlcState.ModuleDisabled
+  parent: AXOpen.Io
+  children: []
+  name: ModuleDisabled
+  fullName: ModuleDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.ModuleDisabled
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ModuleDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.ConfigurationInRunActive
+  id: plc.AXOpen.Io.PlcState.ConfigurationInRunActive
+  parent: AXOpen.Io
+  children: []
+  name: ConfigurationInRunActive
+  fullName: ConfigurationInRunActive
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.ConfigurationInRunActive
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ConfigurationInRunActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.InputNotAvailable
+  id: plc.AXOpen.Io.PlcState.InputNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: InputNotAvailable
+  fullName: InputNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.InputNotAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'InputNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.OutputNotAvailable
+  id: plc.AXOpen.Io.PlcState.OutputNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: OutputNotAvailable
+  fullName: OutputNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.OutputNotAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'OutputNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.DiagnosticsBufferOverflow
+  id: plc.AXOpen.Io.PlcState.DiagnosticsBufferOverflow
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsBufferOverflow
+  fullName: DiagnosticsBufferOverflow
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.DiagnosticsBufferOverflow
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsBufferOverflow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.DiagnosticsNotAvailable
+  id: plc.AXOpen.Io.PlcState.DiagnosticsNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsNotAvailable
+  fullName: DiagnosticsNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.DiagnosticsNotAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.PlcState.PartialDeviceFailure
+  id: plc.AXOpen.Io.PlcState.PartialDeviceFailure
+  parent: AXOpen.Io
+  children: []
+  name: PartialDeviceFailure
+  fullName: PartialDeviceFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.PlcState.PartialDeviceFailure
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\PlcState.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'PartialDeviceFailure : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

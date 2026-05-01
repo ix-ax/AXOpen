@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+  parent: plc.AXOpen.Components.Drives
+  children:
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ControlWord
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.Index
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.SubIndex
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueHigh
+  - plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueLow
+  name: AxoDriveParameterChannelIdnOut
+  fullName: AxoDriveParameterChannelIdnOut
+  type: Class
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: CLASS AxoDriveParameterChannelIdnOut
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ControlWord
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ControlWord
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ControlWord
+  fullName: ControlWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ControlWord
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ControlWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.Index
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.Index
+  parent: AXOpen.Components.Drives
+  children: []
+  name: Index
+  fullName: Index
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.Index
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'Index : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.SubIndex
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.SubIndex
+  parent: AXOpen.Components.Drives
+  children: []
+  name: SubIndex
+  fullName: SubIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.SubIndex
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'SubIndex : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueHigh
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueHigh
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ValueHigh
+  fullName: ValueHigh
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueHigh
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ValueHigh : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueLow
+  id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueLow
+  parent: AXOpen.Components.Drives
+  children: []
+  name: ValueLow
+  fullName: ValueLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Drives.AxoDriveParameterChannelIdnOut.ValueLow
+    path: .\src\components.drives\ctrl\src\AxoDrives\AxoDriveParameterChannelIDN.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Drives
+  syntax:
+    content: 'ValueLow : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

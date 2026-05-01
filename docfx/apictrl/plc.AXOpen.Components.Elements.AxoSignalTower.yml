@@ -1,0 +1,342 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower
+  id: plc.AXOpen.Components.Elements.AxoSignalTower
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Red
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Green
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Blue
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Yellow
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Horn
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Run(IAxoObject)
+  - plc.AXOpen.Components.Elements.AxoSignalTower.Restore()
+  - plc.AXOpen.Components.Elements.AxoSignalTower.ManualControl()
+  name: AxoSignalTower
+  fullName: AxoSignalTower
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoSignalTower
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Red
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Red
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Red
+  fullName: Red
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Red
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Red : AXOpen.Components.Elements.AxoDo'
+    return:
+      type: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Green
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Green
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Green
+  fullName: Green
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Green
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Green : AXOpen.Components.Elements.AxoDo'
+    return:
+      type: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Blue
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Blue
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Blue
+  fullName: Blue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Blue
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Blue : AXOpen.Components.Elements.AxoDo'
+    return:
+      type: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Yellow
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Yellow
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Yellow
+  fullName: Yellow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Yellow
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Yellow : AXOpen.Components.Elements.AxoDo'
+    return:
+      type: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Horn
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Horn
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Horn
+  fullName: Horn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Horn
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Horn : AXOpen.Components.Elements.AxoDo'
+    return:
+      type: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Run(IAxoObject)
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Run(IAxoObject)
+  parent: AXOpen.Components.Elements.AxoSignalTower
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Run
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.Restore()
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.Restore()
+  parent: AXOpen.Components.Elements.AxoSignalTower
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.Restore
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: Public VOID Restore()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower.ManualControl()
+  id: plc.AXOpen.Components.Elements.AxoSignalTower.ManualControl()
+  parent: AXOpen.Components.Elements.AxoSignalTower
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoSignalTower.ManualControl
+    path: .\src\components.elements\ctrl\src\AxoSignalTower\AxoSignalTower.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Elements.AxoDo
+  name: AxoDo
+  nameWithType: AxoDo
+  fullName: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+
