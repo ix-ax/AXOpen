@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x 
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoKukaRobotics_HWIDs  
+    CLASS PUBLIC AxoKrc4_HWIDs  
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Hardware ID of the device#>"}
             HwID_Device            :   UINT;

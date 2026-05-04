@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x 
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoKukaRobotics_Control
+    CLASS AxoKrc4_Control
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}

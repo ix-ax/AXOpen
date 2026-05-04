@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoKukaRobotics_Config
+    CLASS PUBLIC AxoKrc4_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#2S;
@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
-            HWIDs : AxoKukaRobotics_HWIDs;            
+            HWIDs : AxoKrc4_HWIDs;            
         END_VAR 
     END_CLASS    
 END_NAMESPACE

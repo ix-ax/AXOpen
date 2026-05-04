@@ -96,14 +96,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoKukaRobotics_Config;
+            Config  :   AxoKrc4_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status          :   AxoKukaRobotics_Component_Status;
+            Status          :   AxoKrc4_Component_Status;
             Messenger       :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger   :   AXOpen.Messaging.Static.AxoMessenger;
             {#ix-attr:[ComponentDetails("Status")]}
@@ -122,13 +122,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoKukaRobotics_State;
+            Inputs              :   AxoKrc4_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoKukaRobotics_Control;
+            Outputs              :   AxoKrc4_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics

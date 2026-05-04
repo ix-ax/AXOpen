@@ -1,7 +1,8 @@
 NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x 
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoMitsubishiRobotics_HWIDs
+    CLASS PUBLIC NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x 
+
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Hardware ID of the device#>"}
             HwID_Device            :   UINT;
