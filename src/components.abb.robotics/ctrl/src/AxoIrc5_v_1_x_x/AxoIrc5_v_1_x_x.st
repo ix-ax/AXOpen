@@ -73,14 +73,14 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoAbbRobotics_Config_v_1_x_x;
+            Config  :   AxoIrc5_v_1_x_x_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   AxoAbbRobotics_Component_Status_v_1_x_x;
+            Status              :   AxoIrc5_v_1_x_x_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
             _progress           :   INT := 0;
@@ -92,13 +92,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoAbbRobotics_State_v_1_x_x;
+            Inputs              :   AxoIrc5_v_1_x_x_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoAbbRobotics_Control_v_1_x_x;
+            Outputs              :   AxoIrc5_v_1_x_x_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics

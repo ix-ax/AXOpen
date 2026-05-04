@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Abb.Robotics
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoAbbRobotics_State_v_1_x_x 
+    CLASS AxoIrc5_v_1_x_x_State 
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}

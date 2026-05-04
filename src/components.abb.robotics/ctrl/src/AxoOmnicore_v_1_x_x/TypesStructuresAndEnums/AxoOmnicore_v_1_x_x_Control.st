@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Abb.Robotics
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoAbbRobotics_Control_v_1_x_x 
+    CLASS AxoOmnicore_v_1_x_x_Control 
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
