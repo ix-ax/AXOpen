@@ -1090,6 +1090,46 @@
       "Value": 666
     },
     {
+      "Name": "kuka_rb2",
+      "Value": 686
+    },
+    {
+      "Name": "kuka_rb2~DIO512~512 digital in- and outputs",
+      "Value": 693
+    },
+    {
+      "Name": "kuka_rb2~Rack",
+      "Value": 691
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2",
+      "Value": 692
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~Interface1",
+      "Value": 685
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~Interface1~Port_1",
+      "Value": 687
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~Interface1~Port_2",
+      "Value": 688
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~Interface1~Port_3",
+      "Value": 689
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~Interface1~Port_4",
+      "Value": 690
+    },
+    {
+      "Name": "kuka_rb2~kuka_rb2~KUKA.PROFINET 6.0",
+      "Value": 694
+    },
+    {
       "Name": "mitsubishi_tz535_robot",
       "Value": 653
     },

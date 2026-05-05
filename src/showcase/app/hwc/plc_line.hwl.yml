@@ -1,7 +1,7 @@
 Devices:
   - Name: plc_line
     Modules:
-    - Apply: 6ES7518-3AT10-0AB0_v4_0
+    - Apply: 6ES7518-3AT10-0AB0_v4_1
       Arguments:
         NAME: plc_line
         IP_ADDRESS_X1: '192.168.100.130/24'
@@ -50,6 +50,15 @@ Devices:
       IP_ADDRESS_X1: '192.168.100.103/24'
       PROFINET_DEVICE_NAME_X1: kuka_rb1
   #</KukaKrc4Device>
+
+  #<KukaKrc5Device>
+  # KUKA KRC5 Robot
+  - Apply: kuka_krc5_dio512
+    Arguments:
+      NAME: kuka_rb2
+      IP_ADDRESS_X1: '192.168.100.106/24'
+      PROFINET_DEVICE_NAME_X1: kuka_rb2
+  #</KukaKrc5Device>
 
   #<MitsubishiTz535Device>
   # Mitsubishi TZ535 Robot
@@ -299,6 +308,9 @@ IoSystems:
   #<KukaKrc4IoSystem>
   - Ref: kuka_rb1/kuka_rb1/Interface1
   #</KukaKrc4IoSystem>
+  #<KukaKrc5IoSystem>
+  - Ref: kuka_rb2/kuka_rb2/Interface1
+  #</KukaKrc5IoSystem>
   #<MitsubishiTz535IoSystem>
   - Ref: mitsubishi_tz535_robot/mitsubishi_tz535_robot/Interface
   #</MitsubishiTz535IoSystem>

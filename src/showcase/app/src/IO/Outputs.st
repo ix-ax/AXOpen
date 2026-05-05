@@ -118,6 +118,8 @@ NAMESPACE AXOpen.Showcase
 
 	        kuka_rb1_DIO512_Output AT %B3575 : kuka_rb1_DIO512_Output_Layout;
 
+	        kuka_rb2_DIO512_Output AT %B3767 : kuka_rb2_DIO512_Output_Layout;
+
 	        mitsubishi_tz535_robot_In_Out_64_byte_Output AT %B3511 : mitsubishi_tz535_robot_In_Out_64_byte_Output_Layout;
 
 	        // Module rexroth_cs351/Output_2_word_1

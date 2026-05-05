@@ -374,6 +374,9 @@ NAMESPACE AXOpen.Showcase
 	        // Module kuka_rb1/DIO512
 	        kuka_rb1_DIO512_Input AT %B5833 : kuka_rb1_DIO512_Input_Layout;
 
+	        // Module kuka_rb2/DIO512
+	        kuka_rb2_DIO512_Input AT %B6029 : kuka_rb2_DIO512_Input_Layout;
+
 	        // Module mitsubishi_tz535_robot/In_Out_64_byte
 	        mitsubishi_tz535_robot_In_Out_64_byte_Input AT %B5769 : mitsubishi_tz535_robot_In_Out_64_byte_Input_Layout;
 
