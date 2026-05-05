@@ -1,101 +1,103 @@
 Templates:
   Devices:
-    - Name: 'smc-ex260-spn-16'
-      Placeholders:
-        - Name: 'NAME'
-          Value: 'smc-ex260-spn-16'
-        - Name: 'IP_ADDRESS_X1'
-          Value: '192.168.100.1/24'
-        - Name: 'PROFINET_DEVICE_NAME_X1'
-          Value: 'smc-ex260-spn-16'
-      Content:
+  - Name: 'smc-ex260-spn-16'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'smc-ex260-spn-16'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.100.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'smc-ex260-spn-16'
+    Content:
         Name: '${NAME}'
-        TypeIdentifier:
-          FileName: 'GSDML-V2.3-SMC-EX260-20160408.XML'
-          GsdId: 'DIM 1'
-        Interfaces:
-        - Name: 'Interface'
-          Label: 'X1'
-          Addresses:
-          - Type: 'IPv4'
-            Address: '${IP_ADDRESS_X1}'
-            # RouterAddress: '192.168.0.1'
-          - Type: 'Profinet'
-            ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
-          Parameters:
-            # IECV22LLDPMode: True
-            IsochronousMode: False
-            # IsochronousTiToCalculationMode (Integer)
-            # IsochronousTi (Number)
-            # IsochronousTo (Number)
-            PrioritizedStartup: False
-        Ports:
-        - Name: 'Port_1'
-          Label: 'X1 P1'
-          Parameters:
-            # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
-            TransmissionRateAndDuplex: 'Automatic'
-            # TransmissionRateAutoNegotiation: True
-            # MediumAttachmentType: 'Copper'
-        - Name: 'Port_2'
-          Label: 'X1 P2'
-          Parameters:
-            # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
-            TransmissionRateAndDuplex: 'Automatic'
-            # TransmissionRateAutoNegotiation: True
-            # MediumAttachmentType: 'Copper'
-        Parameters:
-          RecordDataList:
-          - IndexName: 'Diagnostic Parameters.'
-            Values:
-            - OffsetName: 'Valve Power'
-              # Possible ValueNames: Disable. | Enable.
-              ValueName: 'Disable.'
-            - OffsetName: 'Output 0.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 1.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 2.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 3.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 4.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 5.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 6.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 7.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 8.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 9.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 10.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 11.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 12.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 13.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 14.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
-            - OffsetName: 'Output 15.'
-              # Possible ValueNames: Hold | Force to ON | Force to OFF
-              ValueName: 'Force to OFF'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.3-SMC-EX260-20160408.XML'
+              GsdId: 'DIM 2'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+              - Type: 'IPv4'
+                Address: '${IP_ADDRESS_X1}'
+                # RouterAddress: '192.168.0.1'
+              - Type: 'Profinet'
+                ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                # IECV22LLDPMode: True
+                IsochronousMode: False
+                # IsochronousTiToCalculationMode (Integer)
+                # IsochronousTi (Number)
+                # IsochronousTo (Number)
+                PrioritizedStartup: False
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_2'
+              Label: 'X1 P2'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            Parameters:
+              RecordDataList:
+              - IndexName: 'Diagnostic Parameters.'
+                Values:
+                - OffsetName: 'Valve Power'
+                  # Possible ValueNames: Disable. | Enable.
+                  ValueName: 'Disable.'
+                - OffsetName: 'Output 0.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 1.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 2.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 3.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 4.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 5.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 6.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 7.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 8.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 9.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 10.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 11.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 12.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 13.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 14.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'
+                - OffsetName: 'Output 15.'
+                  # Possible ValueNames: Hold | Force to ON | Force to OFF
+                  ValueName: 'Force to OFF'

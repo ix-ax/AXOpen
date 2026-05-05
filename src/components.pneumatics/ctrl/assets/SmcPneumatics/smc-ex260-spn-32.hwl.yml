@@ -1,14 +1,14 @@
 Templates:
   Devices:
-    - Name: 'smc-ex260-spn-32'
-      Placeholders:
-        - Name: 'NAME'
-          Value: 'smc-ex260-spn-32'
-        - Name: 'IP_ADDRESS_X1'
-          Value: '192.168.100.1/24'
-        - Name: 'PROFINET_DEVICE_NAME_X1'
-          Value: 'smc-ex260-spn-32'
-      Content:
+  - Name: 'smc-ex260-spn-32'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'smc-ex260-spn-32'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.100.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'smc-ex260-spn-32'
+    Content:
         Name: '${NAME}'
         Modules:
           - Name: '${NAME}'
