@@ -149,3 +149,8 @@ Templates:
                 - OffsetName: 'Output 31.'
                   # Possible ValueNames: Hold | Force to ON | Force to OFF
                   ValueName: 'Force to OFF'
+          - Name: Outputs32
+            TypeIdentifier:
+              GsdId: ID_Mod_Out32
+              FileName: GSDML-V2.3-SMC-EX260-20160408.XML
+            Slot: 1
