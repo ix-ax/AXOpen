@@ -1210,7 +1210,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
                 // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-                _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
+                // _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
