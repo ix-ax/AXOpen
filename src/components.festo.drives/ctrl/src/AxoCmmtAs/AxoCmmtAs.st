@@ -1169,6 +1169,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_PowerEnable_PV					:	BOOL := FALSE;		//Enable - previous value
+            MC_PowerCycle					    :	ULINT   := ULINT#0;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Power 
             VAR_INPUT
@@ -1195,37 +1196,39 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Enable THEN
+                MC_PowerCycle := MC_PowerCycle + ULINT#1;
                 THIS.UpdateInputs(AxisRef);
-                IF _blink.Blink(THIS,T#2s,T#500ms) THEN
-                    IF NOT MC_PowerEnable_PV THEN
-                        _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
-                        _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
-                        _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 )); // * _AxisReference^.Data.OverrideVelocityFactor));
-                        _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-                    END_IF;
-                    _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                    _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
-                    // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-                    // _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
-                    _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.enableOperation := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
-                    _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
-                    IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-                        Status	:= TRUE;						(* Status OK*)
-                        Valid := TRUE;
-                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent = TRUE THEN
-                        Error		:= TRUE; 						(*	Set the ERROR-Output *)
-                        Valid := TRUE;
-                        ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
-                    END_IF;
-                ELSE
+                IF NOT MC_PowerEnable_PV THEN
+                    _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
+                    _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
+                    _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
+                    _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
+                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 )); // * _AxisReference^.Data.OverrideVelocityFactor));
+                    _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
+                END_IF;
+                _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
+                // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
+                _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
+                _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.enableOperation := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
+                _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
+                IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                    MC_PowerCycle := ULINT#0;
+                    Status	:= TRUE;						(* Status OK*)
+                    Valid := TRUE;
+                ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent = TRUE THEN
+                    Error		:= TRUE; 						(*	Set the ERROR-Output *)
+                    Valid := TRUE;
+                    ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
+                END_IF;
+                IF MC_PowerCycle >= ULINT#200 THEN
+                    MC_PowerCycle := ULINT#0;
                     _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
@@ -1250,7 +1253,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_PowerEnable_PV  THEN
                 THIS.UpdateInputs(AxisRef);
-                _blink.Restore();
+                MC_PowerCycle := ULINT#0;
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
@@ -5556,6 +5559,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore
+            MC_PowerCycle                       := ULINT#0;
             MC_HomeExecute_PV					:= FALSE;
             MC_HomeErrorID					    := DINT#0;
             MC_HomeCycle					    := ULINT#0;
@@ -5678,8 +5682,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             DriveStatus.Error.Id  := UINT#0;
             Messenger.Restore();
             TaskMessenger.Restore();
-            _blink.Restore();
-
 
             //AxoPower_Task.Restore();
             AxoStop_Task.Restore();
@@ -5741,5 +5743,3 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
     END_CLASS
 END_NAMESPACE
-
-
