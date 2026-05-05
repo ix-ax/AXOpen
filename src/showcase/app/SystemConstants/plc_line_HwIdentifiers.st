@@ -272,6 +272,16 @@ CONFIGURATION HardwareIDs
         kuka_rb1_kuka_rb1_Interface1_HwID : UINT := UINT#660;
         kuka_rb1_kuka_rb1_Interface1_Port_1_HwID : UINT := UINT#662;
         kuka_rb1_kuka_rb1_KRC4_ProfiNet_5_0_HwID : UINT := UINT#666;
+        kuka_rb2_HwID : UINT := UINT#686;
+        kuka_rb2_DIO512_512_digital_in__and_outputs_HwID : UINT := UINT#693;
+        kuka_rb2_Rack_HwID : UINT := UINT#691;
+        kuka_rb2_kuka_rb2_HwID : UINT := UINT#692;
+        kuka_rb2_kuka_rb2_Interface1_HwID : UINT := UINT#685;
+        kuka_rb2_kuka_rb2_Interface1_Port_1_HwID : UINT := UINT#687;
+        kuka_rb2_kuka_rb2_Interface1_Port_2_HwID : UINT := UINT#688;
+        kuka_rb2_kuka_rb2_Interface1_Port_3_HwID : UINT := UINT#689;
+        kuka_rb2_kuka_rb2_Interface1_Port_4_HwID : UINT := UINT#690;
+        kuka_rb2_kuka_rb2_KUKA_PROFINET_6_0_HwID : UINT := UINT#694;
         mitsubishi_tz535_robot_HwID : UINT := UINT#653;
         mitsubishi_tz535_robot_In_Out_64_byte_In_Out__64_byte_HwID : UINT := UINT#658;
         mitsubishi_tz535_robot_Rack_HwID : UINT := UINT#656;
