@@ -14,7 +14,7 @@ Templates:
           - Name: '${NAME}'
             TypeIdentifier:
               FileName: 'GSDML-V2.3-SMC-EX260-20160408.XML'
-              GsdId: 'DIM 2'
+              GsdId: 'DIM 1'
             Interfaces:
             - Name: 'Interface'
               Label: 'X1'
