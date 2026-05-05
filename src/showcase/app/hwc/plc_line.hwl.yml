@@ -4,11 +4,11 @@ Devices:
     - Apply: 6ES7518-3AT10-0AB0_v4_1
       Arguments:
         NAME: plc_line
-        IP_ADDRESS_X1: '192.168.100.130/24'
+        IP_ADDRESS_X1: '192.168.100.1/24'
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
-        IP_ADDRESS_X2: '192.168.101.130/24'
+        IP_ADDRESS_X2: '192.168.101.1/24'
         PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
-        IP_ADDRESS_X3: '192.168.102.120/24'
+        IP_ADDRESS_X3: '192.168.102.1/24'
         PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50  
@@ -21,7 +21,7 @@ Devices:
         NAME: A1
 
   # =============================================
-  # Robotics (.121 - .125)
+  # Robotics (.002 - .019)
   # =============================================
 
   #<AbbIrc5Device>
@@ -29,7 +29,7 @@ Devices:
   - Apply: abb_irc5_robot_in64b_out64b
     Arguments:
       NAME: abb_irc5_robot
-      IP_ADDRESS_X1: '192.168.100.101/24'
+      IP_ADDRESS_X1: '192.168.100.2/24'
       PROFINET_DEVICE_NAME_X1: abb_irc5_robot
   #</AbbIrc5Device>
 
@@ -38,7 +38,7 @@ Devices:
   - Apply: abb_omnicore_robot_in64b_out64b
     Arguments:
       NAME: abb_omnicore_robot
-      IP_ADDRESS_X1: '192.168.100.102/24'
+      IP_ADDRESS_X1: '192.168.100.3/24'
       PROFINET_DEVICE_NAME_X1: abb_omnicore_robot
   #</AbbOmnicoreDevice>
 
@@ -47,7 +47,7 @@ Devices:
   - Apply: kuka_krc4_dio512
     Arguments:
       NAME: kuka_rb1
-      IP_ADDRESS_X1: '192.168.100.103/24'
+      IP_ADDRESS_X1: '192.168.100.4/24'
       PROFINET_DEVICE_NAME_X1: kuka_rb1
   #</KukaKrc4Device>
 
@@ -56,7 +56,7 @@ Devices:
   - Apply: kuka_krc5_dio512
     Arguments:
       NAME: kuka_rb2
-      IP_ADDRESS_X1: '192.168.100.106/24'
+      IP_ADDRESS_X1: '192.168.100.5/24'
       PROFINET_DEVICE_NAME_X1: kuka_rb2
   #</KukaKrc5Device>
 
@@ -65,7 +65,7 @@ Devices:
   - Apply: mitsubishi_tz535_64b_inout
     Arguments:
       NAME: mitsubishi_tz535_robot
-      IP_ADDRESS_X1: '192.168.100.104/24'
+      IP_ADDRESS_X1: '192.168.100.6/24'
       PROFINET_DEVICE_NAME_X1: mitsubishi_tz535_robot
   #</MitsubishiTz535Device>
 
@@ -74,12 +74,12 @@ Devices:
   - Apply: ur_robot
     Arguments:
       NAME: ureol2l
-      IP_ADDRESS_X1: '192.168.100.105/24'
+      IP_ADDRESS_X1: '192.168.100.7/24'
       PROFINET_DEVICE_NAME_X1: ureol2l
   #</UrRobotDevice>
 
   # =============================================
-  # Drives (.131 - .133)
+  # Drives (.020 - .039)
   # =============================================
 
   #<FestoCmmtAsDevice>
@@ -87,7 +87,7 @@ Devices:
   - Apply: FestoCmmtAs
     Arguments:
       NAME: festo_cmmtas
-      IP_ADDRESS_X1: '192.168.100.131/24'
+      IP_ADDRESS_X1: '192.168.100.20/24'
       PROFINET_DEVICE_NAME_X1: festo_cmmtas
   #</FestoCmmtAsDevice>
 
@@ -96,7 +96,7 @@ Devices:
   - Apply: rexroth_indradrive
     Arguments:
       NAME: rexroth_indradrive
-      IP_ADDRESS_X1: '192.168.100.132/24'
+      IP_ADDRESS_X1: '192.168.100.21/24'
       PROFINET_DEVICE_NAME_X1: rexroth_indradrive
   #</RexrothIndraDriveDevice>
 
@@ -105,12 +105,12 @@ Devices:
   - Apply: rexroth_ctrlx_drive_xcs
     Arguments:
       NAME: rexroth_ctrlx_drive
-      IP_ADDRESS_X1: '192.168.100.133/24'
+      IP_ADDRESS_X1: '192.168.100.22/24'
       PROFINET_DEVICE_NAME_X1: rexroth_ctrlx_drive
   #</RexrothCtrlxDriveDevice>
 
   # =============================================
-  # Vision Systems (.141 - .149)
+  # Vision Systems (.040 - .059)
   # =============================================
 
   #<CognexInsight7600Device>
@@ -118,7 +118,7 @@ Devices:
   - Apply: Cognex_Vision_Insight_V_6_0_0
     Arguments:
       NAME: cognex_insight_7600
-      IP_ADDRESS_X1: '192.168.100.141/24'
+      IP_ADDRESS_X1: '192.168.100.40/24'
       PROFINET_DEVICE_NAME_X1: cognex_insight_7600
       DEVICE_FAMILY: Cognex_Vision_Insight_V_6_0_0_IS79XX_IS75XX
       USER_DATA: Cognex_Vision_Insight_V_6_0_0_UserData_128
@@ -130,7 +130,7 @@ Devices:
   - Apply: Cognex_Dataman280
     Arguments:
       NAME: cognex_dataman_280
-      IP_ADDRESS_X1: '192.168.100.142/24'
+      IP_ADDRESS_X1: '192.168.100.41/24'
       PROFINET_DEVICE_NAME_X1: cognex_dataman_280
       USER_DATA: Cognex_Dataman280_UserData_128
       RESULT_DATA: Cognex_Dataman280_ResultData_128
@@ -141,7 +141,7 @@ Devices:
   - Apply: Cognex_Dataman380
     Arguments:
       NAME: cognex_dataman_380
-      IP_ADDRESS_X1: '192.168.100.143/24'
+      IP_ADDRESS_X1: '192.168.100.42/24'
       PROFINET_DEVICE_NAME_X1: cognex_dataman_380
       USER_DATA: Cognex_Dataman380_UserData_128
       RESULT_DATA: Cognex_Dataman380_ResultData_128
@@ -152,7 +152,7 @@ Devices:
   - Apply: Cognex_Insight2800
     Arguments:
       NAME: cognex_insight_2800
-      IP_ADDRESS_X1: '192.168.100.144/24'
+      IP_ADDRESS_X1: '192.168.100.43/24'
       PROFINET_DEVICE_NAME_X1: cognex_insight_2800
       USER_DATA_SLOT_7: Cognex_Insight2800_UserData_254
       USER_DATA_SLOT_8: Cognex_Insight2800_UserData_254
@@ -169,7 +169,7 @@ Devices:
   - Apply: cognex_vision_pro
     Arguments:
       NAME: vision_pro
-      IP_ADDRESS_X1: '192.168.100.145/24'
+      IP_ADDRESS_X1: '192.168.100.44/24'
       PROFINET_DEVICE_NAME_X1: vision_pro
   #</CognexVisionProDevice>
 
@@ -178,7 +178,7 @@ Devices:
   - Apply: Keyence_SR_750
     Arguments:
       NAME: keyence_sr_750
-      IP_ADDRESS_X1: '192.168.100.146/24'
+      IP_ADDRESS_X1: '192.168.100.45/24'
       PROFINET_DEVICE_NAME_X1: keyence_sr_750
       RESULT_DATA: Keyence_SR_750_ResultData_128
       USER_DATA: Keyence_SR_750_UserData_128
@@ -189,7 +189,7 @@ Devices:
   - Apply: Keyence_SR_1000
     Arguments:
       NAME: keyence_sr_1000
-      IP_ADDRESS_X1: '192.168.100.147/24'
+      IP_ADDRESS_X1: '192.168.100.46/24'
       PROFINET_DEVICE_NAME_X1: keyence_sr_1000
       RESULT_DATA: Keyence_SR_1000_ResultData_128
       USER_DATA: Keyence_SR_1000_UserData_128
@@ -200,7 +200,7 @@ Devices:
   - Apply: Keyence_IV3
     Arguments:
       NAME: keyence_iv3
-      IP_ADDRESS_X1: '192.168.100.148/24'
+      IP_ADDRESS_X1: '192.168.100.47/24'
       PROFINET_DEVICE_NAME_X1: keyence_iv3
   #</KeyenceIv3Device>
 
@@ -209,12 +209,12 @@ Devices:
   - Apply: zebra_ea3600_88in6out
     Arguments:
       NAME: zebra
-      IP_ADDRESS_X1: '192.168.100.149/24'
+      IP_ADDRESS_X1: '192.168.100.48/24'
       PROFINET_DEVICE_NAME_X1: zebra
   #</ZebraEa3600Device>
 
   # =============================================
-  # Tightening / Welding / Press (.151 - .154)
+  # Tightening / Welding / Press (.060 - .079)
   # =============================================
 
   #<DesoutterCvicIiDevice>
@@ -222,7 +222,7 @@ Devices:
   - Apply: Desoutter_CVIC_II
     Arguments:
       NAME: desoutter_cvic_ii
-      IP_ADDRESS_X1: '192.168.100.151/24'
+      IP_ADDRESS_X1: '192.168.100.60/24'
       PROFINET_DEVICE_NAME_X1: desoutter_cvic_ii
   #</DesoutterCvicIiDevice>
 
@@ -231,7 +231,7 @@ Devices:
   - Apply: DukaneIqSeriesWelder
     Arguments:
       NAME: dukaneiqauto
-      IP_ADDRESS_X1: '192.168.100.152/24'
+      IP_ADDRESS_X1: '192.168.100.61/24'
       PROFINET_DEVICE_NAME_X1: dukaneiqauto
   #</DukaneIqWelderDevice>
 
@@ -240,7 +240,7 @@ Devices:
   - Apply: rexroth_sfk_press
     Arguments:
       NAME: rexroth_press
-      IP_ADDRESS_X1: '192.168.100.153/24'
+      IP_ADDRESS_X1: '192.168.100.62/24'
       PROFINET_DEVICE_NAME_X1: rexroth_press
   #</RexrothSfkPressDevice>
 
@@ -249,12 +249,12 @@ Devices:
   - Apply: rexroth_tightening_cs351
     Arguments:
       NAME: rexroth_cs351
-      IP_ADDRESS_X1: '192.168.100.154/24'
+      IP_ADDRESS_X1: '192.168.100.63/24'
       PROFINET_DEVICE_NAME_X1: rexroth_cs351
   #</RexrothCs351Device>
 
   # =============================================
-  # Pneumatics (.171)
+  # Pneumatics (.080 - .099)
   # =============================================
 
   #<AventicsPneumaticsDevice>
@@ -262,7 +262,7 @@ Devices:
   - Apply: AventicsPneumaticsAES
     Arguments:
       NAME: aes_pnio
-      IP_ADDRESS_X1: '192.168.100.171/24'
+      IP_ADDRESS_X1: '192.168.100.80/24'
       PROFINET_DEVICE_NAME_X1: aes_pnio
       SLOT_1: AventicsPneumaticsAESValveDriver4Valves
       SLOT_2: AventicsPneumaticsAESEmptySlot
@@ -282,15 +282,33 @@ Devices:
       SLOT_16: AventicsPneumaticsAESEmptySlot
   #</AventicsPneumaticsDevice>
 
+  #<SmcPneumaticsEX260SPN32Device>
+  # Smc Pneumatics EX260 SPN 32
+  - Apply: smc-ex260-spn-32
+    Arguments:
+      NAME: smc-ex260-spn-32
+      IP_ADDRESS_X1: '192.168.100.81/24'
+      PROFINET_DEVICE_NAME_X1: smc-ex260-spn-32
+  #</SmcPneumaticsEX260SPN32Device>
+
+  #<SmcPneumaticsEX260SPN16Device>
+  # Smc Pneumatics EX260 SPN 16
+  - Apply: smc-ex260-spn-16
+    Arguments:
+      NAME: smc-ex260-spn-16
+      IP_ADDRESS_X1: '192.168.100.82/24'
+      PROFINET_DEVICE_NAME_X1: smc-ex260-spn-16
+  #</SmcPneumaticsEX260SPN16Device>
+
   # =============================================
   # Identification / Communication
   # Standalone devices auto-loaded from library_templates
   # (IPs defined in template files, not parameterizable):
-  #   - BNIPNT507005Z040 (balluff)     @ .3
-  #   - et200sp (siem communication)   @ .121
-  #   - rf186c (siem identification)   @ .99
-  #   - et200sp_CM_4xIO_Link_RF200     @ .98
-  #   - rf186c_cyc                     @ .100
+  #   - BNIPNT507005Z040 (balluff)     @ .200
+  #   - et200sp (siem communication)   @ .201
+  #   - rf186c (siem identification)   @ .202
+  #   - et200sp_CM_4xIO_Link_RF200     @ .203
+  #   - rf186c_cyc                     @ .204
   # =============================================
 
 IoSystems:
@@ -386,3 +404,9 @@ IoSystems:
   #<AventicsPneumaticsIoSystem>
   - Ref: aes_pnio/aes_pnio/PN-IO
   #</AventicsPneumaticsIoSystem>
+  #<SmcPneumaticsEX260SPN16DeviceIoSystem>
+  - Ref: smc-ex260-spn-16/smc-ex260-spn-16/Interface
+  #</SmcPneumaticsEX260SPN16DeviceIoSystem>
+  #<SmcPneumaticsEX260SPN32DeviceIoSystem>
+  - Ref: smc-ex260-spn-32/smc-ex260-spn-32/Interface
+  #</SmcPneumaticsEX260SPN32DeviceIoSystem>
