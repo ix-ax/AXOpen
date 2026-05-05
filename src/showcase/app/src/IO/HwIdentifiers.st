@@ -444,7 +444,17 @@ NAMESPACE AXOpen.Showcase
             abb_irc5_robot_DI_64_bytes_DI_64_bytes_HwID := UINT#681,
             abb_irc5_robot_abb_irc5_robot_Robot_Basic_Device_HwID := UINT#682,
             plc_line_Rail_0_HwID := UINT#683,
-            plc_line_A1_A1_HwID := UINT#684
+            plc_line_A1_A1_HwID := UINT#684,
+            kuka_rb2_kuka_rb2_Interface1_HwID := UINT#685,
+            kuka_rb2_HwID := UINT#686,
+            kuka_rb2_kuka_rb2_Interface1_Port_1_HwID := UINT#687,
+            kuka_rb2_kuka_rb2_Interface1_Port_2_HwID := UINT#688,
+            kuka_rb2_kuka_rb2_Interface1_Port_3_HwID := UINT#689,
+            kuka_rb2_kuka_rb2_Interface1_Port_4_HwID := UINT#690,
+            kuka_rb2_Rack_HwID := UINT#691,
+            kuka_rb2_kuka_rb2_HwID := UINT#692,
+            kuka_rb2_DIO512_512_digital_in__and_outputs_HwID := UINT#693,
+            kuka_rb2_kuka_rb2_KUKA_PROFINET_6_0_HwID := UINT#694
         );
     END_TYPE
 END_NAMESPACE

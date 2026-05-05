@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Showcase
-    TYPE HwIdentifierList : ARRAY[0..442] OF UINT :=
+    TYPE HwIdentifierList : ARRAY[0..452] OF UINT :=
             [
                 UINT#32,
                 UINT#48,
@@ -443,7 +443,17 @@ NAMESPACE AXOpen.Showcase
                 UINT#681,
                 UINT#682,
                 UINT#683,
-                UINT#684
+                UINT#684,
+                UINT#685,
+                UINT#686,
+                UINT#687,
+                UINT#688,
+                UINT#689,
+                UINT#690,
+                UINT#691,
+                UINT#692,
+                UINT#693,
+                UINT#694
     ];
 END_TYPE
 END_NAMESPACE
