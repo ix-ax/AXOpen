@@ -34,24 +34,74 @@ namespace AXOpen.Components.Cognex.Vision
         {
             try
             {
-                InitializeMessenger();
-                InitializeTaskMessenger();
-
-
-          
-                this.TriggerTask.InitializeExclusively(() => Trigger());
-                this.SetRecipeTask.InitializeExclusively(() => SetRecipe());
-                this.InspectionResultTask.InitializeExclusively(() => InspectionResult());
-                this.SendSpecificDataTask.InitializeExclusively(() => SendSpecificData());
-                this.ReceiveSpecificDataTask.InitializeExclusively(() => ReceiveSpecificData());
-                this.SendSpecificDataAndTypesTask.InitializeExclusively(() => SendSpecificDataTypes());
-                this.TriggerWithSpecificDataTask.InitializeExclusively(() => TriggerWithSpecificData());
-                AttachTaskErrorMessageRefreshes();
-
+                
+                this.TriggerTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.TriggerInvoked,    TaskLifecycleCodes.TriggerFinished,    TaskLifecycleCodes.TriggerFailed,    Trigger));
+                this.SetRecipeTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SetRecipeInvoked, TaskLifecycleCodes.SetRecipeFinished, TaskLifecycleCodes.SetRecipeFailed, SetRecipe));
+                this.InspectionResultTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.InspectionResultInvoked, TaskLifecycleCodes.InspectionResultFinished, TaskLifecycleCodes.InspectionResultFailed, InspectionResult));
+                this.SendSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SendSpecificDataInvoked, TaskLifecycleCodes.SendSpecificDataFinished, TaskLifecycleCodes.SendSpecificDataFailed, SendSpecificData));
+                this.ReceiveSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.ReceiveSpecificDataInvoked, TaskLifecycleCodes.ReceiveSpecificDataFinished, TaskLifecycleCodes.ReceiveSpecificDataFailed, ReceiveSpecificData));
+                this.SendSpecificDataAndTypesTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SendSpecificDataAndTypesInvoked, TaskLifecycleCodes.SendSpecificDataAndTypesFinished, TaskLifecycleCodes.SendSpecificDataAndTypesFailed, SendSpecificDataTypes));
+                this.TriggerWithSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.TriggerWithSpecificDataInvoked, TaskLifecycleCodes.TriggerWithSpecificDataFinished, TaskLifecycleCodes.TriggerWithSpecificDataFailed, TriggerWithSpecificData));
+     
 
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Lifecycle message codes written to <c>Status.Action.Id</c> (invoked / finished)
+        /// and <c>Status.Error.Id</c> (failed) by <see cref="RunWithLifecycleAsync"/>.
+        /// </summary>
+        internal static class TaskLifecycleCodes
+        {
+            public const ulong TriggerInvoked  = 1000;
+            public const ulong TriggerFinished = 1001;
+            public const ulong TriggerFailed   = 10000;
+
+            public const ulong InspectionResultInvoked  = 1010;
+            public const ulong InspectionResultFinished = 1011;
+            public const ulong InspectionResultFailed   = 10010;
+
+            public const ulong SetRecipeInvoked  = 1020;
+            public const ulong SetRecipeFinished = 1021;
+            public const ulong SetRecipeFailed   = 10020;
+
+            public const ulong SendSpecificDataInvoked  = 1030;
+            public const ulong SendSpecificDataFinished = 1031;
+            public const ulong SendSpecificDataFailed   = 10030;
+
+            public const ulong ReceiveSpecificDataInvoked  = 1040;
+            public const ulong ReceiveSpecificDataFinished = 1041;
+            public const ulong ReceiveSpecificDataFailed   = 10040;
+
+            public const ulong TriggerWithSpecificDataInvoked  = 1050;
+            public const ulong TriggerWithSpecificDataFinished = 1051;
+            public const ulong TriggerWithSpecificDataFailed   = 10050;
+
+            public const ulong SendSpecificDataAndTypesInvoked  = 1060;
+            public const ulong SendSpecificDataAndTypesFinished = 1061;
+            public const ulong SendSpecificDataAndTypesFailed   = 10060;
+        }
+
+        /// <summary>
+        /// Wraps a remote-task body so the lifecycle (invoked / finished / failed)
+        /// is written to the component's <c>Status.Action.Id</c> and <c>Status.Error.Id</c>.
+        /// On exception the failed code is published and the original exception is rethrown.
+        /// </summary>
+        private async Task RunWithLifecycleAsync(ulong invokedCode, ulong finishedCode, ulong failedCode, Func<Task> body)
+        {
+            await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
+            try
+            {
+                await body();
+                await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
+            }
+            catch
+            {
+                await Status.ActionDescription.SetAsync(GetDefaultErrorMessage(failedCode));
                 throw;
             }
         }
@@ -74,21 +124,7 @@ namespace AXOpen.Components.Cognex.Vision
                 CollectAllPrimitives(child, result);
             }
         }
-        /// <summary>
-        /// Gets the <see cref="AxoVisionProNetSpecificData"/> from the container's DataEntity property.
-        /// </summary>
-        public AxoVisionProNetSpecificData? DataEntity
-        {
-            get
-            {
-                var container = SpecificDataContainer;
-                if (container == null) return null;
-
-                var prop = container.GetType().GetProperty("DataEntity");
-                return prop?.GetValue(container) as AxoVisionProNetSpecificData;
-            }
-        }
-
+      
         /// <summary>
         /// Gets the data entity with both online and plain representations from the container.
         /// </summary>
@@ -203,53 +239,14 @@ namespace AXOpen.Components.Cognex.Vision
             return false;
         }
 
-        private void InitializeMessenger()
-        {
-            List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
-            {
-                new KeyValuePair<ulong, AxoMessengerTextItem>(0,   new AxoMessengerTextItem("  ", "  ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem(GetTaskErrorMessage(10000),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem(GetTaskErrorMessage(10001),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem(GetTaskErrorMessage(10010),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem(GetTaskErrorMessage(10011),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem(GetTaskErrorMessage(10020),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem(GetTaskErrorMessage(10021),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem(GetTaskErrorMessage(10030),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem(GetTaskErrorMessage(10031),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem(GetTaskErrorMessage(10040),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem(GetTaskErrorMessage(10041),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem(GetTaskErrorMessage(10050),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem(GetTaskErrorMessage(10051),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem(GetTaskErrorMessage(10060),"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem(GetTaskErrorMessage(10061),"Check the details.")),
-              
 
-        };
+      
 
-            Messenger.DotNetMessengerTextList = messengerTextList;
-        }
-
-        private void AttachTaskErrorMessageRefreshes()
-        {
-            TriggerTask.PropertyChanged += HandleTaskPropertyChanged;
-            InspectionResultTask.PropertyChanged += HandleTaskPropertyChanged;
-            SetRecipeTask.PropertyChanged += HandleTaskPropertyChanged;
-            SendSpecificDataTask.PropertyChanged += HandleTaskPropertyChanged;
-            ReceiveSpecificDataTask.PropertyChanged += HandleTaskPropertyChanged;
-            TriggerWithSpecificDataTask.PropertyChanged += HandleTaskPropertyChanged;
-            SendSpecificDataAndTypesTask.PropertyChanged += HandleTaskPropertyChanged;
-        }
-
-        private void HandleTaskPropertyChanged(object? sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(AXOpen.Core.AxoRemoteTask.RemoteExceptionDetails) ||
-                e.PropertyName == nameof(AXOpen.Core.AxoRemoteTask.RemoteExecutionException))
-            {
-                InitializeMessenger();
-            }
-        }
-
+        /// <summary>
+        /// Resolves the text shown for an <c>Error.Id</c> failure code. Prefers
+        /// the runtime details published by the failing remote task; falls back to
+        /// the static error message.
+        /// </summary>
         internal string GetTaskErrorMessage(ulong messageCode)
         {
             var task = GetTaskByMessageCode(messageCode);
@@ -261,9 +258,17 @@ namespace AXOpen.Components.Cognex.Vision
             }
 
             return string.IsNullOrWhiteSpace(runtimeMessage)
-                ? GetDefaultTaskMessage(messageCode)
+                ? GetDefaultErrorMessage(messageCode)
                 : runtimeMessage;
         }
+
+        /// <summary>
+        /// Resolves the text shown for an <c>Action.Id</c> lifecycle code. Pure
+        /// static lookup &mdash; never reads runtime error details, so action and
+        /// error descriptions stay independent.
+        /// </summary>
+        internal string GetTaskActionMessage(ulong messageCode)
+            => GetDefaultActionMessage(messageCode);
 
         private AXOpen.Core.AxoRemoteTask? GetTaskByMessageCode(ulong messageCode)
         {
@@ -280,7 +285,37 @@ namespace AXOpen.Components.Cognex.Vision
             };
         }
 
-        internal static string GetDefaultTaskMessage(ulong messageCode)
+        /// <summary>
+        /// Returns the static text describing an <c>Action.Id</c> lifecycle code
+        /// (task invoked / finished, restore, etc.). Does NOT consult error details.
+        /// </summary>
+        internal static string GetDefaultActionMessage(ulong messageCode)
+        {
+            return messageCode switch
+            {
+              
+                TaskLifecycleCodes.TriggerInvoked                      => "TriggerTask invoked.",
+                TaskLifecycleCodes.TriggerFinished                     => "TriggerTask finished.",
+                TaskLifecycleCodes.InspectionResultInvoked             => "InspectionResultTask invoked.",
+                TaskLifecycleCodes.InspectionResultFinished            => "InspectionResultTask finished.",
+                TaskLifecycleCodes.SetRecipeInvoked                    => "SetRecipeTask invoked.",
+                TaskLifecycleCodes.SetRecipeFinished                   => "SetRecipeTask finished.",
+                TaskLifecycleCodes.SendSpecificDataInvoked             => "SendSpecificDataTask invoked.",
+                TaskLifecycleCodes.SendSpecificDataFinished            => "SendSpecificDataTask finished.",
+                TaskLifecycleCodes.ReceiveSpecificDataInvoked          => "ReceiveSpecificDataTask invoked.",
+                TaskLifecycleCodes.ReceiveSpecificDataFinished         => "ReceiveSpecificDataTask finished.",
+                TaskLifecycleCodes.TriggerWithSpecificDataInvoked      => "TriggerWithSpecificDataTask invoked.",
+                TaskLifecycleCodes.TriggerWithSpecificDataFinished     => "TriggerWithSpecificDataTask finished.",
+                TaskLifecycleCodes.SendSpecificDataAndTypesInvoked     => "SendSpecificDataAndTypesTask invoked.",
+                TaskLifecycleCodes.SendSpecificDataAndTypesFinished    => "SendSpecificDataAndTypesTask finished.",
+                _ => "   ",
+            };
+        }
+
+        /// <summary>
+        /// Returns the static text describing an <c>Error.Id</c> failure code.
+        /// </summary>
+        internal static string GetDefaultErrorMessage(ulong messageCode)
         {
             return messageCode switch
             {
@@ -302,71 +337,22 @@ namespace AXOpen.Components.Cognex.Vision
             };
         }
 
-        private void InitializeTaskMessenger()
+        /// <summary>
+        /// Backwards-compatible alias kept for callers that still ask for a generic
+        /// task-message lookup. Prefer <see cref="GetDefaultActionMessage"/> or
+        /// <see cref="GetDefaultErrorMessage"/>.
+        /// </summary>
+        internal static string GetDefaultTaskMessage(ulong messageCode)
         {
-            List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
-            {
-                new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
-              
-
-
-        };
-
-            TaskMessenger.DotNetMessengerTextList = messengerTextList;
+            var action = GetDefaultActionMessage(messageCode);
+            if (!string.IsNullOrWhiteSpace(action) && action != "   ")
+                return action;
+            return GetDefaultErrorMessage(messageCode);
         }
+
+      
     }
 
-    public partial class AxoVisionProNet_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
-    {
-        public string ErrorDescription
-        {
-            get
-            {
-                if (Error == null || Error.Id == null)
-                    return "   ";
-
-                ulong messageCode = Error.Id.LastValue;
-
-                var component = GetParent() as AxoVisionProNet;
-                if (component != null)
-                {
-                    var taskErrorMessage = component.GetTaskErrorMessage(messageCode);
-                    if (!string.IsNullOrWhiteSpace(taskErrorMessage) && taskErrorMessage != "   ")
-                    {
-                        return taskErrorMessage;
-                    }
-                }
-
-                return AxoVisionProNet.GetDefaultTaskMessage(messageCode);
-            }
-        }
-
-        public string ActionDescription
-        {
-            get
-            {
-                if (Action == null || Action.Id == null)
-                    return "   ";
-
-                ulong messageCode = Action.Id.LastValue;
-
-                if (messageCode == 50)
-                {
-                    return "Restore has been executed.";
-                }
-
-                var component = GetParent() as AxoVisionProNet;
-                if (component != null)
-                {
-                    var taskErrorMessage = component.GetTaskErrorMessage(messageCode);
-                    if (!string.IsNullOrWhiteSpace(taskErrorMessage) && taskErrorMessage != "   ")
-                    {
-                        return taskErrorMessage;
-                    }
-                }
-
-                return AxoVisionProNet.GetDefaultTaskMessage(messageCode);
-            }
-        }
-    }
+    
+    
 }

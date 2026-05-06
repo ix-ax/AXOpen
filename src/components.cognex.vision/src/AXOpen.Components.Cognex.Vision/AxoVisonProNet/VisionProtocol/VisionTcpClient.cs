@@ -49,26 +49,47 @@ public sealed class VisionTcpClientOptions
     /// </summary>
     public VisionConnectionMode ConnectionMode { get; init; } = VisionConnectionMode.Persistent;
 
+    /// <summary>Maximum time allowed for establishing the TCP connection.</summary>
+    public TimeSpan ConnectTimeout { get; init; } = TimeSpan.FromSeconds(5);
+
     /// <summary>How long to wait for a TriggerAccepted / TriggerRejected after sending TriggerRequest.</summary>
-    public TimeSpan TriggerAcceptTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan TriggerAcceptTimeout { get; init; }
 
     /// <summary>How long to wait for InspectionCompleted after sending InspectionResultRequest.</summary>
-    public TimeSpan InspectionResultTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan InspectionResultTimeout { get; init; }
 
     /// <summary>How long to wait for SendSpecificDataCompleted after sending SendSpecificDataRequest.</summary>
-    public TimeSpan SendSpecificDataTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan SendSpecificDataTimeout { get; init; }
 
     /// <summary>How long to wait for ReceiveSpecificDataCompleted after sending ReceiveSpecificDataRequest.</summary>
-    public TimeSpan ReceiveSpecificDataTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan ReceiveSpecificDataTimeout { get; init; }
 
     /// <summary>How long to wait for SetRecipeCompleted after sending SetRecipeRequest.</summary>
-    public TimeSpan SetRecipeTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan SetRecipeTimeout { get; init; }
 
     /// <summary>How long to wait for a TriggerWithSpecificData response after sending TriggerWithSpecificDataRequest.</summary>
-    public TimeSpan TriggerWithSpecificDataAcceptTimeout { get; init; } = TimeSpan.FromMilliseconds(5000);
+    public TimeSpan TriggerWithSpecificDataAcceptTimeout { get; init; }
 
     /// <summary>How long to attempt reconnecting before giving up one cycle.</summary>
     public TimeSpan ReconnectDelay { get; init; } = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Creates a new <see cref="VisionTcpClientOptions"/> instance. The provided
+    /// <paramref name="taskTimeoutMs"/> value is applied to every per-task timeout.
+    /// Defaults to 5000 ms.
+    /// </summary>
+    /// <param name="taskTimeoutMs">Timeout (ms) applied to all per-task response waits.</param>
+    public VisionTcpClientOptions(int taskTimeoutMs = 5000)
+    {
+        var timeout = TimeSpan.FromMilliseconds(taskTimeoutMs);
+
+        TriggerAcceptTimeout                 = timeout;
+        InspectionResultTimeout              = timeout;
+        SendSpecificDataTimeout              = timeout;
+        ReceiveSpecificDataTimeout           = timeout;
+        SetRecipeTimeout                     = timeout;
+        TriggerWithSpecificDataAcceptTimeout = timeout;
+    }
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -128,7 +149,19 @@ public sealed class VisionTcpClient : IAsyncDisposable
         _cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
 
         _tcp = new TcpClient();
-        await _tcp.ConnectAsync(_options.Host, _options.Port, ct);
+        using var connectTimeoutCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        if (_options.ConnectTimeout > TimeSpan.Zero)
+            connectTimeoutCts.CancelAfter(_options.ConnectTimeout);
+
+        try
+        {
+            await _tcp.ConnectAsync(_options.Host, _options.Port, connectTimeoutCts.Token);
+        }
+        catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+        {
+            throw new TimeoutException(
+                $"TCP connect timed out after {_options.ConnectTimeout.TotalMilliseconds:0} ms to {_options.Host}:{_options.Port}.");
+        }
 
         var stream = _tcp.GetStream();
         _writer = new StreamWriter(stream, Encoding.UTF8) { AutoFlush = true, NewLine = "\n" };

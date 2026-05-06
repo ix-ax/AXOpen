@@ -74,9 +74,7 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.TriggerAsync(payload);
 
-        if (!result.Accepted)
-            throw new InvalidOperationException(
-                $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+       
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Accepted;
@@ -85,6 +83,9 @@ public partial class AxoVisionProNet
         status.RejectReason = result.RejectReason;
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
 
+        if (!result.Accepted)
+            throw new InvalidOperationException(
+                $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
     }
 
     /// <summary>
@@ -109,9 +110,7 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.SetRecipeAsync(payload);
 
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"SetRecipeRequest failed: [{result.ErrorCode}] {result.Reason}");
+       
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
@@ -119,6 +118,10 @@ public partial class AxoVisionProNet
         status.ErrorCode = result.ErrorCode;
         status.RejectReason = result.Reason;
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"SetRecipeRequest failed: [{result.ErrorCode}] {result.Reason}");
     }
 
 
@@ -161,9 +164,6 @@ public partial class AxoVisionProNet
             ? await _visionClient.SendSpecificDataTypesAsync(payload)
             : await _visionClient.SendSpecificDataAsync(payload);
 
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"{(includeTypes ? VisionEnvelope.MessageTypes.SendSpecificDataTypesRequest : VisionEnvelope.MessageTypes.SendSpecificDataRequest)} failed: [{result.ErrorCode}] {result.Reason}");
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
@@ -171,6 +171,11 @@ public partial class AxoVisionProNet
         status.ErrorCode = result.ErrorCode;
         status.RejectReason = result.Reason;
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"{(includeTypes ? VisionEnvelope.MessageTypes.SendSpecificDataTypesRequest : VisionEnvelope.MessageTypes.SendSpecificDataRequest)} failed: [{result.ErrorCode}] {result.Reason}");
     }
 
 
@@ -197,10 +202,7 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.ReceiveSpecificDataAsync(payload);
 
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"ReceiveSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
-
+    
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
@@ -217,6 +219,11 @@ public partial class AxoVisionProNet
             return;
 
         await PlainToOnlineAsync(data, eAccessPriority.Normal);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"ReceiveSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
+
     }
 
 
@@ -246,9 +253,7 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.TriggerWithSpecificDataAsync(payload);
 
-        if (!result.Accepted)
-            throw new InvalidOperationException(
-                $"TriggerWithSpecificDataRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+      
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Accepted;
@@ -265,6 +270,10 @@ public partial class AxoVisionProNet
             return;
 
         await PlainToOnlineAsync(data, eAccessPriority.Normal);
+
+        if (!result.Accepted)
+            throw new InvalidOperationException(
+                $"TriggerWithSpecificDataRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
     }
 
     /// <summary>
@@ -289,11 +298,13 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.InspectionResultAsync(payload);
 
+      
+
+        await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
+
         if (!result.Success)
             throw new InvalidOperationException(
                 $"InspectionResultRequest failed: [{result.ErrorCode}] {result.Reason}");
-
-        await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
     }
 
    
