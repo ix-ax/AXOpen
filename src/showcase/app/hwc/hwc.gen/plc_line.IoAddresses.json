@@ -6,7 +6,7 @@
       "Submodules": [
         {
           "Name": "BIS M-4XX-045",
-          "HardwareIdentifier": 308,
+          "HardwareIdentifier": 324,
           "Inputs": {
             "StartAddress": "318.0",
             "EndAddress": "327.7",
@@ -22,8 +22,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "295.0",
-            "EndAddress": "304.7",
+            "StartAddress": "301.0",
+            "EndAddress": "310.7",
             "Length": 80,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43,10 +43,10 @@
       "Submodules": [
         {
           "Name": "DI 64 bytes",
-          "HardwareIdentifier": 681,
+          "HardwareIdentifier": 707,
           "Inputs": {
-            "StartAddress": "5961.0",
-            "EndAddress": "6024.7",
+            "StartAddress": "6025.0",
+            "EndAddress": "6088.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -3132,10 +3132,10 @@
       "Submodules": [
         {
           "Name": "DO 64 bytes",
-          "HardwareIdentifier": 680,
+          "HardwareIdentifier": 706,
           "Outputs": {
-            "StartAddress": "3703.0",
-            "EndAddress": "3766.7",
+            "StartAddress": "3773.0",
+            "EndAddress": "3836.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -6221,10 +6221,10 @@
       "Submodules": [
         {
           "Name": "DI 64 bytes",
-          "HardwareIdentifier": 673,
+          "HardwareIdentifier": 699,
           "Inputs": {
-            "StartAddress": "5897.0",
-            "EndAddress": "5960.7",
+            "StartAddress": "5961.0",
+            "EndAddress": "6024.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -9310,10 +9310,10 @@
       "Submodules": [
         {
           "Name": "DO 64 bytes",
-          "HardwareIdentifier": 672,
+          "HardwareIdentifier": 698,
           "Outputs": {
-            "StartAddress": "3639.0",
-            "EndAddress": "3702.7",
+            "StartAddress": "3709.0",
+            "EndAddress": "3772.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12399,10 +12399,10 @@
       "Submodules": [
         {
           "Name": "Valve driver 4 valves (4)",
-          "HardwareIdentifier": 263,
+          "HardwareIdentifier": 279,
           "Outputs": {
-            "StartAddress": "0.0",
-            "EndAddress": "0.7",
+            "StartAddress": "6.0",
+            "EndAddress": "6.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12464,10 +12464,10 @@
       "Submodules": [
         {
           "Name": "Acquisition Control",
-          "HardwareIdentifier": 569,
+          "HardwareIdentifier": 585,
           "Outputs": {
-            "StartAddress": "3055.0",
-            "EndAddress": "3055.7",
+            "StartAddress": "3061.0",
+            "EndAddress": "3061.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12493,7 +12493,7 @@
       "Submodules": [
         {
           "Name": "Acquisition Status",
-          "HardwareIdentifier": 566,
+          "HardwareIdentifier": 582,
           "Inputs": {
             "StartAddress": "5067.0",
             "EndAddress": "5069.7",
@@ -12540,7 +12540,7 @@
       "Submodules": [
         {
           "Name": "Result Data - 128 bytes",
-          "HardwareIdentifier": 563,
+          "HardwareIdentifier": 579,
           "Inputs": {
             "StartAddress": "4930.0",
             "EndAddress": "5065.7",
@@ -12587,10 +12587,10 @@
       "Submodules": [
         {
           "Name": "Results Control",
-          "HardwareIdentifier": 568,
+          "HardwareIdentifier": 584,
           "Outputs": {
-            "StartAddress": "3054.0",
-            "EndAddress": "3054.7",
+            "StartAddress": "3060.0",
+            "EndAddress": "3060.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12616,7 +12616,7 @@
       "Submodules": [
         {
           "Name": "Results Status",
-          "HardwareIdentifier": 565,
+          "HardwareIdentifier": 581,
           "Inputs": {
             "StartAddress": "5066.0",
             "EndAddress": "5066.7",
@@ -12663,7 +12663,7 @@
       "Submodules": [
         {
           "Name": "Soft Event Control",
-          "HardwareIdentifier": 567,
+          "HardwareIdentifier": 583,
           "Inputs": {
             "StartAddress": "5070.0",
             "EndAddress": "5070.7",
@@ -12721,8 +12721,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3053.0",
-            "EndAddress": "3053.7",
+            "StartAddress": "3059.0",
+            "EndAddress": "3059.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12784,10 +12784,10 @@
       "Submodules": [
         {
           "Name": "User Data - 128 bytes",
-          "HardwareIdentifier": 564,
+          "HardwareIdentifier": 580,
           "Outputs": {
-            "StartAddress": "2921.0",
-            "EndAddress": "3052.7",
+            "StartAddress": "2927.0",
+            "EndAddress": "3058.7",
             "Length": 1056,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12819,10 +12819,10 @@
       "Submodules": [
         {
           "Name": "Acquisition Control",
-          "HardwareIdentifier": 556,
+          "HardwareIdentifier": 572,
           "Outputs": {
-            "StartAddress": "2920.0",
-            "EndAddress": "2920.7",
+            "StartAddress": "2926.0",
+            "EndAddress": "2926.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12848,7 +12848,7 @@
       "Submodules": [
         {
           "Name": "Acquisition Status",
-          "HardwareIdentifier": 553,
+          "HardwareIdentifier": 569,
           "Inputs": {
             "StartAddress": "4926.0",
             "EndAddress": "4928.7",
@@ -12895,7 +12895,7 @@
       "Submodules": [
         {
           "Name": "Result Data - 128 bytes",
-          "HardwareIdentifier": 550,
+          "HardwareIdentifier": 566,
           "Inputs": {
             "StartAddress": "4789.0",
             "EndAddress": "4924.7",
@@ -12942,10 +12942,10 @@
       "Submodules": [
         {
           "Name": "Results Control",
-          "HardwareIdentifier": 555,
+          "HardwareIdentifier": 571,
           "Outputs": {
-            "StartAddress": "2919.0",
-            "EndAddress": "2919.7",
+            "StartAddress": "2925.0",
+            "EndAddress": "2925.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -12971,7 +12971,7 @@
       "Submodules": [
         {
           "Name": "Results Status",
-          "HardwareIdentifier": 552,
+          "HardwareIdentifier": 568,
           "Inputs": {
             "StartAddress": "4925.0",
             "EndAddress": "4925.7",
@@ -13018,7 +13018,7 @@
       "Submodules": [
         {
           "Name": "Soft Event Control",
-          "HardwareIdentifier": 554,
+          "HardwareIdentifier": 570,
           "Inputs": {
             "StartAddress": "4929.0",
             "EndAddress": "4929.7",
@@ -13076,8 +13076,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2918.0",
-            "EndAddress": "2918.7",
+            "StartAddress": "2924.0",
+            "EndAddress": "2924.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13139,10 +13139,10 @@
       "Submodules": [
         {
           "Name": "User Data - 128 bytes",
-          "HardwareIdentifier": 551,
+          "HardwareIdentifier": 567,
           "Outputs": {
-            "StartAddress": "2786.0",
-            "EndAddress": "2917.7",
+            "StartAddress": "2792.0",
+            "EndAddress": "2923.7",
             "Length": 1056,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13174,10 +13174,10 @@
       "Submodules": [
         {
           "Name": "Acquisition Control",
-          "HardwareIdentifier": 543,
+          "HardwareIdentifier": 559,
           "Outputs": {
-            "StartAddress": "2785.0",
-            "EndAddress": "2785.7",
+            "StartAddress": "2791.0",
+            "EndAddress": "2791.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13215,7 +13215,7 @@
       "Submodules": [
         {
           "Name": "Results - 250 bytes",
-          "HardwareIdentifier": 534,
+          "HardwareIdentifier": 550,
           "Inputs": {
             "StartAddress": "4522.0",
             "EndAddress": "4775.7",
@@ -13250,7 +13250,7 @@
       "Submodules": [
         {
           "Name": "Results - 250 bytes",
-          "HardwareIdentifier": 533,
+          "HardwareIdentifier": 549,
           "Inputs": {
             "StartAddress": "4272.0",
             "EndAddress": "4521.7",
@@ -13273,7 +13273,7 @@
       "Submodules": [
         {
           "Name": "Results - 250 bytes",
-          "HardwareIdentifier": 532,
+          "HardwareIdentifier": 548,
           "Inputs": {
             "StartAddress": "4022.0",
             "EndAddress": "4271.7",
@@ -13296,7 +13296,7 @@
       "Submodules": [
         {
           "Name": "Results - 250 bytes",
-          "HardwareIdentifier": 531,
+          "HardwareIdentifier": 547,
           "Inputs": {
             "StartAddress": "3772.0",
             "EndAddress": "4021.7",
@@ -13319,7 +13319,7 @@
       "Submodules": [
         {
           "Name": "Acquisition Status",
-          "HardwareIdentifier": 538,
+          "HardwareIdentifier": 554,
           "Inputs": {
             "StartAddress": "4776.0",
             "EndAddress": "4779.7",
@@ -13396,10 +13396,10 @@
       "Submodules": [
         {
           "Name": "Inspection Control",
-          "HardwareIdentifier": 542,
+          "HardwareIdentifier": 558,
           "Outputs": {
-            "StartAddress": "2784.0",
-            "EndAddress": "2784.7",
+            "StartAddress": "2790.0",
+            "EndAddress": "2790.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13443,7 +13443,7 @@
       "Submodules": [
         {
           "Name": "Inspection Status",
-          "HardwareIdentifier": 539,
+          "HardwareIdentifier": 555,
           "Inputs": {
             "StartAddress": "4780.0",
             "EndAddress": "4783.7",
@@ -13526,7 +13526,7 @@
       "Submodules": [
         {
           "Name": "Command Control",
-          "HardwareIdentifier": 540,
+          "HardwareIdentifier": 556,
           "Inputs": {
             "StartAddress": "4784.0",
             "EndAddress": "4787.7",
@@ -13548,8 +13548,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2781.0",
-            "EndAddress": "2782.7",
+            "StartAddress": "2787.0",
+            "EndAddress": "2788.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13569,7 +13569,7 @@
       "Submodules": [
         {
           "Name": "ExternalEvent Control",
-          "HardwareIdentifier": 541,
+          "HardwareIdentifier": 557,
           "Inputs": {
             "StartAddress": "4788.0",
             "EndAddress": "4788.7",
@@ -13627,8 +13627,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2783.0",
-            "EndAddress": "2783.7",
+            "StartAddress": "2789.0",
+            "EndAddress": "2789.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13690,10 +13690,10 @@
       "Submodules": [
         {
           "Name": "User Data - 254 bytes",
-          "HardwareIdentifier": 537,
+          "HardwareIdentifier": 553,
           "Outputs": {
-            "StartAddress": "2527.0",
-            "EndAddress": "2780.7",
+            "StartAddress": "2533.0",
+            "EndAddress": "2786.7",
             "Length": 2032,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13713,10 +13713,10 @@
       "Submodules": [
         {
           "Name": "User Data - 254 bytes",
-          "HardwareIdentifier": 536,
+          "HardwareIdentifier": 552,
           "Outputs": {
-            "StartAddress": "2273.0",
-            "EndAddress": "2526.7",
+            "StartAddress": "2279.0",
+            "EndAddress": "2532.7",
             "Length": 2032,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13736,10 +13736,10 @@
       "Submodules": [
         {
           "Name": "User Data - 254 bytes",
-          "HardwareIdentifier": 535,
+          "HardwareIdentifier": 551,
           "Outputs": {
-            "StartAddress": "2019.0",
-            "EndAddress": "2272.7",
+            "StartAddress": "2025.0",
+            "EndAddress": "2278.7",
             "Length": 2032,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13759,10 +13759,10 @@
       "Submodules": [
         {
           "Name": "Acquisition Control",
-          "HardwareIdentifier": 583,
+          "HardwareIdentifier": 599,
           "Outputs": {
-            "StartAddress": "3188.0",
-            "EndAddress": "3188.7",
+            "StartAddress": "3194.0",
+            "EndAddress": "3194.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13800,7 +13800,7 @@
       "Submodules": [
         {
           "Name": "Acquisition Status",
-          "HardwareIdentifier": 579,
+          "HardwareIdentifier": 595,
           "Inputs": {
             "StartAddress": "5207.0",
             "EndAddress": "5209.7",
@@ -13871,7 +13871,7 @@
       "Submodules": [
         {
           "Name": "Command Control",
-          "HardwareIdentifier": 580,
+          "HardwareIdentifier": 596,
           "Inputs": {
             "StartAddress": "5210.0",
             "EndAddress": "5211.7",
@@ -13887,8 +13887,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3184.0",
-            "EndAddress": "3185.7",
+            "StartAddress": "3190.0",
+            "EndAddress": "3191.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13908,10 +13908,10 @@
       "Submodules": [
         {
           "Name": "Inspection Control",
-          "HardwareIdentifier": 582,
+          "HardwareIdentifier": 598,
           "Outputs": {
-            "StartAddress": "3187.0",
-            "EndAddress": "3187.7",
+            "StartAddress": "3193.0",
+            "EndAddress": "3193.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -13955,7 +13955,7 @@
       "Submodules": [
         {
           "Name": "Inspection Status",
-          "HardwareIdentifier": 578,
+          "HardwareIdentifier": 594,
           "Inputs": {
             "StartAddress": "5203.0",
             "EndAddress": "5206.7",
@@ -14044,7 +14044,7 @@
       "Submodules": [
         {
           "Name": "Results - 128 bytes",
-          "HardwareIdentifier": 576,
+          "HardwareIdentifier": 592,
           "Inputs": {
             "StartAddress": "5071.0",
             "EndAddress": "5202.7",
@@ -14079,7 +14079,7 @@
       "Submodules": [
         {
           "Name": "SoftEvent Control",
-          "HardwareIdentifier": 581,
+          "HardwareIdentifier": 597,
           "Inputs": {
             "StartAddress": "5212.0",
             "EndAddress": "5212.7",
@@ -14137,8 +14137,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3186.0",
-            "EndAddress": "3186.7",
+            "StartAddress": "3192.0",
+            "EndAddress": "3192.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -14200,10 +14200,10 @@
       "Submodules": [
         {
           "Name": "User Data - 128 bytes",
-          "HardwareIdentifier": 577,
+          "HardwareIdentifier": 593,
           "Outputs": {
-            "StartAddress": "3056.0",
-            "EndAddress": "3183.7",
+            "StartAddress": "3062.0",
+            "EndAddress": "3189.7",
             "Length": 1024,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -14223,7 +14223,7 @@
       "Submodules": [
         {
           "Name": "Input 1 byte",
-          "HardwareIdentifier": 377,
+          "HardwareIdentifier": 393,
           "Inputs": {
             "StartAddress": "671.0",
             "EndAddress": "671.7",
@@ -14246,7 +14246,7 @@
       "Submodules": [
         {
           "Name": "Input 1 byte",
-          "HardwareIdentifier": 376,
+          "HardwareIdentifier": 392,
           "Inputs": {
             "StartAddress": "670.0",
             "EndAddress": "670.7",
@@ -14269,7 +14269,7 @@
       "Submodules": [
         {
           "Name": "Input 1 word",
-          "HardwareIdentifier": 374,
+          "HardwareIdentifier": 390,
           "Inputs": {
             "StartAddress": "664.0",
             "EndAddress": "665.7",
@@ -14292,7 +14292,7 @@
       "Submodules": [
         {
           "Name": "Input 1 word",
-          "HardwareIdentifier": 372,
+          "HardwareIdentifier": 388,
           "Inputs": {
             "StartAddress": "658.0",
             "EndAddress": "659.7",
@@ -14315,7 +14315,7 @@
       "Submodules": [
         {
           "Name": "Input 2 word",
-          "HardwareIdentifier": 375,
+          "HardwareIdentifier": 391,
           "Inputs": {
             "StartAddress": "666.0",
             "EndAddress": "669.7",
@@ -14338,7 +14338,7 @@
       "Submodules": [
         {
           "Name": "Input 2 word",
-          "HardwareIdentifier": 373,
+          "HardwareIdentifier": 389,
           "Inputs": {
             "StartAddress": "660.0",
             "EndAddress": "663.7",
@@ -14361,10 +14361,10 @@
       "Submodules": [
         {
           "Name": "Output 1 byte",
-          "HardwareIdentifier": 371,
+          "HardwareIdentifier": 387,
           "Outputs": {
-            "StartAddress": "446.0",
-            "EndAddress": "446.7",
+            "StartAddress": "452.0",
+            "EndAddress": "452.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -14384,10 +14384,10 @@
       "Submodules": [
         {
           "Name": "Output 1 byte",
-          "HardwareIdentifier": 370,
+          "HardwareIdentifier": 386,
           "Outputs": {
-            "StartAddress": "445.0",
-            "EndAddress": "445.7",
+            "StartAddress": "451.0",
+            "EndAddress": "451.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -14407,10 +14407,10 @@
       "Submodules": [
         {
           "Name": "PLC-to-iQ Outputs",
-          "HardwareIdentifier": 362,
+          "HardwareIdentifier": 378,
           "Outputs": {
-            "StartAddress": "425.0",
-            "EndAddress": "444.7",
+            "StartAddress": "431.0",
+            "EndAddress": "450.7",
             "Length": 160,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -14454,7 +14454,7 @@
       "Submodules": [
         {
           "Name": "iQ-to-PLC Inputs",
-          "HardwareIdentifier": 363,
+          "HardwareIdentifier": 379,
           "Inputs": {
             "StartAddress": "518.0",
             "EndAddress": "657.7",
@@ -14681,7 +14681,7 @@
       "Submodules": [
         {
           "Name": "CM PtP V2.0",
-          "HardwareIdentifier": 300,
+          "HardwareIdentifier": 316,
           "Inputs": {
             "StartAddress": "310.0",
             "EndAddress": "317.7",
@@ -14746,7 +14746,7 @@
       "Submodules": [
         {
           "Name": "CM 4xIO-Link V2.2 144I/128O",
-          "HardwareIdentifier": 282,
+          "HardwareIdentifier": 298,
           "Inputs": {
             "StartAddress": "162.0",
             "EndAddress": "305.7",
@@ -15620,8 +15620,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "163.0",
-            "EndAddress": "290.7",
+            "StartAddress": "169.0",
+            "EndAddress": "296.7",
             "Length": 1024,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -16400,12 +16400,12 @@
     },
     {
       "Ref": "festo_cmmtas/DoServo",
-      "HardwareIdentifier": 629,
+      "HardwareIdentifier": 645,
       "Submodules": [
         {
           "Name": "SiemensTelegram111-PZD-12-12",
           "Ref": "festo_cmmtas/DoServo/SiemensTelegram111-PZD-12-12",
-          "HardwareIdentifier": 633,
+          "HardwareIdentifier": 649,
           "Inputs": {
             "StartAddress": "5263.0",
             "EndAddress": "5286.7",
@@ -16925,8 +16925,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3255.0",
-            "EndAddress": "3278.7",
+            "StartAddress": "3261.0",
+            "EndAddress": "3284.7",
             "Length": 192,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -17356,7 +17356,7 @@
         {
           "Name": "SiemensTelegram750-PZD-4-1",
           "Ref": "festo_cmmtas/DoServo/SiemensTelegram750-PZD-4-1",
-          "HardwareIdentifier": 634,
+          "HardwareIdentifier": 650,
           "Inputs": {
             "StartAddress": "5287.0",
             "EndAddress": "5288.7",
@@ -17372,8 +17372,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3279.0",
-            "EndAddress": "3286.7",
+            "StartAddress": "3285.0",
+            "EndAddress": "3292.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -17411,10 +17411,10 @@
       "Submodules": [
         {
           "Name": "Command Control",
-          "HardwareIdentifier": 461,
+          "HardwareIdentifier": 477,
           "Outputs": {
-            "StartAddress": "453.0",
-            "EndAddress": "464.7",
+            "StartAddress": "459.0",
+            "EndAddress": "470.7",
             "Length": 96,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -17512,7 +17512,7 @@
       "Submodules": [
         {
           "Name": "Command Status Bits",
-          "HardwareIdentifier": 460,
+          "HardwareIdentifier": 476,
           "Inputs": {
             "StartAddress": "2116.0",
             "EndAddress": "2119.7",
@@ -17679,7 +17679,7 @@
       "Submodules": [
         {
           "Name": "Device Result Bits",
-          "HardwareIdentifier": 459,
+          "HardwareIdentifier": 475,
           "Inputs": {
             "StartAddress": "2112.0",
             "EndAddress": "2115.7",
@@ -17840,7 +17840,7 @@
       "Submodules": [
         {
           "Name": "Device Result Bits",
-          "HardwareIdentifier": 391,
+          "HardwareIdentifier": 407,
           "Inputs": {
             "StartAddress": "760.0",
             "EndAddress": "767.7",
@@ -18151,7 +18151,7 @@
       "Submodules": [
         {
           "Name": "Device Statistics",
-          "HardwareIdentifier": 457,
+          "HardwareIdentifier": 473,
           "Inputs": {
             "StartAddress": "2068.0",
             "EndAddress": "2095.7",
@@ -18222,7 +18222,7 @@
       "Submodules": [
         {
           "Name": "Device Status Words",
-          "HardwareIdentifier": 458,
+          "HardwareIdentifier": 474,
           "Inputs": {
             "StartAddress": "2096.0",
             "EndAddress": "2111.7",
@@ -18287,7 +18287,7 @@
       "Submodules": [
         {
           "Name": "Position Adjust Result",
-          "HardwareIdentifier": 456,
+          "HardwareIdentifier": 472,
           "Inputs": {
             "StartAddress": "2048.0",
             "EndAddress": "2067.7",
@@ -18364,7 +18364,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 455,
+          "HardwareIdentifier": 471,
           "Inputs": {
             "StartAddress": "2028.0",
             "EndAddress": "2047.7",
@@ -18441,7 +18441,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 446,
+          "HardwareIdentifier": 462,
           "Inputs": {
             "StartAddress": "1848.0",
             "EndAddress": "1867.7",
@@ -18518,7 +18518,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 445,
+          "HardwareIdentifier": 461,
           "Inputs": {
             "StartAddress": "1828.0",
             "EndAddress": "1847.7",
@@ -18595,7 +18595,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 444,
+          "HardwareIdentifier": 460,
           "Inputs": {
             "StartAddress": "1808.0",
             "EndAddress": "1827.7",
@@ -18672,7 +18672,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 443,
+          "HardwareIdentifier": 459,
           "Inputs": {
             "StartAddress": "1788.0",
             "EndAddress": "1807.7",
@@ -18749,7 +18749,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 442,
+          "HardwareIdentifier": 458,
           "Inputs": {
             "StartAddress": "1768.0",
             "EndAddress": "1787.7",
@@ -18826,7 +18826,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 441,
+          "HardwareIdentifier": 457,
           "Inputs": {
             "StartAddress": "1748.0",
             "EndAddress": "1767.7",
@@ -18903,7 +18903,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 440,
+          "HardwareIdentifier": 456,
           "Inputs": {
             "StartAddress": "1728.0",
             "EndAddress": "1747.7",
@@ -18980,7 +18980,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 439,
+          "HardwareIdentifier": 455,
           "Inputs": {
             "StartAddress": "1708.0",
             "EndAddress": "1727.7",
@@ -19057,7 +19057,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 438,
+          "HardwareIdentifier": 454,
           "Inputs": {
             "StartAddress": "1688.0",
             "EndAddress": "1707.7",
@@ -19134,7 +19134,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 437,
+          "HardwareIdentifier": 453,
           "Inputs": {
             "StartAddress": "1668.0",
             "EndAddress": "1687.7",
@@ -19211,7 +19211,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 454,
+          "HardwareIdentifier": 470,
           "Inputs": {
             "StartAddress": "2008.0",
             "EndAddress": "2027.7",
@@ -19288,7 +19288,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 436,
+          "HardwareIdentifier": 452,
           "Inputs": {
             "StartAddress": "1648.0",
             "EndAddress": "1667.7",
@@ -19365,7 +19365,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 435,
+          "HardwareIdentifier": 451,
           "Inputs": {
             "StartAddress": "1628.0",
             "EndAddress": "1647.7",
@@ -19442,7 +19442,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 434,
+          "HardwareIdentifier": 450,
           "Inputs": {
             "StartAddress": "1608.0",
             "EndAddress": "1627.7",
@@ -19519,7 +19519,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 433,
+          "HardwareIdentifier": 449,
           "Inputs": {
             "StartAddress": "1588.0",
             "EndAddress": "1607.7",
@@ -19596,7 +19596,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 432,
+          "HardwareIdentifier": 448,
           "Inputs": {
             "StartAddress": "1568.0",
             "EndAddress": "1587.7",
@@ -19673,7 +19673,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 431,
+          "HardwareIdentifier": 447,
           "Inputs": {
             "StartAddress": "1548.0",
             "EndAddress": "1567.7",
@@ -19750,7 +19750,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 430,
+          "HardwareIdentifier": 446,
           "Inputs": {
             "StartAddress": "1528.0",
             "EndAddress": "1547.7",
@@ -19827,7 +19827,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 429,
+          "HardwareIdentifier": 445,
           "Inputs": {
             "StartAddress": "1508.0",
             "EndAddress": "1527.7",
@@ -19904,7 +19904,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 428,
+          "HardwareIdentifier": 444,
           "Inputs": {
             "StartAddress": "1488.0",
             "EndAddress": "1507.7",
@@ -19981,7 +19981,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 427,
+          "HardwareIdentifier": 443,
           "Inputs": {
             "StartAddress": "1468.0",
             "EndAddress": "1487.7",
@@ -20058,7 +20058,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 453,
+          "HardwareIdentifier": 469,
           "Inputs": {
             "StartAddress": "1988.0",
             "EndAddress": "2007.7",
@@ -20135,7 +20135,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 426,
+          "HardwareIdentifier": 442,
           "Inputs": {
             "StartAddress": "1448.0",
             "EndAddress": "1467.7",
@@ -20212,7 +20212,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 425,
+          "HardwareIdentifier": 441,
           "Inputs": {
             "StartAddress": "1428.0",
             "EndAddress": "1447.7",
@@ -20289,7 +20289,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 424,
+          "HardwareIdentifier": 440,
           "Inputs": {
             "StartAddress": "1408.0",
             "EndAddress": "1427.7",
@@ -20366,7 +20366,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 423,
+          "HardwareIdentifier": 439,
           "Inputs": {
             "StartAddress": "1388.0",
             "EndAddress": "1407.7",
@@ -20443,7 +20443,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 422,
+          "HardwareIdentifier": 438,
           "Inputs": {
             "StartAddress": "1368.0",
             "EndAddress": "1387.7",
@@ -20520,7 +20520,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 421,
+          "HardwareIdentifier": 437,
           "Inputs": {
             "StartAddress": "1348.0",
             "EndAddress": "1367.7",
@@ -20597,7 +20597,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 420,
+          "HardwareIdentifier": 436,
           "Inputs": {
             "StartAddress": "1328.0",
             "EndAddress": "1347.7",
@@ -20674,7 +20674,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 419,
+          "HardwareIdentifier": 435,
           "Inputs": {
             "StartAddress": "1308.0",
             "EndAddress": "1327.7",
@@ -20751,7 +20751,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 418,
+          "HardwareIdentifier": 434,
           "Inputs": {
             "StartAddress": "1288.0",
             "EndAddress": "1307.7",
@@ -20828,7 +20828,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 417,
+          "HardwareIdentifier": 433,
           "Inputs": {
             "StartAddress": "1268.0",
             "EndAddress": "1287.7",
@@ -20905,7 +20905,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 452,
+          "HardwareIdentifier": 468,
           "Inputs": {
             "StartAddress": "1968.0",
             "EndAddress": "1987.7",
@@ -20982,7 +20982,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 416,
+          "HardwareIdentifier": 432,
           "Inputs": {
             "StartAddress": "1248.0",
             "EndAddress": "1267.7",
@@ -21059,7 +21059,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 415,
+          "HardwareIdentifier": 431,
           "Inputs": {
             "StartAddress": "1228.0",
             "EndAddress": "1247.7",
@@ -21136,7 +21136,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 414,
+          "HardwareIdentifier": 430,
           "Inputs": {
             "StartAddress": "1208.0",
             "EndAddress": "1227.7",
@@ -21213,7 +21213,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 413,
+          "HardwareIdentifier": 429,
           "Inputs": {
             "StartAddress": "1188.0",
             "EndAddress": "1207.7",
@@ -21290,7 +21290,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 412,
+          "HardwareIdentifier": 428,
           "Inputs": {
             "StartAddress": "1168.0",
             "EndAddress": "1187.7",
@@ -21367,7 +21367,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 411,
+          "HardwareIdentifier": 427,
           "Inputs": {
             "StartAddress": "1148.0",
             "EndAddress": "1167.7",
@@ -21444,7 +21444,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 410,
+          "HardwareIdentifier": 426,
           "Inputs": {
             "StartAddress": "1128.0",
             "EndAddress": "1147.7",
@@ -21521,7 +21521,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 409,
+          "HardwareIdentifier": 425,
           "Inputs": {
             "StartAddress": "1108.0",
             "EndAddress": "1127.7",
@@ -21598,7 +21598,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 408,
+          "HardwareIdentifier": 424,
           "Inputs": {
             "StartAddress": "1088.0",
             "EndAddress": "1107.7",
@@ -21675,7 +21675,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 407,
+          "HardwareIdentifier": 423,
           "Inputs": {
             "StartAddress": "1068.0",
             "EndAddress": "1087.7",
@@ -21752,7 +21752,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 451,
+          "HardwareIdentifier": 467,
           "Inputs": {
             "StartAddress": "1948.0",
             "EndAddress": "1967.7",
@@ -21829,7 +21829,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 406,
+          "HardwareIdentifier": 422,
           "Inputs": {
             "StartAddress": "1048.0",
             "EndAddress": "1067.7",
@@ -21906,7 +21906,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 405,
+          "HardwareIdentifier": 421,
           "Inputs": {
             "StartAddress": "1028.0",
             "EndAddress": "1047.7",
@@ -21983,7 +21983,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 404,
+          "HardwareIdentifier": 420,
           "Inputs": {
             "StartAddress": "1008.0",
             "EndAddress": "1027.7",
@@ -22060,7 +22060,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 403,
+          "HardwareIdentifier": 419,
           "Inputs": {
             "StartAddress": "988.0",
             "EndAddress": "1007.7",
@@ -22137,7 +22137,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 402,
+          "HardwareIdentifier": 418,
           "Inputs": {
             "StartAddress": "968.0",
             "EndAddress": "987.7",
@@ -22214,7 +22214,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 401,
+          "HardwareIdentifier": 417,
           "Inputs": {
             "StartAddress": "948.0",
             "EndAddress": "967.7",
@@ -22291,7 +22291,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 400,
+          "HardwareIdentifier": 416,
           "Inputs": {
             "StartAddress": "928.0",
             "EndAddress": "947.7",
@@ -22368,7 +22368,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 399,
+          "HardwareIdentifier": 415,
           "Inputs": {
             "StartAddress": "908.0",
             "EndAddress": "927.7",
@@ -22445,7 +22445,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 398,
+          "HardwareIdentifier": 414,
           "Inputs": {
             "StartAddress": "888.0",
             "EndAddress": "907.7",
@@ -22522,7 +22522,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 397,
+          "HardwareIdentifier": 413,
           "Inputs": {
             "StartAddress": "868.0",
             "EndAddress": "887.7",
@@ -22599,7 +22599,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 450,
+          "HardwareIdentifier": 466,
           "Inputs": {
             "StartAddress": "1928.0",
             "EndAddress": "1947.7",
@@ -22676,7 +22676,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 396,
+          "HardwareIdentifier": 412,
           "Inputs": {
             "StartAddress": "848.0",
             "EndAddress": "867.7",
@@ -22753,7 +22753,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 395,
+          "HardwareIdentifier": 411,
           "Inputs": {
             "StartAddress": "828.0",
             "EndAddress": "847.7",
@@ -22830,7 +22830,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 394,
+          "HardwareIdentifier": 410,
           "Inputs": {
             "StartAddress": "808.0",
             "EndAddress": "827.7",
@@ -22907,7 +22907,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 393,
+          "HardwareIdentifier": 409,
           "Inputs": {
             "StartAddress": "788.0",
             "EndAddress": "807.7",
@@ -22984,7 +22984,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 392,
+          "HardwareIdentifier": 408,
           "Inputs": {
             "StartAddress": "768.0",
             "EndAddress": "787.7",
@@ -23061,7 +23061,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 449,
+          "HardwareIdentifier": 465,
           "Inputs": {
             "StartAddress": "1908.0",
             "EndAddress": "1927.7",
@@ -23138,7 +23138,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 448,
+          "HardwareIdentifier": 464,
           "Inputs": {
             "StartAddress": "1888.0",
             "EndAddress": "1907.7",
@@ -23215,7 +23215,7 @@
       "Submodules": [
         {
           "Name": "Tool Result",
-          "HardwareIdentifier": 447,
+          "HardwareIdentifier": 463,
           "Inputs": {
             "StartAddress": "1868.0",
             "EndAddress": "1887.7",
@@ -23292,7 +23292,7 @@
       "Submodules": [
         {
           "Name": "BUSY Status Bits",
-          "HardwareIdentifier": 480,
+          "HardwareIdentifier": 496,
           "Inputs": {
             "StartAddress": "2288.0",
             "EndAddress": "2288.7",
@@ -23339,10 +23339,10 @@
       "Submodules": [
         {
           "Name": "Completion Clear Control Bits",
-          "HardwareIdentifier": 470,
+          "HardwareIdentifier": 486,
           "Outputs": {
-            "StartAddress": "597.0",
-            "EndAddress": "597.7",
+            "StartAddress": "603.0",
+            "EndAddress": "603.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -23386,7 +23386,7 @@
       "Submodules": [
         {
           "Name": "Completion Status Bits",
-          "HardwareIdentifier": 479,
+          "HardwareIdentifier": 495,
           "Inputs": {
             "StartAddress": "2287.0",
             "EndAddress": "2287.7",
@@ -23433,7 +23433,7 @@
       "Submodules": [
         {
           "Name": "Error Status Bits",
-          "HardwareIdentifier": 478,
+          "HardwareIdentifier": 494,
           "Inputs": {
             "StartAddress": "2286.0",
             "EndAddress": "2286.7",
@@ -23480,7 +23480,7 @@
       "Submodules": [
         {
           "Name": "Handshake and General Error Status Bits",
-          "HardwareIdentifier": 481,
+          "HardwareIdentifier": 497,
           "Inputs": {
             "StartAddress": "2289.0",
             "EndAddress": "2289.7",
@@ -23527,10 +23527,10 @@
       "Submodules": [
         {
           "Name": "Latch and Error Clear Control Bits",
-          "HardwareIdentifier": 472,
+          "HardwareIdentifier": 488,
           "Outputs": {
-            "StartAddress": "599.0",
-            "EndAddress": "599.7",
+            "StartAddress": "605.0",
+            "EndAddress": "605.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -23556,7 +23556,7 @@
       "Submodules": [
         {
           "Name": "Matching Level and Total Evaluation Grade Status",
-          "HardwareIdentifier": 475,
+          "HardwareIdentifier": 491,
           "Inputs": {
             "StartAddress": "2276.0",
             "EndAddress": "2283.7",
@@ -23597,10 +23597,10 @@
       "Submodules": [
         {
           "Name": "Operation instruction Control Bits",
-          "HardwareIdentifier": 471,
+          "HardwareIdentifier": 487,
           "Outputs": {
-            "StartAddress": "598.0",
-            "EndAddress": "598.7",
+            "StartAddress": "604.0",
+            "EndAddress": "604.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -23638,7 +23638,7 @@
       "Submodules": [
         {
           "Name": "Operation Result Status",
-          "HardwareIdentifier": 474,
+          "HardwareIdentifier": 490,
           "Inputs": {
             "StartAddress": "2256.0",
             "EndAddress": "2275.7",
@@ -23715,10 +23715,10 @@
       "Submodules": [
         {
           "Name": "Parameter Bank Number",
-          "HardwareIdentifier": 469,
+          "HardwareIdentifier": 485,
           "Outputs": {
-            "StartAddress": "595.0",
-            "EndAddress": "596.7",
+            "StartAddress": "601.0",
+            "EndAddress": "602.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -23738,7 +23738,7 @@
       "Submodules": [
         {
           "Name": "Read Data 128Byte",
-          "HardwareIdentifier": 473,
+          "HardwareIdentifier": 489,
           "Inputs": {
             "StartAddress": "2120.0",
             "EndAddress": "2255.7",
@@ -23785,7 +23785,7 @@
       "Submodules": [
         {
           "Name": "Terminal Status Bits",
-          "HardwareIdentifier": 477,
+          "HardwareIdentifier": 493,
           "Inputs": {
             "StartAddress": "2285.0",
             "EndAddress": "2285.7",
@@ -23832,7 +23832,7 @@
       "Submodules": [
         {
           "Name": "Unstable Read Status Bits",
-          "HardwareIdentifier": 476,
+          "HardwareIdentifier": 492,
           "Inputs": {
             "StartAddress": "2284.0",
             "EndAddress": "2284.7",
@@ -23879,10 +23879,10 @@
       "Submodules": [
         {
           "Name": "User Data 128Byte",
-          "HardwareIdentifier": 468,
+          "HardwareIdentifier": 484,
           "Outputs": {
-            "StartAddress": "465.0",
-            "EndAddress": "594.7",
+            "StartAddress": "471.0",
+            "EndAddress": "600.7",
             "Length": 1040,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -23908,7 +23908,7 @@
       "Submodules": [
         {
           "Name": "BUSY Status Bits",
-          "HardwareIdentifier": 500,
+          "HardwareIdentifier": 516,
           "Inputs": {
             "StartAddress": "2458.0",
             "EndAddress": "2458.7",
@@ -23955,10 +23955,10 @@
       "Submodules": [
         {
           "Name": "Completion Clear Control Bits",
-          "HardwareIdentifier": 490,
+          "HardwareIdentifier": 506,
           "Outputs": {
-            "StartAddress": "732.0",
-            "EndAddress": "732.7",
+            "StartAddress": "738.0",
+            "EndAddress": "738.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -24002,7 +24002,7 @@
       "Submodules": [
         {
           "Name": "Completion Status Bits",
-          "HardwareIdentifier": 499,
+          "HardwareIdentifier": 515,
           "Inputs": {
             "StartAddress": "2457.0",
             "EndAddress": "2457.7",
@@ -24049,7 +24049,7 @@
       "Submodules": [
         {
           "Name": "Error Status Bits",
-          "HardwareIdentifier": 498,
+          "HardwareIdentifier": 514,
           "Inputs": {
             "StartAddress": "2456.0",
             "EndAddress": "2456.7",
@@ -24096,7 +24096,7 @@
       "Submodules": [
         {
           "Name": "Handshake and General Error Status Bits",
-          "HardwareIdentifier": 501,
+          "HardwareIdentifier": 517,
           "Inputs": {
             "StartAddress": "2459.0",
             "EndAddress": "2459.7",
@@ -24143,10 +24143,10 @@
       "Submodules": [
         {
           "Name": "Latch and Error Clear Control Bits",
-          "HardwareIdentifier": 492,
+          "HardwareIdentifier": 508,
           "Outputs": {
-            "StartAddress": "734.0",
-            "EndAddress": "734.7",
+            "StartAddress": "740.0",
+            "EndAddress": "740.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -24172,7 +24172,7 @@
       "Submodules": [
         {
           "Name": "Matching Level and Total Evaluation Grade Status",
-          "HardwareIdentifier": 495,
+          "HardwareIdentifier": 511,
           "Inputs": {
             "StartAddress": "2446.0",
             "EndAddress": "2453.7",
@@ -24213,10 +24213,10 @@
       "Submodules": [
         {
           "Name": "Operation instruction Control Bits",
-          "HardwareIdentifier": 491,
+          "HardwareIdentifier": 507,
           "Outputs": {
-            "StartAddress": "733.0",
-            "EndAddress": "733.7",
+            "StartAddress": "739.0",
+            "EndAddress": "739.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -24254,7 +24254,7 @@
       "Submodules": [
         {
           "Name": "Operation Result Status",
-          "HardwareIdentifier": 494,
+          "HardwareIdentifier": 510,
           "Inputs": {
             "StartAddress": "2426.0",
             "EndAddress": "2445.7",
@@ -24331,10 +24331,10 @@
       "Submodules": [
         {
           "Name": "Parameter Bank Number",
-          "HardwareIdentifier": 489,
+          "HardwareIdentifier": 505,
           "Outputs": {
-            "StartAddress": "730.0",
-            "EndAddress": "731.7",
+            "StartAddress": "736.0",
+            "EndAddress": "737.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -24354,7 +24354,7 @@
       "Submodules": [
         {
           "Name": "Read Data 128Byte",
-          "HardwareIdentifier": 493,
+          "HardwareIdentifier": 509,
           "Inputs": {
             "StartAddress": "2290.0",
             "EndAddress": "2425.7",
@@ -24401,7 +24401,7 @@
       "Submodules": [
         {
           "Name": "Terminal Status Bits",
-          "HardwareIdentifier": 497,
+          "HardwareIdentifier": 513,
           "Inputs": {
             "StartAddress": "2455.0",
             "EndAddress": "2455.7",
@@ -24448,7 +24448,7 @@
       "Submodules": [
         {
           "Name": "Unstable Read Status Bits",
-          "HardwareIdentifier": 496,
+          "HardwareIdentifier": 512,
           "Inputs": {
             "StartAddress": "2454.0",
             "EndAddress": "2454.7",
@@ -24495,10 +24495,10 @@
       "Submodules": [
         {
           "Name": "User Data 128Byte",
-          "HardwareIdentifier": 488,
+          "HardwareIdentifier": 504,
           "Outputs": {
-            "StartAddress": "600.0",
-            "EndAddress": "729.7",
+            "StartAddress": "606.0",
+            "EndAddress": "735.7",
             "Length": 1040,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -24524,10 +24524,10 @@
       "Submodules": [
         {
           "Name": "512 digital in- and outputs",
-          "HardwareIdentifier": 665,
+          "HardwareIdentifier": 691,
           "Inputs": {
-            "StartAddress": "5833.0",
-            "EndAddress": "5896.7",
+            "StartAddress": "5897.0",
+            "EndAddress": "5960.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -27606,8 +27606,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3575.0",
-            "EndAddress": "3638.7",
+            "StartAddress": "3645.0",
+            "EndAddress": "3708.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -30693,10 +30693,10 @@
       "Submodules": [
         {
           "Name": "512 digital in- and outputs",
-          "HardwareIdentifier": 693,
+          "HardwareIdentifier": 684,
           "Inputs": {
-            "StartAddress": "6029.0",
-            "EndAddress": "6092.7",
+            "StartAddress": "5833.0",
+            "EndAddress": "5896.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -33775,8 +33775,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3767.0",
-            "EndAddress": "3830.7",
+            "StartAddress": "3581.0",
+            "EndAddress": "3644.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -36862,7 +36862,7 @@
       "Submodules": [
         {
           "Name": "In/Out  64 byte",
-          "HardwareIdentifier": 658,
+          "HardwareIdentifier": 674,
           "Inputs": {
             "StartAddress": "5769.0",
             "EndAddress": "5832.7",
@@ -36878,8 +36878,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3511.0",
-            "EndAddress": "3574.7",
+            "StartAddress": "3517.0",
+            "EndAddress": "3580.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -36900,10 +36900,10 @@
         {
           "Name": "A1",
           "Ref": "plc_line/A1/IOModule",
-          "HardwareIdentifier": 684,
+          "HardwareIdentifier": 710,
           "Inputs": {
-            "StartAddress": "6025.0",
-            "EndAddress": "6028.7",
+            "StartAddress": "6089.0",
+            "EndAddress": "6092.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37109,7 +37109,7 @@
       "Submodules": [
         {
           "Name": "Input 2 word",
-          "HardwareIdentifier": 318,
+          "HardwareIdentifier": 334,
           "Inputs": {
             "StartAddress": "328.0",
             "EndAddress": "331.7",
@@ -37132,7 +37132,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 334,
+          "HardwareIdentifier": 350,
           "Inputs": {
             "StartAddress": "452.0",
             "EndAddress": "459.7",
@@ -37161,7 +37161,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 325,
+          "HardwareIdentifier": 341,
           "Inputs": {
             "StartAddress": "380.0",
             "EndAddress": "387.7",
@@ -37190,7 +37190,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 324,
+          "HardwareIdentifier": 340,
           "Inputs": {
             "StartAddress": "372.0",
             "EndAddress": "379.7",
@@ -37219,7 +37219,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 323,
+          "HardwareIdentifier": 339,
           "Inputs": {
             "StartAddress": "364.0",
             "EndAddress": "371.7",
@@ -37248,7 +37248,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 322,
+          "HardwareIdentifier": 338,
           "Inputs": {
             "StartAddress": "356.0",
             "EndAddress": "363.7",
@@ -37277,7 +37277,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 321,
+          "HardwareIdentifier": 337,
           "Inputs": {
             "StartAddress": "348.0",
             "EndAddress": "355.7",
@@ -37306,7 +37306,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 320,
+          "HardwareIdentifier": 336,
           "Inputs": {
             "StartAddress": "340.0",
             "EndAddress": "347.7",
@@ -37335,7 +37335,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 319,
+          "HardwareIdentifier": 335,
           "Inputs": {
             "StartAddress": "332.0",
             "EndAddress": "339.7",
@@ -37364,7 +37364,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 333,
+          "HardwareIdentifier": 349,
           "Inputs": {
             "StartAddress": "444.0",
             "EndAddress": "451.7",
@@ -37393,7 +37393,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 332,
+          "HardwareIdentifier": 348,
           "Inputs": {
             "StartAddress": "436.0",
             "EndAddress": "443.7",
@@ -37422,7 +37422,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 331,
+          "HardwareIdentifier": 347,
           "Inputs": {
             "StartAddress": "428.0",
             "EndAddress": "435.7",
@@ -37451,7 +37451,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 330,
+          "HardwareIdentifier": 346,
           "Inputs": {
             "StartAddress": "420.0",
             "EndAddress": "427.7",
@@ -37480,7 +37480,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 329,
+          "HardwareIdentifier": 345,
           "Inputs": {
             "StartAddress": "412.0",
             "EndAddress": "419.7",
@@ -37509,7 +37509,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 328,
+          "HardwareIdentifier": 344,
           "Inputs": {
             "StartAddress": "404.0",
             "EndAddress": "411.7",
@@ -37538,7 +37538,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 327,
+          "HardwareIdentifier": 343,
           "Inputs": {
             "StartAddress": "396.0",
             "EndAddress": "403.7",
@@ -37567,7 +37567,7 @@
       "Submodules": [
         {
           "Name": "Input 4 word",
-          "HardwareIdentifier": 326,
+          "HardwareIdentifier": 342,
           "Inputs": {
             "StartAddress": "388.0",
             "EndAddress": "395.7",
@@ -37596,10 +37596,10 @@
       "Submodules": [
         {
           "Name": "Output 2 word",
-          "HardwareIdentifier": 335,
+          "HardwareIdentifier": 351,
           "Outputs": {
-            "StartAddress": "305.0",
-            "EndAddress": "308.7",
+            "StartAddress": "311.0",
+            "EndAddress": "314.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37619,10 +37619,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 343,
+          "HardwareIdentifier": 359,
           "Outputs": {
-            "StartAddress": "365.0",
-            "EndAddress": "372.7",
+            "StartAddress": "371.0",
+            "EndAddress": "378.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37648,10 +37648,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 342,
+          "HardwareIdentifier": 358,
           "Outputs": {
-            "StartAddress": "357.0",
-            "EndAddress": "364.7",
+            "StartAddress": "363.0",
+            "EndAddress": "370.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37677,10 +37677,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 341,
+          "HardwareIdentifier": 357,
           "Outputs": {
-            "StartAddress": "349.0",
-            "EndAddress": "356.7",
+            "StartAddress": "355.0",
+            "EndAddress": "362.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37706,10 +37706,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 340,
+          "HardwareIdentifier": 356,
           "Outputs": {
-            "StartAddress": "341.0",
-            "EndAddress": "348.7",
+            "StartAddress": "347.0",
+            "EndAddress": "354.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37735,10 +37735,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 339,
+          "HardwareIdentifier": 355,
           "Outputs": {
-            "StartAddress": "333.0",
-            "EndAddress": "340.7",
+            "StartAddress": "339.0",
+            "EndAddress": "346.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37764,10 +37764,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 338,
+          "HardwareIdentifier": 354,
           "Outputs": {
-            "StartAddress": "325.0",
-            "EndAddress": "332.7",
+            "StartAddress": "331.0",
+            "EndAddress": "338.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37793,10 +37793,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 337,
+          "HardwareIdentifier": 353,
           "Outputs": {
-            "StartAddress": "317.0",
-            "EndAddress": "324.7",
+            "StartAddress": "323.0",
+            "EndAddress": "330.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37822,10 +37822,10 @@
       "Submodules": [
         {
           "Name": "Output 4 word",
-          "HardwareIdentifier": 336,
+          "HardwareIdentifier": 352,
           "Outputs": {
-            "StartAddress": "309.0",
-            "EndAddress": "316.7",
+            "StartAddress": "315.0",
+            "EndAddress": "322.7",
             "Length": 64,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -37848,12 +37848,12 @@
     },
     {
       "Ref": "rexroth_ctrlx_drive/Inputs",
-      "HardwareIdentifier": 592,
+      "HardwareIdentifier": 608,
       "Submodules": [
         {
           "Name": "P-0-0106_0_0__STO_function__Operating_status",
           "Ref": "rexroth_ctrlx_drive/Inputs/P-0-0106_0_0__STO_function__Operating_status",
-          "HardwareIdentifier": 600,
+          "HardwareIdentifier": 616,
           "Inputs": {
             "StartAddress": "5233.0",
             "EndAddress": "5234.7",
@@ -37872,7 +37872,7 @@
         {
           "Name": "S-0-0084_0_0__Torque_force_feedback_value",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0084_0_0__Torque_force_feedback_value",
-          "HardwareIdentifier": 599,
+          "HardwareIdentifier": 615,
           "Inputs": {
             "StartAddress": "5231.0",
             "EndAddress": "5232.7",
@@ -37891,7 +37891,7 @@
         {
           "Name": "S-0-0135_0_0__Drive_status_word__Value",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0135_0_0__Drive_status_word__Value",
-          "HardwareIdentifier": 596,
+          "HardwareIdentifier": 612,
           "Inputs": {
             "StartAddress": "5225.0",
             "EndAddress": "5226.7",
@@ -37970,7 +37970,7 @@
         {
           "Name": "S-0-0144_0_0__Signal_status_word__Value",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0144_0_0__Signal_status_word__Value",
-          "HardwareIdentifier": 597,
+          "HardwareIdentifier": 613,
           "Inputs": {
             "StartAddress": "5227.0",
             "EndAddress": "5228.7",
@@ -37989,7 +37989,7 @@
         {
           "Name": "S-0-0386_0_0__Position_controller__Position_actual_value",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0386_0_0__Position_controller__Position_actual_value",
-          "HardwareIdentifier": 593,
+          "HardwareIdentifier": 609,
           "Inputs": {
             "StartAddress": "5213.0",
             "EndAddress": "5216.7",
@@ -38008,7 +38008,7 @@
         {
           "Name": "S-0-0390_0_0__Diagnostic_message__Manufacturer_status_register",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0390_0_0__Diagnostic_message__Manufacturer_status_register",
-          "HardwareIdentifier": 595,
+          "HardwareIdentifier": 611,
           "Inputs": {
             "StartAddress": "5221.0",
             "EndAddress": "5224.7",
@@ -38027,7 +38027,7 @@
         {
           "Name": "S-0-0535_0_0__Velocity_controller__Velocity_actual_value",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-0535_0_0__Velocity_controller__Velocity_actual_value",
-          "HardwareIdentifier": 594,
+          "HardwareIdentifier": 610,
           "Inputs": {
             "StartAddress": "5217.0",
             "EndAddress": "5220.7",
@@ -38046,7 +38046,7 @@
         {
           "Name": "S-0-1720_0_2__Power_supply_control__Status_word",
           "Ref": "rexroth_ctrlx_drive/Inputs/S-0-1720_0_2__Power_supply_control__Status_word",
-          "HardwareIdentifier": 598,
+          "HardwareIdentifier": 614,
           "Inputs": {
             "StartAddress": "5229.0",
             "EndAddress": "5230.7",
@@ -38066,15 +38066,15 @@
     },
     {
       "Ref": "rexroth_ctrlx_drive/Outputs",
-      "HardwareIdentifier": 591,
+      "HardwareIdentifier": 607,
       "Submodules": [
         {
           "Name": "S-0-0080_0_0__Torque_force_command_value",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0080_0_0__Torque_force_command_value",
-          "HardwareIdentifier": 609,
+          "HardwareIdentifier": 625,
           "Outputs": {
-            "StartAddress": "3213.0",
-            "EndAddress": "3214.7",
+            "StartAddress": "3219.0",
+            "EndAddress": "3220.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38090,10 +38090,10 @@
         {
           "Name": "S-0-0092_0_0__Torque_force_limitation__Limit_value_bipolar",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0092_0_0__Torque_force_limitation__Limit_value_bipolar",
-          "HardwareIdentifier": 608,
+          "HardwareIdentifier": 624,
           "Outputs": {
-            "StartAddress": "3211.0",
-            "EndAddress": "3212.7",
+            "StartAddress": "3217.0",
+            "EndAddress": "3218.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38109,10 +38109,10 @@
         {
           "Name": "S-0-0134_0_0__Master_control_word__Value",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0134_0_0__Master_control_word__Value",
-          "HardwareIdentifier": 601,
+          "HardwareIdentifier": 617,
           "Outputs": {
-            "StartAddress": "3189.0",
-            "EndAddress": "3190.7",
+            "StartAddress": "3195.0",
+            "EndAddress": "3196.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38158,10 +38158,10 @@
         {
           "Name": "S-0-0145_0_0__Signal_control_word__Value",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0145_0_0__Signal_control_word__Value",
-          "HardwareIdentifier": 606,
+          "HardwareIdentifier": 622,
           "Outputs": {
-            "StartAddress": "3207.0",
-            "EndAddress": "3208.7",
+            "StartAddress": "3213.0",
+            "EndAddress": "3214.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38177,10 +38177,10 @@
         {
           "Name": "S-0-0193_0_0__Positioning_jerk",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0193_0_0__Positioning_jerk",
-          "HardwareIdentifier": 610,
+          "HardwareIdentifier": 626,
           "Outputs": {
-            "StartAddress": "3215.0",
-            "EndAddress": "3218.7",
+            "StartAddress": "3221.0",
+            "EndAddress": "3224.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38196,10 +38196,10 @@
         {
           "Name": "S-0-0259_0_0__Positioning_profile__Profile_velocity",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0259_0_0__Positioning_profile__Profile_velocity",
-          "HardwareIdentifier": 605,
+          "HardwareIdentifier": 621,
           "Outputs": {
-            "StartAddress": "3203.0",
-            "EndAddress": "3206.7",
+            "StartAddress": "3209.0",
+            "EndAddress": "3212.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38215,10 +38215,10 @@
         {
           "Name": "S-0-0260_0_0__Positioning_profile__Acceleration",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0260_0_0__Positioning_profile__Acceleration",
-          "HardwareIdentifier": 602,
+          "HardwareIdentifier": 618,
           "Outputs": {
-            "StartAddress": "3191.0",
-            "EndAddress": "3194.7",
+            "StartAddress": "3197.0",
+            "EndAddress": "3200.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38234,10 +38234,10 @@
         {
           "Name": "S-0-0282_0_0__Drive-controlled_positioning__Command_value",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0282_0_0__Drive-controlled_positioning__Command_value",
-          "HardwareIdentifier": 603,
+          "HardwareIdentifier": 619,
           "Outputs": {
-            "StartAddress": "3195.0",
-            "EndAddress": "3198.7",
+            "StartAddress": "3201.0",
+            "EndAddress": "3204.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38253,10 +38253,10 @@
         {
           "Name": "S-0-0359_0_0__Positioning_profile__Deceleration",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-0359_0_0__Positioning_profile__Deceleration",
-          "HardwareIdentifier": 604,
+          "HardwareIdentifier": 620,
           "Outputs": {
-            "StartAddress": "3199.0",
-            "EndAddress": "3202.7",
+            "StartAddress": "3205.0",
+            "EndAddress": "3208.7",
             "Length": 32,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38272,10 +38272,10 @@
         {
           "Name": "S-0-1720_0_1__Power_supply_control__Control_word",
           "Ref": "rexroth_ctrlx_drive/Outputs/S-0-1720_0_1__Power_supply_control__Control_word",
-          "HardwareIdentifier": 607,
+          "HardwareIdentifier": 623,
           "Outputs": {
-            "StartAddress": "3209.0",
-            "EndAddress": "3210.7",
+            "StartAddress": "3215.0",
+            "EndAddress": "3216.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38295,7 +38295,7 @@
       "Submodules": [
         {
           "Name": "ID_InMod_9Words",
-          "HardwareIdentifier": 619,
+          "HardwareIdentifier": 635,
           "Inputs": {
             "StartAddress": "5235.0",
             "EndAddress": "5252.7",
@@ -38366,10 +38366,10 @@
       "Submodules": [
         {
           "Name": "ID_OutMod_13Words",
-          "HardwareIdentifier": 618,
+          "HardwareIdentifier": 634,
           "Outputs": {
-            "StartAddress": "3219.0",
-            "EndAddress": "3244.7",
+            "StartAddress": "3225.0",
+            "EndAddress": "3250.7",
             "Length": 208,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38461,7 +38461,7 @@
       "Submodules": [
         {
           "Name": "ID_PaCh_5Words",
-          "HardwareIdentifier": 620,
+          "HardwareIdentifier": 636,
           "Inputs": {
             "StartAddress": "5253.0",
             "EndAddress": "5262.7",
@@ -38501,8 +38501,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "3245.0",
-            "EndAddress": "3254.7",
+            "StartAddress": "3251.0",
+            "EndAddress": "3260.7",
             "Length": 80,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38546,7 +38546,7 @@
       "Submodules": [
         {
           "Name": "ID_InMod_24Words",
-          "HardwareIdentifier": 352,
+          "HardwareIdentifier": 368,
           "Inputs": {
             "StartAddress": "460.0",
             "EndAddress": "507.7",
@@ -38707,10 +38707,10 @@
       "Submodules": [
         {
           "Name": "ID_OutMod_21Words",
-          "HardwareIdentifier": 351,
+          "HardwareIdentifier": 367,
           "Outputs": {
-            "StartAddress": "373.0",
-            "EndAddress": "414.7",
+            "StartAddress": "379.0",
+            "EndAddress": "420.7",
             "Length": 336,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38850,7 +38850,7 @@
       "Submodules": [
         {
           "Name": "ID_PaCh_5Words",
-          "HardwareIdentifier": 353,
+          "HardwareIdentifier": 369,
           "Inputs": {
             "StartAddress": "508.0",
             "EndAddress": "517.7",
@@ -38890,8 +38890,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "415.0",
-            "EndAddress": "424.7",
+            "StartAddress": "421.0",
+            "EndAddress": "430.7",
             "Length": 80,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38935,7 +38935,7 @@
       "Submodules": [
         {
           "Name": " Communication ",
-          "HardwareIdentifier": 291,
+          "HardwareIdentifier": 307,
           "Inputs": {
             "StartAddress": "308.0",
             "EndAddress": "309.7",
@@ -38951,8 +38951,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "293.0",
-            "EndAddress": "294.7",
+            "StartAddress": "299.0",
+            "EndAddress": "300.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -38972,7 +38972,7 @@
       "Submodules": [
         {
           "Name": " Reader ",
-          "HardwareIdentifier": 290,
+          "HardwareIdentifier": 306,
           "Inputs": {
             "StartAddress": "306.0",
             "EndAddress": "307.7",
@@ -38988,8 +38988,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "291.0",
-            "EndAddress": "292.7",
+            "StartAddress": "297.0",
+            "EndAddress": "298.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -39009,7 +39009,7 @@
       "Submodules": [
         {
           "Name": "Communication",
-          "HardwareIdentifier": 273,
+          "HardwareIdentifier": 289,
           "Inputs": {
             "StartAddress": "160.0",
             "EndAddress": "161.7",
@@ -39025,8 +39025,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "161.0",
-            "EndAddress": "162.7",
+            "StartAddress": "167.0",
+            "EndAddress": "168.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -39046,7 +39046,7 @@
       "Submodules": [
         {
           "Name": "Reader (32 byte, cyclic io communication)",
-          "HardwareIdentifier": 272,
+          "HardwareIdentifier": 288,
           "Inputs": {
             "StartAddress": "128.0",
             "EndAddress": "159.7",
@@ -39062,8 +39062,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "129.0",
-            "EndAddress": "160.7",
+            "StartAddress": "135.0",
+            "EndAddress": "166.7",
             "Length": 256,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -39083,7 +39083,7 @@
       "Submodules": [
         {
           "Name": "Reader (128 byte, cyclic io communication)",
-          "HardwareIdentifier": 271,
+          "HardwareIdentifier": 287,
           "Inputs": {
             "StartAddress": "0.0",
             "EndAddress": "127.7",
@@ -39099,8 +39099,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "1.0",
-            "EndAddress": "128.7",
+            "StartAddress": "7.0",
+            "EndAddress": "134.7",
             "Length": 1024,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -39120,10 +39120,10 @@
       "Submodules": [
         {
           "Name": "10_O2T General Purpose Registers 2",
-          "HardwareIdentifier": 641,
+          "HardwareIdentifier": 657,
           "Outputs": {
-            "StartAddress": "3287.0",
-            "EndAddress": "3386.7",
+            "StartAddress": "3293.0",
+            "EndAddress": "3392.7",
             "Length": 800,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -39143,7 +39143,7 @@
       "Submodules": [
         {
           "Name": "1_T2O State",
-          "HardwareIdentifier": 650,
+          "HardwareIdentifier": 666,
           "Inputs": {
             "StartAddress": "5737.0",
             "EndAddress": "5768.7",
@@ -40696,7 +40696,7 @@
       "Submodules": [
         {
           "Name": "2_T2O IO",
-          "HardwareIdentifier": 649,
+          "HardwareIdentifier": 665,
           "Inputs": {
             "StartAddress": "5669.0",
             "EndAddress": "5736.7",
@@ -40719,7 +40719,7 @@
       "Submodules": [
         {
           "Name": "3_T2O Joints",
-          "HardwareIdentifier": 648,
+          "HardwareIdentifier": 664,
           "Inputs": {
             "StartAddress": "5565.0",
             "EndAddress": "5668.7",
@@ -40742,7 +40742,7 @@
       "Submodules": [
         {
           "Name": "4_T2O TCP",
-          "HardwareIdentifier": 647,
+          "HardwareIdentifier": 663,
           "Inputs": {
             "StartAddress": "5489.0",
             "EndAddress": "5564.7",
@@ -40765,7 +40765,7 @@
       "Submodules": [
         {
           "Name": "5_T2O General Purpose Bit Registers",
-          "HardwareIdentifier": 646,
+          "HardwareIdentifier": 662,
           "Inputs": {
             "StartAddress": "5481.0",
             "EndAddress": "5488.7",
@@ -41166,7 +41166,7 @@
       "Submodules": [
         {
           "Name": "6_T2O General Purpose Int Registers",
-          "HardwareIdentifier": 645,
+          "HardwareIdentifier": 661,
           "Inputs": {
             "StartAddress": "5385.0",
             "EndAddress": "5480.7",
@@ -41189,7 +41189,7 @@
       "Submodules": [
         {
           "Name": "7_T2O General Purpose Float Registers",
-          "HardwareIdentifier": 644,
+          "HardwareIdentifier": 660,
           "Inputs": {
             "StartAddress": "5289.0",
             "EndAddress": "5384.7",
@@ -41212,10 +41212,10 @@
       "Submodules": [
         {
           "Name": "8_O2T Robot IO",
-          "HardwareIdentifier": 643,
+          "HardwareIdentifier": 659,
           "Outputs": {
-            "StartAddress": "3487.0",
-            "EndAddress": "3510.7",
+            "StartAddress": "3493.0",
+            "EndAddress": "3516.7",
             "Length": 192,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42381,10 +42381,10 @@
       "Submodules": [
         {
           "Name": "9_O2T General Purpose Registers 1",
-          "HardwareIdentifier": 642,
+          "HardwareIdentifier": 658,
           "Outputs": {
-            "StartAddress": "3387.0",
-            "EndAddress": "3486.7",
+            "StartAddress": "3393.0",
+            "EndAddress": "3492.7",
             "Length": 800,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42404,7 +42404,7 @@
       "Submodules": [
         {
           "Name": "Engine Control",
-          "HardwareIdentifier": 523,
+          "HardwareIdentifier": 539,
           "Inputs": {
             "StartAddress": "3748.0",
             "EndAddress": "3755.7",
@@ -42486,8 +42486,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2002.0",
-            "EndAddress": "2002.7",
+            "StartAddress": "2008.0",
+            "EndAddress": "2008.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42525,7 +42525,7 @@
       "Submodules": [
         {
           "Name": "Engine Control",
-          "HardwareIdentifier": 522,
+          "HardwareIdentifier": 538,
           "Inputs": {
             "StartAddress": "3740.0",
             "EndAddress": "3747.7",
@@ -42607,8 +42607,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2001.0",
-            "EndAddress": "2001.7",
+            "StartAddress": "2007.0",
+            "EndAddress": "2007.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42646,7 +42646,7 @@
       "Submodules": [
         {
           "Name": "Engine Control",
-          "HardwareIdentifier": 521,
+          "HardwareIdentifier": 537,
           "Inputs": {
             "StartAddress": "3732.0",
             "EndAddress": "3739.7",
@@ -42728,8 +42728,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2000.0",
-            "EndAddress": "2000.7",
+            "StartAddress": "2006.0",
+            "EndAddress": "2006.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42767,7 +42767,7 @@
       "Submodules": [
         {
           "Name": "Engine Control",
-          "HardwareIdentifier": 520,
+          "HardwareIdentifier": 536,
           "Inputs": {
             "StartAddress": "3724.0",
             "EndAddress": "3731.7",
@@ -42849,8 +42849,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "1999.0",
-            "EndAddress": "1999.7",
+            "StartAddress": "2005.0",
+            "EndAddress": "2005.7",
             "Length": 8,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -42888,7 +42888,7 @@
       "Submodules": [
         {
           "Name": "Results - 240 bytes",
-          "HardwareIdentifier": 518,
+          "HardwareIdentifier": 534,
           "Inputs": {
             "StartAddress": "3484.0",
             "EndAddress": "3723.7",
@@ -42911,7 +42911,7 @@
       "Submodules": [
         {
           "Name": "Results - 240 bytes",
-          "HardwareIdentifier": 512,
+          "HardwareIdentifier": 528,
           "Inputs": {
             "StartAddress": "3244.0",
             "EndAddress": "3483.7",
@@ -42934,7 +42934,7 @@
       "Submodules": [
         {
           "Name": "Results - 240 bytes",
-          "HardwareIdentifier": 511,
+          "HardwareIdentifier": 527,
           "Inputs": {
             "StartAddress": "3004.0",
             "EndAddress": "3243.7",
@@ -42957,7 +42957,7 @@
       "Submodules": [
         {
           "Name": "Results - 240 bytes",
-          "HardwareIdentifier": 510,
+          "HardwareIdentifier": 526,
           "Inputs": {
             "StartAddress": "2764.0",
             "EndAddress": "3003.7",
@@ -42980,7 +42980,7 @@
       "Submodules": [
         {
           "Name": "Results - 240 bytes",
-          "HardwareIdentifier": 509,
+          "HardwareIdentifier": 525,
           "Inputs": {
             "StartAddress": "2524.0",
             "EndAddress": "2763.7",
@@ -43003,7 +43003,7 @@
       "Submodules": [
         {
           "Name": "Results - 64 bytes",
-          "HardwareIdentifier": 508,
+          "HardwareIdentifier": 524,
           "Inputs": {
             "StartAddress": "2460.0",
             "EndAddress": "2523.7",
@@ -43026,7 +43026,7 @@
       "Submodules": [
         {
           "Name": "System Control",
-          "HardwareIdentifier": 524,
+          "HardwareIdentifier": 540,
           "Inputs": {
             "StartAddress": "3756.0",
             "EndAddress": "3771.7",
@@ -43318,8 +43318,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "2003.0",
-            "EndAddress": "2018.7",
+            "StartAddress": "2009.0",
+            "EndAddress": "2024.7",
             "Length": 128,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43591,10 +43591,10 @@
       "Submodules": [
         {
           "Name": "User Data - 240 bytes",
-          "HardwareIdentifier": 519,
+          "HardwareIdentifier": 535,
           "Outputs": {
-            "StartAddress": "1759.0",
-            "EndAddress": "1998.7",
+            "StartAddress": "1765.0",
+            "EndAddress": "2004.7",
             "Length": 1920,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43614,10 +43614,10 @@
       "Submodules": [
         {
           "Name": "User Data - 240 bytes",
-          "HardwareIdentifier": 517,
+          "HardwareIdentifier": 533,
           "Outputs": {
-            "StartAddress": "1519.0",
-            "EndAddress": "1758.7",
+            "StartAddress": "1525.0",
+            "EndAddress": "1764.7",
             "Length": 1920,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43637,10 +43637,10 @@
       "Submodules": [
         {
           "Name": "User Data - 240 bytes",
-          "HardwareIdentifier": 516,
+          "HardwareIdentifier": 532,
           "Outputs": {
-            "StartAddress": "1279.0",
-            "EndAddress": "1518.7",
+            "StartAddress": "1285.0",
+            "EndAddress": "1524.7",
             "Length": 1920,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43660,10 +43660,10 @@
       "Submodules": [
         {
           "Name": "User Data - 240 bytes",
-          "HardwareIdentifier": 515,
+          "HardwareIdentifier": 531,
           "Outputs": {
-            "StartAddress": "1039.0",
-            "EndAddress": "1278.7",
+            "StartAddress": "1045.0",
+            "EndAddress": "1284.7",
             "Length": 1920,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43683,10 +43683,10 @@
       "Submodules": [
         {
           "Name": "User Data - 240 bytes",
-          "HardwareIdentifier": 514,
+          "HardwareIdentifier": 530,
           "Outputs": {
-            "StartAddress": "799.0",
-            "EndAddress": "1038.7",
+            "StartAddress": "805.0",
+            "EndAddress": "1044.7",
             "Length": 1920,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43706,10 +43706,10 @@
       "Submodules": [
         {
           "Name": "User Data - 64 bytes",
-          "HardwareIdentifier": 513,
+          "HardwareIdentifier": 529,
           "Outputs": {
-            "StartAddress": "735.0",
-            "EndAddress": "798.7",
+            "StartAddress": "741.0",
+            "EndAddress": "804.7",
             "Length": 512,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -43729,7 +43729,7 @@
       "Submodules": [
         {
           "Name": "Data and Transfer Control v2",
-          "HardwareIdentifier": 384,
+          "HardwareIdentifier": 400,
           "Inputs": {
             "StartAddress": "672.0",
             "EndAddress": "759.7",
@@ -43745,8 +43745,8 @@
             ]
           },
           "Outputs": {
-            "StartAddress": "447.0",
-            "EndAddress": "452.7",
+            "StartAddress": "453.0",
+            "EndAddress": "458.7",
             "Length": 48,
             "Source": "AutoAssigned",
             "SignalLayout": [
