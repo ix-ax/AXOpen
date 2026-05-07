@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
 
     {S7.extern=ReadWrite}
     CLASS UrRobotics EXTENDS AXOpen.Core.AxoObject

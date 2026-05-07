@@ -1,13 +1,13 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
 
     {S7.extern=ReadWrite}
     CLASS AxoUrCb3_v_3_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC               
             {#ix-set:AttributeName = "<#UR series CB3 example#>"}
-            ExampleRobot : AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x;
+            ExampleRobot : AXOpen.Components.Ur.Robotics.v_3_x_x.AxoUrCb3;
         END_VAR
         //</ComponentDeclaration>                          
 
