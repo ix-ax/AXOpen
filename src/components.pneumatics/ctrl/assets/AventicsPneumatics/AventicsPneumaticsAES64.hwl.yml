@@ -1,0 +1,836 @@
+Templates:
+  Devices:
+    - Name: 'AventicsPneumaticsAES64'
+      Placeholders:
+      - Name: 'NAME'
+      - Name: 'IP_ADDRESS_X1'
+        Value: '192.168.0.1/24'
+      - Name: 'PROFINET_DEVICE_NAME_X1'
+        Value: 'aes-d-bc-pnio-64'
+      - Name: 'SLOT_1'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_2'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_3'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_4'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_5'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_6'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_7'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_8'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_9'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_10'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_11'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_12'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_13'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_14'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_15'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_16'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_17'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_18'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_19'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_20'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_21'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_22'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_23'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_24'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_25'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_26'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_27'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_28'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_29'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_30'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_31'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_32'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_33'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_34'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_35'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_36'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_37'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_38'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_39'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_40'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_41'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_42'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_43'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_44'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_45'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_46'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_47'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_48'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_49'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_50'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_51'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_52'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_53'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_54'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_55'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_56'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_57'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_58'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_59'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_60'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_61'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_62'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_63'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      - Name: 'SLOT_64'
+        Value: 'AventicsPneumaticsAESEmptySlot'
+        AllowedValues:
+          - 'AventicsPneumaticsAESEmptySlot'
+          - 'AventicsPneumaticsAESValveDriver2Valves'
+          - 'AventicsPneumaticsAESValveDriver3Valves'
+          - 'AventicsPneumaticsAESValveDriver4Valves'
+          - 'AventicsPneumaticsAESValveDriverValvePowerSupply'        
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.34-AVENTICS-02B5-AES2-20240707.XML'
+              GsdId: 'DIM 31'
+            Interfaces:
+            - Name: 'PN-IO'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_2'
+              Label: 'X1 P2'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # MediumAttachmentType: 'Copper'
+            Parameters:
+              RecordDataList:
+              - IndexName: 'busbox parameter'
+                Values:
+                - OffsetName: 'activate diagnosis'
+                  # Possible ValueNames: diagnosis off | diagnosis on
+                  ValueName: 'diagnosis off'
+                - OffsetName: 'Profinet breakdown'
+                  # Possible ValueNames: all outputs zero | outputs last state
+                  ValueName: 'all outputs zero'
+                - OffsetName: 'backplane error'
+                  # Possible ValueNames: not stop backplane | stop backplane all outputs zero
+                  ValueName: 'not stop backplane'
+                - OffsetName: 'byte-order of WORD'
+                  # Possible ValueNames: big-endian (default) | little-endian
+                  ValueName: 'big-endian (default)'
+                - OffsetName: 'disable active web content'
+                  # Possible ValueNames: Web content enabled | Web content disabled
+                  ValueName: 'Web content enabled'
+          - Apply: ${SLOT_1}
+            Arguments:
+              NAME: 'Slot_1'
+              SLOT: 1
+          - Apply: ${SLOT_2}
+            Arguments:
+              NAME: 'Slot_2'
+              SLOT: 2
+          - Apply: ${SLOT_3}
+            Arguments:
+              NAME: 'Slot_3'
+              SLOT: 3
+          - Apply: ${SLOT_4}
+            Arguments:
+              NAME: 'Slot_4'
+              SLOT: 4
+          - Apply: ${SLOT_5}
+            Arguments:
+              NAME: 'Slot_5'
+              SLOT: 5
+          - Apply: ${SLOT_6}
+            Arguments:
+              NAME: 'Slot_6'
+              SLOT: 6
+          - Apply: ${SLOT_7}
+            Arguments:
+              NAME: 'Slot_7'
+              SLOT: 7
+          - Apply: ${SLOT_8}
+            Arguments:
+              NAME: 'Slot_8'
+              SLOT: 8
+          - Apply: ${SLOT_9}
+            Arguments:
+              NAME: 'Slot_9'
+              SLOT: 9
+          - Apply: ${SLOT_10}
+            Arguments:
+              NAME: 'Slot_10'
+              SLOT: 10
+          - Apply: ${SLOT_11}
+            Arguments:
+              NAME: 'Slot_11'
+              SLOT: 11
+          - Apply: ${SLOT_12}
+            Arguments:
+              NAME: 'Slot_12'
+              SLOT: 12
+          - Apply: ${SLOT_13}
+            Arguments:
+              NAME: 'Slot_13'
+              SLOT: 13
+          - Apply: ${SLOT_14}
+            Arguments:
+              NAME: 'Slot_14'
+              SLOT: 14
+          - Apply: ${SLOT_15}
+            Arguments:
+              NAME: 'Slot_15'
+              SLOT: 15
+          - Apply: ${SLOT_16}
+            Arguments:
+              NAME: 'Slot_16'
+              SLOT: 16
+          - Apply: ${SLOT_17}
+            Arguments:
+              NAME: 'Slot_17'
+              SLOT: 17
+          - Apply: ${SLOT_18}
+            Arguments:
+              NAME: 'Slot_18'
+              SLOT: 18
+          - Apply: ${SLOT_19}
+            Arguments:
+              NAME: 'Slot_19'
+              SLOT: 19
+          - Apply: ${SLOT_20}
+            Arguments:
+              NAME: 'Slot_20'
+              SLOT: 20
+          - Apply: ${SLOT_21}
+            Arguments:
+              NAME: 'Slot_21'
+              SLOT: 21
+          - Apply: ${SLOT_22}
+            Arguments:
+              NAME: 'Slot_22'
+              SLOT: 22
+          - Apply: ${SLOT_23}
+            Arguments:
+              NAME: 'Slot_23'
+              SLOT: 23
+          - Apply: ${SLOT_24}
+            Arguments:
+              NAME: 'Slot_24'
+              SLOT: 24
+          - Apply: ${SLOT_25}
+            Arguments:
+              NAME: 'Slot_25'
+              SLOT: 25
+          - Apply: ${SLOT_26}
+            Arguments:
+              NAME: 'Slot_26'
+              SLOT: 26
+          - Apply: ${SLOT_27}
+            Arguments:
+              NAME: 'Slot_27'
+              SLOT: 27
+          - Apply: ${SLOT_28}
+            Arguments:
+              NAME: 'Slot_28'
+              SLOT: 28
+          - Apply: ${SLOT_29}
+            Arguments:
+              NAME: 'Slot_29'
+              SLOT: 29
+          - Apply: ${SLOT_30}
+            Arguments:
+              NAME: 'Slot_30'
+              SLOT: 30
+          - Apply: ${SLOT_31}
+            Arguments:
+              NAME: 'Slot_31'
+              SLOT: 31
+          - Apply: ${SLOT_32}
+            Arguments:
+              NAME: 'Slot_32'
+              SLOT: 32
+          - Apply: ${SLOT_33}
+            Arguments:
+              NAME: 'Slot_33'
+              SLOT: 33
+          - Apply: ${SLOT_34}
+            Arguments:
+              NAME: 'Slot_34'
+              SLOT: 34
+          - Apply: ${SLOT_35}
+            Arguments:
+              NAME: 'Slot_35'
+              SLOT: 35
+          - Apply: ${SLOT_36}
+            Arguments:
+              NAME: 'Slot_36'
+              SLOT: 36
+          - Apply: ${SLOT_37}
+            Arguments:
+              NAME: 'Slot_37'
+              SLOT: 37
+          - Apply: ${SLOT_38}
+            Arguments:
+              NAME: 'Slot_38'
+              SLOT: 38
+          - Apply: ${SLOT_39}
+            Arguments:
+              NAME: 'Slot_39'
+              SLOT: 39
+          - Apply: ${SLOT_40}
+            Arguments:
+              NAME: 'Slot_40'
+              SLOT: 40
+          - Apply: ${SLOT_41}
+            Arguments:
+              NAME: 'Slot_41'
+              SLOT: 41
+          - Apply: ${SLOT_42}
+            Arguments:
+              NAME: 'Slot_42'
+              SLOT: 42
+          - Apply: ${SLOT_43}
+            Arguments:
+              NAME: 'Slot_43'
+              SLOT: 43
+          - Apply: ${SLOT_44}
+            Arguments:
+              NAME: 'Slot_44'
+              SLOT: 44
+          - Apply: ${SLOT_45}
+            Arguments:
+              NAME: 'Slot_45'
+              SLOT: 45
+          - Apply: ${SLOT_46}
+            Arguments:
+              NAME: 'Slot_46'
+              SLOT: 46
+          - Apply: ${SLOT_47}
+            Arguments:
+              NAME: 'Slot_47'
+              SLOT: 47
+          - Apply: ${SLOT_48}
+            Arguments:
+              NAME: 'Slot_48'
+              SLOT: 48
+          - Apply: ${SLOT_49}
+            Arguments:
+              NAME: 'Slot_49'
+              SLOT: 49
+          - Apply: ${SLOT_50}
+            Arguments:
+              NAME: 'Slot_50'
+              SLOT: 50
+          - Apply: ${SLOT_51}
+            Arguments:
+              NAME: 'Slot_51'
+              SLOT: 51
+          - Apply: ${SLOT_52}
+            Arguments:
+              NAME: 'Slot_52'
+              SLOT: 52
+          - Apply: ${SLOT_53}
+            Arguments:
+              NAME: 'Slot_53'
+              SLOT: 53
+          - Apply: ${SLOT_54}
+            Arguments:
+              NAME: 'Slot_54'
+              SLOT: 54
+          - Apply: ${SLOT_55}
+            Arguments:
+              NAME: 'Slot_55'
+              SLOT: 55
+          - Apply: ${SLOT_56}
+            Arguments:
+              NAME: 'Slot_56'
+              SLOT: 56
+          - Apply: ${SLOT_57}
+            Arguments:
+              NAME: 'Slot_57'
+              SLOT: 57
+          - Apply: ${SLOT_58}
+            Arguments:
+              NAME: 'Slot_58'
+              SLOT: 58
+          - Apply: ${SLOT_59}
+            Arguments:
+              NAME: 'Slot_59'
+              SLOT: 59
+          - Apply: ${SLOT_60}
+            Arguments:
+              NAME: 'Slot_60'
+              SLOT: 60
+          - Apply: ${SLOT_61}
+            Arguments:
+              NAME: 'Slot_61'
+              SLOT: 61
+          - Apply: ${SLOT_62}
+            Arguments:
+              NAME: 'Slot_62'
+              SLOT: 62
+          - Apply: ${SLOT_63}
+            Arguments:
+              NAME: 'Slot_63'
+              SLOT: 63
+          - Apply: ${SLOT_64}
+            Arguments:
+              NAME: 'Slot_64'
+              SLOT: 64
