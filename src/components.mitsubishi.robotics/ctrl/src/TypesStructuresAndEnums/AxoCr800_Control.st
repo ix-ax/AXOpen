@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x 
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoCr800_v_1_x_x_Control
+    CLASS AxoCr800_Control
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}

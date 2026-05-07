@@ -66,14 +66,14 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoMitsubishiRobotics_Config;
+            Config  :   AxoCr800_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status         :   AxoMitsubishiRobotics_Component_Status;
+            Status         :   AxoCr800_Component_Status;
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Power progress#>"}
@@ -92,13 +92,13 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoMitsubishiRobotics_State;
+            Inputs              :   AxoCr800_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoMitsubishiRobotics_Control;
+            Outputs              :   AxoCr800_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics

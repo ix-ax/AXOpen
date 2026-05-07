@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -137,7 +137,7 @@ namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
     }
-    public partial class AxoMitsubishiRobotics_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoCr800_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
