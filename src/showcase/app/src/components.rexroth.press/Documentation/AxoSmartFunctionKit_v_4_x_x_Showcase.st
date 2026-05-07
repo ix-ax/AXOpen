@@ -6,7 +6,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
     CLASS AxoSmartFunctionKit_v_4_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x;             
+            AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.v_4_x_x.AxoSmartFunctionKit;             
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             Sequencer : AxoSequencer;       
             Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
             {#ix-attr:[CompilerOmits()]} 
-            Request : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x; 
+            Request : AXOpen.Components.Rexroth.Press.v_4_x_x.AxoSmartFunctionKitRequest; 
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
