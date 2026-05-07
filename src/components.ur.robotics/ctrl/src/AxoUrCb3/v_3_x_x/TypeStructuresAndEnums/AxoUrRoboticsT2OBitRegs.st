@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRoboticsT2OBitRegs_v_1_x_x
+    CLASS PUBLIC AxoUrRoboticsT2OBitRegs
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Bit register 0#>"}
             Register_0 : BOOL;

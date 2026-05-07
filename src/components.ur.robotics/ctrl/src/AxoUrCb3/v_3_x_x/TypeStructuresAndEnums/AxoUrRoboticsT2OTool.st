@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRoboticsT2OTool_v_1_x_x
+    CLASS PUBLIC AxoUrRoboticsT2OTool
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Tool mode#>"}
             ToolMode : USINT;

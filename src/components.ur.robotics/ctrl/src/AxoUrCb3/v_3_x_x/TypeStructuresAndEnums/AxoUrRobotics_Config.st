@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRobotics_Config_v_1_x_x
+    CLASS PUBLIC AxoUrRobotics_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#2S;
@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#60S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
-            HWIDs : AxoUrRobotics_HWIDs_v_1_x_x;
+            HWIDs : AxoUrRobotics_HWIDs;
             {#ix-set:AttributeName = "<#Remote power on enabled#>"}
             RemotePowerOnEnabled:BOOL :=FALSE;
             {#ix-set:AttributeName = "<#Remote power on pulse time#>"}

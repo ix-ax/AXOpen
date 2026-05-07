@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using Renci.SshNet;
@@ -9,9 +9,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Ur.Robotics
+namespace AXOpen.Components.Ur.Robotics.v_3_x_x
 {
-    public partial class AxoUrCb3_v_3_x_x : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    public partial class AxoUrCb3 : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
     {
 
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
@@ -319,7 +319,7 @@ namespace AXOpen.Components.Ur.Robotics
 
         }
     }
-    public partial class AxoUrRobotics_Component_Status_v_1_x_x : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoUrRobotics_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();

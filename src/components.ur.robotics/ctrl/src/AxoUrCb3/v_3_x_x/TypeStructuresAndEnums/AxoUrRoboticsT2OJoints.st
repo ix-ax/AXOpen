@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRoboticsT2OJoints_v_1_x_x
+    CLASS PUBLIC AxoUrRoboticsT2OJoints
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Joint position 0 [rad]#>"}
             JointPosition_0 : REAL;

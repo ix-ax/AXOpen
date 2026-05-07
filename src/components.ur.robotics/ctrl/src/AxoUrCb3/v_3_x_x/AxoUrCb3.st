@@ -5,9 +5,9 @@ USING AXOpen.Components.Robotics;
 USING AXOpen.Components.Abstractions.Robotics;
 USING Siemens.Simatic.Hardware.Utilities;
 
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {S7.extern=ReadWrite}
-    CLASS AxoUrCb3_v_3_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    CLASS AxoUrCb3 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
@@ -71,14 +71,14 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoUrRobotics_Config_v_1_x_x;
+            Config  :   AxoUrRobotics_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status         :   AxoUrRobotics_Component_Status_v_1_x_x;
+            Status         :   AxoUrRobotics_Component_Status;
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Power progress#>"}
@@ -97,13 +97,13 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoUrRobotics_State_v_1_x_x;
+            Inputs              :   AxoUrRobotics_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoUrRobotics_Control_v_1_x_x;
+            Outputs              :   AxoUrRobotics_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics

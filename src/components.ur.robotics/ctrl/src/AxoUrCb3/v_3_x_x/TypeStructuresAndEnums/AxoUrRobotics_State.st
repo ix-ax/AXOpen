@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoUrRobotics_State_v_1_x_x 
+    CLASS AxoUrRobotics_State
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
@@ -78,7 +78,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#UR Specific#>"}
-            Inputs:AxoUrRoboticsInputData_v_1_x_x ;
+            Inputs:AxoUrRoboticsInputData;
         END_VAR
     END_CLASS
 END_NAMESPACE

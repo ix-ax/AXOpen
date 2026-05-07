@@ -1,44 +1,44 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRoboticsInputData_v_1_x_x
+    CLASS PUBLIC AxoUrRoboticsInputData
         VAR PUBLIC 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Robot#>"}
-            Robot : AxoUrRoboticsT2ORobot_v_1_x_x;
+            Robot : AxoUrRoboticsT2ORobot;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#State#>"}
-            Safety : AxoUrRoboticsT2OSafety_v_1_x_x;
+            Safety : AxoUrRoboticsT2OSafety;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#IO state#>"}
-            IO : AxoUrRoboticsT2OIo_v_1_x_x;
+            IO : AxoUrRoboticsT2OIo;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Tool state#>"}
-            Tool : AxoUrRoboticsT2OTool_v_1_x_x;
+            Tool : AxoUrRoboticsT2OTool;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Joints#>"}
-            Joints : AxoUrRoboticsT2OJoints_v_1_x_x;
+            Joints : AxoUrRoboticsT2OJoints;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#TCP#>"}
-            TCP : AxoUrRoboticsT2OTcp_v_1_x_x;
+            TCP : AxoUrRoboticsT2OTcp;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Bits#>"}
-            Bits : AxoUrRoboticsT2OBitRegs_v_1_x_x;
+            Bits : AxoUrRoboticsT2OBitRegs;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Ints#>"}
-            Ints : AxoUrRoboticsT2OIntRegs_v_1_x_x;
+            Ints : AxoUrRoboticsT2OIntRegs;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Floats#>"}
-            Floats : AxoUrRoboticsT2OFloatRegs_v_1_x_x;	
+            Floats : AxoUrRoboticsT2OFloatRegs;	
         END_VAR 
     END_CLASS    
 END_NAMESPACE

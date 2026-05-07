@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+NAMESPACE AXOpen.Components.Ur.Robotics.v_3_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoUrRobotics_O2TIo_v_1_x_x
+    CLASS PUBLIC AxoUrRobotics_O2TIo
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Standard digital output mask#>"}
             StandardDigitalOutputMask : USINT;
