@@ -190,6 +190,12 @@ NAMESPACE AXOpen.Showcase
 
 	        rf186c_Reader_1_Output AT %B297 : rf186c_Reader_1_Output_Layout;
 
+	        // Module smc-ex260-spn-16/Outputs16
+	        smc_ex260_spn_16_Outputs16_Output AT %B4 : smc_ex260_spn_16_Outputs16_Output_Layout;
+
+	        // Module smc-ex260-spn-32/Outputs32
+	        smc_ex260_spn_32_Outputs32_Output AT %B0 : smc_ex260_spn_32_Outputs32_Output_Layout;
+
 	        // Module ureol2l/10_O2T_General_Purpose_Registers_2
 	        ureol2l_10_O2T_General_Purpose_Registers_2_Output AT %B3293 : ureol2l_10_O2T_General_Purpose_Registers_2_Output_Layout;
 

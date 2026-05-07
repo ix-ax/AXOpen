@@ -1642,10 +1642,6 @@
       "Value": 270
     },
     {
-      "Name": "smc-ex260-spn-16~smc-ex260-spn-16~  2 byte  Output_1~  2 byte  Output",
-      "Value": 271
-    },
-    {
       "Name": "smc-ex260-spn-16~smc-ex260-spn-16~EX260 SPN 3/4",
       "Value": 272
     },
@@ -1662,6 +1658,10 @@
       "Value": 268
     },
     {
+      "Name": "smc-ex260-spn-16~smc-ex260-spn-16~Outputs16~  2 byte  Output",
+      "Value": 271
+    },
+    {
       "Name": "smc-ex260-spn-32",
       "Value": 258
     },
@@ -1672,10 +1672,6 @@
     {
       "Name": "smc-ex260-spn-32~smc-ex260-spn-32",
       "Value": 262
-    },
-    {
-      "Name": "smc-ex260-spn-32~smc-ex260-spn-32~  4 byte  Output_1~  4 byte  Output",
-      "Value": 263
     },
     {
       "Name": "smc-ex260-spn-32~smc-ex260-spn-32~EX260 SPN 1/2",
@@ -1692,6 +1688,10 @@
     {
       "Name": "smc-ex260-spn-32~smc-ex260-spn-32~Interface~Port_2",
       "Value": 260
+    },
+    {
+      "Name": "smc-ex260-spn-32~smc-ex260-spn-32~Outputs32~  4 byte  Output",
+      "Value": 263
     },
     {
       "Name": "ureol2l",
