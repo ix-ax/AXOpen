@@ -2,26 +2,26 @@ CONFIGURATION IoAddresses
     VAR_GLOBAL
 
         // Module abb_irc5_robot/DI_64_bytes
-        abb_irc5_robot_DI_64_bytes_Input AT %IB5961 : abb_irc5_robot_DI_64_bytes_Input_Layout;
+        abb_irc5_robot_DI_64_bytes_Input AT %IB6025 : abb_irc5_robot_DI_64_bytes_Input_Layout;
 
         // Module abb_irc5_robot/DO_64_bytes
-        abb_irc5_robot_DO_64_bytes_Output AT %QB3703 : abb_irc5_robot_DO_64_bytes_Output_Layout;
+        abb_irc5_robot_DO_64_bytes_Output AT %QB3773 : abb_irc5_robot_DO_64_bytes_Output_Layout;
 
         // Module abb_omnicore_robot/DI_64_bytes
-        abb_omnicore_robot_DI_64_bytes_Input AT %IB5897 : abb_omnicore_robot_DI_64_bytes_Input_Layout;
+        abb_omnicore_robot_DI_64_bytes_Input AT %IB5961 : abb_omnicore_robot_DI_64_bytes_Input_Layout;
 
         // Module abb_omnicore_robot/DO_64_bytes
-        abb_omnicore_robot_DO_64_bytes_Output AT %QB3639 : abb_omnicore_robot_DO_64_bytes_Output_Layout;
+        abb_omnicore_robot_DO_64_bytes_Output AT %QB3709 : abb_omnicore_robot_DO_64_bytes_Output_Layout;
 
         // Module aes_pnio/Slot_1
-        aes_pnio_Slot_1_Output AT %QB0 : aes_pnio_Slot_1_Output_Layout;
+        aes_pnio_Slot_1_Output AT %QB6 : aes_pnio_Slot_1_Output_Layout;
 
         // Module BNIPNT507005Z040/BIS_M-4XX-045_1
         BNIPNT507005Z040_BIS_M_4XX_045_1_Input AT %IB318 : BNIPNT507005Z040_BIS_M_4XX_045_1_Input_Layout;
-        BNIPNT507005Z040_BIS_M_4XX_045_1_Output AT %QB295 : BNIPNT507005Z040_BIS_M_4XX_045_1_Output_Layout;
+        BNIPNT507005Z040_BIS_M_4XX_045_1_Output AT %QB301 : BNIPNT507005Z040_BIS_M_4XX_045_1_Output_Layout;
 
         // Module cognex_dataman_280/Acquisition_Control
-        cognex_dataman_280_Acquisition_Control_Output AT %QB3055 : cognex_dataman_280_Acquisition_Control_Output_Layout;
+        cognex_dataman_280_Acquisition_Control_Output AT %QB3061 : cognex_dataman_280_Acquisition_Control_Output_Layout;
 
         // Module cognex_dataman_280/Acquisition_Status
         cognex_dataman_280_Acquisition_Status_Input AT %IB5067 : cognex_dataman_280_Acquisition_Status_Input_Layout;
@@ -30,20 +30,20 @@ CONFIGURATION IoAddresses
         cognex_dataman_280_ResultData_128_Input AT %IB4930 : cognex_dataman_280_ResultData_128_Input_Layout;
 
         // Module cognex_dataman_280/Results_Control
-        cognex_dataman_280_Results_Control_Output AT %QB3054 : cognex_dataman_280_Results_Control_Output_Layout;
+        cognex_dataman_280_Results_Control_Output AT %QB3060 : cognex_dataman_280_Results_Control_Output_Layout;
 
         // Module cognex_dataman_280/Results_Status
         cognex_dataman_280_Results_Status_Input AT %IB5066 : cognex_dataman_280_Results_Status_Input_Layout;
 
         // Module cognex_dataman_280/Soft_Event_Control
         cognex_dataman_280_Soft_Event_Control_Input AT %IB5070 : cognex_dataman_280_Soft_Event_Control_Input_Layout;
-        cognex_dataman_280_Soft_Event_Control_Output AT %QB3053 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
+        cognex_dataman_280_Soft_Event_Control_Output AT %QB3059 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
 
         // Module cognex_dataman_280/UserData_128
-        cognex_dataman_280_UserData_128_Output AT %QB2921 : cognex_dataman_280_UserData_128_Output_Layout;
+        cognex_dataman_280_UserData_128_Output AT %QB2927 : cognex_dataman_280_UserData_128_Output_Layout;
 
         // Module cognex_dataman_380/Acquisition_Control
-        cognex_dataman_380_Acquisition_Control_Output AT %QB2920 : cognex_dataman_380_Acquisition_Control_Output_Layout;
+        cognex_dataman_380_Acquisition_Control_Output AT %QB2926 : cognex_dataman_380_Acquisition_Control_Output_Layout;
 
         // Module cognex_dataman_380/Acquisition_Status
         cognex_dataman_380_Acquisition_Status_Input AT %IB4926 : cognex_dataman_380_Acquisition_Status_Input_Layout;
@@ -52,20 +52,20 @@ CONFIGURATION IoAddresses
         cognex_dataman_380_ResultData_128_Input AT %IB4789 : cognex_dataman_380_ResultData_128_Input_Layout;
 
         // Module cognex_dataman_380/Results_Control
-        cognex_dataman_380_Results_Control_Output AT %QB2919 : cognex_dataman_380_Results_Control_Output_Layout;
+        cognex_dataman_380_Results_Control_Output AT %QB2925 : cognex_dataman_380_Results_Control_Output_Layout;
 
         // Module cognex_dataman_380/Results_Status
         cognex_dataman_380_Results_Status_Input AT %IB4925 : cognex_dataman_380_Results_Status_Input_Layout;
 
         // Module cognex_dataman_380/Soft_Event_Control
         cognex_dataman_380_Soft_Event_Control_Input AT %IB4929 : cognex_dataman_380_Soft_Event_Control_Input_Layout;
-        cognex_dataman_380_Soft_Event_Control_Output AT %QB2918 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
+        cognex_dataman_380_Soft_Event_Control_Output AT %QB2924 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
 
         // Module cognex_dataman_380/UserData_128
-        cognex_dataman_380_UserData_128_Output AT %QB2786 : cognex_dataman_380_UserData_128_Output_Layout;
+        cognex_dataman_380_UserData_128_Output AT %QB2792 : cognex_dataman_380_UserData_128_Output_Layout;
 
         // Module cognex_insight_2800/Slot_1
-        cognex_insight_2800_Slot_1_Output AT %QB2785 : cognex_insight_2800_Slot_1_Output_Layout;
+        cognex_insight_2800_Slot_1_Output AT %QB2791 : cognex_insight_2800_Slot_1_Output_Layout;
 
         // Module cognex_insight_2800/Slot_11_ResultData_250
         cognex_insight_2800_Slot_11_ResultData_250_Input AT %IB4522 : cognex_insight_2800_Slot_11_ResultData_250_Input_Layout;
@@ -83,40 +83,40 @@ CONFIGURATION IoAddresses
         cognex_insight_2800_Slot_2_Input AT %IB4776 : cognex_insight_2800_Slot_2_Input_Layout;
 
         // Module cognex_insight_2800/Slot_3
-        cognex_insight_2800_Slot_3_Output AT %QB2784 : cognex_insight_2800_Slot_3_Output_Layout;
+        cognex_insight_2800_Slot_3_Output AT %QB2790 : cognex_insight_2800_Slot_3_Output_Layout;
 
         // Module cognex_insight_2800/Slot_4
         cognex_insight_2800_Slot_4_Input AT %IB4780 : cognex_insight_2800_Slot_4_Input_Layout;
 
         // Module cognex_insight_2800/Slot_5
         cognex_insight_2800_Slot_5_Input AT %IB4784 : cognex_insight_2800_Slot_5_Input_Layout;
-        cognex_insight_2800_Slot_5_Output AT %QB2781 : cognex_insight_2800_Slot_5_Output_Layout;
+        cognex_insight_2800_Slot_5_Output AT %QB2787 : cognex_insight_2800_Slot_5_Output_Layout;
 
         // Module cognex_insight_2800/Slot_6
         cognex_insight_2800_Slot_6_Input AT %IB4788 : cognex_insight_2800_Slot_6_Input_Layout;
-        cognex_insight_2800_Slot_6_Output AT %QB2783 : cognex_insight_2800_Slot_6_Output_Layout;
+        cognex_insight_2800_Slot_6_Output AT %QB2789 : cognex_insight_2800_Slot_6_Output_Layout;
 
         // Module cognex_insight_2800/Slot_7
-        cognex_insight_2800_Slot_7_Output AT %QB2527 : cognex_insight_2800_Slot_7_Output_Layout;
+        cognex_insight_2800_Slot_7_Output AT %QB2533 : cognex_insight_2800_Slot_7_Output_Layout;
 
         // Module cognex_insight_2800/Slot_8
-        cognex_insight_2800_Slot_8_Output AT %QB2273 : cognex_insight_2800_Slot_8_Output_Layout;
+        cognex_insight_2800_Slot_8_Output AT %QB2279 : cognex_insight_2800_Slot_8_Output_Layout;
 
         // Module cognex_insight_2800/Slot_9
-        cognex_insight_2800_Slot_9_Output AT %QB2019 : cognex_insight_2800_Slot_9_Output_Layout;
+        cognex_insight_2800_Slot_9_Output AT %QB2025 : cognex_insight_2800_Slot_9_Output_Layout;
 
         // Module cognex_insight_7600/Acquisition_Control
-        cognex_insight_7600_Acquisition_Control_Output AT %QB3188 : cognex_insight_7600_Acquisition_Control_Output_Layout;
+        cognex_insight_7600_Acquisition_Control_Output AT %QB3194 : cognex_insight_7600_Acquisition_Control_Output_Layout;
 
         // Module cognex_insight_7600/Acquisition_Status
         cognex_insight_7600_Acquisition_Status_Input AT %IB5207 : cognex_insight_7600_Acquisition_Status_Input_Layout;
 
         // Module cognex_insight_7600/Command_Control
         cognex_insight_7600_Command_Control_Input AT %IB5210 : cognex_insight_7600_Command_Control_Input_Layout;
-        cognex_insight_7600_Command_Control_Output AT %QB3184 : cognex_insight_7600_Command_Control_Output_Layout;
+        cognex_insight_7600_Command_Control_Output AT %QB3190 : cognex_insight_7600_Command_Control_Output_Layout;
 
         // Module cognex_insight_7600/Inspection_Control
-        cognex_insight_7600_Inspection_Control_Output AT %QB3187 : cognex_insight_7600_Inspection_Control_Output_Layout;
+        cognex_insight_7600_Inspection_Control_Output AT %QB3193 : cognex_insight_7600_Inspection_Control_Output_Layout;
 
         // Module cognex_insight_7600/Inspection_Status
         cognex_insight_7600_Inspection_Status_Input AT %IB5203 : cognex_insight_7600_Inspection_Status_Input_Layout;
@@ -126,10 +126,10 @@ CONFIGURATION IoAddresses
 
         // Module cognex_insight_7600/SoftEvent_Control
         cognex_insight_7600_SoftEvent_Control_Input AT %IB5212 : cognex_insight_7600_SoftEvent_Control_Input_Layout;
-        cognex_insight_7600_SoftEvent_Control_Output AT %QB3186 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
+        cognex_insight_7600_SoftEvent_Control_Output AT %QB3192 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
 
         // Module cognex_insight_7600/UserData_128
-        cognex_insight_7600_UserData_128_Output AT %QB3056 : cognex_insight_7600_UserData_128_Output_Layout;
+        cognex_insight_7600_UserData_128_Output AT %QB3062 : cognex_insight_7600_UserData_128_Output_Layout;
 
         // Module desoutter_cvic_ii/Input_1_byte_1
         desoutter_cvic_ii_Input_1_byte_1_Input AT %IB671 : desoutter_cvic_ii_Input_1_byte_1_Input_Layout;
@@ -150,32 +150,32 @@ CONFIGURATION IoAddresses
         desoutter_cvic_ii_Input_2_word_2_Input AT %IB660 : desoutter_cvic_ii_Input_2_word_2_Input_Layout;
 
         // Module desoutter_cvic_ii/Output_1_byte_1
-        desoutter_cvic_ii_Output_1_byte_1_Output AT %QB446 : desoutter_cvic_ii_Output_1_byte_1_Output_Layout;
+        desoutter_cvic_ii_Output_1_byte_1_Output AT %QB452 : desoutter_cvic_ii_Output_1_byte_1_Output_Layout;
 
         // Module desoutter_cvic_ii/Output_1_byte_2
-        desoutter_cvic_ii_Output_1_byte_2_Output AT %QB445 : desoutter_cvic_ii_Output_1_byte_2_Output_Layout;
+        desoutter_cvic_ii_Output_1_byte_2_Output AT %QB451 : desoutter_cvic_ii_Output_1_byte_2_Output_Layout;
 
         // Module dukaneiqauto/iQ_to_PLC_Inputs
         dukaneiqauto_iQ_to_PLC_Inputs_Input AT %IB518 : dukaneiqauto_iQ_to_PLC_Inputs_Input_Layout;
 
         // Module dukaneiqauto/PLC_to_iQ_Outputs
-        dukaneiqauto_PLC_to_iQ_Outputs_Output AT %QB425 : dukaneiqauto_PLC_to_iQ_Outputs_Output_Layout;
+        dukaneiqauto_PLC_to_iQ_Outputs_Output AT %QB431 : dukaneiqauto_PLC_to_iQ_Outputs_Output_Layout;
 
         // Module et200sp_CM_4xIO_Link_RF200/CM_4xIO-Link_V2_2_144I_128O_1
         et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Input AT %IB162 : et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Input_Layout;
-        et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Output AT %QB163 : et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Output_Layout;
+        et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Output AT %QB169 : et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Output_Layout;
 
         // Module et200sp/CpPtp
         et200sp_CpPtp_Input AT %IB310 : et200sp_CpPtp_Input_Layout;
 
         // Module festo_cmmtas/DoServo
         festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input AT %IB5263 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout;
-        festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output AT %QB3255 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout;
+        festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output AT %QB3261 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout;
         festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input AT %IB5287 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout;
-        festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output AT %QB3279 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout;
+        festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output AT %QB3285 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout;
 
         // Module keyence_iv3/CommandControl
-        keyence_iv3_CommandControl_Output AT %QB453 : keyence_iv3_CommandControl_Output_Layout;
+        keyence_iv3_CommandControl_Output AT %QB459 : keyence_iv3_CommandControl_Output_Layout;
 
         // Module keyence_iv3/CommandStatusBits
         keyence_iv3_CommandStatusBits_Input AT %IB2116 : keyence_iv3_CommandStatusBits_Input_Layout;
@@ -391,7 +391,7 @@ CONFIGURATION IoAddresses
         keyence_sr_1000_BusyStatus_Input AT %IB2288 : keyence_sr_1000_BusyStatus_Input_Layout;
 
         // Module keyence_sr_1000/CompletionClearControl
-        keyence_sr_1000_CompletionClearControl_Output AT %QB597 : keyence_sr_1000_CompletionClearControl_Output_Layout;
+        keyence_sr_1000_CompletionClearControl_Output AT %QB603 : keyence_sr_1000_CompletionClearControl_Output_Layout;
 
         // Module keyence_sr_1000/CompletionStatus
         keyence_sr_1000_CompletionStatus_Input AT %IB2287 : keyence_sr_1000_CompletionStatus_Input_Layout;
@@ -403,19 +403,19 @@ CONFIGURATION IoAddresses
         keyence_sr_1000_HandshakeAndGeneralErrorStatus_Input AT %IB2289 : keyence_sr_1000_HandshakeAndGeneralErrorStatus_Input_Layout;
 
         // Module keyence_sr_1000/LatchAndErrorClearControl
-        keyence_sr_1000_LatchAndErrorClearControl_Output AT %QB599 : keyence_sr_1000_LatchAndErrorClearControl_Output_Layout;
+        keyence_sr_1000_LatchAndErrorClearControl_Output AT %QB605 : keyence_sr_1000_LatchAndErrorClearControl_Output_Layout;
 
         // Module keyence_sr_1000/MatchingLevelAndTotalEvaluationGradeStatus
         keyence_sr_1000_MatchingLevelAndTotalEvaluationGradeStatus_Input AT %IB2276 : keyence_sr_1000_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout;
 
         // Module keyence_sr_1000/OperationInstructionControl
-        keyence_sr_1000_OperationInstructionControl_Output AT %QB598 : keyence_sr_1000_OperationInstructionControl_Output_Layout;
+        keyence_sr_1000_OperationInstructionControl_Output AT %QB604 : keyence_sr_1000_OperationInstructionControl_Output_Layout;
 
         // Module keyence_sr_1000/OperationResultStatus
         keyence_sr_1000_OperationResultStatus_Input AT %IB2256 : keyence_sr_1000_OperationResultStatus_Input_Layout;
 
         // Module keyence_sr_1000/ParameterBank
-        keyence_sr_1000_ParameterBank_Output AT %QB595 : keyence_sr_1000_ParameterBank_Output_Layout;
+        keyence_sr_1000_ParameterBank_Output AT %QB601 : keyence_sr_1000_ParameterBank_Output_Layout;
 
         // Module keyence_sr_1000/ResultData_128
         keyence_sr_1000_ResultData_128_Input AT %IB2120 : keyence_sr_1000_ResultData_128_Input_Layout;
@@ -427,13 +427,13 @@ CONFIGURATION IoAddresses
         keyence_sr_1000_UnstableReadStatus_Input AT %IB2284 : keyence_sr_1000_UnstableReadStatus_Input_Layout;
 
         // Module keyence_sr_1000/UserData_128
-        keyence_sr_1000_UserData_128_Output AT %QB465 : keyence_sr_1000_UserData_128_Output_Layout;
+        keyence_sr_1000_UserData_128_Output AT %QB471 : keyence_sr_1000_UserData_128_Output_Layout;
 
         // Module keyence_sr_750/BusyStatus
         keyence_sr_750_BusyStatus_Input AT %IB2458 : keyence_sr_750_BusyStatus_Input_Layout;
 
         // Module keyence_sr_750/CompletionClearControl
-        keyence_sr_750_CompletionClearControl_Output AT %QB732 : keyence_sr_750_CompletionClearControl_Output_Layout;
+        keyence_sr_750_CompletionClearControl_Output AT %QB738 : keyence_sr_750_CompletionClearControl_Output_Layout;
 
         // Module keyence_sr_750/CompletionStatus
         keyence_sr_750_CompletionStatus_Input AT %IB2457 : keyence_sr_750_CompletionStatus_Input_Layout;
@@ -445,19 +445,19 @@ CONFIGURATION IoAddresses
         keyence_sr_750_HandshakeAndGeneralErrorStatus_Input AT %IB2459 : keyence_sr_750_HandshakeAndGeneralErrorStatus_Input_Layout;
 
         // Module keyence_sr_750/LatchAndErrorClearControl
-        keyence_sr_750_LatchAndErrorClearControl_Output AT %QB734 : keyence_sr_750_LatchAndErrorClearControl_Output_Layout;
+        keyence_sr_750_LatchAndErrorClearControl_Output AT %QB740 : keyence_sr_750_LatchAndErrorClearControl_Output_Layout;
 
         // Module keyence_sr_750/MatchingLevelAndTotalEvaluationGradeStatus
         keyence_sr_750_MatchingLevelAndTotalEvaluationGradeStatus_Input AT %IB2446 : keyence_sr_750_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout;
 
         // Module keyence_sr_750/OperationInstructionControl
-        keyence_sr_750_OperationInstructionControl_Output AT %QB733 : keyence_sr_750_OperationInstructionControl_Output_Layout;
+        keyence_sr_750_OperationInstructionControl_Output AT %QB739 : keyence_sr_750_OperationInstructionControl_Output_Layout;
 
         // Module keyence_sr_750/OperationResultStatus
         keyence_sr_750_OperationResultStatus_Input AT %IB2426 : keyence_sr_750_OperationResultStatus_Input_Layout;
 
         // Module keyence_sr_750/ParameterBank
-        keyence_sr_750_ParameterBank_Output AT %QB730 : keyence_sr_750_ParameterBank_Output_Layout;
+        keyence_sr_750_ParameterBank_Output AT %QB736 : keyence_sr_750_ParameterBank_Output_Layout;
 
         // Module keyence_sr_750/ResultData_128
         keyence_sr_750_ResultData_128_Input AT %IB2290 : keyence_sr_750_ResultData_128_Input_Layout;
@@ -469,18 +469,22 @@ CONFIGURATION IoAddresses
         keyence_sr_750_UnstableReadStatus_Input AT %IB2454 : keyence_sr_750_UnstableReadStatus_Input_Layout;
 
         // Module keyence_sr_750/UserData_128
-        keyence_sr_750_UserData_128_Output AT %QB600 : keyence_sr_750_UserData_128_Output_Layout;
+        keyence_sr_750_UserData_128_Output AT %QB606 : keyence_sr_750_UserData_128_Output_Layout;
 
         // Module kuka_rb1/DIO512
-        kuka_rb1_DIO512_Input AT %IB5833 : kuka_rb1_DIO512_Input_Layout;
-        kuka_rb1_DIO512_Output AT %QB3575 : kuka_rb1_DIO512_Output_Layout;
+        kuka_rb1_DIO512_Input AT %IB5897 : kuka_rb1_DIO512_Input_Layout;
+        kuka_rb1_DIO512_Output AT %QB3645 : kuka_rb1_DIO512_Output_Layout;
+
+        // Module kuka_rb2/DIO512
+        kuka_rb2_DIO512_Input AT %IB5833 : kuka_rb2_DIO512_Input_Layout;
+        kuka_rb2_DIO512_Output AT %QB3581 : kuka_rb2_DIO512_Output_Layout;
 
         // Module mitsubishi_tz535_robot/In_Out_64_byte
         mitsubishi_tz535_robot_In_Out_64_byte_Input AT %IB5769 : mitsubishi_tz535_robot_In_Out_64_byte_Input_Layout;
-        mitsubishi_tz535_robot_In_Out_64_byte_Output AT %QB3511 : mitsubishi_tz535_robot_In_Out_64_byte_Output_Layout;
+        mitsubishi_tz535_robot_In_Out_64_byte_Output AT %QB3517 : mitsubishi_tz535_robot_In_Out_64_byte_Output_Layout;
 
         // Module plc_line/A1
-        plc_line_A1_Input AT %IB6025 : plc_line_A1_Input_Layout;
+        plc_line_A1_Input AT %IB6089 : plc_line_A1_Input_Layout;
 
         // Module rexroth_cs351/Input_2_word_1
         rexroth_cs351_Input_2_word_1_Input AT %IB328 : rexroth_cs351_Input_2_word_1_Input_Layout;
@@ -534,31 +538,31 @@ CONFIGURATION IoAddresses
         rexroth_cs351_Input_4_word_9_Input AT %IB388 : rexroth_cs351_Input_4_word_9_Input_Layout;
 
         // Module rexroth_cs351/Output_2_word_1
-        rexroth_cs351_Output_2_word_1_Output AT %QB305 : rexroth_cs351_Output_2_word_1_Output_Layout;
+        rexroth_cs351_Output_2_word_1_Output AT %QB311 : rexroth_cs351_Output_2_word_1_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_1
-        rexroth_cs351_Output_4_word_1_Output AT %QB365 : rexroth_cs351_Output_4_word_1_Output_Layout;
+        rexroth_cs351_Output_4_word_1_Output AT %QB371 : rexroth_cs351_Output_4_word_1_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_2
-        rexroth_cs351_Output_4_word_2_Output AT %QB357 : rexroth_cs351_Output_4_word_2_Output_Layout;
+        rexroth_cs351_Output_4_word_2_Output AT %QB363 : rexroth_cs351_Output_4_word_2_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_3
-        rexroth_cs351_Output_4_word_3_Output AT %QB349 : rexroth_cs351_Output_4_word_3_Output_Layout;
+        rexroth_cs351_Output_4_word_3_Output AT %QB355 : rexroth_cs351_Output_4_word_3_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_4
-        rexroth_cs351_Output_4_word_4_Output AT %QB341 : rexroth_cs351_Output_4_word_4_Output_Layout;
+        rexroth_cs351_Output_4_word_4_Output AT %QB347 : rexroth_cs351_Output_4_word_4_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_5
-        rexroth_cs351_Output_4_word_5_Output AT %QB333 : rexroth_cs351_Output_4_word_5_Output_Layout;
+        rexroth_cs351_Output_4_word_5_Output AT %QB339 : rexroth_cs351_Output_4_word_5_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_6
-        rexroth_cs351_Output_4_word_6_Output AT %QB325 : rexroth_cs351_Output_4_word_6_Output_Layout;
+        rexroth_cs351_Output_4_word_6_Output AT %QB331 : rexroth_cs351_Output_4_word_6_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_7
-        rexroth_cs351_Output_4_word_7_Output AT %QB317 : rexroth_cs351_Output_4_word_7_Output_Layout;
+        rexroth_cs351_Output_4_word_7_Output AT %QB323 : rexroth_cs351_Output_4_word_7_Output_Layout;
 
         // Module rexroth_cs351/Output_4_word_8
-        rexroth_cs351_Output_4_word_8_Output AT %QB309 : rexroth_cs351_Output_4_word_8_Output_Layout;
+        rexroth_cs351_Output_4_word_8_Output AT %QB315 : rexroth_cs351_Output_4_word_8_Output_Layout;
 
         // Module rexroth_ctrlx_drive/Inputs
         rexroth_ctrlx_drive_Inputs_P_0_0106_0_0__STO_function__Operating_status_Input AT %IB5233 : rexroth_ctrlx_drive_Inputs_P_0_0106_0_0__STO_function__Operating_status_Input_Layout;
@@ -571,62 +575,62 @@ CONFIGURATION IoAddresses
         rexroth_ctrlx_drive_Inputs_S_0_1720_0_2__Power_supply_control__Status_word_Input AT %IB5229 : rexroth_ctrlx_drive_Inputs_S_0_1720_0_2__Power_supply_control__Status_word_Input_Layout;
 
         // Module rexroth_ctrlx_drive/Outputs
-        rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output AT %QB3213 : rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output AT %QB3211 : rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output AT %QB3189 : rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output AT %QB3207 : rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output AT %QB3215 : rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output AT %QB3203 : rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output AT %QB3191 : rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output AT %QB3195 : rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output AT %QB3199 : rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output_Layout;
-        rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output AT %QB3209 : rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output AT %QB3219 : rexroth_ctrlx_drive_Outputs_S_0_0080_0_0__Torque_force_command_value_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output AT %QB3217 : rexroth_ctrlx_drive_Outputs_S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output AT %QB3195 : rexroth_ctrlx_drive_Outputs_S_0_0134_0_0__Master_control_word__Value_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output AT %QB3213 : rexroth_ctrlx_drive_Outputs_S_0_0145_0_0__Signal_control_word__Value_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output AT %QB3221 : rexroth_ctrlx_drive_Outputs_S_0_0193_0_0__Positioning_jerk_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output AT %QB3209 : rexroth_ctrlx_drive_Outputs_S_0_0259_0_0__Positioning_profile__Profile_velocity_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output AT %QB3197 : rexroth_ctrlx_drive_Outputs_S_0_0260_0_0__Positioning_profile__Acceleration_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output AT %QB3201 : rexroth_ctrlx_drive_Outputs_S_0_0282_0_0__Drive_controlled_positioning__Command_value_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output AT %QB3205 : rexroth_ctrlx_drive_Outputs_S_0_0359_0_0__Positioning_profile__Deceleration_Output_Layout;
+        rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output AT %QB3215 : rexroth_ctrlx_drive_Outputs_S_0_1720_0_1__Power_supply_control__Control_word_Output_Layout;
 
         // Module rexroth_indradrive/Input_9_Words
         rexroth_indradrive_Input_9_Words_Input AT %IB5235 : rexroth_indradrive_Input_9_Words_Input_Layout;
 
         // Module rexroth_indradrive/Output_13_Words
-        rexroth_indradrive_Output_13_Words_Output AT %QB3219 : rexroth_indradrive_Output_13_Words_Output_Layout;
+        rexroth_indradrive_Output_13_Words_Output AT %QB3225 : rexroth_indradrive_Output_13_Words_Output_Layout;
 
         // Module rexroth_indradrive/ParamCh_5Words
         rexroth_indradrive_ParamCh_5Words_Input AT %IB5253 : rexroth_indradrive_ParamCh_5Words_Input_Layout;
-        rexroth_indradrive_ParamCh_5Words_Output AT %QB3245 : rexroth_indradrive_ParamCh_5Words_Output_Layout;
+        rexroth_indradrive_ParamCh_5Words_Output AT %QB3251 : rexroth_indradrive_ParamCh_5Words_Output_Layout;
 
         // Module rexroth_press/Input_24_Words
         rexroth_press_Input_24_Words_Input AT %IB460 : rexroth_press_Input_24_Words_Input_Layout;
 
         // Module rexroth_press/Output_21_Words
-        rexroth_press_Output_21_Words_Output AT %QB373 : rexroth_press_Output_21_Words_Output_Layout;
+        rexroth_press_Output_21_Words_Output AT %QB379 : rexroth_press_Output_21_Words_Output_Layout;
 
         // Module rexroth_press/ParamCh_5Words
         rexroth_press_ParamCh_5Words_Input AT %IB508 : rexroth_press_ParamCh_5Words_Input_Layout;
-        rexroth_press_ParamCh_5Words_Output AT %QB415 : rexroth_press_ParamCh_5Words_Output_Layout;
+        rexroth_press_ParamCh_5Words_Output AT %QB421 : rexroth_press_ParamCh_5Words_Output_Layout;
 
         // Module rf186c/CM_1
         rf186c_CM_1_Input AT %IB308 : rf186c_CM_1_Input_Layout;
-        rf186c_CM_1_Output AT %QB293 : rf186c_CM_1_Output_Layout;
+        rf186c_CM_1_Output AT %QB299 : rf186c_CM_1_Output_Layout;
 
         // Module rf186c_cyc/CM
         rf186c_cyc_CM_Input AT %IB160 : rf186c_cyc_CM_Input_Layout;
-        rf186c_cyc_CM_Output AT %QB161 : rf186c_cyc_CM_Output_Layout;
+        rf186c_cyc_CM_Output AT %QB167 : rf186c_cyc_CM_Output_Layout;
 
         // Module rf186c_cyc/RF260R_1
         rf186c_cyc_RF260R_1_Input AT %IB128 : rf186c_cyc_RF260R_1_Input_Layout;
-        rf186c_cyc_RF260R_1_Output AT %QB129 : rf186c_cyc_RF260R_1_Output_Layout;
+        rf186c_cyc_RF260R_1_Output AT %QB135 : rf186c_cyc_RF260R_1_Output_Layout;
 
         // Module rf186c_cyc/RF340R_1
         rf186c_cyc_RF340R_1_Input AT %IB0 : rf186c_cyc_RF340R_1_Input_Layout;
-        rf186c_cyc_RF340R_1_Output AT %QB1 : rf186c_cyc_RF340R_1_Output_Layout;
+        rf186c_cyc_RF340R_1_Output AT %QB7 : rf186c_cyc_RF340R_1_Output_Layout;
 
         // Module rf186c/Reader_1
         rf186c_Reader_1_Input AT %IB306 : rf186c_Reader_1_Input_Layout;
-        rf186c_Reader_1_Output AT %QB291 : rf186c_Reader_1_Output_Layout;
+        rf186c_Reader_1_Output AT %QB297 : rf186c_Reader_1_Output_Layout;
 
         // Module ureol2l/1_T2O_State
         ureol2l_1_T2O_State_Input AT %IB5737 : ureol2l_1_T2O_State_Input_Layout;
 
         // Module ureol2l/10_O2T_General_Purpose_Registers_2
-        ureol2l_10_O2T_General_Purpose_Registers_2_Output AT %QB3287 : ureol2l_10_O2T_General_Purpose_Registers_2_Output_Layout;
+        ureol2l_10_O2T_General_Purpose_Registers_2_Output AT %QB3293 : ureol2l_10_O2T_General_Purpose_Registers_2_Output_Layout;
 
         // Module ureol2l/2_T2O_IO
         ureol2l_2_T2O_IO_Input AT %IB5669 : ureol2l_2_T2O_IO_Input_Layout;
@@ -647,26 +651,26 @@ CONFIGURATION IoAddresses
         ureol2l_7_T2O_General_Purpose_Float_Registers_Input AT %IB5289 : ureol2l_7_T2O_General_Purpose_Float_Registers_Input_Layout;
 
         // Module ureol2l/8_O2T_Robot_IO
-        ureol2l_8_O2T_Robot_IO_Output AT %QB3487 : ureol2l_8_O2T_Robot_IO_Output_Layout;
+        ureol2l_8_O2T_Robot_IO_Output AT %QB3493 : ureol2l_8_O2T_Robot_IO_Output_Layout;
 
         // Module ureol2l/9_O2T_General_Purpose_Registers_1
-        ureol2l_9_O2T_General_Purpose_Registers_1_Output AT %QB3387 : ureol2l_9_O2T_General_Purpose_Registers_1_Output_Layout;
+        ureol2l_9_O2T_General_Purpose_Registers_1_Output AT %QB3393 : ureol2l_9_O2T_General_Purpose_Registers_1_Output_Layout;
 
         // Module vision_pro/Engine_Control_1
         vision_pro_Engine_Control_1_Input AT %IB3748 : vision_pro_Engine_Control_1_Input_Layout;
-        vision_pro_Engine_Control_1_Output AT %QB2002 : vision_pro_Engine_Control_1_Output_Layout;
+        vision_pro_Engine_Control_1_Output AT %QB2008 : vision_pro_Engine_Control_1_Output_Layout;
 
         // Module vision_pro/Engine_Control_2
         vision_pro_Engine_Control_2_Input AT %IB3740 : vision_pro_Engine_Control_2_Input_Layout;
-        vision_pro_Engine_Control_2_Output AT %QB2001 : vision_pro_Engine_Control_2_Output_Layout;
+        vision_pro_Engine_Control_2_Output AT %QB2007 : vision_pro_Engine_Control_2_Output_Layout;
 
         // Module vision_pro/Engine_Control_3
         vision_pro_Engine_Control_3_Input AT %IB3732 : vision_pro_Engine_Control_3_Input_Layout;
-        vision_pro_Engine_Control_3_Output AT %QB2000 : vision_pro_Engine_Control_3_Output_Layout;
+        vision_pro_Engine_Control_3_Output AT %QB2006 : vision_pro_Engine_Control_3_Output_Layout;
 
         // Module vision_pro/Engine_Control_4
         vision_pro_Engine_Control_4_Input AT %IB3724 : vision_pro_Engine_Control_4_Input_Layout;
-        vision_pro_Engine_Control_4_Output AT %QB1999 : vision_pro_Engine_Control_4_Output_Layout;
+        vision_pro_Engine_Control_4_Output AT %QB2005 : vision_pro_Engine_Control_4_Output_Layout;
 
         // Module vision_pro/Result_Data_240_bytes_1
         vision_pro_Result_Data_240_bytes_1_Input AT %IB3484 : vision_pro_Result_Data_240_bytes_1_Input_Layout;
@@ -688,29 +692,29 @@ CONFIGURATION IoAddresses
 
         // Module vision_pro/System_Control
         vision_pro_System_Control_Input AT %IB3756 : vision_pro_System_Control_Input_Layout;
-        vision_pro_System_Control_Output AT %QB2003 : vision_pro_System_Control_Output_Layout;
+        vision_pro_System_Control_Output AT %QB2009 : vision_pro_System_Control_Output_Layout;
 
         // Module vision_pro/User_Data_240_bytes_1
-        vision_pro_User_Data_240_bytes_1_Output AT %QB1759 : vision_pro_User_Data_240_bytes_1_Output_Layout;
+        vision_pro_User_Data_240_bytes_1_Output AT %QB1765 : vision_pro_User_Data_240_bytes_1_Output_Layout;
 
         // Module vision_pro/User_Data_240_bytes_2
-        vision_pro_User_Data_240_bytes_2_Output AT %QB1519 : vision_pro_User_Data_240_bytes_2_Output_Layout;
+        vision_pro_User_Data_240_bytes_2_Output AT %QB1525 : vision_pro_User_Data_240_bytes_2_Output_Layout;
 
         // Module vision_pro/User_Data_240_bytes_3
-        vision_pro_User_Data_240_bytes_3_Output AT %QB1279 : vision_pro_User_Data_240_bytes_3_Output_Layout;
+        vision_pro_User_Data_240_bytes_3_Output AT %QB1285 : vision_pro_User_Data_240_bytes_3_Output_Layout;
 
         // Module vision_pro/User_Data_240_bytes_4
-        vision_pro_User_Data_240_bytes_4_Output AT %QB1039 : vision_pro_User_Data_240_bytes_4_Output_Layout;
+        vision_pro_User_Data_240_bytes_4_Output AT %QB1045 : vision_pro_User_Data_240_bytes_4_Output_Layout;
 
         // Module vision_pro/User_Data_240_bytes_5
-        vision_pro_User_Data_240_bytes_5_Output AT %QB799 : vision_pro_User_Data_240_bytes_5_Output_Layout;
+        vision_pro_User_Data_240_bytes_5_Output AT %QB805 : vision_pro_User_Data_240_bytes_5_Output_Layout;
 
         // Module vision_pro/User_Data_64_bytes_1
-        vision_pro_User_Data_64_bytes_1_Output AT %QB735 : vision_pro_User_Data_64_bytes_1_Output_Layout;
+        vision_pro_User_Data_64_bytes_1_Output AT %QB741 : vision_pro_User_Data_64_bytes_1_Output_Layout;
 
         // Module zebra/Data88Bin6Bout
         zebra_Data88Bin6Bout_Input AT %IB672 : zebra_Data88Bin6Bout_Input_Layout;
-        zebra_Data88Bin6Bout_Output AT %QB447 : zebra_Data88Bin6Bout_Output_Layout;
+        zebra_Data88Bin6Bout_Output AT %QB453 : zebra_Data88Bin6Bout_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
@@ -5690,6 +5694,1040 @@ END_TYPE
 
 TYPE
     kuka_rb1_DIO512_Output_Layout : STRUCT
+        Signals_64_0 AT %X0.0 : BOOL;
+        Signals_64_1 AT %X0.1 : BOOL;
+        Signals_64_2 AT %X0.2 : BOOL;
+        Signals_64_3 AT %X0.3 : BOOL;
+        Signals_64_4 AT %X0.4 : BOOL;
+        Signals_64_5 AT %X0.5 : BOOL;
+        Signals_64_6 AT %X0.6 : BOOL;
+        Signals_64_7 AT %X0.7 : BOOL;
+        Signals_65_0 AT %X1.0 : BOOL;
+        Signals_65_1 AT %X1.1 : BOOL;
+        Signals_65_2 AT %X1.2 : BOOL;
+        Signals_65_3 AT %X1.3 : BOOL;
+        Signals_65_4 AT %X1.4 : BOOL;
+        Signals_65_5 AT %X1.5 : BOOL;
+        Signals_65_6 AT %X1.6 : BOOL;
+        Signals_65_7 AT %X1.7 : BOOL;
+        Signals_66_0 AT %X2.0 : BOOL;
+        Signals_66_1 AT %X2.1 : BOOL;
+        Signals_66_2 AT %X2.2 : BOOL;
+        Signals_66_3 AT %X2.3 : BOOL;
+        Signals_66_4 AT %X2.4 : BOOL;
+        Signals_66_5 AT %X2.5 : BOOL;
+        Signals_66_6 AT %X2.6 : BOOL;
+        Signals_66_7 AT %X2.7 : BOOL;
+        Signals_67_0 AT %X3.0 : BOOL;
+        Signals_67_1 AT %X3.1 : BOOL;
+        Signals_67_2 AT %X3.2 : BOOL;
+        Signals_67_3 AT %X3.3 : BOOL;
+        Signals_67_4 AT %X3.4 : BOOL;
+        Signals_67_5 AT %X3.5 : BOOL;
+        Signals_67_6 AT %X3.6 : BOOL;
+        Signals_67_7 AT %X3.7 : BOOL;
+        Signals_68_0 AT %X4.0 : BOOL;
+        Signals_68_1 AT %X4.1 : BOOL;
+        Signals_68_2 AT %X4.2 : BOOL;
+        Signals_68_3 AT %X4.3 : BOOL;
+        Signals_68_4 AT %X4.4 : BOOL;
+        Signals_68_5 AT %X4.5 : BOOL;
+        Signals_68_6 AT %X4.6 : BOOL;
+        Signals_68_7 AT %X4.7 : BOOL;
+        Signals_69_0 AT %X5.0 : BOOL;
+        Signals_69_1 AT %X5.1 : BOOL;
+        Signals_69_2 AT %X5.2 : BOOL;
+        Signals_69_3 AT %X5.3 : BOOL;
+        Signals_69_4 AT %X5.4 : BOOL;
+        Signals_69_5 AT %X5.5 : BOOL;
+        Signals_69_6 AT %X5.6 : BOOL;
+        Signals_69_7 AT %X5.7 : BOOL;
+        Signals_70_0 AT %X6.0 : BOOL;
+        Signals_70_1 AT %X6.1 : BOOL;
+        Signals_70_2 AT %X6.2 : BOOL;
+        Signals_70_3 AT %X6.3 : BOOL;
+        Signals_70_4 AT %X6.4 : BOOL;
+        Signals_70_5 AT %X6.5 : BOOL;
+        Signals_70_6 AT %X6.6 : BOOL;
+        Signals_70_7 AT %X6.7 : BOOL;
+        Signals_71_0 AT %X7.0 : BOOL;
+        Signals_71_1 AT %X7.1 : BOOL;
+        Signals_71_2 AT %X7.2 : BOOL;
+        Signals_71_3 AT %X7.3 : BOOL;
+        Signals_71_4 AT %X7.4 : BOOL;
+        Signals_71_5 AT %X7.5 : BOOL;
+        Signals_71_6 AT %X7.6 : BOOL;
+        Signals_71_7 AT %X7.7 : BOOL;
+        Signals_72_0 AT %X8.0 : BOOL;
+        Signals_72_1 AT %X8.1 : BOOL;
+        Signals_72_2 AT %X8.2 : BOOL;
+        Signals_72_3 AT %X8.3 : BOOL;
+        Signals_72_4 AT %X8.4 : BOOL;
+        Signals_72_5 AT %X8.5 : BOOL;
+        Signals_72_6 AT %X8.6 : BOOL;
+        Signals_72_7 AT %X8.7 : BOOL;
+        Signals_73_0 AT %X9.0 : BOOL;
+        Signals_73_1 AT %X9.1 : BOOL;
+        Signals_73_2 AT %X9.2 : BOOL;
+        Signals_73_3 AT %X9.3 : BOOL;
+        Signals_73_4 AT %X9.4 : BOOL;
+        Signals_73_5 AT %X9.5 : BOOL;
+        Signals_73_6 AT %X9.6 : BOOL;
+        Signals_73_7 AT %X9.7 : BOOL;
+        Signals_74_0 AT %X10.0 : BOOL;
+        Signals_74_1 AT %X10.1 : BOOL;
+        Signals_74_2 AT %X10.2 : BOOL;
+        Signals_74_3 AT %X10.3 : BOOL;
+        Signals_74_4 AT %X10.4 : BOOL;
+        Signals_74_5 AT %X10.5 : BOOL;
+        Signals_74_6 AT %X10.6 : BOOL;
+        Signals_74_7 AT %X10.7 : BOOL;
+        Signals_75_0 AT %X11.0 : BOOL;
+        Signals_75_1 AT %X11.1 : BOOL;
+        Signals_75_2 AT %X11.2 : BOOL;
+        Signals_75_3 AT %X11.3 : BOOL;
+        Signals_75_4 AT %X11.4 : BOOL;
+        Signals_75_5 AT %X11.5 : BOOL;
+        Signals_75_6 AT %X11.6 : BOOL;
+        Signals_75_7 AT %X11.7 : BOOL;
+        Signals_76_0 AT %X12.0 : BOOL;
+        Signals_76_1 AT %X12.1 : BOOL;
+        Signals_76_2 AT %X12.2 : BOOL;
+        Signals_76_3 AT %X12.3 : BOOL;
+        Signals_76_4 AT %X12.4 : BOOL;
+        Signals_76_5 AT %X12.5 : BOOL;
+        Signals_76_6 AT %X12.6 : BOOL;
+        Signals_76_7 AT %X12.7 : BOOL;
+        Signals_77_0 AT %X13.0 : BOOL;
+        Signals_77_1 AT %X13.1 : BOOL;
+        Signals_77_2 AT %X13.2 : BOOL;
+        Signals_77_3 AT %X13.3 : BOOL;
+        Signals_77_4 AT %X13.4 : BOOL;
+        Signals_77_5 AT %X13.5 : BOOL;
+        Signals_77_6 AT %X13.6 : BOOL;
+        Signals_77_7 AT %X13.7 : BOOL;
+        Signals_78_0 AT %X14.0 : BOOL;
+        Signals_78_1 AT %X14.1 : BOOL;
+        Signals_78_2 AT %X14.2 : BOOL;
+        Signals_78_3 AT %X14.3 : BOOL;
+        Signals_78_4 AT %X14.4 : BOOL;
+        Signals_78_5 AT %X14.5 : BOOL;
+        Signals_78_6 AT %X14.6 : BOOL;
+        Signals_78_7 AT %X14.7 : BOOL;
+        Signals_79_0 AT %X15.0 : BOOL;
+        Signals_79_1 AT %X15.1 : BOOL;
+        Signals_79_2 AT %X15.2 : BOOL;
+        Signals_79_3 AT %X15.3 : BOOL;
+        Signals_79_4 AT %X15.4 : BOOL;
+        Signals_79_5 AT %X15.5 : BOOL;
+        Signals_79_6 AT %X15.6 : BOOL;
+        Signals_79_7 AT %X15.7 : BOOL;
+        Signals_80_0 AT %X16.0 : BOOL;
+        Signals_80_1 AT %X16.1 : BOOL;
+        Signals_80_2 AT %X16.2 : BOOL;
+        Signals_80_3 AT %X16.3 : BOOL;
+        Signals_80_4 AT %X16.4 : BOOL;
+        Signals_80_5 AT %X16.5 : BOOL;
+        Signals_80_6 AT %X16.6 : BOOL;
+        Signals_80_7 AT %X16.7 : BOOL;
+        Signals_81_0 AT %X17.0 : BOOL;
+        Signals_81_1 AT %X17.1 : BOOL;
+        Signals_81_2 AT %X17.2 : BOOL;
+        Signals_81_3 AT %X17.3 : BOOL;
+        Signals_81_4 AT %X17.4 : BOOL;
+        Signals_81_5 AT %X17.5 : BOOL;
+        Signals_81_6 AT %X17.6 : BOOL;
+        Signals_81_7 AT %X17.7 : BOOL;
+        Signals_82_0 AT %X18.0 : BOOL;
+        Signals_82_1 AT %X18.1 : BOOL;
+        Signals_82_2 AT %X18.2 : BOOL;
+        Signals_82_3 AT %X18.3 : BOOL;
+        Signals_82_4 AT %X18.4 : BOOL;
+        Signals_82_5 AT %X18.5 : BOOL;
+        Signals_82_6 AT %X18.6 : BOOL;
+        Signals_82_7 AT %X18.7 : BOOL;
+        Signals_83_0 AT %X19.0 : BOOL;
+        Signals_83_1 AT %X19.1 : BOOL;
+        Signals_83_2 AT %X19.2 : BOOL;
+        Signals_83_3 AT %X19.3 : BOOL;
+        Signals_83_4 AT %X19.4 : BOOL;
+        Signals_83_5 AT %X19.5 : BOOL;
+        Signals_83_6 AT %X19.6 : BOOL;
+        Signals_83_7 AT %X19.7 : BOOL;
+        Signals_84_0 AT %X20.0 : BOOL;
+        Signals_84_1 AT %X20.1 : BOOL;
+        Signals_84_2 AT %X20.2 : BOOL;
+        Signals_84_3 AT %X20.3 : BOOL;
+        Signals_84_4 AT %X20.4 : BOOL;
+        Signals_84_5 AT %X20.5 : BOOL;
+        Signals_84_6 AT %X20.6 : BOOL;
+        Signals_84_7 AT %X20.7 : BOOL;
+        Signals_85_0 AT %X21.0 : BOOL;
+        Signals_85_1 AT %X21.1 : BOOL;
+        Signals_85_2 AT %X21.2 : BOOL;
+        Signals_85_3 AT %X21.3 : BOOL;
+        Signals_85_4 AT %X21.4 : BOOL;
+        Signals_85_5 AT %X21.5 : BOOL;
+        Signals_85_6 AT %X21.6 : BOOL;
+        Signals_85_7 AT %X21.7 : BOOL;
+        Signals_86_0 AT %X22.0 : BOOL;
+        Signals_86_1 AT %X22.1 : BOOL;
+        Signals_86_2 AT %X22.2 : BOOL;
+        Signals_86_3 AT %X22.3 : BOOL;
+        Signals_86_4 AT %X22.4 : BOOL;
+        Signals_86_5 AT %X22.5 : BOOL;
+        Signals_86_6 AT %X22.6 : BOOL;
+        Signals_86_7 AT %X22.7 : BOOL;
+        Signals_87_0 AT %X23.0 : BOOL;
+        Signals_87_1 AT %X23.1 : BOOL;
+        Signals_87_2 AT %X23.2 : BOOL;
+        Signals_87_3 AT %X23.3 : BOOL;
+        Signals_87_4 AT %X23.4 : BOOL;
+        Signals_87_5 AT %X23.5 : BOOL;
+        Signals_87_6 AT %X23.6 : BOOL;
+        Signals_87_7 AT %X23.7 : BOOL;
+        Signals_88_0 AT %X24.0 : BOOL;
+        Signals_88_1 AT %X24.1 : BOOL;
+        Signals_88_2 AT %X24.2 : BOOL;
+        Signals_88_3 AT %X24.3 : BOOL;
+        Signals_88_4 AT %X24.4 : BOOL;
+        Signals_88_5 AT %X24.5 : BOOL;
+        Signals_88_6 AT %X24.6 : BOOL;
+        Signals_88_7 AT %X24.7 : BOOL;
+        Signals_89_0 AT %X25.0 : BOOL;
+        Signals_89_1 AT %X25.1 : BOOL;
+        Signals_89_2 AT %X25.2 : BOOL;
+        Signals_89_3 AT %X25.3 : BOOL;
+        Signals_89_4 AT %X25.4 : BOOL;
+        Signals_89_5 AT %X25.5 : BOOL;
+        Signals_89_6 AT %X25.6 : BOOL;
+        Signals_89_7 AT %X25.7 : BOOL;
+        Signals_90_0 AT %X26.0 : BOOL;
+        Signals_90_1 AT %X26.1 : BOOL;
+        Signals_90_2 AT %X26.2 : BOOL;
+        Signals_90_3 AT %X26.3 : BOOL;
+        Signals_90_4 AT %X26.4 : BOOL;
+        Signals_90_5 AT %X26.5 : BOOL;
+        Signals_90_6 AT %X26.6 : BOOL;
+        Signals_90_7 AT %X26.7 : BOOL;
+        Signals_91_0 AT %X27.0 : BOOL;
+        Signals_91_1 AT %X27.1 : BOOL;
+        Signals_91_2 AT %X27.2 : BOOL;
+        Signals_91_3 AT %X27.3 : BOOL;
+        Signals_91_4 AT %X27.4 : BOOL;
+        Signals_91_5 AT %X27.5 : BOOL;
+        Signals_91_6 AT %X27.6 : BOOL;
+        Signals_91_7 AT %X27.7 : BOOL;
+        Signals_92_0 AT %X28.0 : BOOL;
+        Signals_92_1 AT %X28.1 : BOOL;
+        Signals_92_2 AT %X28.2 : BOOL;
+        Signals_92_3 AT %X28.3 : BOOL;
+        Signals_92_4 AT %X28.4 : BOOL;
+        Signals_92_5 AT %X28.5 : BOOL;
+        Signals_92_6 AT %X28.6 : BOOL;
+        Signals_92_7 AT %X28.7 : BOOL;
+        Signals_93_0 AT %X29.0 : BOOL;
+        Signals_93_1 AT %X29.1 : BOOL;
+        Signals_93_2 AT %X29.2 : BOOL;
+        Signals_93_3 AT %X29.3 : BOOL;
+        Signals_93_4 AT %X29.4 : BOOL;
+        Signals_93_5 AT %X29.5 : BOOL;
+        Signals_93_6 AT %X29.6 : BOOL;
+        Signals_93_7 AT %X29.7 : BOOL;
+        Signals_94_0 AT %X30.0 : BOOL;
+        Signals_94_1 AT %X30.1 : BOOL;
+        Signals_94_2 AT %X30.2 : BOOL;
+        Signals_94_3 AT %X30.3 : BOOL;
+        Signals_94_4 AT %X30.4 : BOOL;
+        Signals_94_5 AT %X30.5 : BOOL;
+        Signals_94_6 AT %X30.6 : BOOL;
+        Signals_94_7 AT %X30.7 : BOOL;
+        Signals_95_0 AT %X31.0 : BOOL;
+        Signals_95_1 AT %X31.1 : BOOL;
+        Signals_95_2 AT %X31.2 : BOOL;
+        Signals_95_3 AT %X31.3 : BOOL;
+        Signals_95_4 AT %X31.4 : BOOL;
+        Signals_95_5 AT %X31.5 : BOOL;
+        Signals_95_6 AT %X31.6 : BOOL;
+        Signals_95_7 AT %X31.7 : BOOL;
+        Signals_96_0 AT %X32.0 : BOOL;
+        Signals_96_1 AT %X32.1 : BOOL;
+        Signals_96_2 AT %X32.2 : BOOL;
+        Signals_96_3 AT %X32.3 : BOOL;
+        Signals_96_4 AT %X32.4 : BOOL;
+        Signals_96_5 AT %X32.5 : BOOL;
+        Signals_96_6 AT %X32.6 : BOOL;
+        Signals_96_7 AT %X32.7 : BOOL;
+        Signals_97_0 AT %X33.0 : BOOL;
+        Signals_97_1 AT %X33.1 : BOOL;
+        Signals_97_2 AT %X33.2 : BOOL;
+        Signals_97_3 AT %X33.3 : BOOL;
+        Signals_97_4 AT %X33.4 : BOOL;
+        Signals_97_5 AT %X33.5 : BOOL;
+        Signals_97_6 AT %X33.6 : BOOL;
+        Signals_97_7 AT %X33.7 : BOOL;
+        Signals_98_0 AT %X34.0 : BOOL;
+        Signals_98_1 AT %X34.1 : BOOL;
+        Signals_98_2 AT %X34.2 : BOOL;
+        Signals_98_3 AT %X34.3 : BOOL;
+        Signals_98_4 AT %X34.4 : BOOL;
+        Signals_98_5 AT %X34.5 : BOOL;
+        Signals_98_6 AT %X34.6 : BOOL;
+        Signals_98_7 AT %X34.7 : BOOL;
+        Signals_99_0 AT %X35.0 : BOOL;
+        Signals_99_1 AT %X35.1 : BOOL;
+        Signals_99_2 AT %X35.2 : BOOL;
+        Signals_99_3 AT %X35.3 : BOOL;
+        Signals_99_4 AT %X35.4 : BOOL;
+        Signals_99_5 AT %X35.5 : BOOL;
+        Signals_99_6 AT %X35.6 : BOOL;
+        Signals_99_7 AT %X35.7 : BOOL;
+        Signals_100_0 AT %X36.0 : BOOL;
+        Signals_100_1 AT %X36.1 : BOOL;
+        Signals_100_2 AT %X36.2 : BOOL;
+        Signals_100_3 AT %X36.3 : BOOL;
+        Signals_100_4 AT %X36.4 : BOOL;
+        Signals_100_5 AT %X36.5 : BOOL;
+        Signals_100_6 AT %X36.6 : BOOL;
+        Signals_100_7 AT %X36.7 : BOOL;
+        Signals_101_0 AT %X37.0 : BOOL;
+        Signals_101_1 AT %X37.1 : BOOL;
+        Signals_101_2 AT %X37.2 : BOOL;
+        Signals_101_3 AT %X37.3 : BOOL;
+        Signals_101_4 AT %X37.4 : BOOL;
+        Signals_101_5 AT %X37.5 : BOOL;
+        Signals_101_6 AT %X37.6 : BOOL;
+        Signals_101_7 AT %X37.7 : BOOL;
+        Signals_102_0 AT %X38.0 : BOOL;
+        Signals_102_1 AT %X38.1 : BOOL;
+        Signals_102_2 AT %X38.2 : BOOL;
+        Signals_102_3 AT %X38.3 : BOOL;
+        Signals_102_4 AT %X38.4 : BOOL;
+        Signals_102_5 AT %X38.5 : BOOL;
+        Signals_102_6 AT %X38.6 : BOOL;
+        Signals_102_7 AT %X38.7 : BOOL;
+        Signals_103_0 AT %X39.0 : BOOL;
+        Signals_103_1 AT %X39.1 : BOOL;
+        Signals_103_2 AT %X39.2 : BOOL;
+        Signals_103_3 AT %X39.3 : BOOL;
+        Signals_103_4 AT %X39.4 : BOOL;
+        Signals_103_5 AT %X39.5 : BOOL;
+        Signals_103_6 AT %X39.6 : BOOL;
+        Signals_103_7 AT %X39.7 : BOOL;
+        Signals_104_0 AT %X40.0 : BOOL;
+        Signals_104_1 AT %X40.1 : BOOL;
+        Signals_104_2 AT %X40.2 : BOOL;
+        Signals_104_3 AT %X40.3 : BOOL;
+        Signals_104_4 AT %X40.4 : BOOL;
+        Signals_104_5 AT %X40.5 : BOOL;
+        Signals_104_6 AT %X40.6 : BOOL;
+        Signals_104_7 AT %X40.7 : BOOL;
+        Signals_105_0 AT %X41.0 : BOOL;
+        Signals_105_1 AT %X41.1 : BOOL;
+        Signals_105_2 AT %X41.2 : BOOL;
+        Signals_105_3 AT %X41.3 : BOOL;
+        Signals_105_4 AT %X41.4 : BOOL;
+        Signals_105_5 AT %X41.5 : BOOL;
+        Signals_105_6 AT %X41.6 : BOOL;
+        Signals_105_7 AT %X41.7 : BOOL;
+        Signals_106_0 AT %X42.0 : BOOL;
+        Signals_106_1 AT %X42.1 : BOOL;
+        Signals_106_2 AT %X42.2 : BOOL;
+        Signals_106_3 AT %X42.3 : BOOL;
+        Signals_106_4 AT %X42.4 : BOOL;
+        Signals_106_5 AT %X42.5 : BOOL;
+        Signals_106_6 AT %X42.6 : BOOL;
+        Signals_106_7 AT %X42.7 : BOOL;
+        Signals_107_0 AT %X43.0 : BOOL;
+        Signals_107_1 AT %X43.1 : BOOL;
+        Signals_107_2 AT %X43.2 : BOOL;
+        Signals_107_3 AT %X43.3 : BOOL;
+        Signals_107_4 AT %X43.4 : BOOL;
+        Signals_107_5 AT %X43.5 : BOOL;
+        Signals_107_6 AT %X43.6 : BOOL;
+        Signals_107_7 AT %X43.7 : BOOL;
+        Signals_108_0 AT %X44.0 : BOOL;
+        Signals_108_1 AT %X44.1 : BOOL;
+        Signals_108_2 AT %X44.2 : BOOL;
+        Signals_108_3 AT %X44.3 : BOOL;
+        Signals_108_4 AT %X44.4 : BOOL;
+        Signals_108_5 AT %X44.5 : BOOL;
+        Signals_108_6 AT %X44.6 : BOOL;
+        Signals_108_7 AT %X44.7 : BOOL;
+        Signals_109_0 AT %X45.0 : BOOL;
+        Signals_109_1 AT %X45.1 : BOOL;
+        Signals_109_2 AT %X45.2 : BOOL;
+        Signals_109_3 AT %X45.3 : BOOL;
+        Signals_109_4 AT %X45.4 : BOOL;
+        Signals_109_5 AT %X45.5 : BOOL;
+        Signals_109_6 AT %X45.6 : BOOL;
+        Signals_109_7 AT %X45.7 : BOOL;
+        Signals_110_0 AT %X46.0 : BOOL;
+        Signals_110_1 AT %X46.1 : BOOL;
+        Signals_110_2 AT %X46.2 : BOOL;
+        Signals_110_3 AT %X46.3 : BOOL;
+        Signals_110_4 AT %X46.4 : BOOL;
+        Signals_110_5 AT %X46.5 : BOOL;
+        Signals_110_6 AT %X46.6 : BOOL;
+        Signals_110_7 AT %X46.7 : BOOL;
+        Signals_111_0 AT %X47.0 : BOOL;
+        Signals_111_1 AT %X47.1 : BOOL;
+        Signals_111_2 AT %X47.2 : BOOL;
+        Signals_111_3 AT %X47.3 : BOOL;
+        Signals_111_4 AT %X47.4 : BOOL;
+        Signals_111_5 AT %X47.5 : BOOL;
+        Signals_111_6 AT %X47.6 : BOOL;
+        Signals_111_7 AT %X47.7 : BOOL;
+        Signals_112_0 AT %X48.0 : BOOL;
+        Signals_112_1 AT %X48.1 : BOOL;
+        Signals_112_2 AT %X48.2 : BOOL;
+        Signals_112_3 AT %X48.3 : BOOL;
+        Signals_112_4 AT %X48.4 : BOOL;
+        Signals_112_5 AT %X48.5 : BOOL;
+        Signals_112_6 AT %X48.6 : BOOL;
+        Signals_112_7 AT %X48.7 : BOOL;
+        Signals_113_0 AT %X49.0 : BOOL;
+        Signals_113_1 AT %X49.1 : BOOL;
+        Signals_113_2 AT %X49.2 : BOOL;
+        Signals_113_3 AT %X49.3 : BOOL;
+        Signals_113_4 AT %X49.4 : BOOL;
+        Signals_113_5 AT %X49.5 : BOOL;
+        Signals_113_6 AT %X49.6 : BOOL;
+        Signals_113_7 AT %X49.7 : BOOL;
+        Signals_114_0 AT %X50.0 : BOOL;
+        Signals_114_1 AT %X50.1 : BOOL;
+        Signals_114_2 AT %X50.2 : BOOL;
+        Signals_114_3 AT %X50.3 : BOOL;
+        Signals_114_4 AT %X50.4 : BOOL;
+        Signals_114_5 AT %X50.5 : BOOL;
+        Signals_114_6 AT %X50.6 : BOOL;
+        Signals_114_7 AT %X50.7 : BOOL;
+        Signals_115_0 AT %X51.0 : BOOL;
+        Signals_115_1 AT %X51.1 : BOOL;
+        Signals_115_2 AT %X51.2 : BOOL;
+        Signals_115_3 AT %X51.3 : BOOL;
+        Signals_115_4 AT %X51.4 : BOOL;
+        Signals_115_5 AT %X51.5 : BOOL;
+        Signals_115_6 AT %X51.6 : BOOL;
+        Signals_115_7 AT %X51.7 : BOOL;
+        Signals_116_0 AT %X52.0 : BOOL;
+        Signals_116_1 AT %X52.1 : BOOL;
+        Signals_116_2 AT %X52.2 : BOOL;
+        Signals_116_3 AT %X52.3 : BOOL;
+        Signals_116_4 AT %X52.4 : BOOL;
+        Signals_116_5 AT %X52.5 : BOOL;
+        Signals_116_6 AT %X52.6 : BOOL;
+        Signals_116_7 AT %X52.7 : BOOL;
+        Signals_117_0 AT %X53.0 : BOOL;
+        Signals_117_1 AT %X53.1 : BOOL;
+        Signals_117_2 AT %X53.2 : BOOL;
+        Signals_117_3 AT %X53.3 : BOOL;
+        Signals_117_4 AT %X53.4 : BOOL;
+        Signals_117_5 AT %X53.5 : BOOL;
+        Signals_117_6 AT %X53.6 : BOOL;
+        Signals_117_7 AT %X53.7 : BOOL;
+        Signals_118_0 AT %X54.0 : BOOL;
+        Signals_118_1 AT %X54.1 : BOOL;
+        Signals_118_2 AT %X54.2 : BOOL;
+        Signals_118_3 AT %X54.3 : BOOL;
+        Signals_118_4 AT %X54.4 : BOOL;
+        Signals_118_5 AT %X54.5 : BOOL;
+        Signals_118_6 AT %X54.6 : BOOL;
+        Signals_118_7 AT %X54.7 : BOOL;
+        Signals_119_0 AT %X55.0 : BOOL;
+        Signals_119_1 AT %X55.1 : BOOL;
+        Signals_119_2 AT %X55.2 : BOOL;
+        Signals_119_3 AT %X55.3 : BOOL;
+        Signals_119_4 AT %X55.4 : BOOL;
+        Signals_119_5 AT %X55.5 : BOOL;
+        Signals_119_6 AT %X55.6 : BOOL;
+        Signals_119_7 AT %X55.7 : BOOL;
+        Signals_120_0 AT %X56.0 : BOOL;
+        Signals_120_1 AT %X56.1 : BOOL;
+        Signals_120_2 AT %X56.2 : BOOL;
+        Signals_120_3 AT %X56.3 : BOOL;
+        Signals_120_4 AT %X56.4 : BOOL;
+        Signals_120_5 AT %X56.5 : BOOL;
+        Signals_120_6 AT %X56.6 : BOOL;
+        Signals_120_7 AT %X56.7 : BOOL;
+        Signals_121_0 AT %X57.0 : BOOL;
+        Signals_121_1 AT %X57.1 : BOOL;
+        Signals_121_2 AT %X57.2 : BOOL;
+        Signals_121_3 AT %X57.3 : BOOL;
+        Signals_121_4 AT %X57.4 : BOOL;
+        Signals_121_5 AT %X57.5 : BOOL;
+        Signals_121_6 AT %X57.6 : BOOL;
+        Signals_121_7 AT %X57.7 : BOOL;
+        Signals_122_0 AT %X58.0 : BOOL;
+        Signals_122_1 AT %X58.1 : BOOL;
+        Signals_122_2 AT %X58.2 : BOOL;
+        Signals_122_3 AT %X58.3 : BOOL;
+        Signals_122_4 AT %X58.4 : BOOL;
+        Signals_122_5 AT %X58.5 : BOOL;
+        Signals_122_6 AT %X58.6 : BOOL;
+        Signals_122_7 AT %X58.7 : BOOL;
+        Signals_123_0 AT %X59.0 : BOOL;
+        Signals_123_1 AT %X59.1 : BOOL;
+        Signals_123_2 AT %X59.2 : BOOL;
+        Signals_123_3 AT %X59.3 : BOOL;
+        Signals_123_4 AT %X59.4 : BOOL;
+        Signals_123_5 AT %X59.5 : BOOL;
+        Signals_123_6 AT %X59.6 : BOOL;
+        Signals_123_7 AT %X59.7 : BOOL;
+        Signals_124_0 AT %X60.0 : BOOL;
+        Signals_124_1 AT %X60.1 : BOOL;
+        Signals_124_2 AT %X60.2 : BOOL;
+        Signals_124_3 AT %X60.3 : BOOL;
+        Signals_124_4 AT %X60.4 : BOOL;
+        Signals_124_5 AT %X60.5 : BOOL;
+        Signals_124_6 AT %X60.6 : BOOL;
+        Signals_124_7 AT %X60.7 : BOOL;
+        Signals_125_0 AT %X61.0 : BOOL;
+        Signals_125_1 AT %X61.1 : BOOL;
+        Signals_125_2 AT %X61.2 : BOOL;
+        Signals_125_3 AT %X61.3 : BOOL;
+        Signals_125_4 AT %X61.4 : BOOL;
+        Signals_125_5 AT %X61.5 : BOOL;
+        Signals_125_6 AT %X61.6 : BOOL;
+        Signals_125_7 AT %X61.7 : BOOL;
+        Signals_126_0 AT %X62.0 : BOOL;
+        Signals_126_1 AT %X62.1 : BOOL;
+        Signals_126_2 AT %X62.2 : BOOL;
+        Signals_126_3 AT %X62.3 : BOOL;
+        Signals_126_4 AT %X62.4 : BOOL;
+        Signals_126_5 AT %X62.5 : BOOL;
+        Signals_126_6 AT %X62.6 : BOOL;
+        Signals_126_7 AT %X62.7 : BOOL;
+        Signals_127_0 AT %X63.0 : BOOL;
+        Signals_127_1 AT %X63.1 : BOOL;
+        Signals_127_2 AT %X63.2 : BOOL;
+        Signals_127_3 AT %X63.3 : BOOL;
+        Signals_127_4 AT %X63.4 : BOOL;
+        Signals_127_5 AT %X63.5 : BOOL;
+        Signals_127_6 AT %X63.6 : BOOL;
+        Signals_127_7 AT %X63.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    kuka_rb2_DIO512_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+        Signals_1_0 AT %X1.0 : BOOL;
+        Signals_1_1 AT %X1.1 : BOOL;
+        Signals_1_2 AT %X1.2 : BOOL;
+        Signals_1_3 AT %X1.3 : BOOL;
+        Signals_1_4 AT %X1.4 : BOOL;
+        Signals_1_5 AT %X1.5 : BOOL;
+        Signals_1_6 AT %X1.6 : BOOL;
+        Signals_1_7 AT %X1.7 : BOOL;
+        Signals_2_0 AT %X2.0 : BOOL;
+        Signals_2_1 AT %X2.1 : BOOL;
+        Signals_2_2 AT %X2.2 : BOOL;
+        Signals_2_3 AT %X2.3 : BOOL;
+        Signals_2_4 AT %X2.4 : BOOL;
+        Signals_2_5 AT %X2.5 : BOOL;
+        Signals_2_6 AT %X2.6 : BOOL;
+        Signals_2_7 AT %X2.7 : BOOL;
+        Signals_3_0 AT %X3.0 : BOOL;
+        Signals_3_1 AT %X3.1 : BOOL;
+        Signals_3_2 AT %X3.2 : BOOL;
+        Signals_3_3 AT %X3.3 : BOOL;
+        Signals_3_4 AT %X3.4 : BOOL;
+        Signals_3_5 AT %X3.5 : BOOL;
+        Signals_3_6 AT %X3.6 : BOOL;
+        Signals_3_7 AT %X3.7 : BOOL;
+        Signals_4_0 AT %X4.0 : BOOL;
+        Signals_4_1 AT %X4.1 : BOOL;
+        Signals_4_2 AT %X4.2 : BOOL;
+        Signals_4_3 AT %X4.3 : BOOL;
+        Signals_4_4 AT %X4.4 : BOOL;
+        Signals_4_5 AT %X4.5 : BOOL;
+        Signals_4_6 AT %X4.6 : BOOL;
+        Signals_4_7 AT %X4.7 : BOOL;
+        Signals_5_0 AT %X5.0 : BOOL;
+        Signals_5_1 AT %X5.1 : BOOL;
+        Signals_5_2 AT %X5.2 : BOOL;
+        Signals_5_3 AT %X5.3 : BOOL;
+        Signals_5_4 AT %X5.4 : BOOL;
+        Signals_5_5 AT %X5.5 : BOOL;
+        Signals_5_6 AT %X5.6 : BOOL;
+        Signals_5_7 AT %X5.7 : BOOL;
+        Signals_6_0 AT %X6.0 : BOOL;
+        Signals_6_1 AT %X6.1 : BOOL;
+        Signals_6_2 AT %X6.2 : BOOL;
+        Signals_6_3 AT %X6.3 : BOOL;
+        Signals_6_4 AT %X6.4 : BOOL;
+        Signals_6_5 AT %X6.5 : BOOL;
+        Signals_6_6 AT %X6.6 : BOOL;
+        Signals_6_7 AT %X6.7 : BOOL;
+        Signals_7_0 AT %X7.0 : BOOL;
+        Signals_7_1 AT %X7.1 : BOOL;
+        Signals_7_2 AT %X7.2 : BOOL;
+        Signals_7_3 AT %X7.3 : BOOL;
+        Signals_7_4 AT %X7.4 : BOOL;
+        Signals_7_5 AT %X7.5 : BOOL;
+        Signals_7_6 AT %X7.6 : BOOL;
+        Signals_7_7 AT %X7.7 : BOOL;
+        Signals_8_0 AT %X8.0 : BOOL;
+        Signals_8_1 AT %X8.1 : BOOL;
+        Signals_8_2 AT %X8.2 : BOOL;
+        Signals_8_3 AT %X8.3 : BOOL;
+        Signals_8_4 AT %X8.4 : BOOL;
+        Signals_8_5 AT %X8.5 : BOOL;
+        Signals_8_6 AT %X8.6 : BOOL;
+        Signals_8_7 AT %X8.7 : BOOL;
+        Signals_9_0 AT %X9.0 : BOOL;
+        Signals_9_1 AT %X9.1 : BOOL;
+        Signals_9_2 AT %X9.2 : BOOL;
+        Signals_9_3 AT %X9.3 : BOOL;
+        Signals_9_4 AT %X9.4 : BOOL;
+        Signals_9_5 AT %X9.5 : BOOL;
+        Signals_9_6 AT %X9.6 : BOOL;
+        Signals_9_7 AT %X9.7 : BOOL;
+        Signals_10_0 AT %X10.0 : BOOL;
+        Signals_10_1 AT %X10.1 : BOOL;
+        Signals_10_2 AT %X10.2 : BOOL;
+        Signals_10_3 AT %X10.3 : BOOL;
+        Signals_10_4 AT %X10.4 : BOOL;
+        Signals_10_5 AT %X10.5 : BOOL;
+        Signals_10_6 AT %X10.6 : BOOL;
+        Signals_10_7 AT %X10.7 : BOOL;
+        Signals_11_0 AT %X11.0 : BOOL;
+        Signals_11_1 AT %X11.1 : BOOL;
+        Signals_11_2 AT %X11.2 : BOOL;
+        Signals_11_3 AT %X11.3 : BOOL;
+        Signals_11_4 AT %X11.4 : BOOL;
+        Signals_11_5 AT %X11.5 : BOOL;
+        Signals_11_6 AT %X11.6 : BOOL;
+        Signals_11_7 AT %X11.7 : BOOL;
+        Signals_12_0 AT %X12.0 : BOOL;
+        Signals_12_1 AT %X12.1 : BOOL;
+        Signals_12_2 AT %X12.2 : BOOL;
+        Signals_12_3 AT %X12.3 : BOOL;
+        Signals_12_4 AT %X12.4 : BOOL;
+        Signals_12_5 AT %X12.5 : BOOL;
+        Signals_12_6 AT %X12.6 : BOOL;
+        Signals_12_7 AT %X12.7 : BOOL;
+        Signals_13_0 AT %X13.0 : BOOL;
+        Signals_13_1 AT %X13.1 : BOOL;
+        Signals_13_2 AT %X13.2 : BOOL;
+        Signals_13_3 AT %X13.3 : BOOL;
+        Signals_13_4 AT %X13.4 : BOOL;
+        Signals_13_5 AT %X13.5 : BOOL;
+        Signals_13_6 AT %X13.6 : BOOL;
+        Signals_13_7 AT %X13.7 : BOOL;
+        Signals_14_0 AT %X14.0 : BOOL;
+        Signals_14_1 AT %X14.1 : BOOL;
+        Signals_14_2 AT %X14.2 : BOOL;
+        Signals_14_3 AT %X14.3 : BOOL;
+        Signals_14_4 AT %X14.4 : BOOL;
+        Signals_14_5 AT %X14.5 : BOOL;
+        Signals_14_6 AT %X14.6 : BOOL;
+        Signals_14_7 AT %X14.7 : BOOL;
+        Signals_15_0 AT %X15.0 : BOOL;
+        Signals_15_1 AT %X15.1 : BOOL;
+        Signals_15_2 AT %X15.2 : BOOL;
+        Signals_15_3 AT %X15.3 : BOOL;
+        Signals_15_4 AT %X15.4 : BOOL;
+        Signals_15_5 AT %X15.5 : BOOL;
+        Signals_15_6 AT %X15.6 : BOOL;
+        Signals_15_7 AT %X15.7 : BOOL;
+        Signals_16_0 AT %X16.0 : BOOL;
+        Signals_16_1 AT %X16.1 : BOOL;
+        Signals_16_2 AT %X16.2 : BOOL;
+        Signals_16_3 AT %X16.3 : BOOL;
+        Signals_16_4 AT %X16.4 : BOOL;
+        Signals_16_5 AT %X16.5 : BOOL;
+        Signals_16_6 AT %X16.6 : BOOL;
+        Signals_16_7 AT %X16.7 : BOOL;
+        Signals_17_0 AT %X17.0 : BOOL;
+        Signals_17_1 AT %X17.1 : BOOL;
+        Signals_17_2 AT %X17.2 : BOOL;
+        Signals_17_3 AT %X17.3 : BOOL;
+        Signals_17_4 AT %X17.4 : BOOL;
+        Signals_17_5 AT %X17.5 : BOOL;
+        Signals_17_6 AT %X17.6 : BOOL;
+        Signals_17_7 AT %X17.7 : BOOL;
+        Signals_18_0 AT %X18.0 : BOOL;
+        Signals_18_1 AT %X18.1 : BOOL;
+        Signals_18_2 AT %X18.2 : BOOL;
+        Signals_18_3 AT %X18.3 : BOOL;
+        Signals_18_4 AT %X18.4 : BOOL;
+        Signals_18_5 AT %X18.5 : BOOL;
+        Signals_18_6 AT %X18.6 : BOOL;
+        Signals_18_7 AT %X18.7 : BOOL;
+        Signals_19_0 AT %X19.0 : BOOL;
+        Signals_19_1 AT %X19.1 : BOOL;
+        Signals_19_2 AT %X19.2 : BOOL;
+        Signals_19_3 AT %X19.3 : BOOL;
+        Signals_19_4 AT %X19.4 : BOOL;
+        Signals_19_5 AT %X19.5 : BOOL;
+        Signals_19_6 AT %X19.6 : BOOL;
+        Signals_19_7 AT %X19.7 : BOOL;
+        Signals_20_0 AT %X20.0 : BOOL;
+        Signals_20_1 AT %X20.1 : BOOL;
+        Signals_20_2 AT %X20.2 : BOOL;
+        Signals_20_3 AT %X20.3 : BOOL;
+        Signals_20_4 AT %X20.4 : BOOL;
+        Signals_20_5 AT %X20.5 : BOOL;
+        Signals_20_6 AT %X20.6 : BOOL;
+        Signals_20_7 AT %X20.7 : BOOL;
+        Signals_21_0 AT %X21.0 : BOOL;
+        Signals_21_1 AT %X21.1 : BOOL;
+        Signals_21_2 AT %X21.2 : BOOL;
+        Signals_21_3 AT %X21.3 : BOOL;
+        Signals_21_4 AT %X21.4 : BOOL;
+        Signals_21_5 AT %X21.5 : BOOL;
+        Signals_21_6 AT %X21.6 : BOOL;
+        Signals_21_7 AT %X21.7 : BOOL;
+        Signals_22_0 AT %X22.0 : BOOL;
+        Signals_22_1 AT %X22.1 : BOOL;
+        Signals_22_2 AT %X22.2 : BOOL;
+        Signals_22_3 AT %X22.3 : BOOL;
+        Signals_22_4 AT %X22.4 : BOOL;
+        Signals_22_5 AT %X22.5 : BOOL;
+        Signals_22_6 AT %X22.6 : BOOL;
+        Signals_22_7 AT %X22.7 : BOOL;
+        Signals_23_0 AT %X23.0 : BOOL;
+        Signals_23_1 AT %X23.1 : BOOL;
+        Signals_23_2 AT %X23.2 : BOOL;
+        Signals_23_3 AT %X23.3 : BOOL;
+        Signals_23_4 AT %X23.4 : BOOL;
+        Signals_23_5 AT %X23.5 : BOOL;
+        Signals_23_6 AT %X23.6 : BOOL;
+        Signals_23_7 AT %X23.7 : BOOL;
+        Signals_24_0 AT %X24.0 : BOOL;
+        Signals_24_1 AT %X24.1 : BOOL;
+        Signals_24_2 AT %X24.2 : BOOL;
+        Signals_24_3 AT %X24.3 : BOOL;
+        Signals_24_4 AT %X24.4 : BOOL;
+        Signals_24_5 AT %X24.5 : BOOL;
+        Signals_24_6 AT %X24.6 : BOOL;
+        Signals_24_7 AT %X24.7 : BOOL;
+        Signals_25_0 AT %X25.0 : BOOL;
+        Signals_25_1 AT %X25.1 : BOOL;
+        Signals_25_2 AT %X25.2 : BOOL;
+        Signals_25_3 AT %X25.3 : BOOL;
+        Signals_25_4 AT %X25.4 : BOOL;
+        Signals_25_5 AT %X25.5 : BOOL;
+        Signals_25_6 AT %X25.6 : BOOL;
+        Signals_25_7 AT %X25.7 : BOOL;
+        Signals_26_0 AT %X26.0 : BOOL;
+        Signals_26_1 AT %X26.1 : BOOL;
+        Signals_26_2 AT %X26.2 : BOOL;
+        Signals_26_3 AT %X26.3 : BOOL;
+        Signals_26_4 AT %X26.4 : BOOL;
+        Signals_26_5 AT %X26.5 : BOOL;
+        Signals_26_6 AT %X26.6 : BOOL;
+        Signals_26_7 AT %X26.7 : BOOL;
+        Signals_27_0 AT %X27.0 : BOOL;
+        Signals_27_1 AT %X27.1 : BOOL;
+        Signals_27_2 AT %X27.2 : BOOL;
+        Signals_27_3 AT %X27.3 : BOOL;
+        Signals_27_4 AT %X27.4 : BOOL;
+        Signals_27_5 AT %X27.5 : BOOL;
+        Signals_27_6 AT %X27.6 : BOOL;
+        Signals_27_7 AT %X27.7 : BOOL;
+        Signals_28_0 AT %X28.0 : BOOL;
+        Signals_28_1 AT %X28.1 : BOOL;
+        Signals_28_2 AT %X28.2 : BOOL;
+        Signals_28_3 AT %X28.3 : BOOL;
+        Signals_28_4 AT %X28.4 : BOOL;
+        Signals_28_5 AT %X28.5 : BOOL;
+        Signals_28_6 AT %X28.6 : BOOL;
+        Signals_28_7 AT %X28.7 : BOOL;
+        Signals_29_0 AT %X29.0 : BOOL;
+        Signals_29_1 AT %X29.1 : BOOL;
+        Signals_29_2 AT %X29.2 : BOOL;
+        Signals_29_3 AT %X29.3 : BOOL;
+        Signals_29_4 AT %X29.4 : BOOL;
+        Signals_29_5 AT %X29.5 : BOOL;
+        Signals_29_6 AT %X29.6 : BOOL;
+        Signals_29_7 AT %X29.7 : BOOL;
+        Signals_30_0 AT %X30.0 : BOOL;
+        Signals_30_1 AT %X30.1 : BOOL;
+        Signals_30_2 AT %X30.2 : BOOL;
+        Signals_30_3 AT %X30.3 : BOOL;
+        Signals_30_4 AT %X30.4 : BOOL;
+        Signals_30_5 AT %X30.5 : BOOL;
+        Signals_30_6 AT %X30.6 : BOOL;
+        Signals_30_7 AT %X30.7 : BOOL;
+        Signals_31_0 AT %X31.0 : BOOL;
+        Signals_31_1 AT %X31.1 : BOOL;
+        Signals_31_2 AT %X31.2 : BOOL;
+        Signals_31_3 AT %X31.3 : BOOL;
+        Signals_31_4 AT %X31.4 : BOOL;
+        Signals_31_5 AT %X31.5 : BOOL;
+        Signals_31_6 AT %X31.6 : BOOL;
+        Signals_31_7 AT %X31.7 : BOOL;
+        Signals_32_0 AT %X32.0 : BOOL;
+        Signals_32_1 AT %X32.1 : BOOL;
+        Signals_32_2 AT %X32.2 : BOOL;
+        Signals_32_3 AT %X32.3 : BOOL;
+        Signals_32_4 AT %X32.4 : BOOL;
+        Signals_32_5 AT %X32.5 : BOOL;
+        Signals_32_6 AT %X32.6 : BOOL;
+        Signals_32_7 AT %X32.7 : BOOL;
+        Signals_33_0 AT %X33.0 : BOOL;
+        Signals_33_1 AT %X33.1 : BOOL;
+        Signals_33_2 AT %X33.2 : BOOL;
+        Signals_33_3 AT %X33.3 : BOOL;
+        Signals_33_4 AT %X33.4 : BOOL;
+        Signals_33_5 AT %X33.5 : BOOL;
+        Signals_33_6 AT %X33.6 : BOOL;
+        Signals_33_7 AT %X33.7 : BOOL;
+        Signals_34_0 AT %X34.0 : BOOL;
+        Signals_34_1 AT %X34.1 : BOOL;
+        Signals_34_2 AT %X34.2 : BOOL;
+        Signals_34_3 AT %X34.3 : BOOL;
+        Signals_34_4 AT %X34.4 : BOOL;
+        Signals_34_5 AT %X34.5 : BOOL;
+        Signals_34_6 AT %X34.6 : BOOL;
+        Signals_34_7 AT %X34.7 : BOOL;
+        Signals_35_0 AT %X35.0 : BOOL;
+        Signals_35_1 AT %X35.1 : BOOL;
+        Signals_35_2 AT %X35.2 : BOOL;
+        Signals_35_3 AT %X35.3 : BOOL;
+        Signals_35_4 AT %X35.4 : BOOL;
+        Signals_35_5 AT %X35.5 : BOOL;
+        Signals_35_6 AT %X35.6 : BOOL;
+        Signals_35_7 AT %X35.7 : BOOL;
+        Signals_36_0 AT %X36.0 : BOOL;
+        Signals_36_1 AT %X36.1 : BOOL;
+        Signals_36_2 AT %X36.2 : BOOL;
+        Signals_36_3 AT %X36.3 : BOOL;
+        Signals_36_4 AT %X36.4 : BOOL;
+        Signals_36_5 AT %X36.5 : BOOL;
+        Signals_36_6 AT %X36.6 : BOOL;
+        Signals_36_7 AT %X36.7 : BOOL;
+        Signals_37_0 AT %X37.0 : BOOL;
+        Signals_37_1 AT %X37.1 : BOOL;
+        Signals_37_2 AT %X37.2 : BOOL;
+        Signals_37_3 AT %X37.3 : BOOL;
+        Signals_37_4 AT %X37.4 : BOOL;
+        Signals_37_5 AT %X37.5 : BOOL;
+        Signals_37_6 AT %X37.6 : BOOL;
+        Signals_37_7 AT %X37.7 : BOOL;
+        Signals_38_0 AT %X38.0 : BOOL;
+        Signals_38_1 AT %X38.1 : BOOL;
+        Signals_38_2 AT %X38.2 : BOOL;
+        Signals_38_3 AT %X38.3 : BOOL;
+        Signals_38_4 AT %X38.4 : BOOL;
+        Signals_38_5 AT %X38.5 : BOOL;
+        Signals_38_6 AT %X38.6 : BOOL;
+        Signals_38_7 AT %X38.7 : BOOL;
+        Signals_39_0 AT %X39.0 : BOOL;
+        Signals_39_1 AT %X39.1 : BOOL;
+        Signals_39_2 AT %X39.2 : BOOL;
+        Signals_39_3 AT %X39.3 : BOOL;
+        Signals_39_4 AT %X39.4 : BOOL;
+        Signals_39_5 AT %X39.5 : BOOL;
+        Signals_39_6 AT %X39.6 : BOOL;
+        Signals_39_7 AT %X39.7 : BOOL;
+        Signals_40_0 AT %X40.0 : BOOL;
+        Signals_40_1 AT %X40.1 : BOOL;
+        Signals_40_2 AT %X40.2 : BOOL;
+        Signals_40_3 AT %X40.3 : BOOL;
+        Signals_40_4 AT %X40.4 : BOOL;
+        Signals_40_5 AT %X40.5 : BOOL;
+        Signals_40_6 AT %X40.6 : BOOL;
+        Signals_40_7 AT %X40.7 : BOOL;
+        Signals_41_0 AT %X41.0 : BOOL;
+        Signals_41_1 AT %X41.1 : BOOL;
+        Signals_41_2 AT %X41.2 : BOOL;
+        Signals_41_3 AT %X41.3 : BOOL;
+        Signals_41_4 AT %X41.4 : BOOL;
+        Signals_41_5 AT %X41.5 : BOOL;
+        Signals_41_6 AT %X41.6 : BOOL;
+        Signals_41_7 AT %X41.7 : BOOL;
+        Signals_42_0 AT %X42.0 : BOOL;
+        Signals_42_1 AT %X42.1 : BOOL;
+        Signals_42_2 AT %X42.2 : BOOL;
+        Signals_42_3 AT %X42.3 : BOOL;
+        Signals_42_4 AT %X42.4 : BOOL;
+        Signals_42_5 AT %X42.5 : BOOL;
+        Signals_42_6 AT %X42.6 : BOOL;
+        Signals_42_7 AT %X42.7 : BOOL;
+        Signals_43_0 AT %X43.0 : BOOL;
+        Signals_43_1 AT %X43.1 : BOOL;
+        Signals_43_2 AT %X43.2 : BOOL;
+        Signals_43_3 AT %X43.3 : BOOL;
+        Signals_43_4 AT %X43.4 : BOOL;
+        Signals_43_5 AT %X43.5 : BOOL;
+        Signals_43_6 AT %X43.6 : BOOL;
+        Signals_43_7 AT %X43.7 : BOOL;
+        Signals_44_0 AT %X44.0 : BOOL;
+        Signals_44_1 AT %X44.1 : BOOL;
+        Signals_44_2 AT %X44.2 : BOOL;
+        Signals_44_3 AT %X44.3 : BOOL;
+        Signals_44_4 AT %X44.4 : BOOL;
+        Signals_44_5 AT %X44.5 : BOOL;
+        Signals_44_6 AT %X44.6 : BOOL;
+        Signals_44_7 AT %X44.7 : BOOL;
+        Signals_45_0 AT %X45.0 : BOOL;
+        Signals_45_1 AT %X45.1 : BOOL;
+        Signals_45_2 AT %X45.2 : BOOL;
+        Signals_45_3 AT %X45.3 : BOOL;
+        Signals_45_4 AT %X45.4 : BOOL;
+        Signals_45_5 AT %X45.5 : BOOL;
+        Signals_45_6 AT %X45.6 : BOOL;
+        Signals_45_7 AT %X45.7 : BOOL;
+        Signals_46_0 AT %X46.0 : BOOL;
+        Signals_46_1 AT %X46.1 : BOOL;
+        Signals_46_2 AT %X46.2 : BOOL;
+        Signals_46_3 AT %X46.3 : BOOL;
+        Signals_46_4 AT %X46.4 : BOOL;
+        Signals_46_5 AT %X46.5 : BOOL;
+        Signals_46_6 AT %X46.6 : BOOL;
+        Signals_46_7 AT %X46.7 : BOOL;
+        Signals_47_0 AT %X47.0 : BOOL;
+        Signals_47_1 AT %X47.1 : BOOL;
+        Signals_47_2 AT %X47.2 : BOOL;
+        Signals_47_3 AT %X47.3 : BOOL;
+        Signals_47_4 AT %X47.4 : BOOL;
+        Signals_47_5 AT %X47.5 : BOOL;
+        Signals_47_6 AT %X47.6 : BOOL;
+        Signals_47_7 AT %X47.7 : BOOL;
+        Signals_48_0 AT %X48.0 : BOOL;
+        Signals_48_1 AT %X48.1 : BOOL;
+        Signals_48_2 AT %X48.2 : BOOL;
+        Signals_48_3 AT %X48.3 : BOOL;
+        Signals_48_4 AT %X48.4 : BOOL;
+        Signals_48_5 AT %X48.5 : BOOL;
+        Signals_48_6 AT %X48.6 : BOOL;
+        Signals_48_7 AT %X48.7 : BOOL;
+        Signals_49_0 AT %X49.0 : BOOL;
+        Signals_49_1 AT %X49.1 : BOOL;
+        Signals_49_2 AT %X49.2 : BOOL;
+        Signals_49_3 AT %X49.3 : BOOL;
+        Signals_49_4 AT %X49.4 : BOOL;
+        Signals_49_5 AT %X49.5 : BOOL;
+        Signals_49_6 AT %X49.6 : BOOL;
+        Signals_49_7 AT %X49.7 : BOOL;
+        Signals_50_0 AT %X50.0 : BOOL;
+        Signals_50_1 AT %X50.1 : BOOL;
+        Signals_50_2 AT %X50.2 : BOOL;
+        Signals_50_3 AT %X50.3 : BOOL;
+        Signals_50_4 AT %X50.4 : BOOL;
+        Signals_50_5 AT %X50.5 : BOOL;
+        Signals_50_6 AT %X50.6 : BOOL;
+        Signals_50_7 AT %X50.7 : BOOL;
+        Signals_51_0 AT %X51.0 : BOOL;
+        Signals_51_1 AT %X51.1 : BOOL;
+        Signals_51_2 AT %X51.2 : BOOL;
+        Signals_51_3 AT %X51.3 : BOOL;
+        Signals_51_4 AT %X51.4 : BOOL;
+        Signals_51_5 AT %X51.5 : BOOL;
+        Signals_51_6 AT %X51.6 : BOOL;
+        Signals_51_7 AT %X51.7 : BOOL;
+        Signals_52_0 AT %X52.0 : BOOL;
+        Signals_52_1 AT %X52.1 : BOOL;
+        Signals_52_2 AT %X52.2 : BOOL;
+        Signals_52_3 AT %X52.3 : BOOL;
+        Signals_52_4 AT %X52.4 : BOOL;
+        Signals_52_5 AT %X52.5 : BOOL;
+        Signals_52_6 AT %X52.6 : BOOL;
+        Signals_52_7 AT %X52.7 : BOOL;
+        Signals_53_0 AT %X53.0 : BOOL;
+        Signals_53_1 AT %X53.1 : BOOL;
+        Signals_53_2 AT %X53.2 : BOOL;
+        Signals_53_3 AT %X53.3 : BOOL;
+        Signals_53_4 AT %X53.4 : BOOL;
+        Signals_53_5 AT %X53.5 : BOOL;
+        Signals_53_6 AT %X53.6 : BOOL;
+        Signals_53_7 AT %X53.7 : BOOL;
+        Signals_54_0 AT %X54.0 : BOOL;
+        Signals_54_1 AT %X54.1 : BOOL;
+        Signals_54_2 AT %X54.2 : BOOL;
+        Signals_54_3 AT %X54.3 : BOOL;
+        Signals_54_4 AT %X54.4 : BOOL;
+        Signals_54_5 AT %X54.5 : BOOL;
+        Signals_54_6 AT %X54.6 : BOOL;
+        Signals_54_7 AT %X54.7 : BOOL;
+        Signals_55_0 AT %X55.0 : BOOL;
+        Signals_55_1 AT %X55.1 : BOOL;
+        Signals_55_2 AT %X55.2 : BOOL;
+        Signals_55_3 AT %X55.3 : BOOL;
+        Signals_55_4 AT %X55.4 : BOOL;
+        Signals_55_5 AT %X55.5 : BOOL;
+        Signals_55_6 AT %X55.6 : BOOL;
+        Signals_55_7 AT %X55.7 : BOOL;
+        Signals_56_0 AT %X56.0 : BOOL;
+        Signals_56_1 AT %X56.1 : BOOL;
+        Signals_56_2 AT %X56.2 : BOOL;
+        Signals_56_3 AT %X56.3 : BOOL;
+        Signals_56_4 AT %X56.4 : BOOL;
+        Signals_56_5 AT %X56.5 : BOOL;
+        Signals_56_6 AT %X56.6 : BOOL;
+        Signals_56_7 AT %X56.7 : BOOL;
+        Signals_57_0 AT %X57.0 : BOOL;
+        Signals_57_1 AT %X57.1 : BOOL;
+        Signals_57_2 AT %X57.2 : BOOL;
+        Signals_57_3 AT %X57.3 : BOOL;
+        Signals_57_4 AT %X57.4 : BOOL;
+        Signals_57_5 AT %X57.5 : BOOL;
+        Signals_57_6 AT %X57.6 : BOOL;
+        Signals_57_7 AT %X57.7 : BOOL;
+        Signals_58_0 AT %X58.0 : BOOL;
+        Signals_58_1 AT %X58.1 : BOOL;
+        Signals_58_2 AT %X58.2 : BOOL;
+        Signals_58_3 AT %X58.3 : BOOL;
+        Signals_58_4 AT %X58.4 : BOOL;
+        Signals_58_5 AT %X58.5 : BOOL;
+        Signals_58_6 AT %X58.6 : BOOL;
+        Signals_58_7 AT %X58.7 : BOOL;
+        Signals_59_0 AT %X59.0 : BOOL;
+        Signals_59_1 AT %X59.1 : BOOL;
+        Signals_59_2 AT %X59.2 : BOOL;
+        Signals_59_3 AT %X59.3 : BOOL;
+        Signals_59_4 AT %X59.4 : BOOL;
+        Signals_59_5 AT %X59.5 : BOOL;
+        Signals_59_6 AT %X59.6 : BOOL;
+        Signals_59_7 AT %X59.7 : BOOL;
+        Signals_60_0 AT %X60.0 : BOOL;
+        Signals_60_1 AT %X60.1 : BOOL;
+        Signals_60_2 AT %X60.2 : BOOL;
+        Signals_60_3 AT %X60.3 : BOOL;
+        Signals_60_4 AT %X60.4 : BOOL;
+        Signals_60_5 AT %X60.5 : BOOL;
+        Signals_60_6 AT %X60.6 : BOOL;
+        Signals_60_7 AT %X60.7 : BOOL;
+        Signals_61_0 AT %X61.0 : BOOL;
+        Signals_61_1 AT %X61.1 : BOOL;
+        Signals_61_2 AT %X61.2 : BOOL;
+        Signals_61_3 AT %X61.3 : BOOL;
+        Signals_61_4 AT %X61.4 : BOOL;
+        Signals_61_5 AT %X61.5 : BOOL;
+        Signals_61_6 AT %X61.6 : BOOL;
+        Signals_61_7 AT %X61.7 : BOOL;
+        Signals_62_0 AT %X62.0 : BOOL;
+        Signals_62_1 AT %X62.1 : BOOL;
+        Signals_62_2 AT %X62.2 : BOOL;
+        Signals_62_3 AT %X62.3 : BOOL;
+        Signals_62_4 AT %X62.4 : BOOL;
+        Signals_62_5 AT %X62.5 : BOOL;
+        Signals_62_6 AT %X62.6 : BOOL;
+        Signals_62_7 AT %X62.7 : BOOL;
+        Signals_63_0 AT %X63.0 : BOOL;
+        Signals_63_1 AT %X63.1 : BOOL;
+        Signals_63_2 AT %X63.2 : BOOL;
+        Signals_63_3 AT %X63.3 : BOOL;
+        Signals_63_4 AT %X63.4 : BOOL;
+        Signals_63_5 AT %X63.5 : BOOL;
+        Signals_63_6 AT %X63.6 : BOOL;
+        Signals_63_7 AT %X63.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    kuka_rb2_DIO512_Output_Layout : STRUCT
         Signals_64_0 AT %X0.0 : BOOL;
         Signals_64_1 AT %X0.1 : BOOL;
         Signals_64_2 AT %X0.2 : BOOL;

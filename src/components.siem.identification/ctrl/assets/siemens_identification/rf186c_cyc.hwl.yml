@@ -10,7 +10,7 @@ Devices:
       Label: 'X1'
       Addresses:
         Configured:
-        - IPv4: 192.168.100.100/24
+        - IPv4: 192.168.100.204/24
         - ProfinetDeviceName: rf186c_cyc
         # Parameters:
           # PrioritizedStartup (Boolean)

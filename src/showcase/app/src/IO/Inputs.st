@@ -4,10 +4,10 @@ NAMESPACE AXOpen.Showcase
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
 	        // Module abb_irc5_robot/DI_64_bytes
-	        abb_irc5_robot_DI_64_bytes_Input AT %B5961 : abb_irc5_robot_DI_64_bytes_Input_Layout;
+	        abb_irc5_robot_DI_64_bytes_Input AT %B6025 : abb_irc5_robot_DI_64_bytes_Input_Layout;
 
 	        // Module abb_omnicore_robot/DI_64_bytes
-	        abb_omnicore_robot_DI_64_bytes_Input AT %B5897 : abb_omnicore_robot_DI_64_bytes_Input_Layout;
+	        abb_omnicore_robot_DI_64_bytes_Input AT %B5961 : abb_omnicore_robot_DI_64_bytes_Input_Layout;
 
 	        // Module BNIPNT507005Z040/BIS_M-4XX-045_1
 	        BNIPNT507005Z040_BIS_M_4XX_045_1_Input AT %B318 : BNIPNT507005Z040_BIS_M_4XX_045_1_Input_Layout;
@@ -372,13 +372,16 @@ NAMESPACE AXOpen.Showcase
 	        keyence_sr_750_UnstableReadStatus_Input AT %B2454 : keyence_sr_750_UnstableReadStatus_Input_Layout;
 
 	        // Module kuka_rb1/DIO512
-	        kuka_rb1_DIO512_Input AT %B5833 : kuka_rb1_DIO512_Input_Layout;
+	        kuka_rb1_DIO512_Input AT %B5897 : kuka_rb1_DIO512_Input_Layout;
+
+	        // Module kuka_rb2/DIO512
+	        kuka_rb2_DIO512_Input AT %B5833 : kuka_rb2_DIO512_Input_Layout;
 
 	        // Module mitsubishi_tz535_robot/In_Out_64_byte
 	        mitsubishi_tz535_robot_In_Out_64_byte_Input AT %B5769 : mitsubishi_tz535_robot_In_Out_64_byte_Input_Layout;
 
 	        // Module plc_line/A1
-	        plc_line_A1_Input AT %B6025 : plc_line_A1_Input_Layout;
+	        plc_line_A1_Input AT %B6089 : plc_line_A1_Input_Layout;
 
 	        // Module rexroth_cs351/Input_2_word_1
 	        rexroth_cs351_Input_2_word_1_Input AT %B328 : rexroth_cs351_Input_2_word_1_Input_Layout;

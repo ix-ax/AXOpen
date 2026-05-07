@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
+    // <AxoKukaRoboticsConfigDeclaration>
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoKrc5_Config
@@ -13,4 +14,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             HWIDs : AxoKrc5_HWIDs;            
         END_VAR 
     END_CLASS    
+    // <AxoKukaRoboticsConfigDeclaration>
 END_NAMESPACE
+

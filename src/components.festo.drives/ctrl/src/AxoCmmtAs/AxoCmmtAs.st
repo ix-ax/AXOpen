@@ -1198,6 +1198,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN
                 MC_PowerCycle := MC_PowerCycle + ULINT#1;
                 THIS.UpdateInputs(AxisRef);
+                
                 IF NOT MC_PowerEnable_PV THEN
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
@@ -1210,7 +1211,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
                 // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-                _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
+                // _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
@@ -1227,7 +1228,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Valid := TRUE;
                     ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                 END_IF;
-                IF MC_PowerCycle >= ULINT#200 THEN
+                IF MC_PowerCycle >= ULINT#2000 THEN
                     MC_PowerCycle := ULINT#0;
                     _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
@@ -5683,6 +5684,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Messenger.Restore();
             TaskMessenger.Restore();
 
+
             //AxoPower_Task.Restore();
             AxoStop_Task.Restore();
             AxoHalt_Task.Restore();
@@ -5743,5 +5745,3 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
     END_CLASS
 END_NAMESPACE
-
-
