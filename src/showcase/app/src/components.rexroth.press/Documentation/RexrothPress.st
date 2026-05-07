@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
 
     {S7.extern=ReadWrite}
     CLASS RexrothPress EXTENDS AXOpen.Core.AxoObject
