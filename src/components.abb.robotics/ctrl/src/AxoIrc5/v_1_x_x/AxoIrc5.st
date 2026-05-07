@@ -6,9 +6,9 @@ USING AXOpen.Components.Abstractions.Robotics;
 USING Siemens.Simatic.Hardware.Utilities;
 USING Siemens.Simatic.MemoryAccess;
 
-NAMESPACE AXOpen.Components.Abb.Robotics
+NAMESPACE AXOpen.Components.Abb.Robotics.v_1_x_x
     {S7.extern=ReadWrite}
-    CLASS AxoIrc5_v_1_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    CLASS AxoIrc5 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PUBLIC //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
@@ -73,14 +73,14 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoIrc5_v_1_x_x_Config;
+            Config  :   AxoIrc5_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   AxoIrc5_v_1_x_x_Component_Status;
+            Status              :   AxoIrc5_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
             _progress           :   INT := 0;
@@ -92,13 +92,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoIrc5_v_1_x_x_State;
+            Inputs              :   AxoIrc5_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoIrc5_v_1_x_x_Control;
+            Outputs              :   AxoIrc5_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics
