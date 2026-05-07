@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
@@ -219,7 +219,7 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
         }
 
     }
-    public partial class AxoKukaRobotics_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoKrc4_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
