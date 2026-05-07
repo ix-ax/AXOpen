@@ -1,14 +1,17 @@
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Abb.Robotics
+namespace AXOpen.Components.Abb.Robotics.v_1_x_x
 {
-    public partial class AxoOmnicore_v_1_x_x : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    public partial class AxoIrc5 : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
     {
 
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
@@ -24,7 +27,6 @@ namespace AXOpen.Components.Abb.Robotics
                 throw;
             }
         }
-
 
         private void InitializeMessenger()
         {
@@ -86,7 +88,7 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module with 64 input bytes (GsdId=1).","Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_DO_64_bytes is zero."                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of _hwIdDO_64_bytes is zero."                                                                    ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
@@ -99,7 +101,7 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_DI_64_bytes` has invalid value in `Run` method!"                                            ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_DI_64_bytes` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_DO_64_bytes` has invalid value in `Run` method!"                                            ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_DO_64_bytes` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading from the module with HWID: Config.HWIDs.HwID_DI_64_bytes!"                                                      ,"Check the value of the Config.HWIDs.HwID_DI_64_bytes and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading from module with HWID: Config.HWIDs.HwID_DI_64_bytes!"                                                          ,"Check the value of the Config.HWIDs.HwID_DI_64_bytes and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing to the module with HWID: Config.HWIDs.HwID_DO_64_bytes!"                                                        ,"Check the value of the Config.HWIDs.HwID_DO_64_bytes and reacheability of the device!")),
 
@@ -124,9 +126,11 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10110, new AxoMessengerTextItem("Stop program finished with error!"                                                                                           ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10111, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!"                                                                          ,"Check the details.")),
 
+
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20001, new AxoMessengerTextItem("Emergency stop activated!"                                                                                                   ,"Check the status of the `Inputs.EmgStop` signal. Required value is 'FALSE'")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20002, new AxoMessengerTextItem("Safety circuit interupted!"                                                                                                  ,"Check the status of the `Inputs.SafetyOk` signal.Required value is 'TRUE'")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20003, new AxoMessengerTextItem("Program error active!"                                                                                                       ,"Check the status of the `Inputs.ProgExecError` signal. Required value is 'FALSE'")),
+
         };
 
             Messenger.DotNetMessengerTextList = messengerTextList;
@@ -138,8 +142,8 @@ namespace AXOpen.Components.Abb.Robotics
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal Inputs.CycleOn to be reseted!",                                                                                        "Check the status of the `Inputs.CycleOn` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal Inputs.PpMoved to be set!",                                                                                        "Check the status of the `Inputs.PpMoved` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal Inputs.PpMoved to be set!",                                                                                        "Check the status of the `Inputs.PpMoved` signal.")),
+
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal Inputs.AutoOn to be set!",                                                                                         "Check the status of the `Inputs.PpMoved` signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal Inputs.Error to be reseted!",                                                                                      "Check the status of the `Error` signal.")),
@@ -202,9 +206,10 @@ namespace AXOpen.Components.Abb.Robotics
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
+
     }
 
-    public partial class AxoOmnicore_v_1_x_x_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoIrc5_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
