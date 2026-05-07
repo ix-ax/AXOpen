@@ -1,14 +1,14 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoSmartFunctionKitStatus_v_4_x_x
+    CLASS PUBLIC AxoSmartFunctionKitStatus
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Response status#>"}
-            ResponseStatus : AxoSmartFunctionKitResponse_v_4_x_x;
+            ResponseStatus : AxoSmartFunctionKitResponse;
             {#ix-set:AttributeName = "<#Notification Id#>"}
             NotificationId  : UINT;
             {#ix-set:AttributeName = "<#Notification to display#>"}
-            NotificationToDisplay  : eAxoSmartFunctionKitStatusInformation_v_4_x_x;
+            NotificationToDisplay  : eAxoSmartFunctionKitStatusInformation;
             {#ix-set:AttributeName = "<#Notification position#>"}
             NotificationPosition  : REAL;
             {#ix-set:AttributeName = "<#Notification velocity#>"}

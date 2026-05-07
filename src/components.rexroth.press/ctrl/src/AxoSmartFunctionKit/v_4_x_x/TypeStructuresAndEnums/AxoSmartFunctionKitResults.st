@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoSmartFunctionKitResults_v_4_x_x
+    CLASS PUBLIC AxoSmartFunctionKitResults
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Id#>"}
             id : STRING;

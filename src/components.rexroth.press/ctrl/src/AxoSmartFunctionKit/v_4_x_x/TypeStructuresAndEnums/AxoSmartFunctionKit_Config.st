@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoSmartFunctionKit_Config_v_4_x_x
+    CLASS PUBLIC AxoSmartFunctionKit_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#10S;
@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
-            HWIDs  :   AxoSmartFunctionKit_HWIDs_v_4_x_x;
+            HWIDs  :   AxoSmartFunctionKit_HWIDs;
             {#ix-set:AttributeName = "<#Location of the curve export#>"}
             CurveExportLocation : STRING ;
             {#ix-set:AttributeName = "<#Ip address#>"}

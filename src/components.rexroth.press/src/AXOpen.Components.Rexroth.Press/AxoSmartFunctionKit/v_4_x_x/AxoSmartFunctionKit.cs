@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json;
@@ -10,14 +10,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using AXOpen.Components.Rexroth.Press.RestApi;
+using AXOpen.Components.Rexroth.Press.v_4_x_x.RestApi;
 using System.Security.Cryptography.Xml;
 using System.Security.Policy;
 
 
-namespace AXOpen.Components.Rexroth.Press
+namespace AXOpen.Components.Rexroth.Press.v_4_x_x
 {
-    public partial class AxoSmartFunctionKit_v_4_x_x : AXOpen.Core.AxoComponent
+    public partial class AxoSmartFunctionKit : AXOpen.Core.AxoComponent
     {
        
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
@@ -266,7 +266,7 @@ namespace AXOpen.Components.Rexroth.Press
         }
     }
 
-    public partial class AxoSmartFunctionKit_ComponentStatus_v_4_x_x : AXOpen.Components.Abstractions.AxoComponent_Status
+    public partial class AxoSmartFunctionKit_ComponentStatus : AXOpen.Components.Abstractions.AxoComponent_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();

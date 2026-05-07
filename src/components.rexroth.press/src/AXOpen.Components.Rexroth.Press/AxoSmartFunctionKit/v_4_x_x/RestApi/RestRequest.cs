@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 
 // The http protocol being used to transport REST requests across the net
-namespace AXOpen.Components.Rexroth.Press.RestApi
+namespace AXOpen.Components.Rexroth.Press.v_4_x_x.RestApi
 {
     /// <summary>
     /// The class that all the REST resources inherit from, thereby implementing the four REST operations.

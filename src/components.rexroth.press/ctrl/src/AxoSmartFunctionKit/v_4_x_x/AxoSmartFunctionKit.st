@@ -7,11 +7,11 @@ USING AXOpen.Components.Abstractions;
 USING System.Serialization;
 USING Siemens.Simatic.Hardware.Utilities;
 
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoSmartFunctionKit_v_4_x_x EXTENDS AXOpen.Core.AxoComponent
+    CLASS PUBLIC AxoSmartFunctionKit EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#Results#>"}
-            Results	: AxoSmartFunctionKitResults_v_4_x_x;
+            Results	: AxoSmartFunctionKitResults;
         END_VAR
 
         VAR PUBLIC //Tasks
@@ -52,7 +52,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Run command parameters#>"}
-            RunCommandParameters : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x;            
+            RunCommandParameters : AxoSmartFunctionKitRequest;            
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Get results#>"}
@@ -67,14 +67,14 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoSmartFunctionKit_Config_v_4_x_x;
+            Config  :   AxoSmartFunctionKit_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   AxoSmartFunctionKit_ComponentStatus_v_4_x_x;
+            Status              :   AxoSmartFunctionKit_ComponentStatus;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
             _progress           :   INT := 0;
@@ -86,13 +86,13 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoSmartFunctionKit_State_v_4_x_x;
+            Inputs              :   AxoSmartFunctionKit_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoSmartFunctionKit_Control_v_4_x_x;
+            Outputs              :   AxoSmartFunctionKit_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics
@@ -434,16 +434,16 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             Status.Status.NotificationId                           :=  TO_UINT(Inputs.NotificationId);
             
             CASE Status.Status.NotificationId of
-                eAxoSmartFunctionKitStatusInformation_v_4_x_x#ActiveProgramNumber:
-                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation_v_4_x_x#ActiveProgramNumber;
-                eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentForce:
-                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentForce;
-                eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentPosition:
-                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentPosition;
-                eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentTravelSpeed:
-                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation_v_4_x_x#CurrentTravelSpeed;
-                eAxoSmartFunctionKitStatusInformation_v_4_x_x#RemainingStorageSpaceOnIPC:
-                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation_v_4_x_x#RemainingStorageSpaceOnIPC;
+                eAxoSmartFunctionKitStatusInformation#ActiveProgramNumber:
+                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation#ActiveProgramNumber;
+                eAxoSmartFunctionKitStatusInformation#CurrentForce:
+                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation#CurrentForce;
+                eAxoSmartFunctionKitStatusInformation#CurrentPosition:
+                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation#CurrentPosition;
+                eAxoSmartFunctionKitStatusInformation#CurrentTravelSpeed:
+                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation#CurrentTravelSpeed;
+                eAxoSmartFunctionKitStatusInformation#RemainingStorageSpaceOnIPC:
+                    Status.Status.NotificationToDisplay:=eAxoSmartFunctionKitStatusInformation#RemainingStorageSpaceOnIPC;
                     
             END_CASE;
             Status.Status.DigitalIoMapping:=Inputs.DigitalIoMapping;
@@ -485,7 +485,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                     Outputs.Value6 := DWORD#0;
                     Outputs.Value7 := DWORD#0;
                     CASE Status.CurrentCommandParameters.Command OF
-                        eAxoSmartFunctionKitCommand_v_4_x_x#StartProgram:
+                        eAxoSmartFunctionKitCommand#StartProgram:
                             Serialize(UINT#0, Status.CurrentCommandParameters.SerialNumber, _data42);
 
                             //todo check if the rest of the array needs to be cleaned
@@ -524,17 +524,17 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                             Outputs.Value7.%B2  := _data42[26];
                             Outputs.Value7.%B3  := _data42[25];
                         
-                        eAxoSmartFunctionKitCommand_v_4_x_x#SetProgramActive:
+                        eAxoSmartFunctionKitCommand#SetProgramActive:
                             Outputs.Value1:= TO_DWORD(Status.CurrentCommandParameters.ProgramId*1000);	
-                        eAxoSmartFunctionKitCommand_v_4_x_x#Positioning:
+                        eAxoSmartFunctionKitCommand#Positioning:
                             Outputs.Value1:= TO_DWORD(Status.CurrentCommandParameters.PositionDistanceTara*1000);
                             Outputs.Value2:= TO_DWORD(Status.CurrentCommandParameters.TravelSpeed*1000);	
                             Outputs.Value3:= TO_DWORD(Status.CurrentCommandParameters.Acceleration*1000);
-                        eAxoSmartFunctionKitCommand_v_4_x_x#Jog:
+                        eAxoSmartFunctionKitCommand#Jog:
                             Outputs.Value1:= TO_DWORD(Status.CurrentCommandParameters.PositionDistanceTara*1000);
                             Outputs.Value2:= TO_DWORD(Status.CurrentCommandParameters.TravelSpeed*1000);	
                             Outputs.Value3:= TO_DWORD(Status.CurrentCommandParameters.Acceleration*1000);
-                        eAxoSmartFunctionKitCommand_v_4_x_x#Tare:
+                        eAxoSmartFunctionKitCommand#Tare:
                             Outputs.Value1:= TO_DWORD(Status.CurrentCommandParameters.Offset*1000);		
                     END_CASE;
                     Outputs.Command     := TO_WORD(Status.CurrentCommandParameters.Command);
@@ -723,7 +723,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
         ///<summary>
         METHOD PUBLIC RunCommand : IAxoTaskState
             VAR_INPUT
-                Parameters : REF_TO AxoSmartFunctionKitRequest_v_4_x_x;
+                Parameters : REF_TO AxoSmartFunctionKitRequest;
             END_VAR
 
             IF Parameters = NULL THEN

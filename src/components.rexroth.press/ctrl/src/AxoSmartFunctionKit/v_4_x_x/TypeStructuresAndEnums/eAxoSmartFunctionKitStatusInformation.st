@@ -1,6 +1,6 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     TYPE PUBLIC
-        eAxoSmartFunctionKitStatusInformation_v_4_x_x : UINT
+        eAxoSmartFunctionKitStatusInformation : UINT
         (		
             ActiveProgramNumber         := UINT#301, //  The PROGRAM number active in the drive is read out.
             RemainingStorageSpaceOnIPC  := UINT#302, // (PR21) The remaining storage space OF the IPC is transferred in MB.

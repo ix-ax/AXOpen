@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 
 
-namespace AXOpen.Components.Rexroth.Press.RestApi
+namespace AXOpen.Components.Rexroth.Press.v_4_x_x.RestApi
 {
     public class Client
     {

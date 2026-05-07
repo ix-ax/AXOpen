@@ -1,6 +1,6 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     TYPE PUBLIC
-        eAxoSmartFunctionKitCommand_v_4_x_x : INT
+        eAxoSmartFunctionKitCommand : INT
         (		
             StartProgram := 1,
             SetProgramActive := 2,

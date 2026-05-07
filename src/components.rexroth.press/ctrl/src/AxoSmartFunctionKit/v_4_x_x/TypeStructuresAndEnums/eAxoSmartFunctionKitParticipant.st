@@ -1,6 +1,6 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
     TYPE PUBLIC
-        eAxoSmartFunctionKitParticipant_v_4_x_x : INT
+        eAxoSmartFunctionKitParticipant : INT
         (		
             WebInterface := 1,
             Fieldbus := 2,

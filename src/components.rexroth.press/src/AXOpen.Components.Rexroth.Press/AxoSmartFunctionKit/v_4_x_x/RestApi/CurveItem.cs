@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Rexroth.Press.RestApi
+namespace AXOpen.Components.Rexroth.Press.v_4_x_x.RestApi
 {
    
     public class Function

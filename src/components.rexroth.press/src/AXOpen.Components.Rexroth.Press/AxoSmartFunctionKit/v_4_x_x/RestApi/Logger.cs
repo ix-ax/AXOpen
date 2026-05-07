@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 
-namespace AXOpen.Components.Rexroth.Press.RestApi
+namespace AXOpen.Components.Rexroth.Press.v_4_x_x.RestApi
 {
     class Logger
     {

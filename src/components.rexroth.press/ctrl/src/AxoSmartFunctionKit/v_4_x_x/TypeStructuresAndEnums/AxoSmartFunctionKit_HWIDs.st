@@ -1,6 +1,6 @@
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
    {S7.extern=ReadWrite}
-	CLASS AxoSmartFunctionKit_HWIDs_v_4_x_x 
+	CLASS AxoSmartFunctionKit_HWIDs
       VAR PUBLIC
          {#ix-set:AttributeName = "<#Hardware ID Device#>"}
          HW_Device            : UINT;
