@@ -1,6 +1,6 @@
-NAMESPACE AXOpen.Components.Abb.Robotics
+NAMESPACE AXOpen.Components.Abb.Robotics.v_1_x_x
 {S7.extern=ReadWrite}
-CLASS AxoOmnicore_v_1_x_x_HWIDs 
+CLASS AxoOmnicore_HWIDs 
   VAR PUBLIC
      {#ix-set:AttributeName = "<#Hardware ID of the device#>"}
      HW_Device              :  UINT;

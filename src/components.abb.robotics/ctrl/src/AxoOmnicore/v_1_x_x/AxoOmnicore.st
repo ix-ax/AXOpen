@@ -6,9 +6,9 @@ USING AXOpen.Components.Abstractions.Robotics;
 USING Siemens.Simatic.Hardware.Utilities;
 USING Siemens.Simatic.MemoryAccess;
 
-NAMESPACE AXOpen.Components.Abb.Robotics
+NAMESPACE AXOpen.Components.Abb.Robotics.v_1_x_x
     {S7.extern=ReadWrite}
-    CLASS AxoOmnicore_v_1_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    CLASS AxoOmnicore EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PUBLIC //HEADER
         END_VAR
 
@@ -68,14 +68,14 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoOmnicore_v_1_x_x_Config;
+            Config  :   AxoOmnicore_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status         :   AxoOmnicore_v_1_x_x_Component_Status;
+            Status         :   AxoOmnicore_Component_Status;
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Power progress#>"}
@@ -94,13 +94,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoOmnicore_v_1_x_x_State;
+            Inputs              :   AxoOmnicore_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]} 
-            Outputs              :   AxoOmnicore_v_1_x_x_Control;
+            Outputs              :   AxoOmnicore_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics
