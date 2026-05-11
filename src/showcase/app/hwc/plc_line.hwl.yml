@@ -280,6 +280,54 @@ Devices:
       SLOT_14: AventicsPneumaticsAESEmptySlot
       SLOT_15: AventicsPneumaticsAESEmptySlot
       SLOT_16: AventicsPneumaticsAESEmptySlot
+      SLOT_17: AventicsPneumaticsAESEmptySlot
+      SLOT_18: AventicsPneumaticsAESEmptySlot
+      SLOT_19: AventicsPneumaticsAESEmptySlot
+      SLOT_20: AventicsPneumaticsAESEmptySlot
+      SLOT_21: AventicsPneumaticsAESEmptySlot
+      SLOT_22: AventicsPneumaticsAESEmptySlot
+      SLOT_23: AventicsPneumaticsAESEmptySlot
+      SLOT_24: AventicsPneumaticsAESEmptySlot
+      SLOT_25: AventicsPneumaticsAESEmptySlot
+      SLOT_26: AventicsPneumaticsAESEmptySlot
+      SLOT_27: AventicsPneumaticsAESEmptySlot
+      SLOT_28: AventicsPneumaticsAESEmptySlot
+      SLOT_29: AventicsPneumaticsAESEmptySlot
+      SLOT_30: AventicsPneumaticsAESEmptySlot
+      SLOT_31: AventicsPneumaticsAESEmptySlot
+      SLOT_32: AventicsPneumaticsAESEmptySlot
+      SLOT_33: AventicsPneumaticsAESEmptySlot
+      SLOT_34: AventicsPneumaticsAESEmptySlot
+      SLOT_35: AventicsPneumaticsAESEmptySlot
+      SLOT_36: AventicsPneumaticsAESEmptySlot
+      SLOT_37: AventicsPneumaticsAESEmptySlot
+      SLOT_38: AventicsPneumaticsAESEmptySlot
+      SLOT_39: AventicsPneumaticsAESEmptySlot
+      SLOT_40: AventicsPneumaticsAESEmptySlot
+      SLOT_41: AventicsPneumaticsAESEmptySlot
+      SLOT_42: AventicsPneumaticsAESEmptySlot
+      SLOT_43: AventicsPneumaticsAESEmptySlot
+      SLOT_44: AventicsPneumaticsAESEmptySlot
+      SLOT_45: AventicsPneumaticsAESEmptySlot
+      SLOT_46: AventicsPneumaticsAESEmptySlot
+      SLOT_47: AventicsPneumaticsAESEmptySlot
+      SLOT_48: AventicsPneumaticsAESEmptySlot
+      SLOT_49: AventicsPneumaticsAESEmptySlot
+      SLOT_50: AventicsPneumaticsAESEmptySlot
+      SLOT_51: AventicsPneumaticsAESEmptySlot
+      SLOT_52: AventicsPneumaticsAESEmptySlot
+      SLOT_53: AventicsPneumaticsAESEmptySlot
+      SLOT_54: AventicsPneumaticsAESEmptySlot
+      SLOT_55: AventicsPneumaticsAESEmptySlot
+      SLOT_56: AventicsPneumaticsAESEmptySlot
+      SLOT_57: AventicsPneumaticsAESEmptySlot
+      SLOT_58: AventicsPneumaticsAESEmptySlot
+      SLOT_59: AventicsPneumaticsAESEmptySlot
+      SLOT_60: AventicsPneumaticsAESEmptySlot
+      SLOT_61: AventicsPneumaticsAESEmptySlot
+      SLOT_62: AventicsPneumaticsAESEmptySlot
+      SLOT_63: AventicsPneumaticsAESEmptySlot
+      SLOT_64: AventicsPneumaticsAESEmptySlot
   #</AventicsPneumaticsDevice>
 
   #<SmcPneumaticsEX260SPN32Device>

@@ -7532,6 +7532,68 @@ NAMESPACE AXOpen.Showcase
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
+	    smc_ex260_spn_16_Outputs16_Output_Layout : STRUCT
+	        Signals_0_0 AT %X0.0 : BOOL;
+	        Signals_0_1 AT %X0.1 : BOOL;
+	        Signals_0_2 AT %X0.2 : BOOL;
+	        Signals_0_3 AT %X0.3 : BOOL;
+	        Signals_0_4 AT %X0.4 : BOOL;
+	        Signals_0_5 AT %X0.5 : BOOL;
+	        Signals_0_6 AT %X0.6 : BOOL;
+	        Signals_0_7 AT %X0.7 : BOOL;
+	        Signals_1_0 AT %X1.0 : BOOL;
+	        Signals_1_1 AT %X1.1 : BOOL;
+	        Signals_1_2 AT %X1.2 : BOOL;
+	        Signals_1_3 AT %X1.3 : BOOL;
+	        Signals_1_4 AT %X1.4 : BOOL;
+	        Signals_1_5 AT %X1.5 : BOOL;
+	        Signals_1_6 AT %X1.6 : BOOL;
+	        Signals_1_7 AT %X1.7 : BOOL;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    smc_ex260_spn_32_Outputs32_Output_Layout : STRUCT
+	        Signals_0_0 AT %X0.0 : BOOL;
+	        Signals_0_1 AT %X0.1 : BOOL;
+	        Signals_0_2 AT %X0.2 : BOOL;
+	        Signals_0_3 AT %X0.3 : BOOL;
+	        Signals_0_4 AT %X0.4 : BOOL;
+	        Signals_0_5 AT %X0.5 : BOOL;
+	        Signals_0_6 AT %X0.6 : BOOL;
+	        Signals_0_7 AT %X0.7 : BOOL;
+	        Signals_1_0 AT %X1.0 : BOOL;
+	        Signals_1_1 AT %X1.1 : BOOL;
+	        Signals_1_2 AT %X1.2 : BOOL;
+	        Signals_1_3 AT %X1.3 : BOOL;
+	        Signals_1_4 AT %X1.4 : BOOL;
+	        Signals_1_5 AT %X1.5 : BOOL;
+	        Signals_1_6 AT %X1.6 : BOOL;
+	        Signals_1_7 AT %X1.7 : BOOL;
+	        Signals_2_0 AT %X2.0 : BOOL;
+	        Signals_2_1 AT %X2.1 : BOOL;
+	        Signals_2_2 AT %X2.2 : BOOL;
+	        Signals_2_3 AT %X2.3 : BOOL;
+	        Signals_2_4 AT %X2.4 : BOOL;
+	        Signals_2_5 AT %X2.5 : BOOL;
+	        Signals_2_6 AT %X2.6 : BOOL;
+	        Signals_2_7 AT %X2.7 : BOOL;
+	        Signals_3_0 AT %X3.0 : BOOL;
+	        Signals_3_1 AT %X3.1 : BOOL;
+	        Signals_3_2 AT %X3.2 : BOOL;
+	        Signals_3_3 AT %X3.3 : BOOL;
+	        Signals_3_4 AT %X3.4 : BOOL;
+	        Signals_3_5 AT %X3.5 : BOOL;
+	        Signals_3_6 AT %X3.6 : BOOL;
+	        Signals_3_7 AT %X3.7 : BOOL;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
 	    ureol2l_1_T2O_State_Input_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;

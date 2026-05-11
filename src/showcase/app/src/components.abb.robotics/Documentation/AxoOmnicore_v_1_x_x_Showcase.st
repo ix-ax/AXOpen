@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
     CLASS AxoOmnicore_v_1_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            AxoOmnicore_v_1_x_x : AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x;  
+            AxoOmnicore_v_1_x_x : AXOpen.Components.Abb.Robotics.v_1_x_x.AxoOmnicore;  
         END_VAR
         //</ComponentDeclaration>                          
 

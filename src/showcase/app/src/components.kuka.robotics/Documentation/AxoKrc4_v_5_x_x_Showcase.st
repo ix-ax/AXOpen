@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Kuka.Robotics
+NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     {S7.extern=ReadWrite}
     CLASS AxoKrc4_v_5_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>

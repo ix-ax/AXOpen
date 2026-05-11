@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
     CLASS AxoIrc5_v_1_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            AxoIrc5_v_1_x_x : AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x;  
+            AxoIrc5_v_1_x_x : AXOpen.Components.Abb.Robotics.v_1_x_x.AxoIrc5;  
         END_VAR
         //</ComponentDeclaration>                          
 

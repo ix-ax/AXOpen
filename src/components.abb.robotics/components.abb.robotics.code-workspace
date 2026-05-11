@@ -3,10 +3,6 @@
 		{
 			"name": "ctrl",
 			"path": "ctrl"
-		},
-		{
-			"name": "app",
-			"path": "app"
 		}
 	],
 	"settings": {}
