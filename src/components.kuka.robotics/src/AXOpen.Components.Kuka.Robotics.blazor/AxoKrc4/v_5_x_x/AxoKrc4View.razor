@@ -70,96 +70,98 @@
     </HeaderContent>
 
     <CommandsOperateContent>
-        <div class="flex flex-col gap-4 w-full">
-            <!-- Main control tasks -->
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["ResetAllOutputs"]" Component="Component.ResetAllOutputsTask" HideRestoreButton="false"></AxoTaskCommandView>
-            </div>
+        <div class="w-full overflow-x-auto overflow-y-visible">
+            <Tab Class="min-w-0">
+                <TabPage Title="@Localizer["TabMovements"]">
+                    <div class="flex flex-col gap-4 w-full">
+                        <div class="grid grid-cols-2 gap-2 w-full p-3">
+                            <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                            <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                            <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskCommandView>
+                            <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["ResetAllOutputs"]" Component="Component.ResetAllOutputsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        </div>
 
-            <!-- Start tasks -->
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotors"]" Component="Component.StartMotorsTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartProgram"]" Component="Component.StartProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
-            </div>
+                        <div class="card bg-base-200 p-4">
+                            <h3 class="text-sm font-semibold mb-3">@Localizer["MovementParameters"]</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <RenderableContentControl Context="Component.MovementParameters.ActionNo" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.GlobalSpeed" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.ToolNo" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.WorkobjectNo" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.PointNo" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed1" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed2" Presentation="Control"></RenderableContentControl>
+                            </div>
 
-            <!-- Movement start tasks -->
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotorsProgramAndMovements"]" Component="Component.StartMotorsProgramAndMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
-            </div>
+                            <h4 class="text-sm font-semibold mt-4 mb-2">@Localizer["Coordinates"]</h4>
+                            <div class="grid grid-cols-3 gap-2">
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.X" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.Y" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.Z" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rx" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.Ry" Presentation="Control"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rz" Presentation="Control"></RenderableContentControl>
+                            </div>
+                        </div>
+                    </div>
+                </TabPage>
 
-            <!-- Stop tasks -->
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMotors"]" Component="Component.StopMotorsTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StopProgram"]" Component="Component.StopProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
-            </div>
-
-            <!-- Movement parameters (writeable setpoints) -->
-            <div class="card bg-base-200 p-4">
-                <h3 class="text-sm font-semibold mb-3">@Localizer["MovementParameters"]</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <RenderableContentControl Context="Component.MovementParameters.ActionNo" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.GlobalSpeed" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.ToolNo" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.WorkobjectNo" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.PointNo" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed1" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed2" Presentation="Control"></RenderableContentControl>
-                </div>
-
-                <h4 class="text-sm font-semibold mt-4 mb-2">@Localizer["Coordinates"]</h4>
-                <div class="grid grid-cols-3 gap-2">
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.X" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Y" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Z" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rx" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Ry" Presentation="Control"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.Coordinates.Rz" Presentation="Control"></RenderableContentControl>
-                </div>
-            </div>
+                <TabPage Title="@Localizer["TabPowerProgram"]">                    
+                    <div class="grid grid-cols-2 gap-2 w-full p-3">
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartMotors"]" Component="Component.StartMotorsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StopMotors"]" Component="Component.StopMotorsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartProgram"]" Component="Component.StartProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StopProgram"]" Component="Component.StopProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartMotorsProgramAndMovements"]" Component="Component.StartMotorsProgramAndMovementsTask" HideRestoreButton="false"></AxoTaskCommandView>
+                        <AxoTaskCommandView class="w-full min-w-0" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    </div>
+                </TabPage>
+            </Tab>
         </div>
     </CommandsOperateContent>
 
     <CommandsMonitorContent>
-        <div class="flex flex-col gap-4 w-full">
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["ResetAllOutputs"]" Component="Component.ResetAllOutputsTask" HideRestoreButton="false"></AxoTaskStatusView>
-            </div>
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotors"]" Component="Component.StartMotorsTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartProgram"]" Component="Component.StartProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
-            </div>
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StartMotorsProgramAndMovements"]" Component="Component.StartMotorsProgramAndMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
-            </div>
-            <div class="flex flex-wrap gap-2 w-full">
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMotors"]" Component="Component.StopMotorsTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StopProgram"]" Component="Component.StopProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[12rem]" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
-            </div>
+        <div class="w-full overflow-x-auto overflow-y-visible">
+            <Tab Class="min-w-0">
+                <TabPage Title="@Localizer["TabMovements"]">
+                    <div class="flex flex-col gap-4 w-full">
+                        <div class="grid grid-cols-2 gap-2 w-full p-3">
+                            <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartMovements"]" Component="Component.StartMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                            <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StopMovements"]" Component="Component.StopMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                            <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskStatusView>
+                            <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["ResetAllOutputs"]" Component="Component.ResetAllOutputsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        </div>
 
-            <div class="card bg-base-200 p-4">
-                <h3 class="text-sm font-semibold mb-3">@Localizer["MovementParameters"]</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <RenderableContentControl Context="Component.MovementParameters.ActionNo" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.GlobalSpeed" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.ToolNo" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.WorkobjectNo" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.PointNo" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed1" Presentation="Display"></RenderableContentControl>
-                    <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed2" Presentation="Display"></RenderableContentControl>
-                </div>
-            </div>
+                        <div class="card bg-base-200 p-4">
+                            <h3 class="text-sm font-semibold mb-3">@Localizer["MovementParameters"]</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <RenderableContentControl Context="Component.MovementParameters.ActionNo" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.GlobalSpeed" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.ToolNo" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.WorkobjectNo" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.PointNo" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed1" Presentation="Display"></RenderableContentControl>
+                                <RenderableContentControl Context="Component.MovementParameters.UserSpecSpeed2" Presentation="Display"></RenderableContentControl>
+                            </div>
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["TabPowerProgram"]">
+                    <div class="grid grid-cols-2 gap-2 w-full p-3">
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartMotors"]" Component="Component.StartMotorsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StopMotors"]" Component="Component.StopMotorsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartProgram"]" Component="Component.StartProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StopProgram"]" Component="Component.StopProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartMotorsAndProgram"]" Component="Component.StartMotorsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StopMovementsAndProgram"]" Component="Component.StopMovementsAndProgramTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartMotorsProgramAndMovements"]" Component="Component.StartMotorsProgramAndMovementsTask" HideRestoreButton="false"></AxoTaskStatusView>
+                        <AxoTaskStatusView class="w-full min-w-0" Text="@Localizer["StartAtMain"]" Component="Component.StartAtMainTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    </div>
+                </TabPage>
+            </Tab>
         </div>
     </CommandsMonitorContent>
 
