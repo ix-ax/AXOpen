@@ -52,3 +52,43 @@
   added an "AxoKrc4 on KRC5" tab to the Blazor page with live rendering,
   code reference, hardware configuration, and sequencer views; added KRC5
   search-registry entries.
+
+### 0.52.0
+
+**New features:**
+- Split documentation into per-class doc files following the current
+  `{ComponentName}.md` naming convention: `AxoKrc4.md` (primary reference
+  with full Capabilities / Configuration / HARDWARE prose) and a thinner
+  `AxoKrc5.md` that cross-links to `AxoKrc4.md` for shared API material
+  and only adds KRC5-specific bits (showcase reference, hwc template, vendor
+  GSDML link).
+
+**Other:**
+- `README.md` — Components table now lists both `AxoKrc4` and `AxoKrc5`
+  as sibling proxies; the "single proxy drives both" wording was replaced
+  with an accurate "two sibling classes with identical public API"
+  description. Configuration & state types table generalised to
+  `AxoKrc{4,5}_*` to reflect that each class ships its own supporting types.
+- `TROUBLES.md` — Header, runtime-safety section, and Known-limitations
+  generalised from "`AxoKrc4`" alone to "`AxoKrc4` / `AxoKrc5`".
+- `toc.yml` — Components subtree replaced legacy `AxoKrc4_v_5_x_x` entry
+  with separate `AxoKrc4` and `AxoKrc5` entries.
+- Repointed `[!code-smalltalk[]]` references from the non-existent
+  `AxoKukaRobotics_Datatypes_v_5_x_x/AxoKukaRobotics_Config.st` path to the
+  actual per-class paths under
+  `ctrl/src/AxoKrc{4,5}/v_5_x_x/TypesStructuresAndEnums/`.
+- Removed broken references to `AxoKrc4_v_5_x_x_Showcase2.st` and
+  `AxoKrc4_v_5_x_x_Krc5Showcase.st` (renamed/removed since 0.51.0). New
+  per-class docs reference the current `AxoKrc4_v_5_x_x_Showcase.st` and
+  `AxoKrc5_v_5_x_x_Showcase.st` files.
+- Legacy combined `AxoKrc4_v_5_x_x.md` removed (content migrated into
+  `AxoKrc4.md`).
+
+**New regions:**
+- `AxoKrc4_Config.st` — `<AxoKrc4ConfigDeclaration>`.
+- `AxoKrc4_HWIDs.st` — `<AxoKrc4HWIDsDeclaration>`.
+- `AxoKrc5_Config.st` — `<AxoKrc5ConfigDeclaration>` (in addition to the
+  existing `<AxoKukaRoboticsConfigDeclaration>` region, whose dangling close
+  tag was also corrected).
+- `AxoKrc5_HWIDs.st` — `<AxoKrc5HWIDsDeclaration>` (in addition to the
+  existing `<AxoKukaRoboticsHWIDsDeclaration>` region).
