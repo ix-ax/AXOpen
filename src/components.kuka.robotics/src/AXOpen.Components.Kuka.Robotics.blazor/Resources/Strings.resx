@@ -89,6 +89,9 @@
   <data name="StopMovementsAndProgram" xml:space="preserve"><value>Stop Movements &amp; Program</value></data>
   <data name="MovementParameters" xml:space="preserve"><value>Movement Parameters</value></data>
   <data name="Coordinates" xml:space="preserve"><value>Coordinates</value></data>
+  <!-- Command tab labels -->
+  <data name="TabMovements" xml:space="preserve"><value>Movements</value></data>
+  <data name="TabPowerProgram" xml:space="preserve"><value>Power &amp; Program</value></data>
   <!-- Config -->
   <data name="Configuration" xml:space="preserve"><value>Configuration</value></data>
   <data name="HardwareIDs" xml:space="preserve"><value>Hardware IDs</value></data>

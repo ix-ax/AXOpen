@@ -237,7 +237,7 @@
 										<div class="mt-4">
 											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.ManualRobot" Presentation="@_selectedPresentation" />
 											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.EngageManualControl" Presentation="Control" />
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.manualMovementParams" Presentation="Control" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.manualMovementParams" Presentation="Command-Control" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -313,7 +313,9 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ActivateManualControl" Presentation="Control" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Sequencer" Presentation="" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -462,7 +464,8 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl.ManualRobot" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl.EngageManualControl" Presentation="Control" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
