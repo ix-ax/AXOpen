@@ -95,8 +95,11 @@ View the .NET twin source at [`AXOpen.Components.Kuka.Robotics/AxoKrc4`](https:/
 `AxoKrc4` ships a dedicated Blazor view (`AxoKrc4View.razor`) inside
 `AXOpen.Components.Kuka.Robotics.blazor`. When `RenderableContentControl`
 inspects an `AxoKrc4` context, it picks this view automatically based on the
-`Presentation` attribute. If you prefer the generic `AxoComponent` rendering,
-use `RenderableContentControl` directly.
+`Presentation` attribute. Operator commands are grouped into two tabs —
+`Movements` (Start/Stop Movements, Restore, Reset All Outputs, with movement
+parameters inline) and `Power & Program` (motor and programme tasks) — laid
+out as a uniform 2-column grid. If you prefer the generic `AxoComponent`
+rendering, use `RenderableContentControl` directly.
 
 ## Status display
 

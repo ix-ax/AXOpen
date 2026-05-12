@@ -92,3 +92,37 @@
   tag was also corrected).
 - `AxoKrc5_HWIDs.st` — `<AxoKrc5HWIDsDeclaration>` (in addition to the
   existing `<AxoKukaRoboticsHWIDsDeclaration>` region).
+
+### 0.53.0
+
+**New features:**
+- `AxoKrc5View.razor` — `AxoKrc5` now ships a dedicated Blazor proxy view
+  in `AXOpen.Components.Kuka.Robotics.blazor` under `AxoKrc5/v_5_x_x/`,
+  mirroring `AxoKrc4View` 1:1 (same tabbed command layout, identical
+  `Status` / `Command` / `Spot` derivatives, identical scoped SVG arm
+  rendering with `krc5-*` class names). `RenderableContentControl` now
+  selects this view automatically for any `AxoKrc5` context.
+
+**Other:**
+- `AxoKrc4View.razor` — operator commands reorganised into two
+  `Operon.Components.Tab` tab pages: `Movements` (`StartMovements` /
+  `StopMovements`, `Restore` / `ResetAllOutputs`, with the `MovementParameters`
+  card rendered inline below the button grid) and `Power & Program`
+  (`StartMotors` / `StopMotors`, `StartProgram` / `StopProgram`, the two
+  composite tasks, and `StartAtMain`). Buttons laid out as a fixed
+  2-column `grid grid-cols-2` so every cell has the same width.
+  `CommandsMonitorContent` mirrors the same layout in read-only mode.
+- `AxoKrc5.md` — BLAZOR tab rewritten to reflect the new dedicated view
+  (was previously "does not ship a dedicated Blazor view at this time");
+  added the same Type-agnostic Status/Command snippet pair as `AxoKrc4.md`
+  and repointed the source link to `AxoKrc5View.razor`.
+- `AxoKrc4.md` — BLAZOR tab introductory paragraph extended with a one-line
+  description of the new `Movements` / `Power & Program` tab structure.
+- Removed the standalone manual-control showcase examples
+  (`AxoKrc4_v_5_x_x_ManualControl.st`, `AxoKrc5_v_5_x_x_ManualControl.st`)
+  from `showcase/app/src/components.kuka.robotics/Documentation/`; the
+  matching `KukaRobotics.st` instances, `KukaRobotics.razor` tab pages,
+  and `ShowcasePageRegistry` entries were dropped accordingly. Manual
+  control remains available through the existing
+  `axoKrcN_v_5_x_x.ActivateManualControl` toggle on the sequenced
+  showcases — no library-side API was removed.

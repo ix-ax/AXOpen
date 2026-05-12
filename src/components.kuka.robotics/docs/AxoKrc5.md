@@ -87,10 +87,15 @@ View the .NET twin source at [`AXOpen.Components.Kuka.Robotics/AxoKrc5`](https:/
 
 # [BLAZOR](#tab/blazor)
 
-`AxoKrc5` does not ship a dedicated Blazor view at this time; it renders via
-the generic `AxoComponent` pattern using `RenderableContentControl`, which
-inspects the component type at runtime and selects the matching rendering
-based on the `Presentation` attribute.
+`AxoKrc5` ships a dedicated Blazor view (`AxoKrc5View.razor`) inside
+`AXOpen.Components.Kuka.Robotics.blazor`, mirroring `AxoKrc4View` 1:1. When
+`RenderableContentControl` inspects an `AxoKrc5` context, it picks this view
+automatically based on the `Presentation` attribute. Operator commands are
+grouped into two tabs — `Movements` (Start/Stop Movements, Restore, Reset
+All Outputs, with movement parameters inline) and `Power & Program` (motor
+and programme tasks) — laid out as a uniform 2-column grid. If you prefer
+the generic `AxoComponent` rendering, use `RenderableContentControl`
+directly.
 
 ## Status display
 
@@ -100,11 +105,19 @@ based on the `Presentation` attribute.
 
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-kuka-robotics/Documentation/KukaRobotics.razor?name=GenericComponentCommandView)]
 
+## Type-agnostic status view
+
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-kuka-robotics/Documentation/KukaRobotics.razor?name=RccComponentStatusView)]
+
+## Type-agnostic command view
+
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-kuka-robotics/Documentation/KukaRobotics.razor?name=RccComponentCommandView)]
+
 Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-Control`, `Spot`, `Compact`.
 
 ## Source
 
-View the Blazor package at [`AXOpen.Components.Kuka.Robotics.blazor`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics.blazor/).
+View the Blazor view at [`AxoKrc5View.razor`](https://github.com/Inxton/AXOpen/tree/dev/src/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics.blazor/AxoKrc5/v_5_x_x/AxoKrc5View.razor).
 
 # [HARDWARE](#tab/hardware)
 
