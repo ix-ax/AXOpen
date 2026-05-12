@@ -35,9 +35,7 @@
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
 					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"          OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcKrc4SequencedPath"    OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcKrc4ManualPath"       OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcKrc5SequencedPath"    OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcKrc5ManualPath"       OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
 			<LibraryResources VendorName="KUKA" VendorUrl="https://www.kuka.com/">
@@ -226,84 +224,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-						<TabPage Title="AxoKrc4 — Manual control">
-							<div class="mt-4 space-y-4">
-								<div class="flex items-center gap-2">
-									<span class="text-xs font-medium text-slate-500">Maturity:</span>
-									<MaturityBadge ComponentName="KUKA KRC4 v_5_x_x" />
-								</div>
-								<Tab>
-									<TabPage Title="Automatic rendering">
-										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.ManualRobot" Presentation="@_selectedPresentation" />
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.EngageManualControl" Presentation="Control" />
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl.manualMovementParams" Presentation="Command-Control" />
-										</div>
-									</TabPage>
-									<TabPage Title="Code reference">
-										<div class="mt-4 space-y-6">
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc4ManualPath" Label="@_plcKrc4ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ComponentDeclaration&gt; region
-												</p>
-												@if (_krc4ManDeclSnippet != null && !_krc4ManDeclSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc4ManDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Manual control activation (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc4ManualPath" Label="@_plcKrc4ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ManualControlActivation&gt; region
-												</p>
-												@if (_krc4ManActivateSnippet != null && !_krc4ManActivateSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc4ManActivateSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Manual move trigger (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc4ManualPath" Label="@_plcKrc4ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ManualMoveTrigger&gt; region
-												</p>
-												@if (_krc4ManTriggerSnippet != null && !_krc4ManTriggerSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc4ManTriggerSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-										</div>
-									</TabPage>
-								</Tab>
-							</div>
-						</TabPage>
 						<TabPage Title="AxoKrc5 — Sequenced workflow">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -455,83 +375,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-						<TabPage Title="AxoKrc5 — Manual control">
-							<div class="mt-4 space-y-4">
-								<div class="flex items-center gap-2">
-									<span class="text-xs font-medium text-slate-500">Maturity:</span>
-									<MaturityBadge ComponentName="KUKA KRC5 v_5_x_x" />
-								</div>
-								<Tab>
-									<TabPage Title="Automatic rendering">
-										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl.ManualRobot" Presentation="@_selectedPresentation" />
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl.EngageManualControl" Presentation="Control" />
-										</div>
-									</TabPage>
-									<TabPage Title="Code reference">
-										<div class="mt-4 space-y-6">
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc5ManualPath" Label="@_plcKrc5ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ComponentDeclaration&gt; region
-												</p>
-												@if (_krc5ManDeclSnippet != null && !_krc5ManDeclSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc5ManDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Manual control activation (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc5ManualPath" Label="@_plcKrc5ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ManualControlActivation&gt; region
-												</p>
-												@if (_krc5ManActivateSnippet != null && !_krc5ManActivateSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc5ManActivateSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-											<div>
-												<h4 class="text-sm font-semibold text-gray-900 mb-1">Manual move trigger (ST)</h4>
-												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcKrc5ManualPath" Label="@_plcKrc5ManualPath" OnOpen="OpenModalAsync" />
-													— &lt;ManualMoveTrigger&gt; region
-												</p>
-												@if (_krc5ManTriggerSnippet != null && !_krc5ManTriggerSnippet.IsError)
-												{
-													<CodeBlock Content="@(_krc5ManTriggerSnippet.Content ?? string.Empty)" Language="language-iecst" />
-												}
-												else if (_loadingCode)
-												{
-													<div class="p-4 text-center text-slate-500">Loading...</div>
-												}
-												else
-												{
-													<p class="text-xs text-orange-600">Unable to load snippet</p>
-												}
-											</div>
-										</div>
-									</TabPage>
-								</Tab>
-							</div>
-						</TabPage>
 					</Tab>
 				</div>
 			</article>
@@ -547,18 +390,10 @@
 	private CodeSnippet? _krc4SeqDeclSnippet;
 	private CodeSnippet? _krc4SeqInitSnippet;
 	private List<StepLogicBlock> _krc4SeqStepLogicBlocks = new();
-	// KRC4 manual
-	private CodeSnippet? _krc4ManDeclSnippet;
-	private CodeSnippet? _krc4ManActivateSnippet;
-	private CodeSnippet? _krc4ManTriggerSnippet;
 	// KRC5 sequenced
 	private CodeSnippet? _krc5SeqDeclSnippet;
 	private CodeSnippet? _krc5SeqInitSnippet;
 	private List<StepLogicBlock> _krc5SeqStepLogicBlocks = new();
-	// KRC5 manual
-	private CodeSnippet? _krc5ManDeclSnippet;
-	private CodeSnippet? _krc5ManActivateSnippet;
-	private CodeSnippet? _krc5ManTriggerSnippet;
 	// HWC snippets
 	private CodeSnippet? _hwcKrc4InstanceSnippet;
 	private CodeSnippet? _hwcKrc4TemplateSnippet;
@@ -571,9 +406,7 @@
 
 	private readonly string _plcContextPath       = "src/showcase/app/src/components.kuka.robotics/Documentation/KukaRobotics.st";
 	private readonly string _plcKrc4SequencedPath = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase.st";
-	private readonly string _plcKrc4ManualPath    = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_ManualControl.st";
 	private readonly string _plcKrc5SequencedPath = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc5_v_5_x_x_Showcase.st";
-	private readonly string _plcKrc5ManualPath    = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc5_v_5_x_x_ManualControl.st";
 	// Hardware configuration paths.
 	// Note: the showcase's hwc/library_templates/* folder is regenerated by `apax alf`
 	// and cannot hold doc markers. Point at the library asset source (ctrl/assets/*)
@@ -604,18 +437,10 @@
 			var k4SeqDecl  = CodeProvider.GetTaggedRegionAsync(_plcKrc4SequencedPath, "ComponentDeclaration");
 			var k4SeqInit  = CodeProvider.GetTaggedRegionAsync(_plcKrc4SequencedPath, "Initialization");
 			var k4SeqSteps = CodeProvider.GetStepLogicBlocksAsync(_plcKrc4SequencedPath);
-			// KRC4 manual
-			var k4ManDecl     = CodeProvider.GetTaggedRegionAsync(_plcKrc4ManualPath, "ComponentDeclaration");
-			var k4ManActivate = CodeProvider.GetTaggedRegionAsync(_plcKrc4ManualPath, "ManualControlActivation");
-			var k4ManTrigger  = CodeProvider.GetTaggedRegionAsync(_plcKrc4ManualPath, "ManualMoveTrigger");
 			// KRC5 sequenced
 			var k5SeqDecl  = CodeProvider.GetTaggedRegionAsync(_plcKrc5SequencedPath, "ComponentDeclaration");
 			var k5SeqInit  = CodeProvider.GetTaggedRegionAsync(_plcKrc5SequencedPath, "Initialization");
 			var k5SeqSteps = CodeProvider.GetStepLogicBlocksAsync(_plcKrc5SequencedPath);
-			// KRC5 manual
-			var k5ManDecl     = CodeProvider.GetTaggedRegionAsync(_plcKrc5ManualPath, "ComponentDeclaration");
-			var k5ManActivate = CodeProvider.GetTaggedRegionAsync(_plcKrc5ManualPath, "ManualControlActivation");
-			var k5ManTrigger  = CodeProvider.GetTaggedRegionAsync(_plcKrc5ManualPath, "ManualMoveTrigger");
 			// HWC
 			var hwcKrc4Inst = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4Device");
 			var hwcKrc4Tmpl = CodeProvider.GetTaggedRegionAsync(_hwcKrc4TemplatePath, "KukaKrc4Template");
@@ -625,24 +450,16 @@
 			var hwcKrc5Io   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc5IoSystem");
 
 			await Task.WhenAll(k4SeqDecl, k4SeqInit, k4SeqSteps,
-				k4ManDecl, k4ManActivate, k4ManTrigger,
 				k5SeqDecl, k5SeqInit, k5SeqSteps,
-				k5ManDecl, k5ManActivate, k5ManTrigger,
 				hwcKrc4Inst, hwcKrc4Tmpl, hwcKrc4Io,
 				hwcKrc5Inst, hwcKrc5Tmpl, hwcKrc5Io);
 
 			_krc4SeqDeclSnippet     = await k4SeqDecl;
 			_krc4SeqInitSnippet     = await k4SeqInit;
 			_krc4SeqStepLogicBlocks = await k4SeqSteps;
-			_krc4ManDeclSnippet     = await k4ManDecl;
-			_krc4ManActivateSnippet = await k4ManActivate;
-			_krc4ManTriggerSnippet  = await k4ManTrigger;
 			_krc5SeqDeclSnippet     = await k5SeqDecl;
 			_krc5SeqInitSnippet     = await k5SeqInit;
 			_krc5SeqStepLogicBlocks = await k5SeqSteps;
-			_krc5ManDeclSnippet     = await k5ManDecl;
-			_krc5ManActivateSnippet = await k5ManActivate;
-			_krc5ManTriggerSnippet  = await k5ManTrigger;
 			_hwcKrc4InstanceSnippet = await hwcKrc4Inst;
 			_hwcKrc4TemplateSnippet = await hwcKrc4Tmpl;
 			_hwcKrc4IoSystemSnippet = await hwcKrc4Io;
@@ -695,8 +512,6 @@
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-		this.StartPolling(Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_manualControl, 500);
-		this.StartPolling(Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x_manualControl, 500);
 	}
 }
 
