@@ -562,6 +562,10 @@ NAMESPACE AXOpen.Core
                RETURN;
             END_IF;    
                       
+            IF(THIS.GetContext().GetMessengerService().IsSuspended()) THEN
+                RETURN;
+            END_IF;
+
             IF(THIS.MessengerState = eAxoMessengerState#Idle && _refObservedStep <> inStep) THEN
                 THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;            
                 _context := inParent.GetContext();   
@@ -576,7 +580,7 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             IF(THIS.MessengerState <> eAxoMessengerState#Idle && _refObservedStep = inStep) THEN
-                inParent.AggregateMessage(1);
+                THIS.GetParent().AggregateMessage(1);
             END_IF;    
         END_METHOD
 
