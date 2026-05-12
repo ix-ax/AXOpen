@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.48'
+version: '0.0.49'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
