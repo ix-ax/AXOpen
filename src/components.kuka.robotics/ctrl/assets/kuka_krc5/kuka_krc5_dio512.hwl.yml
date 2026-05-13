@@ -1,3 +1,4 @@
+#<KukaKrc5Template>
 Templates:
   Devices:
     - Name: 'kuka_krc5_dio512'
@@ -75,3 +76,4 @@ Templates:
               GsdId: '15'
               FileName: GSDML-V2.4-KUKA-KR C5-20220704.XML
             Slot: 2
+#</KukaKrc5Template>

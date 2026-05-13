@@ -2,23 +2,28 @@
 
 The **components.kuka.robotics** is a set of libraries covering the product portfolio of the robotics systems from the vendor [Kuka](https://www.kuka.com/en-gb) for the target PLC platform [Siemens AX](https://www.siemens.com/global/en/products/automation/industry-software/automation-software/simatic-ax.html) and [AxOpen](https://github.com/inxton/AXOpen?tab=readme-ov-file) framework.
 
-The package consists of a PLC library providing control logic and its .NET twin counterpart aimed at the visualization part. This package currently covers robots driven by the **KRC4** and **KRC5** controllers. Both controller families expose the same AXOpen-compatible slot layout (slot 1 reserved, slot 2 = 512 DI / 512 DO, 64-byte cyclic I/O) and are driven by the single `AxoKrc4` proxy class — only the GSDML and PROFINET device template differ between them.
+The package consists of a PLC library providing control logic and its .NET twin counterpart aimed at the visualization part. This package currently covers robots driven by the **KRC4** and **KRC5** controllers. Both controller families expose the same AXOpen-compatible slot layout (slot 1 reserved, slot 2 = 512 DI / 512 DO, 64-byte cyclic I/O) and are exposed as two sibling proxy classes — `AxoKrc4` and `AxoKrc5` — sharing an identical public API. Only the GSDML and PROFINET device template differ between them.
 
 ### Components
 
 | Component | Description |
 |-----------|-------------|
-| [`AxoKrc4`](AxoKrc4_v_5_x_x.md) | KUKA KRC4 / KRC5 controller proxy (namespace `AXOpen.Components.Kuka.Robotics.v_5_x_x`) exposing programme/motion commands, safety state, tool/zone outputs, and hardware diagnostics. Derives from `AxoComponent` and implements `IAxoRobotics`. |
+| [`AxoKrc4`](AxoKrc4.md) | KUKA **KRC4** controller proxy (namespace `AXOpen.Components.Kuka.Robotics.v_5_x_x`) exposing programme/motion commands, safety state, tool/zone outputs, and hardware diagnostics. Derives from `AxoComponent` and implements `IAxoRobotics`. |
+| [`AxoKrc5`](AxoKrc5.md) | KUKA **KRC5** controller proxy (namespace `AXOpen.Components.Kuka.Robotics.v_5_x_x`). Public API is identical to `AxoKrc4`; only the GSDML and PROFINET device template differ. |
 
 ### Configuration & state types
 
-| Type | Role |
-|------|------|
-| `AxoKukaRobotics_Config` | Configuration: `InfoTime`, `ErrorTime`, `TaskTimeout`, `HWIDs`. |
-| `AxoKukaRobotics_HWIDs` | Hardware identifiers: `HwID_Device`, `HwID_None`, `HwID_512_DI_DO`. |
-| `AxoKukaRobotics_State` | Input image (RC_RDY1, ALARM_STOP, USER_SAF, PERI_RDY, ROB_CAL, I_O_ACTCONF, STOPMESS, ROB_STOPPED, mode, position/zone, tool feedback, coordinates). |
-| `AxoKukaRobotics_Control` | Output image (EXT_START, MOVE_ENABLE, CONF_MESS, DRIVES_OFF, DRIVES_ON, I_O_ACT, START_AT_MAIN, master mode, tool commands, action/speed/tool/point numbers, coordinates). |
-| `AxoKukaRobotics_Component_Status` | Runtime status (extends `AxoRobot_Status`). |
+Each controller class ships its own set of supporting types in the same
+namespace. They are structurally identical between KRC4 and KRC5 — only the
+type-name prefix differs.
+
+| Type (per class) | Role |
+|------------------|------|
+| `AxoKrc{4,5}_Config` | Configuration: `InfoTime`, `ErrorTime`, `TaskTimeout`, `HWIDs`. |
+| `AxoKrc{4,5}_HWIDs` | Hardware identifiers: `HwID_Device`, `HwID_None`, `HwID_512_DI_DO`. |
+| `AxoKrc{4,5}_State` | Input image (RC_RDY1, ALARM_STOP, USER_SAF, PERI_RDY, ROB_CAL, I_O_ACTCONF, STOPMESS, ROB_STOPPED, mode, position/zone, tool feedback, coordinates). |
+| `AxoKrc{4,5}_Control` | Output image (EXT_START, MOVE_ENABLE, CONF_MESS, DRIVES_OFF, DRIVES_ON, I_O_ACT, START_AT_MAIN, master mode, tool commands, action/speed/tool/point numbers, coordinates). |
+| `AxoKrc{4,5}_Component_Status` | Runtime status (extends `AxoRobot_Status`). |
 
 ### Packages
 

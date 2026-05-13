@@ -52,3 +52,77 @@
   added an "AxoKrc4 on KRC5" tab to the Blazor page with live rendering,
   code reference, hardware configuration, and sequencer views; added KRC5
   search-registry entries.
+
+### 0.52.0
+
+**New features:**
+- Split documentation into per-class doc files following the current
+  `{ComponentName}.md` naming convention: `AxoKrc4.md` (primary reference
+  with full Capabilities / Configuration / HARDWARE prose) and a thinner
+  `AxoKrc5.md` that cross-links to `AxoKrc4.md` for shared API material
+  and only adds KRC5-specific bits (showcase reference, hwc template, vendor
+  GSDML link).
+
+**Other:**
+- `README.md` — Components table now lists both `AxoKrc4` and `AxoKrc5`
+  as sibling proxies; the "single proxy drives both" wording was replaced
+  with an accurate "two sibling classes with identical public API"
+  description. Configuration & state types table generalised to
+  `AxoKrc{4,5}_*` to reflect that each class ships its own supporting types.
+- `TROUBLES.md` — Header, runtime-safety section, and Known-limitations
+  generalised from "`AxoKrc4`" alone to "`AxoKrc4` / `AxoKrc5`".
+- `toc.yml` — Components subtree replaced legacy `AxoKrc4_v_5_x_x` entry
+  with separate `AxoKrc4` and `AxoKrc5` entries.
+- Repointed `[!code-smalltalk[]]` references from the non-existent
+  `AxoKukaRobotics_Datatypes_v_5_x_x/AxoKukaRobotics_Config.st` path to the
+  actual per-class paths under
+  `ctrl/src/AxoKrc{4,5}/v_5_x_x/TypesStructuresAndEnums/`.
+- Removed broken references to `AxoKrc4_v_5_x_x_Showcase2.st` and
+  `AxoKrc4_v_5_x_x_Krc5Showcase.st` (renamed/removed since 0.51.0). New
+  per-class docs reference the current `AxoKrc4_v_5_x_x_Showcase.st` and
+  `AxoKrc5_v_5_x_x_Showcase.st` files.
+- Legacy combined `AxoKrc4_v_5_x_x.md` removed (content migrated into
+  `AxoKrc4.md`).
+
+**New regions:**
+- `AxoKrc4_Config.st` — `<AxoKrc4ConfigDeclaration>`.
+- `AxoKrc4_HWIDs.st` — `<AxoKrc4HWIDsDeclaration>`.
+- `AxoKrc5_Config.st` — `<AxoKrc5ConfigDeclaration>` (in addition to the
+  existing `<AxoKukaRoboticsConfigDeclaration>` region, whose dangling close
+  tag was also corrected).
+- `AxoKrc5_HWIDs.st` — `<AxoKrc5HWIDsDeclaration>` (in addition to the
+  existing `<AxoKukaRoboticsHWIDsDeclaration>` region).
+
+### 0.53.0
+
+**New features:**
+- `AxoKrc5View.razor` — `AxoKrc5` now ships a dedicated Blazor proxy view
+  in `AXOpen.Components.Kuka.Robotics.blazor` under `AxoKrc5/v_5_x_x/`,
+  mirroring `AxoKrc4View` 1:1 (same tabbed command layout, identical
+  `Status` / `Command` / `Spot` derivatives, identical scoped SVG arm
+  rendering with `krc5-*` class names). `RenderableContentControl` now
+  selects this view automatically for any `AxoKrc5` context.
+
+**Other:**
+- `AxoKrc4View.razor` — operator commands reorganised into two
+  `Operon.Components.Tab` tab pages: `Movements` (`StartMovements` /
+  `StopMovements`, `Restore` / `ResetAllOutputs`, with the `MovementParameters`
+  card rendered inline below the button grid) and `Power & Program`
+  (`StartMotors` / `StopMotors`, `StartProgram` / `StopProgram`, the two
+  composite tasks, and `StartAtMain`). Buttons laid out as a fixed
+  2-column `grid grid-cols-2` so every cell has the same width.
+  `CommandsMonitorContent` mirrors the same layout in read-only mode.
+- `AxoKrc5.md` — BLAZOR tab rewritten to reflect the new dedicated view
+  (was previously "does not ship a dedicated Blazor view at this time");
+  added the same Type-agnostic Status/Command snippet pair as `AxoKrc4.md`
+  and repointed the source link to `AxoKrc5View.razor`.
+- `AxoKrc4.md` — BLAZOR tab introductory paragraph extended with a one-line
+  description of the new `Movements` / `Power & Program` tab structure.
+- Removed the standalone manual-control showcase examples
+  (`AxoKrc4_v_5_x_x_ManualControl.st`, `AxoKrc5_v_5_x_x_ManualControl.st`)
+  from `showcase/app/src/components.kuka.robotics/Documentation/`; the
+  matching `KukaRobotics.st` instances, `KukaRobotics.razor` tab pages,
+  and `ShowcasePageRegistry` entries were dropped accordingly. Manual
+  control remains available through the existing
+  `axoKrcN_v_5_x_x.ActivateManualControl` toggle on the sequenced
+  showcases — no library-side API was removed.
