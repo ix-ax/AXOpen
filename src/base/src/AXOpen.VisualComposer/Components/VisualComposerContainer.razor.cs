@@ -1,4 +1,4 @@
-using AngleSharp.Dom;
+﻿using AngleSharp.Dom;
 using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
@@ -594,6 +594,8 @@ namespace AXOpen.VisualComposer.Components
         private List<ITwinElement>? _searchResult { get; set; } = null;
         private void Search()
         {
+            _searchResultPage = 1;
+
             if (_searchValue is null || _searchValue == "")
             {
                 _searchResult = null;
@@ -641,6 +643,7 @@ namespace AXOpen.VisualComposer.Components
                     {
                         FilterMode.StartsWith => flatChildren.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
                         FilterMode.EndsWith => flatChildren.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.Regex => flatChildren.Where(p => Regex.IsMatch(p.Symbol, _searchValue, RegexOptions.IgnoreCase)),
                         _ => flatChildren.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
                     };
 
@@ -648,6 +651,7 @@ namespace AXOpen.VisualComposer.Components
                     {
                         FilterMode.StartsWith => primitives.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
                         FilterMode.EndsWith => primitives.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.Regex => primitives.Where(p => Regex.IsMatch(p.Symbol, _searchValue, RegexOptions.IgnoreCase)),
                         _ => primitives.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
                     };
 
@@ -665,6 +669,15 @@ namespace AXOpen.VisualComposer.Components
 
         private bool? _controllerObjectsSortAscending { get; set; } = null;
         private FilterMode _controllerObjectsFilterMode { get; set; } = FilterMode.Contains;
+        private int _searchResultPage { get; set; } = 1;
+        private int _searchResultPageSize { get; set; } = 50;
+        private int _searchResultTotalCount => _searchResult?.Count ?? 0;
+
+        private IEnumerable<ITwinElement> GetPagedSearchResult()
+        {
+            if (_searchResult == null) return Enumerable.Empty<ITwinElement>();
+            return _searchResult.Skip((_searchResultPage - 1) * _searchResultPageSize).Take(_searchResultPageSize);
+        }
 
         private void ToggleControllerObjectsSort()
         {
@@ -674,6 +687,8 @@ namespace AXOpen.VisualComposer.Components
                 _controllerObjectsSortAscending = false;
             else if (_controllerObjectsSortAscending == false)
                 _controllerObjectsSortAscending = null;
+
+            _searchResultPage = 1;
 
             // Apply sorting
             if (_controllerObjectsSortAscending != null)
@@ -917,7 +932,8 @@ namespace AXOpen.VisualComposer.Components
         {
             Contains,
             StartsWith,
-            EndsWith
+            EndsWith,
+            Regex
         }
     }
 
@@ -927,6 +943,7 @@ namespace AXOpen.VisualComposer.Components
         {
             VisualComposerContainer.FilterMode.StartsWith => "Starts with",
             VisualComposerContainer.FilterMode.EndsWith => "Ends with",
+            VisualComposerContainer.FilterMode.Regex => "Regex",
             _ => "Contains",
         };
     }

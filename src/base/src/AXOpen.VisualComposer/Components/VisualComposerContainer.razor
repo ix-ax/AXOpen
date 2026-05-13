@@ -203,7 +203,7 @@
                     }
                     else
                     {
-                        @foreach (var item in _searchResult)
+                        @foreach (var item in GetPagedSearchResult())
                         {
                             @if (!CurrentView.IsWatchTable || item is ITwinPrimitive)
                             {
@@ -219,6 +219,10 @@
                                     }
                                 </div>
                             }
+                        }
+                        @if (_searchResultTotalCount > 0)
+                        {
+                            <Pagination Count="@_searchResultTotalCount" @bind-Selected="_searchResultPage" @bind-PageSize="_searchResultPageSize" ShowPages="true" ShowShowing="true" ShowPageSize="true" />
                         }
                     }
                 </div>
