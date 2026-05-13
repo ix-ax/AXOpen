@@ -1615,7 +1615,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC requalified_potential_to_error_should_require_acknowledgement  
+        METHOD PUBLIC requalified_potential_to_error_should_require_acknowledgement
             //--Arrange
             _suti.InjectMessengerService(_serviceSpy);
             _serviceSpy.RequalifyDownstreamMessages(eAxoMessageCategory#Error);
@@ -1628,7 +1628,37 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.Category = eAxoMessageCategory#Error);            
+            Assert.Equal(TRUE, _suti._object._messenger.Category = eAxoMessageCategory#Error);
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC activate_should_be_noop_when_messaging_is_suspended
+            //--Arrange
+            _suti.InjectMessengerService(_serviceSpy);
+            _serviceSpy.ResumeMessaging();
+            _serviceSpy.SuspendMessaging();
+
+            //--Act
+            _suti.Open();
+            _suti.InitializeRootObject(_suti._object);
+            _suti._object._messenger.Serve(_suti._object);
+            _suti._object._messenger.Activate(UINT#1, eAxoMessageCategory#Error);
+            _suti.Close();
+
+            //--Assert: Activate is a no-op while suspended
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
+            Assert.Equal(TRUE, _suti._object._messenger.MessageCode = ULINT#0);
+
+            //--Act: resume and reactivate
+            _serviceSpy.ResumeMessaging();
+            _suti.Open();
+            _suti._object._messenger.Serve(_suti._object);
+            _suti._object._messenger.Activate(UINT#1, eAxoMessageCategory#Error);
+            _suti.Close();
+
+            //--Assert: activation proceeds after resume
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
+            Assert.Equal(TRUE, _suti._object._messenger.MessageCode = ULINT#1);
         END_METHOD
     END_CLASS
 END_NAMESPACE
