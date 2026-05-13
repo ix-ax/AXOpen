@@ -21,6 +21,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
         {
             Origin!.MoveEvent = new EventHandler((sender, e) => MoveAsync((PointerEventArgs)e));
             Origin!.LeaveEvent = new EventHandler((sender, e) => Leave((PointerEventArgs)e));
+            Origin!.UpEvent = new EventHandler((sender, e) => Up((PointerEventArgs)e));
         }
 
         private async Task MoveAsync(PointerEventArgs eventArgs)
@@ -28,7 +29,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             if (_isDragging)
             {
                 double offsetX = ((eventArgs.ClientX - _startX) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / Parent!.ElementSize.Height * 100) * (1 / Parent.CurrentView.Scale);
 
                 Origin._left += offsetX;
                 Origin._top += offsetY;

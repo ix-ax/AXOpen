@@ -135,6 +135,7 @@
         {
             <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full h-full">
                 <div @onpointermove="Move"
+                     @onpointerup="Up"
                      @onpointerleave="Leave" class="w-full h-full">
                     <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
                         @* <div id="@_backgroundId" class="w-full h-full">

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Operon.Components;
+using Operon.Components.Toast;
 using System.Text.RegularExpressions;
 
 namespace AXOpen.VisualComposer.Components
@@ -26,6 +27,9 @@ namespace AXOpen.VisualComposer.Components
 
         [Inject]
         private ProtectedLocalStorage _protectedLocalStorage { set; get; }
+
+        [Inject]
+        private IToastService _toastService { get; set; }
 
         //private bool _editSVG { get; set; } = false;
         private bool _inDesignMode { get; set; } = false;
@@ -213,7 +217,16 @@ namespace AXOpen.VisualComposer.Components
         private async Task CreateNewViewAsync(string name, SaveLocationType saveLocationType, bool isWatchTable)
         {
             if (string.IsNullOrEmpty(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", "Please enter a view name.", 5);
                 return;
+            }
+
+            if (_serverStorageAllViews.Contains(name) || _localStorageData.ContainsKey(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", $"A view with the name '{name}' already exists.", 5);
+                return;
+            }
 
             _currentViewName = name;
 
@@ -233,7 +246,16 @@ namespace AXOpen.VisualComposer.Components
         private async Task CreateCopyViewAsync(string name, SaveLocationType saveLocationType)
         {
             if (string.IsNullOrEmpty(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", "Please enter a view name.", 5);
                 return;
+            }
+
+            if (_serverStorageAllViews.Contains(name) || _localStorageData.ContainsKey(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", $"A view with the name '{name}' already exists.", 5);
+                return;
+            }
 
             var oldViewName = _currentViewName;
 
@@ -471,13 +493,19 @@ namespace AXOpen.VisualComposer.Components
             {
                 var file = e.File;
                 if (file == null || !file.Name.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                {
+                    _toastService?.AddToast(eToastType.Warning, "Import failed", "Please select a valid .json file.", 5);
                     return;
+                }
 
                 using var stream = file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024); // 10MB max
                 var importedView = await System.Text.Json.JsonSerializer.DeserializeAsync<SerializableView>(stream);
 
                 if (importedView == null)
+                {
+                    _toastService?.AddToast(eToastType.Warning, "Import failed", "The file could not be deserialized.", 5);
                     return;
+                }
 
                 var viewName = Path.GetFileNameWithoutExtension(file.Name);
                 var originalName = viewName;
@@ -511,10 +539,13 @@ namespace AXOpen.VisualComposer.Components
                 // Load the imported view
                 await LoadAsync(viewName);
 
+                _toastService?.AddToast(eToastType.Success, "View imported", $"View '{viewName}' was imported successfully.", 5);
+
                 StateHasChanged();
             }
             catch (Exception ex)
             {
+                _toastService?.AddToast(eToastType.Warning, "Import failed", $"Error importing view: {ex.Message}", 7);
                 Console.WriteLine($"Error importing view: {ex.Message}");
             }
         }
@@ -672,6 +703,7 @@ namespace AXOpen.VisualComposer.Components
             catch (Exception ex)
             {
                 CurrentView.ImgSrc = null;
+                _toastService?.AddToast(eToastType.Warning, "Upload failed", $"Error uploading background image: {ex.Message}", 7);
                 Console.WriteLine($"VisualComposer Error: {ex.Message}");
             }
 
@@ -773,6 +805,15 @@ namespace AXOpen.VisualComposer.Components
             {
                 if (item.LeaveEvent != null)
                     item.LeaveEvent.Invoke(this, eventArgs);
+            }
+        }
+
+        private void Up(PointerEventArgs eventArgs)
+        {
+            foreach (var item in _items)
+            {
+                if (item.UpEvent != null)
+                    item.UpEvent.Invoke(this, eventArgs);
             }
         }
 
