@@ -1,4 +1,4 @@
-﻿using AngleSharp.Dom;
+using AngleSharp.Dom;
 using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
@@ -60,6 +60,8 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveBottom { get; set; } = 10;
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
+
+        private const string OptionsStorageKey = "VisualComposer_ControllerObjectsOptions";
 
         // Watch table filtering and sorting
         private string? _watchTableFilter { get; set; } = null;
@@ -824,6 +826,42 @@ namespace AXOpen.VisualComposer.Components
             else if (location == SaveLocationType.Local)
                 return "bg-warning/10";
             return "";
+        }
+
+        private async Task LoadOptionsAsync()
+        {
+            var saved = await LocalStorage<SerializableControllerObjectsOptions>.LoadAsync(_protectedLocalStorage, OptionsStorageKey);
+            if (saved != null)
+            {
+                _options._left = saved.Left;
+                _options._top = saved.Top;
+                _options._transform = Types.TransformType.FromString(saved.Transform) ?? Types.TransformType.TopCenter;
+                _options._presentation = saved.Presentation;
+                _options._width = saved.Width;
+                _options._height = saved.Height;
+                _options._zIndex = saved.ZIndex;
+                _options._scale = saved.Scale;
+                _options._rotate = saved.Rotate;
+                _options._roles = saved.Roles;
+                _options._presentationTemplate = saved.PresentationTemplate;
+                _options._background = saved.Background;
+                _options._backgroundColorLight = saved.BackgroundColorLight;
+                _options._backgroundColorDark = saved.BackgroundColorDark;
+                _options._pollingInterval = saved.PollingInterval;
+
+                _optionsMove = saved.OptionsMove;
+                _optionsMoveDirection = saved.OptionsMoveDirection;
+                _optionsMoveBottom = saved.OptionsMoveBottom;
+                _optionsMoveRight = saved.OptionsMoveRight;
+                _customPresentation = saved.CustomPresentation;
+            }
+        }
+
+        private async Task SaveOptionsAsync()
+        {
+            var data = new SerializableControllerObjectsOptions(_options, _optionsMove, _optionsMoveDirection, _optionsMoveBottom, _optionsMoveRight, _customPresentation);
+
+            await LocalStorage<SerializableControllerObjectsOptions>.SaveAsync(_protectedLocalStorage, OptionsStorageKey, data);
         }
 
         private void ToggleSort()

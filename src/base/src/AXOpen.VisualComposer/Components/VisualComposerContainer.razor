@@ -218,8 +218,8 @@
                 </div>
                 <div class="modal-footer flex justify-end gap-1 items-center">
                     <div class="btn-group">
-                        <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="() => _useOption = !_useOption">Options</button>
-                        <button class="btn btn-outline-primary" @onclick="() => _modalControllerObjectsOptions.Toggle()">
+                        <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="async () => { _useOption = !_useOption; await SaveOptionsAsync(); }">Options</button>
+                        <button class="btn btn-outline-primary" @onclick="async () => { _modalControllerObjectsOptions.Toggle(); await LoadOptionsAsync(); }">
                             <Operon.Icons.HeroIcon Icon="chevron-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                         </button>
                     </div>
@@ -230,7 +230,7 @@
             <Modal @ref="_modalControllerObjectsOptions">
                 <div class="modal-header">
                     <h4>Controller objects options</h4>
-                    <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjectsOptions.CloseModal()">
+                    <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalControllerObjectsOptions.CloseModal(); await SaveOptionsAsync(); }">
                         <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                     </button>
                 </div>
@@ -323,7 +323,7 @@
                     <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
                 </div>
                 <div class="modal-footer flex justify-end gap-1 items-center">
-                    <button class="btn btn-outline-red" @onclick="() => _modalControllerObjectsOptions.CloseModal()">Close</button>
+                    <button class="btn btn-outline-red" @onclick="async () => { _modalControllerObjectsOptions.CloseModal(); await SaveOptionsAsync(); }">Close</button>
                 </div>
             </Modal>
 
