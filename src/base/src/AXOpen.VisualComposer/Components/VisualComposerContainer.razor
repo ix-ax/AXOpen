@@ -201,24 +201,16 @@
                         {
                             @if (!CurrentView.IsWatchTable || item is ITwinPrimitive)
                             {
-                                <div class="flex flex-wrap items-center mx-4 gap-2">
-                                    @if (item is ITwinObject)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
-                                    else if (item is ITwinPrimitive)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
+                                <div class="flex flex-wrap items-center mx-4 gap-4">
+                                    <a @onclick="() => AddItemAsync(item)">
+                                        <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    </a>
 
                                     <p class="truncate me-auto">@item.Symbol</p>
                                     @if (item is ITwinPrimitive)
                                     {
                                         <p>@(((dynamic)item).Cyclic)</p>
                                     }
-                                    <a @onclick="() => AddItemAsync(item)">
-                                        <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    </a>
                                 </div>
                             }
                         }

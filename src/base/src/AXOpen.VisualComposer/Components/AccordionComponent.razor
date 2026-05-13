@@ -1,22 +1,21 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
 @using System.Reflection
 @using AXSharp.Connector.ValueTypes
 
 <div class="accordion-item">
     <div class="accordion-button @(IsExpanded ? "active" : null) flex flex-wrap items-center p-0!">
-        <div class="flex-1 flex flex-wrap items-center" @onclick="() => IsExpanded = !IsExpanded">
-            <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+        <div class="flex-1 flex flex-wrap items-center px-2 gap-2" @onclick="() => IsExpanded = !IsExpanded">
+            @if (!Parent.CurrentView.IsWatchTable)
+            {
+                <div class="p-2 cursor-pointer" @onclick="() => Parent.AddItemAsync(SourceTwinElement)">
+                    <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                </div>
+            }
             <p>@SourceTwinElement.Symbol</p>
             <button class="ms-auto cursor-pointer">
                 <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 icon-button-rotate " + (IsExpanded ? "rotated" : null))" />
             </button>
         </div>
-        @if (!Parent.CurrentView.IsWatchTable)
-        {
-            <div class="p-2 cursor-pointer" @onclick="() => Parent.AddItemAsync(SourceTwinElement)">
-                <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-            </div>
-        }
     </div>
     @if (IsExpanded)
     {
@@ -32,13 +31,12 @@
                     else if (kid is ITwinPrimitive prim)
                     {
                         
-                        <div class="flex flex-wrap items-center mx-4 gap-2">
-                            <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                            <p class="truncate">@prim.Symbol</p>
-                            <p class="ms-auto">@(((dynamic)kid).Cyclic)</p>
+                        <div class="flex flex-wrap items-center mx-4 gap-4">
                             <a @onclick="() => Parent.AddItemAsync(prim)">
                                 <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </a>
+                            <p class="truncate">@prim.Symbol</p>
+                            <p class="ms-auto">@(((dynamic)kid).Cyclic)</p>
                         </div>
                     }
                 }
