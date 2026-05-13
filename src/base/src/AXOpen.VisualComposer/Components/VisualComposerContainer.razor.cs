@@ -637,13 +637,19 @@ namespace AXOpen.VisualComposer.Components
                     var flatChildren = obj.GetChildren().Flatten(p => p.GetChildren());
                     var primitives = obj.RetrievePrimitives();
 
-                    var matchingChildren = flatChildren.Where(p =>
-                        searchTerms.All(term =>
-                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+                    var matchingChildren = _controllerObjectsFilterMode switch
+                    {
+                        FilterMode.StartsWith => flatChildren.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.EndsWith => flatChildren.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        _ => flatChildren.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
+                    };
 
-                    var matchingPrimitives = primitives.Where(p =>
-                        searchTerms.All(term =>
-                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+                    var matchingPrimitives = _controllerObjectsFilterMode switch
+                    {
+                        FilterMode.StartsWith => primitives.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.EndsWith => primitives.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        _ => primitives.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
+                    };
 
                     _searchResult.AddRange(matchingChildren);
                     _searchResult.AddRange(matchingPrimitives);
@@ -658,6 +664,7 @@ namespace AXOpen.VisualComposer.Components
         }
 
         private bool? _controllerObjectsSortAscending { get; set; } = null;
+        private FilterMode _controllerObjectsFilterMode { get; set; } = FilterMode.Contains;
 
         private void ToggleControllerObjectsSort()
         {
@@ -674,6 +681,8 @@ namespace AXOpen.VisualComposer.Components
                 _searchResult = _controllerObjectsSortAscending == true ? _searchResult.OrderBy(item => item.Symbol ?? string.Empty).ToList() : _searchResult.OrderByDescending(item => item.Symbol ?? string.Empty).ToList();
             }
         }
+
+
 
         private bool _isFileImported { get; set; } = false;
         private bool _isFileImporting { get; set; } = false;
@@ -903,5 +912,22 @@ namespace AXOpen.VisualComposer.Components
             Server,
             Local
         }
+
+        public enum FilterMode
+        {
+            Contains,
+            StartsWith,
+            EndsWith
+        }
+    }
+
+    public static class FilterModeExtensions
+    {
+        public static string ToDisplayString(this VisualComposerContainer.FilterMode mode) => mode switch
+        {
+            VisualComposerContainer.FilterMode.StartsWith => "Starts with",
+            VisualComposerContainer.FilterMode.EndsWith => "Ends with",
+            _ => "Contains",
+        };
     }
 }

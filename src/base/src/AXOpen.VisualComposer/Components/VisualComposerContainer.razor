@@ -178,6 +178,12 @@
                 <div class="modal-body">
                     <div class="flex flex-wrap items-center">
                         <BaseInput @bind-Value="_searchValue" Placeholder="Search" Class="flex-1" />
+                        <select class="select w-auto" value="@_controllerObjectsFilterMode" @onchange="@((args) => _controllerObjectsFilterMode = Enum.Parse<FilterMode>((string)args.Value))">
+                            @foreach (var mode in Enum.GetValues(typeof(FilterMode)).Cast<FilterMode>())
+                            {
+                                <option value="@mode">@mode.ToDisplayString()</option>
+                            }
+                        </select>
                         @if (!string.IsNullOrEmpty(_searchValue))
                         {
                             <div class="mx-2 cursor-pointer" @onclick="ToggleControllerObjectsSort">
