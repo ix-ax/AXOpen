@@ -1,10 +1,12 @@
 # Troubleshooting
 
-This page catalogues the error states surfaced by `AxoKrc4_v_5_x_x.AxoKrc4`,
-each tied back to its raising site in the PLC source. Error identifiers are
-published through `Status.Error.Id` and the component's `Messenger` /
-`TaskMessenger`, so the ID seen in a log or on the HMI always maps to one
-of the entries below.
+This page catalogues the error states surfaced by `AxoKrc4` and `AxoKrc5`
+(both in `AXOpen.Components.Kuka.Robotics.v_5_x_x`), each tied back to its
+raising site in the PLC source. The two classes share an identical error
+catalogue and bring-up logic, so every entry below applies to both. Error
+identifiers are published through `Status.Error.Id` and the component's
+`Messenger` / `TaskMessenger`, so the ID seen in a log or on the HMI always
+maps to one of the entries below.
 
 ## Common issues
 
@@ -39,9 +41,10 @@ probe succeeds. If any probe fails, it activates the matching message and
 `IsBusy()` state; `Status.Error.Id` reports 500-range *potential* IDs.
 
 **Why.** Every task advances its state machine inside
-`AxoKrc4.Run()`. The 500-range IDs are informational — they report which
-KRC4 input the task is waiting on (e.g. `UserSafetySwitchClosed`,
-`DrivesReady`, `Automatic`, `AlarmStopActive`). They are not errors.
+`AxoKrc4.Run()` / `AxoKrc5.Run()`. The 500-range IDs are informational —
+they report which controller input the task is waiting on (e.g.
+`UserSafetySwitchClosed`, `DrivesReady`, `Automatic`, `AlarmStopActive`).
+They are not errors.
 
 **What to check.**
 
@@ -102,7 +105,7 @@ If the mirror never happens the task is stuck at `_movement_progress = 354`.
 
 ### Safety-interlock errors while a task is busy
 
-`AxoKrc4` arms a safety gate around every programme/motion task. While
+`AxoKrc4` / `AxoKrc5` arm a safety gate around every programme/motion task. While
 `StartAtMainTask`, `StartMotorsAndProgramTask`, `StartMovementsTask`,
 `StopMovementsTask`, `StopMovementsAndProgramTask`, or `StopProgramTask`
 is busy, the component raises one of 20001–20005 as soon as the
@@ -204,14 +207,15 @@ Read these properties when triaging:
 
 ## Known limitations
 
-- Only the KRC4 slot layout `kuka_krc4_dio512` (64-byte I/O) is recognised.
-  Swapping slot 2 for a different submodule invalidates `HwID_512_DI_DO`
-  and raises error 720/726.
+- Only the `kuka_krc4_dio512` / `kuka_krc5_dio512` slot layout (64-byte I/O)
+  is recognised. Swapping slot 2 for a different submodule invalidates
+  `HwID_512_DI_DO` and raises error 720/726.
 - Slot 1 must be left empty. Adding a safety module there is currently
   unsupported — error 710 is raised pre-emptively (the commented-out error
   IDs 711–716 in the source show this branch was intentionally disabled).
-- A single `hwID` device is supported per `AxoKrc4` instance; multi-arm
-  coordination happens at the application level, not inside the component.
+- A single `hwID` device is supported per `AxoKrc4` / `AxoKrc5` instance;
+  multi-arm coordination happens at the application level, not inside the
+  component.
 
 ## Support
 

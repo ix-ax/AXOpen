@@ -17,7 +17,7 @@
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">KUKA Robotics Showcase</h1>
 		<p class="mt-2 max-w-3xl text-slate-600">
 			This page combines runnable command widgets, live component status, and direct links to PLC source files.
-			Use it as a practical reference for integrating KUKA robots in SIMATIC AX applications.
+			Use it as a practical reference for integrating KUKA KRC4 and KRC5 robots in SIMATIC AX applications.
 		</p>
 	</header>
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
@@ -33,24 +33,27 @@
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
-					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"          OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcKrc4SequencedPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcKrc5SequencedPath"    OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
 			<LibraryResources VendorName="KUKA" VendorUrl="https://www.kuka.com/">
 				<Documentation>
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoKrc4 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoKrc4 — Component guide"    Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"              Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
 				<PlcSource>
 					<li class="min-w-0"><SourceFileLink Path="@_libAxoKrc4StPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoKrc5StPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
 				</PlcSource>
 				<HardwareAssets>
-					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — KUKA KRC4 v2.33" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlKrc4YmlPath" Label="KRC4 hwl asset" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlKrc5YmlPath" Label="KRC5 hwl asset" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlKrc4Path"  Label="GSDML — KUKA KRC4 v2.33" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlKrc5Path"  Label="GSDML — KUKA KRC5 v2.4"  OnOpen="OpenModalAsync" /></li>
 				</HardwareAssets>
 			</LibraryResources>
 		</aside>
@@ -70,7 +73,7 @@
 				</div>
 				<div class="mt-4 space-y-4">
 					<Tab>
-						<TabPage Title="AxoKrc4 (Example 1)">
+						<TabPage Title="AxoKrc4 — Sequenced workflow">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
 									<span class="text-xs font-medium text-slate-500">Maturity:</span>
@@ -79,7 +82,9 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ActivateManualControl" Presentation="Control" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.movementParams" Presentation="Control" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -87,12 +92,12 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													<SourceFileLink Path="@_plcKrc4SequencedPath" Label="@_plcKrc4SequencedPath" OnOpen="OpenModalAsync" />
 													— &lt;ComponentDeclaration&gt; region
 												</p>
-												@if (_c1DeclarationSnippet != null && !_c1DeclarationSnippet.IsError)
+												@if (_krc4SeqDeclSnippet != null && !_krc4SeqDeclSnippet.IsError)
 												{
-													<CodeBlock Content="@(_c1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+													<CodeBlock Content="@(_krc4SeqDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
 												}
 												else if (_loadingCode)
 												{
@@ -106,12 +111,12 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													<SourceFileLink Path="@_plcKrc4SequencedPath" Label="@_plcKrc4SequencedPath" OnOpen="OpenModalAsync" />
 													— &lt;Initialization&gt; region
 												</p>
-												@if (_c1InitSnippet != null && !_c1InitSnippet.IsError)
+												@if (_krc4SeqInitSnippet != null && !_krc4SeqInitSnippet.IsError)
 												{
-													<CodeBlock Content="@(_c1InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+													<CodeBlock Content="@(_krc4SeqInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
 												}
 												else if (_loadingCode)
 												{
@@ -132,9 +137,9 @@
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
 													— &lt;KukaKrc4Device&gt; region
 												</p>
-												@if (_hwcDeviceInstanceSnippet != null && !_hwcDeviceInstanceSnippet.IsError)
+												@if (_hwcKrc4InstanceSnippet != null && !_hwcKrc4InstanceSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcDeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+													<CodeBlock Content="@(_hwcKrc4InstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
 												}
 												else if (_loadingCode)
 												{
@@ -148,12 +153,11 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
-													— &lt;KukaKrc4Template&gt; region
+													<SourceFileLink Path="@_hwcKrc4TemplatePath" Label="@_hwcKrc4TemplatePath" OnOpen="OpenModalAsync" />
 												</p>
-												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												@if (_hwcKrc4TemplateSnippet != null && !_hwcKrc4TemplateSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+													<CodeBlock Content="@(_hwcKrc4TemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
 												}
 												else if (_loadingCode)
 												{
@@ -170,9 +174,9 @@
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
 													— &lt;KukaKrc4IoSystem&gt; region
 												</p>
-												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												@if (_hwcKrc4IoSystemSnippet != null && !_hwcKrc4IoSystemSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+													<CodeBlock Content="@(_hwcKrc4IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
 												}
 												else if (_loadingCode)
 												{
@@ -192,14 +196,14 @@
 											<article class="rounded-xl border border-slate-200 bg-white p-4">
 												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
 												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent1Path" Label="AxoKrc4_v_5_x_x_Showcase.st" OnOpen="OpenModalAsync" />.
+													<SourceFileLink Path="@_plcKrc4SequencedPath" Label="AxoKrc4_v_5_x_x_Showcase.st" OnOpen="OpenModalAsync" />.
 												</p>
-												@if (_c1StepLogicBlocks.Count > 0)
+												@if (_krc4SeqStepLogicBlocks.Count > 0)
 												{
 													<div class="mt-4 space-y-3">
-														@foreach (var step in _c1StepLogicBlocks)
+														@foreach (var step in _krc4SeqStepLogicBlocks)
 														{
-															_c1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															_krc4StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
 															<AxoStepCard Step="step" LiveStep="liveStep" />
 														}
 													</div>
@@ -220,16 +224,18 @@
 								</Tab>
 							</div>
 						</TabPage>
-						<TabPage Title="AxoKrc4 (Example 2)">
+						<TabPage Title="AxoKrc5 — Sequenced workflow">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
 									<span class="text-xs font-medium text-slate-500">Maturity:</span>
-									<MaturityBadge ComponentName="KUKA KRC4 v_5_x_x" />
+									<MaturityBadge ComponentName="KUKA KRC5 v_5_x_x" />
 								</div>
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ActivateManualControl" Presentation="Control" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Sequencer" Presentation="" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -237,12 +243,12 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													<SourceFileLink Path="@_plcKrc5SequencedPath" Label="@_plcKrc5SequencedPath" OnOpen="OpenModalAsync" />
 													— &lt;ComponentDeclaration&gt; region
 												</p>
-												@if (_c2DeclarationSnippet != null && !_c2DeclarationSnippet.IsError)
+												@if (_krc5SeqDeclSnippet != null && !_krc5SeqDeclSnippet.IsError)
 												{
-													<CodeBlock Content="@(_c2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+													<CodeBlock Content="@(_krc5SeqDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
 												}
 												else if (_loadingCode)
 												{
@@ -256,12 +262,12 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													<SourceFileLink Path="@_plcKrc5SequencedPath" Label="@_plcKrc5SequencedPath" OnOpen="OpenModalAsync" />
 													— &lt;Initialization&gt; region
 												</p>
-												@if (_c2InitSnippet != null && !_c2InitSnippet.IsError)
+												@if (_krc5SeqInitSnippet != null && !_krc5SeqInitSnippet.IsError)
 												{
-													<CodeBlock Content="@(_c2InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+													<CodeBlock Content="@(_krc5SeqInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
 												}
 												else if (_loadingCode)
 												{
@@ -280,11 +286,11 @@
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
-													— &lt;KukaKrc4Device&gt; region
+													— &lt;KukaKrc5Device&gt; region
 												</p>
-												@if (_hwcDeviceInstanceSnippet != null && !_hwcDeviceInstanceSnippet.IsError)
+												@if (_hwcKrc5InstanceSnippet != null && !_hwcKrc5InstanceSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcDeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+													<CodeBlock Content="@(_hwcKrc5InstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
 												}
 												else if (_loadingCode)
 												{
@@ -298,12 +304,11 @@
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
-													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
-													— &lt;KukaKrc4Template&gt; region
+													<SourceFileLink Path="@_hwcKrc5TemplatePath" Label="@_hwcKrc5TemplatePath" OnOpen="OpenModalAsync" />
 												</p>
-												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												@if (_hwcKrc5TemplateSnippet != null && !_hwcKrc5TemplateSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+													<CodeBlock Content="@(_hwcKrc5TemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
 												}
 												else if (_loadingCode)
 												{
@@ -318,11 +323,11 @@
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
-													— &lt;KukaKrc4IoSystem&gt; region
+													— &lt;KukaKrc5IoSystem&gt; region
 												</p>
-												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												@if (_hwcKrc5IoSystemSnippet != null && !_hwcKrc5IoSystemSnippet.IsError)
 												{
-													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+													<CodeBlock Content="@(_hwcKrc5IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
 												}
 												else if (_loadingCode)
 												{
@@ -342,14 +347,14 @@
 											<article class="rounded-xl border border-slate-200 bg-white p-4">
 												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
 												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent2Path" Label="AxoKrc4_v_5_x_x_Showcase2.st" OnOpen="OpenModalAsync" />.
+													<SourceFileLink Path="@_plcKrc5SequencedPath" Label="AxoKrc5_v_5_x_x_Showcase.st" OnOpen="OpenModalAsync" />.
 												</p>
-												@if (_c2StepLogicBlocks.Count > 0)
+												@if (_krc5SeqStepLogicBlocks.Count > 0)
 												{
 													<div class="mt-4 space-y-3">
-														@foreach (var step in _c2StepLogicBlocks)
+														@foreach (var step in _krc5SeqStepLogicBlocks)
 														{
-															_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															_krc5StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
 															<AxoStepCard Step="step" LiveStep="liveStep" />
 														}
 													</div>
@@ -380,94 +385,94 @@
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-	// Component 1 snippets
-	private CodeSnippet? _c1DeclarationSnippet;
-	private CodeSnippet? _c1InitSnippet;
-	private List<StepLogicBlock> _c1StepLogicBlocks = new();
-	// Component 2 snippets
-	private CodeSnippet? _c2DeclarationSnippet;
-	private CodeSnippet? _c2InitSnippet;
-	private List<StepLogicBlock> _c2StepLogicBlocks = new();
-	// Component 3 (KRC5) snippets
-	private CodeSnippet? _c3DeclarationSnippet;
-	private CodeSnippet? _c3InitSnippet;
-	private List<StepLogicBlock> _c3StepLogicBlocks = new();
+
+	// KRC4 sequenced
+	private CodeSnippet? _krc4SeqDeclSnippet;
+	private CodeSnippet? _krc4SeqInitSnippet;
+	private List<StepLogicBlock> _krc4SeqStepLogicBlocks = new();
+	// KRC5 sequenced
+	private CodeSnippet? _krc5SeqDeclSnippet;
+	private CodeSnippet? _krc5SeqInitSnippet;
+	private List<StepLogicBlock> _krc5SeqStepLogicBlocks = new();
 	// HWC snippets
-	private CodeSnippet? _hwcDeviceInstanceSnippet;
-	private CodeSnippet? _hwcDeviceTemplateSnippet;
-	private CodeSnippet? _hwcIoSystemSnippet;
-	private CodeSnippet? _hwcKrc5DeviceInstanceSnippet;
+	private CodeSnippet? _hwcKrc4InstanceSnippet;
+	private CodeSnippet? _hwcKrc4TemplateSnippet;
+	private CodeSnippet? _hwcKrc4IoSystemSnippet;
+	private CodeSnippet? _hwcKrc5InstanceSnippet;
+	private CodeSnippet? _hwcKrc5TemplateSnippet;
 	private CodeSnippet? _hwcKrc5IoSystemSnippet;
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-	private readonly string _plcContextPath    = "src/showcase/app/src/components.kuka.robotics/Documentation/KukaRobotics.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase2.st";
-	private readonly string _plcComponent3Path = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Krc5Showcase.st";
-	// Hardware configuration paths
-	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
-	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/kuka_krc4/kuka_krc4_dio512.hwl.yml";
-	private readonly string _hwcDeviceKrc5TemplatePath = "src/showcase/app/hwc/library_templates/kuka_krc5/kuka_krc5_dio512.hwl.yml";
+
+	private readonly string _plcContextPath       = "src/showcase/app/src/components.kuka.robotics/Documentation/KukaRobotics.st";
+	private readonly string _plcKrc4SequencedPath = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase.st";
+	private readonly string _plcKrc5SequencedPath = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc5_v_5_x_x_Showcase.st";
+	// Hardware configuration paths.
+	// Note: the showcase's hwc/library_templates/* folder is regenerated by `apax alf`
+	// and cannot hold doc markers. Point at the library asset source (ctrl/assets/*)
+	// where the markers are authoritative.
+	private readonly string _hwcPlcLineYmlPath  = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcKrc4TemplatePath = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml";
+	private readonly string _hwcKrc5TemplatePath = "src/components.kuka.robotics/ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.kuka.robotics/docs/README.md";
 	private readonly string _libComponent1DocPath = "src/components.kuka.robotics/docs/AxoKrc4_v_5_x_x.md";
-	private readonly string _libTroublesPath      = "src/components.kuka.robotics/docs/TROUBLES.md";
-	private readonly string _libAxoKrc4StPath     = "src/components.kuka.robotics/ctrl/src/AxoKrc4_v_5_x_x.st";
-	private readonly string _libApaxYmlPath       = "src/components.kuka.robotics/ctrl/apax.yml";
-	private readonly string _libHwlYmlPath        = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml";
-	private readonly string _libGsdmlPath         = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml";
-	private readonly string _libHwlKrc5YmlPath    = "src/components.kuka.robotics/ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml";
-	private readonly string _libGsdmlKrc5Path     = "src/components.kuka.robotics/ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml";
-	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
-	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
-	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
+	private readonly string _libTroublesPath     = "src/components.kuka.robotics/docs/TROUBLES.md";
+	private readonly string _libAxoKrc4StPath    = "src/components.kuka.robotics/ctrl/src/AxoKrc4/v_5_x_x/AxoKrc4.st";
+	private readonly string _libAxoKrc5StPath    = "src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st";
+	private readonly string _libApaxYmlPath      = "src/components.kuka.robotics/ctrl/apax.yml";
+	private readonly string _libHwlKrc4YmlPath   = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml";
+	private readonly string _libHwlKrc5YmlPath   = "src/components.kuka.robotics/ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml";
+	private readonly string _libGsdmlKrc4Path    = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml";
+	private readonly string _libGsdmlKrc5Path    = "src/components.kuka.robotics/ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml";
+
+	private Dictionary<string, AXOpen.Core.AxoStep> _krc4StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _krc5StepsBySymbol = new();
+
 	protected override async Task OnInitializedAsync()
 	{
 		try
 		{
-			// Component 1 tasks
-			var c1DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
-			var c1InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
-			var c1StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
-			// Component 2 tasks
-			var c2DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
-			var c2InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
-			var c2StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
-			// Component 3 (KRC5) tasks
-			var c3DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "ComponentDeclaration");
-			var c3InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "Initialization");
-			var c3StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
-			// HWC tasks
-			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4Device");
-			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "KukaKrc4Template");
-			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4IoSystem");
-			var hwcKrc5InstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc5Device");
-			var hwcKrc5IoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc5IoSystem");
-			await Task.WhenAll(c1DeclTask, c1InitTask, c1StepsTask,
-				c2DeclTask, c2InitTask, c2StepsTask,
-				c3DeclTask, c3InitTask, c3StepsTask,
-				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask,
-				hwcKrc5InstanceTask, hwcKrc5IoSystemTask);
-			_c1DeclarationSnippet = await c1DeclTask;
-			_c1InitSnippet        = await c1InitTask;
-			_c1StepLogicBlocks    = await c1StepsTask;
-			_c2DeclarationSnippet = await c2DeclTask;
-			_c2InitSnippet        = await c2InitTask;
-			_c2StepLogicBlocks    = await c2StepsTask;
-			_c3DeclarationSnippet = await c3DeclTask;
-			_c3InitSnippet        = await c3InitTask;
-			_c3StepLogicBlocks    = await c3StepsTask;
-			_hwcDeviceInstanceSnippet = await hwcInstanceTask;
-			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
-			_hwcIoSystemSnippet       = await hwcIoSystemTask;
-			_hwcKrc5DeviceInstanceSnippet = await hwcKrc5InstanceTask;
-			_hwcKrc5IoSystemSnippet       = await hwcKrc5IoSystemTask;
-			_c1StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps
+			// KRC4 sequenced
+			var k4SeqDecl  = CodeProvider.GetTaggedRegionAsync(_plcKrc4SequencedPath, "ComponentDeclaration");
+			var k4SeqInit  = CodeProvider.GetTaggedRegionAsync(_plcKrc4SequencedPath, "Initialization");
+			var k4SeqSteps = CodeProvider.GetStepLogicBlocksAsync(_plcKrc4SequencedPath);
+			// KRC5 sequenced
+			var k5SeqDecl  = CodeProvider.GetTaggedRegionAsync(_plcKrc5SequencedPath, "ComponentDeclaration");
+			var k5SeqInit  = CodeProvider.GetTaggedRegionAsync(_plcKrc5SequencedPath, "Initialization");
+			var k5SeqSteps = CodeProvider.GetStepLogicBlocksAsync(_plcKrc5SequencedPath);
+			// HWC
+			var hwcKrc4Inst = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4Device");
+			var hwcKrc4Tmpl = CodeProvider.GetTaggedRegionAsync(_hwcKrc4TemplatePath, "KukaKrc4Template");
+			var hwcKrc4Io   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4IoSystem");
+			var hwcKrc5Inst = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc5Device");
+			var hwcKrc5Tmpl = CodeProvider.GetTaggedRegionAsync(_hwcKrc5TemplatePath, "KukaKrc5Template");
+			var hwcKrc5Io   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc5IoSystem");
+
+			await Task.WhenAll(k4SeqDecl, k4SeqInit, k4SeqSteps,
+				k5SeqDecl, k5SeqInit, k5SeqSteps,
+				hwcKrc4Inst, hwcKrc4Tmpl, hwcKrc4Io,
+				hwcKrc5Inst, hwcKrc5Tmpl, hwcKrc5Io);
+
+			_krc4SeqDeclSnippet     = await k4SeqDecl;
+			_krc4SeqInitSnippet     = await k4SeqInit;
+			_krc4SeqStepLogicBlocks = await k4SeqSteps;
+			_krc5SeqDeclSnippet     = await k5SeqDecl;
+			_krc5SeqInitSnippet     = await k5SeqInit;
+			_krc5SeqStepLogicBlocks = await k5SeqSteps;
+			_hwcKrc4InstanceSnippet = await hwcKrc4Inst;
+			_hwcKrc4TemplateSnippet = await hwcKrc4Tmpl;
+			_hwcKrc4IoSystemSnippet = await hwcKrc4Io;
+			_hwcKrc5InstanceSnippet = await hwcKrc5Inst;
+			_hwcKrc5TemplateSnippet = await hwcKrc5Tmpl;
+			_hwcKrc5IoSystemSnippet = await hwcKrc5Io;
+
+			_krc4StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-			_c2StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Steps
+			_krc5StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -484,22 +489,23 @@
 		}
 		await base.OnInitializedAsync();
 	}
+
 	public override void ConfigurePolling()
 	{
-		var seq1   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Sequencer;
-		var steps1 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps;
-		var seq2   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Sequencer;
-		var steps2 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Steps;
-		this.StartPolling(seq1, 250);
-		foreach (var step in steps1)
+		var seq4   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Sequencer;
+		var steps4 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps;
+		var seq5   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Sequencer;
+		var steps5 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.Steps;
+		this.StartPolling(seq4, 250);
+		foreach (var step in steps4)
 		{
 			this.StartPolling(step.IsActive,  250);
 			this.StartPolling(step.IsEnabled, 250);
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-		this.StartPolling(seq2, 250);
-		foreach (var step in steps2)
+		this.StartPolling(seq5, 250);
+		foreach (var step in steps5)
 		{
 			this.StartPolling(step.IsActive,  250);
 			this.StartPolling(step.IsEnabled, 250);
@@ -514,32 +520,35 @@
 @* ================================================================== *@
 @if (false)
 {
-    <!-- <GenericComponentStatusView> -->
-    <RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
-    <!-- </GenericComponentStatusView> -->
+	<!-- <GenericComponentStatusView> -->
+	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
+	<!-- </GenericComponentStatusView> -->
 
-    <!-- <GenericComponentCommandView> -->
-    <RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
-    <!-- </GenericComponentCommandView> -->
+	<!-- <GenericComponentCommandView> -->
+	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
+	<!-- </GenericComponentCommandView> -->
 
-    <!-- <RccComponentStatusView> -->
-    <RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
-    <!-- </RccComponentStatusView> -->
+	<!-- <RccComponentStatusView> -->
+	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
+	<!-- </RccComponentStatusView> -->
 
-    <!-- <RccComponentCommandView> -->
-    <RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
-    <!-- </RccComponentCommandView> -->
+	<!-- <RccComponentCommandView> -->
+	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
+	<!-- </RccComponentCommandView> -->
 
-    <!-- KRC5 instance markers -->
+	<!-- KRC5 instance markers -->
 	<!-- <GenericComponentStatusView> -->
 	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
 	<!-- </GenericComponentStatusView> -->
+
 	<!-- <GenericComponentCommandView> -->
 	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
 	<!-- </GenericComponentCommandView> -->
+
 	<!-- <RccComponentStatusView> -->
 	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="Status-Display" />
 	<!-- </RccComponentStatusView> -->
+
 	<!-- <RccComponentCommandView> -->
 	<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc5_v_5_x_x.ExampleRobot" Presentation="Command-Control" />
 	<!-- </RccComponentCommandView> -->
