@@ -1,0 +1,29 @@
+@page "/VisualComposer"
+@using AXOpen.VisualComposer.Components
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>Visual Composer</PageTitle>
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+    <nav class="text-sm text-slate-500">
+        <a href="/" class="hover:text-slate-800">Home</a>
+        <span class="px-2">/</span>
+        <span class="font-medium text-slate-800">Visual Composer</span>
+    </nav>
+    <header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+        <p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.VisualComposer</p>
+        <h1 class="mt-1 text-3xl font-semibold text-slate-900">Visual Composer</h1>
+        <p class="mt-2 max-w-3xl text-slate-600">
+            The Visual Composer provides a drag-and-drop canvas for building custom HMI views
+            from controller objects. Create, save, and manage multiple views with background images and watch tables.
+        </p>
+    </header>
+
+    <section class="rounded-xl border border-slate-200 bg-white p-4" style="height: calc(100vh - 350px);">
+        <VisualComposerContainer Objects="@(new AXSharp.Connector.ITwinObject[] { Entry.Plc.Connector, Entry.Plc.Ctx, Entry.Plc._rtc, Entry.Plc._rtm })" Id="showcase-visual-composer" />
+    </section>
+
+    <section class="rounded-xl border border-slate-200 bg-white p-4" style="height: calc(100vh - 350px);">
+        <VisualComposerContainer Objects="@(new AXSharp.Connector.ITwinObject[] { Entry.Plc.Connector, Entry.Plc.Ctx, Entry.Plc._rtc, Entry.Plc._rtm })" Id="showcase-visual-composer-second" />
+    </section>
+</div>

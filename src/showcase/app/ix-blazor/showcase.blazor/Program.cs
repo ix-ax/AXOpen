@@ -9,6 +9,7 @@ using AxOpen.Security;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using AXSharp.Connector;
+using AXOpen.VisualComposer;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
 using showcase;
@@ -25,6 +26,7 @@ builder.Services.AddServerSideBlazor();
 //<AddBlazorServices>
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
+builder.Services.AddVisualComposerService();
 //</AddBlazorServices>
 builder.Services.AddSingleton<CodeSnippetProvider>();
 builder.Services.AddSingleton<DocFxMarkdownProcessor>(sp =>
@@ -186,6 +188,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapAdditionalIdentityEndpoints();
 app.MapBlazorHub();
 //<MapDialogHub>
 // SignalR hub for dialog/alert cross-client synchronization
