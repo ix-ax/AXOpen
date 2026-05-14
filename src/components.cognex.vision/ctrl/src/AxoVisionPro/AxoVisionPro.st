@@ -1109,6 +1109,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
                     Outputs.Control.JobLoadID := WORD#0; 
+                    Outputs.Control.WriteDataId := BYTE#0; 
                     
                     retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= FALSE);                    
