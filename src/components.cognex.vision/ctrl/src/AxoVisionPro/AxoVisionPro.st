@@ -1110,19 +1110,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
                     Outputs.Control.JobLoadID := WORD#0; 
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= FALSE);
-
-                    
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= WORD#0);
-                    
                     retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= FALSE);                    
-
+                    
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= FALSE);
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= WORD#0);
+                  
                     IF Inputs.Status.CurentJobID > WORD#0 THEN 
                         THIS.CallTimers(FALSE);
                         _progress := 301;
@@ -1137,11 +1131,16 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#501;
                     END_IF;
     
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                  
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
+
+                    Outputs.Control.InitiateJobLoad := _Clock_1Hz.output;
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= _Clock_1Hz.output);
 
                     IF Inputs.Status.CurentJobID = WORD#0  THEN
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= FALSE);
+                        Outputs.Control.InitiateJobLoad := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 302;
                     END_IF;
@@ -2276,7 +2275,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 					outputsAddress := outputsAddress + UDINT#7;
 					BitOffset := 0;
             ELSIF CameraNo = BYTE#8 THEN
-					outputsAddress := outputsAddress + UDINT#8;
+					outputsAddress := outputsAddress + UDINT#7;
 					BitOffset := 4;
 			END_IF;
 			
