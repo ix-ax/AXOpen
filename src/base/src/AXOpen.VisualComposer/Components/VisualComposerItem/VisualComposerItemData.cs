@@ -15,6 +15,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
 
         public EventHandler MoveEvent { get; set; }
         public EventHandler LeaveEvent { get; set; }
+        public EventHandler UpEvent { get; set; }
 
 
         private ITwinElement? _twinElement;
