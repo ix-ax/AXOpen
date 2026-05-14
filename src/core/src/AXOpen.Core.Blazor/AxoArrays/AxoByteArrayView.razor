@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
 @*@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;*@
@@ -56,7 +56,7 @@
                         {
                             <div class="input-group">
                                 <label>@item.Index</label>
-                                <input type="text" @bind="item.Data" maxlength="@MaxLen" style="width: calc(var(--spacing) * 9 + var(--spacing) * 2 * @MaxLen) !important;" />
+                                <input type="text" @bind="item.Data" maxlength="@MaxLen" style="width: calc(var(--spacing) * 9 + var(--spacing) * 2 * @MaxLen) !important;" class="px-2!" />
                             </div>
                         }
                     }
