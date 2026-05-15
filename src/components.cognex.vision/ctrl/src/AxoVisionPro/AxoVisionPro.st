@@ -1684,6 +1684,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     IF TRUE  THEN
                         THIS.CallTimers(FALSE);
                         _progress := 373;
+                        _Clock_1Hz.Restore();
                     END_IF;
                 END_IF;
                 // ReadResultsTask running: loading the job.
@@ -1693,10 +1694,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#573;
                     END_IF;
     
-                    Outputs.Control.InitiateJobLoad := TRUE;
+                    _Clock_1Hz.Blink(THIS,TIME#300MS,TIME#50S); // generate pulse 
+                    Outputs.Control.InitiateJobLoad := _Clock_1Hz.output;
+
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                     
-                    IF (Inputs.Status.CurentJobID = WORD#0) AND Inputs.Status.JobLoadComplete THEN
+                    IF (Inputs.Status.CurentJobID = WORD#0) AND NOT Inputs.Status.JobLoadComplete THEN
                         Outputs.Control.InitiateJobLoad := FALSE;
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                         THIS.CallTimers(FALSE);
@@ -1994,7 +1997,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#0,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#1,value:= BYTE#0);
-                    
+                    Outputs.Control.JobLoadID := WORD#0; 
+                    Outputs.Control.WriteDataId := BYTE#0;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 391;
@@ -2148,7 +2153,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_VAR
             _readResultsJobID   :=  JobID;
             _readResultsLength  :=  Length;
-            _data_in_1301       :=  Data;
+            Data := _data_in_1301; // copy data to target array
             ReadResults         :=  ReadResultsTask.Invoke(THIS);
         END_METHOD
 
