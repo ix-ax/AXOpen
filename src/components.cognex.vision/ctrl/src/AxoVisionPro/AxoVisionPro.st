@@ -2102,10 +2102,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 					_bitOffset := 4;
 			END_IF;
 			
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset, value:= Outputs.Control.SoftEvent.Reset);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#1, value:= Outputs.Control.SoftEvent.DataHandlerAck);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(_outputsAddress), bitOffset := _bitOffset, value:= Outputs.Control.SoftEvent.Reset);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(_outputsAddress), bitOffset := _bitOffset + INT#1, value:= Outputs.Control.SoftEvent.DataHandlerAck);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(_outputsAddress), bitOffset := _bitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(_outputsAddress), bitOffset := _bitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
 			
 			IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN  
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
