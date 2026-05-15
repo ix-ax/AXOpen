@@ -1997,7 +1997,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#0,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#1,value:= BYTE#0);
-                    Outputs.Control.JobLoadID := WORD#0; 
                     Outputs.Control.WriteDataId := BYTE#0;
 
                     IF TRUE THEN
