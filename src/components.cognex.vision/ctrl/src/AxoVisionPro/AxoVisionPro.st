@@ -1600,7 +1600,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         RETURN;
                     END_IF;
                     //TODO implement error message on the .NET side
-                    IF _readResultsLength >= UINT#1264 THEN
+                    IF _readResultsLength > UINT#1264 THEN
                         TaskMessenger.Activate( UINT#1307, eAxoMessageCategory#Error); 
                         Status.Error.Id:=       UINT#1307;
                         RETURN;
@@ -1610,188 +1610,47 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         _data_in_1301[index] := BYTE#0;
                     END_FOR;
                     // Read the results from the hardware from the Results_64B_1 'item' and store them to the buffer from index 1200.
-                    IF _readResultsLength >= UINT#1201 THEN
+                    IF _readResultsLength > UINT#1200 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#1263);
                         FOR index := UINT#1200 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_64B_1_InAddress) + TO_DINT(index)-DINT#1200, value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
                     // Read the results from the hardware from the Results_240B_5 'item' and store them to the buffer from index 960, max up to 1199.
-                    IF _readResultsLength >= UINT#961 THEN
+                    IF _readResultsLength > UINT#960 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#1199);
                         FOR index := UINT#960 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_240B_5_InAddress) + TO_DINT(index)-DINT#960, value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
                     // Read the results from the hardware from the Results_240B_4 'item' and store them to the buffer from index 720, max up to 959.
-                    IF _readResultsLength >= UINT#721 THEN
+                    IF _readResultsLength > UINT#720 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#959);
                         FOR index := UINT#720 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_240B_4_InAddress) + TO_DINT(index)-DINT#720, value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
                     // Read the results from the hardware from the Results_240B_3 'item' and store them to the buffer from index 480, max up to 719.
-                    IF _readResultsLength >= UINT#481 THEN
+                    IF _readResultsLength > UINT#480 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#719);
                         FOR index := UINT#480 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_240B_3_InAddress) + TO_DINT(index)-DINT#480, value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
                     // Read the results from the hardware from the Results_240B_2 'item' and store them to the buffer from index 240, max up to 479.
-                    IF _readResultsLength >= UINT#241 THEN
+                    IF _readResultsLength > UINT#240 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#479);
                         FOR index := UINT#240 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_240B_2_InAddress) + TO_DINT(index)-DINT#240, value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
                     // Read the results from the hardware from the Results_240B_1 'item' and store them to the buffer from index 0, max up to 239.
-                    IF _readResultsLength >= UINT#1 THEN
+                    IF _readResultsLength > UINT#0 THEN
                         _maxindex := System.Math.Min(_readResultsLength - UINT#1, UINT#239);
                         FOR index := UINT#0 TO _maxindex DO //nacitavanie tolko dat kolko treba do buffra.
                             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.Results_240B_1_InAddress) + TO_DINT(index), value => _data_in_1301[index]);
                         END_FOR;
                     END_IF;
-
-                    // CASE THIS._readResultsLength OF
-        	        //     UINT#1..UINT#240:  // Statement section case 1
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-                
-                    //     UINT#241..UINT#480:
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := 240 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-	                
-                    //     UINT#481..UINT#720:
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#480 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-	                
-                    //     UINT#721..UINT#960:
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#720 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-
-                    //     UINT#961..UINT#1200:
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-                        
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-	                
-                    //     UINT#1201..UINT#1264:
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-                        
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    //         FOR index := UINT#1201 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                    //             ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
-                    //         END_FOR;
-
-                    //         FOR index := _readResultsLength TO UINT#1300 DO 
-                    //             _data_in_1301[index] := BYTE#0;
-                    //         END_FOR;
-                            
-                    //     ELSE  
-                    //         TaskMessenger.Activate( UINT#1304, eAxoMessageCategory#Error); 
-                    //         Status.Error.Id:=       UINT#1304;
-                    // END_CASE;
 
                     THIS.ResultData.Data := _data_in_1301;
                     THIS.ResultData.ToggleDataChangedFlag();
@@ -1838,8 +1697,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
     
                     Outputs.Control.JobLoadID := BYTE#0; 
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= Outputs.Control.JobLoadID);  
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress) + DINT#2, value:= Outputs.Control.JobLoadID);  
 
                     IF TRUE  THEN
                         THIS.CallTimers(FALSE);
@@ -1854,13 +1712,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
     
                     Outputs.Control.InitiateJobLoad := TRUE;
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                     
                     IF (Inputs.Status.CurentJobID = WORD#0) AND Inputs.Status.JobLoadComplete THEN
                         Outputs.Control.InitiateJobLoad := FALSE;
-                        retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
+                        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                         THIS.CallTimers(FALSE);
                         _progress := 374;
                     END_IF;
@@ -1961,10 +1817,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#583; 
                     END_IF;
 	    
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#0), value:= Outputs.Control.WriteDataID);
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#1),value:= _sendDataInspectionType);      
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#2),value:= _sendDataJobID);               
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress + UDINT#0), value:= Outputs.Control.WriteDataID);
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress + UDINT#1),value:= _sendDataInspectionType);      
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress + UDINT#2),value:= _sendDataJobID);               
 
                     IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN  // IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
                         THIS.CallTimers(FALSE);
@@ -1995,221 +1850,115 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id:=       UINT#1305;
                         RETURN;
                     END_IF;
+                    //TODO implement error message on the .NET side
+                    IF _sendDataLength > UINT#1260 THEN
+                        TaskMessenger.Activate( UINT#1308, eAxoMessageCategory#Error); 
+                        Status.Error.Id:=       UINT#1308;
+                        RETURN;
+                    END_IF;
 
-                    CASE _sendDataLength OF
-                        UINT#1..UINT#235:  // Statement section case 1
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-
-                            FOR index := _sendDataLength TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;                            
-
-                        UINT#236..UINT#475:  // Statement section case 1
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-       
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            FOR index := _sendDataLength TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;                            
-
-                        UINT#476..UINT#715:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-                            FOR index := _sendDataLength TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-                            
-                        UINT#716..UINT#955:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-                            FOR index := _sendDataLength TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;     
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;                            
-
-                        UINT#956..UINT#1195:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-
-                            FOR index := _sendDataLength TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO UINT#1259 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-
-                        UINT#1196..UINT#1260:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                            FOR index := UINT#1196 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= _data_out_1301[index]);
-                            END_FOR;
-
-                            FOR index := _sendDataLength TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
-                            END_FOR;
-                            
-                            
-                        ELSE  
-                            TaskMessenger.Activate( UINT#1306, eAxoMessageCategory#Error); 
-                            Status.Error.Id:=       UINT#1306;
-                    END_CASE;
+                    // Write the user data to the hardware to the UserData_64B_1 'item' from the buffer starting from index 1196.
+                    IF _sendDataLength > UINT#1196 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#1263);
+                        // Write relevant data from the buffer to the hardware starting from index 1196 in the buffer to index 0 in the hardware.
+                        FOR index := UINT#1196 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_64B_1_OutAddress) + TO_DINT(index) - DINT#1196 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#1263 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_64B_1_OutAddress) + TO_DINT(index) - DINT#1196 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 1196, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#63 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_64B_1_OutAddress) + TO_DINT(index),value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
+                    // Write the user data to the hardware to the UserData_240B_5 'item' from the buffer starting from index 956.
+                    IF _sendDataLength > UINT#956 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#1195);
+                        // Write relevant data from the buffer to the hardware starting from index 956 in the buffer to index 0 in the hardware.
+                        FOR index := UINT#956 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_5_OutAddress) + TO_DINT(index) - DINT#956 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#1195 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_5_OutAddress) + TO_DINT(index) - DINT#956 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 956, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#239 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_5_OutAddress) + TO_DINT(index),value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
+                    // Write the user data to the hardware to the UserData_240B_4 'item' from the buffer starting from index 716.
+                    IF _sendDataLength > UINT#716 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#955);
+                        // Write relevant data from the buffer to the hardware starting from index 716 in the buffer to index 0 in the hardware.
+                        FOR index := UINT#716 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_4_OutAddress) + TO_DINT(index) - DINT#716 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#955 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_4_OutAddress) + TO_DINT(index) - DINT#716 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 716, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#239 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_4_OutAddress) + TO_DINT(index),value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
+                    // Write the user data to the hardware to the UserData_240B_3 'item' from the buffer starting from index 476.
+                    IF _sendDataLength > UINT#476 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#715);
+                        // Write relevant data from the buffer to the hardware starting from index 476 in the buffer to index 0 in the hardware.
+                        FOR index := UINT#476 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_3_OutAddress) + TO_DINT(index) - DINT#476 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#715 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_3_OutAddress) + TO_DINT(index) - DINT#476 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 476, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#239 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_3_OutAddress) + TO_DINT(index),value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
+                    // Write the user data to the hardware to the UserData_240B_2 'item' from the buffer starting from index 236.
+                    IF _sendDataLength > UINT#236 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#475);
+                        // Write relevant data from the buffer to the hardware starting from index 236 in the buffer to index 0 in the hardware.
+                        FOR index := UINT#236 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_2_OutAddress) + TO_DINT(index) - DINT#236 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#475 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_2_OutAddress) + TO_DINT(index) - DINT#236 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 236, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#239 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_2_OutAddress) + TO_DINT(index),value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
+                    // Write the user data to the hardware to the UserData_240B_1 'item' from the buffer starting from index 4.
+                    IF _sendDataLength > UINT#0 THEN
+                        _maxindex := System.Math.Min(_sendDataLength - UINT#1, UINT#235);
+                        // Write relevant data from the buffer to the hardware starting from index 0 in the buffer to index 4 in the hardware.
+                        FOR index := UINT#0 TO _maxindex DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + TO_DINT(index) + DINT#4 ,value:= _data_out_1301[index]);
+                        END_FOR;
+                        // Clear the rest of the hardware buffer after the valid data to avoid sending old data in case of smaller size of data in the next inspections.
+                        FOR index := _sendDataLength TO UINT#235 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + TO_DINT(index) + DINT#4 ,value:= BYTE#0);
+                        END_FOR;
+                    ELSE
+                        // If the data to send is smaller than 0, clear completelly the hardware buffer.
+                        FOR index := UINT#0 TO  UINT#235 DO 
+                            WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + TO_DINT(index) + DINT#4 ,value:= BYTE#0);
+                        END_FOR;
+                    END_IF;
             
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
