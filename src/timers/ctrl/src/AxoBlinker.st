@@ -87,6 +87,7 @@ NAMESPACE AXOpen.Timers
                 output := TRUE;
                 IF(_onTimer.OnDelay(Context := Context ,inSignal := TRUE, TimeDelay:=inOnTime)) THEN
                     _state := 2;
+                    Execute := output;
                     RETURN;
                 END_IF;
             END_IF;		
@@ -97,6 +98,8 @@ NAMESPACE AXOpen.Timers
                     _state := 0;
                 END_IF;		
             END_IF;
+
+            Execute := output;
         END_METHOD
   
         METHOD PRIVATE Execute : BOOL
@@ -122,6 +125,7 @@ NAMESPACE AXOpen.Timers
                 output := TRUE;
                 IF(_onTimer.OnDelay(Parent:= Parent ,inSignal := TRUE, TimeDelay:=inOnTime)) THEN
                     _state := 2;
+                    Execute := output;
                     RETURN;
                 END_IF;
             END_IF;		
@@ -132,6 +136,8 @@ NAMESPACE AXOpen.Timers
                     _state := 0;
                 END_IF;		
             END_IF;
+
+            Execute := output;
         END_METHOD
   
 
