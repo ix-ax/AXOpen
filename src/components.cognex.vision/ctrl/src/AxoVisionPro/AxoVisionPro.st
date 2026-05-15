@@ -1533,13 +1533,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#565;
                     END_IF;
 
-                    Outputs.Control.InitiateJobLoad := TRUE;
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
+                    Outputs.Control.InitiateJobLoad := _Clock_1Hz.output;
 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress),bitOffset := INT#4,value:= _Clock_1Hz.output);  
                     IF (Inputs.Status.CurentJobID = Outputs.Control.JobLoadID) AND Outputs.Control.JobLoadID > WORD#0 AND 
                         Inputs.Status.CurentJobID > BYTE#0 AND Inputs.Status.JobLoadComplete THEN 
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress),bitOffset := INT#4,value:= FALSE); // ??? not in original code, but probably it should be reseted here 
+                        Outputs.Control.InitiateJobLoad := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 366;
                     END_IF;
