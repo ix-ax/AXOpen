@@ -228,6 +228,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#716;
                     RETURN;
                 END_IF;
+                Config.HWIDs.SystemControl_Address  := _outputsAddress;
+                Config.HWIDs.SystemControl_Length   := _outputsCount;   
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
