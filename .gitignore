@@ -437,3 +437,5 @@ temp/
 operon-variables.css
 
 **/app/gsd/source/**
+
+*.lscache
