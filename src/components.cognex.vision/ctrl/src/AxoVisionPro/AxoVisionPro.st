@@ -119,21 +119,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
             _geoAddr                :   GeoAddr;
-            _startAddress           :   UDINT;
-            _bytesCount             :   UINT;
             _Clock_1Hz              :   AxoBlinker;
             _readResultsJobID       :   BYTE;
             _readResultsLength      :   UINT;
-            _data_                  :   ARRAY[0..1300] OF BYTE;
-            _data_out               :   ARRAY[0..1300] OF BYTE;
             _sendDataInspectionType :   BYTE;
             _sendDataBufferID       :   BYTE;
             _sendDataJobID          :   BYTE;
             _sendDataLength         :   UINT;
-            // _inputsAddress          :   UDINT;   
-            // _inputsCount            :   UINT;
-            // _outputsAddress         :   UDINT;  
-            // _outputsCount           :   UINT;             
         END_VAR
 
         ///<summary>
@@ -147,24 +139,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 CameraNo    :   BYTE;
             END_VAR
 			VAR_TEMP 
-                SeparatorPos : INT;
-                // inputsAddress : UDINT;
-                // inputsCount : UINT;
-                // outputsAddress : UDINT;
-                // outputsCount : UINT;
                 _inputsAddress : UDINT;
                 _inputsCount : UINT;
                 _outputsAddress : UDINT;
                 _outputsCount : UINT;
-                retValRdAddr : WORD;
-                i : Int;
-                BitOffset : Int;
-                LogGeoData_retval : WORD;
-                _tmpWord : WORD;
-
-                index : UINT;
+                _bitOffset : Int;
                 _maxindex : UINT;
-
+                index : UINT;
             END_VAR
             
             Progress := _progress;
@@ -1055,34 +1036,34 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
 			IF CameraNo = BYTE#1 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#8;
-					BitOffset := 0;
+					_bitOffset := 0;
             ELSIF CameraNo = BYTE#2 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#8;
-					BitOffset := 4;
+					_bitOffset := 4;
 			ELSIF CameraNo = BYTE#3 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#9;
-					BitOffset := 0;
+					_bitOffset := 0;
 			ELSIF CameraNo = BYTE#4 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#9;
-					BitOffset := 4;
+					_bitOffset := 4;
 			ELSIF CameraNo = BYTE#5 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#10;
-					BitOffset := 0;
+					_bitOffset := 0;
 			ELSIF CameraNo = BYTE#6 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#10;
-					BitOffset := 4;
+					_bitOffset := 4;
 			ELSIF CameraNo = BYTE#7 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#11;
-					BitOffset := 0;
+					_bitOffset := 0;
 			ELSIF CameraNo = BYTE#8 THEN
 					_inputsAddress := Config.HWIDs.SystemControl_InAddress + UDINT#11;
-					BitOffset := 4;
+					_bitOffset := 4;
             END_IF;
 
-            ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := BitOffset, value => Inputs.Status.SoftEvent.ResetAck );
-			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (BitOffset + INT#1),value => Inputs.Status.SoftEvent.DataHandlerDone);	
-			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (BitOffset + INT#2),value => Inputs.Status.SoftEvent.TriggerAck);		
-			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (BitOffset + INT#3),value => Inputs.Status.SoftEvent.Reserve);		
+            ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := _bitOffset, value => Inputs.Status.SoftEvent.ResetAck );
+			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (_bitOffset + INT#1),value => Inputs.Status.SoftEvent.DataHandlerDone);	
+			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (_bitOffset + INT#2),value => Inputs.Status.SoftEvent.TriggerAck);		
+			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(_inputsAddress), bitOffset := (_bitOffset + INT#3),value => Inputs.Status.SoftEvent.Reserve);		
 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.SystemControl_InAddress), bitOffset := INT#0, value => Inputs.Status.SystemReady);
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(Config.HWIDs.SystemControl_InAddress), bitOffset := INT#1, value => Inputs.Status.SystemBusy); 
@@ -2010,9 +1991,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#590;
                     END_IF;
 
-                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= BYTE#0);
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#0,value:= BYTE#0);
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.UserData_240B_1_OutAddress) + DINT#1,value:= BYTE#0);
                     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -2090,53 +2070,48 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
             //***********Update outputs ****************
 			
-			retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-			
 			IF    CameraNo = BYTE#1 THEN
-					outputsAddress := outputsAddress + UDINT#4;
-					BitOffset := 0;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#4;
+					_bitOffset := 0;
             ELSIF CameraNo = BYTE#2 THEN
-					outputsAddress := outputsAddress + UDINT#4;
-					BitOffset := 4;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#4;
+					_bitOffset := 4;
             ELSIF CameraNo = BYTE#3 THEN
-					outputsAddress := outputsAddress + UDINT#5;
-					BitOffset := 0;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#5;
+					_bitOffset := 0;
             ELSIF CameraNo = BYTE#4 THEN
-					outputsAddress := outputsAddress + UDINT#5;
-					BitOffset := 4;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#5;
+					_bitOffset := 4;
             ELSIF CameraNo = BYTE#5 THEN
-					outputsAddress := outputsAddress + UDINT#6;
-					BitOffset := 0;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#6;
+					_bitOffset := 0;
             ELSIF CameraNo = BYTE#6 THEN
-					outputsAddress := outputsAddress + UDINT#6;
-					BitOffset := 4;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#6;
+					_bitOffset := 4;
             ELSIF CameraNo = BYTE#7 THEN
-					outputsAddress := outputsAddress + UDINT#7;
-					BitOffset := 0;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#7;
+					_bitOffset := 0;
             ELSIF CameraNo = BYTE#8 THEN
-					outputsAddress := outputsAddress + UDINT#7;
-					BitOffset := 4;
+					_outputsAddress := Config.HWIDs.SystemControl_OutAddress + UDINT#7;
+					_bitOffset := 4;
 			END_IF;
 			
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset, value:= Outputs.Control.SoftEvent.Reset);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#1, value:= Outputs.Control.SoftEvent.DataHandlerAck);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
-			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset, value:= Outputs.Control.SoftEvent.Reset);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#1, value:= Outputs.Control.SoftEvent.DataHandlerAck);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
+			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := _bitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
 			
 			IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN  
-				retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
+				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
 				
-				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= Outputs.Control.JobLoadID);
+				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.SystemControl_OutAddress) + DINT#2, value:= Outputs.Control.JobLoadID);
 
-                retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-		        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= Outputs.Control.InspectionResultsAck);
+		        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.EngineControl_1_OutAddress), bitOffset := INT#1, value:= Outputs.Control.InspectionResultsAck);
 			END_IF;
 
 
 			IF  (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
-				retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#3, value:= Outputs.Control.SetUserdata);
+				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(Config.HWIDs.EngineControl_1_OutAddress), bitOffset := INT#3, value:= Outputs.Control.SetUserdata);
 			END_IF;
 
 			// -   User Data [20-1400]: Spolocny buffer pre user data. Vyuziva sa vzdy cely buffer (v jednom CASE moze pristupovat len jedna inspekcia).
