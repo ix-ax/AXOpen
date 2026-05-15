@@ -228,8 +228,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#716;
                     RETURN;
                 END_IF;
-                Config.HWIDs.SystemControl_Address  := _outputsAddress;
-                Config.HWIDs.SystemControl_Length   := _outputsCount;   
+                Config.HWIDs.SystemControl_InAddress    := _inputsAddress;
+                Config.HWIDs.SystemControl_InLength     := _inputsCount;   
+                Config.HWIDs.SystemControl_OutAddress   := _outputsAddress;
+                Config.HWIDs.SystemControl_OutLength    := _outputsCount;   
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -270,6 +272,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#726;
                     RETURN;
                 END_IF;
+                Config.HWIDs.EngineControl_1_InAddress    := _inputsAddress;
+                Config.HWIDs.EngineControl_1_InLength     := _inputsCount;   
+                Config.HWIDs.EngineControl_1_OutAddress   := _outputsAddress;
+                Config.HWIDs.EngineControl_1_OutLength    := _outputsCount;   
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -310,6 +316,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#736;
                     RETURN;
                 END_IF;
+                Config.HWIDs.EngineControl_2_InAddress    := _inputsAddress;
+                Config.HWIDs.EngineControl_2_InLength     := _inputsCount;   
+                Config.HWIDs.EngineControl_2_OutAddress   := _outputsAddress;
+                Config.HWIDs.EngineControl_2_OutLength    := _outputsCount;   
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -350,6 +360,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#746;
                     RETURN;
                 END_IF;
+                Config.HWIDs.EngineControl_3_InAddress    := _inputsAddress;
+                Config.HWIDs.EngineControl_3_InLength     := _inputsCount;   
+                Config.HWIDs.EngineControl_3_OutAddress   := _outputsAddress;
+                Config.HWIDs.EngineControl_3_OutLength    := _outputsCount;   
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -390,6 +404,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#756;
                     RETURN;
                 END_IF;
+                Config.HWIDs.EngineControl_4_InAddress    := _inputsAddress;
+                Config.HWIDs.EngineControl_4_InLength     := _inputsCount;   
+                Config.HWIDs.EngineControl_4_OutAddress   := _outputsAddress;
+                Config.HWIDs.EngineControl_4_OutLength    := _outputsCount;   
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -430,6 +448,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#766;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_240B_1_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_240B_1_OutLength    := _outputsCount;   
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -470,6 +490,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#776;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_240B_2_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_240B_2_OutLength    := _outputsCount;   
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -510,6 +532,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#786;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_240B_3_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_240B_3_OutLength    := _outputsCount;   
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -550,6 +574,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#796;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_240B_4_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_240B_4_OutLength    := _outputsCount;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -590,6 +616,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#806;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_240B_5_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_240B_5_OutLength    := _outputsCount;
                 //******************Slot 11*****************//
                 _geoAddr.Slot   :=  UINT#11;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -630,6 +658,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#816;
                     RETURN;
                 END_IF;
+                Config.HWIDs.UserData_64B_1_OutAddress   := _outputsAddress;
+                Config.HWIDs.UserData_64B_1_OutLength    := _outputsCount;
                 //******************Slot 12*****************//
                 _geoAddr.Slot   :=  UINT#12;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -670,6 +700,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#826;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_240B_1_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_240B_1_InLength    := _inputsCount;   
                 //******************Slot 13*****************//
                 _geoAddr.Slot   :=  UINT#13;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -710,6 +742,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#836;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_240B_2_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_240B_2_InLength    := _inputsCount;   
                 //******************Slot 14*****************//
                 _geoAddr.Slot   :=  UINT#14;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -750,6 +784,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#846;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_240B_3_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_240B_3_InLength    := _inputsCount;   
                 //******************Slot 15*****************//
                 _geoAddr.Slot   :=  UINT#15;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -790,6 +826,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#856;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_240B_4_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_240B_4_InLength    := _inputsCount;   
                 //******************Slot 16*****************//
                 _geoAddr.Slot   :=  UINT#16;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -830,6 +868,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#866;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_240B_5_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_240B_5_InLength    := _inputsCount;   
                 //******************Slot 17*****************//
                 _geoAddr.Slot   :=  UINT#17;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
@@ -870,6 +910,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#876;
                     RETURN;
                 END_IF;
+                Config.HWIDs.Results_64B_1_InAddress   := _inputsAddress;
+                Config.HWIDs.Results_64B_1_InLength    := _inputsCount;   
+                //******************************************//
+
 
                 IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
