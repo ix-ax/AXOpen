@@ -1,3 +1,26 @@
+### [CORE] AxoToggleTaskView aligned with AxoTaskView ([#1143](https://github.com/Inxton/AXOpen/pull/1143))
+
+**Note:** Blazor UI-only change in `src/core/src/AXOpen.Core.Blazor/AxoToggleTask/`. The PLC `AxoToggleTask` class and its public API (`SwitchOn()`, `SwitchOff()`, `Toggle()`, `IsSwitchOn()`, `IsSwitchOff()`, event-like overrides) are unchanged. Bundled with the AxoCmmtAs view expansion under the same PR; the toggle-view refactor is the core-library portion.
+
+- refactor: `AxoToggleTaskView.razor` rebuilt to mirror `AxoTaskView`'s button shell (`flex items-center justify-between gap-2`), state-circle slot on the left (filled `bg-current` when ON, hollow `border-2 border-current` when OFF), uppercased center label, and invisible `size-5` right-slot spacer when `HideRestoreButton=false` to preserve width parity with `AxoTask`'s reset icon in row-of-2 grids.
+- feat: Label format changed from `Description:State` to `DESCRIPTION — STATE` (uppercased, em-dash separator) so the on/off state reads alongside the toggle name without relying on color alone.
+- feat: State-driven button color matches `AxoTaskView` vocabulary — `btn-success` (ON), `btn-info` (OFF), `btn-inactive blur-[1px]` (disabled).
+- feat: Added `Class`, `Style`, and `aria-pressed` parameters/attributes for parity with `AxoTaskView` and improved accessibility.
+- docs: Appended `0.50.0` entry to `src/core/docs/CHANGELOG.md`.
+
+**Impact:**
+- A row of `AxoTask` + `AxoToggleTask` buttons in a component view now lines up correctly (icon-left, label-center, icon-right) regardless of which task type each cell holds.
+- Existing component proxy views that render `AxoToggleTask` via `AxoToggleTaskView` or `RenderableContentControl Presentation="Command"/"Status"` pick up the new look automatically — no host-app code changes required.
+
+**Risks/Review:**
+- `assets/AxoToggleTaskExampleVisu.gif` in `src/core/docs/assets/` was recorded against the previous bare-button rendering. Functional documentation prose in `AxoToggleTask.md` is still accurate, but the GIF visually diverges from the new view. Re-recording is a manual screen-capture step; not blocking.
+- Pages that relied on the previous compact `Description:State` single-line look may now display wider buttons because of the icon + spacer slots.
+
+**Testing:**
+- `dotnet build axopen/src/core/src/AXOpen.Core.Blazor/axopen_core_blazor.csproj` — 0 errors.
+- Render an `AxoToggleTask` next to an `AxoTask` in a Blazor showcase page (`Pages/core/DocuExamples/AxoToggleTaskDocu.razor` exposes four variants) and visually verify the icon/label/spacer columns align.
+- Toggle the underlying PLC state and confirm the button switches between filled+`btn-success` and hollow+`btn-info`; set `Disable=true` and confirm `btn-inactive blur-[1px]` activates.
+
 ### [KUKA] KRC5 showcase, docs, and central changelog ([#1117](https://github.com/Inxton/AXOpen/pull/1117))
 
 **Note:** Extends the KRC5 library assets landed in [#1116](https://github.com/Inxton/AXOpen/pull/1116) with full showcase and documentation coverage. No runtime behavior change in `AxoKrc4` — the existing class drives both KRC4 and KRC5 because the slot 1 / slot 2 = `DIO512` layout is identical.
