@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@layer theme, base, components, utilities;
 
-@source "../../../../**/*.{razor,html,cshtml,cs}";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "../../../../**/*.{razor,html,cshtml,cs}"; 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
