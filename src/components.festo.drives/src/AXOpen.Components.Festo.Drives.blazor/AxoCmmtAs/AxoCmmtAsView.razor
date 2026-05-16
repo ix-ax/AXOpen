@@ -9,7 +9,7 @@
     <HeaderContent>
         <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm" @onclick:stopPropagation="true">
             <span class="badge @DriveStateBadgeClass">@DriveStateLabel</span>
-            <span class="badge badge-soft">@CurrentMotionTaskLabel</span>
+            @* <span class="badge badge-soft">@CurrentMotionTaskLabel</span> *@
             <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Position"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@FormattedPosition</strong>
@@ -22,7 +22,7 @@
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Torque"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@FormattedTorque</strong>
             </div>
-            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+            @*<div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["State"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@Component.State.Cyclic</strong>
             </div>
@@ -30,10 +30,10 @@
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["ScalingReadState"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@Component.ScalingReadState.Cyclic</strong>
             </div>
-            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+             <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Debug"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@Component.Debug.Cyclic</strong>
-            </div>
+            </div> *@
         </div>
     </HeaderContent>
 
