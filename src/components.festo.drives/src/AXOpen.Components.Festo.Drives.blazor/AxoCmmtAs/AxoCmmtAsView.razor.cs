@@ -84,6 +84,10 @@ namespace AXOpen.Components.Festo.Drives
             this.StartPolling(Component.ActualVelocity, 250);
             this.StartPolling(Component.ActualTorque, 250);
             this.StartPolling(Component.DriveStatus.CurrentMotionTaskId, 500);
+            this.StartPolling(Component.AxisType, 1000);
+            this.StartPolling(Component.State, 500);
+            this.StartPolling(Component.ScalingReadState, 1000);
+            this.StartPolling(Component.Debug, 1000);
         }
     }
 
