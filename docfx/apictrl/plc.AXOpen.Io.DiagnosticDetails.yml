@@ -1,0 +1,126 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.DiagnosticDetails
+  id: plc.AXOpen.Io.DiagnosticDetails
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.DiagnosticDetails.ComponentStateDetail
+  - plc.AXOpen.Io.DiagnosticDetails.ComponentState
+  - plc.AXOpen.Io.DiagnosticDetails.IOState
+  - plc.AXOpen.Io.DiagnosticDetails.OperatingState
+  name: DiagnosticDetails
+  fullName: DiagnosticDetails
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.DiagnosticDetails
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS DiagnosticDetails
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.DiagnosticDetails.ComponentStateDetail
+  id: plc.AXOpen.Io.DiagnosticDetails.ComponentStateDetail
+  parent: AXOpen.Io
+  children: []
+  name: ComponentStateDetail
+  fullName: ComponentStateDetail
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.DiagnosticDetails.ComponentStateDetail
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentStateDetail : AXOpen.Io.ComponentStateDetail'
+    return:
+      type: AXOpen.Io.ComponentStateDetail
+- uid: plc.AXOpen.Io.DiagnosticDetails.ComponentState
+  id: plc.AXOpen.Io.DiagnosticDetails.ComponentState
+  parent: AXOpen.Io
+  children: []
+  name: ComponentState
+  fullName: ComponentState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.DiagnosticDetails.ComponentState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentState : AXOpen.Io.ComponentState'
+    return:
+      type: AXOpen.Io.ComponentState
+- uid: plc.AXOpen.Io.DiagnosticDetails.IOState
+  id: plc.AXOpen.Io.DiagnosticDetails.IOState
+  parent: AXOpen.Io
+  children: []
+  name: IOState
+  fullName: IOState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.DiagnosticDetails.IOState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'IOState : AXOpen.Io.IOState'
+    return:
+      type: AXOpen.Io.IOState
+- uid: plc.AXOpen.Io.DiagnosticDetails.OperatingState
+  id: plc.AXOpen.Io.DiagnosticDetails.OperatingState
+  parent: AXOpen.Io
+  children: []
+  name: OperatingState
+  fullName: OperatingState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.DiagnosticDetails.OperatingState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st
+    startLine: 15
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'OperatingState : AXOpen.Io.OperatingState'
+    return:
+      type: AXOpen.Io.OperatingState
+references:
+- uid: plc.AXOpen.Io.ComponentStateDetail
+  name: ComponentStateDetail
+  nameWithType: ComponentStateDetail
+  fullName: AXOpen.Io.ComponentStateDetail
+- uid: plc.AXOpen.Io.ComponentState
+  name: ComponentState
+  nameWithType: ComponentState
+  fullName: AXOpen.Io.ComponentState
+- uid: plc.AXOpen.Io.IOState
+  name: IOState
+  nameWithType: IOState
+  fullName: AXOpen.Io.IOState
+- uid: plc.AXOpen.Io.OperatingState
+  name: OperatingState
+  nameWithType: OperatingState
+  fullName: AXOpen.Io.OperatingState
+
+

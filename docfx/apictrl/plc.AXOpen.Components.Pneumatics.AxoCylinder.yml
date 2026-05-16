@@ -1,0 +1,836 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder
+  parent: plc.AXOpen.Components.Pneumatics
+  children:
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.InSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.OutSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveInSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOutSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._InSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._OutSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsSuspended
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsSuspended
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsBusy
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsBusy
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._context
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToOutSuspended()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToInSuspended()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOut()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveIn()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToOutWhile(BOOL,STRING,eAxoMessageCategory)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToInWhile(BOOL,STRING,eAxoMessageCategory)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  name: AxoCylinder
+  fullName: AxoCylinder
+  type: Class
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: CLASS AxoCylinder
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveInTask
+  fullName: _MoveInTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveInTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveOutTask
+  fullName: _MoveOutTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveOutTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.InSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.InSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: InSensor
+  fullName: InSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.InSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: 'InSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.OutSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.OutSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: OutSensor
+  fullName: OutSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.OutSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: 'OutSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveInSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveInSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: MoveInSignal
+  fullName: MoveInSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveInSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: 'MoveInSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOutSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOutSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: MoveOutSignal
+  fullName: MoveOutSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOutSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: 'MoveOutSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _StopTask
+  fullName: _StopTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_StopTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _Messenger
+  fullName: _Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._InSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._InSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _InSensor
+  fullName: _InSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._InSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_InSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._OutSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._OutSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _OutSensor
+  fullName: _OutSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._OutSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_OutSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveInSignal
+  fullName: _MoveInSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveInSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveInSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveOutSignal
+  fullName: _MoveOutSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveOutSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveOutSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsSuspended
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsSuspended
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToOutIsSuspended
+  fullName: _MoveToOutIsSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToOutIsSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsSuspended
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsSuspended
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToInIsSuspended
+  fullName: _MoveToInIsSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToInIsSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsBusy
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsBusy
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToOutIsBusy
+  fullName: _MoveToOutIsBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToOutIsBusy
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToOutIsBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsBusy
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsBusy
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToInIsBusy
+  fullName: _MoveToInIsBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToInIsBusy
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToInIsBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._context
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._context
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._context
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToOutSuspended()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToOutSuspended()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: IsMoveToOutSuspended
+  fullName: IsMoveToOutSuspended
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToOutSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public BOOL IsMoveToOutSuspended()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToInSuspended()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToInSuspended()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: IsMoveToInSuspended
+  fullName: IsMoveToInSuspended
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.IsMoveToInSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public BOOL IsMoveToInSuspended()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 87
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.BOOL inInSensor,in plc.BOOL inOutSensor)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inInSensor
+      type: plc.BOOL
+    - id: inOutSensor
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 177
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 180
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOut()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOut()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: MoveOut
+  fullName: MoveOut
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveOut
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 189
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState MoveOut()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveIn()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveIn()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: MoveIn
+  fullName: MoveIn
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveIn
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 196
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState MoveIn()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Stop
+  fullName: Stop
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 206
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Stop()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToOutWhile(BOOL,STRING,eAxoMessageCategory)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToOutWhile(BOOL,STRING,eAxoMessageCategory)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: SuspendMoveToOutWhile
+  fullName: SuspendMoveToOutWhile
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToOutWhile
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 209
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID SuspendMoveToOutWhile(in plc.BOOL inCondition,in plc.STRING inMessage,in plc.AXOpen.Messaging.eAxoMessageCategory inLevel)
+    parameters:
+    - id: inCondition
+      type: plc.BOOL
+    - id: inMessage
+      type: plc.STRING
+    - id: inLevel
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToInWhile(BOOL,STRING,eAxoMessageCategory)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToInWhile(BOOL,STRING,eAxoMessageCategory)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: SuspendMoveToInWhile
+  fullName: SuspendMoveToInWhile
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToInWhile
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 242
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID SuspendMoveToInWhile(in plc.BOOL inCondition,in plc.STRING inMessage,in plc.AXOpen.Messaging.eAxoMessageCategory inLevel)
+    parameters:
+    - id: inCondition
+      type: plc.BOOL
+    - id: inMessage
+      type: plc.STRING
+    - id: inLevel
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: AbortMoveToWorkWhen
+  fullName: AbortMoveToWorkWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 274
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID AbortMoveToWorkWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: AbortMoveToHomeWhen
+  fullName: AbortMoveToHomeWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 290
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID AbortMoveToHomeWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+
+

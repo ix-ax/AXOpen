@@ -1,0 +1,59 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_RTC
+  id: plc.AXOpen.Core._NULL_RTC
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_RTC.NowUTC()
+  name: _NULL_RTC
+  fullName: _NULL_RTC
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core._NULL_RTC
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 106
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS _NULL_RTC
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core._NULL_RTC.NowUTC()
+  id: plc.AXOpen.Core._NULL_RTC.NowUTC()
+  parent: AXOpen.Core._NULL_RTC
+  children: []
+  name: NowUTC
+  fullName: NowUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core._NULL_RTC.NowUTC
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 110
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public LDATE_AND_TIME NowUTC()
+    parameters: []
+    return:
+      type: plc.LDATE_AND_TIME
+references:
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  commentId: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: plc.AXOpen.Rtc.IAxoRtc
+  parent: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+
+

@@ -1,3 +1,0 @@
-﻿NAMESPACE AXOpen.Timers
-END_NAMESPACE
-

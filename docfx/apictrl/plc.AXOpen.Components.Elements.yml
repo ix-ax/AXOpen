@@ -1,0 +1,95 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements
+  id: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoAi
+  - plc.AXOpen.Components.Elements.AxoAiConfig
+  - plc.AXOpen.Components.Elements.AxoAiStatus
+  - plc.AXOpen.Components.Elements.AxoAo
+  - plc.AXOpen.Components.Elements.AxoAoConfig
+  - plc.AXOpen.Components.Elements.AxoAoStatus
+  - plc.AXOpen.Components.Elements.AxoBacklitButton
+  - plc.AXOpen.Components.Elements.AxoDi
+  - plc.AXOpen.Components.Elements.AxoDo
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+  - plc.AXOpen.Components.Elements.AxoSignalTower
+  name: plc.AXOpen.Components.Elements
+  fullName: Elements
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+references:
+- uid: plc.AXOpen.Components.Elements.AxoAi
+  name: AxoAi
+  nameWithType: AxoAi
+  fullName: AXOpen.Components.Elements.AxoAi
+- uid: plc.AXOpen.Components.Elements.AxoAiConfig
+  name: AxoAiConfig
+  nameWithType: AxoAiConfig
+  fullName: AXOpen.Components.Elements.AxoAiConfig
+- uid: plc.AXOpen.Components.Elements.AxoAiStatus
+  name: AxoAiStatus
+  nameWithType: AxoAiStatus
+  fullName: AXOpen.Components.Elements.AxoAiStatus
+- uid: plc.AXOpen.Components.Elements.AxoAo
+  name: AxoAo
+  nameWithType: AxoAo
+  fullName: AXOpen.Components.Elements.AxoAo
+- uid: plc.AXOpen.Components.Elements.AxoAoConfig
+  name: AxoAoConfig
+  nameWithType: AxoAoConfig
+  fullName: AXOpen.Components.Elements.AxoAoConfig
+- uid: plc.AXOpen.Components.Elements.AxoAoStatus
+  name: AxoAoStatus
+  nameWithType: AxoAoStatus
+  fullName: AXOpen.Components.Elements.AxoAoStatus
+- uid: plc.AXOpen.Components.Elements.AxoBacklitButton
+  name: AxoBacklitButton
+  nameWithType: AxoBacklitButton
+  fullName: AXOpen.Components.Elements.AxoBacklitButton
+- uid: plc.AXOpen.Components.Elements.AxoDi
+  name: AxoDi
+  nameWithType: AxoDi
+  fullName: AXOpen.Components.Elements.AxoDi
+- uid: plc.AXOpen.Components.Elements.AxoDo
+  name: AxoDo
+  nameWithType: AxoDo
+  fullName: AXOpen.Components.Elements.AxoDo
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable
+  name: AxoRotaryIndexingTable
+  nameWithType: AxoRotaryIndexingTable
+  fullName: AXOpen.Components.Elements.AxoRotaryIndexingTable
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+  name: AxoRotaryIndexingTable_Component_Status
+  nameWithType: AxoRotaryIndexingTable_Component_Status
+  fullName: AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+  name: AxoRotaryIndexingTable_Config
+  nameWithType: AxoRotaryIndexingTable_Config
+  fullName: AXOpen.Components.Elements.AxoRotaryIndexingTable_Config
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+  name: AxoRotaryIndexingTable_Control
+  nameWithType: AxoRotaryIndexingTable_Control
+  fullName: AXOpen.Components.Elements.AxoRotaryIndexingTable_Control
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+  name: AxoRotaryIndexingTable_State
+  nameWithType: AxoRotaryIndexingTable_State
+  fullName: AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+- uid: plc.AXOpen.Components.Elements.AxoSignalTower
+  name: AxoSignalTower
+  nameWithType: AxoSignalTower
+  fullName: AXOpen.Components.Elements.AxoSignalTower
+
+

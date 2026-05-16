@@ -1,0 +1,544 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.directParameterPage
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.systemCommand
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceAccessLocks
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorName
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorText
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productName
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productID
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productText
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.serialNumber
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.hwRevision
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.fwRevision
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.appSpecificName
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.errorCount
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatusDetailed
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageIn
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageOut
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.parameters
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.eventHistory
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.readerStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.tagStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.uidHistory
+  name: AxoIOLink_RF200_typeAll
+  fullName: AxoIOLink_RF200_typeAll
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_typeAll
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.directParameterPage
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.directParameterPage
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: directParameterPage
+  fullName: directParameterPage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.directParameterPage
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'directParameterPage : AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.systemCommand
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.systemCommand
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: systemCommand
+  fullName: systemCommand
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.systemCommand
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'systemCommand : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceAccessLocks
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceAccessLocks
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: deviceAccessLocks
+  fullName: deviceAccessLocks
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceAccessLocks
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'deviceAccessLocks : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorName
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorName
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: vendorName
+  fullName: vendorName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorName
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'vendorName : STRING[12]'
+    return:
+      type: STRING[12]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorText
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorText
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: vendorText
+  fullName: vendorText
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.vendorText
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'vendorText : STRING[12]'
+    return:
+      type: STRING[12]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productName
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productName
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: productName
+  fullName: productName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productName
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'productName : STRING[24]'
+    return:
+      type: STRING[24]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productID
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: productID
+  fullName: productID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productID
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'productID : STRING[16]'
+    return:
+      type: STRING[16]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productText
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productText
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: productText
+  fullName: productText
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.productText
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'productText : STRING[64]'
+    return:
+      type: STRING[64]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.serialNumber
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.serialNumber
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: serialNumber
+  fullName: serialNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.serialNumber
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'serialNumber : STRING[12]'
+    return:
+      type: STRING[12]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.hwRevision
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.hwRevision
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: hwRevision
+  fullName: hwRevision
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.hwRevision
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'hwRevision : STRING[12]'
+    return:
+      type: STRING[12]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.fwRevision
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.fwRevision
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fwRevision
+  fullName: fwRevision
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.fwRevision
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fwRevision : STRING[12]'
+    return:
+      type: STRING[12]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.appSpecificName
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.appSpecificName
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: appSpecificName
+  fullName: appSpecificName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.appSpecificName
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'appSpecificName : STRING[32]'
+    return:
+      type: STRING[32]
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.errorCount
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.errorCount
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: errorCount
+  fullName: errorCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.errorCount
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'errorCount : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: deviceStatus
+  fullName: deviceStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'deviceStatus : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatusDetailed
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatusDetailed
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: deviceStatusDetailed
+  fullName: deviceStatusDetailed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.deviceStatusDetailed
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'deviceStatusDetailed : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageIn
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageIn
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: processImageIn
+  fullName: processImageIn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageIn
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'processImageIn : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageOut
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageOut
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: processImageOut
+  fullName: processImageOut
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.processImageOut
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'processImageOut : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.parameters
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.parameters
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: parameters
+  fullName: parameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.parameters
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'parameters : AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.eventHistory
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.eventHistory
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: eventHistory
+  fullName: eventHistory
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.eventHistory
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'eventHistory : AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.readerStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.readerStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: readerStatus
+  fullName: readerStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.readerStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'readerStatus : AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.tagStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.tagStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: tagStatus
+  fullName: tagStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.tagStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'tagStatus : AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.uidHistory
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.uidHistory
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: uidHistory
+  fullName: uidHistory
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeAll.uidHistory
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeAll.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'uidHistory : AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+references:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0
+  name: AxoIOLink_typeParameterPage0
+  nameWithType: AxoIOLink_typeParameterPage0
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_typeParameterPage0
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.STRING[12]
+  name: STRING[12]
+  nameWithType: STRING[12]
+  fullName: STRING[12]
+- uid: plc.STRING[24]
+  name: STRING[24]
+  nameWithType: STRING[24]
+  fullName: STRING[24]
+- uid: plc.STRING[16]
+  name: STRING[16]
+  nameWithType: STRING[16]
+  fullName: STRING[16]
+- uid: plc.STRING[64]
+  name: STRING[64]
+  nameWithType: STRING[64]
+  fullName: STRING[64]
+- uid: plc.STRING[32]
+  name: STRING[32]
+  nameWithType: STRING[32]
+  fullName: STRING[32]
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+  name: AxoIOLink_RF200_typeParameters
+  nameWithType: AxoIOLink_RF200_typeParameters
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeParameters
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory
+  name: AxoIOLink_RF200_typeEventHistory
+  nameWithType: AxoIOLink_RF200_typeEventHistory
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeEventHistory
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+  name: AxoIOLink_RF200_typeReaderStatus
+  nameWithType: AxoIOLink_RF200_typeReaderStatus
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeReaderStatus
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+  name: AxoIOLink_RF200_typeTagStatus
+  nameWithType: AxoIOLink_RF200_typeTagStatus
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+  name: AxoIOLink_RF200_typeUIDHistory
+  nameWithType: AxoIOLink_RF200_typeUIDHistory
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+
+

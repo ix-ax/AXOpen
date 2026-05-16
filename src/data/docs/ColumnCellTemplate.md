@@ -13,4 +13,4 @@ Customn template must inherits from `AXOpen.Data.ColumnDataCellBase`.
 
 ### 🎨 Template example
 
-[!code-csharp[ColumnRazorTemplate](../app/ix-blazor/librarytemplate.blazor/Templates/CustomBoolTemplate.razor)]
+[!code-csharp[ColumnRazorTemplate](../../showcase/app/docs-snippets/data-blazor/Templates/CustomBoolTemplate.razor)]

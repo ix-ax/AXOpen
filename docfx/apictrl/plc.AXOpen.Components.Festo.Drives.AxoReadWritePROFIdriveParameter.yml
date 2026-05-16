@@ -1,0 +1,984 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Inputs
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Outputs
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Enable_PV
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Busy_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Done_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Error_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorId_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartTimer
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartRW
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.AxoOnDelatTimer
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Data
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Data
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Data
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Status
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Status
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Status
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReadRecord_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WriteRecord_
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorCounter
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LengthRead
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.State
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReqRef
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.wordhlp
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter._lenght
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpWord
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpSINT
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpINT
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDINT
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDWORD
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpLINT
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenHeader
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRequest
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenWrite
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRead
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.PD_Error
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.MaxRetryCounter
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Run(IAxoObject)
+  - plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Restore()
+  name: AxoReadWritePROFIdriveParameter
+  fullName: AxoReadWritePROFIdriveParameter
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoReadWritePROFIdriveParameter
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Inputs
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Inputs
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Inputs
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Inputs : AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Outputs
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Outputs
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Outputs
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Outputs : AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Enable_PV
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Enable_PV
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Enable_PV
+  fullName: Enable_PV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Enable_PV
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Enable_PV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Busy_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Busy_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Busy_
+  fullName: Busy_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Busy_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Busy_ : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Done_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Done_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Done_
+  fullName: Done_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Done_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Done_ : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Error_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Error_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Error_
+  fullName: Error_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Error_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Error_ : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorId_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorId_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ErrorId_
+  fullName: ErrorId_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorId_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ErrorId_ : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartTimer
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartTimer
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: StartTimer
+  fullName: StartTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartTimer
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'StartTimer : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartRW
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartRW
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: StartRW
+  fullName: StartRW
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.StartRW
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'StartRW : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.AxoOnDelatTimer
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.AxoOnDelatTimer
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: AxoOnDelatTimer
+  fullName: AxoOnDelatTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.AxoOnDelatTimer
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'AxoOnDelatTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Data
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Data
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: RW_Data
+  fullName: RW_Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Data
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'RW_Data : ARRAY [0..9] OF BYTE'
+    return:
+      type: ARRAY [0..9] OF BYTE
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Data
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Data
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: WR_Data
+  fullName: WR_Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Data
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'WR_Data : ARRAY [0..19] OF BYTE'
+    return:
+      type: ARRAY [0..19] OF BYTE
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Data
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Data
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: RD_Data
+  fullName: RD_Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Data
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'RD_Data : ARRAY [0..13] OF BYTE'
+    return:
+      type: ARRAY [0..13] OF BYTE
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Status
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Status
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: RW_Status
+  fullName: RW_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RW_Status
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'RW_Status : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Status
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Status
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: WR_Status
+  fullName: WR_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WR_Status
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'WR_Status : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Status
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Status
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: RD_Status
+  fullName: RD_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.RD_Status
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'RD_Status : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReadRecord_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReadRecord_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ReadRecord_
+  fullName: ReadRecord_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReadRecord_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ReadRecord_ : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WriteRecord_
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WriteRecord_
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: WriteRecord_
+  fullName: WriteRecord_
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.WriteRecord_
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'WriteRecord_ : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorCounter
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorCounter
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ErrorCounter
+  fullName: ErrorCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ErrorCounter
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ErrorCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LengthRead
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LengthRead
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: LengthRead
+  fullName: LengthRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LengthRead
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'LengthRead : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.State
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.State
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: State
+  fullName: State
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.State
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'State : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReqRef
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReqRef
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ReqRef
+  fullName: ReqRef
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.ReqRef
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ReqRef : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.wordhlp
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.wordhlp
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: wordhlp
+  fullName: wordhlp
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.wordhlp
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'wordhlp : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter._lenght
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter._lenght
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: _lenght
+  fullName: _lenght
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter._lenght
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: '_lenght : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpWord
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpWord
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpWord
+  fullName: tmpWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpWord
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpSINT
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpSINT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpSINT
+  fullName: tmpSINT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpSINT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpSINT : SINT'
+    return:
+      type: SINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpINT
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpINT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpINT
+  fullName: tmpINT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpINT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpINT : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDINT
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDINT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpDINT
+  fullName: tmpDINT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDINT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpDINT : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDWORD
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDWORD
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpDWORD
+  fullName: tmpDWORD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpDWORD
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpDWORD : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpLINT
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpLINT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: tmpLINT
+  fullName: tmpLINT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.tmpLINT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'tmpLINT : LINT'
+    return:
+      type: LINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenHeader
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenHeader
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: LenHeader
+  fullName: LenHeader
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenHeader
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'LenHeader : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRequest
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRequest
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: LenRequest
+  fullName: LenRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRequest
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'LenRequest : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenWrite
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenWrite
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: LenWrite
+  fullName: LenWrite
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenWrite
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'LenWrite : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRead
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRead
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: LenRead
+  fullName: LenRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.LenRead
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'LenRead : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.PD_Error
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.PD_Error
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: PD_Error
+  fullName: PD_Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.PD_Error
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'PD_Error : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.MaxRetryCounter
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.MaxRetryCounter
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: MaxRetryCounter
+  fullName: MaxRetryCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.MaxRetryCounter
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'MaxRetryCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Run(IAxoObject)
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Run(IAxoObject)
+  parent: AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Run
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Restore()
+  id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Restore()
+  parent: AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoReadWritePROFIdriveParameter.Restore
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoReadWritePROFIdriveParameter.st
+    startLine: 652
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+  name: AxoPROFIdriveParametrizationIn
+  nameWithType: AxoPROFIdriveParametrizationIn
+  fullName: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationIn
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+  name: AxoPROFIdriveParametrizationOut
+  nameWithType: AxoPROFIdriveParametrizationOut
+  fullName: AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..9] OF BYTE
+  name: ARRAY [0..9] OF BYTE
+  nameWithType: ARRAY [0..9] OF BYTE
+  fullName: ARRAY [0..9] OF BYTE
+- uid: plc.ARRAY [0..19] OF BYTE
+  name: ARRAY [0..19] OF BYTE
+  nameWithType: ARRAY [0..19] OF BYTE
+  fullName: ARRAY [0..19] OF BYTE
+- uid: plc.ARRAY [0..13] OF BYTE
+  name: ARRAY [0..13] OF BYTE
+  nameWithType: ARRAY [0..13] OF BYTE
+  fullName: ARRAY [0..13] OF BYTE
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.SINT
+  name: SINT
+  nameWithType: SINT
+  fullName: SINT
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.LINT
+  name: LINT
+  nameWithType: LINT
+  fullName: LINT
+
+

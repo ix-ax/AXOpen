@@ -4,7 +4,7 @@
     "watch:css": "npx @tailwindcss/cli -i ./wwwroot/tailwindroot.css -o ./wwwroot/css/axopenstyling.css --watch"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.17",
-    "tailwindcss": "^4.1.17"
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
   }
 }

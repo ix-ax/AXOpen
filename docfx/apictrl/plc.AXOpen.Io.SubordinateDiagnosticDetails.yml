@@ -1,0 +1,101 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.SubordinateDiagnosticDetails
+  id: plc.AXOpen.Io.SubordinateDiagnosticDetails
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateState
+  - plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateIOState
+  - plc.AXOpen.Io.SubordinateDiagnosticDetails.DiagnosticsEnabled
+  name: SubordinateDiagnosticDetails
+  fullName: SubordinateDiagnosticDetails
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.SubordinateDiagnosticDetails
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS SubordinateDiagnosticDetails
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateState
+  id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateState
+  parent: AXOpen.Io
+  children: []
+  name: SubordinateState
+  fullName: SubordinateState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'SubordinateState : AXOpen.Io.ComponentState'
+    return:
+      type: AXOpen.Io.ComponentState
+- uid: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateIOState
+  id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateIOState
+  parent: AXOpen.Io
+  children: []
+  name: SubordinateIOState
+  fullName: SubordinateIOState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.SubordinateDiagnosticDetails.SubordinateIOState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'SubordinateIOState : AXOpen.Io.IOState'
+    return:
+      type: AXOpen.Io.IOState
+- uid: plc.AXOpen.Io.SubordinateDiagnosticDetails.DiagnosticsEnabled
+  id: plc.AXOpen.Io.SubordinateDiagnosticDetails.DiagnosticsEnabled
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsEnabled
+  fullName: DiagnosticsEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.SubordinateDiagnosticDetails.DiagnosticsEnabled
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsEnabled : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.AXOpen.Io.ComponentState
+  name: ComponentState
+  nameWithType: ComponentState
+  fullName: AXOpen.Io.ComponentState
+- uid: plc.AXOpen.Io.IOState
+  name: IOState
+  nameWithType: IOState
+  fullName: AXOpen.Io.IOState
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,14 +1,140 @@
-﻿@namespace AXOpen.Io
-@using AXSharp.Connector;
-@using Microsoft.AspNetCore.Components.Authorization;
+@namespace AXOpen.Io
+@using AXSharp.Connector
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using Operon.Components.Tab
 @inherits RenderableComplexComponentBase<AxoHardwareDiagnostics>
-@implements IDisposable;
+@implements IDisposable
 
-<div class="d-flex align-end me-2 mt-2 mb-2">
-    <AXOpen.Core.AxoTaskView Component="Component" />
-    <RenderableContentControl Presentation="Control" Context="this.Component.hardwareID"                Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
-    <RenderableContentControl Presentation="Control" Context="this.Component.GetDiagnosticsReturnCode"  Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
+<div data-axo-hw-diag class="card m-2 p-3">
+    <!-- Header: hardware id + task state + return code -->
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+            <h5 class="text-base font-semibold text-text">@Component.AttributeName</h5>
+            <span class="badge badge-primary" title="Hardware ID">HwID @Component.hardwareID.Cyclic</span>
+        </div>
+        <div class="flex items-center gap-2">
+            @{
+                var rc = Component.GetDiagnosticsReturnCodeEnum;
+            }
+            @if (rc == GetDiagnosticsReturnCode.NoError)
+            {
+                <span class="badge badge-success">No Error</span>
+            }
+            else if (rc == GetDiagnosticsReturnCode.Unknown)
+            {
+                <span class="badge badge-neutral">Unknown</span>
+            }
+            else
+            {
+                <span class="badge badge-danger">@rc.ToString()</span>
+            }
+
+            @switch (TaskState)
+            {
+                case eAxoTaskState.Ready:
+                    <span class="badge badge-neutral">Ready</span>
+                    break;
+                case eAxoTaskState.Kicking:
+                    <span class="badge badge-info animate-pulse">Kicking</span>
+                    break;
+                case eAxoTaskState.Busy:
+                    <span class="badge badge-warning">Busy</span>
+                    break;
+                case eAxoTaskState.Done:
+                    <span class="badge badge-success">Done</span>
+                    break;
+                case eAxoTaskState.Error:
+                    <span class="badge badge-danger">Error</span>
+                    break;
+            }
+        </div>
+    </div>
+
+    <!-- Trigger -->
+    <div class="flex flex-wrap gap-2 mb-3">
+        <AxoTaskView class="flex-1 min-w-[12rem]" Component="Component" HideRestoreButton="false" />
+        <div class="flex items-center gap-2 px-2">
+            <span class="text-sm text-text/60">Return code</span>
+            <RenderableContentControl Context="Component.GetDiagnosticsReturnCode" Presentation="Display" />
+        </div>
+    </div>
+
+    <!-- Diagnostic details breakout -->
+    <Tab>
+        <TabPage Title="Hardware">
+            <div class="card bg-base-200 p-3">
+                <h6 class="text-sm font-semibold mb-2">Hardware Component State</h6>
+                <div class="flex flex-wrap gap-1">
+                    @BoolBadge("No Additional Information", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation.Cyclic, "neutral")
+                    @BoolBadge("Transfer Not Permitted", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted.Cyclic, "danger")
+                    @BoolBadge("Diagnostics Available", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable.Cyclic, "info")
+                    @BoolBadge("Maintenance Required", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired.Cyclic, "warning")
+                    @BoolBadge("Maintenance Demanded", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded.Cyclic, "warning")
+                    @BoolBadge("Error", Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.Error.Cyclic, "danger")
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                    <RenderableContentControl Context="Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability" Presentation="Display" />
+                    <RenderableContentControl Context="Component.diagnosticDetails.ComponentStateDetail.HardwareComponentState.ReplacementState" Presentation="Display" />
+                </div>
+            </div>
+        </TabPage>
+
+        <TabPage Title="PLC">
+            <div class="card bg-base-200 p-3">
+                <h6 class="text-sm font-semibold mb-2">PLC State</h6>
+                <div class="flex flex-wrap gap-1">
+                    @BoolBadge("Module Disabled", Component.diagnosticDetails.ComponentStateDetail.PlcState.ModuleDisabled.Cyclic, "warning")
+                    @BoolBadge("Configuration in Run", Component.diagnosticDetails.ComponentStateDetail.PlcState.ConfigurationInRunActive.Cyclic, "info")
+                    @BoolBadge("Input Not Available", Component.diagnosticDetails.ComponentStateDetail.PlcState.InputNotAvailable.Cyclic, "danger")
+                    @BoolBadge("Output Not Available", Component.diagnosticDetails.ComponentStateDetail.PlcState.OutputNotAvailable.Cyclic, "danger")
+                    @BoolBadge("Diag Buffer Overflow", Component.diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow.Cyclic, "warning")
+                    @BoolBadge("Diagnostics N/A", Component.diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsNotAvailable.Cyclic, "warning")
+                    @BoolBadge("Partial Device Failure", Component.diagnosticDetails.ComponentStateDetail.PlcState.PartialDeviceFailure.Cyclic, "danger")
+                </div>
+            </div>
+        </TabPage>
+
+        <TabPage Title="I/O">
+            <div class="card bg-base-200 p-3">
+                <h6 class="text-sm font-semibold mb-2">I/O State</h6>
+                <div class="flex flex-wrap gap-1">
+                    @BoolBadge("Good", Component.diagnosticDetails.IOState.Good.Cyclic, "success")
+                    @BoolBadge("Disabled", Component.diagnosticDetails.IOState.Disabled.Cyclic, "warning")
+                    @BoolBadge("Maintenance Required", Component.diagnosticDetails.IOState.MaintenanceRequired.Cyclic, "warning")
+                    @BoolBadge("Maintenance Demanded", Component.diagnosticDetails.IOState.MaintenanceDemanded.Cyclic, "warning")
+                    @BoolBadge("Error", Component.diagnosticDetails.IOState.Error.Cyclic, "danger")
+                    @BoolBadge("Not Accessible", Component.diagnosticDetails.IOState.NotAccessible.Cyclic, "danger")
+                    @BoolBadge("Diagnostics Available", Component.diagnosticDetails.IOState.DiagnosticsAvailable.Cyclic, "info")
+                    @BoolBadge("IO Data N/A", Component.diagnosticDetails.IOState.IODataNotAvailable.Cyclic, "warning")
+                    @BoolBadge("Network Error", Component.diagnosticDetails.IOState.NetworkError.Cyclic, "danger")
+                    @BoolBadge("Hardware Error", Component.diagnosticDetails.IOState.HardwareError.Cyclic, "danger")
+                </div>
+            </div>
+        </TabPage>
+
+        <TabPage Title="Component / Operating">
+            <div class="card bg-base-200 p-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <span class="text-xs text-text/60">Component State</span>
+                        <RenderableContentControl Context="Component.diagnosticDetails.ComponentState" Presentation="Display" />
+                    </div>
+                    <div>
+                        <span class="text-xs text-text/60">Operating State</span>
+                        <RenderableContentControl Context="Component.diagnosticDetails.OperatingState" Presentation="Display" />
+                    </div>
+                </div>
+            </div>
+        </TabPage>
+    </Tab>
 </div>
-<div class="d-flex align-end me-2 mt-2 mb-2">
-    <RenderableContentControl Presentation="Control" Context="this.Component.diagnosticDetails" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
-</div>
+
+@code {
+    private RenderFragment BoolBadge(string label, bool active, string variant) => __builder =>
+    {
+        <span class="badge @(active ? $"badge-{variant}" : "badge-neutral opacity-50")">@label</span>
+    };
+
+    protected eAxoTaskState TaskState => (eAxoTaskState)Component.Status.LastValue;
+}

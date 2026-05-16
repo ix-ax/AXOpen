@@ -7,7 +7,7 @@ The `DistributedDataView` is dynamic component for dispalying data from IDistrib
 
 # Usage (Blazor)
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/DistributedData.razor?name=BlazorViewDistributedData)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/data/DistributedData.razor?name=BlazorViewDistributedData)]
 
 
 ### Parameters:
@@ -28,22 +28,22 @@ The `DistributedDataView` is dynamic component for dispalying data from IDistrib
 
 ### Register services
 Register services in your 'Program.cs' file
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataServices)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=DistributedDataServices)]
 
 ### Collect AxoDataExchanges
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CollectingExchanges)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=CollectingExchanges)]
 
 
 ### Ordering AxoDataExchanges
 To define the **main exchange** for a group, use the following code in your Program.cs:
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedGroupOrder)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=DistributedGroupOrder)]
 
 ### Fill up exchange configuration
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
      
 ---
 # Prerequisites (Ax)
 To enable automatic collection of data exchanges, you must use the appropriate attribute in your PLC code, like this:  
-[!code-csharp[](../app/src/Examples/AxoDataDistributedExample.st?name=UseDistributedDataAttribute)]
+[!code-csharp[](../../showcase/app/src/data/AxoDataDistributed/AxoDataDistributedExample.st?name=UseDistributedDataAttribute)]
 
      

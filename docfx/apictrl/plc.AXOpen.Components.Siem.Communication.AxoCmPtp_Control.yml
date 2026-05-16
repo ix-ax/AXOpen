@@ -1,0 +1,26 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+  parent: plc.AXOpen.Components.Siem.Communication
+  children: []
+  name: AxoCmPtp_Control
+  fullName: AxoCmPtp_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Control
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: CLASS AxoCmPtp_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+references: []
+
+

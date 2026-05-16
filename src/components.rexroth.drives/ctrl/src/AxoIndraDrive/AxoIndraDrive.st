@@ -1871,7 +1871,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method commands a controlled motion to a specified absolute position.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveAbsoluteExecute_PV			: 	BOOL := FALSE;		//Execute - previous value           
             MC_MoveAbsoluteDone_PV				:	BOOL := FALSE;		//Done - previous value              
@@ -2024,7 +2024,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveRelativeExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
             MC_MoveRelativeDone_PV				:	BOOL := FALSE;		//Done - previous value                         
@@ -2182,7 +2182,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// commanded position in the axis state ‘DiscreteMotion’. The most recent commanded position may be the result of a 
         /// previous MC_MoveAdditive motion which was aborted. If the method is activated in the axis state ‘ContinuousMotion’, the
         /// specified relative distance is added to the set position at the time of the execution.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveAdditiveExecute_PV			: 	BOOL := FALSE;		//Execute - previous value              
             MC_MoveAdditiveDone_PV				:	BOOL := FALSE;		//Done - previous value                 
@@ -2337,7 +2337,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method commands a never ending controlled motion at a specified velocity.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveVelocityExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
             MC_MoveVelocityCallNumber			: 	INT; 				//Call number of the method MC_MoveVelocity    
@@ -2486,7 +2486,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// approached using a defined ramp (‘TorqueRamp’), and the method sets the ‘InTorque’ output if the 
         /// commanded torque level is reached. This method is applicable for force and torque. When there is no external
         /// load, force is applicable. Positive torque is in the positive direction of velocity.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_TorqueControlExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
             MC_TorqueControlCallNumber			: 	INT; 				//Call number of the method MC_TorqueControl    
@@ -2658,7 +2658,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// actual position of an axis with the same value without any movement caused. (Re-calibration with same following error). 
         /// This can be used for instance for a reference situation. This method can also be used during motion without changing 
         /// the commanded position, which is now positioned in the shifted coordinate system.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_SetPositionDone_					:	BOOL; 							
             MC_SetPositionBusy_					:	BOOL; 							
@@ -2891,7 +2891,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         /// This method returns the value of a vendor specific parameter. The returned Value has to be converted to Real
         /// if necessary. If not possible, the vendor has to supply a vendor specific method to read the parameter.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL 
             MC_ReadParameterEnable_PV			: 	BOOL := FALSE;		//Enable - previous value
             MC_ReadParameterDone_PV				:	BOOL := FALSE;		//Done - previous value
@@ -3016,7 +3016,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method returns the value of a vendor specific parameter with datatype REAL.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_ReadRealParameterEnable_PV		: 	BOOL := FALSE;		//Enable - previous value                                                
             MC_ReadRealParameterDone_PV			:	BOOL := FALSE;		//Done - previous value                                                  
@@ -3173,7 +3173,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method modifies the value of a vendor specific parameter.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_WriteParameterExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                         
             MC_WriteParameterDone_PV			:	BOOL := FALSE;		//Done - previous value                           
@@ -3288,7 +3288,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method modifies the value of a vendor specific parameter of type Real.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_WriteRealParameterExecute_PV		: 	BOOL := FALSE;		//Execute - previous value                                               
             MC_WriteRealParameterDone_PV		:	BOOL := FALSE;		//Done - previous value                                                  
@@ -3436,7 +3436,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         /// This method gives access to the value of the input, referenced by the datatype MC_INPUT_REF. 
         /// It provides the value of the referenced input (BOOL).
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_ReadDigitalInputEnable_PV		: 	BOOL := FALSE;		//Enable - previous value
             MC_ReadDigitalInputDone_PV			:	BOOL := FALSE;		//Done - previous value
@@ -3565,7 +3565,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         /// This method provides access to the value of a digital output, referenced by the datatype MC_OUTPUT_REF. 
         /// It provides the value of the referenced output (BOOL).
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_ReadDigitalOutputEnable_PV		: 	BOOL := FALSE;		//Enable - previous value
             MC_ReadDigitalOutputDone_PV			:	BOOL := FALSE;		//Done - previous value
@@ -3692,7 +3692,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method writes a value to the output referenced by the argument ‘Output’ once (with rising edge of Execute)
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_WriteDigitalOutputExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                         
             MC_WriteDigitalOutputDone_PV			:	BOOL := FALSE;		//Done - previous value                           
@@ -4012,7 +4012,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         ///<summary>
         /// This method returns in detail the status of the state diagram of the axis
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_ReadStatusEnable_PV				: 	BOOL := FALSE;		//Enable - previous value                                                    
             MC_ReadStatusDone_PV				:	BOOL := FALSE;		//Done - previous value                                                      
@@ -4236,7 +4236,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         /// This method makes the transition from the state ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
         /// internal axis-related errors – it does not affect the output of the other methods.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_ResetExecute_PV					: 	BOOL := FALSE;		//Execute - previous value           
             MC_ResetDone_PV						:	BOOL := FALSE;		//Done - previous value              

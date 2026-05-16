@@ -8,7 +8,7 @@ As shown above, the left side displays the current `EntityId` in the PLC. On the
 
 The **selection button** displays several columns of data defined for the **main data exchange** in the group. To define the **main exchange** for a group, use the following code in your Program.cs:
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedGroupOrder)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=DistributedGroupOrder)]
 
 ![Distributed Data Selector](assets/DistributedDataSelector_SelectEntityId.png)
 

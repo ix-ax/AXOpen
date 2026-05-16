@@ -1,0 +1,349 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Handle
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Status
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value1
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value2
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value3
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationId
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationValue
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationStatus
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationPosition
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationVelocity
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationForce
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.DigitalIoMapping
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.VirtualIo
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarState
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarData
+  name: AxoSmartFunctionKit_State_v_4_x_x
+  fullName: AxoSmartFunctionKit_State_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKit_State_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Handle
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Handle
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Handle
+  fullName: Handle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Handle
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Handle : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Status
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Status
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Status
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Status : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value1
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value1
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value1
+  fullName: Value1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value1
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value2
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value2
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value2
+  fullName: Value2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value2
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value3
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value3
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: Value3
+  fullName: Value3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.Value3
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'Value3 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationId
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationId
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationId
+  fullName: NotificationId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationId
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationId : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationValue
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationValue
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationValue
+  fullName: NotificationValue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationValue
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationValue : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationStatus
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationStatus
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationStatus
+  fullName: NotificationStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationStatus
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationStatus : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationPosition
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationPosition
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationPosition
+  fullName: NotificationPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationPosition
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationPosition : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationVelocity
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationVelocity
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationVelocity
+  fullName: NotificationVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationVelocity
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationVelocity : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationForce
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationForce
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: NotificationForce
+  fullName: NotificationForce
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.NotificationForce
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'NotificationForce : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.DigitalIoMapping
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.DigitalIoMapping
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: DigitalIoMapping
+  fullName: DigitalIoMapping
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.DigitalIoMapping
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'DigitalIoMapping : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.VirtualIo
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.VirtualIo
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: VirtualIo
+  fullName: VirtualIo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.VirtualIo
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'VirtualIo : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarState
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarState
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: FastVarState
+  fullName: FastVarState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarState
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'FastVarState : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarData
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarData
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: FastVarData
+  fullName: FastVarData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_State_v_4_x_x.FastVarData
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'FastVarData : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

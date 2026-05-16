@@ -1,0 +1,260 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoInspectorData
+  id: plc.AXOpen.Inspectors.AxoInspectorData
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  - plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  - plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  - plc.AXOpen.Inspectors.AxoInspectorData.Result
+  - plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  - plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  - plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  - plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  - plc.AXOpen.Inspectors.AxoInspectorData.ErrorCode
+  - plc.AXOpen.Inspectors.AxoInspectorData.Failure
+  name: AxoInspectorData
+  fullName: AxoInspectorData
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 0
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: CLASS AxoInspectorData
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  id: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  parent: AXOpen.Inspectors
+  children: []
+  name: Timestamp
+  fullName: Timestamp
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 10
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'Timestamp : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  id: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  parent: AXOpen.Inspectors
+  children: []
+  name: PassTime
+  fullName: PassTime
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 15
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'PassTime : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  id: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  parent: AXOpen.Inspectors
+  children: []
+  name: FailTime
+  fullName: FailTime
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 19
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'FailTime : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.Result
+  id: plc.AXOpen.Inspectors.AxoInspectorData.Result
+  parent: AXOpen.Inspectors
+  children: []
+  name: Result
+  fullName: Result
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.Result
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 23
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'Result : AXOpen.Inspectors.eInspectorResult'
+    return:
+      type: AXOpen.Inspectors.eInspectorResult
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  id: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  parent: AXOpen.Inspectors
+  children: []
+  name: IsExcluded
+  fullName: IsExcluded
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 27
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'IsExcluded : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  id: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  parent: AXOpen.Inspectors
+  children: []
+  name: IsByPassed
+  fullName: IsByPassed
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 31
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'IsByPassed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  id: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  parent: AXOpen.Inspectors
+  children: []
+  name: NumberOfAllowedRetries
+  fullName: NumberOfAllowedRetries
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 35
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'NumberOfAllowedRetries : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  id: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  parent: AXOpen.Inspectors
+  children: []
+  name: RetryAttemptsCount
+  fullName: RetryAttemptsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 40
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'RetryAttemptsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.ErrorCode
+  id: plc.AXOpen.Inspectors.AxoInspectorData.ErrorCode
+  parent: AXOpen.Inspectors
+  children: []
+  name: ErrorCode
+  fullName: ErrorCode
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.ErrorCode
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 43
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'ErrorCode : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.Failure
+  id: plc.AXOpen.Inspectors.AxoInspectorData.Failure
+  parent: AXOpen.Inspectors
+  children: []
+  name: Failure
+  fullName: Failure
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspectorData.Failure
+    path: .\src\inspectors\ctrl\src\AxoInspectorData.st
+    startLine: 46
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'Failure : STRING'
+    return:
+      type: STRING
+references:
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.AXOpen.Inspectors.eInspectorResult
+  name: eInspectorResult
+  nameWithType: eInspectorResult
+  fullName: AXOpen.Inspectors.eInspectorResult
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

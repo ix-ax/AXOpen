@@ -11,13 +11,13 @@ Persistent data exchange enables the grouping of multiple primitive variables or
 
 Anywhere in the structured code, use the persistent attribute `AXOpen.Data.PersistentAttribute("PersistentGroupName")` to mark a variable as persistent.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=PersistentAttribute)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataPersistentExchange/AxoDataPersistentExchangeExample.st?name=PersistentAttribute)]
 
 
 ### Create an instance of the exchange manager
 Create an instance of the manager and call its `.Run()` method within the Context.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ContextDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataPersistentExchange/AxoDataPersistentExchangeExample.st?name=ContextDeclaration)]
 
 > [!NOTE]
 > You can use multiple instances of the persistent manager, each operating on different root objects initialized on the .NET side. In this case, they can operate independently on both PLC and .NET sides.
@@ -31,7 +31,7 @@ Other operations such as `InvokeRead`, `InvokeUpdateAll`, `InvokeReadAll`, and `
 > [!WARNING]
 > If the record does not exist, the read operation will fail. Ensure the record exists by either saving it manually or generating a new record before attempting to read.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataPersistentExchange/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
 
 ### Data exchange initialization in .NET
 
@@ -39,7 +39,7 @@ At this point, we have everything ready in the PLC.
 
 The Persistent Manager instance requires additional initialization parameters. You must configure a repository for data storage and specify the root object of the PLC tree from which persistent variables are collected.
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
 
 ### Data view 
 The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.

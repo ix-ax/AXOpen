@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiag_Config
+  id: plc.AXOpen.Io.AxoHwDiag_Config
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiag_Config.InfoTime
+  - plc.AXOpen.Io.AxoHwDiag_Config.ErrorTime
+  - plc.AXOpen.Io.AxoHwDiag_Config.TaskTimeout
+  name: AxoHwDiag_Config
+  fullName: AxoHwDiag_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag_Config
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiag_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiag_Config.InfoTime
+  id: plc.AXOpen.Io.AxoHwDiag_Config.InfoTime
+  parent: AXOpen.Io
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag_Config.InfoTime
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Io.AxoHwDiag_Config.ErrorTime
+  id: plc.AXOpen.Io.AxoHwDiag_Config.ErrorTime
+  parent: AXOpen.Io
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag_Config.ErrorTime
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Io.AxoHwDiag_Config.TaskTimeout
+  id: plc.AXOpen.Io.AxoHwDiag_Config.TaskTimeout
+  parent: AXOpen.Io
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiag_Config.TaskTimeout
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st
+    startLine: 12
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

@@ -1,0 +1,777 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+  parent: plc.AXOpen.Components.Abb.Robotics
+  children:
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Interupt
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadProg
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadAndStartProg
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOff
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOn
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOnAndStart
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetEmgStop
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetError
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartProgram
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartAtMain
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopProgram
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.QuickStop
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.SoftStop
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopCycle
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopInstruction
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LimitSpeed
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MasterMode
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Retract
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Extend
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Retract
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Extend
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Retract
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Extend
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Retract
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Extend
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Zone
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.InPosition
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ActionNo
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.GlobalSpeed
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ToolNo
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.WorkobjectNo
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.PointNo
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed1
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed2
+  - plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Coordinates
+  name: AxoAbbRobotics_Control_v_1_x_x
+  fullName: AxoAbbRobotics_Control_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: CLASS AxoAbbRobotics_Control_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Interupt
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Interupt
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Interupt
+  fullName: Interupt
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Interupt
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Interupt : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadProg
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadProg
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: LoadProg
+  fullName: LoadProg
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadProg
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'LoadProg : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadAndStartProg
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadAndStartProg
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: LoadAndStartProg
+  fullName: LoadAndStartProg
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LoadAndStartProg
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'LoadAndStartProg : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOff
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOff
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: MotorOff
+  fullName: MotorOff
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOff
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'MotorOff : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOn
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOn
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: MotorOn
+  fullName: MotorOn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOn
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'MotorOn : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOnAndStart
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOnAndStart
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: MotorOnAndStart
+  fullName: MotorOnAndStart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MotorOnAndStart
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'MotorOnAndStart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetEmgStop
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetEmgStop
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: ResetEmgStop
+  fullName: ResetEmgStop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetEmgStop
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'ResetEmgStop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetError
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetError
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: ResetError
+  fullName: ResetError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ResetError
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'ResetError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartProgram
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartProgram
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartProgram
+  fullName: StartProgram
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartProgram : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartAtMain
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartAtMain
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartAtMain
+  fullName: StartAtMain
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StartAtMain
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartAtMain : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopProgram
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopProgram
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopProgram
+  fullName: StopProgram
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopProgram : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.QuickStop
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.QuickStop
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: QuickStop
+  fullName: QuickStop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.QuickStop
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'QuickStop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.SoftStop
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.SoftStop
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: SoftStop
+  fullName: SoftStop
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.SoftStop
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'SoftStop : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopCycle
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopCycle
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopCycle
+  fullName: StopCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopCycle
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopInstruction
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopInstruction
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopInstruction
+  fullName: StopInstruction
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.StopInstruction
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopInstruction : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LimitSpeed
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LimitSpeed
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: LimitSpeed
+  fullName: LimitSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.LimitSpeed
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'LimitSpeed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MasterMode
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MasterMode
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: MasterMode
+  fullName: MasterMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.MasterMode
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'MasterMode : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Retract
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Retract
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_1_Retract
+  fullName: Tool_1_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Retract
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_1_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Extend
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Extend
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_1_Extend
+  fullName: Tool_1_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_1_Extend
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_1_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Retract
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Retract
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_2_Retract
+  fullName: Tool_2_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Retract
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_2_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Extend
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Extend
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_2_Extend
+  fullName: Tool_2_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_2_Extend
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_2_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Retract
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Retract
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_3_Retract
+  fullName: Tool_3_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Retract
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_3_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Extend
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Extend
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_3_Extend
+  fullName: Tool_3_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_3_Extend
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_3_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Retract
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Retract
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_4_Retract
+  fullName: Tool_4_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Retract
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_4_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Extend
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Extend
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Tool_4_Extend
+  fullName: Tool_4_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Tool_4_Extend
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Tool_4_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Zone
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Zone
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Zone
+  fullName: Zone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Zone
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Zone : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.InPosition
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.InPosition
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.InPosition
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'InPosition : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ActionNo
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ActionNo
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: ActionNo
+  fullName: ActionNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ActionNo
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'ActionNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.GlobalSpeed
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.GlobalSpeed
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: GlobalSpeed
+  fullName: GlobalSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.GlobalSpeed
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'GlobalSpeed : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ToolNo
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ToolNo
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: ToolNo
+  fullName: ToolNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.ToolNo
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'ToolNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.WorkobjectNo
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.WorkobjectNo
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: WorkobjectNo
+  fullName: WorkobjectNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.WorkobjectNo
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'WorkobjectNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.PointNo
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.PointNo
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: PointNo
+  fullName: PointNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.PointNo
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'PointNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed1
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed1
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: UserSpecSpeed1
+  fullName: UserSpecSpeed1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed1
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'UserSpecSpeed1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed2
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed2
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: UserSpecSpeed2
+  fullName: UserSpecSpeed2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.UserSpecSpeed2
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'UserSpecSpeed2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Coordinates
+  id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Coordinates
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Coordinates
+  fullName: Coordinates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x.Coordinates
+    path: .\src\components.abb.robotics\ctrl\src\AxoAbbRobotics_Control_v_1_x_x.st
+    startLine: 89
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+
+

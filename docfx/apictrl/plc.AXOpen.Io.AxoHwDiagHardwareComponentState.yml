@@ -1,0 +1,206 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.NoAdditionalInformation
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.TransferNotPermitted
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.DiagnosticsAvailable
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceRequired
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceDemanded
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.Error
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ComponentAvailability
+  - plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ReplacementState
+  name: AxoHwDiagHardwareComponentState
+  fullName: AxoHwDiagHardwareComponentState
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoHwDiagHardwareComponentState
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.NoAdditionalInformation
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.NoAdditionalInformation
+  parent: AXOpen.Io
+  children: []
+  name: NoAdditionalInformation
+  fullName: NoAdditionalInformation
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.NoAdditionalInformation
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'NoAdditionalInformation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.TransferNotPermitted
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.TransferNotPermitted
+  parent: AXOpen.Io
+  children: []
+  name: TransferNotPermitted
+  fullName: TransferNotPermitted
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.TransferNotPermitted
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'TransferNotPermitted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.DiagnosticsAvailable
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.DiagnosticsAvailable
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsAvailable
+  fullName: DiagnosticsAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.DiagnosticsAvailable
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceRequired
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceRequired
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceRequired
+  fullName: MaintenanceRequired
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceRequired
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'MaintenanceRequired : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceDemanded
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceDemanded
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceDemanded
+  fullName: MaintenanceDemanded
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.MaintenanceDemanded
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'MaintenanceDemanded : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.Error
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.Error
+  parent: AXOpen.Io
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.Error
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ComponentAvailability
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ComponentAvailability
+  parent: AXOpen.Io
+  children: []
+  name: ComponentAvailability
+  fullName: ComponentAvailability
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ComponentAvailability
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentAvailability : AXOpen.Io.AxoHwDiagComponentAvailability'
+    return:
+      type: AXOpen.Io.AxoHwDiagComponentAvailability
+- uid: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ReplacementState
+  id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ReplacementState
+  parent: AXOpen.Io
+  children: []
+  name: ReplacementState
+  fullName: ReplacementState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoHwDiagHardwareComponentState.ReplacementState
+    path: .\src\io\ctrl\src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagHardwareComponentState.st
+    startLine: 12
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ReplacementState : AXOpen.Io.AxoHwDiagReplacementState'
+    return:
+      type: AXOpen.Io.AxoHwDiagReplacementState
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Io.AxoHwDiagComponentAvailability
+  name: AxoHwDiagComponentAvailability
+  nameWithType: AxoHwDiagComponentAvailability
+  fullName: AXOpen.Io.AxoHwDiagComponentAvailability
+- uid: plc.AXOpen.Io.AxoHwDiagReplacementState
+  name: AxoHwDiagReplacementState
+  nameWithType: AxoHwDiagReplacementState
+  fullName: AXOpen.Io.AxoHwDiagReplacementState
+
+

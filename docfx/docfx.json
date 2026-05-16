@@ -9,6 +9,10 @@
             "core/src/**.csproj",
             "data/src/**.csproj",
             "inspectors/src/**.csproj",
+            "io/src/**.csproj",
+            "probers/src/**.csproj",
+            "timers/src/**.csproj",
+            "utils/src/**.csproj",
             "components.abb.robotics/src/**.csproj",
             "components.abstractions/src/**.csproj",
             "components.balluff.identification/src/**.csproj",
@@ -29,8 +33,7 @@
             "components.siem.communication/src/**.csproj",
             "components.siem.identification/src/**.csproj",
             "components.ur.robotics/src/**.csproj",
-            "components.zebra.vision/src/**.csproj",
-            "template.axolibrary/src/**.csproj"
+            "components.zebra.vision/src/**.csproj"
           ],
           "exclude": [
             "**Test*.csproj",

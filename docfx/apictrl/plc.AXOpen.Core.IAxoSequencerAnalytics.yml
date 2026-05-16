@@ -1,0 +1,95 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoSequencerAnalytics
+  id: plc.AXOpen.Core.IAxoSequencerAnalytics
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoSequencerAnalytics.UpdateAnalytics()
+  - plc.AXOpen.Core.IAxoSequencerAnalytics.Restart()
+  - plc.AXOpen.Core.IAxoSequencerAnalytics.Save()
+  name: IAxoSequencerAnalytics
+  fullName: IAxoSequencerAnalytics
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencerAnalytics
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoSequencerAnalytics
+  implements: []
+- uid: plc.AXOpen.Core.IAxoSequencerAnalytics.UpdateAnalytics()
+  id: plc.AXOpen.Core.IAxoSequencerAnalytics.UpdateAnalytics
+  parent: IAxoSequencerAnalytics
+  children: []
+  name: UpdateAnalytics
+  fullName: UpdateAnalytics
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencerAnalytics.UpdateAnalytics
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  summary: Interface for managing and analyzing sequencer statistics.Provides methods to update step information, restart statistics collection,and control data collection for sequencers.
+  syntax:
+    content: Public VOID UpdateAnalytics()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoSequencerAnalytics.Restart()
+  id: plc.AXOpen.Core.IAxoSequencerAnalytics.Restart
+  parent: IAxoSequencerAnalytics
+  children: []
+  name: Restart
+  fullName: Restart
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencerAnalytics.Restart
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+    startLine: 18
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Restart()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoSequencerAnalytics.Save()
+  id: plc.AXOpen.Core.IAxoSequencerAnalytics.Save
+  parent: IAxoSequencerAnalytics
+  children: []
+  name: Save
+  fullName: Save
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencerAnalytics.Save
+    path: .\src\core\ctrl\src\AxoCoordination\AxoAnalitics\IAxoSequencerAnalytics.st
+    startLine: 25
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL Save()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

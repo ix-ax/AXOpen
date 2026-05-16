@@ -1,0 +1,1620 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxis
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadOnlyData
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberCyclic
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteCommand
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOnReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogPositiveReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogNegativeReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveStopReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveHaltReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MoveVelocityReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.TorqueControlReq
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Relative
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Additive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Position
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Velocity
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Acceleration
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Deceleration
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Jerk
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Torque
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0144_SignalStateWord
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxisParameterMethod
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.EnableAcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberAcyclic
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteParameter
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SelectDataType
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ParameterNumber
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueLint
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueReal
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideVelocityFactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideAccelerationFactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideJerkFactor
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CommandWriteActive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SetpointReached
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOK
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomeOK
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetOK
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingRunning
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Stopped
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Standstill
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.InPosition
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StoppedDueError
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MessageActive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WarningActive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.FailureActive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerError
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StopError
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ContinuousMotion
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DiscreteMotion
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SynchronizedMotion
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualPosition
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualVelocity
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualTorque
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CheckAccessOK
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0145_SignalControlWord
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DoneAcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActiveAcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DecimalPlaces
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataTypeRead
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataLengthRead
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueDint
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueReal
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error_AcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID_AcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent_AcyclicCommunication
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdDevice
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdParamCh_IDN
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwID_F_ModulNotUsed
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdInput_9_Words
+  - plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdOutput_13_Words
+  name: AxoIndraDriveAxisData
+  fullName: AxoIndraDriveAxisData
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoIndraDriveAxisData
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxis
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxis
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CallAxis
+  fullName: CallAxis
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxis
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CallAxis : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadOnlyData
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadOnlyData
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadOnlyData
+  fullName: ReadOnlyData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadOnlyData
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadOnlyData : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberCyclic
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberCyclic
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CallNumberCyclic
+  fullName: CallNumberCyclic
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberCyclic
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CallNumberCyclic : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteCommand
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteCommand
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WriteCommand
+  fullName: WriteCommand
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteCommand
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WriteCommand : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOnReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOnReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PowerOnReq
+  fullName: PowerOnReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOnReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PowerOnReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ResetReq
+  fullName: ResetReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ResetReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HomingReq
+  fullName: HomingReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HomingReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogPositiveReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogPositiveReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogPositiveReq
+  fullName: JogPositiveReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogPositiveReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogPositiveReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogNegativeReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogNegativeReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogNegativeReq
+  fullName: JogNegativeReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.JogNegativeReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogNegativeReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveStopReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveStopReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveStopReq
+  fullName: DriveStopReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveStopReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveStopReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveHaltReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveHaltReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DriveHaltReq
+  fullName: DriveHaltReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DriveHaltReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DriveHaltReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MoveVelocityReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MoveVelocityReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MoveVelocityReq
+  fullName: MoveVelocityReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MoveVelocityReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'MoveVelocityReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.TorqueControlReq
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.TorqueControlReq
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: TorqueControlReq
+  fullName: TorqueControlReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.TorqueControlReq
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'TorqueControlReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Relative
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Relative
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Relative
+  fullName: Relative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Relative
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Relative : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Additive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Additive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Additive
+  fullName: Additive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Additive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Additive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Position
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Position
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Position
+  fullName: Position
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Position
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Position : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Velocity
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Velocity
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Velocity
+  fullName: Velocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Velocity
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Velocity : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Acceleration
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Acceleration
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Acceleration
+  fullName: Acceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Acceleration
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Acceleration : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Deceleration
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Deceleration
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Deceleration
+  fullName: Deceleration
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Deceleration
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Deceleration : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Jerk
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Jerk
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Jerk
+  fullName: Jerk
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Jerk
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Jerk : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Torque
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Torque
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Torque
+  fullName: Torque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Torque
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Torque : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0144_SignalStateWord
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0144_SignalStateWord
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0144_SignalStateWord
+  fullName: S_0_0144_SignalStateWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0144_SignalStateWord
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0144_SignalStateWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxisParameterMethod
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxisParameterMethod
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CallAxisParameterMethod
+  fullName: CallAxisParameterMethod
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallAxisParameterMethod
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CallAxisParameterMethod : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.EnableAcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.EnableAcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: EnableAcyclicCommunication
+  fullName: EnableAcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.EnableAcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'EnableAcyclicCommunication : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberAcyclic
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberAcyclic
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CallNumberAcyclic
+  fullName: CallNumberAcyclic
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CallNumberAcyclic
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CallNumberAcyclic : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteParameter
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteParameter
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WriteParameter
+  fullName: WriteParameter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteParameter
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WriteParameter : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SelectDataType
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SelectDataType
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SelectDataType
+  fullName: SelectDataType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SelectDataType
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SelectDataType : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ParameterNumber
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ParameterNumber
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ParameterNumber
+  fullName: ParameterNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ParameterNumber
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ParameterNumber : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueLint
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueLint
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WriteValueLint
+  fullName: WriteValueLint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueLint
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WriteValueLint : LINT'
+    return:
+      type: LINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueReal
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueReal
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WriteValueReal
+  fullName: WriteValueReal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WriteValueReal
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WriteValueReal : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideVelocityFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideVelocityFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideVelocityFactor
+  fullName: OverrideVelocityFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideVelocityFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideVelocityFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideAccelerationFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideAccelerationFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideAccelerationFactor
+  fullName: OverrideAccelerationFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideAccelerationFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideAccelerationFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideJerkFactor
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideJerkFactor
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: OverrideJerkFactor
+  fullName: OverrideJerkFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.OverrideJerkFactor
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'OverrideJerkFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CommandWriteActive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CommandWriteActive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CommandWriteActive
+  fullName: CommandWriteActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CommandWriteActive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CommandWriteActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SetpointReached
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SetpointReached
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetpointReached
+  fullName: SetpointReached
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SetpointReached
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetpointReached : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOK
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOK
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PowerOK
+  fullName: PowerOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerOK
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PowerOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomeOK
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomeOK
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HomeOK
+  fullName: HomeOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomeOK
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HomeOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetOK
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetOK
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ResetOK
+  fullName: ResetOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ResetOK
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ResetOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingRunning
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingRunning
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HomingRunning
+  fullName: HomingRunning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.HomingRunning
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HomingRunning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Stopped
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Stopped
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Stopped
+  fullName: Stopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Stopped
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Stopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Standstill
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Standstill
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Standstill
+  fullName: Standstill
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Standstill
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Standstill : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.InPosition
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.InPosition
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.InPosition
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'InPosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StoppedDueError
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StoppedDueError
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: StoppedDueError
+  fullName: StoppedDueError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StoppedDueError
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'StoppedDueError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MessageActive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MessageActive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: MessageActive
+  fullName: MessageActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.MessageActive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'MessageActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WarningActive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WarningActive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: WarningActive
+  fullName: WarningActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.WarningActive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'WarningActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.FailureActive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.FailureActive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: FailureActive
+  fullName: FailureActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.FailureActive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'FailureActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerError
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerError
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: PowerError
+  fullName: PowerError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.PowerError
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'PowerError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StopError
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StopError
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: StopError
+  fullName: StopError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.StopError
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'StopError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ContinuousMotion
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ContinuousMotion
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ContinuousMotion
+  fullName: ContinuousMotion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ContinuousMotion
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ContinuousMotion : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DiscreteMotion
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DiscreteMotion
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DiscreteMotion
+  fullName: DiscreteMotion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DiscreteMotion
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DiscreteMotion : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SynchronizedMotion
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SynchronizedMotion
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SynchronizedMotion
+  fullName: SynchronizedMotion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.SynchronizedMotion
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SynchronizedMotion : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorID
+  fullName: ErrorID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorID : AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorIdent
+  fullName: ErrorIdent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorIdent : AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualPosition
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualPosition
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualPosition
+  fullName: ActualPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualPosition
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualPosition : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualVelocity
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualVelocity
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualVelocity
+  fullName: ActualVelocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualVelocity
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualVelocity : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualTorque
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualTorque
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActualTorque
+  fullName: ActualTorque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActualTorque
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActualTorque : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CheckAccessOK
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CheckAccessOK
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CheckAccessOK
+  fullName: CheckAccessOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.CheckAccessOK
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CheckAccessOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0145_SignalControlWord
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0145_SignalControlWord
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: S_0_0145_SignalControlWord
+  fullName: S_0_0145_SignalControlWord
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.S_0_0145_SignalControlWord
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'S_0_0145_SignalControlWord : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DoneAcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DoneAcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DoneAcyclicCommunication
+  fullName: DoneAcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DoneAcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DoneAcyclicCommunication : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActiveAcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActiveAcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ActiveAcyclicCommunication
+  fullName: ActiveAcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ActiveAcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ActiveAcyclicCommunication : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DecimalPlaces
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DecimalPlaces
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DecimalPlaces
+  fullName: DecimalPlaces
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DecimalPlaces
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DecimalPlaces : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataTypeRead
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataTypeRead
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DataTypeRead
+  fullName: DataTypeRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataTypeRead
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DataTypeRead : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataLengthRead
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataLengthRead
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: DataLengthRead
+  fullName: DataLengthRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.DataLengthRead
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'DataLengthRead : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueDint
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueDint
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadValueDint
+  fullName: ReadValueDint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueDint
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadValueDint : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueReal
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueReal
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ReadValueReal
+  fullName: ReadValueReal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ReadValueReal
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ReadValueReal : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error_AcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error_AcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: Error_AcyclicCommunication
+  fullName: Error_AcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.Error_AcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'Error_AcyclicCommunication : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID_AcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID_AcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorID_AcyclicCommunication
+  fullName: ErrorID_AcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorID_AcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 75
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorID_AcyclicCommunication : AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent_AcyclicCommunication
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent_AcyclicCommunication
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ErrorIdent_AcyclicCommunication
+  fullName: ErrorIdent_AcyclicCommunication
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.ErrorIdent_AcyclicCommunication
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ErrorIdent_AcyclicCommunication : AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct'
+    return:
+      type: AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdDevice
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdDevice
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: hwIdDevice
+  fullName: hwIdDevice
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdDevice
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'hwIdDevice : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdParamCh_IDN
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdParamCh_IDN
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: hwIdParamCh_IDN
+  fullName: hwIdParamCh_IDN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdParamCh_IDN
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'hwIdParamCh_IDN : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwID_F_ModulNotUsed
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwID_F_ModulNotUsed
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: hwID_F_ModulNotUsed
+  fullName: hwID_F_ModulNotUsed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwID_F_ModulNotUsed
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'hwID_F_ModulNotUsed : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdInput_9_Words
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdInput_9_Words
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: hwIdInput_9_Words
+  fullName: hwIdInput_9_Words
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdInput_9_Words
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 81
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'hwIdInput_9_Words : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdOutput_13_Words
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdOutput_13_Words
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: hwIdOutput_13_Words
+  fullName: hwIdOutput_13_Words
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisData.hwIdOutput_13_Words
+    path: .\src\components.rexroth.drives\ctrl\src\AxoIndraDrive\TypesStructuresAndEnums\AxoIndraDriveAxisData.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'hwIdOutput_13_Words : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.LINT
+  name: LINT
+  nameWithType: LINT
+  fullName: LINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+  name: eAxoIndraDriveErrorCode
+  nameWithType: eAxoIndraDriveErrorCode
+  fullName: AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct
+  name: AxoIndraDriveErrorStruct
+  nameWithType: AxoIndraDriveErrorStruct
+  fullName: AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct
+
+

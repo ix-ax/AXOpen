@@ -1,0 +1,185 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.uid
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.tagName
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.chipVersion
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memSize
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.lockStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memBlockSize
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.numBlocks
+  name: AxoIOLink_RF200_typeTagStatus
+  fullName: AxoIOLink_RF200_typeTagStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_typeTagStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.uid
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.uid
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: uid
+  fullName: uid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.uid
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'uid : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.tagName
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.tagName
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: tagName
+  fullName: tagName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.tagName
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'tagName : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.chipVersion
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.chipVersion
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: chipVersion
+  fullName: chipVersion
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.chipVersion
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'chipVersion : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memSize
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memSize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: memSize
+  fullName: memSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memSize
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'memSize : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.lockStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.lockStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: lockStatus
+  fullName: lockStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.lockStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'lockStatus : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memBlockSize
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memBlockSize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: memBlockSize
+  fullName: memBlockSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.memBlockSize
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'memBlockSize : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.numBlocks
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.numBlocks
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: numBlocks
+  fullName: numBlocks
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeTagStatus.numBlocks
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeTagStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'numBlocks : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

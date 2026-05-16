@@ -1,15 +1,8 @@
-## Changes
-<!--  
-    Leave the file intact at the end of the file add the following:
-    ---------------------------------
-    ### {axopen-version}
-    New features:
-    Bug fixies:
-    Other:
-    Breaking:
-    ---------------------------------
+# Changelog
 
-    {axopen-version} replace this with the current settings in GitVersion.yml file.
--->
+### 0.43.0
 
-
+**Other:**
+- Retained existing utilities/vendor-implementations structure; removed legacy `ComponentTemplate.md` placeholder.
+- Added CONTROLLER, .NET TWIN, BLAZOR, and HARDWARE tabs with DocFX source references wired to live showcase markers.
+- Initial CHANGELOG entry.

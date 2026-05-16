@@ -1,3 +1,6 @@
 {
-    "files.eol": "\n"
+    "http.proxyCertificates": true,
+    "http.proxyStrictSSL": false,
+    "http.systemCertificates": true,
+    "files.eol": "\n",    
 }

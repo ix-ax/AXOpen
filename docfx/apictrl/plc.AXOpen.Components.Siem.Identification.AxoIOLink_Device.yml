@@ -1,0 +1,1472 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statExecuteOld
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDone
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statBusy
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statError
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statPollingPeriod
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwID
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwIDprevious
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadWrite
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statCap
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statTimeout
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statLen
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statSubfunctionStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBErrorState
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBState
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statEmptyDiagnostics
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instRdRec
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instWrRec
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instPoll
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instMonitor
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statRead
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statWrite
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDiagnostics
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadLen
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_READ
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_WRITE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_PORT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_INDEX
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_PORT_FUNC
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_SUBINDEX
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_DATA
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.UPPER_LIMIT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_NO_PROCESSING
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_WRITE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_POLL
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_READ_CAP
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.IOL_HEADER
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.LEN_HEADER
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_WRITE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_READ
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_EXECUTION_FINISHED
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_NO_CALL
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_FIRST_CALL
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_SUBSEQUENT_CALL
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.SUB_STATUS_NO_ERROR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_PORT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_INDEX
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_SUBINDEX
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_LENGTH
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_IO_LINK
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_INCONSISTENT_DATA
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_REQUEST_TIMEOUT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_UNDEFINED_STATE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRREC
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_RDREC
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_MASK
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RESOURCE_BUSY
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_CAP_IOLINK
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_LEGACY
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_STANDARD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RDREC_VALID
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B3
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B2
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.Run(BOOL,UINT,INT,BOOL,INT,INT,INT,INT,TIME,TIME,REF_TO ARRAY [*] OF BYTE,REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics)
+  name: AxoIOLink_Device
+  fullName: AxoIOLink_Device
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_Device
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statExecuteOld
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statExecuteOld
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statExecuteOld
+  fullName: statExecuteOld
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statExecuteOld
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statExecuteOld : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDone
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDone
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDone
+  fullName: statDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDone
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statBusy
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statBusy
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statBusy
+  fullName: statBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statBusy
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statError
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statError
+  fullName: statError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statError
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statStatus
+  fullName: statStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statStatus : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statPollingPeriod
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statPollingPeriod
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPollingPeriod
+  fullName: statPollingPeriod
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statPollingPeriod
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPollingPeriod : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwID
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statHwID
+  fullName: statHwID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwID
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statHwID : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwIDprevious
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwIDprevious
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statHwIDprevious
+  fullName: statHwIDprevious
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statHwIDprevious
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statHwIDprevious : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadWrite
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadWrite
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statReadWrite
+  fullName: statReadWrite
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadWrite
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statReadWrite : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statCap
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statCap
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statCap
+  fullName: statCap
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statCap
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statCap : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statTimeout
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statTimeout
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTimeout
+  fullName: statTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statTimeout
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTimeout : TIME'
+    return:
+      type: TIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statLen
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statLen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLen
+  fullName: statLen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statLen
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLen : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statSubfunctionStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statSubfunctionStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSubfunctionStatus
+  fullName: statSubfunctionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statSubfunctionStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSubfunctionStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBErrorState
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBErrorState
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statFBErrorState
+  fullName: statFBErrorState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBErrorState
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statFBErrorState : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBState
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBState
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statFBState
+  fullName: statFBState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statFBState
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statFBState : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statEmptyDiagnostics
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statEmptyDiagnostics
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statEmptyDiagnostics
+  fullName: statEmptyDiagnostics
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statEmptyDiagnostics
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statEmptyDiagnostics : AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instRdRec
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instRdRec
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instRdRec
+  fullName: instRdRec
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instRdRec
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instRdRec : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instWrRec
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instWrRec
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instWrRec
+  fullName: instWrRec
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instWrRec
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instWrRec : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instPoll
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instPoll
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instPoll
+  fullName: instPoll
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instPoll
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instPoll : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instMonitor
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instMonitor
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: instMonitor
+  fullName: instMonitor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.instMonitor
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'instMonitor : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statRead
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statRead
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statRead
+  fullName: statRead
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statRead
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statRead : ARRAY [0..239] OF BYTE'
+    return:
+      type: ARRAY [0..239] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statWrite
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statWrite
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statWrite
+  fullName: statWrite
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statWrite
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statWrite : ARRAY [0..239] OF BYTE'
+    return:
+      type: ARRAY [0..239] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDiagnostics
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDiagnostics
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDiagnostics
+  fullName: statDiagnostics
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statDiagnostics
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDiagnostics : AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadLen
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadLen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statReadLen
+  fullName: statReadLen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.statReadLen
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statReadLen : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_READ
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_READ
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MODE_READ
+  fullName: MODE_READ
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_READ
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MODE_READ : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MODE_WRITE
+  fullName: MODE_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MODE_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MODE_WRITE : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_PORT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_PORT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MAX_PORT
+  fullName: MAX_PORT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_PORT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MAX_PORT : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_INDEX
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_INDEX
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MAX_INDEX
+  fullName: MAX_INDEX
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_INDEX
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MAX_INDEX : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_PORT_FUNC
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_PORT_FUNC
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_PORT_FUNC
+  fullName: INDEX_PORT_FUNC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_PORT_FUNC
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_PORT_FUNC : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_SUBINDEX
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_SUBINDEX
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MAX_SUBINDEX
+  fullName: MAX_SUBINDEX
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_SUBINDEX
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MAX_SUBINDEX : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_DATA
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_DATA
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: MAX_DATA
+  fullName: MAX_DATA
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.MAX_DATA
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'MAX_DATA : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.UPPER_LIMIT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.UPPER_LIMIT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: UPPER_LIMIT
+  fullName: UPPER_LIMIT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.UPPER_LIMIT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'UPPER_LIMIT : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_NO_PROCESSING
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_NO_PROCESSING
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: FB_STATE_NO_PROCESSING
+  fullName: FB_STATE_NO_PROCESSING
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_NO_PROCESSING
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'FB_STATE_NO_PROCESSING : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: FB_STATE_WRITE
+  fullName: FB_STATE_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'FB_STATE_WRITE : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_POLL
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_POLL
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: FB_STATE_POLL
+  fullName: FB_STATE_POLL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_POLL
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'FB_STATE_POLL : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_READ_CAP
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_READ_CAP
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: FB_STATE_READ_CAP
+  fullName: FB_STATE_READ_CAP
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.FB_STATE_READ_CAP
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'FB_STATE_READ_CAP : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.IOL_HEADER
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.IOL_HEADER
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOL_HEADER
+  fullName: IOL_HEADER
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.IOL_HEADER
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOL_HEADER : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.LEN_HEADER
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.LEN_HEADER
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_HEADER
+  fullName: LEN_HEADER
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.LEN_HEADER
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_HEADER : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CONTROL_WRITE
+  fullName: CONTROL_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CONTROL_WRITE : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_READ
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_READ
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CONTROL_READ
+  fullName: CONTROL_READ
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CONTROL_READ
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CONTROL_READ : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_EXECUTION_FINISHED
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_EXECUTION_FINISHED
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_EXECUTION_FINISHED
+  fullName: STATUS_EXECUTION_FINISHED
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_EXECUTION_FINISHED
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_EXECUTION_FINISHED : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_NO_CALL
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_NO_CALL
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_NO_CALL
+  fullName: STATUS_NO_CALL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_NO_CALL
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_NO_CALL : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_FIRST_CALL
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_FIRST_CALL
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_FIRST_CALL
+  fullName: STATUS_FIRST_CALL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_FIRST_CALL
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_FIRST_CALL : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_SUBSEQUENT_CALL
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_SUBSEQUENT_CALL
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_SUBSEQUENT_CALL
+  fullName: STATUS_SUBSEQUENT_CALL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_SUBSEQUENT_CALL
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_SUBSEQUENT_CALL : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.SUB_STATUS_NO_ERROR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.SUB_STATUS_NO_ERROR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: SUB_STATUS_NO_ERROR
+  fullName: SUB_STATUS_NO_ERROR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.SUB_STATUS_NO_ERROR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'SUB_STATUS_NO_ERROR : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_PORT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_PORT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_WRONG_PORT
+  fullName: ERR_WRONG_PORT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_PORT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_WRONG_PORT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_INDEX
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_INDEX
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_WRONG_INDEX
+  fullName: ERR_WRONG_INDEX
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_INDEX
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_WRONG_INDEX : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_SUBINDEX
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_SUBINDEX
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_WRONG_SUBINDEX
+  fullName: ERR_WRONG_SUBINDEX
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_SUBINDEX
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_WRONG_SUBINDEX : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_LENGTH
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_LENGTH
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_WRONG_LENGTH
+  fullName: ERR_WRONG_LENGTH
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRONG_LENGTH
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_WRONG_LENGTH : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_IO_LINK
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_IO_LINK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_IO_LINK
+  fullName: ERR_IO_LINK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_IO_LINK
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_IO_LINK : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_INCONSISTENT_DATA
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_INCONSISTENT_DATA
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_INCONSISTENT_DATA
+  fullName: ERR_INCONSISTENT_DATA
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_INCONSISTENT_DATA
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_INCONSISTENT_DATA : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_REQUEST_TIMEOUT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_REQUEST_TIMEOUT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_REQUEST_TIMEOUT
+  fullName: ERR_REQUEST_TIMEOUT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_REQUEST_TIMEOUT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_REQUEST_TIMEOUT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_UNDEFINED_STATE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_UNDEFINED_STATE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_UNDEFINED_STATE
+  fullName: ERR_UNDEFINED_STATE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_UNDEFINED_STATE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 65
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_UNDEFINED_STATE : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRREC
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRREC
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_WRREC
+  fullName: ERR_WRREC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_WRREC
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_WRREC : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_RDREC
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_RDREC
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERR_RDREC
+  fullName: ERR_RDREC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.ERR_RDREC
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERR_RDREC : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_MASK
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_MASK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_MASK
+  fullName: STATUS_MASK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_MASK
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_MASK : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RESOURCE_BUSY
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RESOURCE_BUSY
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_RESOURCE_BUSY
+  fullName: STATUS_RESOURCE_BUSY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RESOURCE_BUSY
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_RESOURCE_BUSY : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_CAP_IOLINK
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_CAP_IOLINK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_CAP_IOLINK
+  fullName: INDEX_CAP_IOLINK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.INDEX_CAP_IOLINK
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_CAP_IOLINK : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_LEGACY
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_LEGACY
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CAP_LEGACY
+  fullName: CAP_LEGACY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_LEGACY
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CAP_LEGACY : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_STANDARD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_STANDARD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CAP_STANDARD
+  fullName: CAP_STANDARD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.CAP_STANDARD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CAP_STANDARD : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RDREC_VALID
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RDREC_VALID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_RDREC_VALID
+  fullName: STATUS_RDREC_VALID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.STATUS_RDREC_VALID
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_RDREC_VALID : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B3
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B3
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BITMASK_ERR_RDREC_B3
+  fullName: BITMASK_ERR_RDREC_B3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B3
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BITMASK_ERR_RDREC_B3 : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BITMASK_ERR_RDREC_B2
+  fullName: BITMASK_ERR_RDREC_B2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BITMASK_ERR_RDREC_B2 : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BITMASK_ERR_RDREC_B1
+  fullName: BITMASK_ERR_RDREC_B1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.BITMASK_ERR_RDREC_B1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 75
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BITMASK_ERR_RDREC_B1 : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.Run(BOOL,UINT,INT,BOOL,INT,INT,INT,INT,TIME,TIME,REF_TO ARRAY [*] OF BYTE,REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics)
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.Run(BOOL,UINT,INT,BOOL,INT,INT,INT,INT,TIME,TIME,REF_TO ARRAY [*] OF BYTE,REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics)
+  parent: AXOpen.Components.Siem.Identification.AxoIOLink_Device
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_Device.Run
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_Device.st
+    startLine: 81
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.BOOL execute,in plc.UINT hwID,in plc.INT cap,in plc.BOOL readWrite,in plc.INT port,in plc.INT index,in plc.INT subindex,in plc.INT writeLen,in plc.TIME timeout,in plc.TIME pollingPeriod,in plc.REF_TO ARRAY [*] OF BYTE record,in plc.REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics diagnostics)
+    parameters:
+    - id: execute
+      type: plc.BOOL
+    - id: hwID
+      type: plc.UINT
+    - id: cap
+      type: plc.INT
+    - id: readWrite
+      type: plc.BOOL
+    - id: port
+      type: plc.INT
+    - id: index
+      type: plc.INT
+    - id: subindex
+      type: plc.INT
+    - id: writeLen
+      type: plc.INT
+    - id: timeout
+      type: plc.TIME
+    - id: pollingPeriod
+      type: plc.TIME
+    - id: record
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: diagnostics
+      type: plc.REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  name: AxoIOLink_typeDiagnostics
+  nameWithType: AxoIOLink_typeDiagnostics
+  fullName: AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.ARRAY [0..239] OF BYTE
+  name: ARRAY [0..239] OF BYTE
+  nameWithType: ARRAY [0..239] OF BYTE
+  fullName: ARRAY [0..239] OF BYTE
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.REF_TO ARRAY [*] OF BYTE
+  name: REF_TO ARRAY [*] OF BYTE
+  nameWithType: REF_TO ARRAY [*] OF BYTE
+  fullName: REF_TO ARRAY [*] OF BYTE
+- uid: plc.REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  name: REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  nameWithType: REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+  fullName: REF_TO AXOpen.Components.Siem.Identification.AxoIOLink_typeDiagnostics
+
+

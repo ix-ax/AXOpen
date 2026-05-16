@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile  ..\XSD\GSDML-DeviceProfile-v2.3.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x0083" DeviceID="0x0001">
+      <InfoText TextId="TOK_DevIdent_InfoText" />
+      <VendorName Value="SMC Corporation" />
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Valves" ProductFamily="SMC EX260" />
+    </DeviceFunction>
+    <ApplicationProcess>
+      <!-- [EX260 SPN 1/2] or [EX260 SPN 3/4] -->
+      <DeviceAccessPointList>
+        <!-- IO-16 device setting -->
+        <DeviceAccessPointItem ID="DIM 1" PhysicalSlots="0..1" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="EX260-SPN" FixedInSlots="0" ObjectUUID_LocalIndex="1" MaxSupportedRecordSize="4096" ParameterizationSpeedupSupported="true" PowerOnToCommReady="700" MultipleWriteSupported="true" NameOfStationNotTransferable="true" PNIO_Version="V2.2" DeviceAccessSupported="false">
+          <ModuleInfo>
+            <Name TextId="TOK_EX260SPN16" />
+            <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_16" />
+            <VendorName Value="SMC Corporation" />
+            <OrderNumber Value="EX260-SPN" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="256" MaxOutputLength="256" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_Out16" FixedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 1" SubmoduleIdentNumber="0x0001" API="0">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="17">
+                  <Name TextId="IDT_REF_DiagParameter" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA" />
+                  <!-- diagnosis parameter[Power] -->
+                  <Ref ValueItemTarget="Diag_List_Pwr" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="1" TextId="IDT_PWR_ERR" DefaultValue="0" />
+                  <!-- diagnosis parameter[Output] -->
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_0" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_1" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_2" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_3" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_4" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_5" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_6" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_7" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_8" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_9" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_10" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_11" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_12" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_13" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_14" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_15" DefaultValue="2" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_EX260SPN16" />
+                <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_16" />
+              </ModuleInfo>
+              <IsochroneMode T_DC_Base="4" T_DC_Min="1" T_DC_Max="8" T_IO_Base="1000" T_IO_InputMin="40" T_IO_OutputMin="40" IsochroneModeRequired="false" />
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_UDP;RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" IsochroneModeInRT_Classes="RT_CLASS_3" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="true">
+              <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="256" />
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                <TimingProperties SendClock="32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="363" MaxPortTxDelay="1200" />
+            <PortSubmoduleItem ID="IDS_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="363" MaxPortTxDelay="1200" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!-- IO-32 device setting -->
+        <DeviceAccessPointItem ID="DIM 2" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="EX260-SPN" FixedInSlots="0" ObjectUUID_LocalIndex="1" MaxSupportedRecordSize="4096" ParameterizationSpeedupSupported="true" PowerOnToCommReady="700" MultipleWriteSupported="true" NameOfStationNotTransferable="true" PNIO_Version="V2.2" DeviceAccessSupported="false">
+          <ModuleInfo>
+            <Name TextId="TOK_EX260SPN32" />
+            <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_32" />
+            <VendorName Value="SMC Corporation" />
+            <OrderNumber Value="EX260-SPN" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="256" MaxOutputLength="256" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_Out32" FixedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 2" SubmoduleIdentNumber="0x0001" API="0">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="17">
+                  <Name TextId="IDT_REF_DiagParameter" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA" />
+                  <!-- diagnosis parameter[Power] -->
+                  <Ref ValueItemTarget="Diag_List_Pwr" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="1" TextId="IDT_PWR_ERR" DefaultValue="0" />
+                  <!-- diagnosis parameter[Output] -->
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_0" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_1" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_2" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_3" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_4" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_5" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_6" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_7" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_8" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_9" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_10" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_11" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_12" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_13" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_14" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_15" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_16" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_17" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_18" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_19" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_20" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_21" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_22" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_23" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_24" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_25" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_26" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_27" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_28" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_29" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_30" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_31" DefaultValue="2" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_EX260SPN32" />
+                <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_32" />
+              </ModuleInfo>
+              <IsochroneMode T_DC_Base="4" T_DC_Min="1" T_DC_Max="8" T_IO_Base="1000" T_IO_InputMin="40" T_IO_OutputMin="40" IsochroneModeRequired="false" />
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_J" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_UDP;RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" IsochroneModeInRT_Classes="RT_CLASS_3" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" DCP_HelloSupported="true">
+              <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="256" />
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                <TimingProperties SendClock="32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_P3" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="363" MaxPortTxDelay="1200" />
+            <PortSubmoduleItem ID="IDS_P4" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="363" MaxPortTxDelay="1200" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_2" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!-- IO-16 MRP device setting -->
+        <DeviceAccessPointItem ID="DIM 3" PhysicalSlots="0..1" ModuleIdentNumber="0x00000005" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="EX260-SPN" FixedInSlots="0" ObjectUUID_LocalIndex="1" MaxSupportedRecordSize="4096" ParameterizationSpeedupSupported="true" PowerOnToCommReady="700" MultipleWriteSupported="true" NameOfStationNotTransferable="true" PNIO_Version="V2.2" DeviceAccessSupported="false">
+          <ModuleInfo>
+            <Name TextId="TOK_EX260SPN16_MRP" />
+            <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_16MRP" />
+            <VendorName Value="SMC Corporation" />
+            <OrderNumber Value="EX260-SPN" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="256" MaxOutputLength="256" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_Out16" FixedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 3" SubmoduleIdentNumber="0x0001" API="0">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="17">
+                  <Name TextId="IDT_REF_DiagParameter" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA" />
+                  <!-- diagnosis parameter[Power] -->
+                  <Ref ValueItemTarget="Diag_List_Pwr" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="1" TextId="IDT_PWR_ERR" DefaultValue="0" />
+                  <!-- diagnosis parameter[Output] -->
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_0" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_1" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_2" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_3" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_4" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_5" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_6" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_7" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_8" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_9" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_10" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_11" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_12" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_13" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_14" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_15" DefaultValue="2" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_EX260SPN16_MRP" />
+                <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_16MRP" />
+              </ModuleInfo>
+              <IsochroneMode T_DC_Base="4" T_DC_Min="1" T_DC_Max="8" T_IO_Base="1000" T_IO_InputMin="40" T_IO_OutputMin="40" IsochroneModeRequired="false" />
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_K" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_UDP;RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" IsochroneModeInRT_Classes="RT_CLASS_3" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="true">
+              <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="256" />
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                <TimingProperties SendClock="32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_P5" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="363" MaxPortTxDelay="1200" SupportsRingportConfig="false" IsDefaultRingport="true" />
+            <PortSubmoduleItem ID="IDS_P6" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="363" MaxPortTxDelay="1200" SupportsRingportConfig="false" IsDefaultRingport="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <!-- IO-32 MRP device setting -->
+        <DeviceAccessPointItem ID="DIM 4" PhysicalSlots="0..1" ModuleIdentNumber="0x00000006" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="EX260-SPN" FixedInSlots="0" ObjectUUID_LocalIndex="1" MaxSupportedRecordSize="4096" ParameterizationSpeedupSupported="true" PowerOnToCommReady="700" MultipleWriteSupported="true" NameOfStationNotTransferable="true" PNIO_Version="V2.2" DeviceAccessSupported="false">
+          <ModuleInfo>
+            <Name TextId="TOK_EX260SPN32_MRP" />
+            <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_32MRP" />
+            <VendorName Value="SMC Corporation" />
+            <OrderNumber Value="EX260-SPN" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="256" MaxOutputLength="256" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_Out32" FixedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 4" SubmoduleIdentNumber="0x0001" API="0">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="17">
+                  <Name TextId="IDT_REF_DiagParameter" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA" />
+                  <!-- diagnosis parameter[Power] -->
+                  <Ref ValueItemTarget="Diag_List_Pwr" ByteOffset="0" BitOffset="0" DataType="BitArea" BitLength="1" TextId="IDT_PWR_ERR" DefaultValue="0" />
+                  <!-- diagnosis parameter[Output] -->
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_0" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_1" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_2" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="9" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_3" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_4" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_5" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_6" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="10" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_7" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_8" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_9" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_10" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="11" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_11" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_12" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_13" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_14" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="12" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_15" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_16" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_17" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_18" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="13" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_19" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_20" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_21" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_22" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="14" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_23" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_24" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_25" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_26" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="15" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_27" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="0" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_28" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="2" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_29" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="4" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_30" DefaultValue="2" />
+                  <Ref ValueItemTarget="Diag_Out_List" ByteOffset="16" BitOffset="6" DataType="BitArea" BitLength="2" TextId="IDT_OUTPUT_ERR_31" DefaultValue="2" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_EX260SPN32_MRP" />
+                <InfoText TextId="TOK_ModInfo_InfoTextId_DAP2_32MRP" />
+              </ModuleInfo>
+              <IsochroneMode T_DC_Base="4" T_DC_Min="1" T_DC_Max="8" T_IO_Base="1000" T_IO_InputMin="40" T_IO_OutputMin="40" IsochroneModeRequired="false" />
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_L" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_UDP;RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" IsochroneModeInRT_Classes="RT_CLASS_3" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" DCP_HelloSupported="true">
+              <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="256" />
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                <TimingProperties SendClock="32 40 48 56 64 72 80 88 96 104 112 120 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_P7" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="363" MaxPortTxDelay="1200" SupportsRingportConfig="false" IsDefaultRingport="true" />
+            <PortSubmoduleItem ID="IDS_P8" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="363" MaxPortTxDelay="1200" SupportsRingportConfig="false" IsDefaultRingport="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_2" />
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <!-- [EX260 SPN 1/2] or [EX260 SPN 3/4] -->
+      <ModuleList>
+        <!-- IO-16 module setting -->
+        <ModuleItem ID="ID_Mod_Out16" ModuleIdentNumber="0x00000003">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_2_O" />
+            <InfoText TextId="TOK_InfoTextId_Module_2_O" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x0001" API="0">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_Module_2_O" />
+                <InfoText TextId="TOK_InfoTextId_Module_2_O" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <!-- IO-32 module setting -->
+        <ModuleItem ID="ID_Mod_Out32" ModuleIdentNumber="0x00000004">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_4_O" />
+            <InfoText TextId="TOK_InfoTextId_Module_4_O" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="2" SubmoduleIdentNumber="0x0002" API="0">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                  <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem" UseAsBits="true" />
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_Module_4_O" />
+                <InfoText TextId="TOK_InfoTextId_Module_4_O" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <ValueList>
+        <!-- diagnosis parameter list[Power] -->
+        <ValueItem ID="Diag_List_Pwr">
+          <Assignments>
+            <Assign TextId="PowerSupplyOfValueDisable" Content="0" />
+            <Assign TextId="PowerSupplyOfValueEnable" Content="1" />
+          </Assignments>
+        </ValueItem>
+        <!-- diagnosis parameter list[Output] -->
+        <ValueItem ID="Diag_Out_List">
+          <Assignments>
+            <Assign TextId="OutputSupplyOfValueHold" Content="0" />
+            <Assign TextId="OutputSupplyOfValueON" Content="1" />
+            <Assign TextId="OutputSupplyOfValueOFF" Content="2" />
+          </Assignments>
+        </ValueItem>
+      </ValueList>
+      <ChannelDiagList>
+        <ChannelDiagItem ErrorType="17">
+          <Name TextId="IDT_0x0011" />
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="ID_Graph_1" GraphicFile="GSDML-0083-0001-EX260" />
+        <GraphicItem ID="ID_Graph_2" GraphicFile="GSDML-0083-0001-EX260" />
+      </GraphicsList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!--english-->
+          <Text TextId="TOK_DevIdent_InfoText" Value="EX260" />
+          <!--DAP - EX260-->
+          <Text TextId="TOK_EX260SPN16" Value="EX260 SPN 3/4" />
+          <Text TextId="TOK_EX260SPN16_MRP" Value="EX260 SPN 3/4 MRP" />
+          <Text TextId="TOK_ModInfo_InfoTextId_DAP2_16" Value="PROFINET I/O Serial Interface, 16 outputs." />
+          <Text TextId="TOK_ModInfo_InfoTextId_DAP2_16MRP" Value="PROFINET I/O Serial Interface, 16 outputs, MRP." />
+          <Text TextId="TOK_EX260SPN32" Value="EX260 SPN 1/2" />
+          <Text TextId="TOK_EX260SPN32_MRP" Value="EX260 SPN 1/2 MRP" />
+          <Text TextId="TOK_ModInfo_InfoTextId_DAP2_32" Value="PROFINET I/O Serial Interface, 32 outputs." />
+          <Text TextId="TOK_ModInfo_InfoTextId_DAP2_32MRP" Value="PROFINET I/O Serial Interface, 32 outputs, MRP." />
+          <!--port name-->
+          <Text TextId="TOK_Subslot_8000" Value="X1" />
+          <Text TextId="TOK_Subslot_8001" Value="P1" />
+          <Text TextId="TOK_Subslot_8002" Value="P2" />
+          <Text TextId="TOK_DAP_InterfaceModule" Value="Interface" />
+          <Text TextId="TOK_Port1" Value="Port 1 - RJ45" />
+          <Text TextId="TOK_Port2" Value="Port 2 - RJ45" />
+          <!--module name-->
+          <Text TextId="TOK_TextId_Module_2_O" Value="  2 byte  Output" />
+          <Text TextId="TOK_TextId_Module_4_O" Value="  4 byte  Output" />
+          <!--module info name-->
+          <Text TextId="TOK_InfoTextId_Module_2_O" Value="Output data corresponding to valve output 1 to 16." />
+          <Text TextId="TOK_InfoTextId_Module_4_O" Value="Output data corresponding to valve output 1 to 32." />
+          <!--dataitem name-->
+          <Text TextId="TOK_Output_DataItem" Value="Outputs" />
+          <!--errortype name-->
+          <Text TextId="IDT_0x0011" Value="Power supply failure" />
+          <!--Record Data-->
+          <Text TextId="IDT_REF_DiagParameter" Value="Diagnostic Parameters." />
+          <Text TextId="IDT_PWR_ERR" Value="Valve Power" />
+          <Text TextId="IDT_OUTPUT_ERR_0" Value="Output 0." />
+          <Text TextId="IDT_OUTPUT_ERR_1" Value="Output 1." />
+          <Text TextId="IDT_OUTPUT_ERR_2" Value="Output 2." />
+          <Text TextId="IDT_OUTPUT_ERR_3" Value="Output 3." />
+          <Text TextId="IDT_OUTPUT_ERR_4" Value="Output 4." />
+          <Text TextId="IDT_OUTPUT_ERR_5" Value="Output 5." />
+          <Text TextId="IDT_OUTPUT_ERR_6" Value="Output 6." />
+          <Text TextId="IDT_OUTPUT_ERR_7" Value="Output 7." />
+          <Text TextId="IDT_OUTPUT_ERR_8" Value="Output 8." />
+          <Text TextId="IDT_OUTPUT_ERR_9" Value="Output 9." />
+          <Text TextId="IDT_OUTPUT_ERR_10" Value="Output 10." />
+          <Text TextId="IDT_OUTPUT_ERR_11" Value="Output 11." />
+          <Text TextId="IDT_OUTPUT_ERR_12" Value="Output 12." />
+          <Text TextId="IDT_OUTPUT_ERR_13" Value="Output 13." />
+          <Text TextId="IDT_OUTPUT_ERR_14" Value="Output 14." />
+          <Text TextId="IDT_OUTPUT_ERR_15" Value="Output 15." />
+          <Text TextId="IDT_OUTPUT_ERR_16" Value="Output 16." />
+          <Text TextId="IDT_OUTPUT_ERR_17" Value="Output 17." />
+          <Text TextId="IDT_OUTPUT_ERR_18" Value="Output 18." />
+          <Text TextId="IDT_OUTPUT_ERR_19" Value="Output 19." />
+          <Text TextId="IDT_OUTPUT_ERR_20" Value="Output 20." />
+          <Text TextId="IDT_OUTPUT_ERR_21" Value="Output 21." />
+          <Text TextId="IDT_OUTPUT_ERR_22" Value="Output 22." />
+          <Text TextId="IDT_OUTPUT_ERR_23" Value="Output 23." />
+          <Text TextId="IDT_OUTPUT_ERR_24" Value="Output 24." />
+          <Text TextId="IDT_OUTPUT_ERR_25" Value="Output 25." />
+          <Text TextId="IDT_OUTPUT_ERR_26" Value="Output 26." />
+          <Text TextId="IDT_OUTPUT_ERR_27" Value="Output 27." />
+          <Text TextId="IDT_OUTPUT_ERR_28" Value="Output 28." />
+          <Text TextId="IDT_OUTPUT_ERR_29" Value="Output 29." />
+          <Text TextId="IDT_OUTPUT_ERR_30" Value="Output 30." />
+          <Text TextId="IDT_OUTPUT_ERR_31" Value="Output 31." />
+          <Text TextId="PowerSupplyOfValueDisable" Value="Disable." />
+          <Text TextId="PowerSupplyOfValueEnable" Value="Enable." />
+          <Text TextId="OutputSupplyOfValueHold" Value="Hold" />
+          <Text TextId="OutputSupplyOfValueON" Value="Force to ON" />
+          <Text TextId="OutputSupplyOfValueOFF" Value="Force to OFF" />
+        </PrimaryLanguage>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

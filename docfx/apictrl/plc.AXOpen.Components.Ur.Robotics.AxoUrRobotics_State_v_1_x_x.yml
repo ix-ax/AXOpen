@@ -1,0 +1,638 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.RobotMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_3
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_4
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Zone
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Retract
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Extend
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Retract
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Extend
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Retract
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Extend
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Retract
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Extend
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ActionNo
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.GlobalSpeed
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ToolNo
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.WorkobjectNo
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.PointNo
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed1
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed2
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Coordinates
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Inputs
+  name: AxoUrRobotics_State_v_1_x_x
+  fullName: AxoUrRobotics_State_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRobotics_State_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.RobotMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.RobotMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RobotMode
+  fullName: RobotMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.RobotMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RobotMode : AXOpen.Components.Ur.Robotics.eAxoUrRoboticsRobotMode'
+    return:
+      type: AXOpen.Components.Ur.Robotics.eAxoUrRoboticsRobotMode
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InArea_1
+  fullName: InArea_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InArea_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InArea_2
+  fullName: InArea_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InArea_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InArea_3
+  fullName: InArea_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InArea_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InArea_4
+  fullName: InArea_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InArea_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InArea_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InPosition_1
+  fullName: InPosition_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InPosition_1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InPosition_2
+  fullName: InPosition_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InPosition_2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_3
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_3
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InPosition_3
+  fullName: InPosition_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_3
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InPosition_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_4
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_4
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InPosition_4
+  fullName: InPosition_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition_4
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InPosition_4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Zone
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Zone
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Zone
+  fullName: Zone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Zone
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Zone : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.InPosition
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'InPosition : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Retract
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Retract
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_1_Retract
+  fullName: Tool_1_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Retract
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_1_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Extend
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Extend
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_1_Extend
+  fullName: Tool_1_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_1_Extend
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_1_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Retract
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Retract
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_2_Retract
+  fullName: Tool_2_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Retract
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_2_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Extend
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Extend
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_2_Extend
+  fullName: Tool_2_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_2_Extend
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_2_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Retract
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Retract
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_3_Retract
+  fullName: Tool_3_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Retract
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_3_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Extend
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Extend
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_3_Extend
+  fullName: Tool_3_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_3_Extend
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_3_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Retract
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Retract
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_4_Retract
+  fullName: Tool_4_Retract
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Retract
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_4_Retract : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Extend
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Extend
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Tool_4_Extend
+  fullName: Tool_4_Extend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Tool_4_Extend
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Tool_4_Extend : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ActionNo
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ActionNo
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ActionNo
+  fullName: ActionNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ActionNo
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ActionNo : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.GlobalSpeed
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.GlobalSpeed
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: GlobalSpeed
+  fullName: GlobalSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.GlobalSpeed
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'GlobalSpeed : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ToolNo
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ToolNo
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ToolNo
+  fullName: ToolNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.ToolNo
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ToolNo : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.WorkobjectNo
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.WorkobjectNo
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: WorkobjectNo
+  fullName: WorkobjectNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.WorkobjectNo
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 63
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'WorkobjectNo : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.PointNo
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.PointNo
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: PointNo
+  fullName: PointNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.PointNo
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'PointNo : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed1
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed1
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: UserSpecSpeed1
+  fullName: UserSpecSpeed1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed1
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'UserSpecSpeed1 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed2
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed2
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: UserSpecSpeed2
+  fullName: UserSpecSpeed2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.UserSpecSpeed2
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'UserSpecSpeed2 : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Coordinates
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Coordinates
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Coordinates
+  fullName: Coordinates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Coordinates
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Inputs
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Inputs
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRobotics_State_v_1_x_x.Inputs
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Inputs : AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x'
+    return:
+      type: AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+references:
+- uid: plc.AXOpen.Components.Ur.Robotics.eAxoUrRoboticsRobotMode
+  name: eAxoUrRoboticsRobotMode
+  nameWithType: eAxoUrRoboticsRobotMode
+  fullName: AXOpen.Components.Ur.Robotics.eAxoUrRoboticsRobotMode
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+  name: AxoUrRoboticsInputData_v_1_x_x
+  nameWithType: AxoUrRoboticsInputData_v_1_x_x
+  fullName: AXOpen.Components.Ur.Robotics.AxoUrRoboticsInputData_v_1_x_x
+
+
