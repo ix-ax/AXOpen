@@ -1,3 +1,4 @@
+#<KukaKrc4Template>
 Templates:
   Devices:
     - Name: 'kuka_krc4_dio512'
@@ -44,3 +45,4 @@ Templates:
               GsdId: '15'
               FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
             Slot: 2
+#</KukaKrc4Template>

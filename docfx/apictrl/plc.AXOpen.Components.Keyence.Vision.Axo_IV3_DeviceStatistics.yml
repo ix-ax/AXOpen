@@ -1,0 +1,181 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMax
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMin
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeAve
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggers
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfOKs
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfNGs
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggerErrors
+  name: Axo_IV3_DeviceStatistics
+  fullName: Axo_IV3_DeviceStatistics
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_DeviceStatistics
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMax
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMax
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProcessingTimeMax
+  fullName: ProcessingTimeMax
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMax
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProcessingTimeMax : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMin
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMin
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProcessingTimeMin
+  fullName: ProcessingTimeMin
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeMin
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProcessingTimeMin : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeAve
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeAve
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ProcessingTimeAve
+  fullName: ProcessingTimeAve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.ProcessingTimeAve
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ProcessingTimeAve : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggers
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggers
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: NumberOfTriggers
+  fullName: NumberOfTriggers
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggers
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'NumberOfTriggers : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfOKs
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfOKs
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: NumberOfOKs
+  fullName: NumberOfOKs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfOKs
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'NumberOfOKs : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfNGs
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfNGs
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: NumberOfNGs
+  fullName: NumberOfNGs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfNGs
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'NumberOfNGs : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggerErrors
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggerErrors
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: NumberOfTriggerErrors
+  fullName: NumberOfTriggerErrors
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_DeviceStatistics.NumberOfTriggerErrors
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'NumberOfTriggerErrors : UDINT'
+    return:
+      type: UDINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+
+

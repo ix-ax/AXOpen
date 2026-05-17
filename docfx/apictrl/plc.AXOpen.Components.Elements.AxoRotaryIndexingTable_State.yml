@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.SafetyCondition
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPosition
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPrecisePosition
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.CodingPosition
+  name: AxoRotaryIndexingTable_State
+  fullName: AxoRotaryIndexingTable_State
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoRotaryIndexingTable_State
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.SafetyCondition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.SafetyCondition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: SafetyCondition
+  fullName: SafetyCondition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.SafetyCondition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'SafetyCondition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPosition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPosition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: InPosition
+  fullName: InPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPosition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'InPosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPrecisePosition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPrecisePosition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: InPrecisePosition
+  fullName: InPrecisePosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.InPrecisePosition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'InPrecisePosition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.CodingPosition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.CodingPosition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: CodingPosition
+  fullName: CodingPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_State.CodingPosition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'CodingPosition : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

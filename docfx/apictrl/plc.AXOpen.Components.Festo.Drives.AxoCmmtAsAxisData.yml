@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.Cycle
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideVelocityFactor
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideAccelerationFactor
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideJerkFactor
+  name: AxoCmmtAsAxisData
+  fullName: AxoCmmtAsAxisData
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoCmmtAsAxisData
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.Cycle
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.Cycle
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Cycle
+  fullName: Cycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.Cycle
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Cycle : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideVelocityFactor
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideVelocityFactor
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: OverrideVelocityFactor
+  fullName: OverrideVelocityFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideVelocityFactor
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'OverrideVelocityFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideAccelerationFactor
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideAccelerationFactor
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: OverrideAccelerationFactor
+  fullName: OverrideAccelerationFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideAccelerationFactor
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'OverrideAccelerationFactor : LREAL'
+    return:
+      type: LREAL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideJerkFactor
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideJerkFactor
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: OverrideJerkFactor
+  fullName: OverrideJerkFactor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData.OverrideJerkFactor
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisData.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'OverrideJerkFactor : LREAL'
+    return:
+      type: LREAL
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+
+

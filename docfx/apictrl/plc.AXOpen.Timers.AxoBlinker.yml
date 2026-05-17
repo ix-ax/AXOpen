@@ -1,0 +1,293 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Timers.AxoBlinker
+  id: plc.AXOpen.Timers.AxoBlinker
+  parent: plc.AXOpen.Timers
+  children:
+  - plc.AXOpen.Timers.AxoBlinker.output
+  - plc.AXOpen.Timers.AxoBlinker._onTimer
+  - plc.AXOpen.Timers.AxoBlinker._offTimer
+  - plc.AXOpen.Timers.AxoBlinker._nextExpectedCycle
+  - plc.AXOpen.Timers.AxoBlinker._state
+  - plc.AXOpen.Timers.AxoBlinker.Blink(IAxoObject,TIME,TIME)
+  - plc.AXOpen.Timers.AxoBlinker.Blink(IAxoContext,TIME,TIME)
+  - plc.AXOpen.Timers.AxoBlinker.Execute(IAxoContext,TIME,TIME)
+  - plc.AXOpen.Timers.AxoBlinker.Execute(IAxoObject,TIME,TIME)
+  - plc.AXOpen.Timers.AxoBlinker.Restore()
+  name: AxoBlinker
+  fullName: AxoBlinker
+  type: Class
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 4
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: CLASS AxoBlinker
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Timers.AxoBlinker.output
+  id: plc.AXOpen.Timers.AxoBlinker.output
+  parent: AXOpen.Timers
+  children: []
+  name: output
+  fullName: output
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.output
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 10
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: 'output : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Timers.AxoBlinker._onTimer
+  id: plc.AXOpen.Timers.AxoBlinker._onTimer
+  parent: AXOpen.Timers
+  children: []
+  name: _onTimer
+  fullName: _onTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker._onTimer
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 14
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_onTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Timers.AxoBlinker._offTimer
+  id: plc.AXOpen.Timers.AxoBlinker._offTimer
+  parent: AXOpen.Timers
+  children: []
+  name: _offTimer
+  fullName: _offTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker._offTimer
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 15
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_offTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Timers.AxoBlinker._nextExpectedCycle
+  id: plc.AXOpen.Timers.AxoBlinker._nextExpectedCycle
+  parent: AXOpen.Timers
+  children: []
+  name: _nextExpectedCycle
+  fullName: _nextExpectedCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker._nextExpectedCycle
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 17
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_nextExpectedCycle : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Timers.AxoBlinker._state
+  id: plc.AXOpen.Timers.AxoBlinker._state
+  parent: AXOpen.Timers
+  children: []
+  name: _state
+  fullName: _state
+  type: Property
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker._state
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 18
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: '_state : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Timers.AxoBlinker.Blink(IAxoObject,TIME,TIME)
+  id: plc.AXOpen.Timers.AxoBlinker.Blink(IAxoObject,TIME,TIME)
+  parent: AXOpen.Timers.AxoBlinker
+  children: []
+  name: Blink
+  fullName: Blink
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.Blink
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 21
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL Blink(in plc.AXOpen.Core.IAxoObject inParent,in plc.TIME inOnTime,in plc.TIME inOffTime)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inOnTime
+      type: plc.TIME
+    - id: inOffTime
+      type: plc.TIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.AxoBlinker.Blink(IAxoContext,TIME,TIME)
+  id: plc.AXOpen.Timers.AxoBlinker.Blink(IAxoContext,TIME,TIME)
+  parent: AXOpen.Timers.AxoBlinker
+  children: []
+  name: Blink
+  fullName: Blink
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.Blink
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 45
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public BOOL Blink(in plc.AXOpen.Core.IAxoContext Context,in plc.TIME inOnTime,in plc.TIME inOffTime)
+    parameters:
+    - id: Context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: inOnTime
+      type: plc.TIME
+    - id: inOffTime
+      type: plc.TIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.AxoBlinker.Execute(IAxoContext,TIME,TIME)
+  id: plc.AXOpen.Timers.AxoBlinker.Execute(IAxoContext,TIME,TIME)
+  parent: AXOpen.Timers.AxoBlinker
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.Execute
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 67
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Private BOOL Execute(in plc.AXOpen.Core.IAxoContext Context,in plc.TIME inOnTime,in plc.TIME inOffTime)
+    parameters:
+    - id: Context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: inOnTime
+      type: plc.TIME
+    - id: inOffTime
+      type: plc.TIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.AxoBlinker.Execute(IAxoObject,TIME,TIME)
+  id: plc.AXOpen.Timers.AxoBlinker.Execute(IAxoObject,TIME,TIME)
+  parent: AXOpen.Timers.AxoBlinker
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.Execute
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 103
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Private BOOL Execute(in plc.AXOpen.Core.IAxoObject Parent,in plc.TIME inOnTime,in plc.TIME inOffTime)
+    parameters:
+    - id: Parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inOnTime
+      type: plc.TIME
+    - id: inOffTime
+      type: plc.TIME
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Timers.AxoBlinker.Restore()
+  id: plc.AXOpen.Timers.AxoBlinker.Restore()
+  parent: AXOpen.Timers.AxoBlinker
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\timers\ctrl\src\AxoBlinker.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Timers.AxoBlinker.Restore
+    path: .\src\timers\ctrl\src\AxoBlinker.st
+    startLine: 141
+  namespace: plc.AXOpen.Timers
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.TIME
+  name: TIME
+  nameWithType: TIME
+  fullName: TIME
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

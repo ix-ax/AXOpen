@@ -1,0 +1,193 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ContinuousReading
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.InfoTime
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ErrorTime
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.TaskTimeout
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.HWIDs
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ResultDataSize
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.UserDataSize
+  name: Axo_SR_750_Config
+  fullName: Axo_SR_750_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ContinuousReading
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ContinuousReading
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ContinuousReading
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ContinuousReading : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.InfoTime
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.InfoTime
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.InfoTime
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ErrorTime
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ErrorTime
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ErrorTime
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.TaskTimeout
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.TaskTimeout
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.TaskTimeout
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.HWIDs
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.HWIDs
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.HWIDs
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs'
+    return:
+      type: AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ResultDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ResultDataSize
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ResultDataSize
+  fullName: ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.ResultDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ResultDataSize : AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize'
+    return:
+      type: AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.UserDataSize
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.UserDataSize
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: UserDataSize
+  fullName: UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_Config.UserDataSize
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_Config.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'UserDataSize : AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize'
+    return:
+      type: AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+  name: Axo_SR_750_HWIDs
+  nameWithType: Axo_SR_750_HWIDs
+  fullName: AXOpen.Components.Keyence.Vision.Axo_SR_750_HWIDs
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+  name: eAxo_SR_750_ResultDataSize
+  nameWithType: eAxo_SR_750_ResultDataSize
+  fullName: AXOpen.Components.Keyence.Vision.eAxo_SR_750_ResultDataSize
+- uid: plc.AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize
+  name: eAxo_SR_750_UserDataSize
+  nameWithType: eAxo_SR_750_UserDataSize
+  fullName: AXOpen.Components.Keyence.Vision.eAxo_SR_750_UserDataSize
+
+

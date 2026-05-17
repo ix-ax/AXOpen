@@ -7,6 +7,14 @@
 | Siemens | PLC series 1516 to 1518 with FW4.0 and higher, excluding failsafe | PLC |  |  |
 | Siemens | ET200SP excluding IOLINK | IO |  |  |
 | Siemens | ET200AL excluding IOLINK | IO |  |  |
+| Balluff | One Balluff BNI0099 box connected to Siemens 6ES7137-6BD00-0BA0 | IO |  | configuration made via visualisation application |
+| Balluff | Two Balluff BNI0099 boxes connected to Siemens 6ES7137-6BD00-0BA0 | IO |  | configuration made via visualisation application |
+| Balluff | One Balluff BNI00AY box connected to Siemens 6ES7137-6BD00-0BA0 | IO |  | configuration made via visualisation application |
+| Balluff | Two Balluff BNI00AY boxes connected to Siemens 6ES7137-6BD00-0BA0 | IO |  | configuration made via visualisation application |
+| Balluff | One Balluff BNI0099 box connected to Balluff BNI00L3 | IO |  | configuration of the IOlink master made via hwc, configuration of the boxes itself has to be made via Balluff configuration tool |
+| Balluff | Two Balluff BNI0099 box connected to Balluff BNI00L3 | IO |  | configuration of the IOlink master made via hwc, configuration of the boxes itself has to be made via Balluff configuration tool |
+| Balluff | One Balluff BNI00AY box connected to Balluff BNI00L3 | IO |  | configuration of the IOlink master made via hwc, configuration of the boxes itself has to be made via Balluff configuration tool |
+| Balluff | Two Balluff BNI00AY box connected to Balluff BNI00L3 | IO |  | configuration of the IOlink master made via hwc, configuration of the boxes itself has to be made via Balluff configuration tool |
 | ABB | IRB series robots with Omnicore controller | 6 axis robots |  |  |
 | ABB | IRB series robots with IRC5 controller | 6 axis robots |  | Already written, not yet tested with real hardware |
 | Cognex | Dataman series with FW6.0 | Barcode scanner |  |  |

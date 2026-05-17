@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+USING AXOpen.Components.Drives.Abstractions;
 NAMESPACE AXOpen.Components.Drives
     {#ix-attr:[Container(Layout.Stack)]}
     {S7.extern=ReadWrite}

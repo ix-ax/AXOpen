@@ -60,30 +60,32 @@ else
 }
 
 @code {
+
     [Parameter] public Type ValueType { get; set; }
     [Parameter] public string AccessStatusClass { get; set; }
 
     private object _Value;
+
     [Parameter]
     public object Value
     {
         get
         {
+            CheckValueType();
+
             if (_Value == null)
             {
-                _Value = Activator.CreateInstance(ValueType);
+                _Value = Activator.CreateInstance(TargetValueType);
             }
             return _Value;
         }
         set
         {
-            if (ValueType != value.GetType())
-            {
-                ;
-            }
             try
             {
-                var converted = Convert.ChangeType(value, ValueType);
+                CheckValueType();
+
+                var converted = Convert.ChangeType(value, TargetValueType);
                 if (converted != null && !Equals(_Value, value))
                 {
                     _Value = value;
@@ -99,6 +101,9 @@ else
 
     [Parameter] public EventCallback<object> ValueChanged { get; set; }
 
+    private bool _isNullable;
+    private Type TargetValueType { get; set; }
+
     private bool _isString;
     private bool _isBool;
     private bool _isInteger;
@@ -111,38 +116,58 @@ else
     private bool _isTimeSpan;
     private bool _isEnum;
 
+    protected void CheckValueType()
+    {
+        if (TargetValueType == null)
+        {
+            var underlyingType = Nullable.GetUnderlyingType(ValueType);
+
+            if (underlyingType != null)
+            {
+                _isNullable = true;
+                TargetValueType = underlyingType;
+            }
+            else
+            {
+                TargetValueType = ValueType;
+            }
+        }
+    }
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        _isString = ValueType == typeof(string);
-        _isBool = ValueType == typeof(bool);
-        _isInteger = ValueType == typeof(sbyte) || ValueType == typeof(short) || ValueType == typeof(int) || ValueType == typeof(long);
-        _isUnsignedInteger = ValueType == typeof(byte) || ValueType == typeof(ushort) || ValueType == typeof(uint) || ValueType == typeof(ulong);
-        _isFloatingPoint = ValueType == typeof(float) || ValueType == typeof(double);
-        _isChar = ValueType == typeof(char);
-        _isDateTime = ValueType == typeof(DateTime);
-        _isDateOnly = ValueType == typeof(DateOnly);
-        _isTimeOnly = ValueType == typeof(TimeOnly);
-        _isTimeSpan = ValueType == typeof(TimeSpan);
-        _isEnum = ValueType.IsEnum;
+        CheckValueType();
+
+        _isString = TargetValueType == typeof(string);
+        _isBool = TargetValueType == typeof(bool);
+        _isInteger = TargetValueType == typeof(sbyte) || TargetValueType == typeof(short) || TargetValueType == typeof(int) || TargetValueType == typeof(long);
+        _isUnsignedInteger = TargetValueType == typeof(byte) || TargetValueType == typeof(ushort) || TargetValueType == typeof(uint) || TargetValueType == typeof(ulong);
+        _isFloatingPoint = TargetValueType == typeof(float) || TargetValueType == typeof(double);
+        _isChar = TargetValueType == typeof(char);
+        _isDateTime = TargetValueType == typeof(DateTime);
+        _isDateOnly = TargetValueType == typeof(DateOnly);
+        _isTimeOnly = TargetValueType == typeof(TimeOnly);
+        _isTimeSpan = TargetValueType == typeof(TimeSpan);
+        _isEnum = TargetValueType.IsEnum;
 
         if (_isInteger)
         {
-            long.TryParse(OperationProvider.GetMinForType(ValueType).ToString(), out MinValueInteger);
-            long.TryParse(OperationProvider.GetMaxForType(ValueType).ToString(), out MaxValueInteger);
+            long.TryParse(OperationProvider.GetMinForType(TargetValueType).ToString(), out MinValueInteger);
+            long.TryParse(OperationProvider.GetMaxForType(TargetValueType).ToString(), out MaxValueInteger);
         }
 
         if (_isUnsignedInteger)
         {
-            ulong.TryParse(OperationProvider.GetMinForType(ValueType).ToString(), out MinValueUnsignedInteger);
-            ulong.TryParse(OperationProvider.GetMaxForType(ValueType).ToString(), out MaxValueUnsignedInteger);
+            ulong.TryParse(OperationProvider.GetMinForType(TargetValueType).ToString(), out MinValueUnsignedInteger);
+            ulong.TryParse(OperationProvider.GetMaxForType(TargetValueType).ToString(), out MaxValueUnsignedInteger);
         }
 
         if (_isFloatingPoint)
         {
-            ParseDouble(OperationProvider.GetMinForType(ValueType).ToString(), out MinValueFloatingNumber);
-            ParseDouble(OperationProvider.GetMaxForType(ValueType).ToString(), out MaxValueFloatingNumber);
+            ParseDouble(OperationProvider.GetMinForType(TargetValueType).ToString(), out MinValueFloatingNumber);
+            ParseDouble(OperationProvider.GetMaxForType(TargetValueType).ToString(), out MaxValueFloatingNumber);
         }
     }
 
@@ -158,7 +183,7 @@ else
     public bool IsTimeSpan => _isTimeSpan;
     public bool IsEnum => _isEnum;
 
-    List<object> EnumOptions => _isEnum ? Enum.GetValues(ValueType).Cast<object>().ToList() : new List<object>();
+    List<object> EnumOptions => _isEnum ? Enum.GetValues(TargetValueType).Cast<object>().ToList() : new List<object>();
 
     string BoundString
     {
@@ -190,7 +215,7 @@ else
                 if (parsedValue > MaxValueInteger) parsedValue = MaxValueInteger;
                 if (parsedValue < MinValueInteger) parsedValue = MinValueInteger;
 
-                Value = Convert.ChangeType(parsedValue, ValueType);
+                Value = Convert.ChangeType(parsedValue, TargetValueType);
                 ValueChanged.InvokeAsync(Value);
             }
         }
@@ -206,7 +231,7 @@ else
                 if (parsedValue > MaxValueUnsignedInteger) parsedValue = MaxValueUnsignedInteger;
                 if (parsedValue < MinValueUnsignedInteger) parsedValue = MinValueUnsignedInteger;
 
-                Value = Convert.ChangeType(parsedValue, ValueType);
+                Value = Convert.ChangeType(parsedValue, TargetValueType);
                 ValueChanged.InvokeAsync(Value);
             }
         }
@@ -217,14 +242,14 @@ else
         get => Value?.ToString() ?? "0";
         set
         {
-            if (_isFloatingPoint )
+            if (_isFloatingPoint)
             {
-                ParseDouble(value , out double parsedValue);
+                ParseDouble(value, out double parsedValue);
 
                 if (parsedValue > MaxValueFloatingNumber) parsedValue = MaxValueFloatingNumber;
                 if (parsedValue < MinValueFloatingNumber) parsedValue = MinValueFloatingNumber;
 
-                Value = Convert.ChangeType(parsedValue, ValueType);
+                Value = Convert.ChangeType(parsedValue, TargetValueType);
                 ValueChanged.InvokeAsync(Value);
             }
         }
@@ -285,7 +310,7 @@ else
         get => (Enum)Value;
         set
         {
-            Value = Enum.Parse(ValueType, value.ToString());
+            Value = Enum.Parse(TargetValueType, value.ToString());
             ValueChanged.InvokeAsync(Value);
         }
     }
@@ -324,32 +349,32 @@ else
     }
 
     private string? _minDateTime;
-    public string MinDateTime => _minDateTime ??= ((DateTime)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+    public string MinDateTime => _minDateTime ??= ((DateTime)OperationProvider.GetMinForType(TargetValueType)!).ToString("yyyy-MM-ddTHH:mm");
 
     private string? _maxDateTime;
-    public string MaxDateTime => _maxDateTime ??= ((DateTime)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+    public string MaxDateTime => _maxDateTime ??= ((DateTime)OperationProvider.GetMaxForType(TargetValueType)!).ToString("yyyy-MM-ddTHH:mm");
 
     private string? _minDate;
-    public string MinDate => _minDate ??= ((DateOnly)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-dd");
+    public string MinDate => _minDate ??= ((DateOnly)OperationProvider.GetMinForType(TargetValueType)!).ToString("yyyy-MM-dd");
 
     private string? _maxDate;
-    public string MaxDate => _maxDate ??= ((DateOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-dd");
+    public string MaxDate => _maxDate ??= ((DateOnly)OperationProvider.GetMaxForType(TargetValueType)!).ToString("yyyy-MM-dd");
 
     private string? _minTime;
-    public string MinTime => _minTime ??= ((TimeOnly)OperationProvider.GetMinForType(ValueType)!).ToString("HH:mm");
+    public string MinTime => _minTime ??= ((TimeOnly)OperationProvider.GetMinForType(TargetValueType)!).ToString("HH:mm");
 
     private string? _maxTime;
-    public string MaxTime => _maxTime ??= ((TimeOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("HH:mm");
+    public string MaxTime => _maxTime ??= ((TimeOnly)OperationProvider.GetMaxForType(TargetValueType)!).ToString("HH:mm");
 
     private string GetMinValue()
     {
-        var min = OperationProvider.GetMinForType(ValueType);
+        var min = OperationProvider.GetMinForType(TargetValueType);
         return min?.ToString() ?? "0";
     }
 
     private string GetMaxValue()
     {
-        var max = OperationProvider.GetMaxForType(ValueType);
+        var max = OperationProvider.GetMaxForType(TargetValueType);
         return max?.ToString() ?? "100";
     }
 

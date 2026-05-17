@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.ComponentStateDetail
+  id: plc.AXOpen.Io.ComponentStateDetail
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.ComponentStateDetail.HardwareComponentState
+  - plc.AXOpen.Io.ComponentStateDetail.PlcState
+  name: ComponentStateDetail
+  fullName: ComponentStateDetail
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentStateDetail
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS ComponentStateDetail
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.ComponentStateDetail.HardwareComponentState
+  id: plc.AXOpen.Io.ComponentStateDetail.HardwareComponentState
+  parent: AXOpen.Io
+  children: []
+  name: HardwareComponentState
+  fullName: HardwareComponentState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentStateDetail.HardwareComponentState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'HardwareComponentState : AXOpen.Io.HardwareComponentState'
+    return:
+      type: AXOpen.Io.HardwareComponentState
+- uid: plc.AXOpen.Io.ComponentStateDetail.PlcState
+  id: plc.AXOpen.Io.ComponentStateDetail.PlcState
+  parent: AXOpen.Io
+  children: []
+  name: PlcState
+  fullName: PlcState
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentStateDetail.PlcState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'PlcState : AXOpen.Io.PlcState'
+    return:
+      type: AXOpen.Io.PlcState
+references:
+- uid: plc.AXOpen.Io.HardwareComponentState
+  name: HardwareComponentState
+  nameWithType: HardwareComponentState
+  fullName: AXOpen.Io.HardwareComponentState
+- uid: plc.AXOpen.Io.PlcState
+  name: PlcState
+  nameWithType: PlcState
+  fullName: AXOpen.Io.PlcState
+
+

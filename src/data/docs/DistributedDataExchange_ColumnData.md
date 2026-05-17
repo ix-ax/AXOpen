@@ -11,7 +11,7 @@ To use the `DistributedDataView`, you must register and configure the required s
 
 Register the exchange configuration service along with the distributed data service in your `Program.cs` file:
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataServices)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=DistributedDataServices)]
 
 ---
 
@@ -20,7 +20,7 @@ Register the exchange configuration service along with the distributed data serv
 Define how columns should be displayed for each POCO type.  
 As shown in the example below, you can also specify a custom template for each column:
 
-[!code-csharp[ConfigurationOfColumnService](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
+[!code-csharp[ConfigurationOfColumnService](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
 
 
 [!include[](ColumnCellTemplate.md)]

@@ -1,0 +1,30 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Utils
+  id: plc.AXOpen.Utils
+  children:
+  - plc.AXOpen.Utils.AxoStringBuilder
+  - plc.AXOpen.Utils.IAxoStringBuilder
+  name: plc.AXOpen.Utils
+  fullName: Utils
+  type: Namespace
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils
+    path: .\src\utils\ctrl\src\Utilities\AxoStringBuilder.st
+    startLine: 0
+  namespace: plc.AXOpen.Utils
+references:
+- uid: plc.AXOpen.Utils.AxoStringBuilder
+  name: AxoStringBuilder
+  nameWithType: AxoStringBuilder
+  fullName: AXOpen.Utils.AxoStringBuilder
+- uid: plc.AXOpen.Utils.IAxoStringBuilder
+  name: IAxoStringBuilder
+  nameWithType: IAxoStringBuilder
+  fullName: AXOpen.Utils.IAxoStringBuilder
+
+

@@ -25,11 +25,11 @@
 
         @if (InjectedQueries.Count > 0)
         {
-            <Dropdown @ref="_dropdownInjectedQueries">
+            <Dropdown @ref="_DropdownInjectedQueries">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedQueries.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedQueries.ToggleAsync">
                         @Localizer["Injected query !"]
-                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedQueries?.Open ?? false ? "rotated" : null))" />
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownInjectedQueries?.Open ?? false ? "rotated" : null))" />
                     </button>
                 </DropdownButton>
                 <DropdownBody>
@@ -43,11 +43,11 @@
 
         @if (InjectedSorting.Count > 0)
         {
-            <Dropdown @ref="_dropdownInjectedSorting">
+            <Dropdown @ref="_DropdownInjectedSorting">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedSorting.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedSorting.ToggleAsync">
                         @Localizer["Injected sort!"]
-                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedSorting?.Open ?? false ? "rotated" : null))" />
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownInjectedSorting?.Open ?? false ? "rotated" : null))" />
                     </button>
                 </DropdownButton>
                 <DropdownBody>
@@ -74,11 +74,11 @@
                     <button class="btn btn-outline-primary px-1! py-2! w-15" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-4" />
                     </button>
-                    <p>@symbol</p>
+                    <p>@symbol.PresentablePath</p>
                 </div>
             }
 
-            <Operon.Components.Pagination Count="SymbolsQueryCount" @bind-PageSize="SymbolsQueryPageLimit" @bind-Selected="SymbolsQueryPage" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
+            <Operon.Components.Pagination Count="PaginationCount" @bind-PageSize="PaginationPageSize" @bind-Selected="PaginationSelected" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
         </div>
     }
 
@@ -113,7 +113,7 @@
                                 <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+                            <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol" HiddenPrefix="@RemovedCommonSymbolPrefix"></QuerySymbolConfigurationView>
                         </div>
                     }
                 </div>
@@ -154,7 +154,7 @@
                             </button>
 
                             <div class="flex flex-wrap items-center gap-2">
-                                <label> @sortSymbol.SymbolPathWithParent</label>
+                                <label> @sortSymbol.PresentablePath</label>
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2">
@@ -189,18 +189,18 @@
             <label>@Localizer["Filter"]</label>
 
 
-            <Dropdown @ref="_dropdownHistory">
+            <Dropdown @ref="_DropdownHistory">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_dropdownHistory.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownHistory.ToggleAsync">
                         @CurrentQuery.Name
-                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownHistory?.Open ?? false ? "rotated" : null))" />
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownHistory?.Open ?? false ? "rotated" : null))" />
                     </button>
                 </DropdownButton>
                 <DropdownBody>
                     @foreach (var element in History.Items)
                     {
                         <a class="dropdown-item @(CurrentQuery.Name == element.Name ? "active" : "")"
-                           @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
+                           @onclick='() => SelectHistoryItem(element.Name)'>@element.Name (@element.Modified.ToString())</a>
                     }
                 </DropdownBody>
             </Dropdown>
@@ -208,18 +208,18 @@
 
             <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" />
 
-            <button type="button" class="btn btn-outline-primary" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
+            <button type="button" class="btn btn-outline-primary" @onclick="async () => await SaveHistoryAsync()" title="@Localizer["Save query"]">
                 <Operon.Icons.HeroIcon Icon="folder" Type="Operon.Icons.IconType.Outline" Class="size-5" />
             </button>
 
 
-            <button type="button" class="btn btn-outline-primary" @onclick="async () => await RemoveItemFromHistory()" title="@Localizer["Delete query"]">
+            <button type="button" class="btn btn-outline-primary" @onclick="async () => await RemoveHistoryItemAsync()" title="@Localizer["Delete query"]">
                 <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
             </button>
 
             @if (CurrentQuery.Queries.Count > 0)
             {
-                <button type="button" class="btn btn-primary" @onclick="async () => await ExecuteFilter()">
+                <button type="button" class="btn btn-primary" @onclick="async () => await ExecuteFilterAsync()">
                     @Localizer["Search"]
                 </button>
             }
@@ -229,7 +229,7 @@
 </div>
 
 @code {
-    private Dropdown _dropdownInjectedQueries { get; set; }
-    private Dropdown _dropdownInjectedSorting { get; set; }
-    private Dropdown _dropdownHistory { get; set; }
+    private Dropdown _DropdownInjectedQueries { get; set; }
+    private Dropdown _DropdownInjectedSorting { get; set; }
+    private Dropdown _DropdownHistory { get; set; }
 }

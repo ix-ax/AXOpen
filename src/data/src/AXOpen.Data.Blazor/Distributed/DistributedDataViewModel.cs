@@ -1,4 +1,4 @@
-﻿using AXOpen.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using AXOpen.Data.Interfaces;
@@ -8,7 +8,7 @@ using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
-    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDataExchangeGlobalActions
+    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDistributedDataActions
     {
         protected readonly AuthenticationStateProvider Authentication;
 
@@ -28,8 +28,8 @@ namespace AXOpen.Data
             string groupName,
             bool displayOnePerDataType,
             string configuraionSuffix,
-             List<string>? injectedEntities,
-             PredicateContainer? injectedPredicateContainer
+             List<string>? externalEntityIds,
+             PredicateContainer? externalPredicates
 
             )
         {
@@ -41,33 +41,15 @@ namespace AXOpen.Data
             DisplayOnePerDataType = displayOnePerDataType;
             ConfiguraionSuffix = configuraionSuffix;
 
-            if (injectedEntities != null) InjectedEntities = injectedEntities;
-
-            InjectedPredicateContainer = injectedPredicateContainer;
+            ExternalEntityIds = externalEntityIds;
+            ExternalPredicates = externalPredicates;
 
             Exchanges = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
-
             AllExchanges = DistributedExchangeService.GetExchanges(this.GroupName, false);
 
             DisplayedExchanges = displayOnePerDataType ? Exchanges : AllExchanges; // select for display
 
-            if (InjectedPredicateContainer != null)
-            {
-                var idsFromPredicates = Exchanges.GetEntityIds(this.InjectedPredicateContainer);
-                if (idsFromPredicates != null && idsFromPredicates.Count > 0)
-                {
-                    if (InjectedEntities == null)
-                    {
-                        injectedEntities = idsFromPredicates;
-                    }
-                    else
-                    {
-                        InjectedEntities.AddRange(idsFromPredicates);
-                        InjectedEntities = InjectedEntities.Distinct().ToList();
-                    }
-                }
-            }
-
+            IntersectExternalEntityIds();
             InitializeSelectedViewModel(Exchanges.First());
         }
 
@@ -98,28 +80,22 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-            if (predicates == null)
+            // refresh ui
+            if ((predicates == null) && (this.SelectedManagerVm != null))
             {
-                if (this.SelectedManagerVm != null)
-                {
-                    return SelectedManagerVm.FillObservableRecordsAsync();
-                }
+                return SelectedManagerVm.FillObservableRecordsAsync();
             }
 
-            if (InjectedPredicateContainer != null && this.EnableInjectedExternalIds) // merge predicates
-                predicates.AddPredicatesFrom(InjectedPredicateContainer);
+            if (ExternalPredicates != null && this.EnableExternalEntityIds) // merge predicates
+                predicates.AddPredicatesFrom(ExternalPredicates);
+            
+            LocalConcatEntityIds.Clear();
+            EnableLocalConcatEntityIds = true;
+            LocalConcatEntityIds.AddRange(Exchanges.GetEntityIds(predicates));
 
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-            LastFragmentQueryCount = commonEntities.Count;
-
-            EnableInjectLocalIds = true;
-            TransmitedEntities.Clear();
-            TransmitedEntities.AddRange(commonEntities);
-
-            if (this.SelectedManagerVm != null)
+            if (this.SelectedManagerVm != null) // refresh with new predicates and merged entity ids
             {
-                SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
-
+                IntersectExternalAndLocalEntityIds(SelectedManagerVm);
                 return this.SelectedManagerVm.FillObservableRecordsAsync(predicates);
             }
             else
@@ -145,34 +121,59 @@ namespace AXOpen.Data
 
         #endregion IDataExchangeQueryViewModel
 
-        public PredicateContainer InjectedPredicateContainer { set; get; }
-        public List<string> InjectedEntities { set; get; } = new();
-
-        public List<string> TransmitedEntities { set; get; } = new();
-
-        public bool EnableInjectLocalIds { get; private set; } = false;
-
-        public bool EnableInjectedExternalIds { get; private set; } = true;
-
-        public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
-
-        public DataExchangeViewModel SelectedManagerVm { get; set; }
-
-        public int LastFragmentQueryCount { set; get; }
-
-        public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; private set; } // used for view
+        /// <summary>
+        /// External predicate container injected into the view model.
+        /// Results are merged with <see cref="ExternalEntityIds"/>.
+        /// </summary>
+        public PredicateContainer? ExternalPredicates { private set; get; }
 
         /// <summary>
-        /// Only one per data type
+        /// Indicates whether external entity IDs are enabled.
         /// </summary>
-        public IEnumerable<IAxoDataExchange> Exchanges { get; private set; } // used for data managent
+        public bool EnableExternalEntityIds { get; private set; } = false;
 
         /// <summary>
-        /// All instances in a data manager group
+        /// External entity IDs injected into the view model.
+        /// IDs are merged with IDs resolved from <see cref="ExternalPredicates"/>.
         /// </summary>
-        public IEnumerable<IAxoDataExchange> AllExchanges { get; private set; } // used for load to plc
+        public List<string>? ExternalEntityIds { private set; get; }
 
-        #region IDataExchangeGlogalActions
+        public List<string>? AllExternalEntityIds { private set; get; }
+        public int ExternalEntityIdsCount =>  AllExternalEntityIds?.Count ?? 0;
+
+        public bool EnableLocalConcatEntityIds { get; private set; } = false; // controlled by UI button
+
+        public int LocalConcatEntityIdsCount => LocalConcatEntityIds?.Count ?? 0;
+
+        public bool IsShownDistributedFilter { get; internal set; } = false;
+
+
+        /// <summary>
+        /// Entity Ids that have been transmitted between local view models.
+        /// </summary>
+        public List<string> LocalConcatEntityIds { protected set; get; } = new();
+
+        public AxoDataExchangeConfiguration ExchangeConfig { get; protected set; } = new();
+
+        public DataExchangeViewModel SelectedManagerVm { get; protected set; }
+
+        /// <summary>
+        /// Gets the collection of data exchanges currently displayed in the view.
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; protected set; } // used for view
+
+         /// <summary>
+         /// Gets the collection of data exchange interfaces used for managing data operations.
+         /// </summary>
+        public IEnumerable<IAxoDataExchange> Exchanges { get; protected set; } // used for data managent
+
+        /// <summary>
+        /// Gets the collection of all data exchanges managed by the instance, available for distributed grop
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> AllExchanges { get; protected set; } // used for load to plc
+
+
+        #region IDistributedDataActions
 
         public async Task Create(string identifier)
         {
@@ -593,16 +594,32 @@ namespace AXOpen.Data
             }
         }
 
-        #endregion IDataExchangeGlogalActions
+        void IDistributedDataActions.SetLocalExchangeConcatIds(List<string> entityIdsToInject)
+        {
+            LocalConcatEntityIds = entityIdsToInject;
+            EnableLocalConcatEntityIds = true;
+        }
+
+        void IDistributedDataActions.ResetLocalExchangeConcatIds()
+        {
+            LocalConcatEntityIds.Clear();
+            EnableLocalConcatEntityIds = false;
+
+            IntersectExternalAndLocalEntityIds(SelectedManagerVm);
+        }
+
+        #endregion IDistributedDataActions
 
         public async Task SelectManager(IAxoDataExchange exchange)
         {
-            this.TransmitedEntities.Clear();
-
             // collect previous filtered ids...
             if (SelectedManagerVm != null)
             {
-                this.TransmitedEntities.AddRange(SelectedManagerVm.EntityIdsIntersected);
+                List<string> entityIds = new();
+                entityIds.AddRange(SelectedManagerVm.EntityIdsIntersected); // get all entity ids from previous exchange
+
+                this.LocalConcatEntityIds.Clear();
+                this.LocalConcatEntityIds.AddRange(entityIds);
             }
 
             if (exchange != null)
@@ -613,7 +630,7 @@ namespace AXOpen.Data
             }
         }
 
-        private void SelectCongiguration(IAxoDataExchange exchange)
+        private void SetExchangeConfiguration(IAxoDataExchange exchange)
         {
             if (ConfigurationService != null)
             {
@@ -640,106 +657,149 @@ namespace AXOpen.Data
             SelectedManagerVm.ToastService = ToastService;
 
             SelectedManagerVm.Model = exchange;
-            SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
 
-            SelectedManagerVm.GlobalActions = this; // set global actions
+            SelectedManagerVm.DistributedActions = this; // set global actions
 
-            SelectCongiguration(exchange);
+            SetExchangeConfiguration(exchange);
+            IntersectExternalAndLocalEntityIds(SelectedManagerVm);
         }
 
-        protected List<string> MergeInjectedEntities()
+        protected void IntersectExternalEntityIds()
         {
+            // enable external injection
+            if (ExternalEntityIds != null || ExternalPredicates != null) EnableExternalEntityIds = true;
+
+            AllExternalEntityIds = ExternalEntityIds;
+
+            if (ExternalPredicates != null)
+            {
+                var idsFromPredicates = Exchanges.GetEntityIds(this.ExternalPredicates);
+                if (idsFromPredicates != null && idsFromPredicates.Count > 0)
+                {
+                    if (ExternalEntityIds == null)
+                    {
+                        AllExternalEntityIds = idsFromPredicates; // no provided external ids, use those from predicates
+                    }
+                    else
+                    {
+                        AllExternalEntityIds = this.AllExternalEntityIds.Intersect(idsFromPredicates).ToList();
+                    }
+                }
+            }
+        }
+
+        protected void IntersectExternalAndLocalEntityIds(DataExchangeViewModel exchange)
+        {
+            // if none enabled, reset
+            if (!this.EnableExternalEntityIds && !this.EnableLocalConcatEntityIds)
+            {
+                exchange.ResetExternalEntityIds(); //reset to default, no injection
+                return;
+            }
+
             var ids = new List<string>();
 
-            if (this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            // merge both, local and external ids
+            if (this.EnableExternalEntityIds && this.EnableLocalConcatEntityIds)
             {
-                if (InjectedEntities.Count > 0)
+                if (AllExternalEntityIds?.Count > 0)
                 {
-                    ids = this.InjectedEntities
-                      .Intersect(this.TransmitedEntities.Distinct())
-                      .ToList();
+                    ids = this.AllExternalEntityIds.Intersect(this.LocalConcatEntityIds.Distinct()).ToList();
                 }
                 else
                 {
-                    ids.AddRange(this.TransmitedEntities);
+                    ids.AddRange(this.LocalConcatEntityIds);
                     ids = ids.Distinct().ToList();
                 }
             }
-            else if (!this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            // only local concatenated ids
+            else if (this.EnableLocalConcatEntityIds)
             {
-                ids.AddRange(this.TransmitedEntities);
+                ids.AddRange(this.LocalConcatEntityIds);
                 ids = ids.Distinct().ToList();
             }
-            else if (this.EnableInjectedExternalIds && !this.EnableInjectLocalIds)
+            // only external injected ids
+            else if (this.EnableExternalEntityIds)
             {
-                if (this.InjectedEntities != null)
+                if (this.AllExternalEntityIds != null)
                 {
-                    ids.AddRange(this.InjectedEntities);
+                    ids.AddRange(this.AllExternalEntityIds);
                     ids = ids.Distinct().ToList();
                 }
             }
 
-            return ids;
+            exchange.SetExternalEntityIds(ids);
         }
 
-        public async Task TogleLocalEntityIdsInjection()
+        //
+        public void SetExternalPredicates(PredicateContainer? value) // for testing and external injection
         {
-            EnableInjectLocalIds = !EnableInjectLocalIds;
-            await RefreshInjectedIds();
+            if (value != ExternalPredicates)
+            {
+                ExternalPredicates = value;
+                IntersectExternalEntityIds();
+
+                if (SelectedManagerVm != null)
+                {
+                    IntersectExternalAndLocalEntityIds(this.SelectedManagerVm); // deliver new predicates to selected vm
+                }
+            }
         }
 
-        public async Task TogleExternalEntityIdsInjection()
+        public void SetExternalEntityIds(List<string>? value) // for testing and external injection
         {
-            EnableInjectedExternalIds = !EnableInjectedExternalIds;
-            await RefreshInjectedIds();
+            if (value != ExternalEntityIds)
+            {
+                ExternalEntityIds = value;
+                IntersectExternalEntityIds();
+
+                if (SelectedManagerVm != null)
+                {
+                    IntersectExternalAndLocalEntityIds(this.SelectedManagerVm); // deliver new predicates to selected vm
+                }
+            }
         }
 
-        public async Task RefreshInjectedIds()
+        public void ResetExternalEntityIds() // satisfy interface
         {
-            SelectedManagerVm.ReadAllEntityIdsForConcatQuery = EnableInjectLocalIds;
+            throw new NotImplementedException();
+        }
 
-            SelectedManagerVm.SetInjectedEntityIds(this.MergeInjectedEntities());
+        public async Task TogleLocalEntityIdsInjectionAsync()
+        {
+            if (!EnableLocalConcatEntityIds)
+            {
+                EnableLocalConcatEntityIds = true;
+                this.LocalConcatEntityIds.Clear();
+                this.LocalConcatEntityIds.AddRange(SelectedManagerVm.GetLastEntityIds()); // get
+            }
+            else
+            {
+                EnableLocalConcatEntityIds = false;
+                this.LocalConcatEntityIds.Clear();
+            }
+
+            await RefreshInjectedIdsAsync();
+        }
+
+        public async Task TogleExternalPredicatesAsync()
+        {
+            EnableExternalEntityIds = !EnableExternalEntityIds;
+            await RefreshInjectedIdsAsync();
+        }
+
+        public async Task RefreshInjectedIdsAsync()
+        {
+            this.IntersectExternalAndLocalEntityIds(SelectedManagerVm);
 
             await SelectedManagerVm.FillObservableRecordsAsync();
 
             SelectedManagerVm.InvokeStateHasChanged();
         }
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
-            int limit, int skip)
+        public async Task TogleDistributedFilter()
         {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-            this.LastFragmentQueryCount = commonEntities.Count;
-
-            var toFind = commonEntities.Skip(skip).Take(limit).ToList();
-
-            return GetRecords(toFind);
-        }
-
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
-        {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-            this.LastFragmentQueryCount = commonEntities.Count;
-
-            return commonEntities;
-        }
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
-        {
-            var result = new Dictionary<string, List<IBrowsableDataObject>>();
-
-            foreach (var fragment in Exchanges)
-            {
-                var matching = fragment.GetRecords(identifiers); // Assuming fragment supports this
-                if (matching.Any())
-                {
-                    result[fragment.ManagerDataTypeName] = matching.ToList();
-                }
-            }
-
-            return result;
+            this.IsShownDistributedFilter = !this.IsShownDistributedFilter;
+            this.InvokeStateHasChanged();
         }
     }
 }

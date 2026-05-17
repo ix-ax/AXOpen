@@ -1,16 +1,32 @@
-items:
-- name: Introduction
-  href: README.md
-- name: HowTos
-  href: HOWTO.md
-  items:
-  - name: Digital Input
-    href: AXODI.md
-  - name: Digital Output
-    href: AXODO.md
-  - name: Analog Input
-    href: AXOAI.md
-  - name: Analog Output
-    href: AXOAO.md
-- name: Troubleshooting
-  href: TROUBLES.md
+      items:
+      - name: Introduction
+        href: index.md
+      - name: How to
+        href: HOWTO.md
+      - name : Packages
+        items :
+          - name: Controller
+            href: ../ctrl/README.md
+          - name: .NET TWIN
+            href: ../src/AXOpen.Components.Elements/README.md
+          - name: Blazor
+            href: ../src/AXOpen.Components.Elements.blazor/README.md
+      - name: Components
+        href: README.md
+        items:
+          - name: AxoDi
+            href: AxoDi.md
+          - name: AxoDo
+            href: AxoDo.md
+          - name: AxoAi
+            href: AxoAi.md
+          - name: AxoAo
+            href: AxoAo.md
+          - name: AxoBacklitButton
+            href: AxoBacklitButton.md
+          - name: AxoSignalTower
+            href: AxoSignalTower.md
+          - name: AxoRotaryIndexingTable
+            href: AxoRotaryIndexingTable.md
+      - name: Troubleshooting
+        href: TROUBLES.md

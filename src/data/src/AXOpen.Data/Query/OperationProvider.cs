@@ -1,4 +1,4 @@
-﻿namespace AXOpen.Data.Query
+namespace AXOpen.Data.Query
 {
     using System;
     using System.Collections.Generic;
@@ -45,16 +45,80 @@
             { typeof(string), ("", "") }
         };
 
-        public static List<string> GetOperationsForType(Type type) =>
-            SupportedOperations.TryGetValue(type, out var operations) ? operations : new List<string>();
+        public static List<string> GetOperationsForType(Type? type)
+        {
+            // 1) Verify if type exists in dictionary.
+            if (type != null && SupportedOperations.TryGetValue(type, out var operations))
+            {
+                // 2) Yes => direct return from dictionary.
+                return operations;
+            }
 
-        public static (object Min, object Max)? GetRangeForType(Type type) =>
-            TypeRanges.TryGetValue(type, out var range) ? range : null;
+            // 3) No => acquire underlying nullable type and retry.
+            var underlyingType = type != null ? Nullable.GetUnderlyingType(type) : null;
+            if (underlyingType != null && SupportedOperations.TryGetValue(underlyingType, out operations))
+            {
+                return operations;
+            }
 
-        public static object GetMinForType(Type type) =>
-            TypeRanges.TryGetValue(type, out var range) ? range.Min : null;
+            return new List<string>();
+        }
 
-        public static object GetMaxForType(Type type) =>
-            TypeRanges.TryGetValue(type, out var range) ? range.Max : null;
+        public static (object Min, object Max)? GetRangeForType(Type? type)
+        {
+            // 1) Verify if type exists in dictionary.
+            if (type != null && TypeRanges.TryGetValue(type, out var range))
+            {
+                // 2) Yes => direct return from dictionary.
+                return range;
+            }
+
+            // 3) No => acquire underlying nullable type and retry.
+            var underlyingType = type != null ? Nullable.GetUnderlyingType(type) : null;
+            if (underlyingType != null && TypeRanges.TryGetValue(underlyingType, out range))
+            {
+                return range;
+            }
+
+            return null;
+        }
+
+        public static object? GetMinForType(Type? type)
+        {
+            // 1) Verify if type exists in dictionary.
+            if (type != null && TypeRanges.TryGetValue(type, out var range))
+            {
+                // 2) Yes => direct return from dictionary.
+                return range.Min;
+            }
+
+            // 3) No => acquire underlying nullable type and retry.
+            var underlyingType = type != null ? Nullable.GetUnderlyingType(type) : null;
+            if (underlyingType != null && TypeRanges.TryGetValue(underlyingType, out range))
+            {
+                return range.Min;
+            }
+
+            return null;
+        }
+
+        public static object? GetMaxForType(Type? type)
+        {
+            // 1) Verify if type exists in dictionary.
+            if (type != null && TypeRanges.TryGetValue(type, out var range))
+            {
+                // 2) Yes => direct return from dictionary.
+                return range.Max;
+            }
+
+            // 3) No => acquire underlying nullable type and retry.
+            var underlyingType = type != null ? Nullable.GetUnderlyingType(type) : null;
+            if (underlyingType != null && TypeRanges.TryGetValue(underlyingType, out range))
+            {
+                return range.Max;
+            }
+
+            return null;
+        }
     }
 }

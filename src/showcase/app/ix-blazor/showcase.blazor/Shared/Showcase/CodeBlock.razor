@@ -1,0 +1,42 @@
+@inject IJSRuntime JS
+
+<div class="relative group">
+	<button class="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity rounded px-2 py-1 text-xs bg-slate-700 text-slate-200 hover:bg-slate-600"
+	        @onclick="CopyAsync">@(_copied ? "Copied!" : "Copy")</button>
+	<pre class="p-3 rounded text-xs overflow-x-auto @(MaxHeight != null ? "overflow-y-auto" : "")"
+	     style="background-color:#0b1020;border:1px solid #1f2937;@(MaxHeight != null ? $"max-height:{MaxHeight};" : "")"><code class="@Language">@Content</code></pre>
+</div>
+
+@code {
+	/// <summary>Source text to display and copy.</summary>
+	[Parameter] public string Content { get; set; } = string.Empty;
+
+	/// <summary>Prism language class, e.g. "language-iecst".</summary>
+	[Parameter] public string Language { get; set; } = "language-none";
+
+	/// <summary>Optional CSS max-height value, e.g. "18rem" or "70vh".</summary>
+	[Parameter] public string? MaxHeight { get; set; }
+
+	private bool _copied;
+	private string _renderedContent = string.Empty;
+
+	private async Task CopyAsync()
+	{
+		await JS.InvokeAsync<bool>("copyToClipboard", Content);
+		_copied = true;
+		StateHasChanged();
+		await Task.Delay(1500);
+		_copied = false;
+		StateHasChanged();
+	}
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		// Re-highlight only when content changes (avoids hammering Prism on every polling re-render)
+		if (Content != _renderedContent)
+		{
+			_renderedContent = Content;
+			try { await JS.InvokeVoidAsync("prismHighlightAll"); } catch { }
+		}
+	}
+}

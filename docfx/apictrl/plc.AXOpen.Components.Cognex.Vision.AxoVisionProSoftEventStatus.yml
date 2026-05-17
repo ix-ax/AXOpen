@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+  parent: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.ResetAck
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.DataHandlerDone
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.TriggerAck
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.Reserve
+  name: AxoVisionProSoftEventStatus
+  fullName: AxoVisionProSoftEventStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: CLASS AxoVisionProSoftEventStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.ResetAck
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.ResetAck
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: ResetAck
+  fullName: ResetAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.ResetAck
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'ResetAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.DataHandlerDone
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.DataHandlerDone
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: DataHandlerDone
+  fullName: DataHandlerDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.DataHandlerDone
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'DataHandlerDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.TriggerAck
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.TriggerAck
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: TriggerAck
+  fullName: TriggerAck
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.TriggerAck
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'TriggerAck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.Reserve
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.Reserve
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: Reserve
+  fullName: Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionProSoftEventStatus.Reserve
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionProSoftEventStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'Reserve : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

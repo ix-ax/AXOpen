@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  id: plc.AXOpen.Rtm.IAxoRtm
+  parent: plc.AXOpen.Rtm
+  children:
+  - plc.AXOpen.Rtm.IAxoRtm.Elapsed()
+  name: IAxoRtm
+  fullName: IAxoRtm
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Rtm.IAxoRtm
+    path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+    startLine: 0
+  namespace: plc.AXOpen.Rtm
+  syntax:
+    content: INTERFACE IAxoRtm
+  implements: []
+- uid: plc.AXOpen.Rtm.IAxoRtm.Elapsed()
+  id: plc.AXOpen.Rtm.IAxoRtm.Elapsed
+  parent: IAxoRtm
+  children: []
+  name: Elapsed
+  fullName: Elapsed
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Rtm.IAxoRtm.Elapsed
+    path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+    startLine: 2
+  namespace: plc.AXOpen.Rtm
+  syntax:
+    content: Public LTIME Elapsed()
+    parameters: []
+    return:
+      type: plc.LTIME
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

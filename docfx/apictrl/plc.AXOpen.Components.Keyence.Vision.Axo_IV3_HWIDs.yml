@@ -1,0 +1,1542 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HW_Device
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandControl
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandStatusBits
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatusWords
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatistics
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_PositionAdjustResult
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_1
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_2
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_3
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_4
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_5
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_6
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_7
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_8
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_9
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_10
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_11
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_12
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_13
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_14
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_15
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_16
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_17
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_18
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_19
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_20
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_21
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_22
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_23
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_24
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_25
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_26
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_27
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_28
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_29
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_30
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_31
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_32
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_33
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_34
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_35
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_36
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_37
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_38
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_39
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_40
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_41
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_42
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_43
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_44
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_45
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_46
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_47
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_48
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_49
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_50
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_51
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_52
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_53
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_54
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_55
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_56
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_57
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_58
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_59
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_60
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_61
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_62
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_63
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_64
+  - plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_2
+  name: Axo_IV3_HWIDs
+  fullName: Axo_IV3_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_IV3_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HW_Device
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HW_Device
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandControl
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandControl
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_CommandControl
+  fullName: HwID_CommandControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandControl
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_CommandControl : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandStatusBits
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandStatusBits
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_CommandStatusBits
+  fullName: HwID_CommandStatusBits
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_CommandStatusBits
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_CommandStatusBits : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_DeviceResultBits_1
+  fullName: HwID_DeviceResultBits_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_DeviceResultBits_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatusWords
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatusWords
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_DeviceStatusWords
+  fullName: HwID_DeviceStatusWords
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatusWords
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_DeviceStatusWords : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatistics
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatistics
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_DeviceStatistics
+  fullName: HwID_DeviceStatistics
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceStatistics
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_DeviceStatistics : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_PositionAdjustResult
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_PositionAdjustResult
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_PositionAdjustResult
+  fullName: HwID_PositionAdjustResult
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_PositionAdjustResult
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_PositionAdjustResult : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_1
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_1
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_1
+  fullName: HwID_ToolResult_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_1
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_2
+  fullName: HwID_ToolResult_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_3
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_3
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_3
+  fullName: HwID_ToolResult_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_3
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_3 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_4
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_4
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_4
+  fullName: HwID_ToolResult_4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_4
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_4 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_5
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_5
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_5
+  fullName: HwID_ToolResult_5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_5
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_5 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_6
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_6
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_6
+  fullName: HwID_ToolResult_6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_6
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_6 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_7
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_7
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_7
+  fullName: HwID_ToolResult_7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_7
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_7 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_8
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_8
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_8
+  fullName: HwID_ToolResult_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_8
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_8 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_9
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_9
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_9
+  fullName: HwID_ToolResult_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_9
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_9 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_10
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_10
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_10
+  fullName: HwID_ToolResult_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_10
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_10 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_11
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_11
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_11
+  fullName: HwID_ToolResult_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_11
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_11 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_12
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_12
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_12
+  fullName: HwID_ToolResult_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_12
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_12 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_13
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_13
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_13
+  fullName: HwID_ToolResult_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_13
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_13 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_14
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_14
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_14
+  fullName: HwID_ToolResult_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_14
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_14 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_15
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_15
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_15
+  fullName: HwID_ToolResult_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_15
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_15 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_16
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_16
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_16
+  fullName: HwID_ToolResult_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_16
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_16 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_17
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_17
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_17
+  fullName: HwID_ToolResult_17
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_17
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_17 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_18
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_18
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_18
+  fullName: HwID_ToolResult_18
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_18
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_18 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_19
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_19
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_19
+  fullName: HwID_ToolResult_19
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_19
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_19 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_20
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_20
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_20
+  fullName: HwID_ToolResult_20
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_20
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_20 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_21
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_21
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_21
+  fullName: HwID_ToolResult_21
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_21
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_21 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_22
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_22
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_22
+  fullName: HwID_ToolResult_22
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_22
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_22 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_23
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_23
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_23
+  fullName: HwID_ToolResult_23
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_23
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_23 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_24
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_24
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_24
+  fullName: HwID_ToolResult_24
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_24
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_24 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_25
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_25
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_25
+  fullName: HwID_ToolResult_25
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_25
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_25 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_26
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_26
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_26
+  fullName: HwID_ToolResult_26
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_26
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_26 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_27
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_27
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_27
+  fullName: HwID_ToolResult_27
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_27
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_27 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_28
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_28
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_28
+  fullName: HwID_ToolResult_28
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_28
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_28 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_29
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_29
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_29
+  fullName: HwID_ToolResult_29
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_29
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_29 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_30
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_30
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_30
+  fullName: HwID_ToolResult_30
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_30
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_30 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_31
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_31
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_31
+  fullName: HwID_ToolResult_31
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_31
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_31 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_32
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_32
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_32
+  fullName: HwID_ToolResult_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_32
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_32 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_33
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_33
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_33
+  fullName: HwID_ToolResult_33
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_33
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_33 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_34
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_34
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_34
+  fullName: HwID_ToolResult_34
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_34
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_34 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_35
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_35
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_35
+  fullName: HwID_ToolResult_35
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_35
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_35 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_36
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_36
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_36
+  fullName: HwID_ToolResult_36
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_36
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 89
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_36 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_37
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_37
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_37
+  fullName: HwID_ToolResult_37
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_37
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_37 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_38
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_38
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_38
+  fullName: HwID_ToolResult_38
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_38
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 93
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_38 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_39
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_39
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_39
+  fullName: HwID_ToolResult_39
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_39
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 95
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_39 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_40
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_40
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_40
+  fullName: HwID_ToolResult_40
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_40
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 97
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_40 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_41
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_41
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_41
+  fullName: HwID_ToolResult_41
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_41
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_41 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_42
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_42
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_42
+  fullName: HwID_ToolResult_42
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_42
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_42 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_43
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_43
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_43
+  fullName: HwID_ToolResult_43
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_43
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_43 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_44
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_44
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_44
+  fullName: HwID_ToolResult_44
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_44
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_44 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_45
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_45
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_45
+  fullName: HwID_ToolResult_45
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_45
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_45 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_46
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_46
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_46
+  fullName: HwID_ToolResult_46
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_46
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_46 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_47
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_47
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_47
+  fullName: HwID_ToolResult_47
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_47
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_47 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_48
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_48
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_48
+  fullName: HwID_ToolResult_48
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_48
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_48 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_49
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_49
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_49
+  fullName: HwID_ToolResult_49
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_49
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_49 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_50
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_50
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_50
+  fullName: HwID_ToolResult_50
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_50
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_50 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_51
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_51
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_51
+  fullName: HwID_ToolResult_51
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_51
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_51 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_52
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_52
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_52
+  fullName: HwID_ToolResult_52
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_52
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_52 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_53
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_53
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_53
+  fullName: HwID_ToolResult_53
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_53
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_53 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_54
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_54
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_54
+  fullName: HwID_ToolResult_54
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_54
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_54 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_55
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_55
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_55
+  fullName: HwID_ToolResult_55
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_55
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_55 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_56
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_56
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_56
+  fullName: HwID_ToolResult_56
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_56
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 129
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_56 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_57
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_57
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_57
+  fullName: HwID_ToolResult_57
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_57
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_57 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_58
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_58
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_58
+  fullName: HwID_ToolResult_58
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_58
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 133
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_58 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_59
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_59
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_59
+  fullName: HwID_ToolResult_59
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_59
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_59 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_60
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_60
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_60
+  fullName: HwID_ToolResult_60
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_60
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 138
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_60 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_61
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_61
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_61
+  fullName: HwID_ToolResult_61
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_61
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 140
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_61 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_62
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_62
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_62
+  fullName: HwID_ToolResult_62
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_62
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_62 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_63
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_63
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_63
+  fullName: HwID_ToolResult_63
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_63
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_63 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_64
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_64
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_ToolResult_64
+  fullName: HwID_ToolResult_64
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_ToolResult_64
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 146
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_ToolResult_64 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_2
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_2
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: HwID_DeviceResultBits_2
+  fullName: HwID_DeviceResultBits_2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_IV3_HWIDs.HwID_DeviceResultBits_2
+    path: .\src\components.keyence.vision\ctrl\src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st
+    startLine: 148
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'HwID_DeviceResultBits_2 : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

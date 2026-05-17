@@ -1,0 +1,46 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Robotics.CoordinatesAreNearlyEqual(REAL,REAL,REAL,REAL,REAL,REAL)
+  id: plc.AXOpen.Components.Robotics.CoordinatesAreNearlyEqual(REAL,REAL,REAL,REAL,REAL,REAL)
+  parent: AXOpen.Components.Robotics
+  children: []
+  name: CoordinatesAreNearlyEqual
+  fullName: CoordinatesAreNearlyEqual
+  type: Delegate
+  source:
+    remote:
+      path: .\src\components.robotics\ctrl\src\AxoRobotics\CoordinatesAreNearlyEqual.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Robotics.CoordinatesAreNearlyEqual
+    path: .\src\components.robotics\ctrl\src\AxoRobotics\CoordinatesAreNearlyEqual.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Robotics
+  syntax:
+    content: Public BOOL CoordinatesAreNearlyEqual(in plc.REAL EpsilonX,in plc.REAL EpsilonY,in plc.REAL EpsilonZ,in plc.REAL EpsilonRx,in plc.REAL EpsilonRy,in plc.REAL EpsilonRz)
+    parameters:
+    - id: EpsilonX
+      type: plc.REAL
+    - id: EpsilonY
+      type: plc.REAL
+    - id: EpsilonZ
+      type: plc.REAL
+    - id: EpsilonRx
+      type: plc.REAL
+    - id: EpsilonRy
+      type: plc.REAL
+    - id: EpsilonRz
+      type: plc.REAL
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

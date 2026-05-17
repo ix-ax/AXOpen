@@ -1,5 +1,43 @@
 items:
 - name: Introduction
   href: README.md
+- name: Interfaces
+  items:
+  - name: IAxoDrive
+    href: IAxoDrive.md
+  - name: IAxo_Power
+    href: IAxo_Power.md
+  - name: IAxoAxisReference
+    href: IAxoAxisReference.md
+  - name: IAxoRobotics
+    href: IAxoRobotics.md
+  - name: IAxoCodeReader
+    href: IAxoCodeReader.md
+  - name: IAxoVisionSensor
+    href: IAxoVisionSensor.md
+- name: Data types
+  items:
+  - name: AxoComponent_Status
+    href: AxoComponent_Status.md
+  - name: AxoRoboticsCoordinates
+    href: AxoRoboticsCoordinates.md
+  - name: AxoRoboticsBasicCoordinates
+    href: AxoRoboticsBasicCoordinates.md
+  - name: AxoRoboticsMovementsParams
+    href: AxoRoboticsMovementsParams.md
+- name: Enumerations
+  items:
+  - name: eAxoDriveDirection
+    href: eAxoDriveDirection.md
+  - name: eAxoExecutionMode
+    href: eAxoExecutionMode.md
+  - name: eAxoSource
+    href: eAxoSource.md
+  - name: eAxoRoboticsStopType
+    href: eAxoRoboticsStopType.md
+  - name: eAxoRoboticsDistance
+    href: eAxoRoboticsDistance.md
+- name: Changes
+  href: CHANGELOG.md
 - name: Troubleshooting
   href: TROUBLES.md

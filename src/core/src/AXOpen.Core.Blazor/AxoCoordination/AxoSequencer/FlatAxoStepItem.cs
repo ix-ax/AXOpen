@@ -30,11 +30,7 @@ public sealed record FlatAxoStepItem(
     }
 
     public eAxoStepExecutionMode StepExecutionMode => RawStepExecutionMode;
-        //BreakpointBeforeExecution
-        //    ? eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
-        //    : BreakpointAfterExecution
-        //        ? eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep
-        //    : RawStepExecutionMode;
+
 
     private eAxoStepExecutionMode RawStepExecutionMode => (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue;
 };

@@ -1,0 +1,286 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SafetyMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.NO_IsNormalMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RD_IsReducedMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.PS_IsProtectiveStopped
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RC_IsRecoveryMode
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SS_IsSafeguardStopped
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SES_IsSystemEmergencyStopped
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RES_IsRobotEmergencyStopped
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ES_IsEmergencyStopped
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.VL_IsViolation
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.FT_IsFault
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ST_IsStoppedDueSafety
+  name: AxoUrRoboticsT2OSafety_v_1_x_x
+  fullName: AxoUrRoboticsT2OSafety_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OSafety_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SafetyMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SafetyMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: SafetyMode
+  fullName: SafetyMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SafetyMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'SafetyMode : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.NO_IsNormalMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.NO_IsNormalMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: NO_IsNormalMode
+  fullName: NO_IsNormalMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.NO_IsNormalMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'NO_IsNormalMode : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RD_IsReducedMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RD_IsReducedMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RD_IsReducedMode
+  fullName: RD_IsReducedMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RD_IsReducedMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RD_IsReducedMode : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.PS_IsProtectiveStopped
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.PS_IsProtectiveStopped
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: PS_IsProtectiveStopped
+  fullName: PS_IsProtectiveStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.PS_IsProtectiveStopped
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'PS_IsProtectiveStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RC_IsRecoveryMode
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RC_IsRecoveryMode
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RC_IsRecoveryMode
+  fullName: RC_IsRecoveryMode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RC_IsRecoveryMode
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RC_IsRecoveryMode : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SS_IsSafeguardStopped
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SS_IsSafeguardStopped
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: SS_IsSafeguardStopped
+  fullName: SS_IsSafeguardStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SS_IsSafeguardStopped
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'SS_IsSafeguardStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SES_IsSystemEmergencyStopped
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SES_IsSystemEmergencyStopped
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: SES_IsSystemEmergencyStopped
+  fullName: SES_IsSystemEmergencyStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.SES_IsSystemEmergencyStopped
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'SES_IsSystemEmergencyStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RES_IsRobotEmergencyStopped
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RES_IsRobotEmergencyStopped
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: RES_IsRobotEmergencyStopped
+  fullName: RES_IsRobotEmergencyStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.RES_IsRobotEmergencyStopped
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'RES_IsRobotEmergencyStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ES_IsEmergencyStopped
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ES_IsEmergencyStopped
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ES_IsEmergencyStopped
+  fullName: ES_IsEmergencyStopped
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ES_IsEmergencyStopped
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ES_IsEmergencyStopped : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.VL_IsViolation
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.VL_IsViolation
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: VL_IsViolation
+  fullName: VL_IsViolation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.VL_IsViolation
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'VL_IsViolation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.FT_IsFault
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.FT_IsFault
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: FT_IsFault
+  fullName: FT_IsFault
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.FT_IsFault
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'FT_IsFault : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ST_IsStoppedDueSafety
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ST_IsStoppedDueSafety
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: ST_IsStoppedDueSafety
+  fullName: ST_IsStoppedDueSafety
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OSafety_v_1_x_x.ST_IsStoppedDueSafety
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'ST_IsStoppedDueSafety : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

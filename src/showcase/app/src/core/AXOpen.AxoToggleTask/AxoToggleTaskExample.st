@@ -1,0 +1,23 @@
+USING AXOpen.Core;
+
+NAMESPACE AxoToggleTaskExamples
+
+    {S7.extern=ReadWrite}
+    CLASS Tasks EXTENDS AXOpen.Core.AxoObject
+        VAR PUBLIC
+            {#ix-set:AttributeName = "<#Toggle task 1#>"}
+            _toggleTask1 :AxoToggleTask;
+            {#ix-set:AttributeName = "<#Toggle task 2#>"}
+            {#ix-set:AttributeStateOnDesc = "<#SwitchedOn#>"}
+            {#ix-set:AttributeStateOffDesc = "<#SwitchedOff#>"}
+            _toggleTask2 :AxoToggleTask;
+       END_VAR    
+    
+        METHOD PUBLIC Execute
+            _toggleTask1.Run(THIS);    
+            _toggleTask1.Run();
+            _toggleTask2.Run(THIS);    
+            _toggleTask2.Run();
+        END_METHOD
+    END_CLASS    
+END_NAMESPACE

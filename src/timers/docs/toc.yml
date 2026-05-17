@@ -7,3 +7,9 @@
     href: OFFDELAYTIMER.md
   - name: PulseTimer
     href: PULSETIMER.md
+  - name: AxoBlinker
+    href: AxoBlinker.md
+  - name: Changelog
+    href: CHANGELOG.md
+  - name: Troubleshooting
+    href: TROUBLES.md

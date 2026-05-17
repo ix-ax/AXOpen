@@ -1,3 +1,0 @@
-﻿NAMESPACE AXOpen.Abstractions
-END_NAMESPACE
-

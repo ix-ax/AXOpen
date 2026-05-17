@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net10.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\AXOpen.Data\inxton_axopen_data.csproj" />
+		<ProjectReference Include="..\..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
+		<ProjectReference Include="..\..\..\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+	</ItemGroup>
+</Project>

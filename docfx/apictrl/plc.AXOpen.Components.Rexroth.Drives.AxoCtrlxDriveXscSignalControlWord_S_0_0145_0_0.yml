@@ -1,0 +1,366 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  parent: plc.AXOpen.Components.Rexroth.Drives
+  children:
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit01_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.HomingControl
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AbsoluteRelative
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ImmediateChange
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ClearError
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogPositive
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogNegative
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchToCM
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchTo0M
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.CancelReferencePoint
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit11_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit12_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit13_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit14_Reserve
+  - plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SetAbsPositionFunction
+  name: AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  fullName: AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: CLASS AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: AcceptanceOfPositioningCommandValue
+  fullName: AcceptanceOfPositioningCommandValue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'AcceptanceOfPositioningCommandValue : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit01_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit01_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit01_Reserve
+  fullName: _bit01_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit01_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit01_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.HomingControl
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.HomingControl
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: HomingControl
+  fullName: HomingControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.HomingControl
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'HomingControl : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AbsoluteRelative
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AbsoluteRelative
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: AbsoluteRelative
+  fullName: AbsoluteRelative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.AbsoluteRelative
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'AbsoluteRelative : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ImmediateChange
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ImmediateChange
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ImmediateChange
+  fullName: ImmediateChange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ImmediateChange
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ImmediateChange : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ClearError
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ClearError
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: ClearError
+  fullName: ClearError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.ClearError
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'ClearError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogPositive
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogPositive
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogPositive
+  fullName: JogPositive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogPositive
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogPositive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogNegative
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogNegative
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: JogNegative
+  fullName: JogNegative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.JogNegative
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'JogNegative : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchToCM
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchToCM
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SwitchToCM
+  fullName: SwitchToCM
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchToCM
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SwitchToCM : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchTo0M
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchTo0M
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SwitchTo0M
+  fullName: SwitchTo0M
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SwitchTo0M
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SwitchTo0M : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.CancelReferencePoint
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.CancelReferencePoint
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: CancelReferencePoint
+  fullName: CancelReferencePoint
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.CancelReferencePoint
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'CancelReferencePoint : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit11_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit11_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit11_Reserve
+  fullName: _bit11_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit11_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit11_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit12_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit12_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit12_Reserve
+  fullName: _bit12_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit12_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit12_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit13_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit13_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit13_Reserve
+  fullName: _bit13_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit13_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit13_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit14_Reserve
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit14_Reserve
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: _bit14_Reserve
+  fullName: _bit14_Reserve
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0._bit14_Reserve
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: '_bit14_Reserve : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SetAbsPositionFunction
+  id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SetAbsPositionFunction
+  parent: AXOpen.Components.Rexroth.Drives
+  children: []
+  name: SetAbsPositionFunction
+  fullName: SetAbsPositionFunction
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.SetAbsPositionFunction
+    path: .\src\components.rexroth.drives\ctrl\src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Rexroth.Drives
+  syntax:
+    content: 'SetAbsPositionFunction : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

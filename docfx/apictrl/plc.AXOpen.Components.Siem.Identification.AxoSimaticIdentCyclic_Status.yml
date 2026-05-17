@@ -1,0 +1,223 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.NDR
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.RESETCONF
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.STOPCONF
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ANTSTATUS
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCK
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.PRESENCE
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ERROR_STARTUP
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ACTIVECMD
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCKLENGTH
+  name: AxoSimaticIdentCyclic_Status
+  fullName: AxoSimaticIdentCyclic_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic_Status
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.NDR
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.NDR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: NDR
+  fullName: NDR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.NDR
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'NDR : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.RESETCONF
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.RESETCONF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RESETCONF
+  fullName: RESETCONF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.RESETCONF
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RESETCONF : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.STOPCONF
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.STOPCONF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STOPCONF
+  fullName: STOPCONF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.STOPCONF
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STOPCONF : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ANTSTATUS
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ANTSTATUS
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ANTSTATUS
+  fullName: ANTSTATUS
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ANTSTATUS
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ANTSTATUS : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCK
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BLOCK
+  fullName: BLOCK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCK
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BLOCK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.PRESENCE
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.PRESENCE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: PRESENCE
+  fullName: PRESENCE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.PRESENCE
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'PRESENCE : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ERROR_STARTUP
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ERROR_STARTUP
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERROR_STARTUP
+  fullName: ERROR_STARTUP
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ERROR_STARTUP
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERROR_STARTUP : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ACTIVECMD
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ACTIVECMD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ACTIVECMD
+  fullName: ACTIVECMD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.ACTIVECMD
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ACTIVECMD : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCKLENGTH
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCKLENGTH
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BLOCKLENGTH
+  fullName: BLOCKLENGTH
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Status.BLOCKLENGTH
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BLOCKLENGTH : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

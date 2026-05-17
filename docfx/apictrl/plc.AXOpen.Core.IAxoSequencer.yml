@@ -1,0 +1,244 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoSequencer
+  id: plc.AXOpen.Core.IAxoSequencer
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoSequencer.GetSteppingMode()
+  - plc.AXOpen.Core.IAxoSequencer.SetSteppingMode(eAxoSteppingMode)
+  - plc.AXOpen.Core.IAxoSequencer.IsReady()
+  - plc.AXOpen.Core.IAxoSequencer.IsDone()
+  - plc.AXOpen.Core.IAxoSequencer.IsBusy()
+  - plc.AXOpen.Core.IAxoSequencer.HasError()
+  - plc.AXOpen.Core.IAxoSequencer.Invoke(IAxoObject)
+  - plc.AXOpen.Core.IAxoSequencer.Restore()
+  - plc.AXOpen.Core.IAxoSequencer.SetIsDisabled(BOOL)
+  name: IAxoSequencer
+  fullName: IAxoSequencer
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoSequencer
+  implements: []
+- uid: plc.AXOpen.Core.IAxoSequencer.GetSteppingMode()
+  id: plc.AXOpen.Core.IAxoSequencer.GetSteppingMode
+  parent: IAxoSequencer
+  children: []
+  name: GetSteppingMode
+  fullName: GetSteppingMode
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.GetSteppingMode
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.eAxoSteppingMode GetSteppingMode()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.eAxoSteppingMode
+- uid: plc.AXOpen.Core.IAxoSequencer.SetSteppingMode(eAxoSteppingMode)
+  id: plc.AXOpen.Core.IAxoSequencer.SetSteppingMode
+  parent: IAxoSequencer
+  children: []
+  name: SetSteppingMode
+  fullName: SetSteppingMode
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.SetSteppingMode
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetSteppingMode(in plc.AXOpen.Core.eAxoSteppingMode inSteppingMode)
+    parameters:
+    - id: inSteppingMode
+      type: plc.AXOpen.Core.eAxoSteppingMode
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoSequencer.IsReady()
+  id: plc.AXOpen.Core.IAxoSequencer.IsReady
+  parent: IAxoSequencer
+  children: []
+  name: IsReady
+  fullName: IsReady
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.IsReady
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 11
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsReady()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoSequencer.IsDone()
+  id: plc.AXOpen.Core.IAxoSequencer.IsDone
+  parent: IAxoSequencer
+  children: []
+  name: IsDone
+  fullName: IsDone
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.IsDone
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsDone()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoSequencer.IsBusy()
+  id: plc.AXOpen.Core.IAxoSequencer.IsBusy
+  parent: IAxoSequencer
+  children: []
+  name: IsBusy
+  fullName: IsBusy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.IsBusy
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsBusy()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoSequencer.HasError()
+  id: plc.AXOpen.Core.IAxoSequencer.HasError
+  parent: IAxoSequencer
+  children: []
+  name: HasError
+  fullName: HasError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.HasError
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL HasError()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoSequencer.Invoke(IAxoObject)
+  id: plc.AXOpen.Core.IAxoSequencer.Invoke
+  parent: IAxoSequencer
+  children: []
+  name: Invoke
+  fullName: Invoke
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.Invoke
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Invoke(in plc.AXOpen.Core.IAxoObject inParent)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.IAxoSequencer.Restore()
+  id: plc.AXOpen.Core.IAxoSequencer.Restore
+  parent: IAxoSequencer
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.Restore
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.IAxoSequencer.SetIsDisabled(BOOL)
+  id: plc.AXOpen.Core.IAxoSequencer.SetIsDisabled
+  parent: IAxoSequencer
+  children: []
+  name: SetIsDisabled
+  fullName: SetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoSequencer.SetIsDisabled
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoSequencer\IAxoSequencer.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetIsDisabled(in plc.BOOL Disabled)
+    parameters:
+    - id: Disabled
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.eAxoSteppingMode
+  name: eAxoSteppingMode
+  nameWithType: eAxoSteppingMode
+  fullName: AXOpen.Core.eAxoSteppingMode
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

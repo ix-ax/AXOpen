@@ -4,9 +4,9 @@
 
 <div class="flex flex-wrap items-center gap-2">
 
-    @if (!HideDescripion)
+    @if (!HideDescription)
     {
-        <label> @SymbolConfiguration.SymbolPathWithParent</label>
+        <label> @SymbolConfiguration.PresentablePath</label>
     }
 
     <div class="select-group">
@@ -20,13 +20,13 @@
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
-        if (!HideDescripion)
+        if (!HideDescription)
         {
             <label>@Localizer["Min"]</label>
         }
         <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue" AccessStatusClass="m-0!"></DynamicInput>
 
-        if (!HideDescripion)
+        if (!HideDescription)
         {
             <label>@Localizer["Max"]</label>
         }
@@ -34,7 +34,7 @@
     }
     else
     {
-        if (!HideDescripion)
+        if (!HideDescription)
         {
             <label for="minOrValue">@Localizer["Value"]</label>
         }

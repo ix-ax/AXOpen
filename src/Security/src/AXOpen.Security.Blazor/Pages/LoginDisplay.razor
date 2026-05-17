@@ -1,4 +1,4 @@
-﻿@using AXOpen.Security.Services
+@using AXOpen.Security.Services
 @using Microsoft.AspNetCore.Mvc
 @using AxOpen.Security.Entities
 @using Operon.Components.Dropdown
@@ -12,7 +12,7 @@
         <Authorized>
             <Dropdown @ref="_dropdownLogin">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_dropdownLogin.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownLogin.ToggleAsync">
                         @context.User.Identity?.Name
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownLogin?.Open ?? false ? "rotated" : null))" />
                     </button>

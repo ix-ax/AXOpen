@@ -2003,7 +2003,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(_step_2.IsActive,TRUE);
         END_METHOD
 
-        {Test}        
+        {Test}
         METHOD PUBLIC SwitchToStepModeBeforeEnteringStep_should_not_invoke_the_step
             // Arrange
             _step_1.StepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;
@@ -2015,5 +2015,34 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(_step_2.IsBusy(),FALSE);
         END_METHOD
 
-    END_CLASS  
+        {Test}
+        METHOD PUBLIC step_timeout_messenger_should_not_activate_when_messaging_is_suspended
+            // Arrange: bring sequencer to running state and wire the timeout messenger's context
+            THIS.PrepareSequence();
+            _context.Open();
+            _sequencer.Open();
+            _step_1.Execute(_sequencer);
+            _sequencer._msgStepTimedOut.Serve(_sequencer);
+
+            Assert.Equal(TRUE, _sequencer._msgStepTimedOut.MessengerState = eAxoMessengerState#Idle);
+
+            // Act: suspend messaging, then trigger the timeout messenger
+            _context.GetMessengerService().ResumeMessaging();
+            _context.GetMessengerService().SuspendMessaging();
+            _sequencer._msgStepTimedOut.Activate(_rootObject, REF(_step_1));
+
+            // Assert: state stayed Idle, no activation while suspended
+            Assert.Equal(TRUE, _sequencer._msgStepTimedOut.MessengerState = eAxoMessengerState#Idle);
+
+            // Act: resume and trigger again
+            _context.GetMessengerService().ResumeMessaging();
+            _sequencer._msgStepTimedOut.Activate(_rootObject, REF(_step_1));
+
+            // Assert: activation proceeds after resume
+            Assert.Equal(TRUE, _sequencer._msgStepTimedOut.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
+
+            _context.Close();
+        END_METHOD
+
+    END_CLASS
 END_NAMESPACE

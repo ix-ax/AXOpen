@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -156,10 +156,10 @@
   </data>
   <!-- State Labels -->
   <data name="ActiveAcknowledged" xml:space="preserve">
-    <value>Active � Acknowledged</value>
+    <value>Active · Acknowledged</value>
   </data>
   <data name="ActiveUnacknowledged" xml:space="preserve">
-    <value>Active � Unacknowledged</value>
+    <value>Active · Unacknowledged</value>
   </data>
   <data name="Cleared" xml:space="preserve">
     <value>Cleared</value>
@@ -225,7 +225,7 @@
     <value>Pending</value>
   </data>
   <data name="ActiveAck" xml:space="preserve">
-    <value>Active � Ack</value>
+    <value>Active · Ack</value>
   </data>
   <!-- Component Container -->
   <data name="Alarms" xml:space="preserve">
@@ -307,5 +307,23 @@
   </data>
   <data name="SequencerClearAllBreakpoints" xml:space="preserve">
     <value>Clear all breakpoints</value>
+  </data>
+  <data name="SequencerTaskStateReady" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="SequencerTaskStateKicking" xml:space="preserve">
+    <value>Kicking</value>
+  </data>
+  <data name="SequencerTaskStateBusy" xml:space="preserve">
+    <value>Busy</value>
+  </data>
+  <data name="SequencerTaskStateDone" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="SequencerTaskStateAborted" xml:space="preserve">
+    <value>Aborted</value>
+  </data>
+  <data name="SequencerTaskStateError" xml:space="preserve">
+    <value>Error</value>
   </data>
 </root>

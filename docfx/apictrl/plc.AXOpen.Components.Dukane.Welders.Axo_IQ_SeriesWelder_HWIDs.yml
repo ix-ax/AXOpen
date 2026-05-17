@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HW_Device
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_iQ_to_PLC_Inputs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_PLC_to_iQ_Outputs
+  name: Axo_IQ_SeriesWelder_HWIDs
+  fullName: Axo_IQ_SeriesWelder_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HW_Device
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HW_Device
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HW_Device
+  fullName: HW_Device
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HW_Device
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HW_Device : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_iQ_to_PLC_Inputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_iQ_to_PLC_Inputs
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HwID_iQ_to_PLC_Inputs
+  fullName: HwID_iQ_to_PLC_Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_iQ_to_PLC_Inputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HwID_iQ_to_PLC_Inputs : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_PLC_to_iQ_Outputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_PLC_to_iQ_Outputs
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HwID_PLC_to_iQ_Outputs
+  fullName: HwID_PLC_to_iQ_Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs.HwID_PLC_to_iQ_Outputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HwID_PLC_to_iQ_Outputs : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+
