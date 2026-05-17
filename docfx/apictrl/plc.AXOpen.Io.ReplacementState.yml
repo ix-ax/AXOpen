@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.ReplacementState
+  id: plc.AXOpen.Io.ReplacementState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.ReplacementState.Unknown
+  - plc.AXOpen.Io.ReplacementState.OK
+  - plc.AXOpen.Io.ReplacementState.Substitute
+  - plc.AXOpen.Io.ReplacementState.Incompatible
+  - plc.AXOpen.Io.ReplacementState.Missing
+  name: ReplacementState
+  fullName: ReplacementState
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ReplacementState : UINT'
+- uid: plc.AXOpen.Io.ReplacementState.Unknown
+  id: plc.AXOpen.Io.ReplacementState.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown := 	UINT#255
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState.Unknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ReplacementState.OK
+  id: plc.AXOpen.Io.ReplacementState.OK
+  parent: AXOpen.Io
+  children: []
+  name: OK := 	UINT#0
+  fullName: OK
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState.OK
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ReplacementState.Substitute
+  id: plc.AXOpen.Io.ReplacementState.Substitute
+  parent: AXOpen.Io
+  children: []
+  name: Substitute := 	UINT#1
+  fullName: Substitute
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState.Substitute
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ReplacementState.Incompatible
+  id: plc.AXOpen.Io.ReplacementState.Incompatible
+  parent: AXOpen.Io
+  children: []
+  name: Incompatible := 	UINT#2
+  fullName: Incompatible
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState.Incompatible
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ReplacementState.Missing
+  id: plc.AXOpen.Io.ReplacementState.Missing
+  parent: AXOpen.Io
+  children: []
+  name: Missing := 	UINT#3
+  fullName: Missing
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ReplacementState.Missing
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ReplacementState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

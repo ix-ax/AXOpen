@@ -1,0 +1,1236 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTimeTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredSetupNumber
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredProbeNumber
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredWeldingTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Progress
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RestoreTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetupTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearErrorTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbeTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStopTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Config
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Status
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Messenger
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.TaskMessenger
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Inputs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Outputs
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._progress
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._infoTimer
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._errorTimer
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_in
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_out
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._word
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._dword
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._initHwCheckDone
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._retval
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._geoAddr
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outHwid
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._blink
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsAddress
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsAddress
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsCount
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._setupNumber
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._probeNumber
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTimer
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearError()
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetup(UINT)
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbe(UINT)
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStop()
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTime(UINT,UINT,LTIME)
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ManualControl()
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Restore()
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CallTimers(BOOL)
+  name: Axo_IQ_SeriesWelder
+  fullName: Axo_IQ_SeriesWelder
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTimeTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTimeTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RunWeldingWithTimeTask
+  fullName: RunWeldingWithTimeTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTimeTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RunWeldingWithTimeTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredSetupNumber
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredSetupNumber
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RequiredSetupNumber
+  fullName: RequiredSetupNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredSetupNumber
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RequiredSetupNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredProbeNumber
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredProbeNumber
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RequiredProbeNumber
+  fullName: RequiredProbeNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredProbeNumber
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RequiredProbeNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredWeldingTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredWeldingTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RequiredWeldingTime
+  fullName: RequiredWeldingTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RequiredWeldingTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RequiredWeldingTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Progress
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Progress
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Progress
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RestoreTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RestoreTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RestoreTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetupTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetupTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ChangeWeldingSetupTask
+  fullName: ChangeWeldingSetupTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetupTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ChangeWeldingSetupTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearErrorTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearErrorTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ClearErrorTask
+  fullName: ClearErrorTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearErrorTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ClearErrorTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbeTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbeTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ChangeWeldingProbeTask
+  fullName: ChangeWeldingProbeTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbeTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ChangeWeldingProbeTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStopTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStopTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: CycleStopTask
+  fullName: CycleStopTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStopTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'CycleStopTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Config
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Config
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Config
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Config : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Status
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Status
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Status
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Status : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Messenger
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Messenger
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Messenger
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.TaskMessenger
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.TaskMessenger
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.TaskMessenger
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Inputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Inputs
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Inputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Inputs : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Outputs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Outputs
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Outputs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Outputs : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.HardwareDiagnosticsTask
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 93
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._progress
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._progress
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._progress
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._infoTimer
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._infoTimer
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._infoTimer
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._errorTimer
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._errorTimer
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._errorTimer
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 102
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_in
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_in
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_in
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_data_in : ARRAY [0..139] OF BYTE'
+    return:
+      type: ARRAY [0..139] OF BYTE
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_out
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_out
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _data_out
+  fullName: _data_out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._data_out
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_data_out : ARRAY [0..19] OF BYTE'
+    return:
+      type: ARRAY [0..19] OF BYTE
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._word
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._word
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._word
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._dword
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._dword
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._dword
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._initHwCheckDone
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._initHwCheckDone
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._initHwCheckDone
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._retval
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._retval
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._retval
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 110
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._geoAddr
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._geoAddr
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._geoAddr
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outHwid
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outHwid
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outHwid
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 111
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._blink
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._blink
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._blink
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 112
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsAddress
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsAddress
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsAddress
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._inputsCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsAddress
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsAddress
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsAddress
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsCount
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsCount
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._outputsCount
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._setupNumber
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._setupNumber
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _setupNumber
+  fullName: _setupNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._setupNumber
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_setupNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._probeNumber
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._probeNumber
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _probeNumber
+  fullName: _probeNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._probeNumber
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_probeNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _weldingTime
+  fullName: _weldingTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 122
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_weldingTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTimer
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTimer
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: _weldingTimer
+  fullName: _weldingTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder._weldingTimer
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 125
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: '_weldingTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Run
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 126
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearError()
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearError()
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: ClearError
+  fullName: ClearError
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ClearError
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1282
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearError()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetup(UINT)
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetup(UINT)
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: ChangeWeldingSetup
+  fullName: ChangeWeldingSetup
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingSetup
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1284
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeWeldingSetup(in plc.UINT SetupNumber)
+    parameters:
+    - id: SetupNumber
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbe(UINT)
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbe(UINT)
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: ChangeWeldingProbe
+  fullName: ChangeWeldingProbe
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ChangeWeldingProbe
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1294
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeWeldingProbe(in plc.UINT ProbeNumber)
+    parameters:
+    - id: ProbeNumber
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStop()
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStop()
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: CycleStop
+  fullName: CycleStop
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CycleStop
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1304
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState CycleStop()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTime(UINT,UINT,LTIME)
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTime(UINT,UINT,LTIME)
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: RunWeldingWithTime
+  fullName: RunWeldingWithTime
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.RunWeldingWithTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1309
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState RunWeldingWithTime(in plc.UINT SetupNumber,in plc.UINT ProbeNumber,in plc.LTIME WeldingTime)
+    parameters:
+    - id: SetupNumber
+      type: plc.UINT
+    - id: ProbeNumber
+      type: plc.UINT
+    - id: WeldingTime
+      type: plc.LTIME
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ManualControl()
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ManualControl()
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.ManualControl
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1324
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Restore()
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Restore()
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.Restore
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1331
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CallTimers(BOOL)
+  parent: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder.CallTimers
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st
+    startLine: 1360
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+  name: Axo_IQ_SeriesWelder_Config
+  nameWithType: Axo_IQ_SeriesWelder_Config
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+  name: Axo_IQ_SeriesWelder_Component_Status
+  nameWithType: Axo_IQ_SeriesWelder_Component_Status
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+  name: Axo_IQ_SeriesWelder_SystemInputs
+  nameWithType: Axo_IQ_SeriesWelder_SystemInputs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemInputs
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+  name: Axo_IQ_SeriesWelder_SystemOutputs
+  nameWithType: Axo_IQ_SeriesWelder_SystemOutputs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_SystemOutputs
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.ARRAY [0..139] OF BYTE
+  name: ARRAY [0..139] OF BYTE
+  nameWithType: ARRAY [0..139] OF BYTE
+  fullName: ARRAY [0..139] OF BYTE
+- uid: plc.ARRAY [0..19] OF BYTE
+  name: ARRAY [0..19] OF BYTE
+  nameWithType: ARRAY [0..19] OF BYTE
+  fullName: ARRAY [0..19] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

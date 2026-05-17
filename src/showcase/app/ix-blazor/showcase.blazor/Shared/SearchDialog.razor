@@ -1,0 +1,195 @@
+@using Operon.Icons
+@using showcase.Services.Search
+@inject NavigationManager NavigationManager
+@inject ShowcaseSearchService SearchService
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+@if (_isOpen)
+{
+    <div class="fixed inset-0 z-[600] bg-black/50 backdrop-blur-sm" @onclick="Close">
+        <div class="mx-auto mt-[15vh] w-full max-w-xl rounded-xl border border-slate-200 bg-white shadow-2xl"
+             @onclick:stopPropagation="true">
+
+            <!-- Search input -->
+            <div class="flex items-center gap-3 border-b border-slate-200 px-4 py-3">
+                <HeroIcon Icon="magnifying-glass" Type="IconType.Outline" Class="size-5 text-slate-400 shrink-0" />
+                <input @ref="_inputRef"
+                       type="text"
+                       value="@_query"
+                       @oninput="OnInput"
+                       @onkeydown="OnKeyDown"
+                       placeholder="Search pages, code, and documentation..."
+                       class="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                <kbd class="text-[10px] text-slate-400 border border-slate-200 rounded px-1.5 py-0.5 font-mono">ESC</kbd>
+            </div>
+
+            <!-- Results -->
+            <div class="max-h-[50vh] overflow-y-auto">
+                @if (_results.Count > 0)
+                {
+                    @for (var i = 0; i < _results.Count; i++)
+                    {
+                        var result = _results[i];
+                        var index = i;
+                        <button class="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors
+                                       @(index == _selectedIndex ? "bg-primary/8" : "hover:bg-slate-50")"
+                                @onclick="() => NavigateTo(result)">
+                            @if (result.IsContentMatch)
+                            {
+                                <div class="mt-0.5 shrink-0 rounded-lg p-1.5 text-amber-600/80 bg-amber-50">
+                                    <HeroIcon Icon="code-bracket" Type="IconType.Outline" Class="size-4" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm font-medium text-slate-900 truncate">@result.MatchedFileName</span>
+                                        <span class="shrink-0 rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700">@FormatLanguage(result.MatchedLanguage)</span>
+                                    </div>
+                                    <p class="mt-0.5 text-[11px] text-slate-400">in @result.Entry.PageTitle · line @result.MatchedLineNumber</p>
+                                    <p class="mt-1 text-xs text-slate-600 font-mono line-clamp-2 bg-slate-50 rounded px-2 py-1">@result.HighlightSnippet</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="mt-0.5 shrink-0 rounded-lg p-1.5 text-primary/80 bg-primary/5">
+                                    <HeroIcon Icon="@result.Entry.Icon" Type="IconType.Outline" Class="size-4" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm font-medium text-slate-900 truncate">@result.Entry.PageTitle</span>
+                                        <span class="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-500 uppercase tracking-wide">@result.Entry.Category</span>
+                                        @if (!string.IsNullOrEmpty(result.Entry.Vendor))
+                                        {
+                                            <span class="shrink-0 rounded-full bg-cyan-50 px-2 py-0.5 text-[10px] font-medium text-cyan-700">@result.Entry.Vendor</span>
+                                        }
+                                    </div>
+                                    <p class="mt-0.5 text-xs text-slate-500 line-clamp-1">@result.HighlightSnippet</p>
+                                </div>
+                            }
+                            @if (index == _selectedIndex)
+                            {
+                                <kbd class="mt-1 shrink-0 text-[10px] text-slate-300 border border-slate-200 rounded px-1 py-0.5 font-mono">↵</kbd>
+                            }
+                        </button>
+                    }
+                }
+                else if (!string.IsNullOrWhiteSpace(_query))
+                {
+                    <div class="px-4 py-8 text-center text-sm text-slate-400">
+                        No results for "<span class="font-medium text-slate-500">@_query</span>"
+                    </div>
+                }
+                else
+                {
+                    <div class="px-4 py-6 text-center text-sm text-slate-400">
+                        Type to search pages, code, and documentation
+                    </div>
+                }
+            </div>
+
+            <!-- Footer -->
+            <div class="flex items-center gap-4 border-t border-slate-100 px-4 py-2 text-[10px] text-slate-400">
+                <span><kbd class="border border-slate-200 rounded px-1 py-0.5 font-mono">↑↓</kbd> navigate</span>
+                <span><kbd class="border border-slate-200 rounded px-1 py-0.5 font-mono">↵</kbd> open</span>
+                <span><kbd class="border border-slate-200 rounded px-1 py-0.5 font-mono">esc</kbd> close</span>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool _isOpen;
+    private string _query = string.Empty;
+    private List<SearchResult> _results = [];
+    private int _selectedIndex;
+    private ElementReference _inputRef;
+    private DotNetObjectReference<SearchDialog>? _dotNetRef;
+    private bool _jsRegistered;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("registerSearchShortcut", _dotNetRef);
+            _jsRegistered = true;
+        }
+
+        if (_isOpen)
+        {
+            await JS.InvokeVoidAsync("focusElement", _inputRef);
+        }
+    }
+
+    [JSInvokable]
+    public void OpenSearch()
+    {
+        Open();
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Open()
+    {
+        _isOpen = true;
+        _query = string.Empty;
+        _results = [];
+        _selectedIndex = 0;
+    }
+
+    private void Close()
+    {
+        _isOpen = false;
+        _query = string.Empty;
+        _results = [];
+        _selectedIndex = 0;
+    }
+
+    private void OnInput(ChangeEventArgs e)
+    {
+        _query = e.Value?.ToString() ?? string.Empty;
+        _results = SearchService.Search(_query);
+        _selectedIndex = 0;
+    }
+
+    private void OnKeyDown(KeyboardEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case "Escape":
+                Close();
+                break;
+            case "ArrowDown":
+                if (_results.Count > 0)
+                    _selectedIndex = (_selectedIndex + 1) % _results.Count;
+                break;
+            case "ArrowUp":
+                if (_results.Count > 0)
+                    _selectedIndex = (_selectedIndex - 1 + _results.Count) % _results.Count;
+                break;
+            case "Enter":
+                if (_results.Count > 0 && _selectedIndex < _results.Count)
+                    NavigateTo(_results[_selectedIndex]);
+                break;
+        }
+    }
+
+    private void NavigateTo(SearchResult result)
+    {
+        Close();
+        NavigationManager.NavigateTo(result.Entry.Route);
+    }
+
+    private static string FormatLanguage(string? language) => language switch
+    {
+        "structured-text" => "ST",
+        "markdown" => "MD",
+        "yaml" => "YAML",
+        "csharp" => "C#",
+        _ => language?.ToUpperInvariant() ?? ""
+    };
+
+    public async ValueTask DisposeAsync()
+    {
+        _dotNetRef?.Dispose();
+    }
+}

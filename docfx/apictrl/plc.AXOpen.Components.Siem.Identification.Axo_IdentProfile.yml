@@ -1,0 +1,1544 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastErrorStatus
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastMoveError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedStatus
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntStatus
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCI
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataTodo
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRecvOffset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statBufLen
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statAdb
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDbn
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTxbuflen
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRxbuflen
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevExecute
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevInit
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevSReset
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFurtherTelegram
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduRepeat
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statEmptyCycle
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSize
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduDetection
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmdSelCounter
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedCounter
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFixChainedCounter
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSqModified
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statWRREC
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRDREC
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTimeout
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmd
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveAdsError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntAdsErrId
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundTxref
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundTxref
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundRxref
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundRxref
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statErrorCounter
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveWrRecError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveRdRecError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntWrRecErrId
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntRdRecErrId
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE0
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE1
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE2
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE3
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE4
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE5
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE6
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE7
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE8
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.PN_CONFIGRECORD_HEADER_LEN
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_READ
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_WRITE
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.ERRID_DEVICE_BUSY
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bDone
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bBusy
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bError
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bWarning
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nStatus
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bRepeatActive
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bErrIreq
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTpc
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTp
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin0
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin1
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin2
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin3
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nTrlen
+  - plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.Run(BOOL,BOOL,BOOL,BOOL,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  name: Axo_IdentProfile
+  fullName: Axo_IdentProfile
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS Axo_IdentProfile
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastErrorStatus
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastErrorStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLastErrorStatus
+  fullName: statLastErrorStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastErrorStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLastErrorStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastMoveError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastMoveError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLastMoveError
+  fullName: statLastMoveError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLastMoveError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLastMoveError : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedStatus
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statChainedStatus
+  fullName: statChainedStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statChainedStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntStatus
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIntStatus
+  fullName: statIntStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIntStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSaveError
+  fullName: statSaveError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSaveError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCI
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCI
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statCI
+  fullName: statCI
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCI
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statCI : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataTodo
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataTodo
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDataTodo
+  fullName: statDataTodo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataTodo
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDataTodo : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDataOffset
+  fullName: statDataOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDataOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDataOffset : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRecvOffset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRecvOffset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statRecvOffset
+  fullName: statRecvOffset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRecvOffset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statRecvOffset : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statBufLen
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statBufLen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statBufLen
+  fullName: statBufLen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statBufLen
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statBufLen : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statAdb
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statAdb
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statAdb
+  fullName: statAdb
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statAdb
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statAdb : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDbn
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDbn
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statDbn
+  fullName: statDbn
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statDbn
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statDbn : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTxbuflen
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTxbuflen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTxbuflen
+  fullName: statTxbuflen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTxbuflen
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTxbuflen : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRxbuflen
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRxbuflen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statRxbuflen
+  fullName: statRxbuflen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRxbuflen
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statRxbuflen : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevExecute
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevExecute
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPrevExecute
+  fullName: statPrevExecute
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevExecute
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPrevExecute : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevInit
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevInit
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPrevInit
+  fullName: statPrevInit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevInit
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPrevInit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevSReset
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevSReset
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPrevSReset
+  fullName: statPrevSReset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPrevSReset
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPrevSReset : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFurtherTelegram
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFurtherTelegram
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statFurtherTelegram
+  fullName: statFurtherTelegram
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFurtherTelegram
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statFurtherTelegram : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduRepeat
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduRepeat
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPduRepeat
+  fullName: statPduRepeat
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduRepeat
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPduRepeat : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statEmptyCycle
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statEmptyCycle
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statEmptyCycle
+  fullName: statEmptyCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statEmptyCycle
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statEmptyCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSize
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSize
+  fullName: statSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSize
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSize : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduDetection
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduDetection
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPduDetection
+  fullName: statPduDetection
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statPduDetection
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPduDetection : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmdSelCounter
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmdSelCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statCmdSelCounter
+  fullName: statCmdSelCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmdSelCounter
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statCmdSelCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedCounter
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statChainedCounter
+  fullName: statChainedCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statChainedCounter
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statChainedCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFixChainedCounter
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFixChainedCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statFixChainedCounter
+  fullName: statFixChainedCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statFixChainedCounter
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statFixChainedCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSqModified
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSqModified
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSqModified
+  fullName: statSqModified
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSqModified
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSqModified : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statWRREC
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statWRREC
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statWRREC
+  fullName: statWRREC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statWRREC
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statWRREC : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRDREC
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRDREC
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statRDREC
+  fullName: statRDREC
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statRDREC
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statRDREC : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTimeout
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTimeout
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statTimeout
+  fullName: statTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statTimeout
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statTimeout : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmd
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmd
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statCmd
+  fullName: statCmd
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statCmd
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statCmd : AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT'
+    return:
+      type: AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveAdsError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveAdsError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSaveAdsError
+  fullName: statSaveAdsError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveAdsError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSaveAdsError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntAdsErrId
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntAdsErrId
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIntAdsErrId
+  fullName: statIntAdsErrId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntAdsErrId
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIntAdsErrId : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundTxref
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundTxref
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLowerBoundTxref
+  fullName: statLowerBoundTxref
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundTxref
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLowerBoundTxref : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundTxref
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundTxref
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statUpperBoundTxref
+  fullName: statUpperBoundTxref
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundTxref
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statUpperBoundTxref : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundRxref
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundRxref
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statLowerBoundRxref
+  fullName: statLowerBoundRxref
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statLowerBoundRxref
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statLowerBoundRxref : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundRxref
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundRxref
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statUpperBoundRxref
+  fullName: statUpperBoundRxref
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statUpperBoundRxref
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statUpperBoundRxref : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statErrorCounter
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statErrorCounter
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statErrorCounter
+  fullName: statErrorCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statErrorCounter
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statErrorCounter : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveWrRecError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveWrRecError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSaveWrRecError
+  fullName: statSaveWrRecError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveWrRecError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSaveWrRecError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveRdRecError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveRdRecError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSaveRdRecError
+  fullName: statSaveRdRecError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statSaveRdRecError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSaveRdRecError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntWrRecErrId
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntWrRecErrId
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIntWrRecErrId
+  fullName: statIntWrRecErrId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntWrRecErrId
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIntWrRecErrId : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntRdRecErrId
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntRdRecErrId
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIntRdRecErrId
+  fullName: statIntRdRecErrId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.statIntRdRecErrId
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIntRdRecErrId : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE0
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE0
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE0
+  fullName: STATE0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE0
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE0 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE1
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE1
+  fullName: STATE1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE1
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE1 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE2
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE2
+  fullName: STATE2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE2
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE2 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE3
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE3
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE3
+  fullName: STATE3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE3
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE3 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE4
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE4
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE4
+  fullName: STATE4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE4
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE4 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE5
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE5
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE5
+  fullName: STATE5
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE5
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE5 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE6
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE6
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE6
+  fullName: STATE6
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE6
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE6 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE7
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE7
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE7
+  fullName: STATE7
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE7
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE7 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE8
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE8
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE8
+  fullName: STATE8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.STATE8
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE8 : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.PN_CONFIGRECORD_HEADER_LEN
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.PN_CONFIGRECORD_HEADER_LEN
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: PN_CONFIGRECORD_HEADER_LEN
+  fullName: PN_CONFIGRECORD_HEADER_LEN
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.PN_CONFIGRECORD_HEADER_LEN
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'PN_CONFIGRECORD_HEADER_LEN : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_READ
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_READ
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: REC_READ
+  fullName: REC_READ
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_READ
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'REC_READ : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_WRITE
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_WRITE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: REC_WRITE
+  fullName: REC_WRITE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.REC_WRITE
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'REC_WRITE : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.ERRID_DEVICE_BUSY
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.ERRID_DEVICE_BUSY
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ERRID_DEVICE_BUSY
+  fullName: ERRID_DEVICE_BUSY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.ERRID_DEVICE_BUSY
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ERRID_DEVICE_BUSY : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bDone
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bDone
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bDone
+  fullName: bDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bDone
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bBusy
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bBusy
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bBusy
+  fullName: bBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bBusy
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bError
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bError
+  fullName: bError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bError
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bWarning
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bWarning
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bWarning
+  fullName: bWarning
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bWarning
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bWarning : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nStatus
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nStatus
+  fullName: nStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nStatus
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 70
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bRepeatActive
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bRepeatActive
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bRepeatActive
+  fullName: bRepeatActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bRepeatActive
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 71
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bRepeatActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bErrIreq
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bErrIreq
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bErrIreq
+  fullName: bErrIreq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bErrIreq
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bErrIreq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTpc
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTpc
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bTpc
+  fullName: bTpc
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTpc
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bTpc : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTp
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTp
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bTp
+  fullName: bTp
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bTp
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bTp : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin0
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin0
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bUin0
+  fullName: bUin0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin0
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 75
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bUin0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin1
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bUin1
+  fullName: bUin1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin1
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bUin1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin2
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bUin2
+  fullName: bUin2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin2
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bUin2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin3
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin3
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: bUin3
+  fullName: bUin3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.bUin3
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'bUin3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nTrlen
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nTrlen
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: nTrlen
+  fullName: nTrlen
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.nTrlen
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 79
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'nTrlen : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.Run(BOOL,BOOL,BOOL,BOOL,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.Run(BOOL,BOOL,BOOL,BOOL,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT,REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Siem.Identification.Axo_IdentProfile
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.Axo_IdentProfile.Run
+    path: .\src\components.siem.identification\ctrl\src\IdentProfile\Axo_IdentProfile.st
+    startLine: 83
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.BOOL Execute,in plc.BOOL RepeatCommand,in plc.BOOL SoftReset,in plc.BOOL Init,in plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT refHwConnect,in plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT refCmd,in plc.REF_TO ARRAY [*] OF BYTE refTx,in plc.REF_TO ARRAY [*] OF BYTE refRx)
+    parameters:
+    - id: Execute
+      type: plc.BOOL
+    - id: RepeatCommand
+      type: plc.BOOL
+    - id: SoftReset
+      type: plc.BOOL
+    - id: Init
+      type: plc.BOOL
+    - id: refHwConnect
+      type: plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+    - id: refCmd
+      type: plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+    - id: refTx
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refRx
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+references:
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  name: Axo_IID_CMD_STRUCT
+  nameWithType: Axo_IID_CMD_STRUCT
+  fullName: AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  name: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  nameWithType: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+  fullName: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_HW_CONNECT
+- uid: plc.REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  name: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  nameWithType: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+  fullName: REF_TO AXOpen.Components.Siem.Identification.Axo_IID_CMD_STRUCT
+- uid: plc.REF_TO ARRAY [*] OF BYTE
+  name: REF_TO ARRAY [*] OF BYTE
+  nameWithType: REF_TO ARRAY [*] OF BYTE
+  fullName: REF_TO ARRAY [*] OF BYTE
+
+

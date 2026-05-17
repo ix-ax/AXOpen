@@ -135,6 +135,7 @@
         {
             <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full h-full">
                 <div @onpointermove="Move"
+                     @onpointerup="Up"
                      @onpointerleave="Leave" class="w-full h-full">
                     <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
                         @* <div id="@_backgroundId" class="w-full h-full">
@@ -177,6 +178,12 @@
                 <div class="modal-body">
                     <div class="flex flex-wrap items-center">
                         <BaseInput @bind-Value="_searchValue" Placeholder="Search" Class="flex-1" />
+                        <select class="select w-auto" value="@_controllerObjectsFilterMode" @onchange="@((args) => _controllerObjectsFilterMode = Enum.Parse<FilterMode>((string)args.Value))">
+                            @foreach (var mode in Enum.GetValues(typeof(FilterMode)).Cast<FilterMode>())
+                            {
+                                <option value="@mode">@mode.ToDisplayString()</option>
+                            }
+                        </select>
                         @if (!string.IsNullOrEmpty(_searchValue))
                         {
                             <div class="mx-2 cursor-pointer" @onclick="ToggleControllerObjectsSort">
@@ -196,37 +203,33 @@
                     }
                     else
                     {
-                        @foreach (var item in _searchResult)
+                        @foreach (var item in GetPagedSearchResult())
                         {
                             @if (!CurrentView.IsWatchTable || item is ITwinPrimitive)
                             {
-                                <div class="flex flex-wrap items-center mx-4 gap-2">
-                                    @if (item is ITwinObject)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
-                                    else if (item is ITwinPrimitive)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
+                                <div class="flex flex-wrap items-center mx-4 gap-4">
+                                    <a @onclick="() => AddItemAsync(item)">
+                                        <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    </a>
 
                                     <p class="truncate me-auto">@item.Symbol</p>
                                     @if (item is ITwinPrimitive)
                                     {
                                         <p>@(((dynamic)item).Cyclic)</p>
                                     }
-                                    <a @onclick="() => AddItemAsync(item)">
-                                        <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    </a>
                                 </div>
                             }
+                        }
+                        @if (_searchResultTotalCount > 0)
+                        {
+                            <Pagination Count="@_searchResultTotalCount" @bind-Selected="_searchResultPage" @bind-PageSize="_searchResultPageSize" ShowPages="true" ShowShowing="true" ShowPageSize="true" />
                         }
                     }
                 </div>
                 <div class="modal-footer flex justify-end gap-1 items-center">
                     <div class="btn-group">
-                        <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="() => _useOption = !_useOption">Options</button>
-                        <button class="btn btn-outline-primary" @onclick="() => _modalControllerObjectsOptions.Toggle()">
+                        <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="async () => { _useOption = !_useOption; await SaveOptionsAsync(); }">Options</button>
+                        <button class="btn btn-outline-primary" @onclick="async () => { _modalControllerObjectsOptions.Toggle(); await LoadOptionsAsync(); }">
                             <Operon.Icons.HeroIcon Icon="chevron-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                         </button>
                     </div>
@@ -237,7 +240,7 @@
             <Modal @ref="_modalControllerObjectsOptions">
                 <div class="modal-header">
                     <h4>Controller objects options</h4>
-                    <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjectsOptions.CloseModal()">
+                    <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalControllerObjectsOptions.CloseModal(); await SaveOptionsAsync(); }">
                         <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                     </button>
                 </div>
@@ -330,7 +333,7 @@
                     <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
                 </div>
                 <div class="modal-footer flex justify-end gap-1 items-center">
-                    <button class="btn btn-outline-red" @onclick="() => _modalControllerObjectsOptions.CloseModal()">Close</button>
+                    <button class="btn btn-outline-red" @onclick="async () => { _modalControllerObjectsOptions.CloseModal(); await SaveOptionsAsync(); }">Close</button>
                 </div>
             </Modal>
 

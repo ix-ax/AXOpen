@@ -1,0 +1,391 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+  parent: plc.AXOpen.Components.Balluff.Identification
+  children:
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_CodeTagPresent
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobAccepted
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobEnd
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobError
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Reserve0
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_ToggleBit
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_HeadFailure
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Power
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.Data
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_CodeTagPresent
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobAccepted
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobEnd
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobError
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Reserve0
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_ToggleBit
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_HeadFailure
+  - plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Power
+  name: Axo_BIS_M_4XX_045_State
+  fullName: Axo_BIS_M_4XX_045_State
+  type: Class
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: CLASS Axo_BIS_M_4XX_045_State
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_CodeTagPresent
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_CodeTagPresent
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_CodeTagPresent
+  fullName: BitHeader1_CodeTagPresent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_CodeTagPresent
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_CodeTagPresent : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobAccepted
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobAccepted
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_JobAccepted
+  fullName: BitHeader1_JobAccepted
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobAccepted
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_JobAccepted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobEnd
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobEnd
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_JobEnd
+  fullName: BitHeader1_JobEnd
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobEnd
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_JobEnd : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobError
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobError
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_JobError
+  fullName: BitHeader1_JobError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_JobError
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_JobError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Reserve0
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Reserve0
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_Reserve0
+  fullName: BitHeader1_Reserve0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Reserve0
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_Reserve0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_ToggleBit
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_ToggleBit
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_ToggleBit
+  fullName: BitHeader1_ToggleBit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_ToggleBit
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_ToggleBit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_HeadFailure
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_HeadFailure
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_HeadFailure
+  fullName: BitHeader1_HeadFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_HeadFailure
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_HeadFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Power
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Power
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader1_Power
+  fullName: BitHeader1_Power
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader1_Power
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader1_Power : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.Data
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.Data
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.Data
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'Data : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_CodeTagPresent
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_CodeTagPresent
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_CodeTagPresent
+  fullName: BitHeader2_CodeTagPresent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_CodeTagPresent
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_CodeTagPresent : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobAccepted
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobAccepted
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_JobAccepted
+  fullName: BitHeader2_JobAccepted
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobAccepted
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_JobAccepted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobEnd
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobEnd
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_JobEnd
+  fullName: BitHeader2_JobEnd
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobEnd
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_JobEnd : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobError
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobError
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_JobError
+  fullName: BitHeader2_JobError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_JobError
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_JobError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Reserve0
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Reserve0
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_Reserve0
+  fullName: BitHeader2_Reserve0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Reserve0
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_Reserve0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_ToggleBit
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_ToggleBit
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_ToggleBit
+  fullName: BitHeader2_ToggleBit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_ToggleBit
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_ToggleBit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_HeadFailure
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_HeadFailure
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_HeadFailure
+  fullName: BitHeader2_HeadFailure
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_HeadFailure
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_HeadFailure : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Power
+  id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Power
+  parent: AXOpen.Components.Balluff.Identification
+  children: []
+  name: BitHeader2_Power
+  fullName: BitHeader2_Power
+  type: Property
+  source:
+    remote:
+      path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045_State.BitHeader2_Power
+    path: .\src\components.balluff.identification\ctrl\src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Balluff.Identification
+  syntax:
+    content: 'BitHeader2_Power : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+
+

@@ -1,0 +1,118 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.InfoTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.ErrorTime
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.TaskTimeout
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.HWIDs
+  name: Axo_IQ_SeriesWelder_Config
+  fullName: Axo_IQ_SeriesWelder_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.InfoTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.InfoTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.InfoTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.ErrorTime
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.ErrorTime
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.ErrorTime
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.TaskTimeout
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.TaskTimeout
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.TaskTimeout
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.HWIDs
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.HWIDs
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Config.HWIDs
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs'
+    return:
+      type: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+  name: Axo_IQ_SeriesWelder_HWIDs
+  nameWithType: Axo_IQ_SeriesWelder_HWIDs
+  fullName: AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_HWIDs
+
+

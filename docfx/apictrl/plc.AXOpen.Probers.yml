@@ -1,0 +1,30 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Probers
+  id: plc.AXOpen.Probers
+  children:
+  - plc.AXOpen.Probers.AxoProberWithCounterBase
+  - plc.AXOpen.Probers.AxoProberWithCompletedCondition
+  name: plc.AXOpen.Probers
+  fullName: Probers
+  type: Namespace
+  source:
+    remote:
+      path: .\src\probers\ctrl\src\Probers\AxoProber.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Probers
+    path: .\src\probers\ctrl\src\Probers\AxoProber.st
+    startLine: 0
+  namespace: plc.AXOpen.Probers
+references:
+- uid: plc.AXOpen.Probers.AxoProberWithCounterBase
+  name: AxoProberWithCounterBase
+  nameWithType: AxoProberWithCounterBase
+  fullName: AXOpen.Probers.AxoProberWithCounterBase
+- uid: plc.AXOpen.Probers.AxoProberWithCompletedCondition
+  name: AxoProberWithCompletedCondition
+  nameWithType: AxoProberWithCompletedCondition
+  fullName: AXOpen.Probers.AxoProberWithCompletedCondition
+
+

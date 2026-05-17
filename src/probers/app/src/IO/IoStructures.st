@@ -1,3 +1,0 @@
-﻿NAMESPACE AXOpen.Probers
-END_NAMESPACE
-

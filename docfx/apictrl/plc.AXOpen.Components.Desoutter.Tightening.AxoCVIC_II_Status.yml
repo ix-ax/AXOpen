@@ -1,0 +1,198 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+  parent: plc.AXOpen.Components.Desoutter.Tightening
+  children:
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit1
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit2
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit4
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Ready
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.InCycle
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Passed
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Failed
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.NumberOfCyclesOk
+  name: AxoCVIC_II_Status
+  fullName: AxoCVIC_II_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: CLASS AxoCVIC_II_Status
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit1
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit1
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: CycleBit1
+  fullName: CycleBit1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit1
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'CycleBit1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit2
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit2
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: CycleBit2
+  fullName: CycleBit2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit2
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'CycleBit2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit4
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit4
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: CycleBit4
+  fullName: CycleBit4
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.CycleBit4
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'CycleBit4 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Ready
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Ready
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Ready
+  fullName: Ready
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Ready
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Ready : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.InCycle
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.InCycle
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: InCycle
+  fullName: InCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.InCycle
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'InCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Passed
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Passed
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Passed
+  fullName: Passed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Passed
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Passed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Failed
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Failed
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Failed
+  fullName: Failed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.Failed
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Failed : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.NumberOfCyclesOk
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.NumberOfCyclesOk
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: NumberOfCyclesOk
+  fullName: NumberOfCyclesOk
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status.NumberOfCyclesOk
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_Status.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'NumberOfCyclesOk : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

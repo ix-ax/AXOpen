@@ -1,0 +1,51 @@
+@using AXOpen.Core
+@using showcase.Services
+
+@{
+	bool   isActive  = LiveStep?.IsActive.Cyclic  ?? false;
+	bool   isEnabled = LiveStep?.IsEnabled.Cyclic ?? false;
+	ulong  order     = LiveStep?.Order.Cyclic     ?? 0;
+	string descr     = LiveStep?.Descr.Cyclic     ?? string.Empty;
+}
+
+<details class="rounded border @(isActive ? "border-cyan-400 bg-cyan-50" : "border-slate-200 bg-slate-50")"
+         open="@isActive">
+	<summary class="cursor-pointer px-3 py-2 text-sm font-medium @(isActive ? "text-cyan-900" : "text-slate-800") flex flex-wrap items-center gap-2">
+		<span>Step @Step.StepNumber — @Step.Title</span>
+		@if (isActive)
+		{
+			<span class="rounded-full px-2 py-0.5 text-xs font-semibold bg-cyan-500 text-white">ACTIVE</span>
+		}
+		else if (!isEnabled && LiveStep != null)
+		{
+			<span class="rounded-full px-2 py-0.5 text-xs font-medium bg-slate-200 text-slate-500">DISABLED</span>
+		}
+		@if (LiveStep != null && order > 0)
+		{
+			<span class="text-xs text-slate-400 font-normal">order: @order</span>
+		}
+		<span class="ml-auto text-xs text-slate-400 font-normal">(lines @Step.StartLine–@Step.EndLine)</span>
+	</summary>
+
+	@if (LiveStep != null)
+	{
+		<div class="px-3 py-2 border-b @(isActive ? "border-cyan-200 bg-cyan-100/40" : "border-slate-200 bg-white/60") flex flex-wrap gap-x-6 gap-y-1 text-xs text-slate-600">
+			<span><span class="font-medium">Order:</span> @order</span>
+			<span><span class="font-medium">Active:</span> @(isActive ? "yes" : "no")</span>
+			<span><span class="font-medium">Enabled:</span> @(isEnabled ? "yes" : "no")</span>
+			@if (!string.IsNullOrWhiteSpace(descr))
+			{
+				<span><span class="font-medium">Description:</span> @descr</span>
+			}
+		</div>
+	}
+
+	<div class="px-3 pb-3 pt-2">
+		<CodeBlock Content="@Step.Logic" Language="language-iecst" MaxHeight="18rem" />
+	</div>
+</details>
+
+@code {
+	[Parameter] public StepLogicBlock Step     { get; set; } = default!;
+	[Parameter] public AxoStep?       LiveStep { get; set; }
+}

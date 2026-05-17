@@ -1,0 +1,189 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadREAL
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadLINT
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadBOOL
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Busy
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Done
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Error
+  - plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ErrorId
+  name: AxoPROFIdriveParametrizationOut
+  fullName: AxoPROFIdriveParametrizationOut
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoPROFIdriveParametrizationOut
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadREAL
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadREAL
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ValueReadREAL
+  fullName: ValueReadREAL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadREAL
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ValueReadREAL : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadLINT
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadLINT
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ValueReadLINT
+  fullName: ValueReadLINT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadLINT
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ValueReadLINT : LINT'
+    return:
+      type: LINT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadBOOL
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadBOOL
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ValueReadBOOL
+  fullName: ValueReadBOOL
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ValueReadBOOL
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ValueReadBOOL : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Busy
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Busy
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Busy
+  fullName: Busy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Busy
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Busy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Done
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Done
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Done
+  fullName: Done
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Done
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Done : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Error
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Error
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.Error
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ErrorId
+  id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ErrorId
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: ErrorId
+  fullName: ErrorId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoPROFIdriveParametrizationOut.ErrorId
+    path: .\src\components.festo.drives\ctrl\src\PROFIdrive\AxoPROFIdriveParametrizationOut.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'ErrorId : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.LINT
+  name: LINT
+  nameWithType: LINT
+  fullName: LINT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

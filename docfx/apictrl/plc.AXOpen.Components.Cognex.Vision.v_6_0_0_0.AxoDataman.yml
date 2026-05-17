@@ -1,0 +1,1405 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._progress
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._infoTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._errorTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inspectionCompleted
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_in
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._jobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._softEventNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataChanged
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._invalidDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_1
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_16
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_32
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_64
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_128
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_250
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._initHwCheckDone
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._retval
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._geoAddr
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outHwid
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._startAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._bytesCount
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsCount
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsAddress
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsCount
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Messenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.TaskMessenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.CallTimers(BOOL)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  name: AxoDataman
+  fullName: AxoDataman
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoDataman
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _UserDataSize
+  fullName: _UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_UserDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _ResultDataSize
+  fullName: _ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_ResultDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._progress
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._progress
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._progress
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._infoTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._infoTimer
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._infoTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._errorTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._errorTimer
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._errorTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inspectionCompleted
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inspectionCompleted
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _inspectionCompleted
+  fullName: _inspectionCompleted
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inspectionCompleted
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_inspectionCompleted : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_in
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_in
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_in
+  fullName: _data_in
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_in
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_in : ARRAY [0..254] OF BYTE'
+    return:
+      type: ARRAY [0..254] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._jobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._jobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _jobNumber
+  fullName: _jobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._jobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_jobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._softEventNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._softEventNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _softEventNumber
+  fullName: _softEventNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._softEventNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_softEventNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataChanged
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataChanged
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _UserDataChanged
+  fullName: _UserDataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._UserDataChanged
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_UserDataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._invalidDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._invalidDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _invalidDataSize
+  fullName: _invalidDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._invalidDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_invalidDataSize : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_1
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_1
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_1
+  fullName: _data_1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_1
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_1 : ARRAY [0..0] OF BYTE'
+    return:
+      type: ARRAY [0..0] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_16
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_16
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_16
+  fullName: _data_16
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_16
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_16 : ARRAY [0..15] OF BYTE'
+    return:
+      type: ARRAY [0..15] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_32
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_32
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_32
+  fullName: _data_32
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_32
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_32 : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_64
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_64
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_64
+  fullName: _data_64
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_64
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_64 : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_128
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_128
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_128
+  fullName: _data_128
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_128
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_128 : ARRAY [0..127] OF BYTE'
+    return:
+      type: ARRAY [0..127] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_250
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_250
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _data_250
+  fullName: _data_250
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._data_250
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_data_250 : ARRAY [0..249] OF BYTE'
+    return:
+      type: ARRAY [0..249] OF BYTE
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._initHwCheckDone
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._initHwCheckDone
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._initHwCheckDone
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._retval
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._retval
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._retval
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._geoAddr
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._geoAddr
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._geoAddr
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outHwid
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outHwid
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outHwid
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._startAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._startAddress
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _startAddress
+  fullName: _startAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._startAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_startAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._bytesCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._bytesCount
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _bytesCount
+  fullName: _bytesCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._bytesCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_bytesCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsAddress
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsCount
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._inputsCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsAddress
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsAddress
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsAddress
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsCount
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsCount
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._outputsCount
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ReadTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultData
+  fullName: ResultData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ClearResultDataTask
+  fullName: ClearResultDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ClearResultDataTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Config : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Status : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Results : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionControl
+  fullName: AcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 85
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionStatus
+  fullName: AcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsControl
+  fullName: ResultsControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 99
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsStatus
+  fullName: ResultsStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventControl
+  fullName: SoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventStatus
+  fullName: SoftEventStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: User
+  fullName: User
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 128
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'User : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UserData
+  fullName: UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 134
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UserData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.HardwareDiagnosticsTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 141
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Messenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Messenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Messenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.TaskMessenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.TaskMessenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.TaskMessenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ClearResultData
+  fullName: ClearResultData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1030
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearResultData()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1032
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.CallTimers(BOOL)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.CallTimers
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1038
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1044
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID ContinuousReading()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1083
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 1088
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  commentId: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  name: IAxoCodeReader
+  nameWithType: IAxoCodeReader
+  fullName: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  parent: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+  name: eAxoDataman_UserDataSize
+  nameWithType: eAxoDataman_UserDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+  name: eAxoDataman_ResultDataSize
+  nameWithType: eAxoDataman_ResultDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ARRAY [0..254] OF BYTE
+  name: ARRAY [0..254] OF BYTE
+  nameWithType: ARRAY [0..254] OF BYTE
+  fullName: ARRAY [0..254] OF BYTE
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.ARRAY [0..0] OF BYTE
+  name: ARRAY [0..0] OF BYTE
+  nameWithType: ARRAY [0..0] OF BYTE
+  fullName: ARRAY [0..0] OF BYTE
+- uid: plc.ARRAY [0..15] OF BYTE
+  name: ARRAY [0..15] OF BYTE
+  nameWithType: ARRAY [0..15] OF BYTE
+  fullName: ARRAY [0..15] OF BYTE
+- uid: plc.ARRAY [0..31] OF BYTE
+  name: ARRAY [0..31] OF BYTE
+  nameWithType: ARRAY [0..31] OF BYTE
+  fullName: ARRAY [0..31] OF BYTE
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+- uid: plc.ARRAY [0..127] OF BYTE
+  name: ARRAY [0..127] OF BYTE
+  nameWithType: ARRAY [0..127] OF BYTE
+  fullName: ARRAY [0..127] OF BYTE
+- uid: plc.ARRAY [0..249] OF BYTE
+  name: ARRAY [0..249] OF BYTE
+  nameWithType: ARRAY [0..249] OF BYTE
+  fullName: ARRAY [0..249] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+  name: AxoDataman_ResultData
+  nameWithType: AxoDataman_ResultData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+  name: AxoDataman_Config
+  nameWithType: AxoDataman_Config
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+  name: AxoDataman_Status
+  nameWithType: AxoDataman_Status
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  name: AxoDataman_Results
+  nameWithType: AxoDataman_Results
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+  name: AxoDataman_AcquisitionControl
+  nameWithType: AxoDataman_AcquisitionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+  name: AxoDataman_AcquisitionStatus
+  nameWithType: AxoDataman_AcquisitionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+  name: AxoDataman_ResultsControl
+  nameWithType: AxoDataman_ResultsControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+  name: AxoDataman_ResultsStatus
+  nameWithType: AxoDataman_ResultsStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+  name: AxoDataman_SoftEventControl
+  nameWithType: AxoDataman_SoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+  name: AxoDataman_SoftEventStatus
+  nameWithType: AxoDataman_SoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+  name: AxoDataman_User
+  nameWithType: AxoDataman_User
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+  name: AxoDataman_UserData
+  nameWithType: AxoDataman_UserData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

@@ -1,0 +1,36 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Utils.AxoCRC_16(STRING[254])
+  id: plc.AXOpen.Utils.AxoCRC_16(STRING[254])
+  parent: AXOpen.Utils
+  children: []
+  name: AxoCRC_16
+  fullName: AxoCRC_16
+  type: Delegate
+  source:
+    remote:
+      path: .\src\utils\ctrl\src\AXOpenUtils\AxoCRC_16.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Utils.AxoCRC_16
+    path: .\src\utils\ctrl\src\AXOpenUtils\AxoCRC_16.st
+    startLine: 4
+  namespace: plc.AXOpen.Utils
+  syntax:
+    content: Public WORD AxoCRC_16(in plc.STRING[254] In)
+    parameters:
+    - id: In
+      type: plc.STRING[254]
+    return:
+      type: plc.WORD
+references:
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+

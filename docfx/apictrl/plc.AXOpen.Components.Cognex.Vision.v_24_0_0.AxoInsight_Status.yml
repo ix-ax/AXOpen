@@ -1,0 +1,91 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+  parent: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobName
+  - plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobNumber
+  name: AxoInsight_Status
+  fullName: AxoInsight_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: CLASS AxoInsight_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobName
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobName
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: CurrentJobName
+  fullName: CurrentJobName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobName
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'CurrentJobName : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_24_0_0
+  children: []
+  name: CurrentJobNumber
+  fullName: CurrentJobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_Status.CurrentJobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_24_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_24_0_0
+  syntax:
+    content: 'CurrentJobNumber : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

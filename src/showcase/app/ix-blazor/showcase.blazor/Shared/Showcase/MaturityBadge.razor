@@ -1,0 +1,41 @@
+@*
+    MaturityBadge.razor — Displays component maturity status from COMPONENTS_MATURITY.md.
+
+    Usage:
+      <MaturityBadge ComponentName="Pneumatics" />
+*@
+@using showcase.Services
+@inject ComponentMaturityService MaturityService
+
+<div class="flex items-center gap-3 text-xs">
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(_maturity.Implemented)">●</span>
+        <span class="text-slate-500">Implemented</span>
+    </span>
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(_maturity.Tested)">●</span>
+        <span class="text-slate-500">Tested</span>
+    </span>
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(_maturity.BattleTested)">●</span>
+        <span class="text-slate-500">Battle Tested</span>
+    </span>
+</div>
+
+@code {
+    [Parameter] public string ComponentName { get; set; }
+
+    private MaturityInfo _maturity = new("red", "red", "red");
+
+    protected override void OnParametersSet()
+    {
+        _maturity = MaturityService.GetMaturity(ComponentName);
+    }
+
+    private static string DotClass(string level) => level?.ToLowerInvariant() switch
+    {
+        "green" => "text-emerald-500",
+        "yellow" => "text-amber-400",
+        _ => "text-red-400"
+    };
+}

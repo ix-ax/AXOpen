@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN1_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN2_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT1_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT2_Status
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT3_Status
+  name: Axo_SR_1000_TerminalStatus
+  fullName: Axo_SR_1000_TerminalStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_1000_TerminalStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN1_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN1_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: IN1_Status
+  fullName: IN1_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN1_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'IN1_Status : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN2_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN2_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: IN2_Status
+  fullName: IN2_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.IN2_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'IN2_Status : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT1_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT1_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OUT1_Status
+  fullName: OUT1_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT1_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OUT1_Status : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT2_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT2_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OUT2_Status
+  fullName: OUT2_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT2_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OUT2_Status : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT3_Status
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT3_Status
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: OUT3_Status
+  fullName: OUT3_Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_TerminalStatus.OUT3_Status
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'OUT3_Status : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

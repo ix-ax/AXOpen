@@ -1,0 +1,269 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  - plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  name: AxoTaskStateSatisfied
+  fullName: AxoTaskStateSatisfied
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 0
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoTaskStateSatisfied
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+  parent: AXOpen.Core
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.Status
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Status : AXOpen.Core.eAxoTaskState'
+    return:
+      type: AXOpen.Core.eAxoTaskState
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+  parent: AXOpen.Core
+  children: []
+  name: ErrorDetails
+  fullName: ErrorDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.ErrorDetails
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'ErrorDetails : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState)
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: Satisfy
+  fullName: Satisfy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Satisfy(in plc.AXOpen.Core.eAxoTaskState inStatus)
+    parameters:
+    - id: inStatus
+      type: plc.AXOpen.Core.eAxoTaskState
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy(eAxoTaskState,STRING[254])
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: Satisfy
+  fullName: Satisfy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.Satisfy
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 21
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Satisfy(in plc.AXOpen.Core.eAxoTaskState inStatus,in plc.STRING[254] inErrorDetails)
+    parameters:
+    - id: inStatus
+      type: plc.AXOpen.Core.eAxoTaskState
+    - id: inErrorDetails
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: IsReady
+  fullName: IsReady
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsReady
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 35
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsReady()
+    parameters: &o1 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: IsDone
+  fullName: IsDone
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsDone
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 42
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsDone()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: IsBusy
+  fullName: IsBusy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsBusy
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 49
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsBusy()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: IsAborted
+  fullName: IsAborted
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.IsAborted
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 56
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsAborted()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: HasError
+  fullName: HasError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.HasError
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 63
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL HasError()
+    parameters: *o1
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  id: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails()
+  parent: AXOpen.Core.AxoTaskStateSatisfied
+  children: []
+  name: GetErrorDetails
+  fullName: GetErrorDetails
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.AxoTaskStateSatisfied.GetErrorDetails
+    path: .\src\core\ctrl\src\AxoTask\AxoTaskStateSatisfied.st
+    startLine: 70
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public STRING[254] GetErrorDetails()
+    parameters: *o1
+    return:
+      type: plc.STRING[254]
+references:
+- uid: plc.AXOpen.Core.IAxoTaskState
+  commentId: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: plc.AXOpen.Core.IAxoTaskState
+  parent: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.eAxoTaskState
+  name: eAxoTaskState
+  nameWithType: eAxoTaskState
+  fullName: AXOpen.Core.eAxoTaskState
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+
