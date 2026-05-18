@@ -1,0 +1,19 @@
+<button class="@(Mono ? "font-mono " : "")text-xs text-cyan-700 hover:underline cursor-pointer text-left w-full truncate block"
+        @onclick="HandleClickAsync"
+        title="@Path">@(Label ?? Path)</button>
+
+@code {
+	/// <summary>Repo-relative file path, passed back via OnOpen.</summary>
+	[Parameter] public string Path { get; set; } = string.Empty;
+
+	/// <summary>Optional display label. Defaults to the full path.</summary>
+	[Parameter] public string? Label { get; set; }
+
+	/// <summary>Use monospace font for the label (default: true).</summary>
+	[Parameter] public bool Mono { get; set; } = true;
+
+	/// <summary>Fired with the path when the user clicks.</summary>
+	[Parameter] public EventCallback<string> OnOpen { get; set; }
+
+	private Task HandleClickAsync() => OnOpen.InvokeAsync(Path);
+}

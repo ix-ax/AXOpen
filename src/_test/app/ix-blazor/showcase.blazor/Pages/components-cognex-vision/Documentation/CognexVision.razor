@@ -1,0 +1,1070 @@
+@page "/components-cognex-vision/Documentation/CognexVision"
+@using AXOpen.Components.Cognex.Vision
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+<PageTitle>Cognex Vision - Documentation</PageTitle>
+<SourceViewerModal @ref="_modal" />
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Cognex Vision Documentation</span>
+	</nav>
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Cognex.Vision</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Cognex Vision Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			This page combines runnable command widgets, live component status, and direct links to PLC source files.
+			Use it as a practical reference for integrating Cognex vision systems in SIMATIC AX applications.
+		</p>
+	</header>
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Vision</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> Cognex</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoInsight v6, AxoInsight v24, AxoDataman (2), AxoVisionPro</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">cognex_vision_documentation</span></li>
+				</ul>
+			</section>
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent3Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent4Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent5Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+			<LibraryResources VendorName="Cognex" VendorUrl="https://www.cognex.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoInsight v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoDataman v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoInsight v24 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent4DocPath" Label="AxoVisionPro — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice4TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightV6StPath"  OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightV24StPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+			</LibraryResources>
+		</aside>
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoInsight 7600">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex Insight v_24_0_0" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp1DeclarationSnippet != null && !_comp1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp1InitSnippet != null && !_comp1InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight7600Device&gt; region
+												</p>
+												@if (_hwc1DeviceInstanceSnippet != null && !_hwc1DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice1TemplatePath" Label="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight7600Template&gt; region
+												</p>
+												@if (_hwc1DeviceTemplateSnippet != null && !_hwc1DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight7600IoSystem&gt; region
+												</p>
+												@if (_hwc1IoSystemSnippet != null && !_hwc1IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer" />
+											@if (_c1StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c1StepLogicBlocks)
+													{
+														_c1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+						<TabPage Title="AxoDataman 280">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex Insight v_24_0_0" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp2DeclarationSnippet != null && !_comp2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp2InitSnippet != null && !_comp2InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman280Device&gt; region
+												</p>
+												@if (_hwc2DeviceInstanceSnippet != null && !_hwc2DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice2TemplatePath" Label="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman280Template&gt; region
+												</p>
+												@if (_hwc2DeviceTemplateSnippet != null && !_hwc2DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman280IoSystem&gt; region
+												</p>
+												@if (_hwc2IoSystemSnippet != null && !_hwc2IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer" />
+											@if (_c2StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c2StepLogicBlocks)
+													{
+														_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+						<TabPage Title="AxoDataman 380">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex Insight v_24_0_0" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp3DeclarationSnippet != null && !_comp3DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp3DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp3InitSnippet != null && !_comp3InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp3InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman380Device&gt; region
+												</p>
+												@if (_hwc3DeviceInstanceSnippet != null && !_hwc3DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice3TemplatePath" Label="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman380Template&gt; region
+												</p>
+												@if (_hwc3DeviceTemplateSnippet != null && !_hwc3DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexDataman380IoSystem&gt; region
+												</p>
+												@if (_hwc3IoSystemSnippet != null && !_hwc3IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer" />
+											@if (_c3StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c3StepLogicBlocks)
+													{
+														_c3StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+						<TabPage Title="AxoInsight 2800">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex Insight v_24_0_0" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent4Path" Label="@_plcComponent4Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp4DeclarationSnippet != null && !_comp4DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp4DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent4Path" Label="@_plcComponent4Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp4InitSnippet != null && !_comp4InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp4InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight2800Device&gt; region
+												</p>
+												@if (_hwc4DeviceInstanceSnippet != null && !_hwc4DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc4DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice4TemplatePath" Label="@_hwcDevice4TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight2800Template&gt; region
+												</p>
+												@if (_hwc4DeviceTemplateSnippet != null && !_hwc4DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc4DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexInsight2800IoSystem&gt; region
+												</p>
+												@if (_hwc4IoSystemSnippet != null && !_hwc4IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc4IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer" />
+											@if (_c4StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c4StepLogicBlocks)
+													{
+														_c4StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+						<TabPage Title="AxoVisionPro">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex Insight v_24_0_0" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent5Path" Label="@_plcComponent5Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp5DeclarationSnippet != null && !_comp5DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp5DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent5Path" Label="@_plcComponent5Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp5InitSnippet != null && !_comp5InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp5InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexVisionProDevice&gt; region
+												</p>
+												@if (_hwc5DeviceInstanceSnippet != null && !_hwc5DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc5DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice5TemplatePath" Label="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;CognexVisionProTemplate&gt; region
+												</p>
+												@if (_hwc5DeviceTemplateSnippet != null && !_hwc5DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc5DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;CognexVisionProIoSystem&gt; region
+												</p>
+												@if (_hwc5IoSystemSnippet != null && !_hwc5IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc5IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer" />
+											@if (_c5StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c5StepLogicBlocks)
+													{
+														_c5StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+	// Component 1 snippets
+	private CodeSnippet? _comp1DeclarationSnippet;
+	private CodeSnippet? _comp1InitSnippet;
+	private List<StepLogicBlock> _c1StepLogicBlocks = new();
+	// Component 2 snippets
+	private CodeSnippet? _comp2DeclarationSnippet;
+	private CodeSnippet? _comp2InitSnippet;
+	private List<StepLogicBlock> _c2StepLogicBlocks = new();
+	// Component 3 snippets
+	private CodeSnippet? _comp3DeclarationSnippet;
+	private CodeSnippet? _comp3InitSnippet;
+	private List<StepLogicBlock> _c3StepLogicBlocks = new();
+	// Component 4 snippets
+	private CodeSnippet? _comp4DeclarationSnippet;
+	private CodeSnippet? _comp4InitSnippet;
+	private List<StepLogicBlock> _c4StepLogicBlocks = new();
+	// Component 5 snippets
+	private CodeSnippet? _comp5DeclarationSnippet;
+	private CodeSnippet? _comp5InitSnippet;
+	private List<StepLogicBlock> _c5StepLogicBlocks = new();
+	// Hardware snippets — per component
+	private CodeSnippet? _hwc1DeviceInstanceSnippet;
+	private CodeSnippet? _hwc1DeviceTemplateSnippet;
+	private CodeSnippet? _hwc1IoSystemSnippet;
+	private CodeSnippet? _hwc2DeviceInstanceSnippet;
+	private CodeSnippet? _hwc2DeviceTemplateSnippet;
+	private CodeSnippet? _hwc2IoSystemSnippet;
+	private CodeSnippet? _hwc3DeviceInstanceSnippet;
+	private CodeSnippet? _hwc3DeviceTemplateSnippet;
+	private CodeSnippet? _hwc3IoSystemSnippet;
+	private CodeSnippet? _hwc4DeviceInstanceSnippet;
+	private CodeSnippet? _hwc4DeviceTemplateSnippet;
+	private CodeSnippet? _hwc4IoSystemSnippet;
+	private CodeSnippet? _hwc5DeviceInstanceSnippet;
+	private CodeSnippet? _hwc5DeviceTemplateSnippet;
+	private CodeSnippet? _hwc5IoSystemSnippet;
+	// Step logic
+	// private List<StepLogicBlock> _stepLogicBlocks = new();
+	// private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c4StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c5StepsBySymbol = new();
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+	// PLC source paths
+	private readonly string _plcContextPath    = "src/showcase/app/src/components.cognex.vision/Documentation/CognexVision.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_Secondary.st";
+	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0.st";
+	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st";
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Cognex_Vision_Insight_V_6_0_0/Cognex_Vision_Insight_V_6_0_0.hwl.yml";
+	private readonly string _hwcDevice2TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_dataman280/Cognex_Dataman280.hwl.yml";
+	private readonly string _hwcDevice3TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_dataman380/Cognex_Dataman380.hwl.yml";
+	private readonly string _hwcDevice4TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_insight_2800/Cognex_Insight2800.hwl.yml";
+	private readonly string _hwcDevice5TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_pro/cognex_vision_pro.hwl.yml";
+	// Library resource paths
+	private readonly string _libReadmePath        = "src/components.cognex.vision/docs/README.md";
+	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0.md";
+	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/AxoDataman.md";
+	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/AxoInsight_v_24_0_0.md";
+	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/AxoVisionPro.md";
+	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
+	// PLC library source paths
+	private readonly string _libAxoInsightV6StPath  = "src/components.cognex.vision/ctrl/src/AxoInsight/v_6_0_0/AxoInsight.st";
+	private readonly string _libAxoInsightV24StPath = "src/components.cognex.vision/ctrl/src/AxoInsight/v_24_0_0/AxoInsight.st";
+	private readonly string _libAxoDatamanStPath    = "src/components.cognex.vision/ctrl/src/AxoDataman/v_6_0_0/AxoDataman.st";
+	private readonly string _libAxoVisionProStPath = "src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st";
+	private readonly string _libApaxYmlPath        = "src/components.cognex.vision/ctrl/apax.yml";
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var comp1DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
+			var comp1InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
+			var comp2DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var comp2InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var comp3DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "ComponentDeclaration");
+			var comp3InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "Initialization");
+			var comp4DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "ComponentDeclaration");
+			var comp4InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "Initialization");
+			var comp5DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "ComponentDeclaration");
+			var comp5InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "Initialization");
+			var c1StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+			var c2StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+			var c3StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
+			var c4StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
+			var c5StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent5Path);
+			// var stepLogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+			// Hardware snippets — per component
+			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight7600Device");
+			var hwc1TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice1TemplatePath, "CognexInsight7600Template");
+			var hwc1IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight7600IoSystem");
+			var hwc2InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexDataman280Device");
+			var hwc2TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice2TemplatePath, "CognexDataman280Template");
+			var hwc2IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexDataman280IoSystem");
+			var hwc3InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexDataman380Device");
+			var hwc3TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice3TemplatePath, "CognexDataman380Template");
+			var hwc3IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexDataman380IoSystem");
+			var hwc4InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight2800Device");
+			var hwc4TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice4TemplatePath, "CognexInsight2800Template");
+			var hwc4IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight2800IoSystem");
+			var hwc5InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexVisionProDevice");
+			var hwc5TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice5TemplatePath, "CognexVisionProTemplate");
+			var hwc5IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexVisionProIoSystem");
+			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
+				comp3DeclTask, comp3InitTask, comp4DeclTask, comp4InitTask,
+				comp5DeclTask, comp5InitTask, c1StepsTask, c2StepsTask, c3StepsTask, c4StepsTask, c5StepsTask, //stepLogicTask,
+				hwc1InstanceTask, hwc1TemplateTask, hwc1IoSystemTask,
+				hwc2InstanceTask, hwc2TemplateTask, hwc2IoSystemTask,
+				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask,
+				hwc4InstanceTask, hwc4TemplateTask, hwc4IoSystemTask,
+				hwc5InstanceTask, hwc5TemplateTask, hwc5IoSystemTask);
+			_comp1DeclarationSnippet = await comp1DeclTask;
+			_comp1InitSnippet        = await comp1InitTask;
+			_comp2DeclarationSnippet = await comp2DeclTask;
+			_comp2InitSnippet        = await comp2InitTask;
+			_comp3DeclarationSnippet = await comp3DeclTask;
+			_comp3InitSnippet        = await comp3InitTask;
+			_comp4DeclarationSnippet = await comp4DeclTask;
+			_comp4InitSnippet        = await comp4InitTask;
+			_comp5DeclarationSnippet = await comp5DeclTask;
+			_comp5InitSnippet        = await comp5InitTask;
+			// _stepLogicBlocks         = await stepLogicTask;
+			_c1StepLogicBlocks = await c1StepsTask;
+			_c2StepLogicBlocks = await c2StepsTask;
+			_c3StepLogicBlocks = await c3StepsTask;
+			_c4StepLogicBlocks = await c4StepsTask;
+			_c5StepLogicBlocks = await c5StepsTask;
+			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
+			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
+			_hwc1IoSystemSnippet       = await hwc1IoSystemTask;
+			_hwc2DeviceInstanceSnippet = await hwc2InstanceTask;
+			_hwc2DeviceTemplateSnippet = await hwc2TemplateTask;
+			_hwc2IoSystemSnippet       = await hwc2IoSystemTask;
+			_hwc3DeviceInstanceSnippet = await hwc3InstanceTask;
+			_hwc3DeviceTemplateSnippet = await hwc3TemplateTask;
+			_hwc3IoSystemSnippet       = await hwc3IoSystemTask;
+			_hwc4DeviceInstanceSnippet = await hwc4InstanceTask;
+			_hwc4DeviceTemplateSnippet = await hwc4TemplateTask;
+			_hwc4IoSystemSnippet       = await hwc4IoSystemTask;
+			_hwc5DeviceInstanceSnippet = await hwc5InstanceTask;
+			_hwc5DeviceTemplateSnippet = await hwc5TemplateTask;
+			_hwc5IoSystemSnippet       = await hwc5IoSystemTask;
+			 // _stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps
+			// 	.ToDictionary(
+			// 		s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+			// 		s => s
+			// 	);
+			_c1StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_c2StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_c3StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_c4StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_c5StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+		await base.OnInitializedAsync();
+	}
+	public override void ConfigurePolling()
+	{
+		var seq1   = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer;
+		var steps1 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps;
+		this.StartPolling(seq1, 250);
+		foreach (var step in steps1)
+		{
+			// this.StartPolling(seq, 250);
+			// foreach (var step in steps)
+			// {
+				this.StartPolling(step.IsActive,  250);
+				this.StartPolling(step.IsEnabled, 250);
+				this.StartPolling(step.Order,     250);
+				this.StartPolling(step.Descr,     500);
+			//}
+		}
+		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer;
+		var steps2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps;
+		this.StartPolling(seq2, 250);
+		foreach (var step in steps2)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+		var seq3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer;
+		var steps3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps;
+		this.StartPolling(seq3, 250);
+		foreach (var step in steps3)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+		var seq4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer;
+		var steps4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps;
+		this.StartPolling(seq4, 250);
+		foreach (var step in steps4)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+		var seq5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer;
+		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps;
+		this.StartPolling(seq5, 250);
+		foreach (var step in steps5)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+	}
+}
+
+@* ================================================================== *@
+@* DocFX snippet markers -- do not render.                             *@
+@* ================================================================== *@
+@if (false)
+{
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Dataman_280" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Dataman_280" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Dataman_280" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Dataman_280" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+}

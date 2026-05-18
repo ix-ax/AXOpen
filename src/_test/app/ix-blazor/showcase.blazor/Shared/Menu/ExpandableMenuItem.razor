@@ -1,0 +1,79 @@
+@inject NavigationManager NavigationManager
+
+<button class="nav-item" @onclick="Toggle">
+    @if (Icon != null)
+    {
+        <div class="nav-item-icon">
+            <Operon.Icons.HeroIcon Icon="@Icon" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        </div>
+    }
+    <div class="nav-item-text">
+        @Name
+        @if (Description != null)
+        {
+            <p class="nav-item-text-description">@Description</p>
+        }
+    </div>
+    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline"
+        Class="@("nav-item-collapse-chevron icon-button-rotate " + (!_isCollapsed ? "rotated" : null))" />
+</button>
+
+@if (!_isCollapsed)
+{
+    <div class="nav-item-collapse">
+        <CascadingValue Value="@this">
+            @ChildContent
+        </CascadingValue>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Link { get; set; }
+
+    [Parameter]
+    public string? Icon { get; set; }
+
+    [Parameter]
+    public string? Description { get; set; }
+
+    private bool _isCollapsed = true;
+
+    private string? _dashedName;
+
+    [CascadingParameter]
+    protected ExpandableMenuItem? parent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _dashedName = Name?.Replace(' ', '-').ToLower();
+
+        var relativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        if (relativePath.Contains(GetLink()))
+        {
+            _isCollapsed = false;
+        }
+    }
+
+    public string GetLink()
+    {
+        if (Link != null)
+            return Link;
+
+        if (parent != null)
+            return $"{parent.GetLink()}/{_dashedName}";
+
+        return $"{_dashedName}";
+    }
+
+    private void Toggle()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+}

@@ -1,0 +1,49 @@
+<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+	<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+	@if (Documentation != null)
+	{
+		<div>
+			<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+			<ul class="space-y-1 min-w-0">
+				@Documentation
+			</ul>
+		</div>
+	}
+
+	@if (PlcSource != null)
+	{
+		<div>
+			<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+			<ul class="space-y-1 min-w-0">
+				@PlcSource
+			</ul>
+		</div>
+	}
+
+	@if (HardwareAssets != null)
+	{
+		<div>
+			<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
+			<ul class="space-y-1 min-w-0">
+				@HardwareAssets
+			</ul>
+		</div>
+	}
+
+	@if (Extra != null)
+	{
+		@Extra
+	}
+
+	<ExternalLinks VendorName="@VendorName" VendorUrl="@VendorUrl" />
+</section>
+
+@code {
+	[Parameter] public RenderFragment? Documentation { get; set; }
+	[Parameter] public RenderFragment? PlcSource { get; set; }
+	[Parameter] public RenderFragment? HardwareAssets { get; set; }
+	[Parameter] public RenderFragment? Extra { get; set; }
+	[Parameter] public string? VendorName { get; set; }
+	[Parameter] public string? VendorUrl { get; set; }
+}

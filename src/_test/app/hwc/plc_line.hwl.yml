@@ -1,0 +1,26 @@
+Devices:
+  - Name: plc_line
+    Modules:
+    - Apply: '6ES7516-3AP03-0AB0_v4_1'
+      Arguments:
+        NAME: plc_line
+        IP_ADDRESS_X1: '192.168.100.2/24'
+        PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
+        IP_ADDRESS_X2: '192.168.101.1/24'
+        PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
+        ADMIN_NAME: 'admin'
+        CYCLE_COMMUNICATION_LOAD: 50  
+        TimeSynchronizationNtpV2: 'SetServersInProject'
+        TimeSynchronizationServer1: '192.168.100.249'
+        TimeSynchronizationUpdateInterval: 60               
+  - Apply: rexroth_ctrlx_drive_xcs
+    Arguments:
+      NAME: rexroth_ctrlx_drive
+      IP_ADDRESS_X1: '192.168.100.22/24'
+      PROFINET_DEVICE_NAME_X1: rexroth_ctrlx_drive
+IoSystems:
+- Name: profinet_plc_line
+  ControllerInterfaces:
+  - Ref: plc_line/plc_line/PROFINET_interface_1
+  DeviceInterfaces:
+  - Ref: rexroth_ctrlx_drive/rexroth_ctrlx_drive/XCS_interface_PF30
