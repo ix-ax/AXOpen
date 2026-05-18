@@ -180,4 +180,96 @@
   <data name="NewtonMetersUnit" xml:space="preserve">
     <value>Nm</value>
   </data>
+  <!-- AxoCmmtAsView - Header state badges -->
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ScalingReadState" xml:space="preserve">
+    <value>Scaling read state</value>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <!-- AxoCmmtAsView - Power & Safety extensions -->
+  <data name="ResetDrive" xml:space="preserve">
+    <value>Reset drive</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <!-- AxoCmmtAsView - Parameter Access Section -->
+  <data name="ParameterAccess" xml:space="preserve">
+    <value>Parameter access</value>
+  </data>
+  <data name="ParameterAccessDescription" xml:space="preserve">
+    <value>Read and write integer, real and boolean drive parameters.</value>
+  </data>
+  <data name="ParameterAccessMonitorDescription" xml:space="preserve">
+    <value>Observe parameter read/write transactions and their results.</value>
+  </data>
+  <data name="WriteParameter" xml:space="preserve">
+    <value>Write parameter</value>
+  </data>
+  <data name="WriteRealParameter" xml:space="preserve">
+    <value>Write real parameter</value>
+  </data>
+  <data name="WriteBoolParameter" xml:space="preserve">
+    <value>Write bool parameter</value>
+  </data>
+  <data name="ReadParameter" xml:space="preserve">
+    <value>Read parameter</value>
+  </data>
+  <data name="ReadRealParameter" xml:space="preserve">
+    <value>Read real parameter</value>
+  </data>
+  <data name="ReadBoolParameter" xml:space="preserve">
+    <value>Read bool parameter</value>
+  </data>
+  <!-- AxoCmmtAsView - Digital IO Section -->
+  <data name="DigitalIO" xml:space="preserve">
+    <value>Digital I/O</value>
+  </data>
+  <data name="DigitalIODescription" xml:space="preserve">
+    <value>Read digital inputs/outputs and write digital outputs.</value>
+  </data>
+  <data name="DigitalIOMonitorDescription" xml:space="preserve">
+    <value>Observe digital I/O transactions and their results.</value>
+  </data>
+  <data name="ReadDigitalInput" xml:space="preserve">
+    <value>Read digital input</value>
+  </data>
+  <data name="ReadDigitalOutput" xml:space="preserve">
+    <value>Read digital output</value>
+  </data>
+  <data name="WriteDigitalOutput" xml:space="preserve">
+    <value>Write digital output</value>
+  </data>
+  <!-- AxoCmmtAsView - Explicit Reads Section -->
+  <data name="ExplicitReads" xml:space="preserve">
+    <value>Explicit reads</value>
+  </data>
+  <data name="ExplicitReadsDescription" xml:space="preserve">
+    <value>Trigger explicit reads of position, velocity, torque, status and motion state.</value>
+  </data>
+  <data name="ExplicitReadsMonitorDescription" xml:space="preserve">
+    <value>Observe explicit read transactions and their results.</value>
+  </data>
+  <data name="ReadActualPosition" xml:space="preserve">
+    <value>Read actual position</value>
+  </data>
+  <data name="ReadActualVelocity" xml:space="preserve">
+    <value>Read actual velocity</value>
+  </data>
+  <data name="ReadActualTorque" xml:space="preserve">
+    <value>Read actual torque</value>
+  </data>
+  <data name="ReadStatus" xml:space="preserve">
+    <value>Read status</value>
+  </data>
+  <data name="ReadMotionState" xml:space="preserve">
+    <value>Read motion state</value>
+  </data>
+  <data name="ReadAxisInfo" xml:space="preserve">
+    <value>Read axis info</value>
+  </data>
 </root>

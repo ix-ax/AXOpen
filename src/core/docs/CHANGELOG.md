@@ -38,3 +38,8 @@
 
 **Breaking changes:**
 - Documentation file renames may break external bookmarks or links referencing the old UPPERCASE filenames
+
+### 0.50.0
+
+**Other:**
+- `AxoToggleTaskView` Blazor rendering aligned with `AxoTaskView` for visual consistency when both task buttons appear side-by-side in component views. Filled/hollow state circle on the left, uppercased `DESCRIPTION — STATE` label in the center, invisible right-slot spacer for width parity, and state-driven button color (`btn-success` ON / `btn-info` OFF / `btn-inactive blur-[1px]` disabled). No PLC API change — `SwitchOn()` / `SwitchOff()` / `Toggle()` / event-like overrides are unchanged.
