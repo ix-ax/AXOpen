@@ -6258,8 +6258,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                  // ChangeProgramTask running: check if is not Busy, due to interrupted by previous program switching
                 IF _progress = 313 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#514;
                     END_IF;
     
                     Outputs.CommandControl.ProgramSwitchingRequest     := FALSE;
@@ -6271,11 +6271,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                 // ChangeProgramTask running: set [program switching request] to 1 due to interupted by previous program switching
                 IF _progress = 312 THEN 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
-                    END_IF;
-    
                     Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
                     Outputs.CommandControl.ProgramNo                   := UINT#0; // Reset program number 
                     IF TRUE THEN
@@ -6320,8 +6315,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: validate that program is selected successfully and other control signals are right, 
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#514;
                     END_IF;
     
                     IF  NOT Inputs.CommandStatusBits.ProgramSwitchingResponse 
@@ -6336,8 +6331,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: validate that program is selected successfully, 
                 IF _progress = 316 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#515;
                     END_IF;
     
                     IF (_programNumber = Inputs.DeviceStatusWords.CurrentProgramNo) THEN
