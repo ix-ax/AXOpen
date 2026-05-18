@@ -8,8 +8,8 @@ registries:
 catalogs:
   "@inxton/ax.catalog": '0.0.50'
 dependencies:
-  '@ax/apax-build': 2.1.79
-  '@ax/axunitst': 9.3.7
+  '@ax/apax-build': 2.2.53
+  '@ax/axunitst': 9.4.8
   '@ax/certificate-management': 2.0.0
   '@ax/diagnostic-buffer': 2.1.1
   '@ax/hw-s7-1500': 4.4.0
