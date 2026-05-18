@@ -71,10 +71,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
-
-            LastProgressRoot : ARRAY[0..20] OF INT;
-            ProgressRoot : ARRAY[0..20] OF INT;
-            ActiveProgressRootIndex : INT;
         END_VAR
 
         VAR PRIVATE
@@ -100,41 +96,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _programNumber          :   UINT;
             _ProgChangeInterrupted  :   BOOL;
         END_VAR
-
-        METHOD AddProgressToRoot 
-            VAR_INPUT
-                inProgress : INT;
-            END_VAR
-
-            var
-                lastProgress : INT;
-            end_var;
-
-            lastProgress := ProgressRoot[ActiveProgressRootIndex];
-
-            IF inProgress <> lastProgress THEN
-                ActiveProgressRootIndex := ActiveProgressRootIndex + 1;
-                IF ActiveProgressRootIndex > 20 THEN
-                    ActiveProgressRootIndex := 0;
-                END_IF;
-                ProgressRoot[ActiveProgressRootIndex] := inProgress;
-            END_IF;
-
-        END_METHOD
-
-
-        METHOD ClearProgressRoot 
-           var 
-            iterator : INT;
-           end_var;
-
-           ActiveProgressRootIndex := 0;
-           FOR iterator := 0 TO 20 DO
-            LastProgressRoot[iterator] := ProgressRoot[iterator];
-                ProgressRoot[iterator] := -1;
-           END_FOR;
-        END_METHOD
-
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -6249,9 +6210,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             Messenger.ActivateOnCondition(ULINT#111,ChangeProgramTask.IsDone(), eAxoMessageCategory#Info);
             IF ChangeProgramTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
-                    THIS.ClearProgressRoot();
-                    THIS.AddProgressToRoot(0);
-
                     Outputs.CommandControl.TriggerRequest                               := FALSE;
                     Outputs.CommandControl.MasterRegistrationRequest                    := FALSE;
                     Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
@@ -6270,8 +6228,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 // ChangeProgramTask running: checking the program number.
                 IF _progress = 310 THEN
-                    THIS.AddProgressToRoot(310);
-
                     IF _programNumber <= Config.MaxProgramNumber THEN
                         THIS.CallTimers(FALSE);
                         _progress := 311;
@@ -6283,8 +6239,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                  // ChangeProgramTask running: if 'ProgramSwitchingResponse' signal is true, finish previous change.
                 IF _progress = 311 THEN 
-                    THIS.AddProgressToRoot(311);
-
                     // Do not cancel (1 → 0) [Program switching request] before [Program switching response] changes from 
                     // 0 to 1. The program may not be able to switch correctly.
                     // When [Program switching request] was canceled (1 → 0) before [Program switching response] changes
@@ -6303,7 +6257,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                  // evaluated before 312 => +1 plc cycle
                  // ChangeProgramTask running: check if is not Busy, due to interrupted by previous program switching
                 IF _progress = 313 THEN 
-                    THIS.AddProgressToRoot(313);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
@@ -6318,7 +6271,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                 // ChangeProgramTask running: set [program switching request] to 1 due to interupted by previous program switching
                 IF _progress = 312 THEN 
-                        THIS.AddProgressToRoot(312);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
@@ -6334,7 +6286,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 // ChangeProgramTask running: set 'ProgramSwitchingRequest' and wait for 'ProgramSwitchingResponse' signal.
                 IF _progress = 314 THEN
-                    THIS.AddProgressToRoot(314);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
@@ -6351,7 +6302,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                 // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal, when 'ProgramSwitchingRequest' is reset.
                 IF _progress = 315 THEN
-                    THIS.AddProgressToRoot(315);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
@@ -6369,7 +6319,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 // ChangeProgramTask running: validate that program is selected successfully and other control signals are right, 
                 IF _progress = 317 THEN
-                    THIS.AddProgressToRoot(317);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
@@ -6386,7 +6335,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                 // ChangeProgramTask running: validate that program is selected successfully, 
                 IF _progress = 316 THEN
-                    THIS.AddProgressToRoot(316);
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
@@ -6400,11 +6348,9 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                 // ChangeProgramTask finished.
                 IF _progress = 318 THEN
-                        THIS.AddProgressToRoot(318);
                     ChangeProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
-
     
                 THIS.CallTimers(TRUE);
                 
