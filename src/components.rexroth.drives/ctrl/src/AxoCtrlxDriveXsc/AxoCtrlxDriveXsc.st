@@ -1627,7 +1627,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                         ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                         //  Torque
-                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094]; //TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
+                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094]; 
                         ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
                         //  Jerk
                         ScalingConstantRequiredJerk         :=  ScalingConstantRequiredAcceleration;
@@ -1679,6 +1679,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ScalingConstantActualPosition       :=  LREAL#1.0/ScalingConstantRequiredPosition;
                         //  Velocity
                         ScalingConstantRequiredVelocity     := _exp[-_S_0_0046] / (TO_LREAL(_S_0_0045) * LREAL#360.0);
+                        ScalingConstantRequiredVelocity     := _exp[-_S_0_0046] / (TO_LREAL(_S_0_0045));
                         ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
                         //  Acceleration
                         ScalingConstantRequiredAcceleration :=  _exp[-_S_0_0162] / (TO_LREAL(_S_0_0161) *LREAL#180.0 /System.Math.Constants#PI);
