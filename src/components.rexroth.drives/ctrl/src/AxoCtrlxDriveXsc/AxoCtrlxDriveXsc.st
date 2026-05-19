@@ -92,6 +92,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-set:AttributeName = "<#Scaling constant actual jerk#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
             ScalingConstantActualJerk       :   LREAL   :=  0.001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Axis type#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            AxisType    :   eAxoDriveAxisType := eAxoDriveAxisType#Undefined;
         END_VAR
         VAR PUBLIC // Debug
             {#ix-attr:[Container(Layout.Stack)]}
@@ -124,24 +129,25 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _ReadRecord             :   ReadRecord;
             _WriteRecord            :   WriteRecord;
             _ScalingRead            :   BOOL;
-            _S_0_0076               :   WORD;       // 2byte, binary
-            _S_0_0077               :   INT;        // 2byte, 0 decimal places
-            _S_0_0078               :   INT;        // 2byte, 0 decimal places
-            _S_0_0044               :   WORD;       // 2byte, binary
-            _S_0_0045               :   INT;        // 2byte, 0 decimal places
-            _S_0_0046               :   INT;        // 2byte, 0 decimal places
-            _S_0_0160               :   WORD;       // 2byte, binary
-            _S_0_0161               :   INT;        // 2byte, 0 decimal places
-            _S_0_0162               :   INT;        // 2byte, 0 decimal places
-            _S_0_0086               :   WORD;       // 2byte, binary
-            _S_0_0093               :   INT;        // 2byte, 0 decimal places
-            _S_0_0094               :   INT;        // 2byte, 0 decimal places
-            _S_0_0112               :   REAL;       // 4bytes, 3decimal places
-            _P_0_0450               :   REAL;       // 2bytes, 2decimal places
+            _S_0_0076               :   WORD;       // 2byte, binary - Position data scaling type 
+            _S_0_0077               :   INT;        // 2byte, 0 decimal places - Linear position scaling factor
+            _S_0_0078               :   INT;        // 2byte, 0 decimal places - Linear position scaling exponent
+            _S_0_0079               :   DINT;       // 4byte, 0 decimal places - Rotational resolution 
+            _S_0_0044               :   WORD;       // 2byte, binary - Velocity scaling type
+            _S_0_0045               :   INT;        // 2byte, 0 decimal places - Velocity scaling factor
+            _S_0_0046               :   INT;        // 2byte, 0 decimal places - Velocity scaling exponent
+            _S_0_0160               :   WORD;       // 2byte, binary - Acceleration scaling type
+            _S_0_0161               :   INT;        // 2byte, 0 decimal places - Acceleration scaling factor
+            _S_0_0162               :   INT;        // 2byte, 0 decimal places - Acceleration scaling exponent
+            _S_0_0086               :   WORD;       // 2byte, binary - Torque/force scaling type
+            _S_0_0093               :   INT;        // 2byte, 0 decimal places - Torque/force scaling factor
+            _S_0_0094               :   INT;        // 2byte, 0 decimal places - Torque/force scaling exponent
+            _S_0_0112               :   REAL;       // 4bytes, 3decimal places - Nominal current [A]
+            _P_0_0450               :   REAL;       // 2bytes, 2decimal places - Current constant [Nm/A]
 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _tmpTimer                :   AXOpen.Timers.OnDelayTimer;
+            _tmpTimer               :   AXOpen.Timers.OnDelayTimer;
             
             _lastMessageCodeFromMC  :   ULINT;
         END_VAR
@@ -1122,352 +1128,612 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
                 IF _State = UINT#0 THEN
-                    _State := UINT#1;
+                    AxisType := eAxoDriveAxisType#Undefined;
+                    _State := _State + UINT#1;
                 END_IF;
                 //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --) 2byte, binary
-                IF _State = UINT#1 THEN
-                    _ReadRecord(    request     :=  TRUE,
-                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                IF _State = UINT#1 THEN                                                                                 //  Scaling type
+                    _ReadRecord(    request     :=  TRUE,                                                               //  001: linear scaling:     
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),                         //  010: rotary scaling:               
                                     index       :=  DINT#76,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1801, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0076   :=  _word;
-                        _State := UINT#2;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#2 THEN
-                    _ReadRecord(request := FALSE, record := _data2);
-                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#3;
+                IF _State = UINT#2 THEN                                                                                 //  Scaling type
+                    _ReadRecord(request := FALSE, record := _data2);                                                    //  001: linear scaling:     
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN                   //  010: rotary scaling:               
+                        _State :=  _State + UINT#1;
+                    END_IF;
+                END_IF;
+                //Checking the axis type in Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                IF _State = UINT#3 THEN                                                                                 //  Scaling type
+                    IF (_S_0_0076 AND WORD#16#0007) = WORD#16#0001 THEN                                                 //  001: linear scaling:     
+                        AxisType := eAxoDriveAxisType#Linear;                                                           //  010: rotary scaling:                                                        
+                        _State :=  _State + UINT#1;
+                    ELSIF (_S_0_0076 AND WORD#16#0007) = WORD#16#0002 THEN
+                        AxisType := eAxoDriveAxisType#Rotary;               
+                        _State :=  _State + UINT#1;
+                    ELSE
+                        AxisType := eAxoDriveAxisType#Error; 
+                        Messenger.ActivateOnCondition(ULINT#1802, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis unit system in Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                IF _State = UINT#4 THEN                                                                                 //  Unit for linear scaling
+                    IF NOT _S_0_0076.%X4 THEN                                                                           //  0: Meter [m]
+                        _State :=  _State + UINT#2;                                                                     //  1: Inch [in]
+                    ELSE                                                                                                //  Unit for rotary Scaling
+                        Messenger.ActivateOnCondition(ULINT#1803, TRUE, eAxoMessageCategory#Error);                     //  0: Angular degree
+                        RETURN;                                                                                         //  1: Reserved
+                    END_IF;
+                END_IF;
+                // Irelevant for position, skipping this control. 
+                // //Checking the axis time base in Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                // IF _State = UINT#5 THEN
+                //     IF _S_0_0076.%X5 THEN
+                //         _State :=  _State + UINT#1;
+                //     ELSE
+                //         Messenger.ActivateOnCondition(ULINT#1804, TRUE, eAxoMessageCategory#Error);            
+                //         RETURN;
+                //     END_IF;
+                // END_IF;
+                //Checking the axis Data reference in Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                IF _State = UINT#6 THEN                                                                                 //  Data reference
+                    IF _S_0_0076.%X6 THEN                                                                               //  0: at the motor shaft
+                        _State :=  _State + UINT#1;                                                                     //  1: at the load
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1805, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Reading Velocity scaling type (0x2910:01 / S-0-0044 / --) 2byte, binary
+                IF _State = UINT#7 THEN                                                                                 //  Scaling type
+                    _ReadRecord(    request     :=  TRUE,                                                               //  001: linear scaling:
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),                         //  010: rotary scaling:
+                                    index       :=  DINT#44,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1806, _ReadRecord.error, eAxoMessageCategory#Error);            
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0044   :=  _word;
+                        _State := _State + UINT#1;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#8 THEN                                                                                 //  Scaling type
+                    _ReadRecord(request := FALSE, record := _data2);                                                    //  001: linear scaling:
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN                   //  010: rotary scaling:
+                        _State :=  _State + UINT#1;
+                    END_IF;
+                END_IF;
+                //Checking the axis type in Velocity scaling type (0x2910:01 / S-0-0044 / --)
+                IF _State = UINT#9 THEN                                                                                 //  Scaling type
+                    IF (_S_0_0044 AND WORD#16#0007) = WORD#16#0001 AND AxisType = eAxoDriveAxisType#Linear THEN         //  001: linear scaling:
+                        _State :=  _State + UINT#1;                                                                     //  010: rotary scaling:
+                    ELSIF (_S_0_0044 AND WORD#16#0007) = WORD#16#0002 AND AxisType = eAxoDriveAxisType#Rotary THEN      
+                        _State :=  _State + UINT#1;
+                    ELSE
+                        AxisType := eAxoDriveAxisType#Error; 
+                        Messenger.ActivateOnCondition(ULINT#1807, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis unit system in Velocity scaling type (0x2910:01 / S-0-0044 / --)
+                IF _State = UINT#10 THEN                                                                                //  Unit for linear scaling
+                    IF AxisType = eAxoDriveAxisType#Linear AND NOT _S_0_0044.%X4 OR                                     //  0: Millimeter [mm]
+                        AxisType = eAxoDriveAxisType#Rotary AND _S_0_0044.%X4 THEN                                      //  1: Inch [in]
+                        _State :=  _State + UINT#1;                                                                     //  Unit for rotary scaling                                                                   
+                    ELSE                                                                                                //  0: Revolution
+                        Messenger.ActivateOnCondition(ULINT#1808, TRUE, eAxoMessageCategory#Error);                     //  1: Degrees
+                        RETURN;                                                                                         
+                    END_IF;
+                END_IF;
+                //Checking the axis time base in Velocity scaling type (0x2910:01 / S-0-0044 / --)
+                IF _State = UINT#11 THEN                                                                                //  Unit of time
+                    IF _S_0_0044.%X5 THEN                                                                               //  0: Minute [min]
+                        _State :=  _State + UINT#1;                                                                     //  1: Second [s]
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1809, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis Data reference in Velocity scaling type (0x2910:01 / S-0-0044 / --)
+                IF _State = UINT#12 THEN                                                                                //  Data reference
+                    IF _S_0_0044.%X6 THEN                                                                               //  0: at the motor shaft
+                        _State :=  _State + UINT#1;                                                                     //  1: at the load
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1810, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Reading Acceleration scaling type (0x2920:01 / S-0-0160 / --) 2byte, binary
+                IF _State = UINT#13 THEN                                                                                //  Scaling type
+                    _ReadRecord(    request     :=  TRUE,                                                               //  001: linear scaling:
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),                         //  010: rotary scaling:
+                                    index       :=  DINT#160,                                                           //  011: Ramp time
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1811, _ReadRecord.error, eAxoMessageCategory#Error);            
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0160   :=  _word;
+                        _State := _State + UINT#1;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#14 THEN                                                                                //  Scaling type
+                    _ReadRecord(request := FALSE, record := _data2);                                                    //  001: linear scaling:
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN                   //  010: rotary scaling:
+                        _State :=  _State + UINT#1;                                                                     //  011: Ramp time
+                    END_IF;
+                END_IF;
+                //Checking the axis type in Acceleration scaling type (0x2920:01 / S-0-0160 / --)
+                IF _State = UINT#15 THEN                                                                                //  Scaling type
+                    IF (_S_0_0160 AND WORD#16#0007) = WORD#16#0001 AND AxisType = eAxoDriveAxisType#Linear THEN         //  001: linear scaling:
+                        _State :=  _State + UINT#1;                                                                     //  010: rotary scaling:
+                    ELSIF (_S_0_0160 AND WORD#16#0007) = WORD#16#0002 AND AxisType = eAxoDriveAxisType#Rotary THEN      //  011: Ramp time
+                        _State :=  _State + UINT#1;
+                    ELSE
+                        AxisType := eAxoDriveAxisType#Error; 
+                        Messenger.ActivateOnCondition(ULINT#1812, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis unit system in Acceleration scaling type (0x2920:01 / S-0-0160 / --)
+                IF _State = UINT#16 THEN                                                                                //  Unit for linear scaling
+                    IF NOT _S_0_0160.%X4 THEN                                                                           //  0: Meter [m]
+                        _State :=  _State + UINT#1;                                                                     //  1: Inch [in]    
+                    ELSE                                                                                                //  Unit for rotary scaling
+                        Messenger.ActivateOnCondition(ULINT#1813, TRUE, eAxoMessageCategory#Error);                     //  0: Radiant [rad]
+                        RETURN;                                                                                         //  1: Reserved
+                    END_IF;
+                END_IF;
+                //Checking the axis time base in Acceleration scaling type (0x2920:01 / S-0-0160 / --)
+                IF _State = UINT#17 THEN                                                                                //  Unit of time
+                    IF NOT _S_0_0160.%X5 THEN                                                                           //  0: Second [s²]
+                        _State :=  _State + UINT#1;                                                                     //  1: Reserved
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1814, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis Data reference in Acceleration scaling type (0x2920:01 / S-0-0160 / --)
+                IF _State = UINT#18 THEN                                                                                //  Data reference
+                    IF _S_0_0160.%X6 THEN                                                                               //  0: at the motor shaft                                          
+                        _State :=  _State + UINT#1;                                                                     //  1: at the load
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1815, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Reading Torque/force scaling type (0x2930:01 / S-0-0086 / --) 2byte, binary
+                IF _State = UINT#19 THEN                                                                                //  Scaling type
+                    _ReadRecord(    request     :=  TRUE,                                                               //  000: Percentage-based scaling (% of reference value)
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),                         //  001: translational scaling (force in N, lbf)        
+                                    index       :=  DINT#86,                                                            //  010: Rotary scaling (torque in Nm, inlbf)
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1816, _ReadRecord.error, eAxoMessageCategory#Error);            
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0086   :=  _word;
+                        _State := _State + UINT#1;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#20 THEN                                                                                //  Scaling type
+                    _ReadRecord(request := FALSE, record := _data2);                                                    //  000: Percentage-based scaling (% of reference value)
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN                   //  001: translational scaling (force in N, lbf)
+                        _State :=  _State + UINT#1;                                                                     //  010: Rotary scaling (torque in Nm, inlbf)
+                    END_IF;
+                END_IF;
+                //Checking the axis type in Torque/force scaling type (0x2930:01 / S-0-0086 / --)
+                IF _State = UINT#21 THEN                                                                                //  Scaling type
+                    IF (_S_0_0086 AND WORD#16#0007) = WORD#16#0001 AND AxisType = eAxoDriveAxisType#Linear THEN         //  000: Percentage-based scaling (% of reference value)
+                        _State :=  _State + UINT#1;                                                                     //  001: translational scaling (force in N, lbf)
+                    ELSIF (_S_0_0086 AND WORD#16#0007) = WORD#16#0002 AND AxisType = eAxoDriveAxisType#Rotary THEN      //  010: Rotary scaling (torque in Nm, inlbf)
+                        _State :=  _State + UINT#1;
+                    ELSE
+                        AxisType := eAxoDriveAxisType#Error; 
+                        Messenger.ActivateOnCondition(ULINT#1817, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
+                    END_IF;
+                END_IF;
+                //Checking the axis unit system in Torque/force scaling type (0x2930:01 / S-0-0086 / --)
+                IF _State = UINT#22 THEN                                                                                //  Unit for force
+                    IF NOT _S_0_0086.%X4 THEN                                                                           //  0: newton [N]
+                        _State :=  _State + UINT#2;                                                                     //  1: pound-force [lbf]
+                    ELSE                                                                                                //  Unit for torque
+                        Messenger.ActivateOnCondition(ULINT#1818, TRUE, eAxoMessageCategory#Error);                     //  0: Newton-meter [Nm]
+                        RETURN;                                                                                         //  1: inch-pound-force [inlbf]
+                    END_IF;
+                END_IF;
+                // Irelevant for torque, skipping this control. 
+                // //Checking the axis time base in Torque/force scaling type (0x2930:01 / S-0-0086 / --)
+                // IF _State = UINT#23 THEN
+                //     IF _S_0_0086.%X5 THEN
+                //         _State :=  _State + UINT#1;
+                //     ELSE
+                //         Messenger.ActivateOnCondition(ULINT#1819, TRUE, eAxoMessageCategory#Error);            
+                //         RETURN;
+                //     END_IF;
+                // END_IF;
+                //Checking the axis Data reference in Torque/force scaling type (0x2930:01 / S-0-0086 / --)
+                IF _State = UINT#24 THEN                                                                                //  Data reference
+                    IF _S_0_0086.%X6 THEN                                                                               //  0: at the motor shaft
+                        _State :=  _State + UINT#1;                                                                     //  1: at the load
+                    ELSE
+                        Messenger.ActivateOnCondition(ULINT#1820, TRUE, eAxoMessageCategory#Error);            
+                        RETURN;
                     END_IF;
                 END_IF;
                 //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --) 2byte, 0 decimal places
-                IF _State = UINT#3 THEN
+                IF _State = UINT#25 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#77,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1821, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0077   :=  TO_INT(_word);
-                        _State := UINT#4;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#4 THEN
+                IF _State = UINT#26 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#5;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --) 2byte, 0 decimal places
-                IF _State = UINT#5 THEN
+                IF _State = UINT#27 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#78,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1822, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0078   :=  TO_INT(_word);
-                        _State := UINT#6;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#6 THEN
+                IF _State = UINT#28 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#7;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --) 2byte, binary
-                IF _State = UINT#7 THEN
+                //Reading Rotary position resolution (0x2900:04 / S-0-0079 / --) 4byte, 0 decimal places
+                IF _State = UINT#29 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
-                                    index       :=  DINT#44,
-                                    maxLength   :=  UINT#2,
-                                    record      :=  _data2);
+                                    index       :=  DINT#79,
+                                    maxLength   :=  UINT#4,
+                                    record      :=  _data4);
+                    Messenger.ActivateOnCondition(ULINT#1823, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        _word.%B0   :=  _data2[0];
-                        _word.%B1   :=  _data2[1];
-                        _S_0_0044   :=  _word;
-                        _State := UINT#8;
+                        _dword.%B0  :=  _data4[0];
+                        _dword.%B1  :=  _data4[1];
+                        _dword.%B2  :=  _data4[2];
+                        _dword.%B3  :=  _data4[3];
+                        _S_0_0079   :=  TO_DINT(_dword);
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#8 THEN
-                    _ReadRecord(request := FALSE, record := _data2);
+                IF _State = UINT#30 THEN
+                    _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#9;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --) 2byte, 0 decimal places
-                IF _State = UINT#9 THEN
+                IF _State = UINT#31 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#45,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1824, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0045   :=  TO_INT(_word);
-                        _State := UINT#10;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#10 THEN
+                IF _State = UINT#32 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#11;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --) 2byte, 0 decimal places
-                IF _State = UINT#11 THEN
+                IF _State = UINT#33 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#46,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1825, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0046   :=  TO_INT(_word);
-                        _State := UINT#12;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#12 THEN
+                IF _State = UINT#34 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#13;
-                    END_IF;
-                END_IF;
-                //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --) 2byte, binary
-                IF _State = UINT#13 THEN
-                    _ReadRecord(    request     :=  TRUE,
-                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
-                                    index       :=  DINT#160,
-                                    maxLength   :=  UINT#2,
-                                    record      :=  _data2);
-                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        _word.%B0   :=  _data2[0];
-                        _word.%B1   :=  _data2[1];
-                        _S_0_0160   :=  _word;
-                        _State := UINT#14;
-                    END_IF;
-                END_IF;
-                IF _State = UINT#14 THEN
-                    _ReadRecord(request := FALSE, record := _data2);
-                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#15;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --) 2byte, 0 decimal places
-                IF _State = UINT#15 THEN
+                IF _State = UINT#35 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#161,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1826, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0161   :=  TO_INT(_word);
-                        _State := UINT#16;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#16 THEN
+                IF _State = UINT#36 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#17;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --) 2byte, 0 decimal places
-                IF _State = UINT#17 THEN
+                IF _State = UINT#37 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#162,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1827, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0162   :=  TO_INT(_word);
-                        _State := UINT#18;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#18 THEN
+                IF _State = UINT#38 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#19;
-                    END_IF;
-                END_IF;
-                //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --) 2byte, binary
-                IF _State = UINT#19 THEN
-                    _ReadRecord(    request     :=  TRUE,
-                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
-                                    index       :=  DINT#86,
-                                    maxLength   :=  UINT#2,
-                                    record      :=  _data2);
-                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        _word.%B0   :=  _data2[0];
-                        _word.%B1   :=  _data2[1];
-                        _S_0_0086   :=  _word;
-                        _State := UINT#20;
-                    END_IF;
-                END_IF;
-                IF _State = UINT#20 THEN
-                    _ReadRecord(request := FALSE, record := _data2);
-                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#21;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --) 2byte, 0 decimal places
-                IF _State = UINT#21 THEN
+                IF _State = UINT#39 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#93,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1828, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0093   :=  TO_INT(_word);
-                        _State := UINT#22;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#22 THEN
+                IF _State = UINT#40 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#23;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --) 2byte, 0 decimal places
-                IF _State = UINT#23 THEN
+                IF _State = UINT#41 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#94,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1829, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _S_0_0094   :=  TO_INT(_word);
-                        _State := UINT#24;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#24 THEN
+                IF _State = UINT#42 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#25;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Inverter type data: Nominal current (0x2314:01 / S-0-0112 / --) 4bytes, 3decimal places
-                IF _State = UINT#25 THEN
+                IF _State = UINT#43 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#112,
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
+                    Messenger.ActivateOnCondition(ULINT#1830, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _dword.%B0   :=  _data4[0];
                         _dword.%B1   :=  _data4[1];
                         _dword.%B2   :=  _data4[2];
                         _dword.%B3   :=  _data4[3];
                         _S_0_0112   :=  TO_REAL(TO_INT(_dword)) * REAL#0.001;
-                        _State := UINT#26;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#26 THEN
+                IF _State = UINT#44 THEN
                     _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#27;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
                 //Reading Motor torque model: Current constant (0x2018:01 / P-0-0450 / --) 2bytes, 2decimal places
-                IF _State = UINT#27 THEN
+                IF _State = UINT#45 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4546,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
+                    Messenger.ActivateOnCondition(ULINT#1831, _ReadRecord.error, eAxoMessageCategory#Error);            
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
                         _word.%B0   :=  _data2[0];
                         _word.%B1   :=  _data2[1];
                         _P_0_0450   :=  TO_REAL(TO_INT(_word)) * REAL#0.01;
-                        _State := UINT#28;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;
-                IF _State = UINT#28 THEN
+                IF _State = UINT#46 THEN
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-                        _State := UINT#29;
+                        _State := _State + UINT#1;
                     END_IF;
                 END_IF;                                
                 //Calculating scaling constants
-                IF _State = UINT#29 THEN
-                    //  Position
-                    ScalingConstantRequiredPosition := _exp[-_S_0_0078 - 3] / TO_LREAL(_S_0_0077);
-                    ScalingConstantActualPosition       := LREAL#1.0/ScalingConstantRequiredPosition;
-                    //  Velocity
-                    ScalingConstantRequiredVelocity := LREAL#60.0 * _exp[-_S_0_0046 - 3] / TO_LREAL(_S_0_0045);
-                    ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
-                    //  Acceleration
-                    ScalingConstantRequiredAcceleration :=  _exp[-_S_0_0162 - 3] / TO_LREAL(_S_0_0161);
-                    ScalingConstantActualAcceleration       := LREAL#1.0/ScalingConstantRequiredAcceleration;
-                    //  Deceleration
-                    ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
-                    ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
-                    //  Torque
-                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
-                    ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
-                    //  Jerk
-                    ScalingConstantRequiredJerk         :=  1000.0;
-                    ScalingConstantActualJerk           :=  0.001;
+                IF _State = UINT#47 THEN
+                    IF AxisType = eAxoDriveAxisType#Linear THEN
+                        //  Position
+                        ScalingConstantRequiredPosition     :=  _exp[-_S_0_0078 - 3] / TO_LREAL(_S_0_0077);
+                        ScalingConstantActualPosition       :=  LREAL#1.0/ScalingConstantRequiredPosition;
+                        //  Velocity
+                        ScalingConstantRequiredVelocity     :=  _exp[-_S_0_0046 - 3] / TO_LREAL(_S_0_0045);
+                        ScalingConstantActualVelocity       :=  LREAL#1.0/ScalingConstantRequiredVelocity;
+                        //  Acceleration
+                        ScalingConstantRequiredAcceleration :=  _exp[-_S_0_0162 - 3] / TO_LREAL(_S_0_0161);
+                        ScalingConstantActualAcceleration   :=  LREAL#1.0/ScalingConstantRequiredAcceleration;
+                        //  Deceleration
+                        ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
+                        ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
+                        //  Torque
+                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
+                        ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
+                        //  Jerk
+                        ScalingConstantRequiredJerk         :=  ScalingConstantRequiredAcceleration;
+                        ScalingConstantActualJerk           :=  LREAL#1.0/ScalingConstantRequiredJerk;
 
-                    AxoStop_Deceleration := 1000.0;         // mm/s2
-                    AxoStop_Jerk := 150000.0;               // mm/s3
-                    AxoHalt_Deceleration := 1000.0;         // mm/s2
-                    AxoHalt_Jerk := 150000.0;               // mm/s3
-                    AxoHome_Position := 0.0;                // mm
-                    AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
-                    AxoHome_Velocity := 2.0;                // mm/s
-                    AxoHome_Acceleration := 1000.0;         // mm/s2
-                    AxoHome_Deceleration := 1000.0;         // mm/s2
-                    AxoSetPosition_Position := 0.0;         // mm
-                    AxoMoveAbsolute_Position := 0.0;        // mm
-                    AxoMoveAbsolute_Velocity := 5.0;        // mm/s
-                    AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
-                    AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
-                    AxoMoveRelative_Distance := 5.0;        // mm
-                    AxoMoveRelative_Velocity := 5.0;        // mm/s
-                    AxoMoveRelative_Acceleration := 1000.0; // mm/s2
-                    AxoMoveRelative_Deceleration := 1000.0; // mm/s2
-                    AxoMoveRelative_Jerk := 150000.0;       // mm/s3
-                    AxoMoveAdditive_Distance := 5.0;        // mm
-                    AxoMoveAdditive_Velocity := 5.0;        // mm/s
-                    AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
-                    AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
-                    AxoMoveVelocity_Velocity := 5.0;        // mm/s
-                    AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
-                    AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
-                    AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
-                    AxoTorqueControl_Torque := 0.0;         // Nm
-                    AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
-                    AxoTorqueControl_Velocity := 5.0;       // mm/s
-                    AxoTorqueControl_Acceleration := 1000.0;// mm/s2
-                    AxoTorqueControl_Deceleration := 1000.0;// mm/s2
-                    AxoTorqueControl_Jerk := 150000.0;      // mm/s3
-                    AxoJog_Velocity := 2.0;                 // mm/s
-                    AxoJog_Acceleration := 500.0;           // mm/s2
-                    AxoJog_Deceleration := 500.0;           // mm/s2
-                    AxoJog_Jerk := 150000.0;                // mm/s3
-                    AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;  // 1000~~ 100%
+                        AxoStop_Deceleration := 1000.0;         // mm/s2
+                        AxoStop_Jerk := 150000.0;               // mm/s3
+                        AxoHalt_Deceleration := 1000.0;         // mm/s2
+                        AxoHalt_Jerk := 150000.0;               // mm/s3
+                        AxoHome_Position := 0.0;                // mm
+                        AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
+                        AxoHome_Velocity := 2.0;                // mm/s
+                        AxoHome_Acceleration := 1000.0;         // mm/s2
+                        AxoHome_Deceleration := 1000.0;         // mm/s2
+                        AxoSetPosition_Position := 0.0;         // mm
+                        AxoMoveAbsolute_Position := 0.0;        // mm
+                        AxoMoveAbsolute_Velocity := 5.0;        // mm/s
+                        AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
+                        AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
+                        AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
+                        AxoMoveRelative_Distance := 5.0;        // mm
+                        AxoMoveRelative_Velocity := 5.0;        // mm/s
+                        AxoMoveRelative_Acceleration := 1000.0; // mm/s2
+                        AxoMoveRelative_Deceleration := 1000.0; // mm/s2
+                        AxoMoveRelative_Jerk := 150000.0;       // mm/s3
+                        AxoMoveAdditive_Distance := 5.0;        // mm
+                        AxoMoveAdditive_Velocity := 5.0;        // mm/s
+                        AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
+                        AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
+                        AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
+                        AxoMoveVelocity_Velocity := 5.0;        // mm/s
+                        AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
+                        AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
+                        AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
+                        AxoTorqueControl_Torque := 0.0;         // Nm
+                        AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
+                        AxoTorqueControl_Velocity := 5.0;       // mm/s
+                        AxoTorqueControl_Acceleration := 1000.0;// mm/s2
+                        AxoTorqueControl_Deceleration := 1000.0;// mm/s2
+                        AxoTorqueControl_Jerk := 150000.0;      // mm/s3
+                        AxoJog_Velocity := 2.0;                 // mm/s
+                        AxoJog_Acceleration := 500.0;           // mm/s2
+                        AxoJog_Deceleration := 500.0;           // mm/s2
+                        AxoJog_Jerk := 150000.0;                // mm/s3
+                        AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;  // 1000~~ 100%
+                    ELSIF AxisType = eAxoDriveAxisType#Rotary THEN
+                        //  Position
+                        ScalingConstantRequiredPosition     :=  TO_LREAL(_S_0_0079) / LREAL#360.0;
+                        ScalingConstantActualPosition       :=  LREAL#1.0/ScalingConstantRequiredPosition;
+                        //  Velocity
+                        ScalingConstantRequiredVelocity     := _exp[-_S_0_0046] / (TO_LREAL(_S_0_0045) * LREAL#360.0);
+                        ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
+                        //  Acceleration
+                        ScalingConstantRequiredAcceleration :=  _exp[-_S_0_0162] / (TO_LREAL(_S_0_0161) *LREAL#180.0 /System.Math.Constants#PI);
+                        ScalingConstantActualAcceleration   := LREAL#1.0/ScalingConstantRequiredAcceleration;
+                        //  Deceleration
+                        ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
+                        ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
+                        //  Torque
+                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
+                        ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
+                        //  Jerk
+                        ScalingConstantRequiredJerk         :=  1000.0;
+                        ScalingConstantActualJerk           :=  0.001;
 
+                        AxoStop_Deceleration := 1000.0;         // mm/s2
+                        AxoStop_Jerk := 150000.0;               // mm/s3
+                        AxoHalt_Deceleration := 1000.0;         // mm/s2
+                        AxoHalt_Jerk := 150000.0;               // mm/s3
+                        AxoHome_Position := 0.0;                // mm
+                        AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
+                        AxoHome_Velocity := 2.0;                // mm/s
+                        AxoHome_Acceleration := 1000.0;         // mm/s2
+                        AxoHome_Deceleration := 1000.0;         // mm/s2
+                        AxoSetPosition_Position := 0.0;         // mm
+                        AxoMoveAbsolute_Position := 0.0;        // mm
+                        AxoMoveAbsolute_Velocity := 5.0;        // mm/s
+                        AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
+                        AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
+                        AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
+                        AxoMoveRelative_Distance := 5.0;        // mm
+                        AxoMoveRelative_Velocity := 5.0;        // mm/s
+                        AxoMoveRelative_Acceleration := 1000.0; // mm/s2
+                        AxoMoveRelative_Deceleration := 1000.0; // mm/s2
+                        AxoMoveRelative_Jerk := 150000.0;       // mm/s3
+                        AxoMoveAdditive_Distance := 5.0;        // mm
+                        AxoMoveAdditive_Velocity := 5.0;        // mm/s
+                        AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
+                        AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
+                        AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
+                        AxoMoveVelocity_Velocity := 5.0;        // mm/s
+                        AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
+                        AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
+                        AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
+                        AxoTorqueControl_Torque := 0.0;         // Nm
+                        AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
+                        AxoTorqueControl_Velocity := 5.0;       // mm/s
+                        AxoTorqueControl_Acceleration := 1000.0;// mm/s2
+                        AxoTorqueControl_Deceleration := 1000.0;// mm/s2
+                        AxoTorqueControl_Jerk := 150000.0;      // mm/s3
+                        AxoJog_Velocity := 2.0;                 // mm/s
+                        AxoJog_Acceleration := 500.0;           // mm/s2
+                        AxoJog_Deceleration := 500.0;           // mm/s2
+                        AxoJog_Jerk := 150000.0;                // mm/s3
+                        AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;  // 1000~~ 100%
+                    END_IF;
                     _ScalingRead := TRUE;
                     _State := UINT#0;
                 END_IF;                                

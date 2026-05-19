@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
@@ -357,6 +357,42 @@ namespace AXOpen.Components.Rexroth.Drives
 
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1800, new AxoMessengerTextItem("Scaling parameters not yet read out of the drive"                                                                             ,"Check proper value of the device Hardware ID")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1801, new AxoMessengerTextItem("Error while Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1802, new AxoMessengerTextItem("Error: Invalid axis type defined in Position data scaling: Type (0x2900:01 / S-0-0076 / --). The only permmited valueas are: 'Rotary' or 'Linear'","Bits 0-2:   001-linear, 010-rotary")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1803, new AxoMessengerTextItem("Error: Invalid unit system defined in Position data scaling: Type (0x2900:01 / S-0-0076 / --). The only permitted values are '0: Meter [m]' or '0: Angular degree'.","Bit 4: Unit for linear scaling: 0: Meter [m], 1: Inch [in], Unit for rotary Scaling: 0: Angular degree, 1: Reserved")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1804, new AxoMessengerTextItem("Error: Invalid time base defined in Position data scaling: Type (0x2900:01 / S-0-0076 / --). The only permitted value is 's'.","Bit 5:")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1805, new AxoMessengerTextItem("Error: Invalid Data reference defined in Position data scaling: Type (0x2900:01 / S-0-0076 / --). The only permitted value is 'at the load'.","Bit 6: Data reference: 0: at the motor shaft,1: at the load")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1806, new AxoMessengerTextItem("Error while Reading Velocity scaling type (0x2910:01 / S-0-0044 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1807, new AxoMessengerTextItem("Error: Invalid axis type defined in Velocity scaling type (0x2910:01 / S-0-0044 / --). The only permmited valueas are: 'Rotary' or 'Linear'","Bits 0-2:   001-linear, 010-rotary")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1808, new AxoMessengerTextItem("Error: Invalid unit system defined in Velocity scaling type (0x2910:01 / S-0-0044 / --). The only permitted values are '0: Millimeter [mm]' or '1: Degrees'.","Bit 4: Unit for linear scaling: 0: Millimeter [mm], 1: Inch [in], Unit for rotary Scaling: 0: Revolution, 1: Degrees")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1809, new AxoMessengerTextItem("Error: Invalid time base defined in Velocity scaling type (0x2910:01 / S-0-0044 / --). The only permitted value is 'Second [s]'.","Bit 5: Unit of time: 0: Minute [min], 1: Second [s]")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1810, new AxoMessengerTextItem("Error: Invalid Data reference defined in Velocity scaling type (0x2910:01 / S-0-0044 / --). The only permitted is 'load'.","Bit 6: Data reference: 0: at the motor shaft,1: at the load")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1811, new AxoMessengerTextItem("Error while Reading Acceleration scaling type (0x2920:01 / S-0-0160 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1812, new AxoMessengerTextItem("Error: Invalid axis type defined in Acceleration scaling type (0x2920:01 / S-0-0160 / --). The only permmited valueas are: 'Rotary' or 'Linear'","Bits 0-2:   001-linear, 010-rotary")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1813, new AxoMessengerTextItem("Error: Invalid unit system defined in Acceleration scaling type (0x2920:01 / S-0-0160 / --). The only permitted values are '0: Meter [m]' or Radiant [rad]'.","Bit 4: Unit for linear scaling: 0: Meter [m], 1: Inch [in], Unit for rotary Scaling: 0: Radiant [rad], 1: Reserved")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1814, new AxoMessengerTextItem("Error: Invalid time base defined in Acceleration scaling type (0x2920:01 / S-0-0160 / --). The only permitted value is 'Second [s²]'.","Bit 5: Unit of time: Second [s²], 1: Reserved")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1815, new AxoMessengerTextItem("Error: Invalid Data reference defined in Acceleration scaling type (0x2920:01 / S-0-0160 / --). The only permitted is 'load'.","Bit 6: Data reference: 0: at the motor shaft,1: at the load")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1816, new AxoMessengerTextItem("Error while Reading Torque/force scaling type (0x2930:01 / S-0-0086 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1817, new AxoMessengerTextItem("Error: Invalid axis type defined in Torque/force scaling type (0x2930:01 / S-0-0086 / --). The only permmited valueas are: 'translational scaling' or 'Rotary scaling'","Bits 0-2:   000: Percentage-based scaling (% of reference value), 001: translational scaling (force in N, lbf), 010: Rotary scaling (torque in Nm, inlbf)")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1818, new AxoMessengerTextItem("Error: Invalid unit system defined in Torque/force scaling type (0x2930:01 / S-0-0086 / --). The only permitted values are '0: newton [N]' or '0: newton meter [Nm]'.","Bit 4: Unit for force: 0: newton [N], 1: pound-force [lbf], Unit for torque: 0: newton meter [Nm], 1: inch pound-force [inlbf]")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1819, new AxoMessengerTextItem("Error: Invalid time base defined in Torque/force scaling type (0x2930:01 / S-0-0086 / --). The only permitted value is 's'."                          ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1820, new AxoMessengerTextItem("Error: Invalid Data reference defined in Torque/force scaling type (0x2930:01 / S-0-0086 / --). The only permitted is 'load'.","Bit 6: Data reference: 0: at the motor shaft,1: at the load")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1821, new AxoMessengerTextItem("Error while Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1822, new AxoMessengerTextItem("Error while Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1823, new AxoMessengerTextItem("Error while Reading Rotary position resolution (0x2900:04 / S-0-0079 / --)"                                                  ,"")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1824, new AxoMessengerTextItem("Error while Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1825, new AxoMessengerTextItem("Error while Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1826, new AxoMessengerTextItem("Error while Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1827, new AxoMessengerTextItem("Error while Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1828, new AxoMessengerTextItem("Error while Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1829, new AxoMessengerTextItem("Error while Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1830, new AxoMessengerTextItem("Error while Reading Inverter type data: Nominal current (0x2314:01 / S-0-0112 / --)"                                                  ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1831, new AxoMessengerTextItem("Error while Reading Motor torque model: Current constant (0x2018:01 / P-0-0450 / --)"    ,"")),
+
+
+
+
 
                 // TemplateTask_10steps_1
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!","Check the details.")),
