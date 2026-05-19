@@ -1740,6 +1740,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;                                
                 RETURN;
             END_IF;
+            // Retrigger the reading of the scaling parameters in case of leaving the operation mode.
+            IF (*_ScalingRead AND*) NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 AND 
+                (AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CmPmOmBit0 OR  AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CmPmOmBit1 ) THEN
+                _ScalingRead := FALSE;
+                _State := UINT#0;
+            END_IF;
+
             //*************************************************//
 
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Info);
