@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -882,6 +882,9 @@ namespace AXOpen.Components.Keyence.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.DeviceStatusWords.CurrentProgramNo` to be equal to `Outputs.CommandControl.ProgramNo`"    ,"Check the status of the `Inputs.DeviceStatusWords.CurrentProgramNo`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be set!"                                   ,"Check the status of the `Inputs.CommandStatusBits.ProgramSwitchingResponse`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be reseted!"                               ,"Check the status of the `Inputs.CommandStatusBits.ProgramSwitchingResponse`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be reseted!"                                                   ,"Check the status of the `Inputs.CommandStatusBits.BUSY`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.DeviceStatusWords.CurrentProgramNo` to be equal to `Outputs.CommandControl.ProgramNo`!"   ,"Check the status of the `Inputs.DeviceStatusWords.CurrentProgramNo`  signal/variable")),
+
 
         };
 
@@ -973,6 +976,8 @@ namespace AXOpen.Components.Keyence.Vision
                     errorDescriptionDict.Add(511, "Waiting for the signal/variable `Inputs.DeviceStatusWords.CurrentProgramNo` to be equal to `Outputs.CommandControl.ProgramNo`"     );
                     errorDescriptionDict.Add(512,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be set!"                                   );
                     errorDescriptionDict.Add(513,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be reseted!"                               );
+                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be reseted!");
+                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `Inputs.DeviceStatusWords.CurrentProgramNo` to be equal to `Outputs.CommandControl.ProgramNo`!");
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                              );
                     errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                             );
