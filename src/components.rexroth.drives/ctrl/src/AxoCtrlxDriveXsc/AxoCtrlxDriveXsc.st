@@ -1678,7 +1678,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ScalingConstantRequiredPosition     :=  TO_LREAL(_S_0_0079) / LREAL#360.0;
                         ScalingConstantActualPosition       :=  LREAL#1.0/ScalingConstantRequiredPosition;
                         //  Velocity
-                        ScalingConstantRequiredVelocity     := _exp[-_S_0_0046] / (TO_LREAL(_S_0_0045) * LREAL#360.0);
                         ScalingConstantRequiredVelocity     := _exp[-_S_0_0046] / (TO_LREAL(_S_0_0045));
                         ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
                         //  Acceleration
@@ -1688,11 +1687,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                         ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                         //  Torque
-                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
+                        ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094];
                         ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
                         //  Jerk
-                        ScalingConstantRequiredJerk         :=  1000.0;
-                        ScalingConstantActualJerk           :=  0.001;
+                        // ScalingConstantRequiredJerk         :=  1000.0;
+                        // ScalingConstantActualJerk           :=  0.001;
+
+                        ScalingConstantRequiredJerk         :=  ScalingConstantRequiredAcceleration;
+                        ScalingConstantActualJerk           :=  LREAL#1.0/ScalingConstantRequiredJerk;
 
                         AxoStop_Deceleration := 36000.0;            // deg/s2
                         AxoStop_Jerk := 3600000.0;                  // deg/s3
@@ -1736,7 +1738,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;  // 1000~~ 100%
                     END_IF;
                     _ScalingRead := TRUE;
-                    _State := UINT#0;
+                    _State := UINT#50;
                 END_IF;                                
                 RETURN;
             END_IF;
@@ -1798,7 +1800,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ELSE
                     THIS.MessageCodeFromMC := ULINT#0;
                 END_IF;                          
-            END_IF;                          
+            END_IF;       
+            
+            IF _ScalingRead AND _State = UINT#50 THEN
+                THIS.AxoReset_Task.RemoteInvoke := TRUE;
+                _State := UINT#0;
+            END_IF;
+
         END_METHOD   
 
         ///<summary>
@@ -2230,7 +2238,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     MC_HomeErrorID :=  DINT#0;
                     DriveStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
-                    THIS.CallTimers(FALSE);
                     _tmpTimer.OnDelay(THIS, FALSE , T#0s);
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
@@ -2244,6 +2251,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     _State := UINT#310;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 // Reseting InReference flag 
                 IF _State = UINT#310 THEN
@@ -2255,6 +2263,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                         _State := UINT#311;
+                        THIS.CallTimers(FALSE);
                         RETURN;
                     END_IF;
                 END_IF;                
@@ -2266,6 +2275,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     IF Acceleration <= 0 OR Deceleration <= 0 THEN
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                         RETURN;
                     END_IF;
 
@@ -2281,11 +2291,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#312;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1444, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1444;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#312 THEN
@@ -2296,6 +2308,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#313;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Homing function: Configuration (0x2500:02 / S-0-0147 / --)
@@ -2314,11 +2327,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#314;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1445, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1445;
                         _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#314 THEN
@@ -2329,6 +2344,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data2);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#315;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Homing speeds: Speed during search for switch (0x6099:01 / S-0-0041 / --)
@@ -2350,11 +2366,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#316;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1446;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Homing speeds: Speed during search for zero (0x6099:02 / S-0-0542 / --)
@@ -2376,11 +2394,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#317;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1446;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Homing acceleration (0x609A:00 / S-0-0042 / --)
@@ -2401,11 +2421,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#318;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1447, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1447;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#318 THEN
@@ -2416,6 +2438,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#319;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#319 THEN
@@ -2430,6 +2453,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#320;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#320 THEN
@@ -2440,6 +2464,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                        _State := UINT#321;
+                        THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;                
                 IF _State = UINT#321 THEN
@@ -2451,6 +2476,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
                    _State := UINT#322;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#322 THEN
                     IF _infoTimer.output THEN
@@ -2460,6 +2486,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                         _State := UINT#323;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#323 THEN
@@ -2471,18 +2498,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     _State := UINT#324;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#324 THEN
                     _tmpTimer.OnDelay(THIS,  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill , T#100ms);
                     IF _tmpTimer.output THEN
                         _State := UINT#325;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;     
                 IF _State = UINT#325 THEN
                     _State := UINT#326;
+                    THIS.CallTimers(FALSE);
                 END_IF;                              
                 IF _State = UINT#326 THEN
                     _State := UINT#327;
+                    THIS.CallTimers(FALSE);
                 END_IF;                              
                 IF _State = UINT#327 THEN
                     Done := TRUE;            
@@ -2602,14 +2633,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 := TO_DINT(Deceleration * ScalingConstantRequiredDeceleration );
                     _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 := TO_DINT(Jerk * ScalingConstantRequiredJerk );     
                     _State := UINT#330;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#330 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
                         _State := UINT#339;
+                        THIS.CallTimers(FALSE);
                     ELSE
                         _State := UINT#331;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#331 THEN
@@ -2622,6 +2656,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
                         _State := UINT#332;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#332 THEN
@@ -2629,6 +2664,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#333;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#333 THEN
@@ -2636,6 +2672,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#334;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;     
                 IF _State = UINT#334 THEN
@@ -2643,6 +2680,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#335;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                          
                 IF _State = UINT#335 THEN
@@ -2650,6 +2688,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#336;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                          
                 IF _State = UINT#336 THEN
@@ -2657,12 +2696,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#337;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                          
                 IF _State = UINT#337 THEN
                     Done := TRUE;            
                     Active := TRUE;     
                     MC_StopCycle := ULINT#0;     
+                    THIS.CallTimers(FALSE);
                 END_IF;         
                 IF _State = UINT#338 THEN
                     MC_StopCycle := ULINT#0;     
@@ -2769,6 +2810,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 := TO_DINT(Deceleration * ScalingConstantRequiredDeceleration);
                     _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 := TO_DINT(Jerk * ScalingConstantRequiredJerk);
                     _State := UINT#340;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#340 THEN
                     IF _infoTimer.output THEN
@@ -2779,8 +2821,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
                         _State := UINT#349;
+                        THIS.CallTimers(FALSE);
                     ELSE
                         _State := UINT#341;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#341 THEN
@@ -2793,6 +2837,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
                         _State := UINT#342;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#342 THEN
@@ -2800,6 +2845,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#343;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#343 THEN
@@ -2807,21 +2853,25 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF TRUE THEN
                         _State := UINT#344;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;          
                 IF _State = UINT#344 THEN
                     IF TRUE THEN
                         _State := UINT#345;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                                           
                 IF _State = UINT#345 THEN
                     IF TRUE THEN
                         _State := UINT#346;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                                           
                 IF _State = UINT#346 THEN
                     IF TRUE THEN
                         _State := UINT#347;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                                           
                 IF _State = UINT#347 THEN
@@ -2951,6 +3001,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     MC_MoveAbsoluteContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#350;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#350 THEN
                     IF _infoTimer.output THEN
@@ -2972,6 +3023,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveAbsoluteJerk_PV          :=  Jerk;                      
                         MC_MoveAbsoluteDirection_PV     :=  Direction;                                         
                         _State := UINT#351;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#351 THEN
@@ -2988,6 +3040,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#352;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;      
                 IF _State = UINT#352 THEN
@@ -3000,6 +3053,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                        _State := UINT#353;
+                       THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;     
                 IF _State = UINT#353 THEN
@@ -3012,6 +3066,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
                     IF TRUE THEN
                        _State := UINT#354;
+                       THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;                                              
                 //Executing movement
@@ -3025,6 +3080,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#355;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#355 THEN
@@ -3036,6 +3092,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue = _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck THEN      
                         _State := UINT#356;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;                
                 IF _State = UINT#356 THEN
@@ -3045,6 +3102,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
                         _State := UINT#357;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#357 THEN
@@ -3184,6 +3242,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;                            
                     MC_MoveRelativeContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#360;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#360 THEN
                     IF _infoTimer.output THEN
@@ -3204,6 +3263,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
                         MC_MoveRelativeJerk_PV          :=  Jerk;   
                         _State := UINT#361;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#361 THEN
@@ -3220,6 +3280,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#362;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#362 THEN
@@ -3232,6 +3293,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                        _State := UINT#363;
+                        THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;     
                 IF _State = UINT#363 THEN
@@ -3244,6 +3306,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
                     IF TRUE THEN
                        _State := UINT#364;
+                        THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;             
                 //Executing movement
@@ -3257,6 +3320,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#365;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#365 THEN
@@ -3268,6 +3332,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue = _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck THEN      
                         _State := UINT#366;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;                
                 IF _State = UINT#366 THEN
@@ -3277,6 +3342,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
                         _State := UINT#367;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#367 THEN
@@ -3450,10 +3516,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
                         MC_MoveAdditiveCycle := _AxisReference^.Data.Cycle ;
                         _State := UINT#371;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#370 THEN
                     _State := UINT#371;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#371 THEN
                     IF _infoTimer.output THEN
@@ -3469,6 +3537,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#372;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#372 THEN
@@ -3481,6 +3550,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                        _State := UINT#373;
+                        THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;               
                 IF _State = UINT#373 THEN
@@ -3493,6 +3563,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
                     IF TRUE THEN
                        _State := UINT#374;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#374 THEN
@@ -3505,6 +3576,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#375;
+                        THIS.CallTimers(FALSE);
                     END_IF;   
                 END_IF;
                 IF _State = UINT#375 THEN
@@ -3516,6 +3588,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;          
                     IF _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue = _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck THEN      
                         _State := UINT#376;
+                        THIS.CallTimers(FALSE);
                     END_IF;  
                 END_IF;
                 IF _State = UINT#376 THEN
@@ -3525,6 +3598,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
                         _State := UINT#377;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#377 THEN
@@ -3711,6 +3785,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
                     MC_MoveVelocityContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#380;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#380 THEN
                     Busy := TRUE;            
@@ -3728,6 +3803,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveVelocityJerk_PV          :=  Jerk;                      
                         MC_MoveVelocityDirection_PV     :=  Direction_;                                         
                         _State := UINT#381;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#381 THEN
@@ -3744,6 +3820,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#382;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#382 THEN
@@ -3756,6 +3833,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                        _State := UINT#383;
+                        THIS.CallTimers(FALSE);
                     END_IF;                
                 END_IF;                  
                 IF _State = UINT#383 THEN
@@ -3768,6 +3846,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                     IF TRUE THEN //NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus THEN
                         _State := UINT#384;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#384 THEN
@@ -3785,13 +3864,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := TRUE;
                     END_IF;
 
-                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
                         _State := UINT#385;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#385 THEN
                     IF TRUE THEN      
                         _State := UINT#386;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection  THEN
@@ -3809,6 +3890,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     IF InVelocity AND NOT MC_MoveVelocityContinuousUpdate_SV THEN
                         _State := UINT#387;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#387 THEN
@@ -3988,6 +4070,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;                    
                     MC_TorqueControlContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#390;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#390 THEN
                     Busy := TRUE;            
@@ -4010,14 +4093,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_TorqueControlTorqueRamp_PV    :=  TorqueRamp;    
                         IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
                             _State := UINT#399;
+                            THIS.CallTimers(FALSE);
                             Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
                             MC_TorqueControlErrorID :=  DINT#1538;
                         ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
                             _State := UINT#399;
+                            THIS.CallTimers(FALSE);
                             Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
                             MC_TorqueControlErrorID :=  DINT#1539;
                         ELSE
                             _State := UINT#391;
+                            THIS.CallTimers(FALSE);
                         END_IF;                              
                     END_IF;                    
                 END_IF;
@@ -4040,11 +4126,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#392;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1540, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1540;
                         _State := UINT#399;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Torque/force control: Ramp time (0x2838:02 / S-0-0823 / --)
@@ -4066,11 +4154,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#393;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1541, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1541;
                         _State := UINT#399;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 //Writing Torque/force control: High velocity limit value (0x60C9:00 / P-0-0421.0.3 / P-0-2249)
@@ -4094,11 +4184,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#394;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1542, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1542;
                         _State := UINT#399;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;       
                 //Writing Torque/force control: Low velocity limit value (0x60C8:00 / P-0-0421.0.4 / P-0-2250)
@@ -4122,11 +4214,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#395;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1543, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1543;
                         _State := UINT#399;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                            
                 //Executing movement
@@ -4145,6 +4239,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                         _State := UINT#396;
+                        THIS.CallTimers(FALSE);
                     END_IF; 
                 END_IF;
                 IF PositiveDirection_  THEN
@@ -4158,6 +4253,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#396 THEN
                     IF InTorque AND NOT MC_TorqueControlContinuousUpdate_SV THEN      
                         _State := UINT#397;
+                        THIS.CallTimers(FALSE);
                     END_IF;    
                 END_IF;
                 IF _State = UINT#397 THEN
@@ -4299,6 +4395,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     MC_SetPositionPowerStatusPV := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0;
                     _State := UINT#400;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 // Power off
                 IF _State = UINT#400 THEN
@@ -4312,6 +4409,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 THEN
                         _State := UINT#401;
+                        THIS.CallTimers(FALSE);
                         RETURN;
                     END_IF;
                 END_IF;                    
@@ -4326,6 +4424,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                         _State := UINT#402;
+                        THIS.CallTimers(FALSE);
                         RETURN;
                     END_IF;
                 END_IF;                
@@ -4348,11 +4447,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#403;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1551, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1551;
                         _WriteRecord(request := FALSE, record := _data4);
-                        _State := UINT#609;
+                        _State := UINT#409;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#403 THEN
@@ -4364,6 +4465,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#404;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#404 THEN
@@ -4377,8 +4479,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
                         IF MC_SetPositionPowerStatusPV THEN
                             _State := UINT#405;
+                            THIS.CallTimers(FALSE);
                         ELSE
                             _State := UINT#407;
+                            THIS.CallTimers(FALSE);
                         END_IF;
                     END_IF;
                 END_IF;    
@@ -4393,6 +4497,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
                         _State := UINT#407;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;   
                 IF _State = UINT#407 THEN
@@ -4557,6 +4662,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     MC_ReadParameterErrorID := DINT#0;         
                     _State := UINT#410;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#410 THEN
                     IF _infoTimer.output THEN
@@ -4581,12 +4687,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadParameterValid := TRUE;
                         MC_ReadParameterValue :=TO_LINT(_lword);                        
                         _State := UINT#411;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data8);
                         Messenger.Activate(         UINT#1581, eAxoMessageCategory#Error);
                         MC_ReadParameterErrorID :=  DINT#1581;
                         _State := UINT#419;
+                        THIS.CallTimers(FALSE);
                     END_IF;                    
                 END_IF;
                 IF _State = UINT#411 THEN
@@ -4598,6 +4706,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data8);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#410;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#419 THEN
@@ -4673,6 +4782,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     MC_ReadRealParameterErrorID := DINT#0;
                     _State := UINT#420;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#420 THEN
                     IF _infoTimer.output THEN
@@ -4692,13 +4802,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _dword.%B3   :=  _data4[3];
                         MC_ReadRealParameterValid := TRUE;
                         MC_ReadRealParameterValue :=TO_REAL(TO_DINT(_dword));                        
-                        _State := UINT#621;
+                        _State := UINT#421;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1591, eAxoMessageCategory#Error);
                         MC_ReadRealParameterErrorID :=  DINT#1591;
-                        _State := UINT#629;
+                        _State := UINT#429;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#421 THEN
@@ -4710,6 +4822,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#420;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#429 THEN
@@ -4786,6 +4899,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     MC_ReadBoolParameterErrorID := WORD#16#0000;
                     _State := UINT#430;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#430 THEN
                     IF _infoTimer.output THEN
@@ -4802,12 +4916,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadBoolParameterValid := TRUE;
                         MC_ReadBoolParameterValue := _data2[0].%X0;                        
                         _State := UINT#431;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1601, eAxoMessageCategory#Error);
                         MC_ReadBoolParameterErrorID :=  WORD#1601;
                         _State := UINT#439;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#431 THEN
@@ -4819,6 +4935,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data2);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#430;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#439 THEN
@@ -4899,6 +5016,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     _State := UINT#440;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#440 THEN
                     IF _infoTimer.output THEN
@@ -4922,17 +5040,20 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data8);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#441;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data8);
                         Messenger.Activate(         UINT#1611, eAxoMessageCategory#Error);
                         MC_WriteParameterErrorID := WORD#1611;
                         _State := UINT#449;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#441 THEN
                     _WriteRecord(request := FALSE, record := _data8);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#447;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#447 THEN
@@ -5017,6 +5138,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     _State := UINT#450;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#450 THEN
                     IF _infoTimer.output THEN
@@ -5036,11 +5158,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#451;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1621, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := WORD#1621;
                         _State := UINT#459;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#451 THEN
@@ -5052,6 +5176,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#457;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#457 THEN
@@ -5136,6 +5261,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     _State := UINT#460;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#460 THEN
                     IF _infoTimer.output THEN
@@ -5152,11 +5278,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#461;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1631, eAxoMessageCategory#Error);
                         MC_WriteBoolParameterErrorID := WORD#1631;
                         _State := UINT#469;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#461 THEN
@@ -5168,6 +5296,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _WriteRecord(request := FALSE, record := _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#467;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#467 THEN
@@ -5258,6 +5387,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     MC_ReadDigitalInputErrorID := WORD#16#0000;         
                     _State := UINT#470;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#470 THEN
                     IF _infoTimer.output THEN
@@ -5278,12 +5408,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadDigitalInputValid := TRUE;
                         MC_ReadDigitalInputValue := System.BitAccess.GetBit(_dword, TO_USINT(InputNumber));
                         _State := UINT#471;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1642, eAxoMessageCategory#Error);
                         MC_ReadDigitalInputErrorID :=   WORD#1642;
                         _State := UINT#479;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#471 THEN
@@ -5295,6 +5427,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#470;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#479 THEN
@@ -5377,6 +5510,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     MC_ReadDigitalOutputErrorID := WORD#16#0000;         
                     _State := UINT#480;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#480 THEN
                     IF _infoTimer.output THEN
@@ -5397,12 +5531,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadDigitalOutputValid := TRUE;
                         MC_ReadDigitalOutputValue := System.BitAccess.GetBit(_dword, TO_USINT(OutputNumber));
                         _State := UINT#481;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1652, eAxoMessageCategory#Error);
                         MC_ReadDigitalOutputErrorID :=  WORD#1652;
                         _State := UINT#489;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#481 THEN
@@ -5414,6 +5550,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#480;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;               
                 IF _State = UINT#489 THEN
@@ -5500,6 +5637,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     _State := UINT#490;
+                    THIS.CallTimers(FALSE);
                 END_IF;
                 IF _State = UINT#490 THEN
                     IF _infoTimer.output THEN
@@ -5518,11 +5656,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_WriteDigitalOutputParameterPV.%B2   :=  _data4[2];
                         MC_WriteDigitalOutputParameterPV.%B3   :=  _data4[3];
                         _State := UINT#491;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                     IF  _ReadRecord.error THEN 
                         Messenger.Activate(             UINT#1662, eAxoMessageCategory#Error);
                         MC_WriteDigitalOutputErrorID := WORD#1662;
                         _State := UINT#499;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#491 THEN
@@ -5534,6 +5674,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(request := FALSE, record := _data8);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#492;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF; 
                 IF _State = UINT#492 THEN
@@ -5544,6 +5685,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;   
                     MC_WriteDigitalOutputParameterPV := System.BitAccess.SetBit(value := MC_WriteDigitalOutputParameterPV,bitValue := Value,index := TO_USINT(OutputNumber));         
                     _State := UINT#493;
+                    THIS.CallTimers(FALSE);
                 END_IF;               
                 IF _State = UINT#493 THEN
                     Busy := TRUE;            
@@ -5558,17 +5700,20 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#494;
+                        THIS.CallTimers(FALSE);
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(         UINT#1663, eAxoMessageCategory#Error);
                         MC_WriteParameterErrorID := WORD#1663;
                         _State := UINT#499;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
                 IF _State = UINT#494 THEN
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#497;
+                        THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;                
                 
@@ -5612,7 +5757,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// This method returns the actual position.
         ///<summary>
         METHOD PUBLIC OVERRIDE MC_ReadActualPosition 
-             VAR_INPUT
+            VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
@@ -5914,54 +6059,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_ReadAxisErrorCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Enable THEN 	
-            //     THIS.UpdateInputs(_AxisReference^);         
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         MC_ReadAxisErrorErrorID := WORD#16#0000;         
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         _State := UINT#310;
-            //     END_IF;
-            //     IF _State = UINT#310 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 12306;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             MC_ReadAxisErrorValid := TRUE;
-            //             MC_ReadAxisErrorValue := Parametrization.Outputs.ValueReadLINT;
-            //             _State := UINT#311;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1731, eAxoMessageCategory#ProgrammingError);
-            //             MC_ReadAxisErrorErrorID :=  WORD#1731;
-            //             _State := UINT#319;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#311 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#310;
-            //         END_IF;
-            //     END_IF;               
-            //     IF _State = UINT#319 THEN
-            //         Error := TRUE;    
-            //     END_IF;         
-                
-            //     IF _State>=UINT#310 AND _State<UINT#317 THEN
-            //         IF _AxisReference^.Data.Cycle <> MC_ReadAxisErrorCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#319;
-            //         END_IF;                  
-            //     END_IF;  
-            //     THIS.UpdateOutputs(_AxisReference^);          
-            // END_IF;
-
             IF NOT Enable AND MC_ReadAxisErrorEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_ReadAxisErrorErrorID := WORD#0;
@@ -5976,7 +6073,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_ReadAxisErrorEnable_PV := Enable;	          
 
             Messenger.ActivateOnCondition(LastMessageCode,Enable AND Valid AND LastMessageCode = TO_ULINT(MC_ReadAxisErrorValue), eAxoMessageCategory#Error);
-            // IF NOT Messenger.IsActive THEN
             IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 LastMessageCode := TO_ULINT(MC_ReadAxisErrorValue);
             END_IF;
