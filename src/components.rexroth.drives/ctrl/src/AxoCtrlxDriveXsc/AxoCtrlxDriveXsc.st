@@ -150,6 +150,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _tmpTimer               :   AXOpen.Timers.OnDelayTimer;
             
             _lastMessageCodeFromMC  :   ULINT;
+
+            _debugCounter           :   ULINT;
         END_VAR
 
         ///<summary>
@@ -1707,27 +1709,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         AxoHome_Deceleration := 36000.0;            // deg/s2
                         AxoSetPosition_Position := 0.0;             // deg
                         AxoMoveAbsolute_Position := 0.0;            // deg
-                        AxoMoveAbsolute_Velocity := 360.0;          // deg/s
+                        AxoMoveAbsolute_Velocity := 3600.0;         // deg/s
                         AxoMoveAbsolute_Acceleration := 36000.0;    // deg/s2
                         AxoMoveAbsolute_Deceleration := 36000.0;    // deg/s2
                         AxoMoveAbsolute_Jerk := 3600000.0;          // deg/s3
                         AxoMoveRelative_Distance := 360.0;          // deg
-                        AxoMoveRelative_Velocity := 45.0;           // deg/s
+                        AxoMoveRelative_Velocity := 3600.0;         // deg/s
                         AxoMoveRelative_Acceleration := 36000.0;    // deg/s2
                         AxoMoveRelative_Deceleration := 36000.0;    // deg/s2
                         AxoMoveRelative_Jerk := 3600000.0;          // deg/s3
                         AxoMoveAdditive_Distance := 360.0;          // deg
-                        AxoMoveAdditive_Velocity := 45.0;           // deg/s
+                        AxoMoveAdditive_Velocity := 3600.0;         // deg/s
                         AxoMoveAdditive_Acceleration := 36000.0;    // deg/s2
                         AxoMoveAdditive_Deceleration := 36000.0;    // deg/s2
                         AxoMoveAdditive_Jerk := 3600000.0;          // deg/s3
-                        AxoMoveVelocity_Velocity := 45.0;           // deg/s
+                        AxoMoveVelocity_Velocity := 3600.0;         // deg/s
                         AxoMoveVelocity_Acceleration := 36000.0;    // deg/s2
                         AxoMoveVelocity_Deceleration := 36000.0;    // deg/s2
                         AxoMoveVelocity_Jerk := 3600000.0;          // deg/s3
                         AxoTorqueControl_Torque := 0.0;             // Nm
                         AxoTorqueControl_TorqueRamp := 1.0;         // Nm/s
-                        AxoTorqueControl_Velocity := 90.0;          // deg/s
+                        AxoTorqueControl_Velocity := 3600.0;        // deg/s
                         AxoTorqueControl_Acceleration := 36000.0;   // deg/s2
                         AxoTorqueControl_Deceleration := 36000.0;   // deg/s2
                         AxoTorqueControl_Jerk := 3600000.0;         // deg/s3
@@ -1803,10 +1805,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;       
             
             IF _ScalingRead AND _State = UINT#50 THEN
-                THIS.AxoReset_Task.RemoteInvoke := TRUE;
+                // AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                // THIS.AxoReset_Task.RemoteInvoke := TRUE;
                 _State := UINT#0;
             END_IF;
-
         END_METHOD   
 
         ///<summary>
@@ -2124,6 +2126,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         VAR INTERNAL
             MC_PowerEnable_PV					:	BOOL := FALSE;		//Enable - previous value
+            MC_PowerErrorID					    : 	DINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Power 
             VAR_INPUT
@@ -2163,19 +2166,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Status  := FALSE;	
                     Valid   := TRUE;
                 END_IF;
-                IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 = TRUE THEN
+                IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                     Status	:= FALSE;	
                     Error   := TRUE; 						
-                    ErrorID.%B1 := _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0.%B1;
-                    ErrorID.%B0 := _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0.%B0;
+                    MC_PowerErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                 END_IF;                
             END_IF;
 
             IF NOT Enable AND MC_PowerEnable_PV THEN
+                MC_PowerErrorID := DINT#0;
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable   :=  FALSE;
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn       :=  FALSE;
             END_IF;
 
+            ErrorID := MC_PowerErrorID;
             MC_PowerEnable_PV := Enable;
         END_METHOD 
 
@@ -2535,9 +2540,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State>=UINT#310 AND _State<UINT#327 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#328;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_HomeErrorID = DINT#0 THEN
-                            MC_HomeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_HomeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#329;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HomeCycle THEN
@@ -2719,9 +2725,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State>=UINT#330 AND _State<UINT#337 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#338;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_StopErrorID = DINT#0 THEN
-                            MC_StopErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_StopErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#339;
                     ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
@@ -2893,9 +2900,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State>=UINT#340 AND _State<UINT#347 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#348;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_HaltErrorID = DINT#0 THEN
-                            MC_HaltErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_HaltErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#349;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
@@ -3077,7 +3085,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue; // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#355;
                         THIS.CallTimers(FALSE);
@@ -3133,9 +3141,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;   
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#358;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
+                        // _debugCounter := _debugCounter + ULINT#1;
                         IF MC_MoveAbsoluteErrorID = DINT#0 THEN
-                            MC_MoveAbsoluteErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_MoveAbsoluteErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#359;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
@@ -3317,7 +3327,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     Busy := TRUE;            
                     Active := TRUE;    
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue; //_AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#365;
                         THIS.CallTimers(FALSE);
@@ -3382,9 +3392,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;   
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#368;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_MoveRelativeErrorID = DINT#0 THEN
-                            MC_MoveRelativeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_MoveRelativeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#369;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
@@ -3573,7 +3584,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue; //_AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
                     IF TRUE THEN      
                         _State := UINT#375;
                         THIS.CallTimers(FALSE);
@@ -3642,9 +3653,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;   
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#378;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_MoveAdditiveErrorID = DINT#0 THEN
-                            MC_MoveAdditiveErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_MoveAdditiveErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#379;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAdditiveCycle THEN
@@ -3924,9 +3936,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                       
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#388;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_MoveVelocityErrorID = WORD#0 THEN
-                            MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#389;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveVelocityCycle THEN
@@ -4295,9 +4308,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;   
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#398;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_TorqueControlErrorID = DINT#0 THEN
-                            MC_TorqueControlErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_TorqueControlErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#399;
                     ELSIF _AxisReference^.Data.Cycle <> MC_TorqueControlCycle THEN
@@ -4526,9 +4540,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State>=UINT#400 AND _State<UINT#407 THEN
                     IF (*NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR*) NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#408;
-                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
                         IF MC_SetPositionErrorID = DINT#0 THEN
-                            MC_SetPositionErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                            MC_SetPositionErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#409;
                     ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
@@ -6141,7 +6156,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy            := TRUE;
                     Error           := FALSE;
                     ErrorID         := UINT#0;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
+                    // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;
