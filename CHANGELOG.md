@@ -1,3 +1,27 @@
+### [KUKA] KRC5 raw data exchange, coordinate-mirror diagnostics, and auto-mode severity fix ([#1151](https://github.com/Inxton/AXOpen/pull/1151))
+
+**Note:** KRC5-only change in `src/components.kuka.robotics/`. `AxoKrc5` now diverges from `AxoKrc4` in three respects — `AxoKrc4` is intentionally left unchanged in this PR. Fixes #1148.
+
+- feat: `AxoKrc5` exposes raw application-defined passthrough members `DataFromPlcToRobot : ARRAY[0..19] OF BYTE` (PLC → robot, output bytes `_data[44..63]`) and `DataFromRobotToPlc : ARRAY[0..15] OF BYTE` (robot → PLC, input bytes `_data[48..63]`). Both carry `RenderIgnore`; `Run()` transports them verbatim without interpretation. Wrapped in the new `<AxoKrc5DataExchangeDeclaration>` source region.
+- feat: `AxoKrc5` adds per-axis coordinate-mirror task-`potential` identifiers `1501–1506` (`StartMotorsProgramAndMovements`) and `1511–1516` (`StartMovements`), raised via `TaskMessenger` while waiting for each `Inputs.Coordinates.{X,Y,Z,Rx,Ry,Rz}` to mirror the commanded value within `0.01` tolerance. Matching `.NET` twin entries added to both the `TaskMessenger` text list and `errorDescriptionDict` in `AxoKrc5.cs`.
+- fix: `AxoKrc5` safety message `20002` (`Inputs.Automatic = FALSE` while a task is busy) is now raised as category `Info` instead of `Error` — losing auto mode mid-task is informational on KRC5, not a hard fault.
+- feat: Showcase `AxoKrc5_v_5_x_x_Showcase.st` gained an "Exchange raw data with the robot" sequencer step (in `//<DataExchange>` markers); `Steps` widened `[0..19]` → `[0..20]`, `_lastByteFromRobot` status field added.
+- docs: `AxoKrc5.md` relaxed the "identical public API to `AxoKrc4`" wording, added a **Data exchange** section (library declaration + showcase usage refs), and a note listing the three KRC5-only differences. `TROUBLES.md` flags the per-class differences (1501–1516, 20002 severity split). Appended `0.54.0` entry to `src/components.kuka.robotics/docs/CHANGELOG.md`.
+
+**Impact:**
+- Applications driving a KRC5 can now push and pull arbitrary byte payloads alongside the structured motion interface, without a library change.
+- Operators see which specific axis is holding up a movement (per-coordinate `potential` IDs) rather than a single "coordinates not mirrored" wait.
+- Dropping out of automatic mode mid-task no longer latches a KRC5 error state.
+
+**Risks/Review:**
+- `AxoKrc4` and `AxoKrc5` are no longer API/behaviour-identical. Documentation now states the divergence explicitly; if a follow-up backports these changes to `AxoKrc4`, the "KRC5-only" wording in `AxoKrc5.md` / `TROUBLES.md` must be reverted.
+- The PLC→robot (`44..63`) and robot→PLC (`48..63`) windows overlap on the same physical I/O block in opposite directions — verify the controller-side mapping matches before relying on the passthrough.
+
+**Testing:**
+- `apax ib` in `src/showcase/app/` — the new KRC5 data-exchange sequencer step builds and runs through to `CompleteSequence`.
+- `dotnet build` on `src/showcase/app/ix-blazor/showcase.blazor/` — the `AxoKrc5.cs` messenger/error-dictionary additions compile.
+- `scripts/_build_documentation.ps1` — the new `[!code-pascal[]]` (showcase `DataExchange`) and `[!code-smalltalk[]]` (`AxoKrc5DataExchangeDeclaration`) directives resolve.
+
 ### [CORE] AxoToggleTaskView aligned with AxoTaskView ([#1143](https://github.com/Inxton/AXOpen/pull/1143))
 
 **Note:** Blazor UI-only change in `src/core/src/AXOpen.Core.Blazor/AxoToggleTask/`. The PLC `AxoToggleTask` class and its public API (`SwitchOn()`, `SwitchOff()`, `Toggle()`, `IsSwitchOn()`, `IsSwitchOff()`, event-like overrides) are unchanged. Bundled with the AxoCmmtAs view expansion under the same PR; the toggle-view refactor is the core-library portion.

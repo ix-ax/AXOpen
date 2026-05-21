@@ -138,12 +138,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
 
+        // <AxoKrc5DataExchangeDeclaration>
         VAR PUBLIC //Data
             {#ix-attr:[RenderIgnore()]}
             DataFromPlcToRobot :   ARRAY[0..19] OF BYTE;
             {#ix-attr:[RenderIgnore()]}
             DataFromRobotToPlc :   ARRAY[0..15] OF BYTE;
         END_VAR
+        // </AxoKrc5DataExchangeDeclaration>
 
         ///<summary>
         /// Runs tasks and logic of this component.
