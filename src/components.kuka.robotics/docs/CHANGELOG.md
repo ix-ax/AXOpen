@@ -126,3 +126,47 @@
   control remains available through the existing
   `axoKrcN_v_5_x_x.ActivateManualControl` toggle on the sequenced
   showcases — no library-side API was removed.
+
+### 0.54.0
+
+**New features:**
+- `AxoKrc5` now exposes raw application-defined data-exchange members
+  `DataFromPlcToRobot : ARRAY[0..19] OF BYTE` (PLC → robot, mapped onto
+  output bytes `_data[44..63]`) and `DataFromRobotToPlc : ARRAY[0..15] OF BYTE`
+  (robot → PLC, mapped onto input bytes `_data[48..63]`). Both carry
+  `RenderIgnore` and are transported verbatim by `Run()` without
+  interpretation (#1148).
+
+**Bug fixes:**
+- `AxoKrc5` safety message **20002** (`Inputs.Automatic = FALSE` while a task
+  is busy) is now raised as category `Info` instead of `Error`; losing auto
+  mode mid-task is an informational condition rather than a hard fault on
+  KRC5 (#1148).
+
+**Other:**
+- `AxoKrc5` adds per-axis coordinate-mirror task-`potential` identifiers
+  **1501–1506** (`StartMotorsProgramAndMovements`) and **1511–1516**
+  (`StartMovements`), reported via `TaskMessenger` while waiting for each
+  `Inputs.Coordinates.{X,Y,Z,Rx,Ry,Rz}` to mirror the commanded value within
+  `0.01` tolerance. Matching `.NET` twin entries were added to both the
+  `TaskMessenger` text list and `errorDescriptionDict` in `AxoKrc5.cs`.
+- `AxoKrc5.md` — relaxed the "identical public API to `AxoKrc4`" wording to
+  reflect the #1148 divergence; added a **Data exchange** section documenting
+  the new byte-array members (wired to the new
+  `<AxoKrc5DataExchangeDeclaration>` source region) and a note listing the
+  three KRC5-only differences.
+- `TROUBLES.md` — header note now flags the per-class differences; the 20002
+  rows record the `Error` (KRC4) vs `Info` (KRC5) split; the task-`potential`
+  reference and the "Movement parameters never take effect" section document
+  the new 1501–1516 coordinate-mirror IDs.
+- Showcase: `AxoKrc5_v_5_x_x_Showcase.st` gained an "Exchange raw data with
+  the robot" sequencer step (inside new `//<DataExchange>` markers) that
+  writes a sample payload to `DataFromPlcToRobot` and reads `DataFromRobotToPlc`;
+  the `Steps` array was widened `[0..19]` → `[0..20]` and a
+  `_lastByteFromRobot` status field added. `AxoKrc5.md`'s **Data exchange**
+  section references this snippet via `[!code-pascal[]]`. The `AxoKrc4`
+  showcase is unchanged.
+
+**New regions:**
+- `AxoKrc5.st` — `<AxoKrc5DataExchangeDeclaration>` around the public
+  `DataFromPlcToRobot` / `DataFromRobotToPlc` block.
