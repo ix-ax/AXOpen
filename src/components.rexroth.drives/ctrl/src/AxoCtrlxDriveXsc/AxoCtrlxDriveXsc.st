@@ -150,8 +150,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _tmpTimer               :   AXOpen.Timers.OnDelayTimer;
             
             _lastMessageCodeFromMC  :   ULINT;
-
             _debugCounter           :   ULINT;
+
+            MessageCodeOutOfMC      :   ULINT;
+            ErrorOutOfMC            :   BOOL;
+            _lastMessageCodeOutOfMC :   ULINT;
         END_VAR
 
         ///<summary>
@@ -1803,6 +1806,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     THIS.MessageCodeFromMC := ULINT#0;
                 END_IF;                          
             END_IF;       
+
+            THIS.ErrorOutOfMC := NOT THIS.ErrorFromMC AND (AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR (AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND AxisRefExt.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000));
+            MessageCodeOutOfMC := TO_ULINT(AxisRefExt.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
+            Messenger.ActivateOnCondition(THIS.MessageCodeOutOfMC, THIS.ErrorOutOfMC AND MessageCodeOutOfMC = _lastMessageCodeOutOfMC ,eAxoMessageCategory#Error);
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
+                IF THIS.ErrorOutOfMC THEN
+                    _lastMessageCodeOutOfMC := THIS.MessageCodeOutOfMC;
+                ELSE
+                    THIS.MessageCodeOutOfMC := ULINT#0;
+                END_IF;                          
+            END_IF;    
             
             IF _ScalingRead AND _State = UINT#50 THEN
                 // AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
