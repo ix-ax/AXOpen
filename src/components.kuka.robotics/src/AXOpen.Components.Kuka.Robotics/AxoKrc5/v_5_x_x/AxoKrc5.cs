@@ -213,6 +213,21 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for all output signals to be reseted!",                                                                                  "Check the status of the `ProActive` signal.")),
 
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1501,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.X`  to be the same as the value of the `CurrentMovementParameters.Coordinates.X `.",                  "Check the value of the Inputs.Coordinates.X ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1502,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Y`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Y `.",                  "Check the value of the Inputs.Coordinates.Y ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1503,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Z`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Z `.",                  "Check the value of the Inputs.Coordinates.Z ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1504,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Rx` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rx`.",                  "Check the value of the Inputs.Coordinates.Rx")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1505,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Ry` to be the same as the value of the `CurrentMovementParameters.Coordinates.Ry`.",                  "Check the value of the Inputs.Coordinates.Ry")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1506,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Rz` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rz`.",                  "Check the value of the Inputs.Coordinates.Rz")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1511,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.X`  to be the same as the value of the `CurrentMovementParameters.Coordinates.X `.",                  "Check the value of the Inputs.Coordinates.X ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1512,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Y`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Y `.",                  "Check the value of the Inputs.Coordinates.Y ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1513,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Z`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Z `.",                  "Check the value of the Inputs.Coordinates.Z ")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1514,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Rx` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rx`.",                  "Check the value of the Inputs.Coordinates.Rx")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1515,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Ry` to be the same as the value of the `CurrentMovementParameters.Coordinates.Ry`.",                  "Check the value of the Inputs.Coordinates.Ry")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1516,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Coordinates.Rz` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rz`.",                  "Check the value of the Inputs.Coordinates.Rz")),
+
         };
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
@@ -319,6 +334,21 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     errorDescriptionDict.Add(1201, "Error reading the input data (Config.HWIDs.HwID_512_DI_DO)!");
 
                     errorDescriptionDict.Add(1231, "Error writing the output data (Config.HWIDs.HwID_512_DI_DO)!");
+
+
+                    errorDescriptionDict.Add(1501, "Waiting for the value of the `Inputs.Coordinates.X`  to be the same as the value of the `CurrentMovementParameters.Coordinates.X `.");
+                    errorDescriptionDict.Add(1502, "Waiting for the value of the `Inputs.Coordinates.Y`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Y `.");
+                    errorDescriptionDict.Add(1503, "Waiting for the value of the `Inputs.Coordinates.Z`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Z `.");
+                    errorDescriptionDict.Add(1504, "Waiting for the value of the `Inputs.Coordinates.Rx` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rx`.");
+                    errorDescriptionDict.Add(1505, "Waiting for the value of the `Inputs.Coordinates.Ry` to be the same as the value of the `CurrentMovementParameters.Coordinates.Ry`.");
+                    errorDescriptionDict.Add(1506, "Waiting for the value of the `Inputs.Coordinates.Rz` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rz`.");
+                    errorDescriptionDict.Add(1511, "Waiting for the value of the `Inputs.Coordinates.X`  to be the same as the value of the `CurrentMovementParameters.Coordinates.X `.");
+                    errorDescriptionDict.Add(1512, "Waiting for the value of the `Inputs.Coordinates.Y`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Y `.");
+                    errorDescriptionDict.Add(1513, "Waiting for the value of the `Inputs.Coordinates.Z`  to be the same as the value of the `CurrentMovementParameters.Coordinates.Z `.");
+                    errorDescriptionDict.Add(1514, "Waiting for the value of the `Inputs.Coordinates.Rx` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rx`.");
+                    errorDescriptionDict.Add(1515, "Waiting for the value of the `Inputs.Coordinates.Ry` to be the same as the value of the `CurrentMovementParameters.Coordinates.Ry`.");
+                    errorDescriptionDict.Add(1516, "Waiting for the value of the `Inputs.Coordinates.Rz` to be the same as the value of the `CurrentMovementParameters.Coordinates.Rz`.");
+
 
                     errorDescriptionDict.Add(10000, "Start at main finished with error!");
                     errorDescriptionDict.Add(10001, "Start at main was aborted, while not yet completed!");
