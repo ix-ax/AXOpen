@@ -105,7 +105,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
         END_VAR
-
+        VAR PUBLIC // Reboot
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Reboot drive controller#>"}
+            RebootTask :   AxoTask;
+        END_VAR
         VAR PRIVATE
             _data2      :   ARRAY[0..1] OF BYTE; 
             _data4      :   ARRAY[0..3] OF BYTE; 
@@ -175,6 +180,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_VAR
             SUPER.Run(inParent);
             Messenger.Serve(THIS);
+            TaskMessenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
                 IF inParent = NULL THEN
@@ -1126,7 +1132,85 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     RETURN;
                 END_IF;
                 _initHwCheckDone    := TRUE;
-            END_IF;            
+            END_IF; 
+            //*********************** Reboot task ***********************/            
+            RebootTask.Run(THIS);
+            IF RebootTask.StartTriggered() THEN
+                _State := UINT#0;
+            END_IF;
+            IF RebootTask.Execute() THEN
+                IF _State = UINT#0 THEN
+                    AxoPower_Task.SwitchOff();
+                    AxoStop_Task.Restore();
+                    AxoHalt_Task.Restore();
+                    AxoHome_Task.Restore();
+                    AxoMoveAbsolute_Task.Restore();
+                    AxoMoveRelative_Task.Restore();
+                    AxoMoveAdditive_Task.Restore();
+                    AxoMoveVelocity_Task.Restore();
+                    AxoTorqueControl_Task.Restore();
+                    AxoSetPosition_Task.Restore();
+                    AxoSetOverride_Task.SwitchOff();
+                    AxoReadParameter_Task.SwitchOff();
+                    AxoReadRealParameter_Task.SwitchOff();
+                    AxoReadBoolParameter_Task.SwitchOff();
+                    AxoWriteParameter_Task.Restore();
+                    AxoWriteRealParameter_Task.Restore();
+                    AxoWriteBoolParameter_Task.Restore();
+                    AxoReadDigitalInput_Task.SwitchOff();
+                    AxoReadDigitalOutput_Task.SwitchOff();
+                    AxoWriteDigitalOutput_Task.Restore();
+                    AxoReadActualPosition_Task.SwitchOff();
+                    AxoReadActualVelocity_Task.SwitchOff();
+                    AxoReadActualTorque_Task.SwitchOff();
+                    AxoReadStatus_Task.SwitchOff();
+                    AxoReadMotionState_Task.SwitchOff();
+                    AxoReadAxisInfo_Task.SwitchOff();
+                    AxoReadAxisError_Task.SwitchOff();
+                    AxoReset_Task.Restore();
+                    _tmpTimer.OnDelay(THIS, FALSE , T#0s);
+                    _State := UINT#800;
+                    THIS.CallTimers(FALSE);
+                END_IF;
+
+                IF _State = UINT#800 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#1000, eAxoMessageCategory#Potential);
+                        DriveStatus.Error.Id := UINT#1000;
+                    END_IF;
+
+                    AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable   :=  FALSE;
+                    AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn       :=  FALSE;
+
+                    AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.DeviceReboot := TRUE;
+
+                    IF _tmpTimer.OnDelay(THIS, TRUE , T#3s) THEN
+                        _State := UINT#801;
+                        THIS.CallTimers(FALSE);
+                    END_IF;
+                END_IF; 
+
+                IF _State = UINT#801 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#1001, eAxoMessageCategory#Potential);
+                        DriveStatus.Error.Id := UINT#1001;
+                    END_IF;
+
+                    _tmpTimer.OnDelay(THIS, FALSE , T#0s);
+                    
+                    AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.DeviceReboot := FALSE;
+
+                    IF TRUE THEN
+                        _State := UINT#802;
+                        THIS.CallTimers(FALSE);
+                    END_IF;
+                END_IF; 
+    
+                IF _State = UINT#802 THEN
+                    RebootTask.DoneWhen(TRUE);
+                END_IF;
+            END_IF;
+
             Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Potential);            
             //********************Diagnostics******************//          
             HardwareDiagnosticsTask.Run(THIS,AxisRefExt.HWIDs.HW_Device);
@@ -2014,7 +2098,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X0   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SwitchToCM;
             _data2[0].%X1   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SwitchTo0M;
             _data2[0].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint;
-            _data2[0].%X3   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit11_Reserve;
+            _data2[0].%X3   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.DeviceReboot;
             _data2[0].%X4   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit12_Reserve;
             _data2[0].%X5   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit13_Reserve;
             _data2[0].%X6   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit14_Reserve;
@@ -2180,8 +2264,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Status  := FALSE;	
                     Valid   := TRUE;
                 END_IF;
-                IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
-                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
+                // IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
+                IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 AND (NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1) THEN
                     Status	:= FALSE;	
                     Error   := TRUE; 						
                     MC_PowerErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
@@ -6348,6 +6432,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             TaskMessenger.Restore();
 
             //AxoPower_Task.Restore();
+            RebootTask.Restore();
             AxoStop_Task.Restore();
             AxoHalt_Task.Restore();
             AxoHome_Task.Restore();
