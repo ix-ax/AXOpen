@@ -2639,7 +2639,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#328;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
-                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) 
+                        // Filtering out warning with code C00E2054 (NOT HOMED)
+                        AND (_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 <> DWORD#16#C00E2054) THEN
                         IF MC_HomeErrorID = DINT#0 THEN
                             MC_HomeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
