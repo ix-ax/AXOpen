@@ -1779,9 +1779,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094];
                         ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
                         //  Jerk
-                        // ScalingConstantRequiredJerk         :=  1000.0;
-                        // ScalingConstantActualJerk           :=  0.001;
-
                         ScalingConstantRequiredJerk         :=  ScalingConstantRequiredAcceleration;
                         ScalingConstantActualJerk           :=  LREAL#1.0/ScalingConstantRequiredJerk;
 
@@ -1790,7 +1787,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         AxoHalt_Deceleration := 36000.0;            // deg/s2
                         AxoHalt_Jerk := 3600000.0;                  // deg/s3
                         AxoHome_Position := 0.0;                    // deg
-                        AxoHome_HommingMode := 551;                 // Negative direction, travel range limit switch, negative edge (NC contact)
+                        AxoHome_HommingMode := 7;                   // Negative direction, negative edge (NC contact), homing switch connected to drive
                         AxoHome_Velocity := 45.0;                   // deg/s
                         AxoHome_Acceleration := 36000.0;            // deg/s2
                         AxoHome_Deceleration := 36000.0;            // deg/s2
@@ -2654,7 +2651,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoHome_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoHome_Task timeout.#>');                
+                // THIS.AxoHome_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoHome_Task timeout.#>');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
