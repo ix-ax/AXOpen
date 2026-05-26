@@ -8,7 +8,7 @@
 <button data-axo-toggle-task-view type="button"
         aria-disabled="@IsDisabled"
         aria-pressed="@IsOn"
-        class="btn @ButtonClass gap-2 flex items-center justify-between @Class"
+        class="btn @ButtonClass gap-2 flex items-center justify-between h-11 py-1! @Class"
         style="@Style"
         @onclick="this.ToggleTask"
         disabled="@IsDisabled">
@@ -23,7 +23,7 @@
         }
     </span>
 
-    <span class="flex-1 text-center text-inherit">
+    <span class="flex-1 min-w-0 text-center text-inherit line-clamp-2 text-balance wrap-anywhere leading-tight">
         @LabelText.ToUpper()
     </span>
 
