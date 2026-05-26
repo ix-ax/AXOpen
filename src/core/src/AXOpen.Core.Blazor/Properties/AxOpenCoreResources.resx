@@ -132,6 +132,9 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Reset task</value>
   </data>
+  <data name="ResumeTask" xml:space="preserve">
+    <value>Resume task</value>
+  </data>
   <!-- Severity Names -->
   <data name="Info" xml:space="preserve">
     <value>Info</value>

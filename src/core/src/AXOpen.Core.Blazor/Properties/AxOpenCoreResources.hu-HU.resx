@@ -189,6 +189,9 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Feladat alaphelyzetbe állítása</value>
   </data>
+  <data name="ResumeTask" xml:space="preserve">
+    <value>Feladat folytatása</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
