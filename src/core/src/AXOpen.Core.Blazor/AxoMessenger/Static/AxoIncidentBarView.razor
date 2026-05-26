@@ -1,0 +1,222 @@
+@namespace AXOpen.Messaging.Static
+@using System.Globalization
+@using System.Threading
+@using AXOpen.Core
+@using AXOpen.Messaging
+@using AXSharp.Connector
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits RenderableComplexComponentBase<ITwinObject>
+@implements IAsyncDisposable
+
+@if (_state.IsVisible)
+{
+    var sev = _state.Severity;
+    var pulse = _state.Pulses ? "animate-pulse" : string.Empty;
+
+    <div data-axo-incident-bar
+         role="alert"
+         aria-live="polite"
+         class="card w-full @AxoIncidentBarPresenter.GlowClass(sev) @AxoIncidentBarPresenter.BackgroundClass(sev) @pulse @Class">
+
+        <div class="card-title flex flex-wrap items-center justify-between gap-2 bg-background-light/40!">
+            <div class="flex flex-wrap items-center gap-2">
+                @if (!string.IsNullOrWhiteSpace(PlcLabel))
+                {
+                    <span class="text-xs uppercase font-semibold text-text/60">@PlcLabel</span>
+                }
+                <span class="@AxoIncidentBarPresenter.BadgeClass(sev)">@SeverityName(sev)</span>
+                @if (_state.TopCause is { } top)
+                {
+                    <span class="text-base font-semibold">@top.Message.SenderDisplayName</span>
+                    <span class="text-text/80 truncate">@top.Message.DisplayMessage</span>
+                }
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                @if (_state.AdditionalCount > 0)
+                {
+                    <span class="badge badge-primary">+@_state.AdditionalCount</span>
+                }
+                @if (_state.TopCause is not null)
+                {
+                    <button class="btn btn-sm btn-primary"
+                            disabled="@IsTopAckPending()"
+                            @onclick="AcknowledgeTopAsync">
+                        @(IsTopAckPending() ? "…" : "Acknowledge")
+                    </button>
+                }
+                <button type="button" class="btn btn-sm" @onclick="ToggleExpanded" aria-expanded="@_isExpanded">
+                    @(_isExpanded ? "Hide" : "Details")
+                </button>
+            </div>
+        </div>
+
+        @if (_isExpanded && _state.Rows.Count > 0)
+        {
+            <div class="card-body flex flex-wrap flex-col gap-1">
+                @foreach (var row in _state.Rows)
+                {
+                    var rowBucket = AxoIncidentBarPresenter.ToSeverityBucket(row.Cause.Message.Category);
+                    var rowMuted = row.Cause.Message.IsAcknowledged || row.IsAckPending;
+                    <div class="flex flex-wrap items-center justify-between gap-2 p-1 @(rowMuted ? "opacity-50" : null)">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="@AxoIncidentBarPresenter.BadgeClass(rowBucket)">@SeverityName(rowBucket)</span>
+                            <span class="font-semibold">@row.Cause.Message.SenderDisplayName</span>
+                            <span class="text-text/80 truncate">@row.Cause.Message.DisplayMessage</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1 text-xs text-text/60">
+                            @if (row.Cause.IsBurstRoot) { <span title="Earliest in burst">root</span> }
+                            @if (row.Cause.DownstreamCount > 0) { <span>owns @row.Cause.DownstreamCount</span> }
+                            <span>score @row.Cause.Score.ToString("F2", CultureInfo.InvariantCulture)</span>
+                        </div>
+                    </div>
+                }
+                <AuthorizeView Roles="Administrator">
+                    <Authorized>
+                        @if (AllowRestore && _state.TopCause is not null)
+                        {
+                            <div class="pt-1">
+                                <button class="btn btn-sm btn-outline-danger" @onclick="RestoreTopAsync">Restore parent task</button>
+                            </div>
+                        }
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public AxoMessageProvider Provider { get; set; } = default!;
+    [Parameter] public AxoCauseAnalyzerOptions? Options { get; set; }
+    [Parameter] public string? PlcLabel { get; set; }
+    [Parameter] public bool AllowRestore { get; set; }
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public int ActivePollingMs { get; set; } = 750;
+    [Parameter] public int IdlePollingMs { get; set; } = 2500;
+    [Parameter] public TimeSpan AckTimeout { get; set; } = TimeSpan.FromSeconds(2);
+    [CascadingParameter] public AuthenticationStateProvider? AuthState { get; set; }
+
+    private AxoCauseAnalyzer? _analyzer;
+    private AxoIncidentBarPresenter? _presenter;
+    private Timer? _tick;
+    private AxoIncidentBarState _state = new();
+    private bool _isExpanded;
+    private readonly Dictionary<string, DateTime> _ackPendingSince = new();
+
+    protected override void OnInitialized()
+    {
+        if (Provider is null) return;
+        _analyzer = AxoCauseAnalyzer.Create(Provider, Options);
+        _presenter = new AxoIncidentBarPresenter(_analyzer, Options?.IdleHysteresis);
+        _presenter.StateChanged += OnPresenterChanged;
+    }
+
+    public override async void ConfigurePolling()
+    {
+        if (Provider is null) return;
+        await Provider.InitializeLightUpdate(this.StartPolling);
+        ScheduleNextTick();
+    }
+
+    private void ScheduleNextTick()
+    {
+        var interval = (Provider?.ActiveMessagesCount > 0) ? ActivePollingMs : IdlePollingMs;
+        _tick?.Dispose();
+        _tick = new Timer(async _ => await TickAsync(), null, interval, Timeout.Infinite);
+    }
+
+    private async Task TickAsync()
+    {
+        if (_analyzer is null || _presenter is null || Provider is null) return;
+        try
+        {
+            if (Provider.ActiveMessagesCount > 0)
+            {
+                await Provider.ReadMessageStateAsync();
+                await Provider.ReadDetails();
+            }
+            _analyzer.Recompute();
+            ExpireStaleAckPending();
+            _presenter.Refresh();
+        }
+        catch { /* swallow: a bad cycle should not crash the bar */ }
+        finally
+        {
+            ScheduleNextTick();
+        }
+    }
+
+    private void ExpireStaleAckPending()
+    {
+        if (_ackPendingSince.Count == 0) return;
+        var now = DateTime.UtcNow;
+        var expired = _ackPendingSince.Where(kv => now - kv.Value > AckTimeout).Select(kv => kv.Key).ToList();
+        foreach (var symbol in expired)
+        {
+            _ackPendingSince.Remove(symbol);
+        }
+    }
+
+    private bool IsTopAckPending() =>
+        _state.TopCause?.Message is { } m && _ackPendingSince.ContainsKey(m.Symbol);
+
+    private void OnPresenterChanged()
+    {
+        _state = _presenter!.CurrentState;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task AcknowledgeTopAsync()
+    {
+        if (_state.TopCause is null || Provider?.Messengers is null) return;
+        var symbol = _state.TopCause.Message.Symbol;
+        var live = Provider.Messengers.FirstOrDefault(m => m.Symbol == symbol);
+        if (live is null) return;
+
+        _ackPendingSince[symbol] = DateTime.UtcNow;
+        _presenter!.NotifyAckPending(_state.TopCause.Message);
+        await InvokeAsync(StateHasChanged);
+
+        try
+        {
+            var ident = AuthState is null ? null : (await AuthState.GetAuthenticationStateAsync())?.User?.Identity;
+            live.Acknowledge(ident!);
+        }
+        catch
+        {
+            _ackPendingSince.Remove(symbol);
+            _presenter.NotifyAckResolved(_state.TopCause.Message);
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task RestoreTopAsync()
+    {
+        if (_state.TopCause is null || Provider?.Messengers is null) return;
+        var symbol = _state.TopCause.Message.Symbol;
+        var live = Provider.Messengers.FirstOrDefault(m => m.Symbol == symbol);
+        if (live is null) return;
+        var ident = AuthState is null ? null : (await AuthState.GetAuthenticationStateAsync())?.User?.Identity;
+        live.RestoreParentTask(ident);
+    }
+
+    private void ToggleExpanded()
+    {
+        _isExpanded = !_isExpanded;
+    }
+
+    private static string SeverityName(IncidentBarSeverity sev) => sev switch
+    {
+        IncidentBarSeverity.Danger  => "Critical",
+        IncidentBarSeverity.Warning => "Warning",
+        IncidentBarSeverity.Info    => "Info",
+        _                           => string.Empty,
+    };
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_presenter is not null) _presenter.StateChanged -= OnPresenterChanged;
+        if (_tick is not null) await _tick.DisposeAsync();
+    }
+}
