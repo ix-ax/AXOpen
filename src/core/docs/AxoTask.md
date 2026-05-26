@@ -159,3 +159,39 @@ or display only when the value of the `Presentation` is `Status`
 The displayed result should looks like:
 
 ![Alt text](assets/AxoTaskExampleVisu.gif)
+
+## Terminal-state affordances in `AxoTaskView`
+
+`AxoTaskView` reflects the four lifecycle outcomes of `AxoTask` with distinct
+visuals and recovery affordances. The control reads `Status`, `IsDisabled`,
+and `ErrorDetails` from the bound task and updates 250 ms cyclically.
+
+| Task state | Button colour | Icon | Extra affordance |
+|------------|---------------|------|------------------|
+| `Ready`    | `btn-info`        | hollow ring                                                                                   | — |
+| `Kicking`  | `btn-info`        | dashed ring, pulsing                                                                          | — |
+| `Busy`     | `btn-attention`   | spinning ring                                                                                 | — |
+| `Done`     | `btn-success`     | `check`                                                                                       | — |
+| `Aborted`  | `btn-attention`   | `stop`                                                                                        | `Resume` button (calls `Component.ResumeTask()`) appears next to `Reset task` |
+| `Error`    | `btn-danger`      | `x-mark`                                                                                      | Native `title` tooltip on the button reveals `Component.ErrorDetails` |
+| _Disabled_ | `btn-inactive` (blurred) | `lock-closed` (overrides the state icon)                                               | Button is non-interactive |
+
+`IsDisabled` overrides the lifecycle state: a task that is `Busy` while
+`IsDisabled` is `TRUE` renders as locked, not as running. State is still
+announced to assistive technology via the button's `aria-label`.
+
+### Demonstrating the `Error` terminal state
+
+The `AxoTaskErrorExample` in the showcase populates `ErrorDetails` before
+calling `ThrowWhen(TRUE)` so the new tooltip on `AxoTaskView` has content
+to display. Hover the button while it is red to read the message.
+
+[!code-pascal[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskErrorExample.st?name=AxoTaskErrorPattern)]
+
+### Demonstrating the `Aborted` terminal state
+
+The `AxoTaskAbortedExample` calls `Abort()` after a fixed window. The view
+switches to `btn-attention` with the `stop` icon and exposes a `Resume`
+button alongside `Reset task`.
+
+[!code-pascal[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskAbortedExample.st?name=AxoTaskAbortedPattern)]

@@ -43,3 +43,13 @@
 
 **Other:**
 - `AxoToggleTaskView` Blazor rendering aligned with `AxoTaskView` for visual consistency when both task buttons appear side-by-side in component views. Filled/hollow state circle on the left, uppercased `DESCRIPTION — STATE` label in the center, invisible right-slot spacer for width parity, and state-driven button color (`btn-success` ON / `btn-info` OFF / `btn-inactive blur-[1px]` disabled). No PLC API change — `SwitchOn()` / `SwitchOff()` / `Toggle()` / event-like overrides are unchanged.
+
+### 0.55.0
+
+**New features:**
+- `AxoTaskView` now renders each lifecycle outcome distinctly. The previously dead state-to-class mapping in `AxoTaskView.razor.cs` is now wired into the button: `Ready` → `btn-info`, `Busy` → `btn-attention`, `Done` → `btn-success`, `Aborted` → `btn-warning` with a `stop` icon, `Error` → `btn-danger` with an `x-mark` icon. Disabled tasks override the state visual with a `lock-closed` icon and `btn-inactive blur-[1px]`.
+- `AxoTaskView` exposes `Component.ErrorDetails` through the button's native `title` tooltip when the task is in the `Error` state — hover surfaces the message without modal navigation.
+- `AxoTaskView` shows a dedicated `Resume` button (HeroIcon `play`) alongside `Reset task` when the task is in the `Aborted` state, calling `Component.ResumeTask()` directly from the proxy.
+- `AxoTaskView` advertises current state to assistive technology via `aria-label="<description> — <state>"` on the action button.
+- Added showcase examples `AxoTaskErrorExample` and `AxoTaskAbortedExample` (with tagged regions `AxoTaskErrorPattern` and `AxoTaskAbortedPattern`) demonstrating the Error and Aborted terminal states in the `/core/AxoTask` Live Demo tab.
+- Added `ResumeTask` resource entry to `AxOpenCoreResources.resx` and all eight culture variants (de, de-DE, es, es-ES, hu-HU, pl-PL, sk, sk-SK) for the new Resume button tooltip.
