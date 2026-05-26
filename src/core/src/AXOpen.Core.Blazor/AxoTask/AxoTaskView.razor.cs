@@ -124,12 +124,12 @@ namespace AXOpen.Core
             get
             {
                 if(this.Component.IsDisabled.LastValue)
-                    return "btn-inactive blur-[1px]";
+                    return "btn-inactive";
 
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
                     case eAxoTaskState.Busy:
-                        return " btn-primary";
+                        return " btn-success";
                     case eAxoTaskState.Done:
                         return "btn-success";
                     case eAxoTaskState.Aborted:
