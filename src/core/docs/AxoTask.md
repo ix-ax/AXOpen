@@ -170,11 +170,11 @@ and `ErrorDetails` from the bound task and updates 250 ms cyclically.
 |------------|---------------|------|------------------|
 | `Ready`    | `btn-info`        | hollow ring                                                                                   | — |
 | `Kicking`  | `btn-info`        | dashed ring, pulsing                                                                          | — |
-| `Busy`     | `btn-attention`   | spinning ring                                                                                 | — |
+| `Busy`     | `btn-success`     | solid filled circle (green, no animation)                                                     | — |
 | `Done`     | `btn-success`     | `check`                                                                                       | — |
-| `Aborted`  | `btn-attention`   | `stop`                                                                                        | `Resume` button (calls `Component.ResumeTask()`) appears next to `Reset task` |
+| `Aborted`  | `btn-warning`     | `stop`                                                                                        | `Resume` button (calls `Component.ResumeTask()`) appears next to `Reset task` |
 | `Error`    | `btn-danger`      | `x-mark`                                                                                      | Native `title` tooltip on the button reveals `Component.ErrorDetails` |
-| _Disabled_ | `btn-inactive` (blurred) | `lock-closed` (overrides the state icon)                                               | Button is non-interactive |
+| _Disabled_ | `btn-inactive`    | `lock-closed` (overrides the state icon)                                                      | Button is non-interactive |
 
 `IsDisabled` overrides the lifecycle state: a task that is `Busy` while
 `IsDisabled` is `TRUE` renders as locked, not as running. State is still

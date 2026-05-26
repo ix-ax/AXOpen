@@ -53,3 +53,12 @@
 - `AxoTaskView` advertises current state to assistive technology via `aria-label="<description> — <state>"` on the action button.
 - Added showcase examples `AxoTaskErrorExample` and `AxoTaskAbortedExample` (with tagged regions `AxoTaskErrorPattern` and `AxoTaskAbortedPattern`) demonstrating the Error and Aborted terminal states in the `/core/AxoTask` Live Demo tab.
 - Added `ResumeTask` resource entry to `AxOpenCoreResources.resx` and all eight culture variants (de, de-DE, es, es-ES, hu-HU, pl-PL, sk, sk-SK) for the new Resume button tooltip.
+
+### 0.55.1
+
+**Other:**
+- `AxoTaskView` Busy state revised: button colour is now `btn-success` (was `btn-attention`) and the state icon is a solid filled circle rendered with `bg-(--color-btn-success)` — replacing the previous spinning ring (`animate-spin`). The match between button background and circle reinforces "running, healthy".
+- `AxoTaskView` Aborted state button colour is now `btn-warning` (was `btn-attention`) so it reads visibly as "halted by user, attention needed" against the Operon palette.
+- `AxoTaskView` and `AxoToggleTaskView` Disabled state no longer applies `blur-[1px]`. Disabled buttons stay sharp at `btn-inactive`; on `AxoTaskView` the `lock-closed` icon already conveys the disabled affordance.
+- `AxoTaskView`, `AxoToggleTaskView`, and `AxoMomentaryTaskView` now have a fixed button height (`h-11`) with `py-1!` padding override. Labels are clamped to two lines (`line-clamp-2`) with balanced wrap (`text-balance`), break-anywhere overflow (`wrap-anywhere`), tight leading, and `text-xs` size — long descriptions wrap then ellipsise without the button growing vertically.
+- `AxoMomentaryTaskView` button colour now follows state: `btn-primary` while pressed (ON), `btn-info` while released (OFF). Label is uppercased.
