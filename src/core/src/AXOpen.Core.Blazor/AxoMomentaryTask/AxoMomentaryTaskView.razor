@@ -4,7 +4,7 @@
 @implements IDisposable;
 
 <div data-axo-momentary-task-view class="flex flex-wrap">
-    <button type="button" class="btn btn-primary" disabled="@IsDisabled" @onmousedown="@SwitchOnTask" @onmouseup="@SwitchOffTask" @onfocusout="@SwitchOffTask">
+    <button type="button" class="btn @ButtonClass uppercase line-clamp-2 text-balance wrap-anywhere leading-tight text-center" disabled="@IsDisabled" @onmousedown="@SwitchOnTask" @onmouseup="@SwitchOffTask" @onfocusout="@SwitchOffTask">
        @Description: @StateDescription
     </button>
 </div>

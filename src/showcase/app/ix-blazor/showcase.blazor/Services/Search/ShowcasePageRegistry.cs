@@ -18,10 +18,12 @@ public static class ShowcasePageRegistry
             Category = "Core",
             Description = "Task execution for PLC programs. Covers AxoTask, AxoMomentaryTask, AxoToggleTask, and AxoRemoteTask.",
             Icon = "play",
-            Tags = ["task", "fire and forget", "momentary", "toggle", "remote task", "control flow"],
+            Tags = ["task", "fire and forget", "momentary", "toggle", "remote task", "control flow", "error", "aborted", "state"],
             SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskErrorExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskAbortedExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st",

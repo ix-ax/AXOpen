@@ -132,6 +132,9 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Resetovať úlohu</value>
   </data>
+  <data name="ResumeTask" xml:space="preserve">
+    <value>Pokračovať v úlohe</value>
+  </data>
   <!-- Severity Names -->
   <data name="Info" xml:space="preserve">
     <value>Info</value>
