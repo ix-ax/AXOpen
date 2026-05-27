@@ -74,7 +74,16 @@ namespace AXOpen.Messaging.Static
             var now = _nowUtc();
             var prevTopSymbol = TopCause?.Message.Symbol;
 
-            if (active.Count == 0)
+            // Always-accurate global stats — independent of the cause floor.
+            ActiveCount = active.Count;
+            PeakSeverity = active.Count == 0 ? eAxoMessageCategory.None : active.Max(m => m.Category);
+
+            // Cause candidates are gated by the severity floor; below-floor active messages
+            // still contribute to DownstreamCount of an above-floor parent, so the parent's
+            // ownership reflects everything actually firing beneath it.
+            var candidates = active.Where(m => m.Category >= _options.CauseSeverityFloor).ToList();
+
+            if (candidates.Count == 0)
             {
                 // Hold-cache: a momentary empty read inside HoldDuration of the last
                 // non-empty publish is treated as PLC-cycle strobe and ignored.
@@ -84,21 +93,16 @@ namespace AXOpen.Messaging.Static
                 }
                 TopCause = null;
                 ProbableCauses = Array.Empty<AxoProbableCause>();
-                PeakSeverity = eAxoMessageCategory.None;
-                ActiveCount = 0;
                 RaiseChangedIfTopFlipped(prevTopSymbol);
                 return;
             }
 
-            ActiveCount = active.Count;
-            PeakSeverity = active.Max(m => m.Category);
-
-            var burstCutoff = active.Max(m => m.RisenUtc) - _options.BurstWindow;
-            var earliestInBurst = active
+            var burstCutoff = candidates.Max(m => m.RisenUtc) - _options.BurstWindow;
+            var earliestInBurst = candidates
                 .Where(m => m.RisenUtc >= burstCutoff)
                 .Min(m => m.RisenUtc);
 
-            ProbableCauses = active
+            ProbableCauses = candidates
                 .Select(m =>
                 {
                     var isBurstRoot = m.RisenUtc == earliestInBurst && m.RisenUtc >= burstCutoff;
@@ -166,5 +170,13 @@ namespace AXOpen.Messaging.Static
         public TimeSpan HoldDuration   { get; init; } = TimeSpan.FromSeconds(2);
         public TimeSpan IdleHysteresis { get; init; } = TimeSpan.FromSeconds(2);
         public int      TopN           { get; init; } = 5;
+
+        /// <summary>
+        /// Minimum category for a message to enter the cause ranking.
+        /// Messages below this threshold still count toward ActiveCount / PeakSeverity
+        /// (so global indicators stay accurate) but never appear as probable causes.
+        /// Default: Error.
+        /// </summary>
+        public eAxoMessageCategory CauseSeverityFloor { get; init; } = eAxoMessageCategory.Error;
     }
 }

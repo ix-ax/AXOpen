@@ -33,6 +33,53 @@ namespace axopen_core_tests.Messaging
             string DisplayMessage,
             string SenderDisplayName) : IRankableMessage;
 
+        // Severity floor: only Error+ messages are considered probable causes by default.
+        // Warning/Potential/Info still count in ActiveCount/PeakSeverity for the global indicator,
+        // but the incident bar will not surface them as 'causes' (operator-noise reduction).
+        [Fact]
+        public void Default_cause_severity_floor_excludes_below_error()
+        {
+            var t = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
+            var warning = Msg("Plc.A", eAxoMessageCategory.Warning, t);
+            var info    = Msg("Plc.B", eAxoMessageCategory.Info,    t);
+            var error   = Msg("Plc.C", eAxoMessageCategory.Error,   t);
+
+            var analyzer = new AxoCauseAnalyzer(() => new[] { warning, info, error });
+            analyzer.Recompute();
+
+            Assert.Equal(3, analyzer.ActiveCount);
+            Assert.Equal(eAxoMessageCategory.Error, analyzer.PeakSeverity);
+            // Only the Error is a cause candidate
+            Assert.Single(analyzer.ProbableCauses);
+            Assert.Same(error, analyzer.TopCause!.Message);
+        }
+
+        [Fact]
+        public void Warning_only_active_yields_no_top_cause()
+        {
+            var warning = Msg("Plc.A", eAxoMessageCategory.Warning);
+
+            var analyzer = new AxoCauseAnalyzer(() => new[] { warning });
+            analyzer.Recompute();
+
+            Assert.Equal(1, analyzer.ActiveCount);
+            Assert.Equal(eAxoMessageCategory.Warning, analyzer.PeakSeverity);
+            Assert.Null(analyzer.TopCause);
+            Assert.Empty(analyzer.ProbableCauses);
+        }
+
+        [Fact]
+        public void Severity_floor_can_be_lowered_via_options()
+        {
+            var warning = Msg("Plc.A", eAxoMessageCategory.Warning);
+            var analyzer = new AxoCauseAnalyzer(
+                () => new[] { warning },
+                options: new AxoCauseAnalyzerOptions { CauseSeverityFloor = eAxoMessageCategory.Info });
+            analyzer.Recompute();
+
+            Assert.Same(warning, analyzer.TopCause!.Message);
+        }
+
         [Fact]
         public void Empty_set_yields_no_top_cause()
         {
@@ -116,9 +163,9 @@ namespace axopen_core_tests.Messaging
         public void Age_decay_demotes_long_running_alarm_below_newer_peer()
         {
             var now = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
-            var stale = Msg("Plc.Stale",  eAxoMessageCategory.Warning, now.AddMinutes(-60));
-            var fresh = Msg("Plc.Fresh",  eAxoMessageCategory.Warning, now.AddMinutes(-10));
-            var anchor = Msg("Plc.Anchor", eAxoMessageCategory.Warning, now); // window anchor, becomes root
+            var stale  = Msg("Plc.Stale",  eAxoMessageCategory.Error, now.AddMinutes(-60));
+            var fresh  = Msg("Plc.Fresh",  eAxoMessageCategory.Error, now.AddMinutes(-10));
+            var anchor = Msg("Plc.Anchor", eAxoMessageCategory.Error, now); // window anchor, becomes root
 
             var analyzer = new AxoCauseAnalyzer(
                 () => new[] { stale, fresh, anchor },
@@ -209,7 +256,7 @@ namespace axopen_core_tests.Messaging
         {
             var t = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
             var msgs = Enumerable.Range(0, 10)
-                .Select(i => Msg($"Plc.M{i:00}", eAxoMessageCategory.Warning, t.AddSeconds(i)))
+                .Select(i => Msg($"Plc.M{i:00}", eAxoMessageCategory.Error, t.AddSeconds(i)))
                 .ToArray<IRankableMessage>();
 
             var analyzer = new AxoCauseAnalyzer(

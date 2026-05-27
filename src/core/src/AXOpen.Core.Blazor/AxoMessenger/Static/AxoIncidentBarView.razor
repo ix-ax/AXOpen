@@ -20,11 +20,7 @@
          class="card w-full @AxoIncidentBarPresenter.GlowClass(sev) @AxoIncidentBarPresenter.BackgroundClass(sev) @pulse @Class">
 
         <div class="card-title flex flex-wrap items-center justify-between gap-2 bg-background-light/40!">
-            <div class="flex flex-wrap items-center gap-2">
-                @if (!string.IsNullOrWhiteSpace(PlcLabel))
-                {
-                    <span class="text-xs uppercase font-semibold text-text/60">@PlcLabel</span>
-                }
+            <div class="flex flex-wrap items-center gap-2">                
                 <span class="@AxoIncidentBarPresenter.BadgeClass(sev)">@SeverityName(sev)</span>
                 @if (_state.TopCause is { } top)
                 {
@@ -37,14 +33,14 @@
                 {
                     <span class="badge badge-primary">+@_state.AdditionalCount</span>
                 }
-                @if (_state.TopCause is not null)
+                @* @if (_state.TopCause is not null)
                 {
                     <button class="btn btn-sm btn-primary"
                             disabled="@IsTopAckPending()"
                             @onclick="AcknowledgeTopAsync">
                         @(IsTopAckPending() ? "…" : "Acknowledge")
                     </button>
-                }
+                } *@
                 <button type="button" class="btn btn-sm" @onclick="ToggleExpanded" aria-expanded="@_isExpanded">
                     @(_isExpanded ? "Hide" : "Details")
                 </button>
@@ -70,17 +66,7 @@
                             <span>score @row.Cause.Score.ToString("F2", CultureInfo.InvariantCulture)</span>
                         </div>
                     </div>
-                }
-                <AuthorizeView Roles="Administrator">
-                    <Authorized>
-                        @if (AllowRestore && _state.TopCause is not null)
-                        {
-                            <div class="pt-1">
-                                <button class="btn btn-sm btn-outline-danger" @onclick="RestoreTopAsync">Restore parent task</button>
-                            </div>
-                        }
-                    </Authorized>
-                </AuthorizeView>
+                }               
             </div>
         }
     </div>
@@ -208,9 +194,10 @@
 
     private static string SeverityName(IncidentBarSeverity sev) => sev switch
     {
-        IncidentBarSeverity.Danger  => "Critical",
+        IncidentBarSeverity.Error => "Error",
         IncidentBarSeverity.Warning => "Warning",
         IncidentBarSeverity.Info    => "Info",
+        IncidentBarSeverity.Critical => "Critical",
         _                           => string.Empty,
     };
 

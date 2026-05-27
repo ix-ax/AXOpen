@@ -34,13 +34,18 @@ namespace axopen_core_tests.Messaging
             string SenderDisplayName) : IRankableMessage;
 
         private static (AxoCauseAnalyzer analyzer, Action<IEnumerable<IRankableMessage>> setSource, Action<DateTime> setNow)
-            BuildAnalyzer(TimeSpan? hold = null)
+            BuildAnalyzer(TimeSpan? hold = null, eAxoMessageCategory? floor = null)
         {
             IEnumerable<IRankableMessage> source = Array.Empty<IRankableMessage>();
             DateTime now = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
             var analyzer = new AxoCauseAnalyzer(
                 () => source,
-                options: new AxoCauseAnalyzerOptions { HoldDuration = hold ?? TimeSpan.Zero },
+                options: new AxoCauseAnalyzerOptions
+                {
+                    HoldDuration = hold ?? TimeSpan.Zero,
+                    // Default tests below Error need floor lowered explicitly.
+                    CauseSeverityFloor = floor ?? eAxoMessageCategory.Error,
+                },
                 nowUtc: () => now);
             return (analyzer, s => source = s, t => now = t);
         }
@@ -62,7 +67,7 @@ namespace axopen_core_tests.Messaging
         public void Bar_is_visible_when_top_cause_exists()
         {
             var (analyzer, setSource, _) = BuildAnalyzer();
-            setSource(new[] { Msg("Plc.X", eAxoMessageCategory.Warning) });
+            setSource(new[] { Msg("Plc.X", eAxoMessageCategory.Error) });
             analyzer.Recompute();
 
             var presenter = new AxoIncidentBarPresenter(analyzer);
@@ -71,16 +76,19 @@ namespace axopen_core_tests.Messaging
             Assert.NotNull(presenter.CurrentState.TopCause);
         }
 
+        // Below-floor categories still need the bucket mapping for any consumer that
+        // calls ToSeverityBucket directly (e.g. row rendering of a manually shown alarm).
+        // Floor lowered to Info so the analyzer surfaces them as causes for the test.
         [Theory]
-        [InlineData(eAxoMessageCategory.Critical,         IncidentBarSeverity.Danger)]
-        [InlineData(eAxoMessageCategory.Error,            IncidentBarSeverity.Danger)]
-        [InlineData(eAxoMessageCategory.ProgrammingError, IncidentBarSeverity.Danger)]
+        [InlineData(eAxoMessageCategory.Critical,         IncidentBarSeverity.Critical)]
+        [InlineData(eAxoMessageCategory.Error,            IncidentBarSeverity.Error)]
+        [InlineData(eAxoMessageCategory.ProgrammingError, IncidentBarSeverity.Error)]
         [InlineData(eAxoMessageCategory.Warning,          IncidentBarSeverity.Warning)]
         [InlineData(eAxoMessageCategory.Potential,        IncidentBarSeverity.Info)]
         [InlineData(eAxoMessageCategory.Info,             IncidentBarSeverity.Info)]
         public void Severity_maps_category_to_visual_bucket(eAxoMessageCategory cat, IncidentBarSeverity expected)
         {
-            var (analyzer, setSource, _) = BuildAnalyzer();
+            var (analyzer, setSource, _) = BuildAnalyzer(floor: eAxoMessageCategory.Info);
             setSource(new[] { Msg("Plc.X", cat) });
             analyzer.Recompute();
 
@@ -97,7 +105,7 @@ namespace axopen_core_tests.Messaging
         [InlineData(eAxoMessageCategory.Info,             false)]
         public void Pulse_only_for_critical_class_when_top_not_acked(eAxoMessageCategory cat, bool expectedPulse)
         {
-            var (analyzer, setSource, _) = BuildAnalyzer();
+            var (analyzer, setSource, _) = BuildAnalyzer(floor: eAxoMessageCategory.Info);
             setSource(new[] { Msg("Plc.X", cat) });
             analyzer.Recompute();
 
@@ -128,8 +136,8 @@ namespace axopen_core_tests.Messaging
             setSource(new[]
             {
                 Msg("Plc.A", eAxoMessageCategory.Error, t),
-                Msg("Plc.B", eAxoMessageCategory.Warning, t),
-                Msg("Plc.C", eAxoMessageCategory.Warning, t),
+                Msg("Plc.B", eAxoMessageCategory.Error, t),
+                Msg("Plc.C", eAxoMessageCategory.Error, t),
             });
             analyzer.Recompute();
 
@@ -143,7 +151,7 @@ namespace axopen_core_tests.Messaging
         public void Rows_match_analyzer_probable_causes_in_order()
         {
             var t = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
-            var a = Msg("Plc.A", eAxoMessageCategory.Warning, t);
+            var a = Msg("Plc.A", eAxoMessageCategory.Error, t);
             var b = Msg("Plc.B", eAxoMessageCategory.Critical, t);
 
             var (analyzer, setSource, _) = BuildAnalyzer();
@@ -176,23 +184,47 @@ namespace axopen_core_tests.Messaging
         }
 
         [Theory]
-        [InlineData(IncidentBarSeverity.Danger,  "shadow-glow-danger")]
-        [InlineData(IncidentBarSeverity.Warning, "shadow-glow-warning")]
-        [InlineData(IncidentBarSeverity.Info,    "shadow-glow-info")]
-        [InlineData(IncidentBarSeverity.None,    "")]
+        [InlineData(IncidentBarSeverity.Critical, "shadow-glow-danger")]
+        [InlineData(IncidentBarSeverity.Error,    "shadow-glow-danger")]
+        [InlineData(IncidentBarSeverity.Warning,  "shadow-glow-warning")]
+        [InlineData(IncidentBarSeverity.Info,     "shadow-glow-info")]
+        [InlineData(IncidentBarSeverity.None,     "")]
         public void Glow_class_matches_severity_bucket(IncidentBarSeverity sev, string expected)
         {
             Assert.Equal(expected, AxoIncidentBarPresenter.GlowClass(sev));
         }
 
         [Theory]
-        [InlineData(IncidentBarSeverity.Danger,  "badge badge-danger")]
-        [InlineData(IncidentBarSeverity.Warning, "badge badge-warning")]
-        [InlineData(IncidentBarSeverity.Info,    "badge badge-primary")]
-        [InlineData(IncidentBarSeverity.None,    "")]
+        [InlineData(IncidentBarSeverity.Critical, "badge badge-danger")]
+        [InlineData(IncidentBarSeverity.Error,    "badge badge-danger")]
+        [InlineData(IncidentBarSeverity.Warning,  "badge badge-warning")]
+        [InlineData(IncidentBarSeverity.Info,     "badge badge-primary")]
+        [InlineData(IncidentBarSeverity.None,     "")]
         public void Badge_class_matches_severity_bucket(IncidentBarSeverity sev, string expected)
         {
             Assert.Equal(expected, AxoIncidentBarPresenter.BadgeClass(sev));
+        }
+
+        // Background color token must match the glow color token for the same severity
+        // (e.g. both 'danger' or both 'warning'), so the bar reads as a single chromatic block.
+        [Theory]
+        [InlineData(IncidentBarSeverity.Critical, "danger")]
+        [InlineData(IncidentBarSeverity.Error,    "danger")]
+        [InlineData(IncidentBarSeverity.Warning,  "warning")]
+        [InlineData(IncidentBarSeverity.Info,     "info")]
+        public void Background_uses_same_color_token_as_glow(IncidentBarSeverity sev, string token)
+        {
+            var bg = AxoIncidentBarPresenter.BackgroundClass(sev);
+            var glow = AxoIncidentBarPresenter.GlowClass(sev);
+
+            Assert.Contains(token, bg);
+            Assert.Contains(token, glow);
+        }
+
+        [Fact]
+        public void Background_class_is_empty_for_none_severity()
+        {
+            Assert.Equal(string.Empty, AxoIncidentBarPresenter.BackgroundClass(IncidentBarSeverity.None));
         }
 
         [Fact]
@@ -200,7 +232,7 @@ namespace axopen_core_tests.Messaging
         {
             var t0 = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
             var now = t0;
-            IEnumerable<IRankableMessage> source = new[] { Msg("Plc.X", eAxoMessageCategory.Warning, t0) };
+            IEnumerable<IRankableMessage> source = new[] { Msg("Plc.X", eAxoMessageCategory.Error, t0) };
 
             var analyzer = new AxoCauseAnalyzer(
                 () => source,

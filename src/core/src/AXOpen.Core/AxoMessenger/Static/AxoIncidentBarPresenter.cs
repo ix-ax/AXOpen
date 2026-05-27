@@ -8,8 +8,9 @@ namespace AXOpen.Messaging.Static
     {
         None,
         Info,
-        Warning,
-        Danger,
+        Warning,        
+        Error,
+        Critical,
     }
 
     public sealed class AxoIncidentBarState
@@ -108,9 +109,9 @@ namespace AXOpen.Messaging.Static
 
         public static IncidentBarSeverity ToSeverityBucket(eAxoMessageCategory category) => category switch
         {
-            eAxoMessageCategory.Critical         => IncidentBarSeverity.Danger,
-            eAxoMessageCategory.ProgrammingError => IncidentBarSeverity.Danger,
-            eAxoMessageCategory.Error            => IncidentBarSeverity.Danger,
+            eAxoMessageCategory.Critical         => IncidentBarSeverity.Critical,
+            eAxoMessageCategory.ProgrammingError => IncidentBarSeverity.Error,
+            eAxoMessageCategory.Error            => IncidentBarSeverity.Error,
             eAxoMessageCategory.Warning          => IncidentBarSeverity.Warning,
             eAxoMessageCategory.Potential        => IncidentBarSeverity.Info,
             eAxoMessageCategory.Info             => IncidentBarSeverity.Info,
@@ -120,7 +121,8 @@ namespace AXOpen.Messaging.Static
         // Tailwind tokens shared with AxoMessengerView's severity treatment.
         public static string GlowClass(IncidentBarSeverity sev) => sev switch
         {
-            IncidentBarSeverity.Danger  => "shadow-glow-danger",
+            IncidentBarSeverity.Critical => "shadow-glow-danger",
+            IncidentBarSeverity.Error  => "shadow-glow-danger",
             IncidentBarSeverity.Warning => "shadow-glow-warning",
             IncidentBarSeverity.Info    => "shadow-glow-info",
             _                           => string.Empty,
@@ -128,18 +130,23 @@ namespace AXOpen.Messaging.Static
 
         public static string BadgeClass(IncidentBarSeverity sev) => sev switch
         {
-            IncidentBarSeverity.Danger  => "badge badge-danger",
+            IncidentBarSeverity.Critical => "badge badge-danger",
+            IncidentBarSeverity.Error  => "badge badge-danger",
             IncidentBarSeverity.Warning => "badge badge-warning",
             IncidentBarSeverity.Info    => "badge badge-primary",
             _                           => string.Empty,
         };
 
+        // Flat tint with the same color token as the glow — no fade to neutral.
+        // Uses /15 opacity step (precompiled in the template's momentum.css for danger/warning/info)
+        // so the class actually renders without a Tailwind rebuild that scans this assembly's sources.
         public static string BackgroundClass(IncidentBarSeverity sev) => sev switch
         {
-            IncidentBarSeverity.Danger  => "bg-linear-to-br from-danger/20! from-0% to-background-light! to-50%",
-            IncidentBarSeverity.Warning => "bg-linear-to-br from-warning/20! from-0% to-background-light! to-50%",
-            IncidentBarSeverity.Info    => "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%",
-            _                           => string.Empty,
+            IncidentBarSeverity.Critical => "bg-danger/15",
+            IncidentBarSeverity.Error    => "bg-danger/15",
+            IncidentBarSeverity.Warning  => "bg-warning/15",
+            IncidentBarSeverity.Info     => "bg-info/15",
+            _                            => string.Empty,
         };
     }
 }
