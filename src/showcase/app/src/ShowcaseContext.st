@@ -43,6 +43,7 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         // ---- Core: AxoMessaging ----
         AxoMessengers : AxoStaticMessengerExample.Messengers;
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
+        AxoIncidentBar : AxoIncidentBarExample.IncidentTopology;
 
         // ---- Core: AxoTextList ----
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
@@ -184,6 +185,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         THIS.InitializeRootObject(AxoMessengersDocu);
         AxoMessengersDocu.Execute();
+
+        THIS.InitializeRootObject(AxoIncidentBar);
+        AxoIncidentBar.Execute();
 
         THIS.InitializeRootObject(AxoTextListExampleContext);
         AxoTextListExampleContext.Execute();

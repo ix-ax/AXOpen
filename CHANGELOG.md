@@ -1,3 +1,37 @@
+### [CORE] AxoCauseAnalyzer + AxoIncidentBarView — probable-cause ranking and persistent operator incident bar over AxoMessenger
+
+**Note:** Additive change in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change required for application opt-in; the analyzer reads only fields `AxoMessenger` already exposes. Branch: `feat-most-probable-failure-cause`.
+
+- feat: `AxoCauseAnalyzer` (`AXOpen.Messaging.Static`) — heuristic ranking layered on `AxoMessageProvider`. Scores each Error-or-above active messenger by severity (operator-actionability map: Critical=1.0, Error=0.9, ProgrammingError=0.85, Warning=0.6, Potential=0.4, Info=0.1), burst-root (earliest `Risen` within sliding `BurstWindow`, default 8 s, anchored on latest `Risen`), twin-tree topology (container-Symbol-prefix `DownstreamCount`), acknowledgement state, and age decay. `Changed` event fires only on top-cause symbol flip. Anti-strobe hold (`HoldDuration` default 2 s) suppresses PLC-cycle mid-read empty publishes. Static factory `AxoCauseAnalyzer.Create(AxoMessageProvider, options?, nowUtc?)` wires the adapter pipeline.
+- feat: `AxoIncidentBarView` (`AXOpen.Core.Blazor`, namespace `AXOpen.Messaging.Static`) — sticky in-flow Blazor component (zero height when idle, no layout reflow) that renders the top probable cause as a severity-colored bar (`shadow-glow-{danger|warning|info}` + flat `bg-{token}/15` tint — color token matches the glow). `animate-pulse` for Critical/ProgrammingError until acknowledged. Click-to-expand panel shows top-5 candidates with score, evidence (burst-root, downstream count), optimistic Acknowledge, admin-gated Restore (`<AuthorizeView Roles="Administrator">`). Adaptive polling — 750 ms when any Error+ active, 2500 ms idle — using two-tier batch reads via the existing provider. `aria-live="polite"` for accessibility.
+- feat: `AxoIncidentBarPresenter` — pure-logic seam. Exposes `CurrentState` (visibility, severity bucket, pulse flag, rows, ack-pending markers) and static Tailwind class mappers (`GlowClass`, `BadgeClass`, `BackgroundClass`, `ToSeverityBucket`). All decision logic is xUnit-testable without rendering or twin scaffolding. `IncidentBarSeverity` enum split into `Critical` / `Error` / `Warning` / `Info` / `None`.
+- feat: `IRankableMessage` + `AxoMessengerRankableAdapter` — delegate-driven projection (`Func<string>`, `Func<DateTime>`, etc.) so tests fake fields without standing up an `AxoMessenger`. Delegates re-invoke on each access so the analyzer sees the latest batch-read value.
+- feat: Default `CauseSeverityFloor = eAxoMessageCategory.Error`. Warning/Potential/Info still count in `ActiveCount` / `PeakSeverity` (global indicators stay accurate) but never enter the cause ranking. Configurable via `AxoCauseAnalyzerOptions`.
+- fix: Topology heuristic now compares CONTAINER symbols (strip last segment), not messenger Symbols directly. Earlier draft treated sibling messengers as unrelated even when their parent components nested. New test `Topology_uses_container_prefix_not_messenger_symbol_prefix` locks the realistic twin-tree shape.
+- feat: Showcase `AxoIncidentBarExample.st` (nested `Station` → `Drive` → `Encoder` + `Conveyor` → `Sensor`, each with its own `AxoMessenger` and condition flag) plus `Pages/core/AxoIncidentBar.razor` (Live Bar tab with operator controls, Topology code tab with snippet refs, Heuristic tab with ranking formula). NavMenu entry under Core; search registry entry.
+- feat: Template `axopen.template.simple` — `MainLayout.razor` mounts `<AxoIncidentBarView Provider="@_alarmProvider" />` once per layout, cascades the provider so `GeneralAlarms.razor` consumes the same provider instance instead of walking the twin tree a second time.
+- feat: Template `tailwind.css` extended with `@source` paths for `axopen/src/core/src/AXOpen.Core/**/*.cs` and `AXOpen.Core.Blazor/**/*.razor` so future bar class additions get JIT-compiled.
+- docs: Added `src/core/docs/AxoIncidentBar.md` (ranking formula, severity floor, Blazor mount pattern). Cross-linked from `src/core/docs/toc.yml` under "Messengers (Alarms)". Appended `0.56.0` entry to `src/core/docs/CHANGELOG.md` (minor bump from `0.55.1`, GitVersion `next-version` updated).
+- test: 28 new tests in `src/core/tests/AXOpen.Core.Tests/Messaging/` — `AxoCauseAnalyzerTests` (15: severity-floor, severity map, burst window, sliding burst, topology container prefix, ack de-prio, TopN clamp, anti-strobe hold, Changed event semantics, age decay), `AxoMessengerRankableAdapterTests` (2: projection + delegate re-invocation), `AxoCauseAnalyzerFactoryTests` (2: null guard + empty provider), `AxoIncidentBarPresenterTests` (26: visibility, severity bucket, pulse, additional count, rows, ack-pending, idle hysteresis, CSS class mapping, background-color-matches-glow invariant). Total: 69/69 green.
+
+**Impact:**
+- Operators see a single severity-colored bar above the layout with the highest-confidence root cause of the current incident, instead of scanning a flat alarm list.
+- The bar collapses to zero height when no Error+ is active — no permanent UI cost when the line is healthy.
+- Applications opt in by mounting one component in their `MainLayout.razor` and creating one provider. No ST source changes; no `AxoMessenger` API change.
+- Engineers writing custom HMI surfaces can consume `AxoCauseAnalyzer` directly (events + `TopCause` / `ProbableCauses` properties) without the Blazor view.
+
+**Risks/Review:**
+- Severity-floor default is `Error`. Warning-only incidents do NOT raise the bar (intentional: operator noise reduction). Override via `AxoCauseAnalyzerOptions.CauseSeverityFloor` if a deployment needs Warning-level surfacing.
+- `bg-{token}/15` and `shadow-glow-{token}` Tailwind classes must be present in the host app's compiled `momentum.css`. The template app's `tailwind.css` `@source` glob now covers the relevant axopen paths — rebuild required (`tailwind.ps1`) on first integration.
+- Bar polling uses `System.Threading.Timer`; `IAsyncDisposable` cleans it up. If hosted in a Blazor Server circuit with frequent reconnects, monitor for orphaned timers under stress.
+- `AxoIncidentBarView` consumes `AuthenticationStateProvider` cascaded parameter for the admin-gated Restore button. If the host app routes the bar outside an `AuthorizeRouteView` boundary, the cascading parameter is `null` and Restore degrades to no-op (no exception).
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests/` — 69/69 green (17 pre-existing + 52 messaging).
+- `dotnet build src/core/src/AXOpen.Core.Blazor/` — Razor compiles clean.
+- `dotnet build src/showcase/app/ix-blazor/showcase.blazor/` after `apax ib` — 0 errors. Showcase page navigates to `/core/AxoIncidentBar` and renders the live bar with the topology controls.
+- `dotnet build axopen.template.simple/axpansion/server/` — 0 errors. `MainLayout` cascades the provider; `GeneralAlarms.razor` consumes it without creating a second instance.
+
 ### [KUKA] KRC5 raw data exchange, coordinate-mirror diagnostics, and auto-mode severity fix ([#1151](https://github.com/Inxton/AXOpen/pull/1151))
 
 **Note:** KRC5-only change in `src/components.kuka.robotics/`. `AxoKrc5` now diverges from `AxoKrc4` in three respects — `AxoKrc4` is intentionally left unchanged in this PR. Fixes #1148.
