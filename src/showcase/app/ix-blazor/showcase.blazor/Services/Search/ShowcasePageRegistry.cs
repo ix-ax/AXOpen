@@ -102,6 +102,25 @@ public static class ShowcasePageRegistry
         },
         new()
         {
+            Route = "/core/AxoIncidentBar",
+            PageTitle = "AxoIncidentBar",
+            LibraryNamespace = "AXOpen.Core",
+            Category = "Core",
+            Description = "AxoCauseAnalyzer ranks active Error+ messengers by severity, burst-root, topology, and ack state. AxoIncidentBarView renders the top probable cause as a persistent severity-colored bar.",
+            Icon = "bell-alert",
+            Tags = ["incident", "alarm", "probable cause", "root cause", "cause analyzer", "diagnostics", "topology", "burst", "operator", "bar"],
+            SourceFilePaths = [
+                "src/showcase/app/src/core/AXOpen.Messaging/AxoIncidentBarExample.st",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoCauseAnalyzer.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoIncidentBarPresenter.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoMessengerRankableAdapter.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/IRankableMessage.cs",
+                "src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoIncidentBarView.razor",
+                "src/core/docs/CHANGELOG.md",
+            ]
+        },
+        new()
+        {
             Route = "/core/AxoLogger",
             PageTitle = "AxoLogger",
             LibraryNamespace = "AXOpen.Core",

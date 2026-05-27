@@ -285,21 +285,25 @@ namespace axopen_core_tests.Messaging
             Assert.True(analyzer.ProbableCauses[0].Score > analyzer.ProbableCauses[1].Score);
         }
 
+        // Realistic twin-tree shape: messengers are leaves under component containers.
+        // Station and Drive are sibling messengers UNDER the Station component,
+        // so the heuristic must look at each messenger's CONTAINER (strip last segment),
+        // not at the messenger's own Symbol.
         [Fact]
-        public void Symbol_prefix_owner_gets_downstream_count()
+        public void Topology_uses_container_prefix_not_messenger_symbol_prefix()
         {
             var t = new DateTime(2026, 5, 26, 12, 0, 0, DateTimeKind.Utc);
-            var station = Msg("Plc.Station",            eAxoMessageCategory.Error, t);
-            var drive   = Msg("Plc.Station.Drive",      eAxoMessageCategory.Error, t);
-            var encoder = Msg("Plc.Station.Drive.Enc",  eAxoMessageCategory.Error, t);
-            var unrelated = Msg("Plc.Conveyor",         eAxoMessageCategory.Error, t);
+            var station   = Msg("Plc.Station.station_alarm",         eAxoMessageCategory.Error, t);
+            var drive     = Msg("Plc.Station.Drive.drive_alarm",     eAxoMessageCategory.Error, t);
+            var encoder   = Msg("Plc.Station.Drive.Enc.encoder_alarm", eAxoMessageCategory.Error, t);
+            var unrelated = Msg("Plc.Conveyor.belt_alarm",           eAxoMessageCategory.Error, t);
 
             var analyzer = new AxoCauseAnalyzer(() => new[] { station, drive, encoder, unrelated });
             analyzer.Recompute();
 
             var byMsg = analyzer.ProbableCauses.ToDictionary(c => c.Message);
-            Assert.Equal(2, byMsg[station].DownstreamCount);
-            Assert.Equal(1, byMsg[drive].DownstreamCount);
+            Assert.Equal(2, byMsg[station].DownstreamCount); // owns drive + encoder
+            Assert.Equal(1, byMsg[drive].DownstreamCount);   // owns encoder
             Assert.Equal(0, byMsg[encoder].DownstreamCount);
             Assert.Equal(0, byMsg[unrelated].DownstreamCount);
         }

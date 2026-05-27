@@ -132,11 +132,25 @@ namespace AXOpen.Messaging.Static
             }
         }
 
-        // Other is descendant of parent if its symbol starts with "parent.".
-        private static bool IsDescendant(string otherSymbol, string parentSymbol) =>
-            otherSymbol.Length > parentSymbol.Length + 1 &&
-            otherSymbol.StartsWith(parentSymbol, StringComparison.Ordinal) &&
-            otherSymbol[parentSymbol.Length] == '.';
+        // Topology check: messengers are leaves under their CONTAINER component, so a
+        // parent component's messenger and a child component's messenger are SIBLINGS in
+        // the messenger flat list. We strip the last segment of each Symbol (the
+        // messenger's own name) to recover the container path, then check if one
+        // container is an ancestor of the other.
+        private static string ContainerSymbol(string s)
+        {
+            var i = s.LastIndexOf('.');
+            return i > 0 ? s.Substring(0, i) : string.Empty;
+        }
+
+        private static bool IsDescendant(string otherSymbol, string parentSymbol)
+        {
+            var pc = ContainerSymbol(parentSymbol);
+            var oc = ContainerSymbol(otherSymbol);
+            return oc.Length > pc.Length + 1 &&
+                   oc.StartsWith(pc, StringComparison.Ordinal) &&
+                   oc[pc.Length] == '.';
+        }
 
         private static bool IsActive(IRankableMessage m) =>
             m.State == eAxoMessengerState.ActiveAcknowledgeRequired ||

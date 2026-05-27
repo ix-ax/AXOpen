@@ -1,0 +1,187 @@
+@page "/core/AxoIncidentBar"
+@using AXOpen.Core
+@using AXOpen.Messaging.Static
+@using Operon.Components.Tab
+@using showcase.Services
+@inherits RenderableComponentBase
+<PageTitle>Core — AxoIncidentBar</PageTitle>
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Core — AxoIncidentBar</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Core / AXOpen.Core.Blazor</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Probable Cause &amp; Incident Bar</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			<code>AxoCauseAnalyzer</code> ranks active <code>AxoMessenger</code> instances by severity, time-of-rise (burst root),
+			twin-tree topology (a parent component "owns" downstream alarms), and acknowledgement state.
+			<code>AxoIncidentBarView</code> renders the top cause as a persistent, severity-colored bar above the layout.
+			Only <strong>Error</strong>-and-above messages enter the cause ranking.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Core / Framework</li>
+					<li><span class="font-medium text-slate-800">Subcategory:</span> Diagnostics</li>
+					<li><span class="font-medium text-slate-800">Types:</span> AxoCauseAnalyzer, AxoIncidentBarPresenter, AxoIncidentBarView</li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Ranking weights</p>
+					<ul class="text-xs text-slate-600 space-y-1">
+						<li>severity 0.40 · burst-root 0.30</li>
+						<li>owner log10(1+N) · 0.20</li>
+						<li>unacked +0.10 · age −0.02/min</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcExamplePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAnalyzerPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libPresenterPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libViewPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAdapterPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Incident Bar Documentation</h2>
+				<p class="mt-1 text-sm text-slate-600">Toggle the condition flags below to fire alarms across a nested topology and watch the bar surface the top probable cause.</p>
+
+				<div class="mt-4">
+					<Tab>
+						<TabPage Title="Live Bar">
+							<div class="mt-4 space-y-4">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">The bar</h3>
+									<p class="text-xs text-slate-500 mb-3">Mounted with a provider scoped to the showcase topology below. Default severity floor is <code>Error</code>.</p>
+									@if (_provider is not null)
+									{
+										<AxoIncidentBarView Provider="@_provider" PlcLabel="Showcase" AllowRestore="false" Class="m-0" />
+									}
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Topology controls</h3>
+									<p class="text-xs text-slate-500 mb-3">
+										Station (Error) → Drive (Critical) → Encoder (Error).
+										Station (Error) → Conveyor (Error) → Sensor (Error).
+										Trigger Station alone to see the top-of-tree win as cause; trigger only a leaf to see it surface; trigger several to see DownstreamCount push the parent to the top.
+									</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoIncidentBar.station" Presentation="Command-Control" />
+								</div>
+							</div>
+						</TabPage>
+
+						<TabPage Title="Topology code">
+							<div class="mt-4 space-y-4">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Nested twin tree</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExamplePath" OnOpen="OpenModalAsync" /> — <code>TopologyDeclaration</code> + <code>StationDeclaration</code> + <code>DriveDeclaration</code>
+									</p>
+									@if (_snippetTopology is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTopology.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Conditional activation</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExamplePath" OnOpen="OpenModalAsync" /> — <code>StationActivate</code> region
+									</p>
+									@if (_snippetActivate is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetActivate.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+							</div>
+						</TabPage>
+
+						<TabPage Title="Heuristic">
+							<div class="mt-4 space-y-3 text-sm text-slate-700">
+								<p>The analyzer scores each Error-or-above active messenger with:</p>
+								<pre class="bg-slate-50 border border-slate-200 rounded p-3 text-xs overflow-x-auto"><code>Score = 0.40 * severity_weight(Category)
+      + 0.30 * (is_burst_root ? 1 : 0)
+      + 0.20 * log10(1 + DownstreamCount)
+      + 0.10 * (is_acknowledged ? 0 : 1)
+      - 0.02 * minutes_since_risen</code></pre>
+								<ul class="list-disc list-inside space-y-1">
+									<li><strong>severity_weight</strong>: Critical=1.0, Error=0.9, ProgrammingError=0.85, Warning=0.6, Potential=0.4, Info=0.1</li>
+									<li><strong>burst_root</strong>: earliest <code>Risen</code> in the last 8 s window — likely root of a cascade</li>
+									<li><strong>DownstreamCount</strong>: count of active messengers whose container is a descendant of this one's container</li>
+									<li><strong>Anti-strobe</strong>: published top cause is held for 2 s when the source momentarily reads empty (PLC-cycle flicker)</li>
+									<li><strong>Idle hysteresis</strong>: bar stays visible 2 s after the last cause clears</li>
+								</ul>
+								<p class="text-xs text-slate-500 mt-3">Engineers can override defaults via <code>AxoCauseAnalyzerOptions</code> (BurstWindow, HoldDuration, IdleHysteresis, TopN, CauseSeverityFloor).</p>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private AxoMessageProvider? _provider;
+
+	private CodeSnippet? _snippetTopology;
+	private CodeSnippet? _snippetActivate;
+	private bool _loadingCode = true;
+
+	private readonly string _plcExamplePath   = "src/showcase/app/src/core/AXOpen.Messaging/AxoIncidentBarExample.st";
+	private readonly string _libAnalyzerPath  = "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoCauseAnalyzer.cs";
+	private readonly string _libPresenterPath = "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoIncidentBarPresenter.cs";
+	private readonly string _libAdapterPath   = "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoMessengerRankableAdapter.cs";
+	private readonly string _libViewPath      = "src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoIncidentBarView.razor";
+
+	protected override void OnInitialized()
+	{
+		_provider = AxoMessageProvider.Create(new[] { (AXSharp.Connector.ITwinObject)Entry.Plc.Ctx.AxoIncidentBar });
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var topologyTask = CodeProvider.GetTaggedRegionAsync(_plcExamplePath, "TopologyDeclaration");
+			var activateTask = CodeProvider.GetTaggedRegionAsync(_plcExamplePath, "StationActivate");
+			await Task.WhenAll(topologyTask, activateTask);
+			_snippetTopology = topologyTask.Result;
+			_snippetActivate = activateTask.Result;
+		}
+		finally
+		{
+			_loadingCode = false;
+		}
+	}
+
+	public override void ConfigurePolling()
+	{
+		// Bar drives its own polling via the provider; we also poll the operator controls.
+		_provider?.InitializeLightUpdate(this.StartPolling);
+	}
+}
