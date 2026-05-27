@@ -70,7 +70,12 @@
 									<p class="text-xs text-slate-500 mb-3">Mounted with a provider scoped to the showcase topology below. Default severity floor is <code>Error</code>.</p>
 									@if (_provider is not null)
 									{
-										<AxoIncidentBarView Provider="@_provider" PlcLabel="Showcase" AllowRestore="false" Class="m-0" />
+										<!-- <BarMount> -->
+										<AxoIncidentBarView Provider="@_provider"
+															PlcLabel="Showcase"
+															AllowRestore="false"
+															Class="m-0" />
+										<!-- </BarMount> -->
 									}
 								</div>
 
@@ -160,7 +165,10 @@
 
 	protected override void OnInitialized()
 	{
-		_provider = AxoMessageProvider.Create(new[] { (AXSharp.Connector.ITwinObject)Entry.Plc.Ctx.AxoIncidentBar });
+		// <ProviderCreate>
+		_provider = AxoMessageProvider.Create(
+			new[] { (AXSharp.Connector.ITwinObject)Entry.Plc.Ctx.AxoIncidentBar });
+		// </ProviderCreate>
 	}
 
 	protected override async Task OnInitializedAsync()

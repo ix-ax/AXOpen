@@ -12,6 +12,18 @@
     {axopen-version} replace this with the current settings in GitVersion.yml file.
 -->
 
+### 0.56.0
+
+**New features:**
+- Added `AxoCauseAnalyzer` (`AXOpen.Messaging.Static`) — heuristic probable-cause ranking layered on `AxoMessageProvider`. Scores active Error+ messengers by severity, burst-root (earliest within sliding `BurstWindow`), twin-tree topology (container-Symbol-prefix `DownstreamCount`), acknowledgement state, and age decay. Hold-cached against PLC-cycle strobe; `Changed` event fires only on top-cause symbol flip.
+- Added `AxoIncidentBarView` (`AXOpen.Core.Blazor`, `AXOpen.Messaging.Static`) — sticky in-flow Blazor component that renders the top probable cause as a severity-colored bar with click-to-expand panel, optimistic acknowledge, admin-gated restore, `aria-live=polite` for accessibility, adaptive 750 ms (active) / 2500 ms (idle) polling cadence using two-tier batch reads.
+- Added `AxoIncidentBarPresenter` — pure-logic seam exposing `CurrentState` (visibility, severity bucket, pulse flag, rows, ack-pending markers) and static Tailwind class mappers (`GlowClass`, `BadgeClass`, `BackgroundClass`) for custom UI shells.
+- Added `IRankableMessage` + `AxoMessengerRankableAdapter` — delegate-driven projection of `AxoMessenger` so the analyzer can be unit-tested without twin scaffolding.
+- Added showcase `AxoIncidentBarExample.st` (nested Station → Drive → Encoder + Conveyor → Sensor topology) and `Pages/core/AxoIncidentBar.razor` page demonstrating the bar end-to-end.
+
+**Other:**
+- Documentation: added `AxoIncidentBar.md` describing the ranking formula, severity floor (default Error), and Blazor mount pattern. Cross-linked from `AxoMessenger.md` via TOC.
+
 ### 0.43.0
 
 **New features:**
