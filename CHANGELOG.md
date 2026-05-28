@@ -1,3 +1,20 @@
+### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
+
+**Note:** PLC bug fix in `src/core/ctrl/src/AxoCoordination/AxoSequencer/AxoSequencer.st` (`AxoStepTimedOutMessenger.Activate`). No public-API change. Branch: `fix-issue-when-timeout-sequencer-alarm-doesnot-fall`.
+
+- fix: `AxoStepTimedOutMessenger.Activate` now resolves `_context := inParent.GetContext()` on every call rather than only on the first rising transition into `ActiveAcknowledgeNotRequired`, and refreshes `ActiveContextCount := _context.OpenCycleCount()` on every cycle the messenger remains non-Idle. Previously, `ActiveContextCount` was set once at rise time and never advanced, so the `AxoMessenger` base could not detect that `Activate` was still being called cycle-to-cycle, and the step-timeout alarm would not fall when the sequencer left the timed-out step.
+- fix: Added explicit `Run(IAxoObject inParent)` override on `AxoSequencer` calling `SUPER.Run(inParent)` — placeholder for the per-cycle `_msgStepTimedOut.Serve(THIS)` wiring (currently commented) so the override site exists for the messenger lifecycle without changing observable behaviour.
+
+**Impact:**
+- Sequencer step-timeout alarms now transition Idle → Active → Idle correctly across the step-timeout boundary; operators no longer see a stale "Step timed out" entry persisting after the sequencer has advanced past the timed-out step.
+- The aggregate count maintained via `THIS.GetParent().AggregateMessage(1)` is now driven by an `ActiveContextCount` that tracks the actual cycle of last activation, restoring the standard `AxoMessenger` fall semantics for this messenger.
+
+**Risks/Review:**
+- The `Run` override is a pass-through to `SUPER.Run` — no behavioural difference yet, but adds an extra virtual call per sequencer cycle. The commented `_msgStepTimedOut.Serve(THIS)` line is the intended wiring for a follow-up patch and is left in place as a documentation marker.
+
+**Testing:**
+- AxoSequencer step-timeout scenario in the showcase (`/core/AxoSequencer`) — induce a timeout, observe the messenger rises, then allow the step to complete and verify the alarm falls within one cycle of the step transition.
+
 ### [CORE] AxoIncidentBar — perf, ranking-accuracy, and sender-identification fixes
 
 **Note:** Patch follow-up to the `0.56.0` AxoIncidentBar feature. All changes in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change. No public-API removal; `IRankableMessage` gains one new member with an adapter-side default. Branch: `fix-incident-bar-perf-issues`.
