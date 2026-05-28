@@ -1,8 +1,24 @@
-# Changelog
+## Changes
+<!--
+    Leave this comment intact. Immediately below this comment add a new entry:
+    ---------------------------------
+    ### {axopen-version}
 
-## 0.43.0
+    **New features:**
+    -
 
-- Initial documentation for AXOpen.Utils library.
-- Documented AxoStringBuilder fluent API with all 22 Append overloads.
-- Documented CRC checksum functions (AxoCRC_8, AxoCRC_16, AxoCRC_32).
-- Documented byte conversion functions (AxoBytesToInt, AxoBytesToDint).
+    **Bug fixes:**
+    -
+
+    **Other:**
+    -
+
+    **Breaking changes:**
+    -
+    ---------------------------------
+
+    Replace {axopen-version} with the `next-version:` value from
+    axopen/GitVersion.yml. New entries go at the TOP, immediately below
+    this comment. The /axopen-docs skill resorts the file semver-descending
+    on every run.
+-->
