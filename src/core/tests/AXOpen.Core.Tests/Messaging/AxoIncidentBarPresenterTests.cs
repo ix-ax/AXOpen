@@ -22,7 +22,8 @@ namespace axopen_core_tests.Messaging
                 State: state,
                 IsAcknowledged: acked,
                 DisplayMessage: symbol,
-                SenderDisplayName: symbol);
+                SenderDisplayName: symbol,
+                SenderSymbol: symbol);
 
         private sealed record FakeMsg(
             string Symbol,
@@ -31,7 +32,8 @@ namespace axopen_core_tests.Messaging
             eAxoMessengerState State,
             bool IsAcknowledged,
             string DisplayMessage,
-            string SenderDisplayName) : IRankableMessage;
+            string SenderDisplayName,
+            string SenderSymbol) : IRankableMessage;
 
         private static (AxoCauseAnalyzer analyzer, Action<IEnumerable<IRankableMessage>> setSource, Action<DateTime> setNow)
             BuildAnalyzer(TimeSpan? hold = null, eAxoMessageCategory? floor = null)

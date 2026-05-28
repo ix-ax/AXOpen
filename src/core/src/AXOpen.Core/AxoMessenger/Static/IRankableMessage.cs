@@ -10,6 +10,9 @@ namespace AXOpen.Messaging.Static
         eAxoMessengerState State { get; }
         bool IsAcknowledged { get; }
         string DisplayMessage { get; }
+        /// <summary>Human-readable hierarchical breadcrumb (AttributeName-based).</summary>
         string SenderDisplayName { get; }
+        /// <summary>Full PLC symbol path of the sending messenger.</summary>
+        string SenderSymbol { get; }
     }
 }

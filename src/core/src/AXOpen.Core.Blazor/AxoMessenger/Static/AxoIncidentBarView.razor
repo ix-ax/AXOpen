@@ -6,6 +6,7 @@
 @using AXSharp.Connector
 @using AXSharp.Presentation.Blazor.Controls.RenderableContent
 @using Microsoft.AspNetCore.Components.Authorization
+@using Serilog
 @inherits RenderableComplexComponentBase<ITwinObject>
 @implements IAsyncDisposable
 
@@ -24,8 +25,9 @@
                 <span class="@AxoIncidentBarPresenter.BadgeClass(sev)">@SeverityName(sev)</span>
                 @if (_state.TopCause is { } top)
                 {
-                    <span class="text-base font-semibold">@top.Message.SenderDisplayName</span>
+                    <span class="text-base font-semibold" title="@top.Message.SenderSymbol">@top.Message.SenderDisplayName</span>
                     <span class="text-text/80 truncate">@top.Message.DisplayMessage</span>
+                    <span class="text-xs text-text/60 font-mono truncate">@top.Message.SenderSymbol</span>                    
                 }
             </div>
             <div class="flex flex-wrap items-center gap-2">
@@ -57,7 +59,8 @@
                     <div class="flex flex-wrap items-center justify-between gap-2 p-1 @(rowMuted ? "opacity-50" : null)">
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="@AxoIncidentBarPresenter.BadgeClass(rowBucket)">@SeverityName(rowBucket)</span>
-                            <span class="font-semibold">@row.Cause.Message.SenderDisplayName</span>
+                            <span class="font-semibold" title="@row.Cause.Message.SenderSymbol">@row.Cause.Message.SenderDisplayName</span>
+                            <span class="text-xs text-text/60 font-mono truncate">@row.Cause.Message.SenderSymbol</span>
                             <span class="text-text/80 truncate">@row.Cause.Message.DisplayMessage</span>
                         </div>
                         <div class="flex flex-wrap items-center gap-1 text-xs text-text/60">
@@ -100,14 +103,30 @@
 
     public override async void ConfigurePolling()
     {
-        if (Provider is null) return;
-        await Provider.InitializeLightUpdate(this.StartPolling);
+        if (Provider is null)
+        {
+            Log.Warning("AxoIncidentBarView.ConfigurePolling: Provider is null — bar disabled.");
+            return;
+        }
+        try
+        {
+            await Provider.InitializeLightUpdate(this.StartPolling);
+            var msgCount = Provider.Messengers?.Length ?? 0;
+            Log.Information("AxoIncidentBarView: ConfigurePolling done. Messengers discovered: {Count}", msgCount);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "AxoIncidentBarView.ConfigurePolling: InitializeLightUpdate failed.");
+        }
         ScheduleNextTick();
     }
 
     private void ScheduleNextTick()
     {
-        var interval = (Provider?.ActiveMessagesCount > 0) ? ActivePollingMs : IdlePollingMs;
+        // Use the analyzer's authoritative ActiveCount (set from the just-read state)
+        // rather than Provider.ActiveMessagesCount, which depends on MsgCnt aggregation
+        // reaching the observed root — not guaranteed in every project.
+        var interval = (_analyzer?.ActiveCount > 0) ? ActivePollingMs : IdlePollingMs;
         _tick?.Dispose();
         _tick = new Timer(async _ => await TickAsync(), null, interval, Timeout.Infinite);
     }
@@ -117,16 +136,26 @@
         if (_analyzer is null || _presenter is null || Provider is null) return;
         try
         {
-            if (Provider.ActiveMessagesCount > 0)
+            // State first so ReadDetails can filter to active messengers.
+            await Provider.ReadMessageStateAsync();
+            // Always pull details when any messenger is active — the analyzer needs
+            // RisenUtc/Category/MessageCode, and Provider.ActiveMessagesCount depends on
+            // MsgCnt aggregation that may not reach the observed root.
+            var hasActive = Provider.Messengers?.Any(m => m.State > eAxoMessengerState.Idle) ?? false;
+            if (hasActive)
             {
-                await Provider.ReadMessageStateAsync();
                 await Provider.ReadDetails();
             }
             _analyzer.Recompute();
             ExpireStaleAckPending();
             _presenter.Refresh();
+            Log.Debug("AxoIncidentBarView.Tick: ActiveCount={Active} TopCause={Top}",
+                _analyzer.ActiveCount, _analyzer.TopCause?.Message.Symbol ?? "<none>");
         }
-        catch { /* swallow: a bad cycle should not crash the bar */ }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "AxoIncidentBarView.Tick: read/recompute failed.");
+        }
         finally
         {
             ScheduleNextTick();

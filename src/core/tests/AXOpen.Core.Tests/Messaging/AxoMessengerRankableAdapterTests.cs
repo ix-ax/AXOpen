@@ -19,7 +19,8 @@ namespace axopen_core_tests.Messaging
                 state:             () => eAxoMessengerState.ActiveAcknowledgeRequired,
                 isAcknowledged:    () => false,
                 displayMessage:    () => "Tank pressure above safe limit",
-                senderDisplayName: () => "Tank");
+                senderDisplayName: () => "Plant › Tank",
+                senderSymbol:      () => "Plc.Tank.Pressure");
 
             Assert.Equal("Plc.Tank.Pressure",                                  adapter.Symbol);
             Assert.Equal(eAxoMessageCategory.Critical,                         adapter.Category);
@@ -27,7 +28,23 @@ namespace axopen_core_tests.Messaging
             Assert.Equal(eAxoMessengerState.ActiveAcknowledgeRequired,         adapter.State);
             Assert.False(adapter.IsAcknowledged);
             Assert.Equal("Tank pressure above safe limit",                     adapter.DisplayMessage);
-            Assert.Equal("Tank",                                               adapter.SenderDisplayName);
+            Assert.Equal("Plant › Tank",                                       adapter.SenderDisplayName);
+            Assert.Equal("Plc.Tank.Pressure",                                  adapter.SenderSymbol);
+        }
+
+        [Fact]
+        public void SenderSymbol_falls_back_to_Symbol_when_not_provided()
+        {
+            var adapter = new AxoMessengerRankableAdapter(
+                symbol:            () => "Plc.X",
+                category:          () => eAxoMessageCategory.Error,
+                risenUtc:          () => DateTime.UtcNow,
+                state:             () => eAxoMessengerState.ActiveAcknowledgeRequired,
+                isAcknowledged:    () => false,
+                displayMessage:    () => "",
+                senderDisplayName: () => "");
+
+            Assert.Equal("Plc.X", adapter.SenderSymbol);
         }
 
         // Delegates must be re-invoked on each access so the adapter sees the latest
