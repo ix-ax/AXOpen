@@ -55,7 +55,7 @@ NAMESPACE AXOpen.Core
                 inParent : IAxoObject;
             END_VAR
             SUPER.Run(inParent);
-            //_msgStepTimedOut.Serve(THIS);
+            _msgStepTimedOut.Serve(THIS);
         END_METHOD     
 
         METHOD PUBLIC SetAnalitics
