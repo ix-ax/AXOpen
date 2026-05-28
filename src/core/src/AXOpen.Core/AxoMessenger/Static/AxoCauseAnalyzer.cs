@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AXSharp.Connector;
 
 namespace AXOpen.Messaging.Static
 {
@@ -11,6 +12,7 @@ namespace AXOpen.Messaging.Static
         private const double W_OWNER = 0.20;
         private const double W_UNACK = 0.10;
         private const double W_AGE   = 0.02;
+        private const double _maxAgeMinutes = 7 * 24 * 60; // 7 days
 
         private readonly Func<IEnumerable<IRankableMessage>> _source;
         private readonly AxoCauseAnalyzerOptions _options;
@@ -47,7 +49,8 @@ namespace AXOpen.Messaging.Static
                 state:             () => m.State,
                 isAcknowledged:    () => m.IsAcknowledged,
                 displayMessage:    () => SafeMessageText(m),
-                senderDisplayName: () => SenderName(m));
+                senderDisplayName: () => SenderName(m),
+                senderSymbol:      () => m.Symbol);
 
         private static string SafeMessageText(AxoMessenger m)
         {
@@ -55,10 +58,35 @@ namespace AXOpen.Messaging.Static
             catch { return string.Empty; }
         }
 
+        // Builds a top-down breadcrumb of AttributeName values from the messenger's
+        // owning component up to (but excluding) the root. Falls back to GetSymbolTail
+        // when no AttributeName chain is available.
         private static string SenderName(AxoMessenger m)
         {
-            var comp = m.Component;
-            return comp?.GetSymbolTail() ?? m.GetSymbolTail();
+            var origin = m.Component ?? (ITwinElement?)m.GetParent();
+            if (origin is null) return m.GetSymbolTail();
+
+            var path = new List<string>();
+            ITwinElement? cur = origin;
+            var guard = 0;
+            while (cur is not null && guard++ < 32)
+            {
+                var name = SafeAttributeName(cur);
+                if (string.IsNullOrEmpty(name)) break; // hit the unnamed root
+                path.Insert(0, name);
+                var parent = cur.GetParent();
+                if (ReferenceEquals(parent, cur)) break;
+                cur = parent;
+            }
+            return path.Count > 0
+                ? string.Join(" › ", path)
+                : (origin as ITwinObject)?.GetSymbolTail() ?? m.GetSymbolTail();
+        }
+
+        private static string SafeAttributeName(ITwinElement e)
+        {
+            try { return e.AttributeName ?? string.Empty; }
+            catch { return string.Empty; }
         }
 
         public AxoProbableCause? TopCause { get; private set; }
@@ -81,7 +109,12 @@ namespace AXOpen.Messaging.Static
             // Cause candidates are gated by the severity floor; below-floor active messages
             // still contribute to DownstreamCount of an above-floor parent, so the parent's
             // ownership reflects everything actually firing beneath it.
-            var candidates = active.Where(m => m.Category >= _options.CauseSeverityFloor).ToList();
+            // Messengers with no message text (e.g. MessageCode == 0) are excluded —
+            // there is nothing meaningful to show the operator.
+            var candidates = active.Where(m =>
+                    m.Category >= _options.CauseSeverityFloor &&
+                    !string.IsNullOrWhiteSpace(m.DisplayMessage))
+                .ToList();
 
             if (candidates.Count == 0)
             {
@@ -97,7 +130,12 @@ namespace AXOpen.Messaging.Static
                 return;
             }
 
-            var burstCutoff = candidates.Max(m => m.RisenUtc) - _options.BurstWindow;
+            // Clamp to avoid DateTime underflow when RisenUtc is uninitialized
+            // (DateTime.MinValue) — happens before ReadDetails has populated Risen.
+            var maxRisen = candidates.Max(m => m.RisenUtc);
+            var burstCutoff = maxRisen.Ticks > _options.BurstWindow.Ticks
+                ? maxRisen - _options.BurstWindow
+                : DateTime.MinValue;
             var earliestInBurst = candidates
                 .Where(m => m.RisenUtc >= burstCutoff)
                 .Min(m => m.RisenUtc);
@@ -107,7 +145,12 @@ namespace AXOpen.Messaging.Static
                 {
                     var isBurstRoot = m.RisenUtc == earliestInBurst && m.RisenUtc >= burstCutoff;
                     var downstream = active.Count(o => !ReferenceEquals(o, m) && IsDescendant(o.Symbol, m.Symbol));
-                    var ageMinutes = Math.Max(0.0, (now - m.RisenUtc).TotalMinutes);
+                    // Cap age contribution: an uninitialized RisenUtc (DateTime.MinValue)
+                    // would otherwise inject ~10^9 minutes and blow up the score.
+                    // 7 days of accumulated penalty is more than enough to deprioritize
+                    // a legitimately-old alarm without dominating the ranking.
+                    var rawAgeMinutes = (now - m.RisenUtc).TotalMinutes;
+                    var ageMinutes = Math.Min(_maxAgeMinutes, Math.Max(0.0, rawAgeMinutes));
                     var score = W_SEV * SeverityWeight(m)
                               + (isBurstRoot ? W_ROOT : 0.0)
                               + W_OWNER * Math.Log10(1 + downstream)
@@ -115,7 +158,13 @@ namespace AXOpen.Messaging.Static
                               - W_AGE * ageMinutes;
                     return new AxoProbableCause(m, score, isBurstRoot, downstream);
                 })
-                .OrderByDescending(c => c.Score)
+                // Severity-tier first so a higher severity (e.g. Critical) never ranks
+                // below a lower one (e.g. Error) regardless of burst/ownership bonuses.
+                // Uses SeverityWeight (the operator-actionability map) — not enum ordinal —
+                // so Error (0.90) still outranks ProgrammingError (0.85) as documented.
+                // Score is the within-tier tie-breaker.
+                .OrderByDescending(c => SeverityWeight(c.Message))
+                .ThenByDescending(c => c.Score)
                 .Take(_options.TopN)
                 .ToList();
             TopCause = ProbableCauses[0];

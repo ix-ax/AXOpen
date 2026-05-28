@@ -22,7 +22,8 @@ namespace axopen_core_tests.Messaging
                 State: state,
                 IsAcknowledged: acked,
                 DisplayMessage: symbol,
-                SenderDisplayName: symbol);
+                SenderDisplayName: symbol,
+                SenderSymbol: symbol);
 
         private sealed record FakeMsg(
             string Symbol,
@@ -31,7 +32,8 @@ namespace axopen_core_tests.Messaging
             eAxoMessengerState State,
             bool IsAcknowledged,
             string DisplayMessage,
-            string SenderDisplayName) : IRankableMessage;
+            string SenderDisplayName,
+            string SenderSymbol) : IRankableMessage;
 
         // Severity floor: only Error+ messages are considered probable causes by default.
         // Warning/Potential/Info still count in ActiveCount/PeakSeverity for the global indicator,

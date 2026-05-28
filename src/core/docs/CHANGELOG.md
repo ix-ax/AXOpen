@@ -74,3 +74,21 @@
 - `AxoTaskView` and `AxoToggleTaskView` Disabled state no longer applies `blur-[1px]`. Disabled buttons stay sharp at `btn-inactive`; on `AxoTaskView` the `lock-closed` icon already conveys the disabled affordance.
 - `AxoTaskView`, `AxoToggleTaskView`, and `AxoMomentaryTaskView` now have a fixed button height (`h-11`) with `py-1!` padding override. Labels are clamped to two lines (`line-clamp-2`) with balanced wrap (`text-balance`), break-anywhere overflow (`wrap-anywhere`), tight leading, and `text-xs` size — long descriptions wrap then ellipsise without the button growing vertically.
 - `AxoMomentaryTaskView` button colour now follows state: `btn-primary` while pressed (ON), `btn-info` while released (OFF). Label is uppercased.
+
+### 0.56.1
+
+**Bug fixes:**
+- `AxoCauseAnalyzer`: severity-tier sort is now the outermost key — a higher-severity candidate (e.g. `Critical`) is never ranked below a lower one (e.g. `Error`) regardless of burst/ownership/age bonuses. Score remains the within-tier tie-breaker.
+- `AxoCauseAnalyzer`: age contribution is capped at 7 days. An uninitialized `RisenUtc` (`DateTime.MinValue`) previously injected ~10⁹ minutes and dominated the score.
+- `AxoCauseAnalyzer`: `BurstWindow` cutoff is clamped to `DateTime.MinValue` when the maximum `RisenUtc` is smaller than the window — prevents `DateTime` underflow before `ReadDetails` has populated `Risen`.
+- `AxoCauseAnalyzer`: candidates with empty `DisplayMessage` (e.g. `MessageCode == 0`) are excluded from ranking — nothing meaningful to surface to the operator.
+- `AxoIncidentBarView`: polling cadence now driven by `_analyzer.ActiveCount` instead of `Provider.ActiveMessagesCount`. The provider's count depends on `MsgCnt` aggregation reaching the observed root, which is not guaranteed in every project; the analyzer's count is authoritative.
+- `AxoIncidentBarView.Tick()` now always reads message state first, then pulls details when any messenger reports a non-Idle state — previously the bar could skip detail reads entirely when the provider's aggregated active count was zero while individual messengers were active.
+
+**Other:**
+- `AxoCauseAnalyzer.SenderDisplayName` now produces a top-down `AttributeName` breadcrumb (e.g. `Station › Drive › Encoder`) walking from the messenger's owning component up to but excluding the unnamed root, with a fallback to `GetSymbolTail` when no chain is available.
+- `AxoIncidentBarView` renders the full PLC symbol path as a mono `text-xs` subtitle and as the `title` tooltip on the sender label, both on the top bar and in expanded rows — enabling operators to identify the originating instance unambiguously when multiple components share the same display name.
+- `AxoMessageProvider.ReadMessageStateAsync` now batches `Risen`, `Fallen`, and `Acknowledged` alongside the state/category/code triple — fewer separate detail reads needed for burst-window decisions.
+- `AxoMessageProvider.ReadDetails` issues its batch read at `eAccessPriority.Low` to reduce contention with operator-driven traffic.
+- Added Serilog diagnostics to `AxoIncidentBarView.ConfigurePolling` and `Tick` (`Information`, `Debug`, `Warning`, `Error`) so polling lifecycle and per-tick state are visible without attaching a debugger.
+- `IRankableMessage` exposes a new `SenderSymbol` member (full PLC symbol path). `AxoMessengerRankableAdapter` accepts an optional `senderSymbol` projector and falls back to the messenger symbol when none is supplied — existing call sites compile unchanged.

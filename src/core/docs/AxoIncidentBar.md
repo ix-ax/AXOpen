@@ -54,7 +54,14 @@ Score =  0.40 * severity_weight(Category)
 | `is_burst_root` | TRUE for the earliest `Risen` within the sliding `BurstWindow` (default 8 s, anchored on the latest `Risen`) — likely root of a cascade |
 | `DownstreamCount` | Number of *other* active messengers whose container Symbol is a descendant of this messenger's container Symbol (twin-tree ownership) |
 | `is_acknowledged` | Ack'd-but-still-active messages are de-prioritized but still listed (operator already saw them) |
-| `minutes_since_risen` | Long-running alarms decay below freshly-risen peers |
+| `minutes_since_risen` | Long-running alarms decay below freshly-risen peers (capped at 7 days so an uninitialized `RisenUtc` cannot dominate the score) |
+
+**Severity-tier outermost**: the analyzer sorts by `severity_weight(Category)`
+first, then by `Score` within a tier. A `Critical` candidate is never ranked
+below an `Error` one regardless of burst/ownership/age bonuses — the score
+formula above is the within-tier tie-breaker. This guarantees that escalating
+an alarm's category will always promote it on the bar, even if a lower-severity
+peer owns a wider cascade.
 
 **Anti-strobe**: when the source briefly reads empty mid-PLC-cycle, the
 published top cause is held for `HoldDuration` (default 2 s) before clearing.
@@ -85,11 +92,16 @@ PLC code to know it exists:
 
 [!code-pascal[](../../showcase/app/src/core/AXOpen.Messaging/AxoIncidentBarExample.st?name=StationActivate)]
 
-When Station and Drive both fire at the same time, the analyzer detects that
-Drive's container is a descendant of Station's container (Symbol-prefix check
-stripped of the messenger's own segment), credits Station with `DownstreamCount = 1`,
-and ranks Station above Drive even though Drive is `Critical` and Station is
-`Error` — because Station owns more of the cascade.
+When Station and Drive both fire at the **same** severity (e.g. both `Error`),
+the analyzer detects that Drive's container is a descendant of Station's
+container (Symbol-prefix check stripped of the messenger's own segment),
+credits Station with `DownstreamCount = 1`, and ranks Station above Drive —
+because Station owns more of the cascade.
+
+When the severities **differ** — for example Drive at `Critical` and Station
+at `Error` — Drive ranks first regardless of ownership. Severity-tier sort is
+the outermost key (see the ranking-formula section above); within-tier the
+ownership/burst/age score then orders peers.
 
 # [BLAZOR](#tab/blazor)
 
@@ -112,6 +124,17 @@ nothing else needs to reflow. Severity drives the color (`shadow-glow-danger`
 + `bg-danger/15` for Error/Critical, `warning` and `info` for the other
 buckets); Critical and ProgrammingError additionally animate with
 `animate-pulse` until acknowledged.
+
+## Sender identification
+
+The bar displays the cause's sender as a breadcrumb of `AttributeName` values
+walking from the messenger's owning component up to (but excluding) the
+unnamed root — for example `Station › Drive › Encoder`. The full PLC symbol
+path is additionally rendered as a mono `text-xs` subtitle beneath the
+breadcrumb and as the `title` tooltip on hover, so operators can identify the
+originating instance unambiguously even when multiple components share the
+same display name. Custom UI shells consuming `IRankableMessage` directly can
+read the same data via the `SenderDisplayName` and `SenderSymbol` members.
 
 ## Parameters
 

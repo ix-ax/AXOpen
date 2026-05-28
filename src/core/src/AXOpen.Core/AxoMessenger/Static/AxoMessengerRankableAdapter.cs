@@ -11,6 +11,7 @@ namespace AXOpen.Messaging.Static
         private readonly Func<bool> _isAcknowledged;
         private readonly Func<string> _displayMessage;
         private readonly Func<string> _senderDisplayName;
+        private readonly Func<string>? _senderSymbol;
 
         public AxoMessengerRankableAdapter(
             Func<string> symbol,
@@ -19,7 +20,8 @@ namespace AXOpen.Messaging.Static
             Func<eAxoMessengerState> state,
             Func<bool> isAcknowledged,
             Func<string> displayMessage,
-            Func<string> senderDisplayName)
+            Func<string> senderDisplayName,
+            Func<string>? senderSymbol = null)
         {
             _symbol            = symbol            ?? throw new ArgumentNullException(nameof(symbol));
             _category          = category          ?? throw new ArgumentNullException(nameof(category));
@@ -28,6 +30,7 @@ namespace AXOpen.Messaging.Static
             _isAcknowledged    = isAcknowledged    ?? throw new ArgumentNullException(nameof(isAcknowledged));
             _displayMessage    = displayMessage    ?? throw new ArgumentNullException(nameof(displayMessage));
             _senderDisplayName = senderDisplayName ?? throw new ArgumentNullException(nameof(senderDisplayName));
+            _senderSymbol      = senderSymbol;
         }
 
         public string Symbol                       => _symbol();
@@ -37,5 +40,6 @@ namespace AXOpen.Messaging.Static
         public bool IsAcknowledged                 => _isAcknowledged();
         public string DisplayMessage               => _displayMessage();
         public string SenderDisplayName            => _senderDisplayName();
+        public string SenderSymbol                 => _senderSymbol?.Invoke() ?? _symbol();
     }
 }
