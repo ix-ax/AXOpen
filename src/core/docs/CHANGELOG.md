@@ -92,3 +92,8 @@
 - `AxoMessageProvider.ReadDetails` issues its batch read at `eAccessPriority.Low` to reduce contention with operator-driven traffic.
 - Added Serilog diagnostics to `AxoIncidentBarView.ConfigurePolling` and `Tick` (`Information`, `Debug`, `Warning`, `Error`) so polling lifecycle and per-tick state are visible without attaching a debugger.
 - `IRankableMessage` exposes a new `SenderSymbol` member (full PLC symbol path). `AxoMessengerRankableAdapter` accepts an optional `senderSymbol` projector and falls back to the messenger symbol when none is supplied — existing call sites compile unchanged.
+
+### 0.56.2
+
+**Bug fixes:**
+- `AxoSequencer` step-timeout messenger: `_context` is now resolved on every `_msgStepTimedOut.Activate(...)` call rather than only on the first rising transition, and `ActiveContextCount` is refreshed each cycle the messenger remains active. Previously, once the step-timeout alarm was raised, the active-context counter never advanced, so the parent `AggregateMessage(1)` accumulation could leave the alarm stuck active and prevent it from falling on the next sequencer cycle.
