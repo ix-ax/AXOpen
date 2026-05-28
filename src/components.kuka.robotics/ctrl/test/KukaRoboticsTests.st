@@ -21,3 +21,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.Tests
         END_METHOD
     END_CLASS    
 END_NAMESPACE
+
+
+
+
+

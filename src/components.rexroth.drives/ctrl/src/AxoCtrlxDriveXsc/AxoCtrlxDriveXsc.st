@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
         END_VAR
         VAR PUBLIC // Scaling
@@ -1727,7 +1727,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         AxoHalt_Deceleration := 1000.0;         // mm/s2
                         AxoHalt_Jerk := 150000.0;               // mm/s3
                         AxoHome_Position := 0.0;                // mm
-                        AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
+                        AxoHome_HommingMode := 615;             // Negative direction, travel range limit switch, negative edge (NC contact), no Home switch evaluation, no Reference mark evaluation
                         AxoHome_Velocity := 2.0;                // mm/s
                         AxoHome_Acceleration := 1000.0;         // mm/s2
                         AxoHome_Deceleration := 1000.0;         // mm/s2
@@ -1787,7 +1787,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         AxoHalt_Deceleration := 36000.0;            // deg/s2
                         AxoHalt_Jerk := 3600000.0;                  // deg/s3
                         AxoHome_Position := 0.0;                    // deg
-                        AxoHome_HommingMode := 7;                   // Negative direction, negative edge (NC contact), homing switch connected to drive
+                        AxoHome_HommingMode := 71;                  // Negative direction, negative edge (NC contact), homing switch connected to drive, no Reference mark evaluation
                         AxoHome_Velocity := 45.0;                   // deg/s
                         AxoHome_Acceleration := 36000.0;            // deg/s2
                         AxoHome_Deceleration := 36000.0;            // deg/s2
@@ -2572,24 +2572,34 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#521;
                     END_IF; 
-                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
-                   _State := UINT#322;
-                    THIS.CallTimers(FALSE);
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
+                       _State := UINT#322;
+                        THIS.CallTimers(FALSE);
+                    END_IF;                  
                 END_IF;
                 IF _State = UINT#322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         DriveStatus.Error.Id := UINT#522;
                     END_IF; 
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
+                   _State := UINT#323;
+                    THIS.CallTimers(FALSE);
+                END_IF;
+                IF _State = UINT#323 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
+                        DriveStatus.Error.Id := UINT#523;
+                    END_IF; 
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
-                        _State := UINT#323;
+                        _State := UINT#324;
                         THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;
-                IF _State = UINT#323 THEN
+                IF _State = UINT#324 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
@@ -2597,24 +2607,20 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                    _State := UINT#324;
+                    _State := UINT#325;
                     THIS.CallTimers(FALSE);
                 END_IF;
-                IF _State = UINT#324 THEN
+                IF _State = UINT#325 THEN
                     _tmpTimer.OnDelay(THIS,  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill , T#100ms);
                     IF _tmpTimer.output THEN
-                        _State := UINT#325;
+                        _State := UINT#326;
                         THIS.CallTimers(FALSE);
                     END_IF;
                 END_IF;     
-                IF _State = UINT#325 THEN
-                    _State := UINT#326;
-                    THIS.CallTimers(FALSE);
-                END_IF;                              
                 IF _State = UINT#326 THEN
                     _State := UINT#327;
                     THIS.CallTimers(FALSE);
-                END_IF;                              
+                END_IF;                                                       
                 IF _State = UINT#327 THEN
                     Done := TRUE;            
                     MC_HomeCycle := ULINT#0;     
@@ -3169,7 +3175,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;     
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
-                    IF TRUE THEN
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
                        _State := UINT#354;
                        THIS.CallTimers(FALSE);
                     END_IF;                
@@ -3411,7 +3417,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;     
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
-                    IF TRUE THEN
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
                        _State := UINT#364;
                         THIS.CallTimers(FALSE);
                     END_IF;                
@@ -3669,7 +3675,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;     
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
-                    IF TRUE THEN
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
                        _State := UINT#374;
                         THIS.CallTimers(FALSE);
                     END_IF;
@@ -3953,7 +3959,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                    IF TRUE THEN //NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus THEN
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
                         _State := UINT#384;
                         THIS.CallTimers(FALSE);
                     END_IF;
@@ -4345,9 +4351,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := TRUE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
+                    // IF      _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                    //     NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                    //     NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
                     IF      _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
-                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 AND                    
+                            _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus AND 
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill  THEN
                         _State := UINT#396;
                         THIS.CallTimers(FALSE);
                     END_IF; 

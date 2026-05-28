@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @using AXOpen.Messaging
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector.ValueTypes
@@ -71,6 +71,7 @@
                         @foreach (var detailsTab in DetailsTabs)
                         {
                             <TabPage Title="@detailsTab.HumanReadable">
+                                
                                 <div class="w-full p-2">
                                     <RenderableContentControl Context=@detailsTab
                                                               Presentation="@_currentPresentation" />
