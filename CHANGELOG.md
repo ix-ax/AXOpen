@@ -1,3 +1,38 @@
+### [CORE] AxoIncidentBar — perf, ranking-accuracy, and sender-identification fixes
+
+**Note:** Patch follow-up to the `0.56.0` AxoIncidentBar feature. All changes in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change. No public-API removal; `IRankableMessage` gains one new member with an adapter-side default. Branch: `fix-incident-bar-perf-issues`.
+
+- fix: `AxoCauseAnalyzer` ranking — severity-tier sort is now the outermost key (`OrderByDescending(SeverityWeight).ThenByDescending(Score)`). A `Critical` candidate is never ranked below an `Error` one regardless of burst/ownership/age bonuses. Score remains the within-tier tie-breaker. Previously a long-running, deeply-owned `Error` could outrank a freshly-risen `Critical`, hiding the more urgent alarm.
+- fix: `AxoCauseAnalyzer` age contribution is capped at 7 days (`_maxAgeMinutes = 7 * 24 * 60`). Uninitialized `RisenUtc` (`DateTime.MinValue`) previously injected ~10⁹ minutes via `W_AGE` and dominated the score before `ReadDetails` had populated `Risen`.
+- fix: `AxoCauseAnalyzer` `BurstWindow` cutoff is clamped to `DateTime.MinValue` when the maximum `RisenUtc` is smaller than the window — prevents `DateTime` underflow on the first cycle before `Risen` is read.
+- fix: `AxoCauseAnalyzer` excludes candidates with empty `DisplayMessage` (e.g. `MessageCode == 0`) — there is nothing meaningful to surface to the operator, but those messengers would still consume burst-root credit.
+- fix: `AxoIncidentBarView` polling cadence is now driven by `_analyzer.ActiveCount` instead of `Provider.ActiveMessagesCount`. `Provider.ActiveMessagesCount` depends on `MsgCnt` aggregation reaching the observed root, which is not guaranteed in every project topology; the analyzer's count comes from the just-read state and is authoritative.
+- fix: `AxoIncidentBarView.Tick()` now always reads `ReadMessageStateAsync` first, then pulls `ReadDetails` when **any** messenger reports a non-Idle state. Previously the bar could skip detail reads entirely (and therefore never repopulate `Risen`/`Fallen`) when the provider's aggregated active count was zero while individual messengers were active.
+- fix: `AxoIncidentBarView.ConfigurePolling` and `Tick` errors are now logged via Serilog instead of being silently swallowed — `Information` on successful configure (with messenger count), `Debug` per tick (with `ActiveCount` and `TopCause` symbol), `Warning` on read/recompute failure, `Error` on initialize failure. The previous `catch { /* swallow */ }` made polling lifecycle and per-tick state invisible without attaching a debugger.
+- feat: `AxoCauseAnalyzer.SenderDisplayName` now produces a top-down `AttributeName` breadcrumb (e.g. `Station › Drive › Encoder`) walking from the messenger's owning component up to but excluding the unnamed root, with a fallback to `GetSymbolTail` when no chain is available. The previous single-segment `GetSymbolTail` was ambiguous for nested topologies (two `Encoder` messengers under different drives both displayed as `Encoder`).
+- feat: `AxoIncidentBarView` renders the full PLC symbol path as a mono `text-xs` subtitle beneath the breadcrumb sender label, and as the `title` tooltip on hover, both on the top bar and in expanded rows.
+- feat: `IRankableMessage` exposes a new `SenderSymbol` member (full PLC symbol path). `AxoMessengerRankableAdapter` accepts an optional `senderSymbol` projector and defaults `SenderSymbol` to the messenger symbol when none is supplied — existing call sites compile unchanged.
+- feat: `AxoMessageProvider.ReadMessageStateAsync` now batches `Risen`, `Fallen`, and `Acknowledged` alongside the state/category/code triple. Burst-window decisions no longer require a separate `ReadDetails` round-trip in the common case.
+- feat: `AxoMessageProvider.ReadDetails` issues its batch read at `eAccessPriority.Low` to reduce contention with operator-driven traffic on the same connector.
+- docs: Updated `src/core/docs/AxoIncidentBar.md` ranking-formula section with a "Severity-tier outermost" note and an age-cap mention, replaced the Station/Drive cascade example to match the new severity-first sort order, and added a "Sender identification" subsection to the BLAZOR tab documenting the breadcrumb + `SenderSymbol` behaviour. Appended `0.56.1` entry to `src/core/docs/CHANGELOG.md`.
+
+**Impact:**
+- A `Critical` alarm always sits on top of the bar — the previously-possible inversion (long-running `Error` outranking a fresh `Critical`) is closed.
+- Pre-first-detail-read cycles no longer rank random uninitialized-time alarms at the top.
+- The bar now identifies the originating instance unambiguously when multiple components share the same component-level display name (`Encoder` under Drive 1 vs. Drive 2).
+- Polling decisions match the analyzer's actual workload, so the bar correctly drops to the idle cadence (2500 ms) when there is genuinely nothing to rank, even in topologies where `Provider.ActiveMessagesCount` rolls up partially.
+- Operators can correlate the breadcrumb sender with the underlying PLC variable path via the tooltip without leaving the bar.
+
+**Risks/Review:**
+- `IRankableMessage.SenderSymbol` is a new interface member. The library's own implementation (`AxoMessengerRankableAdapter`) supplies it via a defaulted constructor parameter. External code that **directly implements** `IRankableMessage` (no in-tree call sites) will need to add the member; this is a soft break tracked in "Other" of `src/core/docs/CHANGELOG.md` rather than "Breaking changes" because the interface was introduced in `0.56.0` and has no external implementers yet.
+- `AxoMessageProvider.ReadDetails` priority dropped to `eAccessPriority.Low`. In projects with chronic high-priority operator traffic, the bar may now wait longer for its detail batch — `ActivePollingMs` (default 750 ms) is the worst-case staleness ceiling.
+- Severity-first sort changes ranking output for any deployment that relied on the previous score-only order to surface ownership over severity. The Station/Drive example in `AxoIncidentBar.md` has been rewritten to reflect the new behaviour; deployments depending on the old order need to either escalate the owner's category or accept the new precedence.
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests/Messaging/` — `AxoCauseAnalyzerTests`, `AxoIncidentBarPresenterTests`, `AxoMessengerRankableAdapterTests` updated to cover the new sort precedence, age cap, burst clamp, empty-message exclusion, and `SenderSymbol` projection.
+- `dotnet build src/core/src/AXOpen.Core.Blazor/` — Razor compiles clean with the new Serilog using and `IRankableMessage.SenderSymbol` references.
+- Showcase: `Pages/core/AxoIncidentBar.razor` — bar shows the breadcrumb on Station/Drive/Encoder topology and the mono symbol-path subtitle on hover.
+
 ### [CORE] AxoCauseAnalyzer + AxoIncidentBarView — probable-cause ranking and persistent operator incident bar over AxoMessenger
 
 **Note:** Additive change in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change required for application opt-in; the analyzer reads only fields `AxoMessenger` already exposes. Branch: `feat-most-probable-failure-cause`.
