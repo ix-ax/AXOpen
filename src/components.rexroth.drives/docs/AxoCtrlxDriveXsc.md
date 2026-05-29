@@ -39,7 +39,7 @@ View the .NET twin source at [`AXOpen.Components.Rexroth.Drives`](https://github
 
 # [BLAZOR](#tab/blazor)
 
-`AxoCtrlxDriveXsc` does not ship a dedicated Blazor view. It renders via the generic `AxoComponent` pattern using `RenderableContentControl`, which inspects the component type at runtime and selects the matching rendering based on the `Presentation` attribute.
+`AxoCtrlxDriveXsc` ships a dedicated Blazor view, `AxoCtrlxDriveXscView`, with `Status`, `Command`, and `Spot` derivatives. `RenderableContentControl` automatically resolves and renders this dedicated view at runtime based on the selected `Presentation`, so the markup below renders the dedicated view without importing it explicitly.
 
 ## Status display
 
@@ -61,7 +61,7 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.Components.Rexroth.Drives.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/).
+View the dedicated view at [`AxoCtrlxDriveXscView.razor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/AxoCtrlxDriveXsc/AxoCtrlxDriveXscView.razor), or the whole Blazor package at [`AXOpen.Components.Rexroth.Drives.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/).
 
 # [HARDWARE](#tab/hardware)
 
