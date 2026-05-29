@@ -38,6 +38,7 @@
 - `AxoCtrlxDriveXsc`: added a debug message for the unknown error code `F4035`.
 - `AxoCtrlxDriveXsc`: removed the homing (`AxoHome`) task timeout.
 - Added ctrlX DRIVE servo-drive communication-configuration reference images under `ctrl/assets/rexroth_ctrlx_drive/servodrive_communication_config/`.
+- Added a step-by-step "Drive commissioning (ctrlX DRIVE Engineering)" section to `AxoCtrlxDriveXsc.md` (PROFINET/FSP profile, Consumer/Producer telegrams, signal control/status word mapping, operation-mode selection) with screenshots under `docs/pics/rexroth_ctrlx_drive/`.
 - Corrected the BLAZOR tab of `AxoCtrlxDriveXsc` and `AxoIndraDrive` docs to reflect the dedicated Blazor views (`AxoCtrlxDriveXscView`, `AxoIndraDriveView`) now resolved by `RenderableContentControl`, with source links.
 - Enriched `README.md` with a Components table (ctrlX DRIVE XSC + IndraDrive), a Dependencies table, and the Bosch Rexroth vendor link.
 - Populated `TROUBLES.md` with drive-specific common issues, the `eAxoDriveState` error states and `Errorstop` recovery, diagnostics, and known limitations.
