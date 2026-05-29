@@ -8,7 +8,11 @@
   3. Updates versions for:
        - .config/dotnet-tools.json (all tools whose name starts with AXSharp. or Inxton.Operon.)
        - src/Directory.Packages.props (all <PackageVersion Include="AXSharp.*" ... /> and Include="Inxton.Operon.*" ... /> entries)
-  4. Supports -DryRun to preview changes and -Verbose for detailed logging.
+  4. Reconciles AXSharp's transitive (third-party) dependencies: reads each AXSharp.* package's
+     .nuspec at the resolved version, and bumps any already-pinned <PackageVersion> entry up to the
+     version AXSharp requires (bump-up only; never downgrades, never adds new entries). Useful with
+     CentralPackageTransitivePinningEnabled. Disable with -SkipTransitive.
+  5. Supports -DryRun to preview changes and -Verbose for detailed logging.
 
 .PARAMETER AxSharpVersion
   Explicit version to set for AXSharp.* packages instead of auto-detecting the latest from NuGet.
@@ -39,7 +43,8 @@ param(
     [string]$Username,  # Optional for private feed auth (GitHub Packages). If omitted and Token supplied, 'USERNAME' placeholder is used.
     [string]$Token,     # Personal Access Token or NuGet API key for private feed (PAT needs packaging:read scope)
     [switch]$NormalizeJson, # When set, rewrites dotnet-tools.json with standard compact formatting instead of preserving existing indentation
-    [switch]$ListAvailable  # If set, lists available versions (after auth) and exits (unless versions also supplied)
+    [switch]$ListAvailable, # If set, lists available versions (after auth) and exits (unless versions also supplied)
+    [switch]$SkipTransitive # If set, does not reconcile AXSharp's transitive (third-party) dependencies in Directory.Packages.props
 )
 
 Set-StrictMode -Version Latest
@@ -179,6 +184,107 @@ function Get-LatestVersion {
     catch {
         throw "Failed to fetch versions for ${PackageId}: $_"
     }
+}
+
+function Get-FeedContext {
+    # Resolves the service index once and returns the PackageBaseAddress + auth headers
+    # for reuse across multiple package requests (versions, nuspec, ...).
+    param([string]$Feed,[string]$User,[string]$Tok)
+    $serviceIndexUrl = if($Feed.ToLower().EndsWith('index.json')) { $Feed } else { ($Feed.TrimEnd('/')) + '/index.json' }
+    $headers = @{}
+    if($Tok){
+        $u = if($User){$User}else{'USERNAME'}
+        $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $u,$Tok)))
+        $headers['Authorization'] = "Basic $basic"
+    }
+    $si = Invoke-RestMethod -Uri $serviceIndexUrl -Headers $headers -TimeoutSec 30
+    if(-not $si.resources){ throw "Service index missing resources at $serviceIndexUrl" }
+    $pkgBase = ($si.resources | Where-Object { $_.'@type' -eq 'PackageBaseAddress/3.0.0' } | Select-Object -First 1).'@id'
+    if(-not $pkgBase){ throw 'PackageBaseAddress/3.0.0 resource not found in service index.' }
+    if($pkgBase[-1] -ne '/') { $pkgBase += '/' }
+    [PSCustomObject]@{ PkgBase=$pkgBase; Headers=$headers }
+}
+
+function Get-NuspecXml {
+    # Returns the .nuspec of a package@version as an [xml]. Tries the flat-container .nuspec
+    # endpoint first (served by nuget.org); on 404 (GitHub Packages does not expose it) falls
+    # back to downloading the .nupkg and extracting the .nuspec entry from the zip.
+    param([string]$PkgBase,[hashtable]$Headers,[string]$PackageId,[string]$Version)
+    $lowerId = $PackageId.ToLower()
+
+    $nuspecUrl = "$PkgBase$lowerId/$Version/$lowerId.nuspec"
+    try {
+        $resp = Invoke-WebRequest -Uri $nuspecUrl -Headers $Headers -TimeoutSec 30 -UseBasicParsing
+        return [xml]$resp.Content
+    } catch {
+        $code = $null
+        if($_.Exception.Response){ $code = [int]$_.Exception.Response.StatusCode }
+        if($code -and $code -ne 404){ throw "Failed to fetch nuspec ($nuspecUrl): $($_.Exception.Message)" }
+        # 404 -> feed does not serve standalone .nuspec; fall back to the .nupkg below.
+    }
+
+    $nupkgUrl = "$PkgBase$lowerId/$Version/$lowerId.$Version.nupkg"
+    $tmpPkg = [System.IO.Path]::GetTempFileName() + '.nupkg'
+    try {
+        Invoke-WebRequest -Uri $nupkgUrl -Headers $Headers -TimeoutSec 60 -UseBasicParsing -OutFile $tmpPkg
+        Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction SilentlyContinue
+        $zip = [System.IO.Compression.ZipFile]::OpenRead($tmpPkg)
+        try {
+            $entry = $zip.Entries | Where-Object { $_.FullName.ToLower().EndsWith('.nuspec') } | Select-Object -First 1
+            if(-not $entry){ throw "No .nuspec entry inside $nupkgUrl" }
+            $sr = New-Object System.IO.StreamReader($entry.Open())
+            try { $content = $sr.ReadToEnd() } finally { $sr.Dispose() }
+        } finally {
+            $zip.Dispose()
+        }
+        return [xml]$content
+    } catch {
+        throw "Failed to read package metadata for ${PackageId}@${Version} (tried nuspec + nupkg): $($_.Exception.Message)"
+    } finally {
+        Remove-Item -LiteralPath $tmpPkg -ErrorAction SilentlyContinue
+    }
+}
+
+function Get-PackageDependencies {
+    # Reads a package's .nuspec at a specific version and returns its declared dependencies
+    # as a flat list of [PSCustomObject]@{ Id; Version }, across all <group> target frameworks.
+    param([string]$PkgBase,[hashtable]$Headers,[string]$PackageId,[string]$Version)
+    $doc = Get-NuspecXml -PkgBase $PkgBase -Headers $Headers -PackageId $PackageId -Version $Version
+    $nsUri = $doc.DocumentElement.NamespaceURI
+    if($nsUri){
+        $nsm = New-Object System.Xml.XmlNamespaceManager($doc.NameTable)
+        $nsm.AddNamespace('n',$nsUri)
+        $nodes = $doc.SelectNodes('//n:dependency',$nsm)
+    } else {
+        $nodes = $doc.SelectNodes('//dependency')
+    }
+    $deps = @()
+    foreach($n in $nodes){
+        $id = $n.GetAttribute('id')
+        $ver = $n.GetAttribute('version')
+        if($id){ $deps += [PSCustomObject]@{ Id=$id; Version=$ver } }
+    }
+    return $deps
+}
+
+function Get-VersionLowerBound {
+    # Extracts the lower-bound version from a NuGet dependency version string.
+    # Handles plain ("1.2.3"), exact ("[1.2.3]") and range ("[1.2.3, )", "(1.0,2.0)") forms.
+    # Returns $null when no usable lower bound exists (e.g. "(,2.0)").
+    param([string]$Range)
+    if([string]::IsNullOrWhiteSpace($Range)){ return $null }
+    $r = $Range.Trim().Trim('[',']','(',')',' ')
+    $r = $r.Split(',')[0].Trim()
+    if([string]::IsNullOrWhiteSpace($r)){ return $null }
+    return $r
+}
+
+function Test-VersionGreater {
+    # Returns $true when semver-ish version $A is strictly greater than $B.
+    param([string]$A,[string]$B)
+    if([string]::IsNullOrWhiteSpace($B)){ return $true }
+    if([string]::IsNullOrWhiteSpace($A)){ return $false }
+    return ( (Compare-VersionRecord (ConvertTo-VersionRecord $A) (ConvertTo-VersionRecord $B)) -gt 0 )
 }
 
 # Query for AXSharp version
@@ -340,12 +446,70 @@ $propsUpdated = [System.Text.RegularExpressions.Regex]::Replace($propsUpdated, $
     }
 })
 
+### Reconcile AXSharp transitive (third-party) dependencies
+# Read each AXSharp.* package's .nuspec at the resolved version, then bump any already-pinned
+# <PackageVersion> entry up to the version AXSharp requires. Bump-up only: never downgrades a
+# deliberately-pinned newer version, and never adds entries that aren't already listed.
+if(-not $SkipTransitive){
+    Write-Info 'Reconciling AXSharp transitive dependencies...'
+    $axPkgIds = [regex]::Matches($propsRaw,'<PackageVersion\s+Include="(AXSharp\.[^"]+)"') |
+        ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique
+    if(-not $axPkgIds){
+        if($Detailed){ Write-Info 'No AXSharp.* entries in Directory.Packages.props; nothing to reconcile.' }
+    } else {
+        # Aggregate required versions across all AXSharp packages, keeping the highest lower bound per dep.
+        $transMap = @{}
+        try {
+            $ctx = Get-FeedContext -Feed $Source -User $Username -Tok $Token
+            foreach($axId in $axPkgIds){
+                try {
+                    $deps = Get-PackageDependencies -PkgBase $ctx.PkgBase -Headers $ctx.Headers -PackageId $axId -Version $AxSharpVersion
+                } catch {
+                    Write-Warn "Could not read dependencies for ${axId}@${AxSharpVersion}: $($_.Exception.Message)"
+                    continue
+                }
+                foreach($d in $deps){
+                    # AXSharp.* and Inxton.Operon.* are handled by their own passes above.
+                    if($d.Id -like 'AXSharp.*' -or $d.Id -like 'Inxton.Operon.*'){ continue }
+                    $lb = Get-VersionLowerBound $d.Version
+                    if(-not $lb){ continue }
+                    if($transMap.ContainsKey($d.Id)){
+                        if(Test-VersionGreater $lb $transMap[$d.Id]){ $transMap[$d.Id] = $lb }
+                    } else {
+                        $transMap[$d.Id] = $lb
+                    }
+                }
+            }
+        } catch {
+            Write-Warn "Transitive dependency reconciliation skipped (feed access failed): $($_.Exception.Message)"
+        }
+
+        # Bump existing entries only; matched by exact Include name.
+        foreach($depId in $transMap.Keys){
+            $newVer = $transMap[$depId]
+            $escaped = [regex]::Escape($depId)
+            $pattern = '(?im)^(\s*<PackageVersion\s+Include="' + $escaped + '"\s+Version=")([^"]+)("\s*/>)'
+            $propsUpdated = [System.Text.RegularExpressions.Regex]::Replace($propsUpdated, $pattern, {
+                param($m)
+                $old = $m.Groups[2].Value
+                if(Test-VersionGreater $newVer $old){
+                    $script:changes += "Directory.Packages.props (transitive): $depId $old -> $newVer"
+                    return $m.Groups[1].Value + $newVer + $m.Groups[3].Value
+                } else {
+                    if($Detailed -and $old -ne $newVer){ Write-Info "Transitive $depId left at $old (AXSharp requires >= $newVer; pinned version is newer)" }
+                    return $m.Value
+                }
+            })
+        }
+    }
+}
+
 if(-not $DryRun){
     if($propsUpdated -ne $propsRaw){
         #Set-Content -Path $propsPath -Value $propsUpdated -Encoding UTF8
         Write-Utf8NoBom-LF -Path $propsPath     -Content $propsUpdated
     } elseif($Detailed){
-        Write-Info 'No AXSharp.* or Inxton.Operon.* entries needed updating in Directory.Packages.props.'
+        Write-Info 'No AXSharp.*, Inxton.Operon.* or transitive entries needed updating in Directory.Packages.props.'
     }
 }
 
