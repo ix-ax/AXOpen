@@ -27,7 +27,7 @@
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Vision</li>
 					<li><span class="font-medium text-slate-800">Vendor:</span> Cognex</li>
-					<li><span class="font-medium text-slate-800">Components:</span> AxoInsight v6, AxoInsight v24, AxoDataman (2), AxoVisionPro</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoInsight v6, AxoInsight v24, AxoDataman (2), AxoVisionPro, AxoVisionProNet</li>
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">cognex_vision_documentation</span></li>
 				</ul>
 			</section>
@@ -40,6 +40,7 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent3Path" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent4Path" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent5Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent6Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
 			<LibraryResources VendorName="Cognex" VendorUrl="https://www.cognex.com/">
@@ -63,6 +64,8 @@
 						<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightV24StPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProNetStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProNetNetPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
 				</PlcSource>
 			</LibraryResources>
@@ -788,6 +791,141 @@
 								</Tab>
 							</div>
 						</TabPage>
+						<TabPage Title="AxoVisionProNet">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Cognex VisionPro Net" />
+								</div>
+								<div class="p-3 text-sm text-slate-600 bg-slate-50 rounded border border-slate-200">
+									<span class="font-medium text-slate-800">TCP / .NET alternative.</span>
+									AxoVisionProNet talks to the Vision PC over a TCP socket from its .NET twin &mdash;
+									no PROFINET hardware. Each operation is an <span class="font-mono">AxoRemoteTask</span>
+									(Trigger, SetRecipe, InspectionResult, TriggerWithSpecificData, ReceiveSpecificData,
+									SendSpecificDataAndTypes). The socket is opened once from <span class="font-mono">Program.cs</span>.
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent6Path" Label="@_plcComponent6Path" OnOpen="OpenModalAsync" />
+													&mdash; &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp6DeclarationSnippet != null && !_comp6DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp6DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent6Path" Label="@_plcComponent6Path" OnOpen="OpenModalAsync" />
+													&mdash; &lt;Initialization&gt; region
+												</p>
+												@if (_comp6InitSnippet != null && !_comp6InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp6InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Commissioning task (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent6Path" Label="@_plcComponent6Path" OnOpen="OpenModalAsync" />
+													&mdash; &lt;VisionProNetCommissioning&gt; region (manual-mode only)
+												</p>
+												@if (_comp6CommissioningSnippet != null && !_comp6CommissioningSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp6CommissioningSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title=".NET connection">
+										<div class="mt-4 space-y-4">
+											<p class="text-xs text-slate-500 mb-2">
+												<SourceFileLink Path="@_programCsPath" Label="@_programCsPath" OnOpen="OpenModalAsync" />
+												&mdash; &lt;AxoVisionProNetInitialize&gt; region
+											</p>
+											@if (_netInitSnippet != null && !_netInitSnippet.IsError)
+											{
+												<CodeBlock Content="@(_netInitSnippet.Content ?? string.Empty)" Language="language-csharp" />
+											}
+											else if (_loadingCode)
+											{
+												<div class="p-4 text-center text-slate-500">Loading...</div>
+											}
+											else
+											{
+												<p class="text-xs text-orange-600">Unable to load snippet</p>
+											}
+											<div class="p-3 text-sm text-slate-600 bg-slate-50 rounded border border-slate-200">
+												Remote-task handlers self-initialize in the twin's <span class="font-mono">PostConstruct</span>,
+												so no per-task <span class="font-mono">Initialize()</span> wiring is needed. Until the TCP client is
+												connected, the PLC tasks report <span class="font-mono">HasRemoteException</span> &mdash; exercise the
+												Error-recovery step to clear them.
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.Sequencer" />
+											@if (_c6StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c6StepLogicBlocks)
+													{
+														_c6StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
 					</Tab>
 				</div>
 			</article>
@@ -818,6 +956,12 @@
 	private CodeSnippet? _comp5DeclarationSnippet;
 	private CodeSnippet? _comp5InitSnippet;
 	private List<StepLogicBlock> _c5StepLogicBlocks = new();
+	// Component 6 snippets (AxoVisionProNet — TCP/.NET alternative)
+	private CodeSnippet? _comp6DeclarationSnippet;
+	private CodeSnippet? _comp6InitSnippet;
+	private CodeSnippet? _comp6CommissioningSnippet;
+	private CodeSnippet? _netInitSnippet;
+	private List<StepLogicBlock> _c6StepLogicBlocks = new();
 	// Hardware snippets — per component
 	private CodeSnippet? _hwc1DeviceInstanceSnippet;
 	private CodeSnippet? _hwc1DeviceTemplateSnippet;
@@ -842,6 +986,7 @@
 	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c4StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c5StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c6StepsBySymbol = new();
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
 	// PLC source paths
@@ -851,6 +996,8 @@
 	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_Secondary.st";
 	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0.st";
 	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st";
+	private readonly string _plcComponent6Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionProNet.st";
+	private readonly string _programCsPath     = "src/showcase/app/ix-blazor/showcase.blazor/Program.cs";
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Cognex_Vision_Insight_V_6_0_0/Cognex_Vision_Insight_V_6_0_0.hwl.yml";
@@ -870,6 +1017,8 @@
 	private readonly string _libAxoInsightV24StPath = "src/components.cognex.vision/ctrl/src/AxoInsight/v_24_0_0/AxoInsight.st";
 	private readonly string _libAxoDatamanStPath    = "src/components.cognex.vision/ctrl/src/AxoDataman/v_6_0_0/AxoDataman.st";
 	private readonly string _libAxoVisionProStPath = "src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st";
+	private readonly string _libAxoVisionProNetStPath = "src/components.cognex.vision/ctrl/src/AxoVisionProNet/AxoVisionProNet.st";
+	private readonly string _libAxoVisionProNetNetPath = "src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/AxoVisonProNet/AxoVisionProNet.TcpClient.cs";
 	private readonly string _libApaxYmlPath        = "src/components.cognex.vision/ctrl/apax.yml";
 	protected override async Task OnInitializedAsync()
 	{
@@ -885,11 +1034,16 @@
 			var comp4InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "Initialization");
 			var comp5DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "ComponentDeclaration");
 			var comp5InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "Initialization");
+			var comp6DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent6Path, "ComponentDeclaration");
+			var comp6InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent6Path, "Initialization");
+			var comp6CommissioningTask = CodeProvider.GetTaggedRegionAsync(_plcComponent6Path, "VisionProNetCommissioning");
+			var netInitTask = CodeProvider.GetTaggedRegionAsync(_programCsPath, "AxoVisionProNetInitialize");
 			var c1StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
 			var c2StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
 			var c3StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
 			var c4StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
 			var c5StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent5Path);
+			var c6StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent6Path);
 			// var stepLogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
 			// Hardware snippets — per component
 			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight7600Device");
@@ -909,7 +1063,8 @@
 			var hwc5IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexVisionProIoSystem");
 			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
 				comp3DeclTask, comp3InitTask, comp4DeclTask, comp4InitTask,
-				comp5DeclTask, comp5InitTask, c1StepsTask, c2StepsTask, c3StepsTask, c4StepsTask, c5StepsTask, //stepLogicTask,
+				comp5DeclTask, comp5InitTask, comp6DeclTask, comp6InitTask, comp6CommissioningTask, netInitTask,
+				c1StepsTask, c2StepsTask, c3StepsTask, c4StepsTask, c5StepsTask, c6StepsTask, //stepLogicTask,
 				hwc1InstanceTask, hwc1TemplateTask, hwc1IoSystemTask,
 				hwc2InstanceTask, hwc2TemplateTask, hwc2IoSystemTask,
 				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask,
@@ -925,12 +1080,17 @@
 			_comp4InitSnippet        = await comp4InitTask;
 			_comp5DeclarationSnippet = await comp5DeclTask;
 			_comp5InitSnippet        = await comp5InitTask;
+			_comp6DeclarationSnippet   = await comp6DeclTask;
+			_comp6InitSnippet          = await comp6InitTask;
+			_comp6CommissioningSnippet = await comp6CommissioningTask;
+			_netInitSnippet            = await netInitTask;
 			// _stepLogicBlocks         = await stepLogicTask;
 			_c1StepLogicBlocks = await c1StepsTask;
 			_c2StepLogicBlocks = await c2StepsTask;
 			_c3StepLogicBlocks = await c3StepsTask;
 			_c4StepLogicBlocks = await c4StepsTask;
 			_c5StepLogicBlocks = await c5StepsTask;
+			_c6StepLogicBlocks = await c6StepsTask;
 			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
 			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
 			_hwc1IoSystemSnippet       = await hwc1IoSystemTask;
@@ -972,6 +1132,11 @@
 					s => s
 				);
 			_c5StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_c6StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -1038,6 +1203,16 @@
 		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps;
 		this.StartPolling(seq5, 250);
 		foreach (var step in steps5)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+		var seq6 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.Sequencer;
+		var steps6 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.Steps;
+		this.StartPolling(seq6, 250);
+		foreach (var step in steps6)
 		{
 			this.StartPolling(step.IsActive, 250);
 			this.StartPolling(step.IsEnabled, 250);
