@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HW_Head
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_CM
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_Reader
+  name: AxoSimaticIdentCyclic_HWIDs
+  fullName: AxoSimaticIdentCyclic_HWIDs
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic_HWIDs
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HW_Head
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HW_Head
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HW_Head
+  fullName: HW_Head
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HW_Head
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HW_Head : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_CM
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_CM
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HwID_CM
+  fullName: HwID_CM
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_CM
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HwID_CM : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_Reader
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_Reader
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HwID_Reader
+  fullName: HwID_Reader
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs.HwID_Reader
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HwID_Reader : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

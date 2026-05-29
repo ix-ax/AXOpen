@@ -1,4 +1,4 @@
-﻿using AXSharp.Connector;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
@@ -31,14 +31,29 @@ namespace AXOpen.Core
             AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` toggled.", Component, await GetCurrentUserIdentity());
             Component.RemoteToggle.Cyclic = true;
         }
+
+        public bool IsOn => Component.State.LastValue;
+
         private string StateDescription
         {
             get
             {
-                return Component.State.LastValue ? (string.IsNullOrEmpty(Component.AttributeStateOnDesc) ? "<#On#>" : Component.AttributeStateOnDesc) : (string.IsNullOrEmpty(Component.AttributeStateOffDesc) ? "<#Off#>" : Component.AttributeStateOffDesc);
+                return IsOn
+                    ? (string.IsNullOrEmpty(Component.AttributeStateOnDesc) ? "<#On#>" : Component.AttributeStateOnDesc)
+                    : (string.IsNullOrEmpty(Component.AttributeStateOffDesc) ? "<#Off#>" : Component.AttributeStateOffDesc);
             }
         }
 
+        private string ButtonClass
+        {
+            get
+            {
+                if (IsDisabled)
+                    return "btn-inactive";
+
+                return IsOn ? "btn-success" : "btn-info";
+            }
+        }
 
         [Parameter]
         public bool Disable { get; set; }
@@ -51,7 +66,14 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => Component.GetAttributeName(CultureInfo.CurrentUICulture);
+        public string Description => string.IsNullOrEmpty(Text)
+                                     ? string.IsNullOrEmpty(Component.AttributeName)
+                                     ? Component.GetSymbolTail()
+                                     : Component.GetAttributeName(CultureInfo.CurrentUICulture)
+                                     : Text;
+
+        public string LabelText => $"{Description} — {StateDescription}";
+
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.IsDisabled);

@@ -1,0 +1,240 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.IOState
+  id: plc.AXOpen.Io.IOState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.IOState.Good
+  - plc.AXOpen.Io.IOState.Disabled
+  - plc.AXOpen.Io.IOState.MaintenanceRequired
+  - plc.AXOpen.Io.IOState.MaintenanceDemanded
+  - plc.AXOpen.Io.IOState.Error
+  - plc.AXOpen.Io.IOState.NotAccessible
+  - plc.AXOpen.Io.IOState.DiagnosticsAvailable
+  - plc.AXOpen.Io.IOState.IODataNotAvailable
+  - plc.AXOpen.Io.IOState.NetworkError
+  - plc.AXOpen.Io.IOState.HardwareError
+  name: IOState
+  fullName: IOState
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS IOState
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.IOState.Good
+  id: plc.AXOpen.Io.IOState.Good
+  parent: AXOpen.Io
+  children: []
+  name: Good
+  fullName: Good
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.Good
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Good : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.Disabled
+  id: plc.AXOpen.Io.IOState.Disabled
+  parent: AXOpen.Io
+  children: []
+  name: Disabled
+  fullName: Disabled
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.Disabled
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Disabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.MaintenanceRequired
+  id: plc.AXOpen.Io.IOState.MaintenanceRequired
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceRequired
+  fullName: MaintenanceRequired
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.MaintenanceRequired
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'MaintenanceRequired : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.MaintenanceDemanded
+  id: plc.AXOpen.Io.IOState.MaintenanceDemanded
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceDemanded
+  fullName: MaintenanceDemanded
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.MaintenanceDemanded
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'MaintenanceDemanded : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.Error
+  id: plc.AXOpen.Io.IOState.Error
+  parent: AXOpen.Io
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.Error
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'Error : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.NotAccessible
+  id: plc.AXOpen.Io.IOState.NotAccessible
+  parent: AXOpen.Io
+  children: []
+  name: NotAccessible
+  fullName: NotAccessible
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.NotAccessible
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'NotAccessible : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.DiagnosticsAvailable
+  id: plc.AXOpen.Io.IOState.DiagnosticsAvailable
+  parent: AXOpen.Io
+  children: []
+  name: DiagnosticsAvailable
+  fullName: DiagnosticsAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.DiagnosticsAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 9
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'DiagnosticsAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.IODataNotAvailable
+  id: plc.AXOpen.Io.IOState.IODataNotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: IODataNotAvailable
+  fullName: IODataNotAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.IODataNotAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'IODataNotAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.NetworkError
+  id: plc.AXOpen.Io.IOState.NetworkError
+  parent: AXOpen.Io
+  children: []
+  name: NetworkError
+  fullName: NetworkError
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.NetworkError
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 11
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'NetworkError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Io.IOState.HardwareError
+  id: plc.AXOpen.Io.IOState.HardwareError
+  parent: AXOpen.Io
+  children: []
+  name: HardwareError
+  fullName: HardwareError
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.IOState.HardwareError
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\IOState.st
+    startLine: 12
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'HardwareError : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,1457 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  parent: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children:
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._infoTimer
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._errorTimer
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._context
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopTasksAreActive
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopType
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._someTaskIsActive
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._dword
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._data
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._initHwCheckDone
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._retval
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._geoAddr
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outHwid
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._blink
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsAddress
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsCount
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsAddress
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsCount
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movementExecuting
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsManualPV
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.RestoreTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMainTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovementsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.MovementParameters
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgramTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovementsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgramTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgramTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgramTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotorsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Config
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Status
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Messenger
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.TaskMessenger
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._power_progress
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movement_progress
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Inputs
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Outputs
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ManualControl()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Restore()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMain()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgram()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovements()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotors()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovements()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgram()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotors()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgram(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovements(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgram()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputs()
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.CallTimers(BOOL)
+  name: AxoKrc4
+  fullName: AxoKrc4
+  type: Class
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: CLASS AxoKrc4
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._infoTimer
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._infoTimer
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._infoTimer
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._errorTimer
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._errorTimer
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._errorTimer
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._context
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._context
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._context
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopTasksAreActive
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopTasksAreActive
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _stopTasksAreActive
+  fullName: _stopTasksAreActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopTasksAreActive
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_stopTasksAreActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopType
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopType
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _stopType
+  fullName: _stopType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._stopType
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_stopType : AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._someTaskIsActive
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._someTaskIsActive
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _someTaskIsActive
+  fullName: _someTaskIsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._someTaskIsActive
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_someTaskIsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._dword
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._dword
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._dword
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._data
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._data
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _data
+  fullName: _data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._data
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_data : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._initHwCheckDone
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._initHwCheckDone
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._initHwCheckDone
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._retval
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._retval
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._retval
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._geoAddr
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._geoAddr
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._geoAddr
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outHwid
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outHwid
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outHwid
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._blink
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._blink
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._blink
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsAddress
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsAddress
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsAddress
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsCount
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsCount
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsCount
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsAddress
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsAddress
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsAddress
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsCount
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsCount
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._outputsCount
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movementExecuting
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movementExecuting
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _movementExecuting
+  fullName: _movementExecuting
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movementExecuting
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_movementExecuting : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsManualPV
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsManualPV
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _inputsManualPV
+  fullName: _inputsManualPV
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._inputsManualPV
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_inputsManualPV : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.RestoreTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.RestoreTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.RestoreTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: ResetAllOutputsTask
+  fullName: ResetAllOutputsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'ResetAllOutputsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartMotorsTask
+  fullName: StartMotorsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartMotorsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMainTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMainTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartAtMainTask
+  fullName: StartAtMainTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMainTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartAtMainTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovementsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovementsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartMotorsProgramAndMovementsTask
+  fullName: StartMotorsProgramAndMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovementsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartMotorsProgramAndMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.MovementParameters
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.MovementParameters
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: MovementParameters
+  fullName: MovementParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.MovementParameters
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgramTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgramTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartProgramTask
+  fullName: StartProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgramTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovementsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovementsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartMovementsTask
+  fullName: StartMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovementsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgramTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgramTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StartMotorsAndProgramTask
+  fullName: StartMotorsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgramTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StartMotorsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StopMovementsTask
+  fullName: StopMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 78
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StopMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgramTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgramTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StopMovementsAndProgramTask
+  fullName: StopMovementsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgramTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 82
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StopMovementsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgramTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgramTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StopProgramTask
+  fullName: StopProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgramTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 86
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StopProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotorsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotorsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: StopMotorsTask
+  fullName: StopMotorsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotorsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'StopMotorsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Config
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Config
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Config
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Config : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config'
+    return:
+      type: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Status
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Status
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Status
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Status : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status'
+    return:
+      type: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Messenger
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Messenger
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Messenger
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 107
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.TaskMessenger
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.TaskMessenger
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.TaskMessenger
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 108
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._power_progress
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._power_progress
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _power_progress
+  fullName: _power_progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._power_progress
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 110
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_power_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movement_progress
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movement_progress
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: _movement_progress
+  fullName: _movement_progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4._movement_progress
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: '_movement_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Inputs
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Inputs
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Inputs
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Inputs : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State'
+    return:
+      type: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Outputs
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Outputs
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Outputs
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 127
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'Outputs : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control'
+    return:
+      type: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.HardwareDiagnosticsTask
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Run
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ManualControl()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ManualControl()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ManualControl
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1874
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Restore()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Restore()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.Restore
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1878
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMain()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMain()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartAtMain
+  fullName: StartAtMain
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartAtMain
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1902
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartAtMain()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgram()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgram()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartMotorsAndProgram
+  fullName: StartMotorsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsAndProgram
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1907
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotorsAndProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovements()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovements()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartMotorsProgramAndMovements
+  fullName: StartMotorsProgramAndMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotorsProgramAndMovements
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1911
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotorsProgramAndMovements()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotors()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotors()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartMotors
+  fullName: StartMotors
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMotors
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1922
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotors()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovements()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovements()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartMovements
+  fullName: StartMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartMovements
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMovements()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgram()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgram()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StartProgram
+  fullName: StartProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StartProgram
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotors()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotors()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StopMotors
+  fullName: StopMotors
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMotors
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMotors()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgram(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgram(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StopMovementsAndProgram
+  fullName: StopMovementsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovementsAndProgram
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovementsAndProgram(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovements(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovements(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StopMovements
+  fullName: StopMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopMovements
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovements(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgram()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgram()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: StopProgram
+  fullName: StopProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.StopProgram
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputs()
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputs()
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: ResetAllOutputs
+  fullName: ResetAllOutputs
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.ResetAllOutputs
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetAllOutputs()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.CallTimers(BOOL)
+  parent: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4.CallTimers
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 1928
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  commentId: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  name: IAxoRobotics
+  nameWithType: IAxoRobotics
+  fullName: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  parent: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  name: eAxoRoboticsStopType
+  nameWithType: eAxoRoboticsStopType
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+  name: AxoRoboticsMovementsParams
+  nameWithType: AxoRoboticsMovementsParams
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+  name: AxoKukaRobotics_Config
+  nameWithType: AxoKukaRobotics_Config
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+  name: AxoKukaRobotics_Component_Status
+  nameWithType: AxoKukaRobotics_Component_Status
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+  name: AxoKukaRobotics_State
+  nameWithType: AxoKukaRobotics_State
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+  name: AxoKukaRobotics_Control
+  nameWithType: AxoKukaRobotics_Control
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

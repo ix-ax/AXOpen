@@ -1,0 +1,49 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+  id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+  parent: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  children: []
+  name: AxoMitsubishiRobotics_Component_Status
+  fullName: AxoMitsubishiRobotics_Component_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoMitsubishiRobotics_Component_Status
+    path: .\src\components.mitsubishi.robotics\ctrl\src\AxoMitsubishiRobotics_Datatypes_v_1_x_x\AxoMitsubishiRobotics_Component_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
+  syntax:
+    content: CLASS AxoMitsubishiRobotics_Component_Status
+  inheritance:
+  - plc.AXOpen.Components.Robotics.AxoRobot_Status
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+references:
+- uid: plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
+  commentId: plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
+  name: CurrentMovementParameters
+  nameWithType: CurrentMovementParameters
+  fullName: plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
+  parent: plc.AXOpen.Components.Robotics.AxoRobot_Status.CurrentMovementParameters
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+
+

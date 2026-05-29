@@ -1,0 +1,1276 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  parent: plc.AXOpen.Components.Abb.Robotics
+  children:
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Progress
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.RestoreTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgramTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgramTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotorsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMainTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgramTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgramTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovementsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovementsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.MovementParameters
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Config
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Status
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Messenger
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.TaskMessenger
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._progress
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Inputs
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Outputs
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._infoTimer
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTimer
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTime
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._blink
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._context
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopTasksAreActive
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopType
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._someTaskIsActive
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._initHwCheckDone
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsAddress
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsCount
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsAddress
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsCount
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.ManualControl()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Restore()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMain()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgram()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotors()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovements()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgram()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotors()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgram(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovements(eAxoRoboticsStopType)
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgram()
+  - plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.CallTimers(BOOL)
+  name: AxoIrc5_v_1_x_x
+  fullName: AxoIrc5_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: CLASS AxoIrc5_v_1_x_x
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Progress
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Progress
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Progress
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.RestoreTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.RestoreTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.RestoreTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopMovementsTask
+  fullName: StopMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgramTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgramTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopMovementsAndProgramTask
+  fullName: StopMovementsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgramTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopMovementsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgramTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgramTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopProgramTask
+  fullName: StopProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgramTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotorsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotorsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StopMotorsTask
+  fullName: StopMotorsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotorsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StopMotorsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMainTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMainTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartAtMainTask
+  fullName: StartAtMainTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMainTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartAtMainTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgramTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgramTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartMotorsAndProgramTask
+  fullName: StartMotorsAndProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgramTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 46
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartMotorsAndProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgramTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgramTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartProgramTask
+  fullName: StartProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgramTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartMotorsTask
+  fullName: StartMotorsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 54
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartMotorsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovementsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovementsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartMovementsTask
+  fullName: StartMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovementsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 58
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovementsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovementsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: StartMotorsProgramAndMovementsTask
+  fullName: StartMotorsProgramAndMovementsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovementsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'StartMotorsProgramAndMovementsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.MovementParameters
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.MovementParameters
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: MovementParameters
+  fullName: MovementParameters
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.MovementParameters
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 67
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Config
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Config
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Config
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 73
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Config : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x'
+    return:
+      type: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Status
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Status
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Status
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Status : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x'
+    return:
+      type: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Messenger
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Messenger
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Messenger
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.TaskMessenger
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.TaskMessenger
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.TaskMessenger
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 85
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._progress
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._progress
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._progress
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Inputs
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Inputs
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Inputs
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 90
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Inputs : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x'
+    return:
+      type: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Outputs
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Outputs
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Outputs
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'Outputs : AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x'
+    return:
+      type: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.HardwareDiagnosticsTask
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 105
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._infoTimer
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._infoTimer
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._infoTimer
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 112
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTimer
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTimer
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTimer
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTime
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTime
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _errorTime
+  fullName: _errorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._errorTime
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_errorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._blink
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._blink
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._blink
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 115
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._context
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._context
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._context
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopTasksAreActive
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopTasksAreActive
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _stopTasksAreActive
+  fullName: _stopTasksAreActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopTasksAreActive
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 118
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_stopTasksAreActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopType
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopType
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _stopType
+  fullName: _stopType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._stopType
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_stopType : AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._someTaskIsActive
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._someTaskIsActive
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _someTaskIsActive
+  fullName: _someTaskIsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._someTaskIsActive
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_someTaskIsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._initHwCheckDone
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._initHwCheckDone
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._initHwCheckDone
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 121
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsAddress
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsAddress
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsAddress
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 122
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsCount
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsCount
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._inputsCount
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsAddress
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsAddress
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsAddress
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 124
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsCount
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsCount
+  parent: AXOpen.Components.Abb.Robotics
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x._outputsCount
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 128
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Run
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 129
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.ManualControl()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.ManualControl()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.ManualControl
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1726
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Restore()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Restore()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.Restore
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1730
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMain()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMain()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartAtMain
+  fullName: StartAtMain
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartAtMain
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1751
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartAtMain()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgram()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgram()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartMotorsAndProgram
+  fullName: StartMotorsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsAndProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1754
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotorsAndProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartMotorsProgramAndMovements
+  fullName: StartMotorsProgramAndMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1759
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotorsProgramAndMovements()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotors()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotors()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartMotors
+  fullName: StartMotors
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMotors
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMotors()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovements()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovements()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartMovements
+  fullName: StartMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartMovements
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartMovements()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgram()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgram()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StartProgram
+  fullName: StartProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StartProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StartProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotors()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotors()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StopMotors
+  fullName: StopMotors
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMotors
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMotors()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgram(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgram(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StopMovementsAndProgram
+  fullName: StopMovementsAndProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovementsAndProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovementsAndProgram(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovements(eAxoRoboticsStopType)
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovements(eAxoRoboticsStopType)
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StopMovements
+  fullName: StopMovements
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopMovements
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopMovements(in plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType inStopType)
+    parameters:
+    - id: inStopType
+      type: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgram()
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgram()
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: StopProgram
+  fullName: StopProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.StopProgram
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState StopProgram()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.CallTimers(BOOL)
+  parent: AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x.CallTimers
+    path: .\src\components.abb.robotics\ctrl\src\AxoIrc5_v_1_x_x.st
+    startLine: 1777
+  namespace: plc.AXOpen.Components.Abb.Robotics
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  commentId: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  name: IAxoRobotics
+  nameWithType: IAxoRobotics
+  fullName: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+  parent: plc.AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+  name: AxoRoboticsMovementsParams
+  nameWithType: AxoRoboticsMovementsParams
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+  name: AxoAbbRobotics_Config_v_1_x_x
+  nameWithType: AxoAbbRobotics_Config_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Config_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+  name: AxoAbbRobotics_Component_Status_v_1_x_x
+  nameWithType: AxoAbbRobotics_Component_Status_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Component_Status_v_1_x_x
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+  name: AxoAbbRobotics_State_v_1_x_x
+  nameWithType: AxoAbbRobotics_State_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_State_v_1_x_x
+- uid: plc.AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+  name: AxoAbbRobotics_Control_v_1_x_x
+  nameWithType: AxoAbbRobotics_Control_v_1_x_x
+  fullName: AXOpen.Components.Abb.Robotics.AxoAbbRobotics_Control_v_1_x_x
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  name: eAxoRoboticsStopType
+  nameWithType: eAxoRoboticsStopType
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

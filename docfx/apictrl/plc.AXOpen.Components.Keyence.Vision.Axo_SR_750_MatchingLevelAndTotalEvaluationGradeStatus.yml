@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.MatchingLevel
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_15415_Grade
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_TR_29158_Grade
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus._Reserved
+  name: Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  fullName: Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.MatchingLevel
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.MatchingLevel
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: MatchingLevel
+  fullName: MatchingLevel
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.MatchingLevel
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'MatchingLevel : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_15415_Grade
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_15415_Grade
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ISO_IEC_15415_Grade
+  fullName: ISO_IEC_15415_Grade
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_15415_Grade
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ISO_IEC_15415_Grade : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_TR_29158_Grade
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_TR_29158_Grade
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ISO_IEC_TR_29158_Grade
+  fullName: ISO_IEC_TR_29158_Grade
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.ISO_IEC_TR_29158_Grade
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ISO_IEC_TR_29158_Grade : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus._Reserved
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus._Reserved
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: _Reserved
+  fullName: _Reserved
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus._Reserved
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_750_Datatypes\Axo_SR_750_MatchingLevelAndTotalEvaluationGradeStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: '_Reserved : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

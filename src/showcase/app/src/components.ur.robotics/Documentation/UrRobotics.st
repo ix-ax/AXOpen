@@ -1,3 +1,5 @@
+USING AXOpen.Components.Ur.Robotics.v_3_x_x;
+
 NAMESPACE AXOpen.Components.Ur.Robotics
 
     {S7.extern=ReadWrite}

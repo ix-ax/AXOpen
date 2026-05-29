@@ -1,0 +1,135 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus
+  parent: plc.AXOpen.Components.Keyence.Vision
+  children:
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.ReadComplete
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.PresetComplete
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.RegisterPresetDataComplete
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.TuneComplete
+  - plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.EXT_RequestComplete
+  name: Axo_SR_1000_CompletionStatus
+  fullName: Axo_SR_1000_CompletionStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: CLASS Axo_SR_1000_CompletionStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.ReadComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.ReadComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: ReadComplete
+  fullName: ReadComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.ReadComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'ReadComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.PresetComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.PresetComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: PresetComplete
+  fullName: PresetComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.PresetComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'PresetComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.RegisterPresetDataComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.RegisterPresetDataComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: RegisterPresetDataComplete
+  fullName: RegisterPresetDataComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.RegisterPresetDataComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'RegisterPresetDataComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.TuneComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.TuneComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: TuneComplete
+  fullName: TuneComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.TuneComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'TuneComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.EXT_RequestComplete
+  id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.EXT_RequestComplete
+  parent: AXOpen.Components.Keyence.Vision
+  children: []
+  name: EXT_RequestComplete
+  fullName: EXT_RequestComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Keyence.Vision.Axo_SR_1000_CompletionStatus.EXT_RequestComplete
+    path: .\src\components.keyence.vision\ctrl\src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Keyence.Vision
+  syntax:
+    content: 'EXT_RequestComplete : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,391 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.AxoMessengerService
+  id: plc.AXOpen.Messaging.AxoMessengerService
+  parent: plc.AXOpen.Messaging
+  children:
+  - plc.AXOpen.Messaging.AxoMessengerService._messages
+  - plc.AXOpen.Messaging.AxoMessengerService._nextMessageIndex
+  - plc.AXOpen.Messaging.AxoMessengerService._isSuspended
+  - plc.AXOpen.Messaging.AxoMessengerService._requalificationCategory
+  - plc.AXOpen.Messaging.AxoMessengerService.Run(IAxoObject,REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  - plc.AXOpen.Messaging.AxoMessengerService.QueueMessage(IAxoMessenger)
+  - plc.AXOpen.Messaging.AxoMessengerService.SuspendMessaging()
+  - plc.AXOpen.Messaging.AxoMessengerService.ResumeMessaging()
+  - plc.AXOpen.Messaging.AxoMessengerService.IsSuspended()
+  - plc.AXOpen.Messaging.AxoMessengerService.RequalifyDownstreamMessages(eAxoMessageCategory)
+  - plc.AXOpen.Messaging.AxoMessengerService.GetRequalifiedMessageCategory()
+  name: AxoMessengerService
+  fullName: AxoMessengerService
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: CLASS AxoMessengerService
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoMessagingServices
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Messaging.AxoMessengerService._messages
+  id: plc.AXOpen.Messaging.AxoMessengerService._messages
+  parent: AXOpen.Messaging
+  children: []
+  name: _messages
+  fullName: _messages
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService._messages
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 9
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: '_messages : REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Messaging.AxoMessengerService._nextMessageIndex
+  id: plc.AXOpen.Messaging.AxoMessengerService._nextMessageIndex
+  parent: AXOpen.Messaging
+  children: []
+  name: _nextMessageIndex
+  fullName: _nextMessageIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService._nextMessageIndex
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 9
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: '_nextMessageIndex : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Messaging.AxoMessengerService._isSuspended
+  id: plc.AXOpen.Messaging.AxoMessengerService._isSuspended
+  parent: AXOpen.Messaging
+  children: []
+  name: _isSuspended
+  fullName: _isSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService._isSuspended
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 11
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: '_isSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.AxoMessengerService._requalificationCategory
+  id: plc.AXOpen.Messaging.AxoMessengerService._requalificationCategory
+  parent: AXOpen.Messaging
+  children: []
+  name: _requalificationCategory
+  fullName: _requalificationCategory
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService._requalificationCategory
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 98
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: '_requalificationCategory : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Messaging.AxoMessengerService.Run(IAxoObject,REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  id: plc.AXOpen.Messaging.AxoMessengerService.Run(IAxoObject,REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.Run
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 14
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger inMessages)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: inMessages
+      type: plc.REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.AxoMessengerService.QueueMessage(IAxoMessenger)
+  id: plc.AXOpen.Messaging.AxoMessengerService.QueueMessage(IAxoMessenger)
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: QueueMessage
+  fullName: QueueMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.QueueMessage
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 48
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public BOOL QueueMessage(in plc.AXOpen.Core.IAxoMessenger inMessegenger)
+    parameters:
+    - id: inMessegenger
+      type: plc.AXOpen.Core.IAxoMessenger
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Messaging.AxoMessengerService.SuspendMessaging()
+  id: plc.AXOpen.Messaging.AxoMessengerService.SuspendMessaging()
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: SuspendMessaging
+  fullName: SuspendMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.SuspendMessaging
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 86
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public VOID SuspendMessaging()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.AxoMessengerService.ResumeMessaging()
+  id: plc.AXOpen.Messaging.AxoMessengerService.ResumeMessaging()
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: ResumeMessaging
+  fullName: ResumeMessaging
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.ResumeMessaging
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 91
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public VOID ResumeMessaging()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.AxoMessengerService.IsSuspended()
+  id: plc.AXOpen.Messaging.AxoMessengerService.IsSuspended()
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: IsSuspended
+  fullName: IsSuspended
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.IsSuspended
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 95
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public BOOL IsSuspended()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Messaging.AxoMessengerService.RequalifyDownstreamMessages(eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.AxoMessengerService.RequalifyDownstreamMessages(eAxoMessageCategory)
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: RequalifyDownstreamMessages
+  fullName: RequalifyDownstreamMessages
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.RequalifyDownstreamMessages
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 103
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public VOID RequalifyDownstreamMessages(in plc.AXOpen.Messaging.eAxoMessageCategory inMessageCategory)
+    parameters:
+    - id: inMessageCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.AxoMessengerService.GetRequalifiedMessageCategory()
+  id: plc.AXOpen.Messaging.AxoMessengerService.GetRequalifiedMessageCategory()
+  parent: AXOpen.Messaging.AxoMessengerService
+  children: []
+  name: GetRequalifiedMessageCategory
+  fullName: GetRequalifiedMessageCategory
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.AxoMessengerService.GetRequalifiedMessageCategory
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessengerService.st
+    startLine: 109
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: Public AXOpen.Messaging.eAxoMessageCategory GetRequalifiedMessageCategory()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoMessagingServices
+  commentId: plc.AXOpen.Core.IAxoMessagingServices
+  name: IAxoMessagingServices
+  nameWithType: IAxoMessagingServices
+  fullName: plc.AXOpen.Core.IAxoMessagingServices
+  parent: plc.AXOpen.Core.IAxoMessagingServices
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+  name: REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+  nameWithType: REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+  fullName: REF_TO ARRAY [*] OF REF_TO AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Core.IAxoMessenger
+  name: IAxoMessenger
+  nameWithType: IAxoMessenger
+  fullName: AXOpen.Core.IAxoMessenger
+
+

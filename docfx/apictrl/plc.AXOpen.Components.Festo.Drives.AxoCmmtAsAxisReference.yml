@@ -1,0 +1,233 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference
+  parent: plc.AXOpen.Components.Festo.Drives
+  children:
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_In
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_Out
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_In
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_Out
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.HWIDs
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Data
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Config
+  - plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Status
+  name: AxoCmmtAsAxisReference
+  fullName: AxoCmmtAsAxisReference
+  type: Class
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: CLASS AxoCmmtAsAxisReference
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_In
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_In
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Telegram111_In
+  fullName: Telegram111_In
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_In
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Telegram111_In : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_IN'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_IN
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_Out
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_Out
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Telegram111_Out
+  fullName: Telegram111_Out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram111_Out
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Telegram111_Out : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_In
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_In
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Telegram750_In
+  fullName: Telegram750_In
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_In
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Telegram750_In : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_Out
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_Out
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Telegram750_Out
+  fullName: Telegram750_Out
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Telegram750_Out
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Telegram750_Out : AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT'
+    return:
+      type: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.HWIDs
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.HWIDs
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.HWIDs
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Data
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Data
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Data
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Data : AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData'
+    return:
+      type: AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Config
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Config
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Config
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Config : AXOpen.Components.Drives.AxoDrive_Config'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Status
+  id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Status
+  parent: AXOpen.Components.Festo.Drives
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference.Status
+    path: .\src\components.festo.drives\ctrl\src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Festo.Drives
+  syntax:
+    content: 'Status : AXOpen.Components.Drives.AxoDrive_Status'
+    return:
+      type: AXOpen.Components.Drives.AxoDrive_Status
+references:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  commentId: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  name: IAxoAxisReference
+  nameWithType: IAxoAxisReference
+  fullName: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  parent: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_IN
+  name: PROFIdriveTelegram_111_IN
+  nameWithType: PROFIdriveTelegram_111_IN
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_IN
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+  name: PROFIdriveTelegram_111_OUT
+  nameWithType: PROFIdriveTelegram_111_OUT
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+  name: PROFIdriveTelegram_750_IN
+  nameWithType: PROFIdriveTelegram_750_IN
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN
+- uid: plc.AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+  name: PROFIdriveTelegram_750_OUT
+  nameWithType: PROFIdriveTelegram_750_OUT
+  fullName: AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+  name: AxoCmmtAsAxisHWIDs
+  nameWithType: AxoCmmtAsAxisHWIDs
+  fullName: AXOpen.Components.Festo.Drives.AxoCmmtAsAxisHWIDs
+- uid: plc.AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+  name: AxoCmmtAsAxisData
+  nameWithType: AxoCmmtAsAxisData
+  fullName: AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Config
+  name: AxoDrive_Config
+  nameWithType: AxoDrive_Config
+  fullName: AXOpen.Components.Drives.AxoDrive_Config
+- uid: plc.AXOpen.Components.Drives.AxoDrive_Status
+  name: AxoDrive_Status
+  nameWithType: AxoDrive_Status
+  fullName: AXOpen.Components.Drives.AxoDrive_Status
+
+

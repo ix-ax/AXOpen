@@ -1,12 +1,12 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Rexroth.Press
+NAMESPACE AXOpen.Components.Rexroth.Press.v_4_x_x
 
     {S7.extern=ReadWrite}
     CLASS AxoSmartFunctionKit_v_4_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x;             
+            AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.v_4_x_x.AxoSmartFunctionKit;             
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             Sequencer : AxoSequencer;       
             Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
             {#ix-attr:[CompilerOmits()]} 
-            Request : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x; 
+            Request : AXOpen.Components.Rexroth.Press.v_4_x_x.AxoSmartFunctionKitRequest; 
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
@@ -66,7 +66,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             
             IF(Steps[1].Execute(Sequencer, 'SFK RESET')) THEN
                 //-------------------------------------
-                    Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#ClearError; 
+                    Request.Command := eAxoSmartFunctionKitCommand#ClearError; 
 
                     IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                         AxoSmartFunctionKit.Restore();
@@ -77,7 +77,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             IF(Steps[2].Execute(Sequencer, 'SFK STOP MOVEMENT')) THEN
                 //-------------------------------------
-                    Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StopMovement; 
+                    Request.Command := eAxoSmartFunctionKitCommand#StopMovement; 
 
                     IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                         AxoSmartFunctionKit.Restore();
@@ -88,7 +88,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             IF(Steps[3].Execute(Sequencer, 'SFK HOME')) THEN
                 //-------------------------------------
-                    Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StartHoming; 
+                    Request.Command := eAxoSmartFunctionKitCommand#StartHoming; 
 
                     IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                         AxoSmartFunctionKit.Restore();
@@ -99,7 +99,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             
             IF(Steps[4].Execute(Sequencer, 'SFK SET PROGRAM')) THEN
                 //-------------------------------------
-                    Request.Command     :=  AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#SetProgramActive; 
+                    Request.Command     :=  eAxoSmartFunctionKitCommand#SetProgramActive; 
                     Request.ProgramId   :=  2; 
 
                     IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
@@ -111,7 +111,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             IF(Steps[5].Execute(Sequencer, 'SFK SET SERIAL ID')) THEN
                 //-------------------------------------
-                    Request.Command         :=  AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StartProgram; 
+                    Request.Command         :=  eAxoSmartFunctionKitCommand#StartProgram; 
                     Request.SerialNumber    :=  System.Strings.Concat('Test_',System.Strings.ToString(THIS.GetContext().OpenCycleCount())); 
 
                     Sequencer.MoveNext();                

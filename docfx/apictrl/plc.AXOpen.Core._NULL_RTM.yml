@@ -1,0 +1,59 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_RTM
+  id: plc.AXOpen.Core._NULL_RTM
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_RTM.Elapsed()
+  name: _NULL_RTM
+  fullName: _NULL_RTM
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core._NULL_RTM
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 152
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS _NULL_RTM
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.AXOpen.Core._NULL_RTM.Elapsed()
+  id: plc.AXOpen.Core._NULL_RTM.Elapsed()
+  parent: AXOpen.Core._NULL_RTM
+  children: []
+  name: Elapsed
+  fullName: Elapsed
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core._NULL_RTM.Elapsed
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 157
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public LTIME Elapsed()
+    parameters: []
+    return:
+      type: plc.LTIME
+references:
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  commentId: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: plc.AXOpen.Rtm.IAxoRtm
+  parent: plc.AXOpen.Rtm.IAxoRtm
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+
+

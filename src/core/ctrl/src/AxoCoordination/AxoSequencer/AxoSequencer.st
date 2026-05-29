@@ -50,6 +50,14 @@ NAMESPACE AXOpen.Core
             _sequenceMode : eAxoSequenceMode;
         END_VAR
                 
+        METHOD PUBLIC OVERRIDE Run
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR
+            SUPER.Run(inParent);
+            _msgStepTimedOut.Serve(THIS);
+        END_METHOD     
+
         METHOD PUBLIC SetAnalitics
             VAR_INPUT
                 inAnalytics : IAxoSequencerAnalytics;
@@ -562,9 +570,14 @@ NAMESPACE AXOpen.Core
                RETURN;
             END_IF;    
                       
+            IF(THIS.GetContext().GetMessengerService().IsSuspended()) THEN
+                RETURN;
+            END_IF;
+
+            
+            _context := inParent.GetContext();
             IF(THIS.MessengerState = eAxoMessengerState#Idle && _refObservedStep <> inStep) THEN
-                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;            
-                _context := inParent.GetContext();   
+                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;                               
                 Risen := _context.GetRtc().NowUTC();                
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;                                
@@ -572,11 +585,12 @@ NAMESPACE AXOpen.Core
                 Message := System.Strings.Concat(MSG_STEP_TIMED_OUT, inStep^.GetStepDescription());  
                 MessageCode := ULINT#18446744073709551615; // No specific message code for step timeout                
                 _context.GetLogger().Log(System.Strings.Concat(RISE_SIGNATURE, Message), AXOpen.Logging.eLogLevel#Error, THIS);                
-                _refObservedStep := inStep;
+                _refObservedStep := inStep;                
             END_IF;
-
+            
             IF(THIS.MessengerState <> eAxoMessengerState#Idle && _refObservedStep = inStep) THEN
-                inParent.AggregateMessage(1);
+                ActiveContextCount := _context.OpenCycleCount();    
+                THIS.GetParent().AggregateMessage(1);
             END_IF;    
         END_METHOD
 

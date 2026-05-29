@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "ctrl"
-		},
-		{
-			"path": "app"
 		}
 	],
 	"settings": {}

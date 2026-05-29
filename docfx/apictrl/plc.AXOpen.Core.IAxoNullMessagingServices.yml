@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoNullMessagingServices
+  id: plc.AXOpen.Core.IAxoNullMessagingServices
+  parent: plc.AXOpen.Core
+  children: []
+  name: IAxoNullMessagingServices
+  fullName: IAxoNullMessagingServices
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Core.IAxoNullMessagingServices
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 162
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoNullMessagingServices
+  implements: []
+references: []
+
+

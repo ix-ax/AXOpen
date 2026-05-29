@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+  parent: plc.AXOpen.Components.Siem.Communication
+  children:
+  - plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In.Status
+  name: AxoCmPtp_In
+  fullName: AxoCmPtp_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: CLASS AxoCmPtp_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In.Status
+  id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In.Status
+  parent: AXOpen.Components.Siem.Communication
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_In.Status
+    path: .\src\components.siem.communication\ctrl\src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Communication
+  syntax:
+    content: 'Status : AXOpen.Components.Siem.Communication.AxoCmPtp_Status'
+    return:
+      type: AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+references:
+- uid: plc.AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+  name: AxoCmPtp_Status
+  nameWithType: AxoCmPtp_Status
+  fullName: AXOpen.Components.Siem.Communication.AxoCmPtp_Status
+
+

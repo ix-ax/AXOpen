@@ -1,6 +1,7 @@
 USING AXOpen.Core;
+USING AXOpen.Components.Abstractions.Robotics;
 
-NAMESPACE AXOpen.Components.Kuka.Robotics
+NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     {S7.extern=ReadWrite}
     CLASS AxoKrc4_v_5_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
@@ -109,11 +110,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;       
             // Simulation of the entering the robotic cell during movement =>
             IF(Steps[6].Execute(Sequencer, 'Stop during movement')) THEN
-                ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method 
-                IF(ExampleRobot.StopMovements().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
+                ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method
+                IF(ExampleRobot.StopMovements(eAxoRoboticsStopType#Soft).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
 
             IF(Steps[7].Execute(Sequencer, '<#Unlocking and opening the robotic cell#>')) THEN
                 //-------------------------------------------------------    
@@ -168,7 +169,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;       
 
             IF(Steps[13].Execute(Sequencer, 'Stop movement and program')) THEN
-                IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN
+                IF(ExampleRobot.StopMovementsAndProgram(eAxoRoboticsStopType#Soft).IsDone()) THEN
                     Sequencer.MoveNext();
                 END_IF;
             END_IF;

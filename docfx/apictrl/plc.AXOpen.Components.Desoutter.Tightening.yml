@@ -1,0 +1,60 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening
+  id: plc.AXOpen.Components.Desoutter.Tightening
+  children:
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Control
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Out
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+  name: plc.AXOpen.Components.Desoutter.Tightening
+  fullName: Tightening
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+references:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II
+  name: AxoCVIC_II
+  nameWithType: AxoCVIC_II
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+  name: AxoCVIC_II_ComponentStatus
+  nameWithType: AxoCVIC_II_ComponentStatus
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_ComponentStatus
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+  name: AxoCVIC_II_Config
+  nameWithType: AxoCVIC_II_Config
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Config
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Control
+  name: AxoCVIC_II_Control
+  nameWithType: AxoCVIC_II_Control
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Control
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+  name: AxoCVIC_II_HWIDs
+  nameWithType: AxoCVIC_II_HWIDs
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_HWIDs
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+  name: AxoCVIC_II_In
+  nameWithType: AxoCVIC_II_In
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Out
+  name: AxoCVIC_II_Out
+  nameWithType: AxoCVIC_II_Out
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Out
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+  name: AxoCVIC_II_Status
+  nameWithType: AxoCVIC_II_Status
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+
+

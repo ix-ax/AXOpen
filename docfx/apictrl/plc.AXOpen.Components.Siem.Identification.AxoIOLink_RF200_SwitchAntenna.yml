@@ -1,0 +1,720 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statExecuteReq
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAntStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statState
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAnt
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statSent
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statPresence
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statBusy
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartError
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartStatus
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIOsize
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V10
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V11
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V10
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V11
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.UPPER_BOUND_IO_FIELD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_IDLE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_ON
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_OFF
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_READY
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_BLOCK
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_RFID
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_NO_JOB
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_TAG_HAS_LEFT
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_STILL_ACTIVE
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_LENGTH
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_ON
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_OFF
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_ANT_STATUS
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_RFID_ERROR
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_SEND_CMD
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.Run(BOOL,BOOL,UINT,INT,USINT)
+  name: AxoIOLink_RF200_SwitchAntenna
+  fullName: AxoIOLink_RF200_SwitchAntenna
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_SwitchAntenna
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statExecuteReq
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statExecuteReq
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statExecuteReq
+  fullName: statExecuteReq
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statExecuteReq
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statExecuteReq : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAntStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAntStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statAntStatus
+  fullName: statAntStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAntStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statAntStatus : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statState
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statState
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statState
+  fullName: statState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statState
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statState : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAnt
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAnt
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statAnt
+  fullName: statAnt
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statAnt
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statAnt : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statSent
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statSent
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statSent
+  fullName: statSent
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statSent
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statSent : ARRAY [0..31] OF BYTE'
+    return:
+      type: ARRAY [0..31] OF BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statPresence
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statPresence
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statPresence
+  fullName: statPresence
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statPresence
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statPresence : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statBusy
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statBusy
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statBusy
+  fullName: statBusy
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statBusy
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statBusy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartError
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartError
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIoPartError
+  fullName: statIoPartError
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartError
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIoPartError : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartStatus
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartStatus
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIoPartStatus
+  fullName: statIoPartStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIoPartStatus
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIoPartStatus : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIOsize
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIOsize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: statIOsize
+  fullName: statIOsize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.statIOsize
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'statIOsize : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V10
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V10
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOL_V10
+  fullName: IOL_V10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V10
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOL_V10 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V11
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V11
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOL_V11
+  fullName: IOL_V11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.IOL_V11
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOL_V11 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V10
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V10
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_DATA_V10
+  fullName: LEN_DATA_V10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V10
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_DATA_V10 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V11
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V11
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: LEN_DATA_V11
+  fullName: LEN_DATA_V11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.LEN_DATA_V11
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'LEN_DATA_V11 : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.UPPER_BOUND_IO_FIELD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.UPPER_BOUND_IO_FIELD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: UPPER_BOUND_IO_FIELD
+  fullName: UPPER_BOUND_IO_FIELD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.UPPER_BOUND_IO_FIELD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'UPPER_BOUND_IO_FIELD : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_IDLE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_IDLE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_IDLE
+  fullName: STATE_IDLE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_IDLE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_IDLE : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_ON
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_ON
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_ANTENNA_ON
+  fullName: STATE_ANTENNA_ON
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_ON
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 29
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_ANTENNA_ON : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_OFF
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_OFF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_ANTENNA_OFF
+  fullName: STATE_ANTENNA_OFF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_ANTENNA_OFF
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_ANTENNA_OFF : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_READY
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_READY
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATE_READY
+  fullName: STATE_READY
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATE_READY
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATE_READY : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_BLOCK
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_BLOCK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_IDENT_BLOCK
+  fullName: STATUS_ERROR_IDENT_BLOCK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_BLOCK
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_IDENT_BLOCK : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_RFID
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_RFID
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_IDENT_RFID
+  fullName: STATUS_ERROR_IDENT_RFID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_IDENT_RFID
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 33
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_IDENT_RFID : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_NO_JOB
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_NO_JOB
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_NO_JOB
+  fullName: STATUS_NO_JOB
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_NO_JOB
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_NO_JOB : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_TAG_HAS_LEFT
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_TAG_HAS_LEFT
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_TAG_HAS_LEFT
+  fullName: STATUS_ERROR_TAG_HAS_LEFT
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_TAG_HAS_LEFT
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_TAG_HAS_LEFT : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_STILL_ACTIVE
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_STILL_ACTIVE
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_STILL_ACTIVE
+  fullName: STATUS_ERROR_STILL_ACTIVE
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_STILL_ACTIVE
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_STILL_ACTIVE : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_LENGTH
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_LENGTH
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STATUS_ERROR_LENGTH
+  fullName: STATUS_ERROR_LENGTH
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.STATUS_ERROR_LENGTH
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STATUS_ERROR_LENGTH : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_ON
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_ON
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD_ANTENNA_ON
+  fullName: CMD_ANTENNA_ON
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_ON
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD_ANTENNA_ON : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_OFF
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_OFF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD_ANTENNA_OFF
+  fullName: CMD_ANTENNA_OFF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.CMD_ANTENNA_OFF
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD_ANTENNA_OFF : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_ANT_STATUS
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_ANT_STATUS
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_ANT_STATUS
+  fullName: INDEX_ANT_STATUS
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_ANT_STATUS
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_ANT_STATUS : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_RFID_ERROR
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_RFID_ERROR
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_RFID_ERROR
+  fullName: INDEX_RFID_ERROR
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_RFID_ERROR
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_RFID_ERROR : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_SEND_CMD
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_SEND_CMD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: INDEX_SEND_CMD
+  fullName: INDEX_SEND_CMD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.INDEX_SEND_CMD
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 42
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'INDEX_SEND_CMD : USINT'
+    return:
+      type: USINT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.Run(BOOL,BOOL,UINT,INT,USINT)
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.Run(BOOL,BOOL,UINT,INT,USINT)
+  parent: AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_SwitchAntenna.Run
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLink_RF200_SwitchAntenna.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: Public VOID Run(in plc.BOOL execute,in plc.BOOL antennaState,in plc.UINT hwID,in plc.INT portAddr,in plc.USINT version)
+    parameters:
+    - id: execute
+      type: plc.BOOL
+    - id: antennaState
+      type: plc.BOOL
+    - id: hwID
+      type: plc.UINT
+    - id: portAddr
+      type: plc.INT
+    - id: version
+      type: plc.USINT
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.ARRAY [0..31] OF BYTE
+  name: ARRAY [0..31] OF BYTE
+  nameWithType: ARRAY [0..31] OF BYTE
+  fullName: ARRAY [0..31] OF BYTE
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.USINT
+  name: USINT
+  nameWithType: USINT
+  fullName: USINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

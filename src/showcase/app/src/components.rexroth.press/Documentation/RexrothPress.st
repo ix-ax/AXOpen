@@ -1,3 +1,4 @@
+USING AXOpen.Components.Rexroth.Press.v_4_x_x;
 NAMESPACE AXOpen.Components.Rexroth.Press
 
     {S7.extern=ReadWrite}

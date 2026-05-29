@@ -1,7 +1,24 @@
-# Changelog
+## Changes
+<!--
+    Leave this comment intact. Immediately below this comment add a new entry:
+    ---------------------------------
+    ### {axopen-version}
 
-## 0.43.0
+    **New features:**
+    -
 
-- Initial documentation for `@inxton/axopen.abstractions`.
-- Documented all public interfaces: `IAxoContext`, `IAxoObject`, `IAxoRtc`, `IAxoRtm`, `IAxoLogger`, `IAxoLoggerConfig`, `IAxoMessenger`, `IAxoMessagingServices`.
-- Documented enumerations: `eLogLevel`, `eAxoMessageCategory`.
+    **Bug fixes:**
+    -
+
+    **Other:**
+    -
+
+    **Breaking changes:**
+    -
+    ---------------------------------
+
+    Replace {axopen-version} with the `next-version:` value from
+    axopen/GitVersion.yml. New entries go at the TOP, immediately below
+    this comment. The /axopen-docs skill resorts the file semver-descending
+    on every run.
+-->

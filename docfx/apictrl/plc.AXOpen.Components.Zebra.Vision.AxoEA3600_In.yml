@@ -1,0 +1,596 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+  parent: plc.AXOpen.Components.Zebra.Vision
+  children:
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Fragmented
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FirstFragment
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_MiddleFragment
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_LastFragment
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_12
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_13
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_14
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_15
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TransferEnabled
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_HandshakeEnabled
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FragmentationEnabled
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_CacheOverflow
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_InputDataOverflow
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_WaitingForHandshake
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TriggerState
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_ScannerType
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.UpdateCounter
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BarcodeType
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.NumberOfAttachedScanners
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryStateOfCharge
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryVoltage
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryTemp
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryDateOfManufacture
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Reserved
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Length
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Data
+  name: AxoEA3600_In
+  fullName: AxoEA3600_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: CLASS AxoEA3600_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Fragmented
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Fragmented
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_Fragmented
+  fullName: Status_Fragmented
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Fragmented
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_Fragmented : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FirstFragment
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FirstFragment
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_FirstFragment
+  fullName: Status_FirstFragment
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FirstFragment
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_FirstFragment : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_MiddleFragment
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_MiddleFragment
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_MiddleFragment
+  fullName: Status_MiddleFragment
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_MiddleFragment
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_MiddleFragment : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_LastFragment
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_LastFragment
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_LastFragment
+  fullName: Status_LastFragment
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_LastFragment
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_LastFragment : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_12
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_12
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_Reserved_12
+  fullName: Status_Reserved_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_12
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_Reserved_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_13
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_13
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_Reserved_13
+  fullName: Status_Reserved_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_13
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_Reserved_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_14
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_14
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_Reserved_14
+  fullName: Status_Reserved_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_14
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_Reserved_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_15
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_15
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_Reserved_15
+  fullName: Status_Reserved_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_Reserved_15
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_Reserved_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TransferEnabled
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TransferEnabled
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_TransferEnabled
+  fullName: Status_TransferEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TransferEnabled
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_TransferEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_HandshakeEnabled
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_HandshakeEnabled
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_HandshakeEnabled
+  fullName: Status_HandshakeEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_HandshakeEnabled
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_HandshakeEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FragmentationEnabled
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FragmentationEnabled
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_FragmentationEnabled
+  fullName: Status_FragmentationEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_FragmentationEnabled
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_FragmentationEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_CacheOverflow
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_CacheOverflow
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_CacheOverflow
+  fullName: Status_CacheOverflow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_CacheOverflow
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_CacheOverflow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_InputDataOverflow
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_InputDataOverflow
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_InputDataOverflow
+  fullName: Status_InputDataOverflow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_InputDataOverflow
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_InputDataOverflow : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_WaitingForHandshake
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_WaitingForHandshake
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_WaitingForHandshake
+  fullName: Status_WaitingForHandshake
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_WaitingForHandshake
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_WaitingForHandshake : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TriggerState
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TriggerState
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_TriggerState
+  fullName: Status_TriggerState
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_TriggerState
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_TriggerState : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_ScannerType
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_ScannerType
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Status_ScannerType
+  fullName: Status_ScannerType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Status_ScannerType
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 34
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Status_ScannerType : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.UpdateCounter
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.UpdateCounter
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: UpdateCounter
+  fullName: UpdateCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.UpdateCounter
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'UpdateCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BarcodeType
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BarcodeType
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BarcodeType
+  fullName: BarcodeType
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BarcodeType
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 38
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BarcodeType : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.NumberOfAttachedScanners
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.NumberOfAttachedScanners
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: NumberOfAttachedScanners
+  fullName: NumberOfAttachedScanners
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.NumberOfAttachedScanners
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'NumberOfAttachedScanners : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryStateOfCharge
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryStateOfCharge
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BatteryStateOfCharge
+  fullName: BatteryStateOfCharge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryStateOfCharge
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BatteryStateOfCharge : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryVoltage
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryVoltage
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BatteryVoltage
+  fullName: BatteryVoltage
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryVoltage
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 45
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BatteryVoltage : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryTemp
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryTemp
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BatteryTemp
+  fullName: BatteryTemp
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryTemp
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BatteryTemp : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryDateOfManufacture
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryDateOfManufacture
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: BatteryDateOfManufacture
+  fullName: BatteryDateOfManufacture
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.BatteryDateOfManufacture
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 50
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'BatteryDateOfManufacture : ARRAY [0..7] OF BYTE'
+    return:
+      type: ARRAY [0..7] OF BYTE
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Reserved
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Reserved
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Reserved
+  fullName: Reserved
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Reserved
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 51
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Reserved : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Length
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Length
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Length
+  fullName: Length
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Length
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Length : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Data
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Data
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Data
+  fullName: Data
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_In.Data
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Data : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.ARRAY [0..7] OF BYTE
+  name: ARRAY [0..7] OF BYTE
+  nameWithType: ARRAY [0..7] OF BYTE
+  fullName: ARRAY [0..7] OF BYTE
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+
+

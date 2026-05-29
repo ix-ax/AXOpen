@@ -1,0 +1,61 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  parent: plc.AXOpen.Components.Abstractions.Robotics
+  children:
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Soft
+  - plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Quick
+  name: eAxoRoboticsStopType
+  fullName: eAxoRoboticsStopType
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: eAxoRoboticsStopType
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Soft
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Soft
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Soft
+  fullName: Soft
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Soft
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Quick
+  id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Quick
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Quick
+  fullName: Quick
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType.Quick
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\eAxoRoboticsStopType.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+references:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+  name: eAxoRoboticsStopType
+  nameWithType: eAxoRoboticsStopType
+  fullName: AXOpen.Components.Abstractions.Robotics.eAxoRoboticsStopType
+
+

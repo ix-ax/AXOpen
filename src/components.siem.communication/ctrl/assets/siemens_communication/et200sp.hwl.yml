@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 192.168.100.121/24
+        - IPv4: 192.168.100.201/24
         - ProfinetDeviceName: et200sp
       # Parameters:
       #   IECV22LLDPMode: False

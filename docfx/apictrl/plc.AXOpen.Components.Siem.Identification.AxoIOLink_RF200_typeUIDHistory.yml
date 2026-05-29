@@ -1,0 +1,240 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID2
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID2
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID2
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID2
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID1
+  - plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID2
+  name: AxoIOLink_RF200_typeUIDHistory
+  fullName: AxoIOLink_RF200_typeUIDHistory
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoIOLink_RF200_typeUIDHistory
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: lastUID1
+  fullName: lastUID1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'lastUID1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: lastUID2
+  fullName: lastUID2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.lastUID2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'lastUID2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: secondLastUID1
+  fullName: secondLastUID1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'secondLastUID1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: secondLastUID2
+  fullName: secondLastUID2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.secondLastUID2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'secondLastUID2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: thirdLastUID1
+  fullName: thirdLastUID1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'thirdLastUID1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: thirdLastUID2
+  fullName: thirdLastUID2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.thirdLastUID2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'thirdLastUID2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fourthLastUID1
+  fullName: fourthLastUID1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fourthLastUID1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fourthLastUID2
+  fullName: fourthLastUID2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fourthLastUID2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fourthLastUID2 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID1
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID1
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fifthLastUID1
+  fullName: fifthLastUID1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID1
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fifthLastUID1 : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID2
+  id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID2
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: fifthLastUID2
+  fullName: fifthLastUID2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoIOLink_RF200_typeUIDHistory.fifthLastUID2
+    path: .\src\components.siem.identification\ctrl\src\IOLink\AxoIOLinkRF200DataTypes\AxoIOLink_RF200_typeUIDHistory.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'fifthLastUID2 : DWORD'
+    return:
+      type: DWORD
+references:
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+
+

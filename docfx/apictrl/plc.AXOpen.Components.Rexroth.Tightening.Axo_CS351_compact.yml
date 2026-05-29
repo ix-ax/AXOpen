@@ -1,0 +1,1720 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  parent: plc.AXOpen.Components.Rexroth.Tightening
+  children:
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.OK
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.NOK
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Results
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Progress
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ProgramNoManual
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.IDcodeManual
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.AutomaticStartManual
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RestoreTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFaultTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResultsTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgramTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResultsTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwiseTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomatTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Config
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Status
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Messenger
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.TaskMessenger
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Inputs
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Outputs
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.HardwareDiagnosticsTask
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._progress
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._infoTimer
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._errorTimer
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._returnValue
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_in4w
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out4w
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out2w
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._word
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._dword
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._initHwCheckDone
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._retval
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._geoAddr
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outHwid
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._startAddress
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._bytesCount
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._blink
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._programNo
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._IDcode
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._automaticStart
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsAddress
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsCount
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsAddress
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsCount
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Run(IAxoObject,UINT)
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Disable()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Enable()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwise()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwise()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwise()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwise()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFault()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResults()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgram(BYTE)
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResults()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwise(BOOL)
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwise(BOOL)
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomat(BYTE,STRING[64],BOOL)
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ManualControl()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Restore()
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.CallTimers(BOOL)
+  name: Axo_CS351_compact
+  fullName: Axo_CS351_compact
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: CLASS Axo_CS351_compact
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.MsgCnt
+  - plc.AXOpen.Core.AxoObject._dg_
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  - plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  - plc.AXOpen.Core.AxoObject.IsValid()
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.OK
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.OK
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: OK
+  fullName: OK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.OK
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'OK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.NOK
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.NOK
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: NOK
+  fullName: NOK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.NOK
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'NOK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Results
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Results
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Results
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Results : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Progress
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Progress
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Progress
+  fullName: Progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Progress
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ProgramNoManual
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ProgramNoManual
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ProgramNoManual
+  fullName: ProgramNoManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ProgramNoManual
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 31
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ProgramNoManual : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.IDcodeManual
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.IDcodeManual
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: IDcodeManual
+  fullName: IDcodeManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.IDcodeManual
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'IDcodeManual : STRING[64]'
+    return:
+      type: STRING[64]
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.AutomaticStartManual
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.AutomaticStartManual
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: AutomaticStartManual
+  fullName: AutomaticStartManual
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.AutomaticStartManual
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'AutomaticStartManual : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RestoreTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RestoreTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RestoreTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: DisableTask
+  fullName: DisableTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'DisableTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: EnableTask
+  fullName: EnableTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'EnableTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: DisableClockwiseTask
+  fullName: DisableClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 56
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'DisableClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: EnableClockwiseTask
+  fullName: EnableClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 60
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'EnableClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: DisableCounterClockwiseTask
+  fullName: DisableCounterClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'DisableCounterClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: EnableCounterClockwiseTask
+  fullName: EnableCounterClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'EnableCounterClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFaultTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFaultTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ResetFaultTask
+  fullName: ResetFaultTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFaultTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ResetFaultTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResultsTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResultsTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ResetResultsTask
+  fullName: ResetResultsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResultsTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 76
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ResetResultsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgramTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgramTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: SetScrewingProgramTask
+  fullName: SetScrewingProgramTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgramTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 80
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'SetScrewingProgramTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResultsTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResultsTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: GetScrewingResultsTask
+  fullName: GetScrewingResultsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResultsTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'GetScrewingResultsTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ScrewClockwiseTask
+  fullName: ScrewClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ScrewClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwiseTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwiseTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ScrewCounterClockwiseTask
+  fullName: ScrewCounterClockwiseTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwiseTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 92
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ScrewCounterClockwiseTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomatTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomatTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: RunAutomatTask
+  fullName: RunAutomatTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomatTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'RunAutomatTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Config
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Config
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Config
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Config : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Status
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Status
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Status
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 110
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Status : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Component_Status'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Component_Status
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Messenger
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Messenger
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Messenger
+  fullName: Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Messenger
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 114
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.TaskMessenger
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.TaskMessenger
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: TaskMessenger
+  fullName: TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.TaskMessenger
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 117
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Inputs
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Inputs
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Inputs
+  fullName: Inputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Inputs
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 119
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Inputs : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_In'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_In
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Outputs
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Outputs
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: Outputs
+  fullName: Outputs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Outputs
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 126
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'Outputs : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.HardwareDiagnosticsTask
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.HardwareDiagnosticsTask
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HardwareDiagnosticsTask
+  fullName: HardwareDiagnosticsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.HardwareDiagnosticsTask
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 135
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HardwareDiagnosticsTask : AXOpen.Io.AxoHardwareDiagnostics'
+    return:
+      type: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._progress
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._progress
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._progress
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 143
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._infoTimer
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._infoTimer
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._infoTimer
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 144
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_infoTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._errorTimer
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._errorTimer
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._errorTimer
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 145
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_errorTimer : AXOpen.Timers.OnDelayTimer'
+    return:
+      type: AXOpen.Timers.OnDelayTimer
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._returnValue
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._returnValue
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _returnValue
+  fullName: _returnValue
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._returnValue
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_returnValue : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_in4w
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_in4w
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _data_in4w
+  fullName: _data_in4w
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_in4w
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 147
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_data_in4w : ARRAY [0..3] OF WORD'
+    return:
+      type: ARRAY [0..3] OF WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out4w
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out4w
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _data_out4w
+  fullName: _data_out4w
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out4w
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 149
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_data_out4w : ARRAY [0..3] OF WORD'
+    return:
+      type: ARRAY [0..3] OF WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out2w
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out2w
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _data_out2w
+  fullName: _data_out2w
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._data_out2w
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 151
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_data_out2w : ARRAY [0..1] OF WORD'
+    return:
+      type: ARRAY [0..1] OF WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._word
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._word
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _word
+  fullName: _word
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._word
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 152
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_word : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._dword
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._dword
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _dword
+  fullName: _dword
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._dword
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 153
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_dword : DWORD'
+    return:
+      type: DWORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._initHwCheckDone
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._initHwCheckDone
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _initHwCheckDone
+  fullName: _initHwCheckDone
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._initHwCheckDone
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 154
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_initHwCheckDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._retval
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._retval
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _retval
+  fullName: _retval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._retval
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 155
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_retval : WORD'
+    return:
+      type: WORD
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._geoAddr
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._geoAddr
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _geoAddr
+  fullName: _geoAddr
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._geoAddr
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 156
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_geoAddr : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outHwid
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outHwid
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _outHwid
+  fullName: _outHwid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outHwid
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 157
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_outHwid : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._startAddress
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._startAddress
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _startAddress
+  fullName: _startAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._startAddress
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 157
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_startAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._bytesCount
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._bytesCount
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _bytesCount
+  fullName: _bytesCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._bytesCount
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 158
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_bytesCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._blink
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._blink
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _blink
+  fullName: _blink
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._blink
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 159
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_blink : AXOpen.Timers.AxoBlinker'
+    return:
+      type: AXOpen.Timers.AxoBlinker
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._programNo
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._programNo
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _programNo
+  fullName: _programNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._programNo
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 161
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_programNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._IDcode
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._IDcode
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _IDcode
+  fullName: _IDcode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._IDcode
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 162
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_IDcode : ARRAY [0..63] OF BYTE'
+    return:
+      type: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._automaticStart
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._automaticStart
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _automaticStart
+  fullName: _automaticStart
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._automaticStart
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 163
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_automaticStart : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsAddress
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsAddress
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _inputsAddress
+  fullName: _inputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsAddress
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 164
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_inputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsCount
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsCount
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _inputsCount
+  fullName: _inputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._inputsCount
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 167
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_inputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsAddress
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsAddress
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _outputsAddress
+  fullName: _outputsAddress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsAddress
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 168
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_outputsAddress : UDINT'
+    return:
+      type: UDINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsCount
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsCount
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: _outputsCount
+  fullName: _outputsCount
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact._outputsCount
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 169
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: '_outputsCount : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Run(IAxoObject,UINT)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Run(IAxoObject,UINT)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Run
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 170
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject inParent,in plc.UINT hwID)
+    parameters:
+    - id: inParent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: hwID
+      type: plc.UINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Disable()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Disable()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: Disable
+  fullName: Disable
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Disable
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3463
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Disable()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Enable()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Enable()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: Enable
+  fullName: Enable
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Enable
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3468
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Enable()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwise()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwise()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: DisableClockwise
+  fullName: DisableClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3471
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState DisableClockwise()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwise()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwise()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: EnableClockwise
+  fullName: EnableClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3476
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState EnableClockwise()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwise()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwise()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: DisableCounterClockwise
+  fullName: DisableCounterClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.DisableCounterClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3482
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState DisableCounterClockwise()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwise()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwise()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: EnableCounterClockwise
+  fullName: EnableCounterClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.EnableCounterClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3487
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState EnableCounterClockwise()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFault()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFault()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: ResetFault
+  fullName: ResetFault
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetFault
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3490
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetFault()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResults()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResults()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: ResetResults
+  fullName: ResetResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ResetResults
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3493
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ResetResults()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgram(BYTE)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgram(BYTE)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: SetScrewingProgram
+  fullName: SetScrewingProgram
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.SetScrewingProgram
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3497
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SetScrewingProgram(in plc.BYTE ProgramNo)
+    parameters:
+    - id: ProgramNo
+      type: plc.BYTE
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResults()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResults()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: GetScrewingResults
+  fullName: GetScrewingResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.GetScrewingResults
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3509
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState GetScrewingResults()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwise(BOOL)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwise(BOOL)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: ScrewClockwise
+  fullName: ScrewClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3511
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ScrewClockwise(in plc.BOOL AutomaticStart)
+    parameters:
+    - id: AutomaticStart
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwise(BOOL)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwise(BOOL)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: ScrewCounterClockwise
+  fullName: ScrewCounterClockwise
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ScrewCounterClockwise
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3520
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ScrewCounterClockwise(in plc.BOOL AutomaticStart)
+    parameters:
+    - id: AutomaticStart
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomat(BYTE,STRING[64],BOOL)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomat(BYTE,STRING[64],BOOL)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: RunAutomat
+  fullName: RunAutomat
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.RunAutomat
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3520
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState RunAutomat(in plc.BYTE ProgramNo,in plc.STRING[64] IDcode,in plc.BOOL AutomaticStart)
+    parameters:
+    - id: ProgramNo
+      type: plc.BYTE
+    - id: IDcode
+      type: plc.STRING[64]
+    - id: AutomaticStart
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ManualControl()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ManualControl()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.ManualControl
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3520
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Restore()
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Restore()
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.Restore
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3520
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.CallTimers(BOOL)
+  parent: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact.CallTimers
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\Axo_CS351_compact.st
+    startLine: 3520
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.MsgCnt
+  commentId: plc.AXOpen.Core.AxoObject.MsgCnt
+  name: MsgCnt
+  nameWithType: MsgCnt
+  fullName: plc.AXOpen.Core.AxoObject.MsgCnt
+  parent: plc.AXOpen.Core.AxoObject.MsgCnt
+- uid: plc.AXOpen.Core.AxoObject._dg_
+  commentId: plc.AXOpen.Core.AxoObject._dg_
+  name: _dg_
+  nameWithType: _dg_
+  fullName: plc.AXOpen.Core.AxoObject._dg_
+  parent: plc.AXOpen.Core.AxoObject._dg_
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoComponent.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  name: Run(IAxoObject)
+  nameWithType: Run(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Run(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  name: InitializeWithContext(IAxoContext)
+  nameWithType: InitializeWithContext(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.InitializeWithContext(IAxoContext)
+- uid: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  commentId: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  name: AggregateMessage(LINT)
+  nameWithType: AggregateMessage(LINT)
+  fullName: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+  parent: plc.AXOpen.Core.AxoObject.AggregateMessage(LINT)
+- uid: plc.AXOpen.Core.AxoObject.IsValid()
+  commentId: plc.AXOpen.Core.AxoObject.IsValid()
+  name: IsValid()
+  nameWithType: IsValid()
+  fullName: plc.AXOpen.Core.AxoObject.IsValid()
+  parent: plc.AXOpen.Core.AxoObject.IsValid()
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+  name: Axo_CS351_compact_Results
+  nameWithType: Axo_CS351_compact_Results
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Results
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.STRING[64]
+  name: STRING[64]
+  nameWithType: STRING[64]
+  fullName: STRING[64]
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+  name: Axo_CS351_compact_Config
+  nameWithType: Axo_CS351_compact_Config
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Component_Status
+  name: Axo_CS351_compact_Component_Status
+  nameWithType: Axo_CS351_compact_Component_Status
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Component_Status
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_In
+  name: Axo_CS351_compact_In
+  nameWithType: Axo_CS351_compact_In
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_In
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+  name: Axo_CS351_compact_Out
+  nameWithType: Axo_CS351_compact_Out
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Out
+- uid: plc.AXOpen.Io.AxoHardwareDiagnostics
+  name: AxoHardwareDiagnostics
+  nameWithType: AxoHardwareDiagnostics
+  fullName: AXOpen.Io.AxoHardwareDiagnostics
+- uid: plc.AXOpen.Timers.OnDelayTimer
+  name: OnDelayTimer
+  nameWithType: OnDelayTimer
+  fullName: AXOpen.Timers.OnDelayTimer
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+- uid: plc.ARRAY [0..3] OF WORD
+  name: ARRAY [0..3] OF WORD
+  nameWithType: ARRAY [0..3] OF WORD
+  fullName: ARRAY [0..3] OF WORD
+- uid: plc.ARRAY [0..1] OF WORD
+  name: ARRAY [0..1] OF WORD
+  nameWithType: ARRAY [0..1] OF WORD
+  fullName: ARRAY [0..1] OF WORD
+- uid: plc.DWORD
+  name: DWORD
+  nameWithType: DWORD
+  fullName: DWORD
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.UDINT
+  name: UDINT
+  nameWithType: UDINT
+  fullName: UDINT
+- uid: plc.AXOpen.Timers.AxoBlinker
+  name: AxoBlinker
+  nameWithType: AxoBlinker
+  fullName: AXOpen.Timers.AxoBlinker
+- uid: plc.ARRAY [0..63] OF BYTE
+  name: ARRAY [0..63] OF BYTE
+  nameWithType: ARRAY [0..63] OF BYTE
+  fullName: ARRAY [0..63] OF BYTE
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

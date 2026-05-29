@@ -1,0 +1,104 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.AxoDataEntity
+  id: plc.AXOpen.Data.AxoDataEntity
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.AxoDataEntity._EntityId
+  - plc.AXOpen.Data.AxoDataEntity.SetId(STRING[254])
+  - plc.AXOpen.Data.AxoDataEntity.GetId()
+  name: AxoDataEntity
+  fullName: AxoDataEntity
+  type: Class
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 1
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: CLASS AxoDataEntity
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Data.IAxoDataEntity
+- uid: plc.AXOpen.Data.AxoDataEntity._EntityId
+  id: plc.AXOpen.Data.AxoDataEntity._EntityId
+  parent: AXOpen.Data
+  children: []
+  name: _EntityId
+  fullName: _EntityId
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity._EntityId
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 8
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: '_EntityId : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Data.AxoDataEntity.SetId(STRING[254])
+  id: plc.AXOpen.Data.AxoDataEntity.SetId(STRING[254])
+  parent: AXOpen.Data.AxoDataEntity
+  children: []
+  name: SetId
+  fullName: SetId
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity.SetId
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 15
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public VOID SetId(in plc.STRING[254] Id)
+    parameters:
+    - id: Id
+      type: plc.STRING[254]
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataEntity.GetId()
+  id: plc.AXOpen.Data.AxoDataEntity.GetId()
+  parent: AXOpen.Data.AxoDataEntity
+  children: []
+  name: GetId
+  fullName: GetId
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity.GetId
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 22
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public STRING[254] GetId()
+    parameters: []
+    return:
+      type: plc.STRING[254]
+references:
+- uid: plc.AXOpen.Data.IAxoDataEntity
+  commentId: plc.AXOpen.Data.IAxoDataEntity
+  name: IAxoDataEntity
+  nameWithType: IAxoDataEntity
+  fullName: plc.AXOpen.Data.IAxoDataEntity
+  parent: plc.AXOpen.Data.IAxoDataEntity
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+
