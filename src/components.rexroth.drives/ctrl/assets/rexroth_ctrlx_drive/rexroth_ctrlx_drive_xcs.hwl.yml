@@ -1,3 +1,4 @@
+#<RexrothCtrlxDriveTemplate>
 Templates:
   Devices:
   - Name: 'rexroth_ctrlx_drive_xcs'
@@ -151,3 +152,4 @@ Templates:
                 FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
                 GsdId: 'ID_SM_Operating_status_STO_P_0_0106_0_0_prod'
               Slot: 8
+#</RexrothCtrlxDriveTemplate>

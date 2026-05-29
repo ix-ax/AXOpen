@@ -554,8 +554,8 @@ public static class ShowcasePageRegistry
                 "src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/AxoCtrlxDriveXsc.st",
                 "src/components.rexroth.drives/ctrl/apax.yml",
                 "src/showcase/app/hwc/plc_line.hwl.yml",
-                "src/showcase/app/hwc/library_templates/rexroth_indradrive/rexroth_indradrive.hwl.yml",
-                "src/showcase/app/hwc/library_templates/rexroth_ctrlx_drive/rexroth_ctrlx_drive_xcs.hwl.yml",
+                "src/components.rexroth.drives/ctrl/assets/rexroth_indradrive/rexroth_indradrive.hwl.yml",
+                "src/components.rexroth.drives/ctrl/assets/rexroth_ctrlx_drive/rexroth_ctrlx_drive_xcs.hwl.yml",
             ]
         },
 

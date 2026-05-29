@@ -1,3 +1,4 @@
+#<RexrothIndraDriveTemplate>
 Templates:
   Devices:
   - Name: 'rexroth_indradrive'
@@ -72,3 +73,4 @@ Templates:
             GsdId: ID_OutMod_13Words
             FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
           Slot: 4
+#</RexrothIndraDriveTemplate>
