@@ -1,3 +1,27 @@
+### [BUILD] Dependency-maintenance tooling + AXSharp `0.47.0-alpha.484` bump
+
+**Note:** Build/CI tooling and dependency maintenance. No public-API change, no PLC source change. Branch: `deps-update`.
+
+- feat: `scripts/update-latest-deps.ps1` — bumps all non-AXSharp dependencies (NuGet + npm) to their latest stable versions, sharing common helpers via `scripts/_deps-common.ps1`.
+- feat: `scripts/update-vulnerable-deps.ps1` — scans npm and NuGet dependencies for known vulnerabilities and emits a report.
+- chore: AXSharp packages bumped to `0.47.0-alpha.484` in `Directory.Packages.props`, with transitive dependencies reconciled. `.config/dotnet-tools.json` updated to match.
+- chore: Added `.claude/skills/update-axsharp-version/SKILL.md` — skill for updating AXSharp and Inxton.Operon package versions.
+- chore: Removed obsolete `package.json` / `package-lock.json` files across `src/components.abb.robotics`, `src/components.abstractions`, `src/data`, `src/data/src/AXOpen.Data.Blazor`, `src/inspectors`, and a stray `apax.yml`, to clean up the project structure.
+- chore: `develop` branch GitVersion mode changed to `ContinuousDeployment`.
+- chore: Styling dependencies refreshed (`src/styling/src/package.json` / lock; `momentum.css` regenerated).
+
+**Impact:**
+- Routine dependency bumps and vulnerability scanning are now scriptable and reproducible.
+- AXSharp consumers build against `0.47.0-alpha.484`.
+- Dead npm lockfiles no longer pollute the tree or trigger spurious tooling.
+
+**Risks/Review:**
+- Dependency version bumps can introduce behavioural drift; verify a full `dotnet build` and the styling render after pulling.
+
+**Testing:**
+- Run `scripts/update-latest-deps.ps1` and `scripts/update-vulnerable-deps.ps1` end-to-end (exit code 0).
+- `dotnet build` from solution root succeeds against the bumped package set.
+
 ### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
 
 **Note:** PLC bug fix in `src/core/ctrl/src/AxoCoordination/AxoSequencer/AxoSequencer.st` (`AxoStepTimedOutMessenger.Activate`). No public-API change. Branch: `fix-issue-when-timeout-sequencer-alarm-doesnot-fall`.
