@@ -15,7 +15,7 @@ branches:
     pre-release-weight: 55000
   develop:
     regex: ^dev(elop)?(ment)?$
-    mode: ManualDeployment
+    mode: ContinuousDeployment
     label: alpha
     increment: Minor
     prevent-increment:
