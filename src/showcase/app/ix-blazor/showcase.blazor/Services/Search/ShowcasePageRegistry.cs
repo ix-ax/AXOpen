@@ -18,10 +18,12 @@ public static class ShowcasePageRegistry
             Category = "Core",
             Description = "Task execution for PLC programs. Covers AxoTask, AxoMomentaryTask, AxoToggleTask, and AxoRemoteTask.",
             Icon = "play",
-            Tags = ["task", "fire and forget", "momentary", "toggle", "remote task", "control flow"],
+            Tags = ["task", "fire and forget", "momentary", "toggle", "remote task", "control flow", "error", "aborted", "state"],
             SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskErrorExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskAbortedExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st",
@@ -95,6 +97,25 @@ public static class ShowcasePageRegistry
                 "src/core/docs/AxoMessenger.md",
                 "src/core/docs/AxoTextList.md",
                 "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
+            ]
+        },
+        new()
+        {
+            Route = "/core/AxoIncidentBar",
+            PageTitle = "AxoIncidentBar",
+            LibraryNamespace = "AXOpen.Core",
+            Category = "Core",
+            Description = "AxoCauseAnalyzer ranks active Error+ messengers by severity, burst-root, topology, and ack state. AxoIncidentBarView renders the top probable cause as a persistent severity-colored bar.",
+            Icon = "bell-alert",
+            Tags = ["incident", "alarm", "probable cause", "root cause", "cause analyzer", "diagnostics", "topology", "burst", "operator", "bar"],
+            SourceFilePaths = [
+                "src/showcase/app/src/core/AXOpen.Messaging/AxoIncidentBarExample.st",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoCauseAnalyzer.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoIncidentBarPresenter.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/AxoMessengerRankableAdapter.cs",
+                "src/core/src/AXOpen.Core/AxoMessenger/Static/IRankableMessage.cs",
+                "src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoIncidentBarView.razor",
                 "src/core/docs/CHANGELOG.md",
             ]
         },

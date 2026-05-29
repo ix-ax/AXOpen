@@ -49,7 +49,7 @@ namespace AXOpen.Core
             get
             {
                 if (IsDisabled)
-                    return "btn-inactive blur-[1px]";
+                    return "btn-inactive";
 
                 return IsOn ? "btn-success" : "btn-info";
             }

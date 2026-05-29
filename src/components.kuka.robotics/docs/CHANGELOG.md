@@ -1,57 +1,105 @@
-# Changelog
+## Changes
+<!--
+    Leave this comment intact. Immediately below this comment add a new entry:
+    ---------------------------------
+    ### {axopen-version}
 
-### 0.43.0
+    **New features:**
+    -
 
-**Other:**
-- Restructured documentation to class-name convention: added `AxoKrc4_v_5_x_x.md`; removed legacy `*_Showcase.md`, `*_Showcase2.md`, and `ComponentTemplate.md`.
-- Added CONTROLLER, .NET TWIN, BLAZOR, and HARDWARE tabs with DocFX source references wired to live showcase markers.
-- Initial CHANGELOG entry.
+    **Bug fixes:**
+    -
 
-### 0.50.0
+    **Other:**
+    -
 
-**Other:**
-- `README.md` — added Components, Configuration/state types, Packages, Dependencies tables and the KUKA vendor link.
-- `AxoKrc4_v_5_x_x.md` — added Capabilities and Configuration sections with a `Config` parameter table; wired `[!code-smalltalk[]]` references to new `AxoKukaRoboticsConfigDeclaration` / `AxoKukaRoboticsHWIDsDeclaration` regions in the library source; added an "Alternative example" block referencing `AxoKrc4_v_5_x_x_Showcase2.st`; expanded the HARDWARE tab with slot layout and `hwID` resolution flow.
-- `TROUBLES.md` — added component-specific common-issues, runtime-safety, and error-ID reference sections covering IDs 700, 701, 702, 710, 720–726, 1130–1133, 1201, 1231, 20001–20005, and the 500-range task *potential* identifiers; retained the existing Support pointer.
-- Repointed stale GitHub source links from branch `3-unify-showcase` to `dev`.
+    **Breaking changes:**
+    -
+    ---------------------------------
 
-**New regions:**
-- `AxoKukaRobotics_Config.st` — `<AxoKukaRoboticsConfigDeclaration>`.
-- `AxoKukaRobotics_HWIDs.st` — `<AxoKukaRoboticsHWIDsDeclaration>`.
+    Replace {axopen-version} with the `next-version:` value from
+    axopen/GitVersion.yml. New entries go at the TOP, immediately below
+    this comment. The /axopen-docs skill resorts the file semver-descending
+    on every run.
+-->
 
-### 0.50.1
-
-**Other:**
-- `README.md` — added a "Hardware assets" table pointing at the
-  library-shipped GSDML (`ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml`)
-  and the PROFINET hw template (`ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml`),
-  plus a note that the showcase re-uses the same template.
-- `AxoKrc4_v_5_x_x.md` — HARDWARE tab now opens with a "Library-shipped
-  assets" section linking the GSDML and hw template on GitHub, so
-  integrators see where the raw assets live inside this package.
-
-### 0.51.0
+### 0.54.0
 
 **New features:**
-- Added **KUKA KRC5** controller support: the library now ships the KRC5
-  GSDML (`ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml`) and
-  the matching PROFINET device template (`ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml`).
-  The existing `AxoKrc4` class drives both KRC4 and KRC5 — the DIO512 slot
-  layout is identical between the two controllers.
+- `AxoKrc5` now exposes raw application-defined data-exchange members
+  `DataFromPlcToRobot : ARRAY[0..19] OF BYTE` (PLC → robot, mapped onto
+  output bytes `_data[44..63]`) and `DataFromRobotToPlc : ARRAY[0..15] OF BYTE`
+  (robot → PLC, mapped onto input bytes `_data[48..63]`). Both carry
+  `RenderIgnore` and are transported verbatim by `Run()` without
+  interpretation (#1148).
+
+**Bug fixes:**
+- `AxoKrc5` safety message **20002** (`Inputs.Automatic = FALSE` while a task
+  is busy) is now raised as category `Info` instead of `Error`; losing auto
+  mode mid-task is an informational condition rather than a hard fault on
+  KRC5 (#1148).
 
 **Other:**
-- `README.md` — Hardware-assets table extended with KRC5 rows; description
-  updated to call out support for both KRC4 and KRC5 controllers.
-- `AxoKrc4_v_5_x_x.md` — subtitle and intro updated to cover KRC4/KRC5;
-  HARDWARE tab split into per-controller asset sections; new "KRC5 example"
-  code-reference block pointing at the `AxoKrc4_v_5_x_x_Krc5Showcase.st`
-  showcase file; added KRC5 device instantiation + IO system wiring
-  `[!code-yaml[]]` blocks.
-- Showcase: added `AxoKrc4_v_5_x_x_Krc5Showcase.st` (third instance, driven
-  by `kuka_rb2_HwID`); wired into the `KukaRobotics` documentation context;
-  added an "AxoKrc4 on KRC5" tab to the Blazor page with live rendering,
-  code reference, hardware configuration, and sequencer views; added KRC5
-  search-registry entries.
+- `AxoKrc5` adds per-axis coordinate-mirror task-`potential` identifiers
+  **1501–1506** (`StartMotorsProgramAndMovements`) and **1511–1516**
+  (`StartMovements`), reported via `TaskMessenger` while waiting for each
+  `Inputs.Coordinates.{X,Y,Z,Rx,Ry,Rz}` to mirror the commanded value within
+  `0.01` tolerance. Matching `.NET` twin entries were added to both the
+  `TaskMessenger` text list and `errorDescriptionDict` in `AxoKrc5.cs`.
+- `AxoKrc5.md` — relaxed the "identical public API to `AxoKrc4`" wording to
+  reflect the #1148 divergence; added a **Data exchange** section documenting
+  the new byte-array members (wired to the new
+  `<AxoKrc5DataExchangeDeclaration>` source region) and a note listing the
+  three KRC5-only differences.
+- `TROUBLES.md` — header note now flags the per-class differences; the 20002
+  rows record the `Error` (KRC4) vs `Info` (KRC5) split; the task-`potential`
+  reference and the "Movement parameters never take effect" section document
+  the new 1501–1516 coordinate-mirror IDs.
+- Showcase: `AxoKrc5_v_5_x_x_Showcase.st` gained an "Exchange raw data with
+  the robot" sequencer step (inside new `//<DataExchange>` markers) that
+  writes a sample payload to `DataFromPlcToRobot` and reads `DataFromRobotToPlc`;
+  the `Steps` array was widened `[0..19]` → `[0..20]` and a
+  `_lastByteFromRobot` status field added. `AxoKrc5.md`'s **Data exchange**
+  section references this snippet via `[!code-pascal[]]`. The `AxoKrc4`
+  showcase is unchanged.
+
+**New regions:**
+- `AxoKrc5.st` — `<AxoKrc5DataExchangeDeclaration>` around the public
+  `DataFromPlcToRobot` / `DataFromRobotToPlc` block.
+
+### 0.53.0
+
+**New features:**
+- `AxoKrc5View.razor` — `AxoKrc5` now ships a dedicated Blazor proxy view
+  in `AXOpen.Components.Kuka.Robotics.blazor` under `AxoKrc5/v_5_x_x/`,
+  mirroring `AxoKrc4View` 1:1 (same tabbed command layout, identical
+  `Status` / `Command` / `Spot` derivatives, identical scoped SVG arm
+  rendering with `krc5-*` class names). `RenderableContentControl` now
+  selects this view automatically for any `AxoKrc5` context.
+
+**Other:**
+- `AxoKrc4View.razor` — operator commands reorganised into two
+  `Operon.Components.Tab` tab pages: `Movements` (`StartMovements` /
+  `StopMovements`, `Restore` / `ResetAllOutputs`, with the `MovementParameters`
+  card rendered inline below the button grid) and `Power & Program`
+  (`StartMotors` / `StopMotors`, `StartProgram` / `StopProgram`, the two
+  composite tasks, and `StartAtMain`). Buttons laid out as a fixed
+  2-column `grid grid-cols-2` so every cell has the same width.
+  `CommandsMonitorContent` mirrors the same layout in read-only mode.
+- `AxoKrc5.md` — BLAZOR tab rewritten to reflect the new dedicated view
+  (was previously "does not ship a dedicated Blazor view at this time");
+  added the same Type-agnostic Status/Command snippet pair as `AxoKrc4.md`
+  and repointed the source link to `AxoKrc5View.razor`.
+- `AxoKrc4.md` — BLAZOR tab introductory paragraph extended with a one-line
+  description of the new `Movements` / `Power & Program` tab structure.
+- Removed the standalone manual-control showcase examples
+  (`AxoKrc4_v_5_x_x_ManualControl.st`, `AxoKrc5_v_5_x_x_ManualControl.st`)
+  from `showcase/app/src/components.kuka.robotics/Documentation/`; the
+  matching `KukaRobotics.st` instances, `KukaRobotics.razor` tab pages,
+  and `ShowcasePageRegistry` entries were dropped accordingly. Manual
+  control remains available through the existing
+  `axoKrcN_v_5_x_x.ActivateManualControl` toggle on the sequenced
+  showcases — no library-side API was removed.
 
 ### 0.52.0
 
@@ -93,36 +141,55 @@
 - `AxoKrc5_HWIDs.st` — `<AxoKrc5HWIDsDeclaration>` (in addition to the
   existing `<AxoKukaRoboticsHWIDsDeclaration>` region).
 
-### 0.53.0
+### 0.51.0
 
 **New features:**
-- `AxoKrc5View.razor` — `AxoKrc5` now ships a dedicated Blazor proxy view
-  in `AXOpen.Components.Kuka.Robotics.blazor` under `AxoKrc5/v_5_x_x/`,
-  mirroring `AxoKrc4View` 1:1 (same tabbed command layout, identical
-  `Status` / `Command` / `Spot` derivatives, identical scoped SVG arm
-  rendering with `krc5-*` class names). `RenderableContentControl` now
-  selects this view automatically for any `AxoKrc5` context.
+- Added **KUKA KRC5** controller support: the library now ships the KRC5
+  GSDML (`ctrl/assets/kuka_krc5/GSDML-V2.4-KUKA-KR C5-20220704.xml`) and
+  the matching PROFINET device template (`ctrl/assets/kuka_krc5/kuka_krc5_dio512.hwl.yml`).
+  The existing `AxoKrc4` class drives both KRC4 and KRC5 — the DIO512 slot
+  layout is identical between the two controllers.
 
 **Other:**
-- `AxoKrc4View.razor` — operator commands reorganised into two
-  `Operon.Components.Tab` tab pages: `Movements` (`StartMovements` /
-  `StopMovements`, `Restore` / `ResetAllOutputs`, with the `MovementParameters`
-  card rendered inline below the button grid) and `Power & Program`
-  (`StartMotors` / `StopMotors`, `StartProgram` / `StopProgram`, the two
-  composite tasks, and `StartAtMain`). Buttons laid out as a fixed
-  2-column `grid grid-cols-2` so every cell has the same width.
-  `CommandsMonitorContent` mirrors the same layout in read-only mode.
-- `AxoKrc5.md` — BLAZOR tab rewritten to reflect the new dedicated view
-  (was previously "does not ship a dedicated Blazor view at this time");
-  added the same Type-agnostic Status/Command snippet pair as `AxoKrc4.md`
-  and repointed the source link to `AxoKrc5View.razor`.
-- `AxoKrc4.md` — BLAZOR tab introductory paragraph extended with a one-line
-  description of the new `Movements` / `Power & Program` tab structure.
-- Removed the standalone manual-control showcase examples
-  (`AxoKrc4_v_5_x_x_ManualControl.st`, `AxoKrc5_v_5_x_x_ManualControl.st`)
-  from `showcase/app/src/components.kuka.robotics/Documentation/`; the
-  matching `KukaRobotics.st` instances, `KukaRobotics.razor` tab pages,
-  and `ShowcasePageRegistry` entries were dropped accordingly. Manual
-  control remains available through the existing
-  `axoKrcN_v_5_x_x.ActivateManualControl` toggle on the sequenced
-  showcases — no library-side API was removed.
+- `README.md` — Hardware-assets table extended with KRC5 rows; description
+  updated to call out support for both KRC4 and KRC5 controllers.
+- `AxoKrc4_v_5_x_x.md` — subtitle and intro updated to cover KRC4/KRC5;
+  HARDWARE tab split into per-controller asset sections; new "KRC5 example"
+  code-reference block pointing at the `AxoKrc4_v_5_x_x_Krc5Showcase.st`
+  showcase file; added KRC5 device instantiation + IO system wiring
+  `[!code-yaml[]]` blocks.
+- Showcase: added `AxoKrc4_v_5_x_x_Krc5Showcase.st` (third instance, driven
+  by `kuka_rb2_HwID`); wired into the `KukaRobotics` documentation context;
+  added an "AxoKrc4 on KRC5" tab to the Blazor page with live rendering,
+  code reference, hardware configuration, and sequencer views; added KRC5
+  search-registry entries.
+
+### 0.50.1
+
+**Other:**
+- `README.md` — added a "Hardware assets" table pointing at the
+  library-shipped GSDML (`ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml`)
+  and the PROFINET hw template (`ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml`),
+  plus a note that the showcase re-uses the same template.
+- `AxoKrc4_v_5_x_x.md` — HARDWARE tab now opens with a "Library-shipped
+  assets" section linking the GSDML and hw template on GitHub, so
+  integrators see where the raw assets live inside this package.
+
+### 0.50.0
+
+**Other:**
+- `README.md` — added Components, Configuration/state types, Packages, Dependencies tables and the KUKA vendor link.
+- `AxoKrc4_v_5_x_x.md` — added Capabilities and Configuration sections with a `Config` parameter table; wired `[!code-smalltalk[]]` references to new `AxoKukaRoboticsConfigDeclaration` / `AxoKukaRoboticsHWIDsDeclaration` regions in the library source; added an "Alternative example" block referencing `AxoKrc4_v_5_x_x_Showcase2.st`; expanded the HARDWARE tab with slot layout and `hwID` resolution flow.
+- `TROUBLES.md` — added component-specific common-issues, runtime-safety, and error-ID reference sections covering IDs 700, 701, 702, 710, 720–726, 1130–1133, 1201, 1231, 20001–20005, and the 500-range task *potential* identifiers; retained the existing Support pointer.
+- Repointed stale GitHub source links from branch `3-unify-showcase` to `dev`.
+
+**New regions:**
+- `AxoKukaRobotics_Config.st` — `<AxoKukaRoboticsConfigDeclaration>`.
+- `AxoKukaRobotics_HWIDs.st` — `<AxoKukaRoboticsHWIDsDeclaration>`.
+
+### 0.43.0
+
+**Other:**
+- Restructured documentation to class-name convention: added `AxoKrc4_v_5_x_x.md`; removed legacy `*_Showcase.md`, `*_Showcase2.md`, and `ComponentTemplate.md`.
+- Added CONTROLLER, .NET TWIN, BLAZOR, and HARDWARE tabs with DocFX source references wired to live showcase markers.
+- Initial CHANGELOG entry.

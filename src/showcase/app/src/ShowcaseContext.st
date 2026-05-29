@@ -16,6 +16,8 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         // ---- Core: AxoTask ----
         AxoTasks : AxoTaskExamples.Tasks;
         AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
+        AxoTaskError : AxoTaskExamples.AxoTaskErrorExample;
+        AxoTaskAborted : AxoTaskExamples.AxoTaskAbortedExample;
 
         // ---- Core: AxoToggleTask ----
         AxoToggleTasks : AxoToggleTaskExamples.Tasks;
@@ -41,6 +43,7 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         // ---- Core: AxoMessaging ----
         AxoMessengers : AxoStaticMessengerExample.Messengers;
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
+        AxoIncidentBar : AxoIncidentBarExample.IncidentTopology;
 
         // ---- Core: AxoTextList ----
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
@@ -145,6 +148,12 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         THIS.InitializeRootObject(AxoTaskDocu);
         AxoTaskDocu.Execute();
 
+        THIS.InitializeRootObject(AxoTaskError);
+        AxoTaskError.Execute();
+
+        THIS.InitializeRootObject(AxoTaskAborted);
+        AxoTaskAborted.Execute();
+
         THIS.InitializeRootObject(AxoToggleTasks);
         AxoToggleTasks.Execute();
 
@@ -176,6 +185,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         THIS.InitializeRootObject(AxoMessengersDocu);
         AxoMessengersDocu.Execute();
+
+        THIS.InitializeRootObject(AxoIncidentBar);
+        AxoIncidentBar.Execute();
 
         THIS.InitializeRootObject(AxoTextListExampleContext);
         AxoTextListExampleContext.Execute();

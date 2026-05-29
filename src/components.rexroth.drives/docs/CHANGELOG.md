@@ -25,7 +25,19 @@
 
 ### 0.56.4
 
+**New features:**
+- Added dedicated Blazor views `AxoCtrlxDriveXscView` and `AxoIndraDriveView` (with `Status`, `Command`, and `Spot` derivatives) for the Rexroth drive components.
+
+**Bug fixes:**
+- `AxoCtrlxDriveXsc`: reworked torque and velocity scaling calculations, switched torque/velocity parameters to degrees and adjusted scaling values, and fixed torque scaling for linear actuators.
+- `AxoCtrlxDriveXsc`: retrigger scaling-parameter reading when leaving operation mode so scaling stays consistent.
+- `AxoCtrlxDriveXsc`: added message-timer resets so diagnostic messages clear correctly.
+
 **Other:**
+- `AxoCtrlxDriveXsc`: filter the `C00E2054` ("NOT HOMED") diagnostic message while homing is in progress.
+- `AxoCtrlxDriveXsc`: added a debug message for the unknown error code `F4035`.
+- `AxoCtrlxDriveXsc`: removed the homing (`AxoHome`) task timeout.
+- Added ctrlX DRIVE servo-drive communication-configuration reference images under `ctrl/assets/rexroth_ctrlx_drive/servodrive_communication_config/`.
 - Corrected the BLAZOR tab of `AxoCtrlxDriveXsc` and `AxoIndraDrive` docs to reflect the dedicated Blazor views (`AxoCtrlxDriveXscView`, `AxoIndraDriveView`) now resolved by `RenderableContentControl`, with source links.
 - Enriched `README.md` with a Components table (ctrlX DRIVE XSC + IndraDrive), a Dependencies table, and the Bosch Rexroth vendor link.
 - Populated `TROUBLES.md` with drive-specific common issues, the `eAxoDriveState` error states and `Errorstop` recovery, diagnostics, and known limitations.

@@ -13,6 +13,8 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
+        private string ButtonClass => Component.State.LastValue ? "btn-primary" : "btn-info";
+
         private void SwitchOnTask()
         {
             Component.RemoteSwitchOn.Cyclic = true;
