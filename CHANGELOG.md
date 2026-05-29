@@ -1,3 +1,28 @@
+### [COMPONENTS.COGNEX.VISION] AxoVisionProNet — TCP/.NET alternative to the PROFINET AxoVisionPro
+
+**Note:** Additive change. New component `AxoVisionProNet` in `src/components.cognex.vision/ctrl/src/AxoVisionProNet/`, its .NET twin + TCP protocol stack in `src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/AxoVisonProNet/`, a Blazor proxy view, and full showcase/doc wiring. No public-API removal; existing `AxoVisionPro` (PROFINET) is unchanged. Branch: `1104-new-featureaxovisionpro-alternative`.
+
+- feat: `AxoVisionProNet` (`AXOpen.Components.Cognex.Vision`) — drives a Cognex VisionPro PC over a TCP/.NET channel instead of a PROFINET IO frame. The PLC `Invoke()`s `AxoRemoteTask`s (`Trigger`, `InspectionResult`, `SetRecipe`, `SendSpecificData`, `ReceiveSpecificData`, `TriggerWithSpecificData`, `SendSpecificDataAndTypes`) whose handlers run on the .NET twin; `Restore` is a local `AxoTask`. Use this variant when the camera PC is reachable over the network but is not wired as a PROFINET device.
+- feat: `Control` (writable: `TriggerId`, `PartId`, `VariantId`) carries the per-request parameters; read-only `Config` holds the task supervision timers (`InfoTime` 5 s, `ErrorTime` 10 s, `TaskTimeout` 50 s); `Status` surfaces `Accepted`, `TriggerId`, `ErrorCode`, `ActionDescription`, `ErrorDescription`, `RejectReason`. Each remote task is checked for `HasRemoteException` per cycle and its `ErrorDetails` copied into `Status.ErrorDescription`; `Restore()` clears `ErrorCode` and re-arms the tasks. `SendSpecificDataAndTypes` is gated to manual control (commissioning only); `TriggerWithSpecificData` is disabled while `Trigger`/`SendSpecificData`/`SetRecipe` are busy.
+- feat: .NET twin TCP protocol stack under `AxoVisonProNet/VisionProtocol/` — `VisionTcpClient` (async connect/send/receive loop with connect-timeout and cancellation), `VisionEnvelope` + `EnvelopeMessages` (framing), and `VisionTypedPayloadSerializer` (typed payload encode/decode). The socket is opened once at host start-up via `InitializeVisionClientAsync(host, port)` on the twin; `AxoVisionProNetSpecificDataContainer` exchanges the typed specific-data payloads.
+- feat: `AxoVisionProNetView` (`AXOpen.Components.Cognex.Vision.blazor`) — dedicated proxy view on `AxoComponentContainerView` with `AxoVisionProNetStatusView` / `AxoVisionProNetCommandView` / `AxoVisionProNetSpotView` derivatives, so `RenderableContentControl` auto-selects the dedicated rendering by `Presentation`.
+- feat: Showcase — `AxoVisionProNet_Example` (`src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionProNet.st`) demonstrates the sequencer workflow, `TriggerWithSpecificData`, manual/commissioning send, and error recovery; wired into `CognexVision.st`, the Blazor `CognexVision.razor` page, `Program.cs` (`InitializeVisionClientAsync`), and the search registry.
+- docs: Added `src/components.cognex.vision/docs/AxoVisionProNet.md` (CONTROLLER / .NET TWIN / BLAZOR tabs), linked it from `toc.yml`, referenced both VisionPro variants in `README.md`, and bumped `src/components.cognex.vision/docs/CHANGELOG.md` + `GitVersion.yml` to `0.57.0`.
+
+**Impact:**
+- Applications can integrate a Cognex VisionPro inspection over plain TCP without provisioning a PROFINET device, while keeping the same component-level operate/monitor/spot UX as the PROFINET `AxoVisionPro`.
+- Remote-task exceptions are surfaced on `Status.ErrorDescription`/`ErrorCode` and cleared deterministically through `Restore()`.
+
+**Risks/Review:**
+- The .NET twin source folder is spelled `AxoVisonProNet` (missing the `i`) while the PLC `ctrl/` and Blazor folders use the correct `AxoVisionProNet`. Class/type names are correct so it compiles; the folder name is a cosmetic inconsistency.
+- No automated test coverage was added: the TCP protocol classes (`VisionTcpClient`, `VisionEnvelope`, `VisionTypedPayloadSerializer`) have no xUnit tests in `tests/AXOpen.Components.Cognex.Vision.Tests`, and the ST trigger→result→restore flow has no AxUnit case in `ctrl/test/tests.st`.
+- `InitializeVisionClientAsync` must be called by the host before the component runs, otherwise the remote tasks report "REMOTE TASK IS NOT INITIALIZED". The showcase `Program.cs` shows the required wiring (hardcoded demo endpoint `192.168.100.142:8500`).
+
+**Testing:**
+- `apax ib` in `src/components.cognex.vision/ctrl` — PLC library + twin compile (`dotnet ixc`).
+- `dotnet build src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor` — proxy view compiles (verified: 0 errors).
+- Showcase `Pages/components-cognex-vision/Documentation/CognexVision.razor`, AxoVisionProNet tab — exercise the sequencer, commissioning send, and error-recovery scenarios against a reachable VisionPro endpoint.
+
 ### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
 
 **Note:** PLC bug fix in `src/core/ctrl/src/AxoCoordination/AxoSequencer/AxoSequencer.st` (`AxoStepTimedOutMessenger.Activate`). No public-API change. Branch: `fix-issue-when-timeout-sequencer-alarm-doesnot-fall`.
