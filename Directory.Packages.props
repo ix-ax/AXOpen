@@ -66,8 +66,10 @@
     <PackageVersion Include="Octokit.Extensions" Version="1.0.7" />
     <PackageVersion Include="Cake.Frosting" Version="4.0.0" />
     <PackageVersion Include="Cake.Powershell" Version="4.0.0" />
-    <PackageVersion Include="Spectre.Console" Version="0.50.0" />
-    <PackageVersion Include="Spectre.Console.Cli" Version="0.50.0" />
+    <!-- Pinned to 0.47.0 to match Cake.Cli 4.0.0 (transitive pinning is enabled repo-wide);
+         newer Spectre.Console.Cli drops IConfigurator.AddExample(string[]) that Cake.Frosting calls. -->
+    <PackageVersion Include="Spectre.Console" Version="0.47.0" />
+    <PackageVersion Include="Spectre.Console.Cli" Version="0.47.0" />
     <PackageVersion Include="Polly" Version="8.5.0" />
     <PackageVersion Include="YamlDotNet" Version="16.2.0" />
     <!-- Target Framework Specific Packages -->
