@@ -60,6 +60,10 @@ Cap on the number of full cake builds spent bisecting after an initial failure. 
 .PARAMETER CreatePR
 Commit changes to branch 'chore/update-latest-deps' off origin/dev and open a PR against dev. Implies -Apply.
 
+.PARAMETER NpmProjects
+Explicit list of package.json paths to process (relative to repo root or absolute). When omitted,
+projects are discovered automatically under src/ (skipping bin/obj/ctrl/.apax/node_modules/wwwroot/dist).
+
 .PARAMETER Source
 NuGet v3 feed used to look up available versions. Default nuget.org.
 
@@ -94,6 +98,7 @@ param(
     [switch]$RollbackAllOnFailure,
     [int]$MaxBisectBuilds = 6,
     [switch]$CreatePR,
+    [string[]]$NpmProjects,
     [string]$Source = 'https://api.nuget.org/v3/index.json',
     [string]$Token,
     [switch]$Detailed
@@ -131,7 +136,7 @@ $feedToken = if($Token){ $Token } elseif(-not $IsPublicNuGet){ Resolve-FeedToken
 # Owned by update_axsharp_versions.ps1 - never touched.
 $AxSharpSkipPattern = '^(AXSharp|Inxton\.Operon|AXOpen)\b'
 # Owned by update-vulnerable-deps.ps1 ("Security pins" ItemGroup) - never touched.
-$SecurityPinIds = @('Snappier','System.Security.Cryptography.Xml')
+$SecurityPinIds = @('') #@('Snappier','System.Security.Cryptography.Xml')
 # Frozen to stay aligned with net10.0 (see plan / interview).
 $FrameworkFreezeExact = @('Microsoft.NET.ILLink.Tasks','Microsoft.VisualStudio.Web.CodeGeneration.Design')
 $FrameworkFreezePrefixes = @('Microsoft.AspNetCore.','Microsoft.EntityFrameworkCore.','Microsoft.Extensions.','System.')
@@ -139,15 +144,20 @@ $FrameworkFreezePrefixes = @('Microsoft.AspNetCore.','Microsoft.EntityFrameworkC
 $GitVersionNuGetId = 'GitVersion.MsBuild'
 $GitVersionToolId  = 'gitversion.tool'
 
-# Source npm projects (explicit list - avoids bin/obj/ctrl/.apax generated copies).
-$NpmProjects = @(
-    'src/components.abb.robotics/package.json'
-    'src/components.abstractions/package.json'
-    'src/data/package.json'
-    'src/inspectors/package.json'
-    'src/showcase/app/ix-blazor/showcase.blazor/package.json'
-    'src/styling/src/package.json'
-) | ForEach-Object { Join-Path $repoRoot $_ }
+# Source npm projects - discovered dynamically under src/, skipping generated/dependency
+# copies (bin/obj/ctrl/.apax/node_modules/wwwroot). Override with -NpmProjects to be explicit.
+function Get-NpmProjects {
+    $srcRoot = Join-Path $repoRoot 'src'
+    if(-not (Test-Path -LiteralPath $srcRoot)){ return @() }
+    $excludeRx = '[\\/](bin|obj|ctrl|\.apax|node_modules|wwwroot|dist|\.git)[\\/]'
+    Get-ChildItem -LiteralPath $srcRoot -Recurse -File -Filter 'package.json' -ErrorAction SilentlyContinue |
+        Where-Object { $_.FullName -notmatch $excludeRx } |
+        Select-Object -ExpandProperty FullName |
+        Sort-Object
+}
+
+$NpmProjects = if($NpmProjects){ $NpmProjects | ForEach-Object { if([System.IO.Path]::IsPathRooted($_)){ $_ } else { Join-Path $repoRoot $_ } } }
+              else { Get-NpmProjects }
 
 # Accumulators for the report.
 $Changes      = New-Object System.Collections.ArrayList   # applied/previewed bumps

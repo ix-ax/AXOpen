@@ -65,7 +65,7 @@ param(
     [switch]$NuGetOnly,
     [switch]$CreatePR,
     [ValidateSet('low','moderate','high','critical')]
-    [string]$MinSeverity = 'moderate',
+    [string]$MinSeverity = 'low',
     [string]$Source = 'https://api.nuget.org/v3/index.json',
     [string]$Token,
     [switch]$Detailed
@@ -97,15 +97,14 @@ $SkipPattern = '^(AXSharp|Inxton\.Operon|AXOpen)\b'
 
 $Token = Resolve-FeedToken -Token $Token -Detailed:$Detailed
 
-# Source npm projects (explicit list - avoids bin/obj/ctrl generated copies).
+# Source npm projects - discovered dynamically under src/ (skips node_modules and
+# bin/obj/ctrl generated copies so only first-party source manifests are audited).
 $NpmProjects = @(
-    'src/components.abb.robotics/package.json'
-    'src/components.abstractions/package.json'
-    'src/data/package.json'
-    'src/inspectors/package.json'
-    'src/showcase/app/ix-blazor/showcase.blazor/package.json'
-    'src/styling/src/package.json'
-) | ForEach-Object { Join-Path $repoRoot $_ }
+    Get-ChildItem -Path (Join-Path $repoRoot 'src') -Recurse -File -Filter 'package.json' -ErrorAction SilentlyContinue |
+        Where-Object { $_.FullName -notmatch '[\\/](node_modules|bin|obj|ctrl)[\\/]' } |
+        ForEach-Object { $_.FullName } |
+        Sort-Object
+)
 
 # Accumulators for the report.
 $NuGetFixed   = New-Object System.Collections.ArrayList
