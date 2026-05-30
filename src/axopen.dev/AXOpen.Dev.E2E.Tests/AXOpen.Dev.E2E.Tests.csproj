@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>AXOpen.Dev.E2E.Tests</RootNamespace>
+    <!--
+      Optional end-to-end tests. They drive the real apax CLI / openssl / a live PLC and are
+      SKIPPED unless their gating environment variable is set, so a normal `dotnet test` run
+      (and CI) reports them as skipped rather than failing. See README in this folder.
+    -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AXOpen.Dev\AXOpen.Dev.csproj" />
+  </ItemGroup>
+
+</Project>
