@@ -399,142 +399,21 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
             }
         }
+        if (context.BuildParameters.TestLevel >= 4)
+        {
+            // Full end-to-end smoke test of the consolidated showcase app: load the entire PLC
+            // (incl. hardware configuration) onto PLCSIM Advanced, then run the Blazor server and
+            // assert it serves traffic. Fails the build on any error.
+            var showcaseApp = Path.Combine(context.RootDir, "showcase", "app", "apax.yml");
+            AppsRunTaskHelpers.RunShowcaseIntegration(context, showcaseApp);
+        }
 
         context.Log.Information("Tests done.");
     }
 }
 
-[TaskName("AppsRun")]
-[IsDependentOn(typeof(TestsTask))]
-public sealed class AppsRunTask : FrostingTask<BuildContext>
-{
-    // Tasks can be asynchronous
-    public override void Run(BuildContext context)
-    {
-        if (!context.BuildParameters.AppsRun)
-        {
-            context.Log.Warning($"Skipping apps run");
-            return;
-        }
-
-        AppsRunTaskHelpers.KillProcess(context,"Siemens.Simatic.PlcSim.Advanced.UserInterface");
-
-        bool summaryResult = true;
-
-        if (string.IsNullOrEmpty(context.BuildParameters.AppRunOnlyFolderName))
-        {
-            var createResult = AppsRunTaskHelpers.CreateLogFile(context, "app_test_result");
-
-            if (createResult.Success)
-            {
-                string logFilePath = createResult.FilePath;
-                AppsRunTaskHelpers.WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
-
-                foreach (var library in context.Libraries)
-                {
-                    if (library.app_run)
-                    {
-                        string appFolder = context.GetAppFolder(library);
-                        string appFile = context.GetApaxFile(appFolder);
-                        string appName = context.GetApplicationName(appFile);
-
-                        if (!string.IsNullOrEmpty(appFolder) && context.DirectoryExists(appFolder) && !string.IsNullOrEmpty(appFile) && context.FileExists(appFile) && !string.IsNullOrEmpty(appName))
-                        {
-                            // Display the file details
-                            context.Log.Information($"###################################################");
-                            context.Log.Information($"Starting the application: {appName}");
-                            context.Log.Information($"File of the application: {appFile}");
-                            context.Log.Information($"###################################################");
-                            AppsRunTaskHelpers.WriteResult(context, " ", logFilePath);
-                            AppsRunTaskHelpers.WriteResult(context, appName, logFilePath, appendToSameLine: true);
-
-                            // Cleanup JSONREPOS
-                            AppsRunTaskHelpers.DeleteJsonReposFolder(context, appFolder);
-
-                            // Initialize PLC Sim instance
-                            AppsRunTaskHelpers.InitializePlcSimInstance(context, appName);
-
-                            // Overwrite security files
-                            AppsRunTaskHelpers.OverwriteSecurityFiles(context, appFile, context.PlcName);
-
-                            // Build and load PLC
-                            AppsRunTaskHelpers.BuildAndLoadPlc(context, appFile, appName, logFilePath, ref summaryResult);
-
-                            // Build and start HMI
-                            AppsRunTaskHelpers.BuildAndStartHmi(context, appFile, appName, logFilePath, ref summaryResult);
-
-
-                        }
-                    }
-                }
-                
-                if (!summaryResult)
-                {
-                    context.Log.Error($"App run failed for some of the applications.");
-                    context.Log.Error($"Good luck with finding out the reason :-).");
-                    Environment.Exit(1);
-                }
-            }
-            else
-            {
-                Console.Error.WriteLine("Failed to create the log file.");
-            }
-        }
-        else
-        {
-            var createResult = AppsRunTaskHelpers.CreateLogFile(context, "single_app_test_result");
-
-            if (createResult.Success)
-            {
-                string logFilePath = createResult.FilePath;
-                AppsRunTaskHelpers.WriteResult(context, "AppName,ApaxInstall,ApaxPlcSim,ApaxGsd,ApaxHwl,ApaxHwcc,ApaxHwid,ApaxHwadr,ApaxHwdo,ApaxBuild,DotnetIxc,ApaxSlfdo,Slngen,DotnetClean,DotnetBuild,DotnetRun", logFilePath);
-
-                string appFolder = Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName);
-                string appFile = context.GetApaxFile(appFolder);
-                string appName = context.GetApplicationName(appFile);
-
-                if (!string.IsNullOrEmpty(appFolder) && context.DirectoryExists(appFolder) && !string.IsNullOrEmpty(appFile) && context.FileExists(appFile) && !string.IsNullOrEmpty(appName))
-                {
-                    // Display the file details
-                    context.Log.Information($"###################################################");
-                    context.Log.Information($"Starting the application: {appName}");
-                    context.Log.Information($"File of the application: {appFile}");
-                    context.Log.Information($"###################################################");
-                    AppsRunTaskHelpers.WriteResult(context, " ", logFilePath);
-                    AppsRunTaskHelpers.WriteResult(context, appName, logFilePath, appendToSameLine: true);
-
-                    // Cleanup JSONREPOS
-                    AppsRunTaskHelpers.DeleteJsonReposFolder(context, appFolder);
-
-                    // Initialize PLC Sim instance
-                    AppsRunTaskHelpers.InitializePlcSimInstance(context, appName);
-
-                    // Overwrite security files
-                    AppsRunTaskHelpers.OverwriteSecurityFiles(context, appFile, context.PlcName);
-
-                    // Build and load PLC, build and start HMI with more grannular evaluation
-                    AppsRunTaskHelpers.AppRunDetailed(context, appFile, appName, logFilePath, ref summaryResult);
-
-                    if (!summaryResult)
-                    {
-                        context.Log.Error($"App run failed for the application name: '{appName}', application file: '{appFile}' in folder: '{appFolder}'");
-                        Environment.Exit(1);
-                    }
-                }
-            }
-            else
-            {
-                Console.Error.WriteLine("Failed to create the log file.");
-            }
-        }
-
-        AppsRunTaskHelpers.KillProcess(context, "Siemens.Simatic.PlcSim.Advanced.UserInterface");
-        context.Log.Information("Apps run done.");
-    }
-}
-
 [TaskName("CreateArtifacts")]
-[IsDependentOn(typeof(AppsRunTask))]
+[IsDependentOn(typeof(TestsTask))]
 public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)

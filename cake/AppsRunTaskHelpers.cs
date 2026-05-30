@@ -1,4 +1,4 @@
-﻿using Cake.Common.Diagnostics;
+using Cake.Common.Diagnostics;
 using Cake.Common.IO;
 using Cake.Core.Diagnostics;
 using System;
@@ -17,276 +17,110 @@ using Path = System.IO.Path;
 
 internal static class AppsRunTaskHelpers
 {
-
-    public static void BuildAndLoadPlc(BuildContext context, string appYamlFile, string appName, string logFilePath, ref bool summaryResult)
+    /// <summary>
+    /// Test level 4 integration step: loads the entire showcase PLC (incl. hardware configuration) onto
+    /// PLCSIM Advanced, starts the Blazor server and asserts it serves traffic over HTTPS.
+    /// Fails the build (non-zero exit) on any error and always cleans up the spawned processes.
+    /// </summary>
+    public static void RunShowcaseIntegration(BuildContext context, string appYamlFile)
     {
-        string plcName = context.PlcName;
-        string plcIpAddress = context.PlcIpAddress;
+        bool summaryResult = true;
 
-        // Validate application YAML file
-        if (string.IsNullOrWhiteSpace(appYamlFile))
+        if (string.IsNullOrWhiteSpace(appYamlFile) || !File.Exists(appYamlFile))
         {
-            context.Log.Error("The provided YAML of the application is empty.");
-            return;
-        }
-
-        if (!File.Exists(appYamlFile))
-        {
-            context.Log.Error($"The provided application file does not exist: {appYamlFile}");
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(appName))
-        {
-            context.Log.Error("The provided application name is empty.");
-            return;
-        }
-
-        string appFolder = Path.GetDirectoryName(appYamlFile);
-        if (string.IsNullOrWhiteSpace(appFolder) || !Directory.Exists(appFolder))
-        {
-            context.Log.Error($"The provided path for the application does not exist: {appFolder}");
-            return;
-        }
-
-        // Run "apax install"
-        ApaxCmd.ApaxInstall(context, appFolder);
-
-        // Run "apax plcsim"
-        string plcSimResult = ApaxCmd.ApaxPlcSim(context, appFolder, ref summaryResult);
-        WriteResult(context, plcSimResult, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwu"
-        string hwuResult = ApaxCmd.ApaxHwu(context, appFolder, ref summaryResult);
-        WriteResult(context, hwuResult, logFilePath, appendToSameLine: true);
-
-        // Run "apax swfd"
-        string swfdResult = ApaxCmd.ApaxSwfd(context, appFolder, ref summaryResult);
-        WriteResult(context, swfdResult, logFilePath, appendToSameLine: true);
-    }
-    public static void AppRunDetailed(BuildContext context, string appYamlFile, string appName, string logFilePath, ref bool summaryResult)
-    {
-        string plcName = context.PlcName;
-        string plcIpAddress = context.PlcIpAddress;
-
-        // Validate application YAML file
-        if (string.IsNullOrWhiteSpace(appYamlFile))
-        {
-            context.Log.Error("The provided YAML of the application is empty.");
-            return;
-        }
-
-        if (!File.Exists(appYamlFile))
-        {
-            context.Log.Error($"The provided application file does not exist: {appYamlFile}");
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(appName))
-        {
-            context.Log.Error("The provided application name is empty.");
-            return;
-        }
-
-        string appFolder = Path.GetDirectoryName(appYamlFile);
-        if (string.IsNullOrWhiteSpace(appFolder) || !Directory.Exists(appFolder))
-        {
-            context.Log.Error($"The provided path for the application does not exist: {appFolder}");
-            return;
-        }
-
-        // Run "apax install"
-        string result = ApaxCmd.ApaxCommand(context, appFolder, "install", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax plcsim"
-        result = ApaxCmd.ApaxPlcSim(context, appFolder, ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax gsd" # copy and install all gsdml files from libraries
-        result = ApaxCmd.ApaxCommand(context, appFolder, "gsd", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwl" # copy all templates from libraries
-        result = ApaxCmd.ApaxCommand(context, appFolder, "hwl", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwcc" # compile hardware configuration
-        result = ApaxCmd.ApaxCommand(context, appFolder, "hwcc", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwid" # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
-        result = ApaxCmd.ApaxCommand(context, appFolder, "hwid", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwadr" # copy the generated IoAddresses
-        result = ApaxCmd.ApaxCommand(context, appFolder, "hwadr", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax hwdo" # download HW only using certificate
-        result = ApaxCmd.ApaxCommand(context, appFolder, "hwdo", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax build " 
-        result = ApaxCmd.ApaxCommand(context, appFolder, "build", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "dotnet ixc" 
-        result = DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Run "apax swfdo" # software full download only
-        result = ApaxCmd.ApaxCommand(context, appFolder, "swfdo", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-
-        // Recreate solution file by running the slngen script
-        string slnGenPath = Path.GetFullPath(Path.GetFullPath(Path.Combine(appFolder, "..", "./slngen.ps1")));
-        result = DotNetCmd.RunPowershellScript(context, slnGenPath, "", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        // Clean solution
-        string solutionFile = Path.GetFullPath(Path.Combine(appFolder, "../this.sln"));
-        result = DotNetCmd.DotNetClean(context, solutionFile, "-c Debug", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        //##########################          template.axolibrary     =>       ######################//
-        if (appFolder.Contains("template.axolibrary"))
-        {
-            string dot_g_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.g"));
-            context.CleanDirectory(dot_g_folder, new CleanDirectorySettings() { Force = true });
-
-            string dot_meta_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.meta"));
-            context.CleanDirectory(dot_meta_folder, new CleanDirectorySettings() { Force = true });
-
-            // Run "dotnet ixc" 
-            result = DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
-        }
-
-        //##########################     <=     template.axolibrary              ######################//
-
-        //// Build solution
-        //result = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
-        //WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-        //// Get blazor projects
-        //var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
-
-        // Get blazor projects
-        var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
-
-        if (blazorFiles.Any())
-        {
-            foreach (var blazorFile in blazorFiles)
-            {
-                // Build solution
-                result = DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
-                WriteResult(context, result, logFilePath, appendToSameLine: true);
-
-                context.Log.Information($"Application 'blazor' file: {blazorFile}");
-
-                // Filter out libraries by checking for <PackageId> in the project file
-                string csprojContent = File.ReadAllText(blazorFile);
-                if (!csprojContent.Contains("<PackageId>"))
-                {
-                    result = DotNetCmd.DotNetRunWithResult(context, blazorFile, "-c Debug --framework net9.0", 60, ref summaryResult);
-                    WriteResult(context, result, logFilePath, appendToSameLine: true);
-                }
-            }
-        }
-        else
-        {
-            context.Log.Information("No files containing 'blazor' in the filename and ending with '.csproj' were found.");
-        }
-    }
-
-    public static void BuildAndStartHmi(BuildContext context, string appYamlFile, string appName, string logFilePath, ref bool summaryResult)
-    {
-        // Validate application YAML file
-        if (string.IsNullOrWhiteSpace(appYamlFile))
-        {
-            context.Log.Error("The provided YAML of the application is empty.");
-            return;
-        }
-
-        if (!context.FileExists(appYamlFile))
-        {
-            context.Log.Error($"The provided application file does not exist: {appYamlFile}");
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(appName))
-        {
-            context.Log.Error("The provided application name is empty.");
+            context.Log.Error($"Showcase application file does not exist: {appYamlFile}");
+            Environment.Exit(1);
             return;
         }
 
         string appFolder = Path.GetFullPath(Path.GetDirectoryName(appYamlFile));
-        if (string.IsNullOrWhiteSpace(appFolder) || !context.DirectoryExists(appFolder))
+        string appName = context.GetApplicationName(appYamlFile);
+
+        context.Log.Information("###################################################");
+        context.Log.Information($"Test level 4 showcase integration: {appName}");
+        context.Log.Information($"Application file: {appYamlFile}");
+        context.Log.Information("###################################################");
+
+        // Make sure no stale simulator UI is running before we start.
+        KillProcess(context, "Siemens.Simatic.PlcSim.Advanced.UserInterface");
+
+        try
         {
-            context.Log.Error($"The provided path for the application does not exist: {appFolder}");
-            return;
-        }
+            // Clean state from previous runs.
+            DeleteJsonReposFolder(context, appFolder);
 
-        // Recreate solution file by running the slngen script
-        string slnGenPath = Path.GetFullPath(Path.GetFullPath(Path.Combine(appFolder, "..", "./slngen.ps1")));
-        DotNetCmd.RunPowershellScript(context, slnGenPath, "");
+            // Prepare a fresh PLCSIM Advanced virtual memory card instance.
+            InitializePlcSimInstance(context, appName);
 
-        // Clean solution
-        string solutionFile = Path.GetFullPath(Path.Combine(appFolder, "../this.sln"));
-        DotNetCmd.DotNetClean(context, solutionFile, "-c Debug");
+            // Provide the certificate / security configuration used by the secure download.
+            OverwriteSecurityFiles(context, appYamlFile, context.PlcName);
 
+            // Full first-download of hardware + software onto the simulator.
+            LoadShowcasePlc(context, appFolder, ref summaryResult);
 
-        //##########################          template.axolibrary     =>       ######################//
-        if (appFolder.Contains("template.axolibrary"))
-        {
-            string dot_g_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.g"));
-            context.CleanDirectory(dot_g_folder, new CleanDirectorySettings() { Force = true });
-
-            string dot_meta_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.meta"));
-            context.CleanDirectory(dot_meta_folder, new CleanDirectorySettings() { Force = true });
-
-            // Run "dotnet ixc" 
-            DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
-        }
-
-        //##########################     <=     template.axolibrary              ######################//
-
-        //// Build solution
-        //string buildResult = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
-        //WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
-
-        //// Get blazor projects
-        //var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
-
-        // Get blazor projects
-        var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
-
-
-
-        if (blazorFiles.Any())
-        {
-            foreach (var blazorFile in blazorFiles)
+            if (!summaryResult)
             {
-                // Build solution
-                string buildResult = DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
-                WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
+                context.Log.Error("Showcase PLC load failed.");
+            }
+            else
+            {
+                // Build and run the Blazor server, then probe it over HTTPS.
+                var blazorFile = Directory
+                    .GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories)
+                    .FirstOrDefault(file => file.Contains("blazor") && !File.ReadAllText(file).Contains("<PackageId>"));
 
-                context.Log.Information($"Application 'blazor' file: {blazorFile}");
-
-                // Filter out libraries by checking for <PackageId> in the project file
-                string csprojContent = File.ReadAllText(blazorFile);
-                if (!csprojContent.Contains("<PackageId>"))
+                if (string.IsNullOrEmpty(blazorFile))
                 {
-                    string runResult = DotNetCmd.DotNetRunWithResult(context, blazorFile, "-c Debug --framework net9.0", 60, ref summaryResult);
-                    WriteResult(context, runResult, logFilePath, appendToSameLine: true);
+                    context.Log.Error("No runnable Blazor project (*blazor*.csproj without <PackageId>) was found.");
+                    summaryResult = false;
+                }
+                else
+                {
+                    DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
+
+                    DotNetCmd.DotNetRunWithHealthCheck(
+                        context,
+                        blazorFile,
+                        "-c Debug --launch-profile https",
+                        "https://localhost:7290",
+                        120,
+                        ref summaryResult);
                 }
             }
         }
-        else
+        finally
         {
-            context.Log.Information("No files containing 'blazor' in the filename and ending with '.csproj' were found.");
+            // Always tear down the Blazor server and the simulator, even on success.
+            KillProcess(context, "dotnet");
+            KillProcess(context, "Siemens.Simatic.PlcSim.Advanced.UserInterface");
         }
+
+        if (!summaryResult)
+        {
+            context.Log.Error("Showcase integration (test level 4) failed.");
+            Environment.Exit(1);
+        }
+
+        context.Log.Information("Showcase integration (test level 4) done.");
+    }
+
+    /// <summary>
+    /// Performs the full first-download apax sequence for the showcase application onto PLCSIM Advanced:
+    /// install -> plcsim -> gsd -> hwl -> hwcc -> hwid -> hwadr -> hwdo -> build -> dotnet ixc -> swfdo.
+    /// </summary>
+    public static void LoadShowcasePlc(BuildContext context, string appFolder, ref bool summaryResult)
+    {
+        ApaxCmd.ApaxCommand(context, appFolder, "install", ref summaryResult);   // install dependencies
+        ApaxCmd.ApaxPlcSim(context, appFolder, ref summaryResult);              // start PLCSIM Advanced instance
+        ApaxCmd.ApaxCommand(context, appFolder, "gsd", ref summaryResult);       // copy & install GSDML files
+        ApaxCmd.ApaxCommand(context, appFolder, "hwl", ref summaryResult);       // copy hardware templates
+        ApaxCmd.ApaxCommand(context, appFolder, "hwcc", ref summaryResult);      // compile hardware configuration
+        ApaxCmd.ApaxCommand(context, appFolder, "hwid", ref summaryResult);      // copy generated HwIds
+        ApaxCmd.ApaxCommand(context, appFolder, "hwadr", ref summaryResult);     // copy generated IO addresses
+        ApaxCmd.ApaxCommand(context, appFolder, "hwdo", ref summaryResult);      // download hardware only
+        ApaxCmd.ApaxCommand(context, appFolder, "build", ref summaryResult);     // compile SIMATIC AX code
+        DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);             // generate IXC twin controller
+        ApaxCmd.ApaxCommand(context, appFolder, "swfdo", ref summaryResult);     // software full download only
     }
 
     public static (bool Success, string FilePath) CreateLogFile(BuildContext context, string fileNamePrefix = "app_test_result")
