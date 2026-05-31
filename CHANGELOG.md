@@ -1,3 +1,21 @@
+### [BUILD] `axdev` loads dotnet user-secrets at startup
+
+**Note:** Developer-CLI enhancement in `src/axopen.dev`. No PLC source change, no public-API removal. Branch: `feat/axdev-user-secrets-loader`.
+
+- feat: `AXOpen.Dev.Secrets.UserSecretsLoader` reads dotnet user-secrets into the process environment so PLC verbs resolve `AX_TARGET_PWD` / `AX_USERNAME` without a prior `source load-secrets.sh`. It locates the twin project's `<UserSecretsId>` (probes `../axpansion/twin` then `.`, overridable via the `AX_SECRETS_PROJECT` environment variable), reads its `secrets.json` from the OS user-secrets root, and flattens nested keys with the standard `key:subkey` convention.
+- feat: New shared entry point `AxdevApp.Run(args)` calls `UserSecretsLoader.Load()` then builds and runs the command app. Both the packed `dotnet axdev` tool (`AXOpen.Dev.Tool/Program.cs`) and the in-repo dispatcher (`src/scripts/dev.cs`) now call `AxdevApp.Run` instead of `AxdevApp.Build().Run`.
+- test: `AXOpen.Dev.Tests/Secrets/UserSecretsLoaderTests.cs` covers apply-from-store, existing-env-wins precedence, missing project / missing store / malformed JSON / no-`UserSecretsId` no-ops, the `AX_SECRETS_PROJECT` override, and nested-key flattening.
+
+**Impact:**
+- The template's credential UX (per-project `dotnet user-secrets`) is preserved while removing the bash `source load-secrets.sh` step, so apax verbs can call `axdev` directly on any platform.
+- Precedence is non-surprising: an already-set environment variable (or apax variable) always wins over the secrets store; an explicit `-p/--password` still overrides everything in `PlcCommandSettings.ResolvePassword`.
+
+**Risks/Review:**
+- Secret loading is best-effort: a missing twin project, missing store, or unreadable JSON is a silent no-op, and the per-command argument guards still report any genuinely missing credential.
+
+**Testing:**
+- `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — full suite green (176 passed), including the 8 new `UserSecretsLoaderTests`.
+
 ### [BUILD] Dependency-maintenance tooling + AXSharp `0.47.0-alpha.484` bump
 
 **Note:** Build/CI tooling and dependency maintenance. No public-API change, no PLC source change. Branch: `deps-update`.

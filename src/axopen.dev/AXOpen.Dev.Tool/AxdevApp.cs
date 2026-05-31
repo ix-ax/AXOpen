@@ -1,3 +1,4 @@
+using AXOpen.Dev.Secrets;
 using AXOpen.Dev.Tool.Commands;
 using Spectre.Console.Cli;
 
@@ -5,11 +6,22 @@ namespace AXOpen.Dev.Tool;
 
 /// <summary>
 /// Builds the shared <see cref="CommandApp"/> used by both the packed dotnet tool
-/// (<c>axdev</c>) and the in-repo file-based dispatcher (<c>src/scripts/axdev.cs</c>).
+/// (<c>axdev</c>) and the in-repo file-based dispatcher (<c>src/scripts/dev.cs</c>).
 /// Descriptive verb names are canonical; the apax aliases are real invokable aliases.
 /// </summary>
 public static class AxdevApp
 {
+    /// <summary>
+    /// Shared entry point for both the packed tool (<c>Program.cs</c>) and the in-repo
+    /// dispatcher (<c>dev.cs</c>). Loads dotnet user-secrets into the environment (replacing
+    /// <c>source load-secrets.sh</c>) before building and running the command app.
+    /// </summary>
+    public static int Run(string[] args)
+    {
+        UserSecretsLoader.Load();
+        return Build().Run(args);
+    }
+
     public static CommandApp Build()
     {
         var app = new CommandApp();

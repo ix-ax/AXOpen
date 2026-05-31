@@ -6,4 +6,4 @@
 // Named dev.cs (not axdev.cs) to avoid an assembly-name clash with the tool (AssemblyName=axdev).
 using AXOpen.Dev.Tool;
 
-return AxdevApp.Build().Run(args);
+return AxdevApp.Run(args);
