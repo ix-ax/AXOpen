@@ -412,6 +412,10 @@ hwc\import-cache
 #AX HWC secrets
 certs
 
+# ...but the AXOpen.Dev source namespace folder is code, not a secret store
+!src/axopen.dev/AXOpen.Dev/Certs/
+!src/axopen.dev/AXOpen.Dev/Certs/**
+
 #AX HWC installed gsdml
 import-cache
 
