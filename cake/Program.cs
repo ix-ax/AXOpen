@@ -379,6 +379,10 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
 
             context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
+
+            // Offline showcase build: everything `apax alf` does except the PLC-access steps.
+            var showcaseApp = Path.Combine(context.RootDir, "showcase", "app", "apax.yml");
+            AppsRunTaskHelpers.BuildShowcaseOffline(context, showcaseApp);
         }
         if (context.BuildParameters.TestLevel >= 3)
         {

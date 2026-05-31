@@ -90,8 +90,8 @@ internal static class AppsRunTaskHelpers
         }
         finally
         {
-            // Always tear down the Blazor server and the simulator, even on success.
-            KillProcess(context, "dotnet");
+            // The Blazor process tree is terminated inside DotNetRunWithHealthCheck; here we make sure
+            // the simulator is always torn down, even on success.
             KillProcess(context, "Siemens.Simatic.PlcSim.Advanced.UserInterface");
         }
 
@@ -102,6 +102,86 @@ internal static class AppsRunTaskHelpers
         }
 
         context.Log.Information("Showcase integration (test level 4) done.");
+    }
+
+    /// <summary>
+    /// Offline portion of the showcase "apax alf" workflow, used at test level 2: performs everything
+    /// alf does that does NOT require PLC/PLCSIM access — clean, install, hardware-configuration compile
+    /// and generate, and software build. The PLC-bound steps (plcsim, clean_plc, ssc, hardware/software
+    /// download) are intentionally skipped. The Blazor server is then started with a DUMMY connector
+    /// (no PLC) and probed over HTTPS. Fails the build (non-zero exit) on any error.
+    /// </summary>
+    public static void BuildShowcaseOffline(BuildContext context, string appYamlFile)
+    {
+        bool summaryResult = true;
+
+        if (string.IsNullOrWhiteSpace(appYamlFile) || !File.Exists(appYamlFile))
+        {
+            context.Log.Error($"Showcase application file does not exist: {appYamlFile}");
+            Environment.Exit(1);
+            return;
+        }
+
+        string appFolder = Path.GetFullPath(Path.GetDirectoryName(appYamlFile));
+
+        context.Log.Information("###################################################");
+        context.Log.Information("Test level 2 showcase offline build (apax alf without PLC access)");
+        context.Log.Information($"Application file: {appYamlFile}");
+        context.Log.Information("###################################################");
+
+        ApaxCmd.ApaxCommand(context, appFolder, "clean", ref summaryResult);     // local clean
+        ApaxCmd.ApaxCommand(context, appFolder, "install", ref summaryResult);   // install dependencies
+        ApaxCmd.ApaxCommand(context, appFolder, "gsd", ref summaryResult);       // copy & install GSDML files
+        ApaxCmd.ApaxCommand(context, appFolder, "hwl", ref summaryResult);       // copy hardware templates
+        ApaxCmd.ApaxCommand(context, appFolder, "hwcc", ref summaryResult);      // compile hardware configuration
+        ApaxCmd.ApaxCommand(context, appFolder, "hwid", ref summaryResult);      // copy generated HwIds
+        ApaxCmd.ApaxCommand(context, appFolder, "hwadr", ref summaryResult);     // copy generated IO addresses
+        ApaxCmd.ApaxCommand(context, appFolder, "build", ref summaryResult);     // compile SIMATIC AX code
+        DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);             // generate IXC twin controller
+
+        // Run the Blazor server with the dummy connector and probe it over HTTPS (no PLC required).
+        if (summaryResult)
+        {
+            var blazorFile = Directory
+                .GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories)
+                .FirstOrDefault(file => file.Contains("blazor") && !File.ReadAllText(file).Contains("<PackageId>"));
+
+            if (string.IsNullOrEmpty(blazorFile))
+            {
+                context.Log.Error("No runnable Blazor project (*blazor*.csproj without <PackageId>) was found.");
+                summaryResult = false;
+            }
+            else
+            {
+                // Select the dummy connector for the child process (see TwinConnectorSelector in Entry.cs).
+                Environment.SetEnvironmentVariable("AXOPEN_USE_DUMMY_CONNECTOR", "true");
+                try
+                {
+                    DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
+
+                    DotNetCmd.DotNetRunWithHealthCheck(
+                        context,
+                        blazorFile,
+                        "-c Debug --launch-profile https",
+                        "https://localhost:7290",
+                        120,
+                        ref summaryResult);
+                }
+                finally
+                {
+                    // The spawned Blazor process tree is terminated inside DotNetRunWithHealthCheck.
+                    Environment.SetEnvironmentVariable("AXOPEN_USE_DUMMY_CONNECTOR", null);
+                }
+            }
+        }
+
+        if (!summaryResult)
+        {
+            context.Log.Error("Showcase offline build (test level 2) failed.");
+            Environment.Exit(1);
+        }
+
+        context.Log.Information("Showcase offline build (test level 2) done.");
     }
 
     /// <summary>
