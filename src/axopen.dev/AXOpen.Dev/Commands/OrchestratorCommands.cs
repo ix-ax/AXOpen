@@ -64,7 +64,7 @@ public sealed class AllFirstCommand(ApaxClient apax, OpensslClient openssl, Dotn
 
         if (!PasswordValidator.IsSafe(password))
         {
-            Output.Error("The PASSWORD contains problematic characters. Cannot use: $ ` \\ \" ' & | ; < > ( ) * ? [ ] { } or whitespace");
+            Output.Error("The PASSWORD contains problematic characters. Cannot use: ` \\ \" ' | ; < > ? [ ] { } or whitespace");
             return 1;
         }
 

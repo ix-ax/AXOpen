@@ -1,3 +1,13 @@
+### [FIX] `axdev` password guard contradicted the secrets complexity policy
+
+**Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
+
+- fix: `AXOpen.Dev.Validation.PasswordValidator` no longer rejects `$ & ( ) *`. These are endorsed by the set-time complexity policy (`configure-secrets.sh` requires a special char from `!@#$%^&*()_+-=`), so a password that satisfied the complexity rule was then rejected at use time by `axdev alf` / `axdev all` with "The PASSWORD contains problematic characters." The blocklist now keeps only genuinely-dangerous shell metacharacters (`` ` \ " ' | ; < > ? [ ] { } `` and whitespace) — safe because arguments reach apax/openssl via CliWrap (no shell). Error message and `PasswordValidatorTests` updated.
+
+**Impact:** `apax alf` / `apax all` accept the same passwords the secrets-setup flow accepts; no more spurious rejection of compliant passwords.
+
+**Testing:** `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — 180 passed.
+
 ### [BUILD] `axdev` loads dotnet user-secrets at startup
 
 **Note:** Developer-CLI enhancement in `src/axopen.dev`. No PLC source change, no public-API removal. Branch: `feat/axdev-user-secrets-loader`.
