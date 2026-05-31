@@ -8,6 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.Distributed
     {
+        [AXSharp.Connector.SourceFileAttribute(@"Distributed/ExchangesWrappedInAxoObject.st")]
         public partial class ExchangesWrappedInAxoObject : AXOpen.Core.AxoObject, AXSharp.Connector.IPlain
         {
             public ExchangesWrappedInAxoObject() : base()
