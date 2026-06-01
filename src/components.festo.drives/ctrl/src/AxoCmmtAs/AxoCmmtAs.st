@@ -3462,6 +3462,32 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#129;
                     END_IF;
                 END_IF;
+
+                // //Writing P1.102223.0.0 – Selection of dynamic torque boost → [0] None 
+                // // PNU 13073.0 - USINT
+                // IF State = UINT#1123 THEN
+                //     Busy := TRUE;            
+                //     Active := TRUE;          
+                //     Parametrization.Inputs.Enable := TRUE;
+                //     Parametrization.Inputs.ReadWrite   := TRUE;
+                //     Parametrization.Inputs.ParameterNo := 13073;
+                //     Parametrization.Inputs.Subindex    := 0;
+                //     Parametrization.Inputs.AxisNo  := BYTE#1;
+                //     Parametrization.Inputs.HardwareId  := _AxisReference^.HWIDs.HW_ModuleAccessPoint;
+                //     Parametrization.Inputs.ValueWriteLINT := LINT#0;
+                //     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                //         Parametrization.Inputs.Enable := FALSE;
+                //         Parametrization.Inputs.ReadWrite   := FALSE;
+                //         State := UINT#124;
+                //         RETURN;
+                //     END_IF;
+                //     IF Parametrization.Outputs.Error THEN 
+                //         Messenger.Activate(         UINT#1542, eAxoMessageCategory#Error);
+                //         MC_TorqueControlErrorID :=  DINT#1542;
+                //         State := UINT#129;
+                //     END_IF;
+                // END_IF;
+
                 IF State = UINT#124 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
