@@ -1,3 +1,25 @@
+### [FIX] `AxoCmmtAs` loses axis position while in torque control
+
+**Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
+
+- fix: `AxoCmmtAs` positioning no longer advances past the target-reached step on the `Telegram111_In.ZSW1.targetPosReached` (X10) bit alone. It now additionally requires the actual position to be within the in-position window — `ABS(Position - ActualPosition) <= _AxisReference^.Config.InPositionWindow` — before transitioning, so a drive that asserts `targetPosReached` while still off target (e.g. after a torque-control phase) no longer "loses" its position.
+- fix: Removed an unstable torque-control guard that raised programming error `1542` (`eAxoMessageCategory#ProgrammingError`, `MC_TorqueControlErrorID := 1542`) whenever `targetPosReached` became true during torque-control states `126`/`127`. The check proved unreliable and is disabled pending further investigation.
+- feat: `AxoDrive_Config` (in `src/components.drives`) gains an `InPositionWindow` parameter (`LREAL`, default `0.05`) supplying the tolerance above.
+- chore: Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`.
+- chore: Disabled an unfinished dynamic-torque-boost parameter write (PNU `13073`).
+- docs: Updated `components.festo.drives` docs (CHANGELOG `0.61.1`, TROUBLES, `AxoCmmtAs.md`) to document the in-position window, the ZSW1 bit map, and the torque-control behaviour.
+
+**Impact:**
+- Absolute positioning moves on Festo CMMT-AS drives complete only when the axis is genuinely within `InPositionWindow` of the commanded target, fixing the position loss observed after torque control.
+- The spurious `1542` programming error during torque control no longer fires.
+
+**Risks/Review:**
+- `InPositionWindow` defaults to `0.05` (axis position units). Too small a value can stall a move just before completion; too large lets it complete while still off target — tune per axis.
+- The torque-control `1542` guard is disabled rather than fixed; the underlying condition is still under investigation.
+
+**Testing:**
+- Delivered and reviewed via PR #1166 (issue #1152). No automated AxUnit test was added for the in-position gate.
+
 ### [FIX] `axdev` password guard contradicted the secrets complexity policy
 
 **Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
