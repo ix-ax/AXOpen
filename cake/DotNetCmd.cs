@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Cake.Common.IO;
@@ -484,6 +485,133 @@ public static class DotNetCmd
 
             // Log exit code
             context.Log.Information($"Process exited with code: {process.ExitCode}");
+            return retVal;
+        }
+    }
+
+    /// <summary>
+    /// Runs a project via "dotnet run" and probes <paramref name="healthUrl"/> until it returns a
+    /// success status code or <paramref name="maxWaitSeconds"/> elapses. The probe accepts self-signed
+    /// development certificates. The spawned process is always terminated before returning.
+    /// Returns ",OK" on a healthy response, ",NOK" otherwise (and sets <paramref name="summaryResult"/> to false).
+    /// </summary>
+    public static string DotNetRunWithHealthCheck(this BuildContext context, string projectPath, string arguments, string healthUrl, int maxWaitSeconds, ref bool summaryResult)
+    {
+        string workDir = Path.GetFullPath(Path.Combine(projectPath, ".."));
+        string args = $"run --project \"{projectPath}\" {arguments}";
+        context.Log.Information($"Dotnet run (health check) started with project: {projectPath}");
+
+        string retVal = ",NOK";
+
+        var processStartInfo = new ProcessStartInfo
+        {
+            FileName = "dotnet",
+            Arguments = args,
+            WorkingDirectory = workDir,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+
+        using (var process = Process.Start(processStartInfo))
+        {
+            if (process == null)
+            {
+                summaryResult = false;
+                throw new Exception("Failed to start the process.");
+            }
+
+            // Asynchronously drain the output and error streams.
+            Task outputTask = Task.Run(() =>
+            {
+                while (!process.StandardOutput.EndOfStream)
+                {
+                    var line = process.StandardOutput.ReadLine();
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        context.Log.Information($"[Output] {line}");
+                    }
+                }
+            });
+
+            Task errorTask = Task.Run(() =>
+            {
+                while (!process.StandardError.EndOfStream)
+                {
+                    var line = process.StandardError.ReadLine();
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        context.Log.Error($"[Error] {line}");
+                    }
+                }
+            });
+
+            try
+            {
+                // Probe the server, accepting the self-signed development certificate.
+                using (var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                })
+                using (var client = new HttpClient(handler) { Timeout = TimeSpan.FromSeconds(5) })
+                {
+                    bool healthy = false;
+                    int waited = 0;
+
+                    while (waited < maxWaitSeconds)
+                    {
+                        if (process.HasExited)
+                        {
+                            context.Log.Error($"The application '{projectPath}' exited before serving (exit code {process.ExitCode}).");
+                            break;
+                        }
+
+                        try
+                        {
+                            var response = client.GetAsync(healthUrl).GetAwaiter().GetResult();
+                            if (response.IsSuccessStatusCode)
+                            {
+                                context.Log.Information($"Health check OK: {healthUrl} returned {(int)response.StatusCode}.");
+                                healthy = true;
+                                break;
+                            }
+
+                            context.Log.Information($"Health check: {healthUrl} returned {(int)response.StatusCode}, retrying...");
+                        }
+                        catch (Exception ex)
+                        {
+                            context.Log.Information($"Health check: {healthUrl} not ready yet ({ex.Message}), retrying...");
+                        }
+
+                        Task.Delay(2000).Wait();
+                        waited += 2;
+                    }
+
+                    if (healthy)
+                    {
+                        retVal = ",OK";
+                    }
+                    else
+                    {
+                        summaryResult = false;
+                        context.Log.Error($"Health check FAILED: no success response from {healthUrl} within {maxWaitSeconds}s.");
+                    }
+                }
+            }
+            finally
+            {
+                // Always stop the server.
+                if (!process.HasExited)
+                {
+                    context.Log.Information($"Terminating the application '{projectPath}'...");
+                    process.Kill(true);
+                }
+
+                Task.WhenAll(outputTask, errorTask);
+                context.Log.Information($"Process exited with code: {process.ExitCode}");
+            }
+
             return retVal;
         }
     }

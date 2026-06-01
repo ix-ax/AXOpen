@@ -10,6 +10,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.PersistentData
 {
+    [AXSharp.Connector.SourceFileAttribute(@"PersistentData/PersistentRootObject.st")]
     public partial class PersistentRootObject : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool NotPersistentVariable { get; }

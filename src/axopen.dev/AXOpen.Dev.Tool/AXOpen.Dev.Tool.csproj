@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>AXOpen.Dev.Tool</RootNamespace>
+    <AssemblyName>axdev</AssemblyName>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>axdev</ToolCommandName>
+    <PackageId>AXOpen.Dev.Tool</PackageId>
+    <Description>AXOpen developer CLI (axdev): SIMATIC-AX hardware/software workflow, secure communication, diagnostics and scaffolding.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Cli" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AXOpen.Dev\AXOpen.Dev.csproj" />
+  </ItemGroup>
+
+</Project>
