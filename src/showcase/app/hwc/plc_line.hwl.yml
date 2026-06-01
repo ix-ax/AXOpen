@@ -4,11 +4,11 @@ Devices:
     - Apply: 6ES7518-3AT10-0AB0_v4_1
       Arguments:
         NAME: plc_line
-        IP_ADDRESS_X1: '192.168.100.1/24'
+        IP_ADDRESS_X1: '192.168.100.10/24'
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
-        IP_ADDRESS_X2: '192.168.101.1/24'
+        IP_ADDRESS_X2: '192.168.101.10/24'
         PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
-        IP_ADDRESS_X3: '192.168.102.1/24'
+        IP_ADDRESS_X3: '192.168.102.10/24'
         PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50  
@@ -21,7 +21,7 @@ Devices:
         NAME: A1
 
   # =============================================
-  # Robotics (.002 - .019)
+  # Robotics (.011 - .019)
   # =============================================
 
   #<AbbIrc5Device>
@@ -29,7 +29,7 @@ Devices:
   - Apply: abb_irc5_robot_in64b_out64b
     Arguments:
       NAME: abb_irc5_robot
-      IP_ADDRESS_X1: '192.168.100.2/24'
+      IP_ADDRESS_X1: '192.168.100.11/24'
       PROFINET_DEVICE_NAME_X1: abb_irc5_robot
   #</AbbIrc5Device>
 
@@ -38,7 +38,7 @@ Devices:
   - Apply: abb_omnicore_robot_in64b_out64b
     Arguments:
       NAME: abb_omnicore_robot
-      IP_ADDRESS_X1: '192.168.100.3/24'
+      IP_ADDRESS_X1: '192.168.100.12/24'
       PROFINET_DEVICE_NAME_X1: abb_omnicore_robot
   #</AbbOmnicoreDevice>
 
@@ -47,7 +47,7 @@ Devices:
   - Apply: kuka_krc4_dio512
     Arguments:
       NAME: kuka_rb1
-      IP_ADDRESS_X1: '192.168.100.4/24'
+      IP_ADDRESS_X1: '192.168.100.13/24'
       PROFINET_DEVICE_NAME_X1: kuka_rb1
   #</KukaKrc4Device>
 
@@ -56,7 +56,7 @@ Devices:
   - Apply: kuka_krc5_dio512
     Arguments:
       NAME: kuka_rb2
-      IP_ADDRESS_X1: '192.168.100.5/24'
+      IP_ADDRESS_X1: '192.168.100.14/24'
       PROFINET_DEVICE_NAME_X1: kuka_rb2
   #</KukaKrc5Device>
 
@@ -65,7 +65,7 @@ Devices:
   - Apply: mitsubishi_tz535_64b_inout
     Arguments:
       NAME: mitsubishi_tz535_robot
-      IP_ADDRESS_X1: '192.168.100.6/24'
+      IP_ADDRESS_X1: '192.168.100.15/24'
       PROFINET_DEVICE_NAME_X1: mitsubishi_tz535_robot
   #</MitsubishiTz535Device>
 
@@ -74,7 +74,7 @@ Devices:
   - Apply: ur_robot
     Arguments:
       NAME: ureol2l
-      IP_ADDRESS_X1: '192.168.100.7/24'
+      IP_ADDRESS_X1: '192.168.100.16/24'
       PROFINET_DEVICE_NAME_X1: ureol2l
   #</UrRobotDevice>
 
