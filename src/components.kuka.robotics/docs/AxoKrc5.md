@@ -37,6 +37,11 @@ Refer to the [`AxoKrc4`](AxoKrc4.md) page for:
 > - Safety message **20002** (`Inputs.Automatic = FALSE` while a task is busy)
 >   is raised as `Info` on `AxoKrc5`, where `AxoKrc4` still raises it as
 >   `Error`.
+> - Its tasks no longer self-abort on the duration/error-timer watchdog
+>   (#1167). `AxoKrc5` no longer calls `ThrowWhen` on `Config.TaskTimeout`
+>   or `Config.ErrorTime` (`_errorTimer.output`); a stalled task now surfaces
+>   through the component's own status message instead of a redundant
+>   task-timeout error. `AxoKrc4` still applies both watchdogs.
 
 The differences between KRC4 and KRC5 are confined to:
 
@@ -56,6 +61,12 @@ The differences between KRC4 and KRC5 are confined to:
 LT#2S`, `ErrorTime = LT#5S`, `TaskTimeout = LT#50S`) match KRC4 — see the
 [`AxoKrc4` configuration table](AxoKrc4.md#configuration) for the meaning of
 each field.
+
+> [!NOTE]
+> Since #1167, `ErrorTime` and `TaskTimeout` no longer abort `AxoKrc5` tasks
+> (the `ThrowWhen` watchdogs were removed). They are still applied by `AxoKrc4`.
+> On `AxoKrc5` a stalled task is reported through the component's status
+> message rather than raising a task-timeout error.
 
 [!code-smalltalk[](../ctrl/src/AxoKrc5/v_5_x_x/TypesStructuresAndEnums/AxoKrc5_Config.st?name=AxoKrc5ConfigDeclaration)]
 

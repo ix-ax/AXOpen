@@ -66,8 +66,11 @@ They are not errors.
 - `Inputs.Error = TRUE` raises error 20005 while a task is busy; clear
   the KRC4-side fault, then call `ExampleRobot.ErrorConfirmation` via
   `Outputs.ErrorConfirmation` or run the `Restore` sequencer step.
-- `Config.TaskTimeout` has not elapsed (default `LT#50S`). Set to `0s`
-  during commissioning to disable the watchdog.
+- **(KRC4 only)** `Config.TaskTimeout` has not elapsed (default `LT#50S`).
+  Set to `0s` during commissioning to disable the watchdog. Since #1167
+  `AxoKrc5` no longer aborts tasks on `TaskTimeout` / `ErrorTime`; a stalled
+  KRC5 task is reported through the component status message instead, so
+  there is no task-timeout watchdog to disable on KRC5.
 
 ### Movement parameters never take effect
 
