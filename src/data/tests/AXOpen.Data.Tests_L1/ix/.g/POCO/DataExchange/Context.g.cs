@@ -8,6 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.DataExchange
     {
+        [AXSharp.Connector.SourceFileAttribute(@"DataExchange/Context.st")]
         public partial class DataExchangeContext : AXOpen.Core.AxoContext, AXSharp.Connector.IPlain
         {
             public DataExchangeContext() : base()

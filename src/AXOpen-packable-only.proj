@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
-	<ItemGroup>    
-		<ProjectReference Include="**\src\**\*.csproj"  Exclude="**\.apax\**\*.*;templates.simple\**;template.axolibrary\**;clientchat\**;tools\**"/>  
-		<ProjectReference Include="**\ctrl\ix\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  	  
+	<ItemGroup>
+		<ProjectReference Include="**\src\**\*.csproj"  Exclude="**\.apax\**\*.*;templates.simple\**;template.axolibrary\**;clientchat\**;tools\**"/>
+		<ProjectReference Include="**\ctrl\ix\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
+		<!-- axdev developer CLI: pack + push the dotnet tool to the inxton GitHub Packages feed. -->
+		<ProjectReference Include="axopen.dev\AXOpen.Dev.Tool\AXOpen.Dev.Tool.csproj" />
 	</ItemGroup>
 </Project>

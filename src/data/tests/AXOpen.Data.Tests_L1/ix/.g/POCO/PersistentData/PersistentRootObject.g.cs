@@ -9,6 +9,7 @@ namespace Pocos
 {
     namespace Tests_L1.PersistentData
     {
+        [AXSharp.Connector.SourceFileAttribute(@"PersistentData/PersistentRootObject.st")]
         public partial class PersistentRootObject : AXSharp.Connector.IPlain
         {
             public PersistentRootObject()
