@@ -1,0 +1,114 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C1
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C2
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C3
+  - plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C4
+  name: AxoIOLinkET200SP_Balluff_IO_In
+  fullName: AxoIOLinkET200SP_Balluff_IO_In
+  type: Class
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: CLASS AxoIOLinkET200SP_Balluff_IO_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C1
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C1
+  parent: AXOpen.Io
+  children: []
+  name: C1
+  fullName: C1
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C1
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'C1 : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C2
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C2
+  parent: AXOpen.Io
+  children: []
+  name: C2
+  fullName: C2
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C2
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'C2 : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C3
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C3
+  parent: AXOpen.Io
+  children: []
+  name: C3
+  fullName: C3
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C3
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+    startLine: 10
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'C3 : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C4
+  id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C4
+  parent: AXOpen.Io
+  children: []
+  name: C4
+  fullName: C4
+  type: Property
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_In.C4
+    path: .\src\io\ctrl\src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st
+    startLine: 14
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'C4 : AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port'
+    return:
+      type: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+references:
+- uid: plc.AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+  name: AxoIOLinkET200SP_Balluff_IO_Port
+  nameWithType: AxoIOLinkET200SP_Balluff_IO_Port
+  fullName: AXOpen.Io.AxoIOLinkET200SP_Balluff_IO_Port
+
+

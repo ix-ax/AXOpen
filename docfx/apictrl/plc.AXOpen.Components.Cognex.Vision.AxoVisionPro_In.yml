@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+  parent: plc.AXOpen.Components.Cognex.Vision
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In.Status
+  name: AxoVisionPro_In
+  fullName: AxoVisionPro_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: CLASS AxoVisionPro_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In.Status
+  id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In.Status
+  parent: AXOpen.Components.Cognex.Vision
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_In.Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoVisionPro\TypesStructuresAndEnums\AxoVisionPro_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision
+  syntax:
+    content: 'Status : AXOpen.Components.Cognex.Vision.AxoVisionPro_Status'
+    return:
+      type: AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+references:
+- uid: plc.AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+  name: AxoVisionPro_Status
+  nameWithType: AxoVisionPro_Status
+  fullName: AXOpen.Components.Cognex.Vision.AxoVisionPro_Status
+
+

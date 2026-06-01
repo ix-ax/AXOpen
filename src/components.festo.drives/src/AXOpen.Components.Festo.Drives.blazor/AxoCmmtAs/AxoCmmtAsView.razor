@@ -2,13 +2,14 @@
 @using AXOpen.Core
 @using AXOpen.Core.Blazor
 @using AXOpen.Components.Drives
+@using Operon.Components.Tab
 @inherits AxoComponentViewBase<AxoCmmtAs>
 
 <AxoComponentContainerView Component="@Component" ParentReference="this">
     <HeaderContent>
         <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm" @onclick:stopPropagation="true">
             <span class="badge @DriveStateBadgeClass">@DriveStateLabel</span>
-            <span class="badge badge-soft">@CurrentMotionTaskLabel</span>
+            @* <span class="badge badge-soft">@CurrentMotionTaskLabel</span> *@
             <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Position"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@FormattedPosition</strong>
@@ -21,200 +22,408 @@
                 <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Torque"]</span>
                 <strong class="text-[0.85rem] text-slate-900/90">@FormattedTorque</strong>
             </div>
+            @*<div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["State"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@Component.State.Cyclic</strong>
+            </div>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["ScalingReadState"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@Component.ScalingReadState.Cyclic</strong>
+            </div>
+             <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Debug"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@Component.Debug.Cyclic</strong>
+            </div> *@
         </div>
     </HeaderContent>
 
     <CommandsOperateContent>
-        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["PowerAndSafety"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["PowerAndSafetyDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoToggleTaskCommandView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-2">
-                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Control" />
-                </div>
-            </section>
+        <div class="w-full" @onclick:stopPropagation="true">
+            <Tab Class="min-w-0">
+                <TabPage Title="@Localizer["PowerAndSafety"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskCommandView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["ResetDrive"]" Component="Component.AxoReset_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["HomingAndReferencing"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["HomingAndReferencingDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskCommandView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
-                    <AxoToggleTaskCommandView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Control" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["Home"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["DiscreteMotion"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["DiscreteMotionDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskCommandView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Control" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["SetPosition"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["ContinuousMotionAndTorque"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["ContinuousMotionDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskCommandView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
-                    <AxoTaskCommandView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Control" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["Override"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoToggleTaskCommandView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveAbsolute"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveRelative"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveAdditive"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["VelocityButton"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["TorqueControl"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskCommandView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["ParameterAccess"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoTaskCommandView Text="@Localizer["WriteParameter"]" Component="Component.AxoWriteParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadParameter"]" Component="Component.AxoReadParameter_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["WriteRealParameter"]" Component="Component.AxoWriteRealParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadRealParameter"]" Component="Component.AxoReadRealParameter_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["WriteBoolParameter"]" Component="Component.AxoWriteBoolParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadBoolParameter"]" Component="Component.AxoReadBoolParameter_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoWriteParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteParameter_Value" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteParameter_ExecutionMode" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_Value" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_ExecutionMode" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_Value" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_ExecutionMode" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_ParameterNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_Valid" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["DigitalIO"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadDigitalInput"]" Component="Component.AxoReadDigitalInput_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadDigitalOutput"]" Component="Component.AxoReadDigitalOutput_Task" HideRestoreButton="false" />
+                            <AxoTaskCommandView Text="@Localizer["WriteDigitalOutput"]" Component="Component.AxoWriteDigitalOutput_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_InputNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_OutputNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_OutputNumber" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_Value" Presentation="Control" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_ExecutionMode" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["ExplicitReads"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadActualPosition"]" Component="Component.AxoReadActualPosition_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadActualVelocity"]" Component="Component.AxoReadActualVelocity_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadActualTorque"]" Component="Component.AxoReadActualTorque_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadStatus"]" Component="Component.AxoReadStatus_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadMotionState"]" Component="Component.AxoReadMotionState_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskCommandView Text="@Localizer["ReadAxisInfo"]" Component="Component.AxoReadAxisInfo_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoReadActualPosition_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadActualVelocity_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadActualTorque_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadMotionState_Source" Presentation="Control" />
+                        </div>
+                    </div>
+                </TabPage>
+            </Tab>
         </div>
     </CommandsOperateContent>
 
     <CommandsMonitorContent>
-        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["PowerAndSafety"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["LiveFeedbackDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoToggleTaskStatusView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-2">
-                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Display" />
-                </div>
-            </section>
+        <div class="w-full" @onclick:stopPropagation="true">
+            <Tab Class="min-w-0">
+                <TabPage Title="@Localizer["PowerAndSafety"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskStatusView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["ResetDrive"]" Component="Component.AxoReset_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["HomingAndReferencing"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["MonitorReferencingDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskStatusView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
-                    <AxoToggleTaskStatusView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Display" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["Home"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["DiscreteMotion"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["DiscreteMotionMonitorDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskStatusView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Display" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["SetPosition"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
 
-            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
-                <div class="section-header">
-                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["ContinuousMotionAndTorque"]</h6>
-                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["ContinuousMotionMonitorDescription"]</p>
-                </div>
-                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
-                    <AxoTaskStatusView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
-                    <AxoTaskStatusView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-3">
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Display" />
-                </div>
-            </section>
+                <TabPage Title="@Localizer["Override"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoToggleTaskStatusView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveAbsolute"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveRelative"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["MoveAdditive"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["VelocityButton"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-2">
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["TorqueControl"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <AxoTaskStatusView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["ParameterAccess"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoTaskStatusView Text="@Localizer["WriteParameter"]" Component="Component.AxoWriteParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadParameter"]" Component="Component.AxoReadParameter_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["WriteRealParameter"]" Component="Component.AxoWriteRealParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadRealParameter"]" Component="Component.AxoReadRealParameter_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["WriteBoolParameter"]" Component="Component.AxoWriteBoolParameter_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadBoolParameter"]" Component="Component.AxoReadBoolParameter_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoWriteParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteParameter_ExecutionMode" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteRealParameter_ExecutionMode" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteBoolParameter_ExecutionMode" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadParameter_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadRealParameter_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_ParameterNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadBoolParameter_Valid" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["DigitalIO"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadDigitalInput"]" Component="Component.AxoReadDigitalInput_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadDigitalOutput"]" Component="Component.AxoReadDigitalOutput_Task" HideRestoreButton="false" />
+                            <AxoTaskStatusView Text="@Localizer["WriteDigitalOutput"]" Component="Component.AxoWriteDigitalOutput_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_InputNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalInput_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_OutputNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadDigitalOutput_Valid" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_OutputNumber" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoWriteDigitalOutput_ExecutionMode" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+
+                <TabPage Title="@Localizer["ExplicitReads"]">
+                    <div class="flex flex-col gap-3 p-2">
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadActualPosition"]" Component="Component.AxoReadActualPosition_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadActualVelocity"]" Component="Component.AxoReadActualVelocity_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadActualTorque"]" Component="Component.AxoReadActualTorque_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadStatus"]" Component="Component.AxoReadStatus_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadMotionState"]" Component="Component.AxoReadMotionState_Task" HideRestoreButton="false" />
+                            <AxoToggleTaskStatusView Text="@Localizer["ReadAxisInfo"]" Component="Component.AxoReadAxisInfo_Task" HideRestoreButton="false" />
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-3">
+                            <RenderableContentControl Context="Component.AxoReadActualPosition_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadActualVelocity_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadActualTorque_Value" Presentation="Display" />
+                            <RenderableContentControl Context="Component.AxoReadMotionState_Source" Presentation="Display" />
+                        </div>
+                    </div>
+                </TabPage>
+            </Tab>
         </div>
     </CommandsMonitorContent>
 

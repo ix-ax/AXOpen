@@ -1,0 +1,214 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.InfoTime
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.ErrorTime
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.TaskTimeout
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.Port
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.IOsize
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.HWIDs
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferLowIndex
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferHighIndex
+  name: AxoSimaticIdentCyclic_Config
+  fullName: AxoSimaticIdentCyclic_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.InfoTime
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.InfoTime
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.InfoTime
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.ErrorTime
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.ErrorTime
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.ErrorTime
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.TaskTimeout
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.TaskTimeout
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.TaskTimeout
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.Port
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.Port
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: Port
+  fullName: Port
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.Port
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'Port : AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port'
+    return:
+      type: AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.IOsize
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.IOsize
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: IOsize
+  fullName: IOsize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.IOsize
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'IOsize : AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize'
+    return:
+      type: AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.HWIDs
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.HWIDs
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.HWIDs
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs'
+    return:
+      type: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferLowIndex
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferLowIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: DataBufferLowIndex
+  fullName: DataBufferLowIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferLowIndex
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'DataBufferLowIndex : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferHighIndex
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferHighIndex
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: DataBufferHighIndex
+  fullName: DataBufferHighIndex
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Config.DataBufferHighIndex
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'DataBufferHighIndex : INT'
+    return:
+      type: INT
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+  name: eAxoSimaticIdentCyclic_Port
+  nameWithType: eAxoSimaticIdentCyclic_Port
+  fullName: AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_Port
+- uid: plc.AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+  name: eAxoSimaticIdentCyclic_IOsize
+  nameWithType: eAxoSimaticIdentCyclic_IOsize
+  fullName: AXOpen.Components.Siem.Identification.eAxoSimaticIdentCyclic_IOsize
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+  name: AxoSimaticIdentCyclic_HWIDs
+  nameWithType: AxoSimaticIdentCyclic_HWIDs
+  fullName: AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_HWIDs
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

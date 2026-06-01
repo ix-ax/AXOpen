@@ -1,0 +1,261 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+  parent: plc.AXOpen.Components.Dukane.Welders
+  children:
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Delay
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_DN_Limit
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_TOS_Position
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Forced_ShutDown
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Early
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Weld
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Latched_Bad_Part
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_OverTravel
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Part_Detected
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_Time
+  - plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Time
+  name: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  fullName: Axo_IQ_SeriesWelder_ProcessErrorStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: CLASS Axo_IQ_SeriesWelder_ProcessErrorStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Delay
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Delay
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Trigger_Delay
+  fullName: Trigger_Delay
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Delay
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Trigger_Delay : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_DN_Limit
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_DN_Limit
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Servo_DN_Limit
+  fullName: Servo_DN_Limit
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_DN_Limit
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 39
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Servo_DN_Limit : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_TOS_Position
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_TOS_Position
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Servo_TOS_Position
+  fullName: Servo_TOS_Position
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Servo_TOS_Position
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Servo_TOS_Position : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Forced_ShutDown
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Forced_ShutDown
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Forced_ShutDown
+  fullName: Forced_ShutDown
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Forced_ShutDown
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 43
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Forced_ShutDown : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Early
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Early
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Trigger_Lost_Early
+  fullName: Trigger_Lost_Early
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Early
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 55
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Trigger_Lost_Early : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Weld
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Weld
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Trigger_Lost_Weld
+  fullName: Trigger_Lost_Weld
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Lost_Weld
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Trigger_Lost_Weld : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Latched_Bad_Part
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Latched_Bad_Part
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Latched_Bad_Part
+  fullName: Latched_Bad_Part
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Latched_Bad_Part
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Latched_Bad_Part : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_OverTravel
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_OverTravel
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PreTrigger_OverTravel
+  fullName: PreTrigger_OverTravel
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_OverTravel
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 61
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PreTrigger_OverTravel : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Part_Detected
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Part_Detected
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Part_Detected
+  fullName: Part_Detected
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Part_Detected
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 64
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Part_Detected : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_Time
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_Time
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: PreTrigger_Time
+  fullName: PreTrigger_Time
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.PreTrigger_Time
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'PreTrigger_Time : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Time
+  id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Time
+  parent: AXOpen.Components.Dukane.Welders
+  children: []
+  name: Trigger_Time
+  fullName: Trigger_Time
+  type: Property
+  source:
+    remote:
+      path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_ProcessErrorStatus.Trigger_Time
+    path: .\src\components.dukane.welders\ctrl\src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st
+    startLine: 68
+  namespace: plc.AXOpen.Components.Dukane.Welders
+  syntax:
+    content: 'Trigger_Time : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  children:
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+  - plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+  name: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+  fullName: v_5_x_x
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+    path: .\src\components.kuka.robotics\ctrl\src\AxoKrc4_v_5_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x
+references:
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+  name: AxoKrc4
+  nameWithType: AxoKrc4
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+  name: AxoKukaRobotics_Component_Status
+  nameWithType: AxoKukaRobotics_Component_Status
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Component_Status
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+  name: AxoKukaRobotics_Config
+  nameWithType: AxoKukaRobotics_Config
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Config
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+  name: AxoKukaRobotics_Control
+  nameWithType: AxoKukaRobotics_Control
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_Control
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+  name: AxoKukaRobotics_HWIDs
+  nameWithType: AxoKukaRobotics_HWIDs
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_HWIDs
+- uid: plc.AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+  name: AxoKukaRobotics_State
+  nameWithType: AxoKukaRobotics_State
+  fullName: AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKukaRobotics_State
+
+

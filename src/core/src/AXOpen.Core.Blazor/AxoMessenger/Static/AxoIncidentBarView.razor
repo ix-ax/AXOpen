@@ -1,0 +1,238 @@
+@namespace AXOpen.Messaging.Static
+@using System.Globalization
+@using System.Threading
+@using AXOpen.Core
+@using AXOpen.Messaging
+@using AXSharp.Connector
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@using Microsoft.AspNetCore.Components.Authorization
+@using Serilog
+@inherits RenderableComplexComponentBase<ITwinObject>
+@implements IAsyncDisposable
+
+@if (_state.IsVisible)
+{
+    var sev = _state.Severity;
+    var pulse = _state.Pulses ? "animate-pulse" : string.Empty;
+
+    <div data-axo-incident-bar
+         role="alert"
+         aria-live="polite"
+         class="card w-full @AxoIncidentBarPresenter.GlowClass(sev) @AxoIncidentBarPresenter.BackgroundClass(sev) @pulse @Class">
+
+        <div class="card-title flex flex-wrap items-center justify-between gap-2 bg-background-light/40!">
+            <div class="flex flex-wrap items-center gap-2">                
+                <span class="@AxoIncidentBarPresenter.BadgeClass(sev)">@SeverityName(sev)</span>
+                @if (_state.TopCause is { } top)
+                {
+                    <span class="text-base font-semibold" title="@top.Message.SenderSymbol">@top.Message.SenderDisplayName</span>
+                    <span class="text-text/80 truncate">@top.Message.DisplayMessage</span>
+                    <span class="text-xs text-text/60 font-mono truncate">@top.Message.SenderSymbol</span>                    
+                }
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                @if (_state.AdditionalCount > 0)
+                {
+                    <span class="badge badge-primary">+@_state.AdditionalCount</span>
+                }
+                @* @if (_state.TopCause is not null)
+                {
+                    <button class="btn btn-sm btn-primary"
+                            disabled="@IsTopAckPending()"
+                            @onclick="AcknowledgeTopAsync">
+                        @(IsTopAckPending() ? "…" : "Acknowledge")
+                    </button>
+                } *@
+                <button type="button" class="btn btn-sm" @onclick="ToggleExpanded" aria-expanded="@_isExpanded">
+                    @(_isExpanded ? "Hide" : "Details")
+                </button>
+            </div>
+        </div>
+
+        @if (_isExpanded && _state.Rows.Count > 0)
+        {
+            <div class="card-body flex flex-wrap flex-col gap-1">
+                @foreach (var row in _state.Rows)
+                {
+                    var rowBucket = AxoIncidentBarPresenter.ToSeverityBucket(row.Cause.Message.Category);
+                    var rowMuted = row.Cause.Message.IsAcknowledged || row.IsAckPending;
+                    <div class="flex flex-wrap items-center justify-between gap-2 p-1 @(rowMuted ? "opacity-50" : null)">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="@AxoIncidentBarPresenter.BadgeClass(rowBucket)">@SeverityName(rowBucket)</span>
+                            <span class="font-semibold" title="@row.Cause.Message.SenderSymbol">@row.Cause.Message.SenderDisplayName</span>
+                            <span class="text-xs text-text/60 font-mono truncate">@row.Cause.Message.SenderSymbol</span>
+                            <span class="text-text/80 truncate">@row.Cause.Message.DisplayMessage</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1 text-xs text-text/60">
+                            @if (row.Cause.IsBurstRoot) { <span title="Earliest in burst">root</span> }
+                            @if (row.Cause.DownstreamCount > 0) { <span>owns @row.Cause.DownstreamCount</span> }
+                            <span>score @row.Cause.Score.ToString("F2", CultureInfo.InvariantCulture)</span>
+                        </div>
+                    </div>
+                }               
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public AxoMessageProvider Provider { get; set; } = default!;
+    [Parameter] public AxoCauseAnalyzerOptions? Options { get; set; }
+    [Parameter] public string? PlcLabel { get; set; }
+    [Parameter] public bool AllowRestore { get; set; }
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public int ActivePollingMs { get; set; } = 750;
+    [Parameter] public int IdlePollingMs { get; set; } = 2500;
+    [Parameter] public TimeSpan AckTimeout { get; set; } = TimeSpan.FromSeconds(2);
+    [CascadingParameter] public AuthenticationStateProvider? AuthState { get; set; }
+
+    private AxoCauseAnalyzer? _analyzer;
+    private AxoIncidentBarPresenter? _presenter;
+    private Timer? _tick;
+    private AxoIncidentBarState _state = new();
+    private bool _isExpanded;
+    private readonly Dictionary<string, DateTime> _ackPendingSince = new();
+
+    protected override void OnInitialized()
+    {
+        if (Provider is null) return;
+        _analyzer = AxoCauseAnalyzer.Create(Provider, Options);
+        _presenter = new AxoIncidentBarPresenter(_analyzer, Options?.IdleHysteresis);
+        _presenter.StateChanged += OnPresenterChanged;
+    }
+
+    public override async void ConfigurePolling()
+    {
+        if (Provider is null)
+        {
+            Log.Warning("AxoIncidentBarView.ConfigurePolling: Provider is null — bar disabled.");
+            return;
+        }
+        try
+        {
+            await Provider.InitializeLightUpdate(this.StartPolling);
+            var msgCount = Provider.Messengers?.Length ?? 0;
+            Log.Information("AxoIncidentBarView: ConfigurePolling done. Messengers discovered: {Count}", msgCount);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "AxoIncidentBarView.ConfigurePolling: InitializeLightUpdate failed.");
+        }
+        ScheduleNextTick();
+    }
+
+    private void ScheduleNextTick()
+    {
+        // Use the analyzer's authoritative ActiveCount (set from the just-read state)
+        // rather than Provider.ActiveMessagesCount, which depends on MsgCnt aggregation
+        // reaching the observed root — not guaranteed in every project.
+        var interval = (_analyzer?.ActiveCount > 0) ? ActivePollingMs : IdlePollingMs;
+        _tick?.Dispose();
+        _tick = new Timer(async _ => await TickAsync(), null, interval, Timeout.Infinite);
+    }
+
+    private async Task TickAsync()
+    {
+        if (_analyzer is null || _presenter is null || Provider is null) return;
+        try
+        {
+            // State first so ReadDetails can filter to active messengers.
+            await Provider.ReadMessageStateAsync();
+            // Always pull details when any messenger is active — the analyzer needs
+            // RisenUtc/Category/MessageCode, and Provider.ActiveMessagesCount depends on
+            // MsgCnt aggregation that may not reach the observed root.
+            var hasActive = Provider.Messengers?.Any(m => m.State > eAxoMessengerState.Idle) ?? false;
+            if (hasActive)
+            {
+                await Provider.ReadDetails();
+            }
+            _analyzer.Recompute();
+            ExpireStaleAckPending();
+            _presenter.Refresh();
+            Log.Debug("AxoIncidentBarView.Tick: ActiveCount={Active} TopCause={Top}",
+                _analyzer.ActiveCount, _analyzer.TopCause?.Message.Symbol ?? "<none>");
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "AxoIncidentBarView.Tick: read/recompute failed.");
+        }
+        finally
+        {
+            ScheduleNextTick();
+        }
+    }
+
+    private void ExpireStaleAckPending()
+    {
+        if (_ackPendingSince.Count == 0) return;
+        var now = DateTime.UtcNow;
+        var expired = _ackPendingSince.Where(kv => now - kv.Value > AckTimeout).Select(kv => kv.Key).ToList();
+        foreach (var symbol in expired)
+        {
+            _ackPendingSince.Remove(symbol);
+        }
+    }
+
+    private bool IsTopAckPending() =>
+        _state.TopCause?.Message is { } m && _ackPendingSince.ContainsKey(m.Symbol);
+
+    private void OnPresenterChanged()
+    {
+        _state = _presenter!.CurrentState;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task AcknowledgeTopAsync()
+    {
+        if (_state.TopCause is null || Provider?.Messengers is null) return;
+        var symbol = _state.TopCause.Message.Symbol;
+        var live = Provider.Messengers.FirstOrDefault(m => m.Symbol == symbol);
+        if (live is null) return;
+
+        _ackPendingSince[symbol] = DateTime.UtcNow;
+        _presenter!.NotifyAckPending(_state.TopCause.Message);
+        await InvokeAsync(StateHasChanged);
+
+        try
+        {
+            var ident = AuthState is null ? null : (await AuthState.GetAuthenticationStateAsync())?.User?.Identity;
+            live.Acknowledge(ident!);
+        }
+        catch
+        {
+            _ackPendingSince.Remove(symbol);
+            _presenter.NotifyAckResolved(_state.TopCause.Message);
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task RestoreTopAsync()
+    {
+        if (_state.TopCause is null || Provider?.Messengers is null) return;
+        var symbol = _state.TopCause.Message.Symbol;
+        var live = Provider.Messengers.FirstOrDefault(m => m.Symbol == symbol);
+        if (live is null) return;
+        var ident = AuthState is null ? null : (await AuthState.GetAuthenticationStateAsync())?.User?.Identity;
+        live.RestoreParentTask(ident);
+    }
+
+    private void ToggleExpanded()
+    {
+        _isExpanded = !_isExpanded;
+    }
+
+    private static string SeverityName(IncidentBarSeverity sev) => sev switch
+    {
+        IncidentBarSeverity.Error => "Error",
+        IncidentBarSeverity.Warning => "Warning",
+        IncidentBarSeverity.Info    => "Info",
+        IncidentBarSeverity.Critical => "Critical",
+        _                           => string.Empty,
+    };
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_presenter is not null) _presenter.StateChanged -= OnPresenterChanged;
+        if (_tick is not null) await _tick.DisposeAsync();
+    }
+}

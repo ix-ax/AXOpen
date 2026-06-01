@@ -104,8 +104,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR
                 _category : eAxoMessageCategory;
             END_VAR
-
-            _category := inCategory;
+            
             
             IF _context = NULL THEN
                 _context := THIS.GetContext();
@@ -125,7 +124,7 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
-            
+            _category := inCategory;
                        
             // "Complete new" activation
             IF THIS.MessengerState = eAxoMessengerState#Idle AND MessageCode = ULINT#0  
@@ -222,16 +221,16 @@ NAMESPACE AXOpen.Messaging.Static
                 inMessage : STRING[254];
                 inCategory : eAxoMessageCategory;
             END_VAR
-            Post := THIS;            
-            IF inParent = NULL THEN                
+            Post := THIS;
+            IF inParent = NULL THEN
                 RETURN;
             END_IF;
-            SUPER.Run(inParent);
-            THIS.Sender := inParent;                    
+            SUPER.Run(inParent);            
+            THIS.Sender := inParent;
             THIS.Message := inMessage;
-            THIS.Activate(ULINT#18446744073709551615, inCategory);  
+            THIS.Activate(ULINT#18446744073709551615, inCategory);
             IF(THIS.GetContext().GetMessengerService() <> NULL) THEN
-                THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
+                THIS.GetContext().GetMessengerService().QueueMessage(THIS);
             END_IF;
         END_METHOD
 

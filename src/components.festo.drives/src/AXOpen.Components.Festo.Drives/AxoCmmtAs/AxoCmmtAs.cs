@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -557,6 +557,7 @@ namespace AXOpen.Components.Festo.Drives
 
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1800, new AxoMessengerTextItem("Scaling parameters not yet read out of the drive"                                                                                                                             ,"Check  proper value of the Module access point Hardware ID")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1801, new AxoMessengerTextItem("Invalid user units specified."                                                                                                                             ,"Possible configurations: \nUser unit position (P1.7851.0.0)\t\t:\t SI Unit METER \t\t\t(256)  AND\nUser unit velocity (P1.7852.0.0)\t\t:\t SI Unit METER 1/s \t\t(259)  AND\nUser unit acceleration (P1.7853.0.0)\t:\t SI Unit METER 1/s2\t\t(343)  AND\nUser unit jerk (P1.7854.0.0)\t\t\t:\t SI Unit METER 1/s3\t\t(416)  OR\nUser unit position (P1.7851.0.0)\t\t:\t SI Unit DEGREE \t\t(16640)  AND\nUser unit velocity (P1.7852.0.0)\t\t:\t SI Unit DEGREE 1/s \t(16643)  AND\nUser unit acceleration (P1.7853.0.0)\t:\t SI Unit DEGREE 1/s2\t(16727)  AND\nUser unit jerk (P1.7854.0.0)\t\t\t:\t SI Unit DEGREE 1/s3\t(16800)  \n")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(2000, new AxoMessengerTextItem("Movement in positive direction is disabled"                                                                                                                                   ,"Check the safety condition")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(2001, new AxoMessengerTextItem("Movement in negative direction is disabled"                                                                                                                                   ,"Check the safety condition")),

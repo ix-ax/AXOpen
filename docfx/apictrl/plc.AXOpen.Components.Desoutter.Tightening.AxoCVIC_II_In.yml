@@ -1,0 +1,168 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+  parent: plc.AXOpen.Components.Desoutter.Tightening
+  children:
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Status
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.ScrewingProgram
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Torque
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.TorqueTrend
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Angle
+  - plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.AngleTrend
+  name: AxoCVIC_II_In
+  fullName: AxoCVIC_II_In
+  type: Class
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: CLASS AxoCVIC_II_In
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Status
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Status
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Status
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Status : AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status'
+    return:
+      type: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.ScrewingProgram
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.ScrewingProgram
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: ScrewingProgram
+  fullName: ScrewingProgram
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.ScrewingProgram
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'ScrewingProgram : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Torque
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Torque
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Torque
+  fullName: Torque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Torque
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Torque : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.TorqueTrend
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.TorqueTrend
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: TorqueTrend
+  fullName: TorqueTrend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.TorqueTrend
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'TorqueTrend : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Angle
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Angle
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: Angle
+  fullName: Angle
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.Angle
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'Angle : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.AngleTrend
+  id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.AngleTrend
+  parent: AXOpen.Components.Desoutter.Tightening
+  children: []
+  name: AngleTrend
+  fullName: AngleTrend
+  type: Property
+  source:
+    remote:
+      path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_In.AngleTrend
+    path: .\src\components.desoutter.tightening\ctrl\src\CVIC_II\AxoCVIC_II_In.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Desoutter.Tightening
+  syntax:
+    content: 'AngleTrend : INT'
+    return:
+      type: INT
+references:
+- uid: plc.AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+  name: AxoCVIC_II_Status
+  nameWithType: AxoCVIC_II_Status
+  fullName: AXOpen.Components.Desoutter.Tightening.AxoCVIC_II_Status
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

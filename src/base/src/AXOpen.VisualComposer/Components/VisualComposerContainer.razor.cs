@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Operon.Components;
+using Operon.Components.Toast;
 using System.Text.RegularExpressions;
 
 namespace AXOpen.VisualComposer.Components
@@ -26,6 +27,9 @@ namespace AXOpen.VisualComposer.Components
 
         [Inject]
         private ProtectedLocalStorage _protectedLocalStorage { set; get; }
+
+        [Inject]
+        private IToastService _toastService { get; set; }
 
         //private bool _editSVG { get; set; } = false;
         private bool _inDesignMode { get; set; } = false;
@@ -56,6 +60,8 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveBottom { get; set; } = 10;
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
+
+        private const string OptionsStorageKey = "VisualComposer_ControllerObjectsOptions";
 
         // Watch table filtering and sorting
         private string? _watchTableFilter { get; set; } = null;
@@ -213,7 +219,16 @@ namespace AXOpen.VisualComposer.Components
         private async Task CreateNewViewAsync(string name, SaveLocationType saveLocationType, bool isWatchTable)
         {
             if (string.IsNullOrEmpty(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", "Please enter a view name.", 5);
                 return;
+            }
+
+            if (_serverStorageAllViews.Contains(name) || _localStorageData.ContainsKey(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", $"A view with the name '{name}' already exists.", 5);
+                return;
+            }
 
             _currentViewName = name;
 
@@ -233,7 +248,16 @@ namespace AXOpen.VisualComposer.Components
         private async Task CreateCopyViewAsync(string name, SaveLocationType saveLocationType)
         {
             if (string.IsNullOrEmpty(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", "Please enter a view name.", 5);
                 return;
+            }
+
+            if (_serverStorageAllViews.Contains(name) || _localStorageData.ContainsKey(name))
+            {
+                _toastService?.AddToast(eToastType.Warning, "View not created", $"A view with the name '{name}' already exists.", 5);
+                return;
+            }
 
             var oldViewName = _currentViewName;
 
@@ -471,13 +495,19 @@ namespace AXOpen.VisualComposer.Components
             {
                 var file = e.File;
                 if (file == null || !file.Name.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                {
+                    _toastService?.AddToast(eToastType.Warning, "Import failed", "Please select a valid .json file.", 5);
                     return;
+                }
 
                 using var stream = file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024); // 10MB max
                 var importedView = await System.Text.Json.JsonSerializer.DeserializeAsync<SerializableView>(stream);
 
                 if (importedView == null)
+                {
+                    _toastService?.AddToast(eToastType.Warning, "Import failed", "The file could not be deserialized.", 5);
                     return;
+                }
 
                 var viewName = Path.GetFileNameWithoutExtension(file.Name);
                 var originalName = viewName;
@@ -511,10 +541,13 @@ namespace AXOpen.VisualComposer.Components
                 // Load the imported view
                 await LoadAsync(viewName);
 
+                _toastService?.AddToast(eToastType.Success, "View imported", $"View '{viewName}' was imported successfully.", 5);
+
                 StateHasChanged();
             }
             catch (Exception ex)
             {
+                _toastService?.AddToast(eToastType.Warning, "Import failed", $"Error importing view: {ex.Message}", 7);
                 Console.WriteLine($"Error importing view: {ex.Message}");
             }
         }
@@ -561,6 +594,8 @@ namespace AXOpen.VisualComposer.Components
         private List<ITwinElement>? _searchResult { get; set; } = null;
         private void Search()
         {
+            _searchResultPage = 1;
+
             if (_searchValue is null || _searchValue == "")
             {
                 _searchResult = null;
@@ -604,13 +639,21 @@ namespace AXOpen.VisualComposer.Components
                     var flatChildren = obj.GetChildren().Flatten(p => p.GetChildren());
                     var primitives = obj.RetrievePrimitives();
 
-                    var matchingChildren = flatChildren.Where(p =>
-                        searchTerms.All(term =>
-                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+                    var matchingChildren = _controllerObjectsFilterMode switch
+                    {
+                        FilterMode.StartsWith => flatChildren.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.EndsWith => flatChildren.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.Regex => flatChildren.Where(p => Regex.IsMatch(p.Symbol, _searchValue, RegexOptions.IgnoreCase)),
+                        _ => flatChildren.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
+                    };
 
-                    var matchingPrimitives = primitives.Where(p =>
-                        searchTerms.All(term =>
-                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+                    var matchingPrimitives = _controllerObjectsFilterMode switch
+                    {
+                        FilterMode.StartsWith => primitives.Where(p => p.Symbol.StartsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.EndsWith => primitives.Where(p => p.Symbol.EndsWith(_searchValue, StringComparison.OrdinalIgnoreCase)),
+                        FilterMode.Regex => primitives.Where(p => Regex.IsMatch(p.Symbol, _searchValue, RegexOptions.IgnoreCase)),
+                        _ => primitives.Where(p => searchTerms.All(term => p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase))),
+                    };
 
                     _searchResult.AddRange(matchingChildren);
                     _searchResult.AddRange(matchingPrimitives);
@@ -625,6 +668,16 @@ namespace AXOpen.VisualComposer.Components
         }
 
         private bool? _controllerObjectsSortAscending { get; set; } = null;
+        private FilterMode _controllerObjectsFilterMode { get; set; } = FilterMode.Contains;
+        private int _searchResultPage { get; set; } = 1;
+        private int _searchResultPageSize { get; set; } = 50;
+        private int _searchResultTotalCount => _searchResult?.Count ?? 0;
+
+        private IEnumerable<ITwinElement> GetPagedSearchResult()
+        {
+            if (_searchResult == null) return Enumerable.Empty<ITwinElement>();
+            return _searchResult.Skip((_searchResultPage - 1) * _searchResultPageSize).Take(_searchResultPageSize);
+        }
 
         private void ToggleControllerObjectsSort()
         {
@@ -635,12 +688,16 @@ namespace AXOpen.VisualComposer.Components
             else if (_controllerObjectsSortAscending == false)
                 _controllerObjectsSortAscending = null;
 
+            _searchResultPage = 1;
+
             // Apply sorting
             if (_controllerObjectsSortAscending != null)
             {
                 _searchResult = _controllerObjectsSortAscending == true ? _searchResult.OrderBy(item => item.Symbol ?? string.Empty).ToList() : _searchResult.OrderByDescending(item => item.Symbol ?? string.Empty).ToList();
             }
         }
+
+
 
         private bool _isFileImported { get; set; } = false;
         private bool _isFileImporting { get; set; } = false;
@@ -672,6 +729,7 @@ namespace AXOpen.VisualComposer.Components
             catch (Exception ex)
             {
                 CurrentView.ImgSrc = null;
+                _toastService?.AddToast(eToastType.Warning, "Upload failed", $"Error uploading background image: {ex.Message}", 7);
                 Console.WriteLine($"VisualComposer Error: {ex.Message}");
             }
 
@@ -776,6 +834,15 @@ namespace AXOpen.VisualComposer.Components
             }
         }
 
+        private void Up(PointerEventArgs eventArgs)
+        {
+            foreach (var item in _items)
+            {
+                if (item.UpEvent != null)
+                    item.UpEvent.Invoke(this, eventArgs);
+            }
+        }
+
         private string GetBgColor(SaveLocationType location)
         {
             if (location == SaveLocationType.Server)
@@ -783,6 +850,42 @@ namespace AXOpen.VisualComposer.Components
             else if (location == SaveLocationType.Local)
                 return "bg-warning/10";
             return "";
+        }
+
+        private async Task LoadOptionsAsync()
+        {
+            var saved = await LocalStorage<SerializableControllerObjectsOptions>.LoadAsync(_protectedLocalStorage, OptionsStorageKey);
+            if (saved != null)
+            {
+                _options._left = saved.Left;
+                _options._top = saved.Top;
+                _options._transform = Types.TransformType.FromString(saved.Transform) ?? Types.TransformType.TopCenter;
+                _options._presentation = saved.Presentation;
+                _options._width = saved.Width;
+                _options._height = saved.Height;
+                _options._zIndex = saved.ZIndex;
+                _options._scale = saved.Scale;
+                _options._rotate = saved.Rotate;
+                _options._roles = saved.Roles;
+                _options._presentationTemplate = saved.PresentationTemplate;
+                _options._background = saved.Background;
+                _options._backgroundColorLight = saved.BackgroundColorLight;
+                _options._backgroundColorDark = saved.BackgroundColorDark;
+                _options._pollingInterval = saved.PollingInterval;
+
+                _optionsMove = saved.OptionsMove;
+                _optionsMoveDirection = saved.OptionsMoveDirection;
+                _optionsMoveBottom = saved.OptionsMoveBottom;
+                _optionsMoveRight = saved.OptionsMoveRight;
+                _customPresentation = saved.CustomPresentation;
+            }
+        }
+
+        private async Task SaveOptionsAsync()
+        {
+            var data = new SerializableControllerObjectsOptions(_options, _optionsMove, _optionsMoveDirection, _optionsMoveBottom, _optionsMoveRight, _customPresentation);
+
+            await LocalStorage<SerializableControllerObjectsOptions>.SaveAsync(_protectedLocalStorage, OptionsStorageKey, data);
         }
 
         private void ToggleSort()
@@ -824,5 +927,24 @@ namespace AXOpen.VisualComposer.Components
             Server,
             Local
         }
+
+        public enum FilterMode
+        {
+            Contains,
+            StartsWith,
+            EndsWith,
+            Regex
+        }
+    }
+
+    public static class FilterModeExtensions
+    {
+        public static string ToDisplayString(this VisualComposerContainer.FilterMode mode) => mode switch
+        {
+            VisualComposerContainer.FilterMode.StartsWith => "Starts with",
+            VisualComposerContainer.FilterMode.EndsWith => "Ends with",
+            VisualComposerContainer.FilterMode.Regex => "Regex",
+            _ => "Contains",
+        };
     }
 }

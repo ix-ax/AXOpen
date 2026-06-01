@@ -1,0 +1,163 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Io.ComponentState
+  id: plc.AXOpen.Io.ComponentState
+  parent: plc.AXOpen.Io
+  children:
+  - plc.AXOpen.Io.ComponentState.Good
+  - plc.AXOpen.Io.ComponentState.Disabled
+  - plc.AXOpen.Io.ComponentState.MaintenanceRequired
+  - plc.AXOpen.Io.ComponentState.MaintenanceDemanded
+  - plc.AXOpen.Io.ComponentState.Error
+  - plc.AXOpen.Io.ComponentState.NotAccessible
+  - plc.AXOpen.Io.ComponentState.Unknown
+  - plc.AXOpen.Io.ComponentState.IONotAvailable
+  name: ComponentState
+  fullName: ComponentState
+  type: Enum
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 1
+  namespace: plc.AXOpen.Io
+  syntax:
+    content: 'ComponentState : UINT'
+- uid: plc.AXOpen.Io.ComponentState.Good
+  id: plc.AXOpen.Io.ComponentState.Good
+  parent: AXOpen.Io
+  children: []
+  name: Good := 	UINT#0
+  fullName: Good
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.Good
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.Disabled
+  id: plc.AXOpen.Io.ComponentState.Disabled
+  parent: AXOpen.Io
+  children: []
+  name: Disabled := 	UINT#1
+  fullName: Disabled
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.Disabled
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 2
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.MaintenanceRequired
+  id: plc.AXOpen.Io.ComponentState.MaintenanceRequired
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceRequired := 	UINT#2
+  fullName: MaintenanceRequired
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.MaintenanceRequired
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 3
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.MaintenanceDemanded
+  id: plc.AXOpen.Io.ComponentState.MaintenanceDemanded
+  parent: AXOpen.Io
+  children: []
+  name: MaintenanceDemanded := 	UINT#3
+  fullName: MaintenanceDemanded
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.MaintenanceDemanded
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 4
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.Error
+  id: plc.AXOpen.Io.ComponentState.Error
+  parent: AXOpen.Io
+  children: []
+  name: Error := 	UINT#4
+  fullName: Error
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.Error
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 5
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.NotAccessible
+  id: plc.AXOpen.Io.ComponentState.NotAccessible
+  parent: AXOpen.Io
+  children: []
+  name: NotAccessible := 	UINT#5
+  fullName: NotAccessible
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.NotAccessible
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 6
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.Unknown
+  id: plc.AXOpen.Io.ComponentState.Unknown
+  parent: AXOpen.Io
+  children: []
+  name: Unknown := 	UINT#6
+  fullName: Unknown
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.Unknown
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 7
+  namespace: plc.AXOpen.Io
+- uid: plc.AXOpen.Io.ComponentState.IONotAvailable
+  id: plc.AXOpen.Io.ComponentState.IONotAvailable
+  parent: AXOpen.Io
+  children: []
+  name: IONotAvailable := 	UINT#7
+  fullName: IONotAvailable
+  type: Field
+  source:
+    remote:
+      path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Io.ComponentState.IONotAvailable
+    path: .\src\io\ctrl\src\AxoIoComponent\TypesStructuresAndEnums\ComponentState.st
+    startLine: 8
+  namespace: plc.AXOpen.Io
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

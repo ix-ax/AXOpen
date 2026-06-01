@@ -1,0 +1,164 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+  parent: plc.AXOpen.Components.Rexroth.Tightening
+  children:
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.InfoTime
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.ErrorTime
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TaskTimeout
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.HWIDs
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TorqueScalingConstant
+  - plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.AngleScalingConstant
+  name: Axo_CS351_compact_Config
+  fullName: Axo_CS351_compact_Config
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: CLASS Axo_CS351_compact_Config
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.InfoTime
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.InfoTime
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: InfoTime
+  fullName: InfoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.InfoTime
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'InfoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.ErrorTime
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.ErrorTime
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: ErrorTime
+  fullName: ErrorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.ErrorTime
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'ErrorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TaskTimeout
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TaskTimeout
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: TaskTimeout
+  fullName: TaskTimeout
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TaskTimeout
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'TaskTimeout : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.HWIDs
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.HWIDs
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: HWIDs
+  fullName: HWIDs
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.HWIDs
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'HWIDs : AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs'
+    return:
+      type: AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TorqueScalingConstant
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TorqueScalingConstant
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: TorqueScalingConstant
+  fullName: TorqueScalingConstant
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.TorqueScalingConstant
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'TorqueScalingConstant : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.AngleScalingConstant
+  id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.AngleScalingConstant
+  parent: AXOpen.Components.Rexroth.Tightening
+  children: []
+  name: AngleScalingConstant
+  fullName: AngleScalingConstant
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact_Config.AngleScalingConstant
+    path: .\src\components.rexroth.tightening\ctrl\src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Tightening
+  syntax:
+    content: 'AngleScalingConstant : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+  name: Axo_CS351_HWIDs
+  nameWithType: Axo_CS351_HWIDs
+  fullName: AXOpen.Components.Rexroth.Tightening.Axo_CS351_HWIDs
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

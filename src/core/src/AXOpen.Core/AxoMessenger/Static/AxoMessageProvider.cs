@@ -253,7 +253,10 @@ namespace AXOpen.Messaging.Static
                 {
                     p.MessengerState,
                     p.Category,
-                    p.MessageCode
+                    p.MessageCode,
+                    p.Risen,
+                    p.Fallen,
+                    p.Acknowledged
                 });
             await Messengers?.FirstOrDefault()?.GetConnector()?.ReadBatchAsync(r)!;
         }
@@ -269,7 +272,7 @@ namespace AXOpen.Messaging.Static
             var con = Messengers?.FirstOrDefault()?.GetConnector();
             if (con != null)
             {
-                await con.ReadBatchAsync(r)!;
+                await con.ReadBatchAsync(r, eAccessPriority.Low)!;
             }
         }
 

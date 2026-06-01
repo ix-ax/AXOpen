@@ -1,0 +1,143 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+  parent: plc.AXOpen.Components.Ur.Robotics
+  children:
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Postition
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Velocity
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Force
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Torque
+  - plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.TCP_ForceScalar
+  name: AxoUrRoboticsT2OTcp_v_1_x_x
+  fullName: AxoUrRoboticsT2OTcp_v_1_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: CLASS AxoUrRoboticsT2OTcp_v_1_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Postition
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Postition
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Postition
+  fullName: Postition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Postition
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Postition : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Velocity
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Velocity
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Velocity
+  fullName: Velocity
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Velocity
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Velocity : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Force
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Force
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Force
+  fullName: Force
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Force
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Force : AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Torque
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Torque
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: Torque
+  fullName: Torque
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.Torque
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'Torque : AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+- uid: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.TCP_ForceScalar
+  id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.TCP_ForceScalar
+  parent: AXOpen.Components.Ur.Robotics
+  children: []
+  name: TCP_ForceScalar
+  fullName: TCP_ForceScalar
+  type: Property
+  source:
+    remote:
+      path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Ur.Robotics.AxoUrRoboticsT2OTcp_v_1_x_x.TCP_ForceScalar
+    path: .\src\components.ur.robotics\ctrl\src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Ur.Robotics
+  syntax:
+    content: 'TCP_ForceScalar : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+  name: AxoRoboticsBasicCoordinates
+  nameWithType: AxoRoboticsBasicCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsBasicCoordinates
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

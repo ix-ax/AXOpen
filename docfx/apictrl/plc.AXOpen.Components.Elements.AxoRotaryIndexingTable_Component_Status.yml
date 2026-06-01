@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+  parent: plc.AXOpen.Components.Elements
+  children:
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.StartPosition
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.EndPosition
+  - plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.Positions
+  name: AxoRotaryIndexingTable_Component_Status
+  fullName: AxoRotaryIndexingTable_Component_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: CLASS AxoRotaryIndexingTable_Component_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.StartPosition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.StartPosition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: StartPosition
+  fullName: StartPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.StartPosition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'StartPosition : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.EndPosition
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.EndPosition
+  parent: AXOpen.Components.Elements
+  children: []
+  name: EndPosition
+  fullName: EndPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.EndPosition
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'EndPosition : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.Positions
+  id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.Positions
+  parent: AXOpen.Components.Elements
+  children: []
+  name: Positions
+  fullName: Positions
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Elements.AxoRotaryIndexingTable_Component_Status.Positions
+    path: .\src\components.elements\ctrl\src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Component_Status.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Elements
+  syntax:
+    content: 'Positions : ARRAY [0..32] OF UINT'
+    return:
+      type: ARRAY [0..32] OF UINT
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.ARRAY [0..32] OF UINT
+  name: ARRAY [0..32] OF UINT
+  nameWithType: ARRAY [0..32] OF UINT
+  fullName: ARRAY [0..32] OF UINT
+
+

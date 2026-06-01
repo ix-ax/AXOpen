@@ -7,20 +7,68 @@ Templates:
       AllowedValues:
         - 'Slot_1'
         - 'Slot_2'
-        - 'Slot_3'    
-        - 'Slot_4'    
+        - 'Slot_3'
+        - 'Slot_4'
         - 'Slot_5'
         - 'Slot_6'
-        - 'Slot_7'    
-        - 'Slot_8'    
+        - 'Slot_7'
+        - 'Slot_8'
         - 'Slot_9'
         - 'Slot_10'
-        - 'Slot_11'    
-        - 'Slot_12'    
+        - 'Slot_11'
+        - 'Slot_12'
         - 'Slot_13'
         - 'Slot_14'
-        - 'Slot_15'    
-        - 'Slot_16'    
+        - 'Slot_15'
+        - 'Slot_16'
+        - 'Slot_17'
+        - 'Slot_18'
+        - 'Slot_19'
+        - 'Slot_20'
+        - 'Slot_21'
+        - 'Slot_22'
+        - 'Slot_23'
+        - 'Slot_24'
+        - 'Slot_25'
+        - 'Slot_26'
+        - 'Slot_27'
+        - 'Slot_28'
+        - 'Slot_29'
+        - 'Slot_30'
+        - 'Slot_31'
+        - 'Slot_32'
+        - 'Slot_33'
+        - 'Slot_34'
+        - 'Slot_35'
+        - 'Slot_36'
+        - 'Slot_37'
+        - 'Slot_38'
+        - 'Slot_39'
+        - 'Slot_40'
+        - 'Slot_41'
+        - 'Slot_42'
+        - 'Slot_43'
+        - 'Slot_44'
+        - 'Slot_45'
+        - 'Slot_46'
+        - 'Slot_47'
+        - 'Slot_48'
+        - 'Slot_49'
+        - 'Slot_50'
+        - 'Slot_51'
+        - 'Slot_52'
+        - 'Slot_53'
+        - 'Slot_54'
+        - 'Slot_55'
+        - 'Slot_56'
+        - 'Slot_57'
+        - 'Slot_58'
+        - 'Slot_59'
+        - 'Slot_60'
+        - 'Slot_61'
+        - 'Slot_62'
+        - 'Slot_63'
+        - 'Slot_64'   
     - Name: 'SLOT'
       Value: 1
       AllowedValues:
@@ -40,6 +88,54 @@ Templates:
         - 14
         - 15
         - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+        - 63
+        - 64
     Content:
       Name: '${NAME}'
       TypeIdentifier:

@@ -62,6 +62,41 @@ namespace AXOpen.Core
             Component.ResumeTask();
         }
 
+        private void OnResumeClick(Microsoft.AspNetCore.Components.Web.MouseEventArgs e)
+        {
+            this.ResumeTask();
+        }
+
+        private void OnResumeKeyDown(Microsoft.AspNetCore.Components.Web.KeyboardEventArgs e)
+        {
+            if (e.Key == "Enter" || e.Key == " ")
+            {
+                ResumeTask();
+            }
+        }
+
+        private string ErrorTitle => State == eAxoTaskState.Error
+            ? (Component.ErrorDetails?.LastValue ?? string.Empty)
+            : string.Empty;
+
+        private string StateLabel
+        {
+            get
+            {
+                if (IsDisabled) return "Disabled";
+                return State switch
+                {
+                    eAxoTaskState.Ready    => "Ready",
+                    eAxoTaskState.Kicking  => "Starting",
+                    eAxoTaskState.Busy     => "Running",
+                    eAxoTaskState.Done     => "Done",
+                    eAxoTaskState.Aborted  => "Aborted",
+                    eAxoTaskState.Error    => "Error",
+                    _                      => string.Empty,
+                };
+            }
+        }
+
         private string AnimationClass
         {
             get
@@ -89,16 +124,16 @@ namespace AXOpen.Core
             get
             {
                 if(this.Component.IsDisabled.LastValue)
-                    return "btn-inactive blur-[1px]";
+                    return "btn-inactive";
 
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
                     case eAxoTaskState.Busy:
-                        return "btn-active shadow-xl shadow-active-500/50";
+                        return " btn-success";
                     case eAxoTaskState.Done:
                         return "btn-success";
                     case eAxoTaskState.Aborted:
-                        return "btn-attention";
+                        return " btn-warning";
                     case eAxoTaskState.Error:
                         return "btn-danger";
                     case eAxoTaskState.Ready:

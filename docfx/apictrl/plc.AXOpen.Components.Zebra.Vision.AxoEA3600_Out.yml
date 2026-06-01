@@ -1,0 +1,416 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+  parent: plc.AXOpen.Components.Zebra.Vision
+  children:
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_8
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_9
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_10
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_11
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_12
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_13
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_14
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_15
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableTransfer
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableHandshake
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableFragmentation
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_3
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_ClearFaults
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StartScan
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StopScan
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_SendAction
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.AckCounter
+  - plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.UIActionCode
+  name: AxoEA3600_Out
+  fullName: AxoEA3600_Out
+  type: Class
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: CLASS AxoEA3600_Out
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_8
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_8
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_8
+  fullName: Ctrl_Reserved_8
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_8
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_8 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_9
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_9
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_9
+  fullName: Ctrl_Reserved_9
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_9
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_9 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_10
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_10
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_10
+  fullName: Ctrl_Reserved_10
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_10
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_10 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_11
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_11
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_11
+  fullName: Ctrl_Reserved_11
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_11
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_11 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_12
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_12
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_12
+  fullName: Ctrl_Reserved_12
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_12
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_12 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_13
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_13
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_13
+  fullName: Ctrl_Reserved_13
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_13
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_13 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_14
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_14
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_14
+  fullName: Ctrl_Reserved_14
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_14
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_14 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_15
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_15
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_15
+  fullName: Ctrl_Reserved_15
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_15
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_15 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableTransfer
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableTransfer
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_EnableTransfer
+  fullName: Ctrl_EnableTransfer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableTransfer
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_EnableTransfer : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableHandshake
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableHandshake
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_EnableHandshake
+  fullName: Ctrl_EnableHandshake
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableHandshake
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_EnableHandshake : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableFragmentation
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableFragmentation
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_EnableFragmentation
+  fullName: Ctrl_EnableFragmentation
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_EnableFragmentation
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_EnableFragmentation : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_3
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_3
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_Reserved_3
+  fullName: Ctrl_Reserved_3
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_Reserved_3
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_Reserved_3 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_ClearFaults
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_ClearFaults
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_ClearFaults
+  fullName: Ctrl_ClearFaults
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_ClearFaults
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_ClearFaults : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StartScan
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StartScan
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_StartScan
+  fullName: Ctrl_StartScan
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StartScan
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_StartScan : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StopScan
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StopScan
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_StopScan
+  fullName: Ctrl_StopScan
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_StopScan
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_StopScan : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_SendAction
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_SendAction
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: Ctrl_SendAction
+  fullName: Ctrl_SendAction
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.Ctrl_SendAction
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'Ctrl_SendAction : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.AckCounter
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.AckCounter
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: AckCounter
+  fullName: AckCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.AckCounter
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'AckCounter : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.UIActionCode
+  id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.UIActionCode
+  parent: AXOpen.Components.Zebra.Vision
+  children: []
+  name: UIActionCode
+  fullName: UIActionCode
+  type: Property
+  source:
+    remote:
+      path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Zebra.Vision.AxoEA3600_Out.UIActionCode
+    path: .\src\components.zebra.vision\ctrl\src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Out.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Zebra.Vision
+  syntax:
+    content: 'UIActionCode : WORD'
+    return:
+      type: WORD
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.WORD
+  name: WORD
+  nameWithType: WORD
+  fullName: WORD
+
+

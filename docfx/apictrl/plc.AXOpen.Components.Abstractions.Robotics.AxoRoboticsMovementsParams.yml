@@ -1,0 +1,206 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+  parent: plc.AXOpen.Components.Abstractions.Robotics
+  children:
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ActionNo
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.GlobalSpeed
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ToolNo
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.WorkobjectNo
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.PointNo
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed1
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed2
+  - plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.Coordinates
+  name: AxoRoboticsMovementsParams
+  fullName: AxoRoboticsMovementsParams
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: CLASS AxoRoboticsMovementsParams
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ActionNo
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ActionNo
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: ActionNo
+  fullName: ActionNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ActionNo
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'ActionNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.GlobalSpeed
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.GlobalSpeed
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: GlobalSpeed
+  fullName: GlobalSpeed
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.GlobalSpeed
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'GlobalSpeed : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ToolNo
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ToolNo
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: ToolNo
+  fullName: ToolNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.ToolNo
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'ToolNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.WorkobjectNo
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.WorkobjectNo
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: WorkobjectNo
+  fullName: WorkobjectNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.WorkobjectNo
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'WorkobjectNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.PointNo
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.PointNo
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: PointNo
+  fullName: PointNo
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.PointNo
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'PointNo : BYTE'
+    return:
+      type: BYTE
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed1
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed1
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: UserSpecSpeed1
+  fullName: UserSpecSpeed1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed1
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'UserSpecSpeed1 : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed2
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed2
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: UserSpecSpeed2
+  fullName: UserSpecSpeed2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.UserSpecSpeed2
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'UserSpecSpeed2 : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.Coordinates
+  id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.Coordinates
+  parent: AXOpen.Components.Abstractions.Robotics
+  children: []
+  name: Coordinates
+  fullName: Coordinates
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams.Coordinates
+    path: .\src\components.abstractions\ctrl\src\AxoRobotics\AxoRoboticsMovementsParams.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Abstractions.Robotics
+  syntax:
+    content: 'Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates'
+    return:
+      type: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+references:
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+  name: AxoRoboticsCoordinates
+  nameWithType: AxoRoboticsCoordinates
+  fullName: AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates
+
+

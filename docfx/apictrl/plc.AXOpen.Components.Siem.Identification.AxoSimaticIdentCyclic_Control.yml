@@ -1,0 +1,160 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control
+  parent: plc.AXOpen.Components.Siem.Identification
+  children:
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.START
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.RESET
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.STOP
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.ANTOFF
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.BLOCK
+  - plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.CMD
+  name: AxoSimaticIdentCyclic_Control
+  fullName: AxoSimaticIdentCyclic_Control
+  type: Class
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: CLASS AxoSimaticIdentCyclic_Control
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.START
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.START
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: START
+  fullName: START
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.START
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'START : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.RESET
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.RESET
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: RESET
+  fullName: RESET
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.RESET
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'RESET : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.STOP
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.STOP
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: STOP
+  fullName: STOP
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.STOP
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'STOP : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.ANTOFF
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.ANTOFF
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: ANTOFF
+  fullName: ANTOFF
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.ANTOFF
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'ANTOFF : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.BLOCK
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.BLOCK
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: BLOCK
+  fullName: BLOCK
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.BLOCK
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'BLOCK : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.CMD
+  id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.CMD
+  parent: AXOpen.Components.Siem.Identification
+  children: []
+  name: CMD
+  fullName: CMD
+  type: Property
+  source:
+    remote:
+      path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic_Control.CMD
+    path: .\src\components.siem.identification\ctrl\src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Siem.Identification
+  syntax:
+    content: 'CMD : BYTE'
+    return:
+      type: BYTE
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.BYTE
+  name: BYTE
+  nameWithType: BYTE
+  fullName: BYTE
+
+

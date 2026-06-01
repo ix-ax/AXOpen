@@ -189,6 +189,9 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Resetowanie zadania</value>
   </data>
+  <data name="ResumeTask" xml:space="preserve">
+    <value>Wznów zadanie</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>

@@ -25,7 +25,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
-        
 
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
@@ -95,6 +94,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _resultUpdateComplete   :   BOOL;
             _resultNo               :   UINT;
             _programNumber          :   UINT;
+            _ProgChangeInterrupted  :   BOOL;
         END_VAR
 
         ///<summary>
@@ -6222,6 +6222,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
+
+                    _ProgChangeInterrupted := FALSE;
                     _progress := 310;
                 END_IF;
                 // ChangeProgramTask running: checking the program number.
@@ -6234,27 +6236,30 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         Status.Error.Id :=      UINT#510;
                     END_IF;
                 END_IF;
-                 // ChangeProgramTask running: if 'ProgramSwitchingResponse' signal is true finish previous change.
+
+                 // ChangeProgramTask running: if 'ProgramSwitchingResponse' signal is true, finish previous change.
                 IF _progress = 311 THEN 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#511;
-                    END_IF;
+                    // Do not cancel (1 → 0) [Program switching request] before [Program switching response] changes from 
+                    // 0 to 1. The program may not be able to switch correctly.
+                    // When [Program switching request] was canceled (1 → 0) before [Program switching response] changes
+                    // from 0 to 1, execute (0 → 1) [Program switching request] and cancel (1 → 0) it again.
 
                     IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
-                        THIS.CallTimers(FALSE);                  
+                        THIS.CallTimers(FALSE);
+                        _ProgChangeInterrupted := TRUE;                  
                         _progress := 312; // ACK PREVIOUS CHANGE
                     ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 314; // Continue to change program
                     END_IF;
                 END_IF;
+
                  // evaluated before 312 => +1 plc cycle
-                 // ChangeProgramTask running: wait for falling edge ProgramSwitchingResponse
+                 // ChangeProgramTask running: check if is not Busy, due to interrupted by previous program switching
                 IF _progress = 313 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#514;
                     END_IF;
     
                     Outputs.CommandControl.ProgramSwitchingRequest     := FALSE;
@@ -6263,77 +6268,76 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 311; // +1 plc cycle to check ProgramSwitchingResponse
                     END_IF;
                 END_IF;
-                // ChangeProgramTask running: wait for program numbers to be equal.
+
+                // ChangeProgramTask running: set [program switching request] to 1 due to interupted by previous program switching
                 IF _progress = 312 THEN 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
-                    END_IF;
-    
                     Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
+                    Outputs.CommandControl.ProgramNo                   := UINT#0; // Reset program number 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 313; //+1 plc cycle to wait for falling edge
                     END_IF;
                 END_IF;
                 
-                // ChangeProgramTask running: setting the new program number.
+                // ChangeProgramTask running: set 'ProgramSwitchingRequest' and wait for 'ProgramSwitchingResponse' signal.
                 IF _progress = 314 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#511;
-                    END_IF;
-
-                    Outputs.CommandControl.ProgramNo := _programNumber;
-                    IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 317;
-                    ELSE
-                        THIS.CallTimers(FALSE);
-                        _progress := 315;
-                    END_IF;
-                END_IF;
-                // ChangeProgramTask running: waiting for the raising of the 'ProgramSwitchingResponse' signal.
-                IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
-    
-                    Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
+                    
+                    Outputs.CommandControl.ProgramNo                := _programNumber;
+                    Outputs.CommandControl.ProgramSwitchingRequest  := TRUE;
 
                     IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 316;
+                        _progress := 315;
                     END_IF;
                 END_IF;
-                // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal.
-                IF _progress = 316 THEN
+
+                // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal, when 'ProgramSwitchingRequest' is reset.
+                IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
                     Outputs.CommandControl.ProgramSwitchingRequest  := FALSE;
+                    Outputs.CommandControl.ProgramNo := UINT#0; // Reset program number , accoding documentation
 
                     IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 317;
+                        _progress := 316;
                     END_IF;
                 END_IF;
 
-                // ChangeProgramTask running: waiting for equals program change.
+                
+                // ChangeProgramTask running: validate that program is selected successfully and other control signals are right, 
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
-                        Status.Error.Id :=      UINT#513;
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#514;
                     END_IF;
     
-                    IF (_programNumber = Inputs.DeviceStatusWords.CurrentProgramNo) 
-                       AND (Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo) 
+                    IF  NOT Inputs.CommandStatusBits.ProgramSwitchingResponse 
+                        AND  NOT Inputs.CommandStatusBits.BUSY
+                        AND ( Inputs.DeviceStatusWords.CurrentProgramNo = _programNumber) 
                     THEN
                         THIS.CallTimers(FALSE);
                         _progress := 318;
+                    END_IF;
+                END_IF;
+
+                // ChangeProgramTask running: validate that program is selected successfully, 
+                IF _progress = 316 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
+                        Status.Error.Id :=      UINT#515;
+                    END_IF;
+    
+                    IF (_programNumber = Inputs.DeviceStatusWords.CurrentProgramNo) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 317; //+1 plc cycle to check the status after program change
                     END_IF;
                 END_IF;
 
@@ -6363,7 +6367,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             Messenger.ActivateOnCondition(ULINT#10010,ChangeProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10011,ChangeProgramTask.IsAborted(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#112,ChangeProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
-            IF ChangeProgramTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            IF ChangeProgramTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
             END_IF;

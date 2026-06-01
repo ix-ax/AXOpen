@@ -1,3 +1,0 @@
-﻿NAMESPACE AXOpen.Components.Drives
-END_NAMESPACE
-

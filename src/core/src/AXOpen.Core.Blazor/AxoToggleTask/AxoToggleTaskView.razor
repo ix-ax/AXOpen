@@ -1,10 +1,40 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Web;
+@using Operon.Icons;
 @inherits RenderableComplexComponentBase<AxoToggleTask>
 @implements IDisposable;
 
-<div data-axo-toggle-task-view class="flex flex-wrap">
-    <button type="button" class="btn btn-primary" disabled="@IsDisabled" @onclick="@ToggleTask">
-        @Description:@StateDescription
-    </button>
-</div>
+<button data-axo-toggle-task-view type="button"
+        aria-disabled="@IsDisabled"
+        aria-pressed="@IsOn"
+        class="btn @ButtonClass gap-2 flex items-center justify-between h-11 py-1! @Class"
+        style="@Style"
+        @onclick="this.ToggleTask"
+        disabled="@IsDisabled">
+    <span class="flex items-center gap-2 text-inherit">
+        @if (IsOn)
+        {
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-current text-inherit @((IsDisabled ? "opacity-70" : string.Empty))"></span>
+        }
+        else
+        {
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 border-current text-inherit @((IsDisabled ? "border-dashed opacity-70" : "border-solid"))"></span>
+        }
+    </span>
+
+    <span class="flex-1 min-w-0 text-center text-inherit line-clamp-2 text-balance wrap-anywhere leading-tight">
+        @LabelText.ToUpper()
+    </span>
+
+    @if (!HideRestoreButton)
+    {
+        <span aria-hidden="true" class="inline-flex items-center justify-center size-5 opacity-0 pointer-events-none"></span>
+    }
+</button>
+
+@code {
+
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+}

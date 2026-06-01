@@ -1,0 +1,152 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  id: plc.AXOpen.Messaging.eAxoMessageCategory
+  parent: plc.AXOpen.Messaging
+  children:
+  - plc.AXOpen.Messaging.eAxoMessageCategory.None
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Potential
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  - plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  name: eAxoMessageCategory
+  fullName: eAxoMessageCategory
+  type: Enum
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 2
+  namespace: plc.AXOpen.Messaging
+  syntax:
+    content: 'eAxoMessageCategory : INT'
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.None
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.None
+  parent: AXOpen.Messaging
+  children: []
+  name: None :=  0
+  fullName: None
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.None
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 7
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  parent: AXOpen.Messaging
+  children: []
+  name: Info :=  100
+  fullName: Info
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 14
+  namespace: plc.AXOpen.Messaging
+  summary: Info message.Use when you want to deliver information to the user, that has only informative character and does not adversely affect a process.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Potential
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Potential
+  parent: AXOpen.Messaging
+  children: []
+  name: Potential :=  150
+  fullName: Potential
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Potential
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 22
+  namespace: plc.AXOpen.Messaging
+  summary: Potential problem message.Use this category when you want to report to the user an information about a potential problem, that does not necessarily affect a processbut may cause a problem. This is typically used when certain conditions is expected to happen within a process that did not happen yet,this category is aimed to be later automatically requalified to Warning or Error by coordination primitive if the expected conditions did not happen within expected time.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  parent: AXOpen.Messaging
+  children: []
+  name: Warning :=  200
+  fullName: Warning
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 31
+  namespace: plc.AXOpen.Messaging
+  summary: Warning message.Use this category when you want to report to the user an information about a possible problem, that may adversly affect a process.Information in this cateogory aims to help the user to identify a problem, the cause of such problem does not necessarily stops the process.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  parent: AXOpen.Messaging
+  children: []
+  name: Error :=  300
+  fullName: Error
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 37
+  namespace: plc.AXOpen.Messaging
+  summary: Error message.Use this category when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device failsto deliver expected result.Do not use this category to report information about failed process like measurement or detection.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  parent: AXOpen.Messaging
+  children: []
+  name: ProgrammingError :=  400
+  fullName: ProgrammingError
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 46
+  namespace: plc.AXOpen.Messaging
+  summary: Programming error.Use this category to report programming errors, like invalid parameters, invalid state of the object etc.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  parent: AXOpen.Messaging
+  children: []
+  name: Critical :=  500
+  fullName: Critical
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+    path: .\src\abstractions\ctrl\src\AxoMessenger\eAxoMessageCategory.st
+    startLine: 53
+  namespace: plc.AXOpen.Messaging
+  summary: Critical error.Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) but device still operates under such conditions; a detailed inspection and an expert action is required.
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

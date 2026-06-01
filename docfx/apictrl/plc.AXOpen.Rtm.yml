@@ -1,0 +1,25 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Rtm
+  id: plc.AXOpen.Rtm
+  children:
+  - plc.AXOpen.Rtm.IAxoRtm
+  name: plc.AXOpen.Rtm
+  fullName: Rtm
+  type: Namespace
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Rtm
+    path: .\src\abstractions\ctrl\src\AxoRtm\IAxoRtm.st
+    startLine: 0
+  namespace: plc.AXOpen.Rtm
+references:
+- uid: plc.AXOpen.Rtm.IAxoRtm
+  name: IAxoRtm
+  nameWithType: IAxoRtm
+  fullName: AXOpen.Rtm.IAxoRtm
+
+

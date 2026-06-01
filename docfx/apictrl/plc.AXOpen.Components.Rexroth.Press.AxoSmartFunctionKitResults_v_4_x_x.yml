@@ -1,0 +1,298 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+  parent: plc.AXOpen.Components.Rexroth.Press
+  children:
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.id
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxForce
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxPosition
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.valid
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.createdDate
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.cycleTime
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.validationTime
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.status
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.customId
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.dataRecordingDisabled
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.samplingInterval
+  - plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x._v
+  name: AxoSmartFunctionKitResults_v_4_x_x
+  fullName: AxoSmartFunctionKitResults_v_4_x_x
+  type: Class
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 0
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: CLASS AxoSmartFunctionKitResults_v_4_x_x
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.id
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.id
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: id
+  fullName: id
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.id
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'id : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxForce
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxForce
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: maxForce
+  fullName: maxForce
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxForce
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'maxForce : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxPosition
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxPosition
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: maxPosition
+  fullName: maxPosition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.maxPosition
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'maxPosition : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.valid
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.valid
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: valid
+  fullName: valid
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.valid
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'valid : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.createdDate
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.createdDate
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: createdDate
+  fullName: createdDate
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.createdDate
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'createdDate : DATE_AND_TIME'
+    return:
+      type: DATE_AND_TIME
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.cycleTime
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.cycleTime
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: cycleTime
+  fullName: cycleTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.cycleTime
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'cycleTime : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.validationTime
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.validationTime
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: validationTime
+  fullName: validationTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.validationTime
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'validationTime : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.status
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.status
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: status
+  fullName: status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.status
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'status : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.customId
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.customId
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: customId
+  fullName: customId
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.customId
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'customId : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.dataRecordingDisabled
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.dataRecordingDisabled
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: dataRecordingDisabled
+  fullName: dataRecordingDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.dataRecordingDisabled
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'dataRecordingDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.samplingInterval
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.samplingInterval
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: samplingInterval
+  fullName: samplingInterval
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x.samplingInterval
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 25
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: 'samplingInterval : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x._v
+  id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x._v
+  parent: AXOpen.Components.Rexroth.Press
+  children: []
+  name: _v
+  fullName: _v
+  type: Property
+  source:
+    remote:
+      path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+      branch: dev
+      repo: https://github.com/Inxton/AXOpen.git
+    id: plc.AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitResults_v_4_x_x._v
+    path: .\src\components.rexroth.press\ctrl\src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Rexroth.Press
+  syntax:
+    content: '_v : INT'
+    return:
+      type: INT
+references:
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.DATE_AND_TIME
+  name: DATE_AND_TIME
+  nameWithType: DATE_AND_TIME
+  fullName: DATE_AND_TIME
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+
