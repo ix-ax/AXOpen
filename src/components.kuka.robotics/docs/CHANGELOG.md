@@ -23,6 +23,25 @@
     on every run.
 -->
 
+### 0.61.1
+
+**Bug fixes:**
+- `AxoKrc5` no longer self-aborts its tasks on the duration/error-timer
+  watchdog (#1167). The `ThrowWhen` calls on `_errorTimer.output` and on
+  `Duration >= Config.TaskTimeout` were removed from every task
+  (`StartAtMain`, `StartMotors`, `StartProgram`, `StartMotorsAndProgram`,
+  `StartMotorsProgramAndMovements`, `StartMovements`, `StopMotors`,
+  `StopMovementsAndProgram`). A stalled task now surfaces through the
+  component's own status message instead of an extra, redundant
+  task-timeout error. `AxoKrc4` is unchanged and still applies both
+  watchdogs.
+
+**Other:**
+- `AxoKrc5.md` — added a 4th KRC5-only divergence note and a Configuration
+  note recording that `ErrorTime` / `TaskTimeout` no longer abort KRC5 tasks.
+- `TROUBLES.md` — the `TaskTimeout` watchdog bullet is now flagged KRC4-only,
+  with the KRC5 message-driven behaviour documented.
+
 ### 0.54.0
 
 **New features:**

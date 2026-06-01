@@ -1,3 +1,16 @@
+### [FIX] `AxoKrc5` no longer throws spurious task-timeout errors
+
+**Note:** PLC bug fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st`. KRC5-only — `AxoKrc4` is unchanged. No public-API change. Branch: `1165-bug-kuka-issue-with-robot-reset` ([#1167](https://github.com/Inxton/AXOpen/pull/1167)).
+
+- fix: Removed the `ThrowWhen` watchdog calls (`_errorTimer.output` and `Duration >= Config.TaskTimeout`) from every `AxoKrc5` task — `StartAtMain`, `StartMotors`, `StartProgram`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMovements`, `StopMotors`, and `StopMovementsAndProgram`. A stalled task now surfaces through the component's own status message instead of an additional, redundant task-timeout error that fired even when the component had already reported the proper condition.
+- docs: `src/components.kuka.robotics/docs/AxoKrc5.md` and `TROUBLES.md` record the divergence (a 4th KRC5-only difference; `ErrorTime` / `TaskTimeout` no longer abort KRC5 tasks; the `TaskTimeout` watchdog troubleshooting bullet is now flagged KRC4-only). Library CHANGELOG bumped to `0.61.1`.
+
+**Impact:** Operating a KRC5 robot no longer produces nuisance task-timeout errors on top of the component's genuine status message. `AxoKrc4` retains both watchdogs.
+
+**Risks/Review:** KRC5 tasks no longer self-abort on duration; long-running or stuck tasks rely on the component status message and operator intervention rather than the `TaskTimeout` watchdog.
+
+**Testing:** `apax ibt` in `src/components.kuka.robotics` — build + AxUnit suite green.
+
 ### [FIX] `axdev` password guard contradicted the secrets complexity policy
 
 **Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
