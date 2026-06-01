@@ -1,5 +1,5 @@
 mode: ContinuousDeployment
-next-version: 0.60.0
+next-version: 0.61.0
 branches:
   main:
     regex: ^master$|^main$
@@ -15,7 +15,7 @@ branches:
     pre-release-weight: 55000
   develop:
     regex: ^dev(elop)?(ment)?$
-    mode: ManualDeployment
+    mode: ContinuousDelivery
     label: alpha
     increment: Minor
     prevent-increment:

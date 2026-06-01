@@ -440,4 +440,5 @@ operon-variables.css
 
 *.lscache
 
+# Vulnerability scan reports (scripts/update-vulnerable-deps.ps1)
 scripts/reports/
