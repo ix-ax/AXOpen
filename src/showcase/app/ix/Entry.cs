@@ -17,7 +17,7 @@ namespace showcase
 
     public class TwinConnectorSelector
     {
-        public static string TargetIp { get; } = "192.168.100.1";
+        public static string TargetIp { get; } = "192.168.100.10";
         private static string Pass => @"Qwerty123456+";
         private static string UserName = "admin";
         private const bool IgnoreSslErrors = true;
