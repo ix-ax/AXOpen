@@ -1,6 +1,6 @@
 // USING AXOpen.Components.Drives;
 
-NAMESPACE AXOpen.Components.Rexroth.Drives
+NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
     {S7.extern=ReadWrite}
     CLASS AxoCtrlxDriveXscAxisReference IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoAxisReference
         VAR PUBLIC // HWin
@@ -25,7 +25,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Data")]}
             {#ix-attr:[ReadOnly()]}
-            Data            :   AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisData;
+            Data            :   AxoCtrlxDriveXscAxisData;
         END_VAR                
         VAR PUBLIC
             Config          :   AXOpen.Components.Drives.AxoDrive_Config;

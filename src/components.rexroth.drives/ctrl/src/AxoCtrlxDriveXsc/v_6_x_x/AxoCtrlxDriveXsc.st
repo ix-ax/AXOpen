@@ -9,7 +9,7 @@ USING System.Math;
 USING Siemens.Simatic.Hardware.Utilities;
 USING Siemens.Simatic.DistributedIO;
 
-NAMESPACE AXOpen.Components.Rexroth.Drives
+NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
     {S7.extern=ReadWrite}
     CLASS AxoCtrlxDriveXsc EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         VAR PUBLIC //STATUS
@@ -30,7 +30,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
             {#ix-attr:[ReadOnly()]}
-            AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+            AxisRefExt :  AxoCtrlxDriveXscAxisReference;
         END_VAR
         VAR PUBLIC // Scaling
             {#ix-attr:[Container(Layout.Stack)]}
@@ -1914,7 +1914,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
             VAR
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
            _AxisReference ?= AxisRef;
@@ -2051,7 +2051,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
             VAR
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             _AxisReference ?= AxisRef;
 
@@ -2235,7 +2235,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification            
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2308,7 +2308,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
              END_VAR
              VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2707,7 +2707,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2885,7 +2885,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -3073,7 +3073,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
                         
             _AxisReference ?= AxisRef;
@@ -3314,7 +3314,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -3567,7 +3567,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -3825,7 +3825,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
                 Velocity_   :   LREAL;                     
                 Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;     
                 VelocityWindowPerCent     :   LREAL := LREAL#5.0;
@@ -4119,7 +4119,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
-                _AxisReference          :   REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference          :   REF_TO AxoCtrlxDriveXscAxisReference;
                 Torque_                 :   LREAL;
                 PositiveDirection_      :   BOOL;
                 TorqueWindowPerCent     :   LREAL := LREAL#5.0;
@@ -4477,7 +4477,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -4706,7 +4706,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -4763,7 +4763,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -4883,7 +4883,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -4999,7 +4999,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             RETURN;
 
@@ -5112,7 +5112,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -5237,7 +5237,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -5360,7 +5360,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -5482,7 +5482,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -5605,7 +5605,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -5727,7 +5727,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
-                _AxisReference  :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference  :  REF_TO AxoCtrlxDriveXscAxisReference;
                 Valid_          :   BOOL;
                 Error_          :   BOOL;
                 ErrorID_        :   WORD; 
@@ -5892,7 +5892,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -5927,7 +5927,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -5962,7 +5962,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -6007,7 +6007,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 SynchronizedMotion  : BOOL;                       //  See_State diagram
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -6062,7 +6062,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DirectionNegative:  BOOL;                       //  Signals that the position is decreasing
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -6111,7 +6111,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisWarning         :   BOOL;                       //  Warning(s) on the axis is present
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -6164,7 +6164,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
                 _category  :   AXOpen.Messaging.eAxoMessageCategory;
             END_VAR
             
@@ -6221,7 +6221,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _AxisReference :  REF_TO AxoCtrlxDriveXscAxisReference;
             END_VAR
             
             _AxisReference ?= AxisRef;

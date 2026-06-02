@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Rexroth.Drives
+NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
    {S7.extern=ReadWrite}
 	CLASS AxoCtrlxDriveXscHWIDs 
       VAR PUBLIC
