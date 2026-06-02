@@ -8,6 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.PersistentData
     {
+        [AXSharp.Connector.SourceFileAttribute(@"PersistentData/PersistentDataContext.st")]
         public partial class PersistentDataContext : AXOpen.Core.AxoContext, AXSharp.Connector.IPlain
         {
             public PersistentDataContext() : base()

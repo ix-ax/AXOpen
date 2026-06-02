@@ -1,0 +1,12 @@
+<Project>
+  <!--
+    File-based apps (dotnet run *.cs) generate an implicit project next to the script.
+    Under the repository's Central Package Management that implicit project fails with
+    NU1009 (implicit Microsoft.NET.ILLink.Tasks reference). Disabling CPM for this folder
+    only keeps the file-based scripts working; the referenced AXOpen.Dev library still
+    builds under the root CPM via its own project file.
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>

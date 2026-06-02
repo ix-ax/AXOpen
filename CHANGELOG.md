@@ -1,3 +1,89 @@
+### [FIX] `AxoCmmtAs` loses axis position while in torque control
+
+**Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
+
+- fix: `AxoCmmtAs` positioning no longer advances past the target-reached step on the `Telegram111_In.ZSW1.targetPosReached` (X10) bit alone. It now additionally requires the actual position to be within the in-position window — `ABS(Position - ActualPosition) <= _AxisReference^.Config.InPositionWindow` — before transitioning, so a drive that asserts `targetPosReached` while still off target (e.g. after a torque-control phase) no longer "loses" its position.
+- fix: Removed an unstable torque-control guard that raised programming error `1542` (`eAxoMessageCategory#ProgrammingError`, `MC_TorqueControlErrorID := 1542`) whenever `targetPosReached` became true during torque-control states `126`/`127`. The check proved unreliable and is disabled pending further investigation.
+- feat: `AxoDrive_Config` (in `src/components.drives`) gains an `InPositionWindow` parameter (`LREAL`, default `0.05`) supplying the tolerance above.
+- chore: Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`.
+- chore: Disabled an unfinished dynamic-torque-boost parameter write (PNU `13073`).
+- docs: Updated `components.festo.drives` docs (CHANGELOG `0.61.1`, TROUBLES, `AxoCmmtAs.md`) to document the in-position window, the ZSW1 bit map, and the torque-control behaviour.
+
+**Impact:**
+- Absolute positioning moves on Festo CMMT-AS drives complete only when the axis is genuinely within `InPositionWindow` of the commanded target, fixing the position loss observed after torque control.
+- The spurious `1542` programming error during torque control no longer fires.
+
+**Risks/Review:**
+- `InPositionWindow` defaults to `0.05` (axis position units). Too small a value can stall a move just before completion; too large lets it complete while still off target — tune per axis.
+- The torque-control `1542` guard is disabled rather than fixed; the underlying condition is still under investigation.
+
+**Testing:**
+- Delivered and reviewed via PR #1166 (issue #1152). No automated AxUnit test was added for the in-position gate.
+### [FIX] `AxoKrc5` no longer throws spurious task-timeout errors
+
+**Note:** PLC bug fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st`. KRC5-only — `AxoKrc4` is unchanged. No public-API change. Branch: `1165-bug-kuka-issue-with-robot-reset` ([#1167](https://github.com/Inxton/AXOpen/pull/1167)).
+
+- fix: Removed the `ThrowWhen` watchdog calls (`_errorTimer.output` and `Duration >= Config.TaskTimeout`) from every `AxoKrc5` task — `StartAtMain`, `StartMotors`, `StartProgram`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMovements`, `StopMotors`, and `StopMovementsAndProgram`. A stalled task now surfaces through the component's own status message instead of an additional, redundant task-timeout error that fired even when the component had already reported the proper condition.
+- docs: `src/components.kuka.robotics/docs/AxoKrc5.md` and `TROUBLES.md` record the divergence (a 4th KRC5-only difference; `ErrorTime` / `TaskTimeout` no longer abort KRC5 tasks; the `TaskTimeout` watchdog troubleshooting bullet is now flagged KRC4-only). Library CHANGELOG bumped to `0.61.1`.
+
+**Impact:** Operating a KRC5 robot no longer produces nuisance task-timeout errors on top of the component's genuine status message. `AxoKrc4` retains both watchdogs.
+
+**Risks/Review:** KRC5 tasks no longer self-abort on duration; long-running or stuck tasks rely on the component status message and operator intervention rather than the `TaskTimeout` watchdog.
+
+**Testing:** `apax ibt` in `src/components.kuka.robotics` — build + AxUnit suite green.
+
+### [FIX] `axdev` password guard contradicted the secrets complexity policy
+
+**Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
+
+- fix: `AXOpen.Dev.Validation.PasswordValidator` no longer rejects `$ & ( ) *`. These are endorsed by the set-time complexity policy (`configure-secrets.sh` requires a special char from `!@#$%^&*()_+-=`), so a password that satisfied the complexity rule was then rejected at use time by `axdev alf` / `axdev all` with "The PASSWORD contains problematic characters." The blocklist now keeps only genuinely-dangerous shell metacharacters (`` ` \ " ' | ; < > ? [ ] { } `` and whitespace) — safe because arguments reach apax/openssl via CliWrap (no shell). Error message and `PasswordValidatorTests` updated.
+
+**Impact:** `apax alf` / `apax all` accept the same passwords the secrets-setup flow accepts; no more spurious rejection of compliant passwords.
+
+**Testing:** `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — 180 passed.
+
+### [BUILD] `axdev` loads dotnet user-secrets at startup
+
+**Note:** Developer-CLI enhancement in `src/axopen.dev`. No PLC source change, no public-API removal. Branch: `feat/axdev-user-secrets-loader`.
+
+- feat: `AXOpen.Dev.Secrets.UserSecretsLoader` reads dotnet user-secrets into the process environment so PLC verbs resolve `AX_TARGET_PWD` / `AX_USERNAME` without a prior `source load-secrets.sh`. It locates the twin project's `<UserSecretsId>` (probes `../axpansion/twin` then `.`, overridable via the `AX_SECRETS_PROJECT` environment variable), reads its `secrets.json` from the OS user-secrets root, and flattens nested keys with the standard `key:subkey` convention.
+- feat: New shared entry point `AxdevApp.Run(args)` calls `UserSecretsLoader.Load()` then builds and runs the command app. Both the packed `dotnet axdev` tool (`AXOpen.Dev.Tool/Program.cs`) and the in-repo dispatcher (`src/scripts/dev.cs`) now call `AxdevApp.Run` instead of `AxdevApp.Build().Run`.
+- test: `AXOpen.Dev.Tests/Secrets/UserSecretsLoaderTests.cs` covers apply-from-store, existing-env-wins precedence, missing project / missing store / malformed JSON / no-`UserSecretsId` no-ops, the `AX_SECRETS_PROJECT` override, and nested-key flattening.
+
+**Impact:**
+- The template's credential UX (per-project `dotnet user-secrets`) is preserved while removing the bash `source load-secrets.sh` step, so apax verbs can call `axdev` directly on any platform.
+- Precedence is non-surprising: an already-set environment variable (or apax variable) always wins over the secrets store; an explicit `-p/--password` still overrides everything in `PlcCommandSettings.ResolvePassword`.
+
+**Risks/Review:**
+- Secret loading is best-effort: a missing twin project, missing store, or unreadable JSON is a silent no-op, and the per-command argument guards still report any genuinely missing credential.
+
+**Testing:**
+- `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — full suite green (176 passed), including the 8 new `UserSecretsLoaderTests`.
+
+### [BUILD] Dependency-maintenance tooling + AXSharp `0.47.0-alpha.484` bump
+
+**Note:** Build/CI tooling and dependency maintenance. No public-API change, no PLC source change. Branch: `deps-update`.
+
+- feat: `scripts/update-latest-deps.ps1` — bumps all non-AXSharp dependencies (NuGet + npm) to their latest stable versions, sharing common helpers via `scripts/_deps-common.ps1`.
+- feat: `scripts/update-vulnerable-deps.ps1` — scans npm and NuGet dependencies for known vulnerabilities and emits a report.
+- chore: AXSharp packages bumped to `0.47.0-alpha.484` in `Directory.Packages.props`, with transitive dependencies reconciled. `.config/dotnet-tools.json` updated to match.
+- chore: Added `.claude/skills/update-axsharp-version/SKILL.md` — skill for updating AXSharp and Inxton.Operon package versions.
+- chore: Removed obsolete `package.json` / `package-lock.json` files across `src/components.abb.robotics`, `src/components.abstractions`, `src/data`, `src/data/src/AXOpen.Data.Blazor`, `src/inspectors`, and a stray `apax.yml`, to clean up the project structure.
+- chore: `develop` branch GitVersion mode changed to `ContinuousDeployment`.
+- chore: Styling dependencies refreshed (`src/styling/src/package.json` / lock; `momentum.css` regenerated).
+
+**Impact:**
+- Routine dependency bumps and vulnerability scanning are now scriptable and reproducible.
+- AXSharp consumers build against `0.47.0-alpha.484`.
+- Dead npm lockfiles no longer pollute the tree or trigger spurious tooling.
+
+**Risks/Review:**
+- Dependency version bumps can introduce behavioural drift; verify a full `dotnet build` and the styling render after pulling.
+
+**Testing:**
+- Run `scripts/update-latest-deps.ps1` and `scripts/update-vulnerable-deps.ps1` end-to-end (exit code 0).
+- `dotnet build` from solution root succeeds against the bumped package set.
+
 ### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
 
 **Note:** PLC bug fix in `src/core/ctrl/src/AxoCoordination/AxoSequencer/AxoSequencer.st` (`AxoStepTimedOutMessenger.Activate`). No public-API change. Branch: `fix-issue-when-timeout-sequencer-alarm-doesnot-fall`.

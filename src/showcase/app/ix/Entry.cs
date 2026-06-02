@@ -23,18 +23,24 @@ namespace showcase
         private const bool IgnoreSslErrors = true;
         private static string CertificatePath = "..\\..\\certs\\plc_line\\plc_line.cer";
 
-        static readonly X509Certificate2 Certificate = new X509Certificate2(CertificatePath);
+        // Loaded lazily so the dummy-connector path (used for offline runs) does not require the
+        // certificate file to be present.
+        static readonly Lazy<X509Certificate2> Certificate = new(() => new X509Certificate2(CertificatePath));
 
         private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
-            return certificate.Thumbprint == Certificate.Thumbprint;
+            return certificate.Thumbprint == Certificate.Value.Thumbprint;
         }
 
-        public static showcaseTwinController SecurePlc { get; }
-            = new(ConnectorAdapterBuilder.Build()
-            .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
+        // Set AXOPEN_USE_DUMMY_CONNECTOR=true to run the UI without a PLC (offline / CI smoke test);
+        // otherwise the secure WebAPI connector to the real/simulated PLC is used.
+        private static bool UseDummyConnector =>
+            string.Equals(Environment.GetEnvironmentVariable("AXOPEN_USE_DUMMY_CONNECTOR"), "true", StringComparison.OrdinalIgnoreCase);
 
-        // public static showcaseTwinController SecurePlc { get; } = new showcaseTwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+        public static showcaseTwinController SecurePlc { get; } = UseDummyConnector
+            ? new(ConnectorAdapterBuilder.Build().CreateDummy())
+            : new(ConnectorAdapterBuilder.Build()
+                .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
     }
 
     public static class Entry
