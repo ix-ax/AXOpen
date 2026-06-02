@@ -110,7 +110,7 @@ acceleration profile). This is the process data the component writes through
 Configure the **Producer** telegram (Slot 1) with the cyclic data the drive
 sends back: the servodrive-profile status word, position feedback, torque/force
 actual value, velocity, and the diagnostic message. This is the process data
-the component reads through `AxisRefExt.Inputs` / `AxisRefExt.Status`.
+the component reads through `AxisRefExt.Inputs`.
 
 ![Producer cyclic data configuration](pics/rexroth_ctrlx_drive/003_PRODUCER.png)
 
@@ -118,7 +118,7 @@ the component reads through `AxisRefExt.Inputs` / `AxisRefExt.Status`.
 
 Map the **Signal control word** bits to the drive parameters the component
 drives (control word and field-bus control bits). The bit assignments must
-match the order the component expects in its outgoing control word.
+match the order the component expects in its `SignalControlWord_S_0_0145_0_0`.
 
 ![Signal control word bit mapping](pics/rexroth_ctrlx_drive/004_SignalControlWord.png)
 
@@ -126,7 +126,7 @@ match the order the component expects in its outgoing control word.
 
 Map the **Signal status word** bits to the source parameters reported back
 (status word, position-feedback status, field-bus status, actual values). The
-component decodes these bits to derive its `eAxoDriveState`.
+component decodes these bits to derive its `SignalStatusWord_S_0_0144_0_0`.
 
 ![Signal status word bit mapping](pics/rexroth_ctrlx_drive/005_SignalStatusWord.png)
 
