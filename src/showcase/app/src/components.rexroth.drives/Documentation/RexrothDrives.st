@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC
             _rootObject :    AxoObject;
             axoIndraDrive : AxoIndraDrive_Showcase;
-            axoCtrlxDriveXsc : AxoCtrlxDriveXsc_Showcase;
+            axoCtrlxDriveXsc : AxoCtrlxDriveXsc_Showcase_v_6_x_x;
         END_VAR
 
         METHOD PUBLIC Execute

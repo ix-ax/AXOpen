@@ -3,10 +3,10 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
-    CLASS AxoCtrlxDriveXsc_Showcase EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCtrlxDriveXsc_Showcase_v_6_x_x EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            CtrlXdrive : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc;      
+            CtrlXdrive : AXOpen.Components.Rexroth.Drives.v_6_x_x.AxoCtrlxDriveXsc;      
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -96,7 +96,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF(Steps[5].Execute(Sequencer, TRUE, 'Drive homming')) THEN
                 IF(CtrlXdrive.AxoHome(   Position        :=  LREAL#5.0,
-                                                            HommingMode     :=  INT#551,  // Negative hardware limit switch with zero pulse
+                                                            HommingMode     :=  INT#615,             // Negative direction, travel range limit switch, negative edge (NC contact), no Home switch evaluation, no Reference mark evaluation
                                                             Velocity        :=  LREAL#10.0,
                                                             Acceleration    :=  LREAL#1500.0,
                                                             Deceleration    :=  LREAL#1500.0

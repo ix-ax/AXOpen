@@ -5,7 +5,7 @@ using AXSharp.Connector.ValueTypes;
 using System;
 using System.Globalization;
 
-namespace AXOpen.Components.Rexroth.Drives
+namespace AXOpen.Components.Rexroth.Drives.v_6_x_x
 {
     public partial class AxoCtrlxDriveXscView : AxoComponentViewBase<AxoCtrlxDriveXsc>
     {

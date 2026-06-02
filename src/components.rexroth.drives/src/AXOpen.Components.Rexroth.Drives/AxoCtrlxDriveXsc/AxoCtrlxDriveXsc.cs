@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Rexroth.Drives
+namespace AXOpen.Components.Rexroth.Drives.v_6_x_x
 {
     public partial class AxoCtrlxDriveXsc
     {
