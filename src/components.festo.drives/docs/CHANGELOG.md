@@ -23,6 +23,16 @@
     on every run.
 -->
 
+### 0.61.1
+
+**Bug fixes:**
+- Fixed `AxoCmmtAs` move-absolute task to verify `InPositionWindow` tolerance (`ABS(Position - ActualPosition) <= Config.InPositionWindow`) at the end of movement before completing the move.
+- Removed aborting torque-control task with  error `1542`, when `targetPosReached` was raised. 
+
+**Other:**
+- Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`, clarifying which telegram bit drives each status signal.
+- Documented the `InPositionWindow` positioning-tolerance parameter (provided by `AxoDrive_Config`) consumed by `AxoCmmtAs` move completion.
+
 ### 0.43.0
 
 **Other:**
