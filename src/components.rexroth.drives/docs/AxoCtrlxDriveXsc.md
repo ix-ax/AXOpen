@@ -8,34 +8,34 @@ Generated documentation for the `AxoCtrlxDriveXsc` component.
 
 ## Declare component
 
-[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v6_x_x.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v_6_x_x.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.*
 
-[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v6_x_x.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v_6_x_x.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v6_x_x.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v_6_x_x.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v6_x_x.st?name=Usage)]
+[!code-pascal[](../../showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase_v_6_x_x.st?name=Usage)]
 
 ## Source
 
-View the library source at [`AxoCtrlxDriveXsc.st`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/v_6_x_x/AxoCtrlxDriveXsc.st).
+View the library source at [`AxoCtrlxDriveXsc.st`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/v_6_x_x/AxoCtrlxDriveXsc.st).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.Components.Rexroth.Drives`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/).
+View the .NET twin source at [`AXOpen.Components.Rexroth.Drives`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/).
 
 # [BLAZOR](#tab/blazor)
 
