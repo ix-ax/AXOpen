@@ -9,6 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1
 {
+    [AXSharp.Connector.SourceFileAttribute(@"SharedEntityHeader/SharedEntityHeader.st")]
     public partial class SharedEntityHeader : AXOpen.Data.AxoDataEntity
     {
         public OnlinerInt ComesFrom { get; }

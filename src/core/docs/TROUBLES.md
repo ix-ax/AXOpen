@@ -165,6 +165,11 @@ AxoLogger requires .NET-side dequeuing to forward PLC log entries:
 | `IsAborted()`     | `BOOL`          | Returns `TRUE` when task was aborted                              |
 | `ErrorDetails`    | `STRING`        | Error message text (populated by `ThrowWhen` or remote exception) |
 
+When the task is rendered through `AxoTaskView`, `ErrorDetails` is also
+surfaced through the button's native browser tooltip while the task is in
+the `Error` state — hovering the red button reveals the message without
+opening a separate diagnostics panel.
+
 ### Reading AxoRemoteTask state
 
 In addition to all AxoTask diagnostics:

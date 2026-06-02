@@ -31,10 +31,12 @@
       href : AxoStep.md
     - name : AxoSequencerContainer
       href : AxoSequencerContainer.md
-  - name : Messengers (Alarms)    
+  - name : Messengers (Alarms)
     items:
     - name : AxoMessenger
       href : AxoMessenger.md
+    - name : AxoIncidentBar
+      href : AxoIncidentBar.md
   - name : Logging
     items:
     - name : AxoLogger

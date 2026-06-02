@@ -47,6 +47,8 @@
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
 					<li class="min-w-0"><SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcTaskExamplePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcTaskErrorPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcTaskAbortedPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcMomentaryDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcToggleDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcRemoteDocuPath" OnOpen="OpenModalAsync" /></li>
@@ -103,6 +105,16 @@
 									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoRemoteTask</h3>
 									<p class="text-xs text-slate-500 mb-2">Executes C# code from PLC — <code>Invoke()</code> triggers a .NET handler.</p>
 									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoRemoteTasks._remoteTask" Presentation="@_selectedPresentation" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoTask — Error terminal state</h3>
+									<p class="text-xs text-slate-500 mb-2">Click Invoke. After a short run the task calls <code>ThrowWhen(TRUE)</code> and lands in <strong>Error</strong> — the button turns red, an <code>x-mark</code> icon appears, and hovering reveals <code>ErrorDetails</code> via tooltip. Use <strong>Reset task</strong> to return to Ready.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoTaskError._failingTask" Presentation="@_selectedPresentation" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoTask — Aborted terminal state</h3>
+									<p class="text-xs text-slate-500 mb-2">Click Invoke. After a short run the task calls <code>Abort()</code> and lands in <strong>Aborted</strong> — the button turns amber, a <code>stop</code> icon appears, and a <strong>Resume</strong> button shows next to <strong>Reset task</strong>. Resume continues; Reset returns to Ready.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoTaskAborted._abortingTask" Presentation="@_selectedPresentation" />
 								</div>
 							</div>
 						</TabPage>
@@ -395,6 +407,8 @@
 	// ---- PLC example paths ----
 	private readonly string _plcTaskDocuPath       = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st";
 	private readonly string _plcTaskExamplePath    = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskExample.st";
+	private readonly string _plcTaskErrorPath      = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskErrorExample.st";
+	private readonly string _plcTaskAbortedPath    = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskAbortedExample.st";
 	private readonly string _plcMomentaryDocuPath  = "src/showcase/app/src/core/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st";
 	private readonly string _plcToggleDocuPath     = "src/showcase/app/src/core/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st";
 	private readonly string _plcRemoteDocuPath     = "src/showcase/app/src/core/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st";
@@ -466,5 +480,7 @@
 		this.StartPolling(Entry.Plc.Ctx.AxoMomentaryTasks.MomentaryTaskExample,       250);
 		this.StartPolling(Entry.Plc.Ctx.AxoToggleTasks._toggleTask1,                  250);
 		this.StartPolling(Entry.Plc.Ctx.AxoRemoteTasks._remoteTask,                   250);
+		this.StartPolling(Entry.Plc.Ctx.AxoTaskError._failingTask,                    250);
+		this.StartPolling(Entry.Plc.Ctx.AxoTaskAborted._abortingTask,                 250);
 	}
 }

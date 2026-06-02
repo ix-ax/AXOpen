@@ -11,19 +11,37 @@ inside the component's `Run()` call.
 
 ## Relationship to `AxoKrc4`
 
-`AxoKrc5` exposes the **same public API** as [`AxoKrc4`](AxoKrc4.md) — the
-tasks, configuration members, status type, error catalogue, and `Run(inParent,
-hwID)` signature are identical, and so is the AXOpen slot layout (slot 1
-reserved/empty, slot 2 = `DIO512` with 64-byte cyclic I/O). Refer to the
-[`AxoKrc4`](AxoKrc4.md) page for:
+`AxoKrc5` shares **almost all** of its public API with
+[`AxoKrc4`](AxoKrc4.md) — the tasks, configuration members, status type,
+`Run(inParent, hwID)` signature, and the AXOpen slot layout (slot 1
+reserved/empty, slot 2 = `DIO512` with 64-byte cyclic I/O) are the same.
+Refer to the [`AxoKrc4`](AxoKrc4.md) page for:
 
 - The full capabilities list, configuration parameter table, and Config /
   HWIDs declarations.
 - The .NET twin and Blazor wiring patterns (the patterns transfer 1:1 — only
   the type name changes).
-- The error-state semantics (programming errors 700/701, hardware bring-up
-  errors 702/710/720–726/1130–1133, transport errors 1201/1231, runtime
-  safety errors 20001–20005, task-`potential` IDs in the 500-range).
+- The shared error-state semantics (programming errors 700/701, hardware
+  bring-up errors 702/710/720–726/1130–1133, transport errors 1201/1231,
+  runtime safety errors 20001–20005, task-`potential` IDs in the 500-range).
+
+> [!NOTE]
+> Since the KRC5 fix in **#1148**, `AxoKrc5` has diverged from `AxoKrc4` in
+> three KRC5-only respects (none of these are present on `AxoKrc4`):
+>
+> - It exposes the raw byte-array data-exchange members
+>   `DataFromPlcToRobot` / `DataFromRobotToPlc` (see [Data exchange](#data-exchange)).
+> - It raises additional coordinate-mirror task-`potential` identifiers
+>   **1501–1506** and **1511–1516** (see the
+>   [TROUBLES error reference](TROUBLES.md#task-potential-waiting-on-input-identifiers)).
+> - Safety message **20002** (`Inputs.Automatic = FALSE` while a task is busy)
+>   is raised as `Info` on `AxoKrc5`, where `AxoKrc4` still raises it as
+>   `Error`.
+> - Its tasks no longer self-abort on the duration/error-timer watchdog
+>   (#1167). `AxoKrc5` no longer calls `ThrowWhen` on `Config.TaskTimeout`
+>   or `Config.ErrorTime` (`_errorTimer.output`); a stalled task now surfaces
+>   through the component's own status message instead of a redundant
+>   task-timeout error. `AxoKrc4` still applies both watchdogs.
 
 The differences between KRC4 and KRC5 are confined to:
 
@@ -44,9 +62,42 @@ LT#2S`, `ErrorTime = LT#5S`, `TaskTimeout = LT#50S`) match KRC4 — see the
 [`AxoKrc4` configuration table](AxoKrc4.md#configuration) for the meaning of
 each field.
 
+> [!NOTE]
+> Since #1167, `ErrorTime` and `TaskTimeout` no longer abort `AxoKrc5` tasks
+> (the `ThrowWhen` watchdogs were removed). They are still applied by `AxoKrc4`.
+> On `AxoKrc5` a stalled task is reported through the component's status
+> message rather than raising a task-timeout error.
+
 [!code-smalltalk[](../ctrl/src/AxoKrc5/v_5_x_x/TypesStructuresAndEnums/AxoKrc5_Config.st?name=AxoKrc5ConfigDeclaration)]
 
 [!code-smalltalk[](../ctrl/src/AxoKrc5/v_5_x_x/TypesStructuresAndEnums/AxoKrc5_HWIDs.st?name=AxoKrc5HWIDsDeclaration)]
+
+## Data exchange
+
+`AxoKrc5` reserves part of the 64-byte cyclic I/O block for raw,
+application-defined payloads that pass through the component untouched
+(both members carry `RenderIgnore`, so they are excluded from the proxy
+view). This is a KRC5-only addition — `AxoKrc4` does not expose these
+members.
+
+| Member | Direction | Mapped onto |
+|--------|-----------|-------------|
+| `DataFromPlcToRobot : ARRAY[0..19] OF BYTE` | PLC → robot | Output bytes `_data[44..63]`, written each cycle in the output-pack phase of `Run()`. |
+| `DataFromRobotToPlc : ARRAY[0..15] OF BYTE` | robot → PLC | Input bytes `_data[48..63]`, copied each cycle after the input-unpack phase of `Run()`. |
+
+Write to `DataFromPlcToRobot` and read from `DataFromRobotToPlc` from
+application code; the component transports the bytes verbatim and does not
+interpret them. The two ranges overlap on the wire because the PLC→robot
+window (`44..63`) is wider than the robot→PLC window (`48..63`) — they occupy
+the same physical I/O block in opposite directions.
+
+[!code-smalltalk[](../ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st?name=AxoKrc5DataExchangeDeclaration)]
+
+The showcase demonstrates the round-trip — writing an application payload to
+`DataFromPlcToRobot` and reading the robot's published bytes from
+`DataFromRobotToPlc`:
+
+[!code-pascal[](../../showcase/app/src/components.kuka.robotics/Documentation/AxoKrc5_v_5_x_x_Showcase.st?name=DataExchange)]
 
 # [CONTROLLER](#tab/controller)
 

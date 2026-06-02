@@ -138,6 +138,15 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
 
+        // <AxoKrc5DataExchangeDeclaration>
+        VAR PUBLIC //Data
+            {#ix-attr:[RenderIgnore()]}
+            DataFromPlcToRobot :   ARRAY[0..19] OF BYTE;
+            {#ix-attr:[RenderIgnore()]}
+            DataFromRobotToPlc :   ARRAY[0..15] OF BYTE;
+        END_VAR
+        // </AxoKrc5DataExchangeDeclaration>
+
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
@@ -388,6 +397,23 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _dword.%B2                      := _data[46];
             _dword.%B3                      := _data[47];
             Inputs.EventId                  := TO_UDINT(_dword);
+
+            DataFromRobotToPlc[0]           := _data[48];
+            DataFromRobotToPlc[1]           := _data[49];
+            DataFromRobotToPlc[2]           := _data[50];
+            DataFromRobotToPlc[3]           := _data[51];
+            DataFromRobotToPlc[4]           := _data[52];
+            DataFromRobotToPlc[5]           := _data[53];
+            DataFromRobotToPlc[6]           := _data[54];
+            DataFromRobotToPlc[7]           := _data[55];
+            DataFromRobotToPlc[8]           := _data[56];
+            DataFromRobotToPlc[9]           := _data[57];
+            DataFromRobotToPlc[10]          := _data[58];
+            DataFromRobotToPlc[11]          := _data[59];
+            DataFromRobotToPlc[12]          := _data[60];
+            DataFromRobotToPlc[13]          := _data[61];
+            DataFromRobotToPlc[14]          := _data[62];
+            DataFromRobotToPlc[15]          := _data[63];
             //*******************************************
             _context := THIS.GetContext();
 
@@ -470,9 +496,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;
 
                 THIS.CallTimers(TRUE);
-                StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartAtMainTask timeout.#>');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -622,9 +646,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsAndProgramTask timeout.#>');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -819,6 +841,30 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                             TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#533;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.X,Status.CurrentMovementParameters.Coordinates.X,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1501, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1501;//<#Waiting for Inputs.Coordinates.X to be equal to MovementParameters.Coordinates.X!
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Y,Status.CurrentMovementParameters.Coordinates.Y,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1502, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1502;//<#Waiting for Inputs.Coordinates.Y to be equal to MovementParameters.Coordinates.Y!
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Z,Status.CurrentMovementParameters.Coordinates.Z,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1503, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1503;//<#Waiting for Inputs.Coordinates.Z to be equal to MovementParameters.Coordinates.Z!                        
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Rx,Status.CurrentMovementParameters.Coordinates.Rx,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1504, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1504;//<#Waiting for Inputs.Coordinates.Rx to be equal to MovementParameters.Coordinates.Rx!   
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Ry,Status.CurrentMovementParameters.Coordinates.Ry,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1505, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1505;//<#Waiting for Inputs.Coordinates.Ry to be equal to MovementParameters.Coordinates.Ry!   
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Rz,Status.CurrentMovementParameters.Coordinates.Rz,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1506, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1506;//<#Waiting for Inputs.Coordinates.Rz to be equal to MovementParameters.Coordinates.Rz!           
+                        END_IF;
                     END_IF;
 
                     IF 	Inputs.GlobalSpeed      = Status.CurrentMovementParameters.GlobalSpeed AND
@@ -883,9 +929,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	
 
                 THIS.CallTimers(NOT _movementExecuting);
-                StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsProgramAndMovementsTask timeout.#>');
             END_IF;
             IF StartMotorsProgramAndMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -975,7 +1019,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
             END_IF;
             IF StartMotorsTask.DoneReached() THEN
@@ -1098,6 +1141,30 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                             TaskMessenger.Activate( UINT#559, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#559;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.X,Status.CurrentMovementParameters.Coordinates.X,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1511, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1511;//<#Waiting for Inputs.Coordinates.X to be equal to MovementParameters.Coordinates.X!
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Y,Status.CurrentMovementParameters.Coordinates.Y,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1512, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1512;//<#Waiting for Inputs.Coordinates.Y to be equal to MovementParameters.Coordinates.Y!
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Z,Status.CurrentMovementParameters.Coordinates.Z,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1513, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1513;//<#Waiting for Inputs.Coordinates.Z to be equal to MovementParameters.Coordinates.Z!                        
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Rx,Status.CurrentMovementParameters.Coordinates.Rx,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1514, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1514;//<#Waiting for Inputs.Coordinates.Rx to be equal to MovementParameters.Coordinates.Rx!   
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Ry,Status.CurrentMovementParameters.Coordinates.Ry,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1515, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1515;//<#Waiting for Inputs.Coordinates.Ry to be equal to MovementParameters.Coordinates.Ry!   
+                        END_IF;
+                        IF NOT AXOpen.Components.Robotics.IsNearlyEqual(Inputs.Coordinates.Rz,Status.CurrentMovementParameters.Coordinates.Rz,REAL#0.01) THEN
+                            TaskMessenger.Activate( UINT#1516, eAxoMessageCategory#Potential);
+                            Status.Error.Id :=      UINT#1516;//<#Waiting for Inputs.Coordinates.Rz to be equal to MovementParameters.Coordinates.Rz!           
+                        END_IF;
                     END_IF;
 
                     IF 	Inputs.GlobalSpeed      = Status.CurrentMovementParameters.GlobalSpeed AND
@@ -1164,9 +1231,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
 	            THIS.CallTimers(NOT _movementExecuting);
                 
-                StartMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_movement_progress);
-                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMovementsTask timeout.#>');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -1318,9 +1383,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartProgramTask timeout.#>');
             END_IF;
             IF StartProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#171;
@@ -1381,9 +1444,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StopMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMotorsTask timeout.#>');
             END_IF;
             IF StopMotorsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -1453,9 +1514,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsAndProgramTask timeout.#>');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#191;
@@ -1513,9 +1572,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsTask timeout.#>');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -1572,9 +1629,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopProgramTask timeout.#>');
             END_IF;
             IF StopProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#911;
@@ -1665,9 +1720,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                ResetAllOutputsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                ResetAllOutputsTask.ThrowWhen(ResetAllOutputsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetAllOutputsTask timeout.#>');
             END_IF;
             IF ResetAllOutputsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#921;
@@ -1702,7 +1755,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Status.Error.Id := UINT#20001;
                 END_IF;
                 IF(NOT Inputs.Automatic) THEN
-                    Messenger.Activate(UINT#20002,eAxoMessageCategory#Error);
+                    Messenger.Activate(UINT#20002,eAxoMessageCategory#Info);
                     Status.Error.Id := UINT#20002;
                 END_IF;
                 IF(NOT Inputs.AlarmStopActive) THEN
@@ -1813,6 +1866,27 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _data[41]            := _dword.%B1;
             _data[42]            := _dword.%B2;
             _data[43]            := _dword.%B3;
+
+            _data[44]            := DataFromPlcToRobot[0];
+            _data[45]            := DataFromPlcToRobot[1];
+            _data[46]            := DataFromPlcToRobot[2];
+            _data[47]            := DataFromPlcToRobot[3];
+            _data[48]            := DataFromPlcToRobot[4];
+            _data[49]            := DataFromPlcToRobot[5];
+            _data[50]            := DataFromPlcToRobot[6];
+            _data[51]            := DataFromPlcToRobot[7];
+            _data[52]            := DataFromPlcToRobot[8];
+            _data[53]            := DataFromPlcToRobot[9];
+            _data[54]            := DataFromPlcToRobot[10];
+            _data[55]            := DataFromPlcToRobot[11];
+            _data[56]            := DataFromPlcToRobot[12];
+            _data[57]            := DataFromPlcToRobot[13];
+            _data[58]            := DataFromPlcToRobot[14];
+            _data[59]            := DataFromPlcToRobot[15];
+            _data[60]            := DataFromPlcToRobot[16];
+            _data[61]            := DataFromPlcToRobot[17];
+            _data[62]            := DataFromPlcToRobot[18];
+            _data[63]            := DataFromPlcToRobot[19];
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_512_DI_DO),_data);
             IF _retVal > WORD#0 THEN

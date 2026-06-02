@@ -50,6 +50,8 @@ AXOpen provides a comprehensive set of libraries and components for industrial a
 
 ## Notable features
 
+- **Task lifecycle visualization** — `AxoTaskView` now renders each lifecycle outcome distinctly: a solid green circle for *Busy*, a `stop` icon plus dedicated *Resume* button for *Aborted*, an `x-mark` with a hover tooltip exposing `ErrorDetails` for *Error*, and a `lock-closed` icon when disabled. See [src/core/docs/AxoTask.md](src/core/docs/AxoTask.md#terminal-state-affordances-in-axotaskview) and the live `/core/AxoTask` page in the showcase app.
+
 ### Tasks
 
 The task provides a simple coordination primitive to execute actions. Tasks provide additional benefits regarding handling and observability of executed actions.
@@ -61,6 +63,8 @@ IF _myTask.Invoke().IsDone() THEN
     MoveToNextStep();
 END_IF;
 ~~~
+
+`AxoTask` exposes its full lifecycle through the Blazor proxy `AxoTaskView`: distinct button colour + icon per state (Ready / Busy / Done / Aborted / Error), a `Resume` button alongside `Reset task` while *Aborted*, the `ErrorDetails` message surfaced via native tooltip while in *Error*, and a `lock-closed` icon when the task is disabled. The `/core/AxoTask` page in the showcase app exercises every state — including dedicated `AxoTaskErrorExample` and `AxoTaskAbortedExample` tiles. For the full mapping see [src/core/docs/AxoTask.md](src/core/docs/AxoTask.md#terminal-state-affordances-in-axotaskview).
 
 ### Remote Tasks
 

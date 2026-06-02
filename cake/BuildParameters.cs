@@ -28,7 +28,7 @@ public class BuildParameters
     [Option('v', "verbosity", Required = false, Default = DotNetVerbosity.Minimal, HelpText = "Verbosity (default Quiet)")]
     public DotNetVerbosity Verbosity { get; set; }
 
-    [Option('l', "test-level", Required = false, Default = 1, HelpText = "Test level 1 - 3")]
+    [Option('l', "test-level", Required = false, Default = 1, HelpText = "Test level 1 - 4")]
     public int TestLevel { get; set; }
 
     [Option('r', "do-publish-release", Required = false, Default = false, HelpText = "Publishes release on GH")]
@@ -49,12 +49,6 @@ public class BuildParameters
     [Option('b', "skip-build", Required = false, Default = false, HelpText = "Does not run build steps")]
     public bool NoBuild { get; set; }
 
-    [Option('a', "apps-run", Required = false, Default = false, HelpText = "Download to PLC and run apps ")]
-    public bool AppsRun{ get; set; }
-
     [Option('o', "do-publish-only", Required = false, Default = false, HelpText = "Skips all steps and publishes from pre-build artefacts.")]
     public bool PublishOnly { get; set; }
-
-    [Option('s', "single-app-run-folder-name", Required = false, Default = "", HelpText = "Download to PLC and run just app from folder")]
-    public string AppRunOnlyFolderName { get; set; }
 }

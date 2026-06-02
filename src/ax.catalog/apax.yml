@@ -1,33 +1,33 @@
 name: "@inxton/ax.catalog"
-version: '0.0.50'
+version: '0.0.52'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
 keywords:
   - "catalog"
 catalogDependencies:
-  "@ax/apax-build": 2.2.53	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.2.53
+  "@ax/apax-build": 2.2.60	                                      	    # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  2.2.60
   "@ax/ax2tia": 12.2.8	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  12.2.8
   "@ax/axunit-mocking": 9.4.8	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  9.4.8
   "@ax/axunitst": 9.4.8	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  9.4.8
   "@ax/axunitst-library": 9.4.8	                                      	# @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  9.4.8
   "@ax/build-native": 16.1.51	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  16.1.51
-  "@ax/certificate-management": 2.0.0	                                  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.0.0
-  "@ax/dcp-utility": 1.2.0	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.2.0
+  "@ax/certificate-management": 2.0.1	                                  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.0.0
+  "@ax/dcp-utility": 1.2.1	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.2.0
   "@ax/debug-st-ls-plugin": 1.0.10	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.0.10
-  "@ax/diagnostic-buffer": 2.1.1	                                      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.1.1
-  "@ax/hardware-diagnostics": 1.1.1	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.1.1
-  "@ax/hw-et200sp": 4.4.0	                                      	      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.4.0
-  "@ax/hw-s7-1500": 4.4.0	                                      	      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.4.0
-  "@ax/hwc": 4.4.0	                                      	            # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.4.0
-  "@ax/hwld": 3.4.0	                                      	            # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.4.0
-  "@ax/mod": 1.13.21	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
-  "@ax/mon": 1.13.21	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
-  "@ax/plc-control": 1.6.3	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.6.3
-  "@ax/plc-info": 4.1.1	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.1.1
+  "@ax/diagnostic-buffer": 2.2.0	                                      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.1.1
+  "@ax/hardware-diagnostics": 1.2.0	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.1.1
+  "@ax/hw-et200sp": 4.4.1	                                      	      # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  4.4.1
+  "@ax/hw-s7-1500": 4.4.1	                                      	      # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  4.4.1
+  "@ax/hwc": 4.4.1	                                      	            # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  4.4.1
+  "@ax/hwld": 3.5.0	                                      	            # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.4.0
+  "@ax/mod": 1.14.13	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
+  "@ax/mon": 1.14.13	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
+  "@ax/plc-control": 1.7.22	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.6.3
+  "@ax/plc-info": 4.2.0	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.1.1
   "@ax/plc-web-app-manager": 1.2.0	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.2.0
-  "@ax/sdb": 1.13.21	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
-  "@ax/sdk": 2510.11.0	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2510.11.0
+  "@ax/sdb": 1.14.13	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.13.21
+  "@ax/sdk": 2510.12.0	                                      	        # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  2510.12.0
   "@ax/simatic-alarming": 5.1.0	                                      	# @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  5.1.0
   "@ax/simatic-clocks": 11.0.116	                                      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.0.116
   "@ax/simatic-communication": 11.0.2	                                  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.0.2
@@ -58,12 +58,12 @@ catalogDependencies:
   "@ax/simatic-pointtopoint": 4.0.54	                                  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.0.54
   "@ax/simatic-tasks": 11.0.2	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.0.2
   "@ax/simatic-technology-objects": 4.0.43	                              # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.0.43
-  "@ax/sld": 3.6.3	                                      	            # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.6.3
-  "@ax/st-lang-contrib-xlad": 1.0.0	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.0.0
-  "@ax/st-ls": 11.4.57	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
+  "@ax/sld": 3.8.3	                                      	            # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.6.3
+  "@ax/st-lang-contrib-xlad": 1.1.0	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.0.0
+  "@ax/st-ls": 11.5.53	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
   "@ax/st-opcua.stc-plugin": 2.0.0	                                    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  2.0.0
   "@ax/st-resources.stc-plugin": 4.0.3	                                # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.0.3
-  "@ax/stc": 11.4.57	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
+  "@ax/stc": 11.5.53	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
   "@ax/system": 10.4.16	                                      	        # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
   "@ax/system-bistable": 10.4.16	                                      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
   "@ax/system-bitaccess": 10.4.16	                                      # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
@@ -78,8 +78,8 @@ catalogDependencies:
   "@ax/system-serde": 10.4.16	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
   "@ax/system-strings": 10.4.16	                                      	# @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
   "@ax/system-timer": 10.4.16	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  10.4.16
-  "@ax/target-llvm": 11.4.57	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
-  "@ax/target-mc7plus": 11.4.57	                                      	# @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
+  "@ax/target-llvm": 11.5.53	                                      	  # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
+  "@ax/target-mc7plus": 11.5.53	                                      	# @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  11.4.57
   "@ax/tia2st": 4.3.5	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  4.3.5
-  "@ax/trace": 3.3.1	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.3.1
-  "@ax/xlad-service": 1.0.0	                                      	    # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  1.0.0
+  "@ax/trace": 3.4.0	                                      	          # @ax/simatic-ax@2510.11.0 contained at the time of creation this catalog (16.5.2026) version  3.3.1
+  "@ax/xlad-service": 1.1.0	                                      	    # @ax/simatic-ax@2510.12.0 contained at the time of creation this catalog (25.5.2026) version  1.1.0

@@ -10,6 +10,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.Primitives
 {
+    [AXSharp.Connector.SourceFileAttribute(@"Primitives/InitializedPrimitives.st")]
     public partial class InitializedPrimitives : AXSharp.Connector.ITwinObject
     {
         public OnlinerBool v_BOOL { get; }

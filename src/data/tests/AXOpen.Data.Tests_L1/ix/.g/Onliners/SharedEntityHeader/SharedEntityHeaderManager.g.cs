@@ -9,6 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1
 {
+    [AXSharp.Connector.SourceFileAttribute(@"SharedEntityHeader/SharedEntityHeaderManager.st")]
     public partial class SharedEntityHeaderManager : AXOpen.Data.AxoDataExchange<Tests_L1.SharedEntityHeader, Pocos.Tests_L1.SharedEntityHeader>
     {
         [AXOpen.Data.AxoDataEntityAttribute]

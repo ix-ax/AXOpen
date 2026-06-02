@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i ./wwwroot/tailwindroot.css -o ./wwwroot/css/axopenstyling.css --minify",
-    "watch:css": "npx @tailwindcss/cli -i ./wwwroot/tailwindroot.css -o ./wwwroot/css/axopenstyling.css --watch"
+    "build:css": "npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --minify --content \"..\\..\\..\\**\\*.{html,js,jsx,ts,tsx,vue,razor}\"",
+    "watch:css": "npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --watch --content \"..\\..\\..\\**\\*.{html,js,jsx,ts,tsx,vue,razor}\""
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.2.2",
-    "tailwindcss": "^4.2.2"
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
   }
 }

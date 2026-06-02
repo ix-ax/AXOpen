@@ -9,6 +9,7 @@ namespace Pocos
 {
     namespace Tests_L1.Primitives
     {
+        [AXSharp.Connector.SourceFileAttribute(@"Primitives/PrimitivesDataEntity.st")]
         public partial class PrimitivesDataEntity : AXOpen.Data.AxoDataEntity, AXSharp.Connector.IPlain
         {
             public PrimitivesDataEntity() : base()

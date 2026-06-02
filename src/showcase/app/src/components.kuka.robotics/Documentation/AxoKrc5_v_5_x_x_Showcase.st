@@ -36,10 +36,12 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             THIS.UseInSequencer();
         END_METHOD
 
-        //<Usage>    
-        VAR PUBLIC                       
-            Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..19] OF AXOpen.Core.AxoStep;
+        //<Usage>
+        VAR PUBLIC
+            Sequencer : AxoSequencer;
+            Steps : ARRAY[0..20] OF AXOpen.Core.AxoStep;
+            {#ix-set:AttributeName = "<#Last byte received from robot#>"}
+            _lastByteFromRobot : BYTE;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
@@ -202,10 +204,32 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;
             END_IF;
 
-            IF(Steps[19].Execute(Sequencer, 'Restore')) THEN
+            //<DataExchange>
+            // KRC5-only raw passthrough (#1148): the component transports these
+            // byte arrays verbatim over the same 64-byte cyclic block, without
+            // interpreting them. They carry `RenderIgnore`, so they are not part
+            // of the proxy view — exchange them from application code instead.
+            IF(Steps[19].Execute(Sequencer, '<#Exchange raw data with the robot#>')) THEN
+                // PLC -> robot: write an application-defined payload
+                // (mapped onto output bytes 44..63 of the cyclic block).
+                ExampleRobot.DataFromPlcToRobot[0]  := BYTE#16#A1;
+                ExampleRobot.DataFromPlcToRobot[1]  := BYTE#16#B2;
+                ExampleRobot.DataFromPlcToRobot[19] := BYTE#16#FF;
+
+                // robot -> PLC: read the bytes the robot publishes back
+                // (mapped from input bytes 48..63 of the cyclic block).
+                _lastByteFromRobot := ExampleRobot.DataFromRobotToPlc[0];
+
+                IF(Sequencer.CurrentStep.Duration >= T#500ms) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+            //</DataExchange>
+
+            IF(Steps[20].Execute(Sequencer, 'Restore')) THEN
                 ExampleRobot.Restore();
                 Sequencer.CompleteSequence();
-            END_IF;   
+            END_IF;
         END_METHOD
         
         //</Usage>

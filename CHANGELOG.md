@@ -1,3 +1,199 @@
+### [FIX] `AxoCmmtAs` loses axis position while in torque control
+
+**Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
+
+- fix: `AxoCmmtAs` positioning no longer advances past the target-reached step on the `Telegram111_In.ZSW1.targetPosReached` (X10) bit alone. It now additionally requires the actual position to be within the in-position window — `ABS(Position - ActualPosition) <= _AxisReference^.Config.InPositionWindow` — before transitioning, so a drive that asserts `targetPosReached` while still off target (e.g. after a torque-control phase) no longer "loses" its position.
+- fix: Removed an unstable torque-control guard that raised programming error `1542` (`eAxoMessageCategory#ProgrammingError`, `MC_TorqueControlErrorID := 1542`) whenever `targetPosReached` became true during torque-control states `126`/`127`. The check proved unreliable and is disabled pending further investigation.
+- feat: `AxoDrive_Config` (in `src/components.drives`) gains an `InPositionWindow` parameter (`LREAL`, default `0.05`) supplying the tolerance above.
+- chore: Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`.
+- chore: Disabled an unfinished dynamic-torque-boost parameter write (PNU `13073`).
+- docs: Updated `components.festo.drives` docs (CHANGELOG `0.61.1`, TROUBLES, `AxoCmmtAs.md`) to document the in-position window, the ZSW1 bit map, and the torque-control behaviour.
+
+**Impact:**
+- Absolute positioning moves on Festo CMMT-AS drives complete only when the axis is genuinely within `InPositionWindow` of the commanded target, fixing the position loss observed after torque control.
+- The spurious `1542` programming error during torque control no longer fires.
+
+**Risks/Review:**
+- `InPositionWindow` defaults to `0.05` (axis position units). Too small a value can stall a move just before completion; too large lets it complete while still off target — tune per axis.
+- The torque-control `1542` guard is disabled rather than fixed; the underlying condition is still under investigation.
+
+**Testing:**
+- Delivered and reviewed via PR #1166 (issue #1152). No automated AxUnit test was added for the in-position gate.
+### [FIX] `AxoKrc5` no longer throws spurious task-timeout errors
+
+**Note:** PLC bug fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st`. KRC5-only — `AxoKrc4` is unchanged. No public-API change. Branch: `1165-bug-kuka-issue-with-robot-reset` ([#1167](https://github.com/Inxton/AXOpen/pull/1167)).
+
+- fix: Removed the `ThrowWhen` watchdog calls (`_errorTimer.output` and `Duration >= Config.TaskTimeout`) from every `AxoKrc5` task — `StartAtMain`, `StartMotors`, `StartProgram`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMovements`, `StopMotors`, and `StopMovementsAndProgram`. A stalled task now surfaces through the component's own status message instead of an additional, redundant task-timeout error that fired even when the component had already reported the proper condition.
+- docs: `src/components.kuka.robotics/docs/AxoKrc5.md` and `TROUBLES.md` record the divergence (a 4th KRC5-only difference; `ErrorTime` / `TaskTimeout` no longer abort KRC5 tasks; the `TaskTimeout` watchdog troubleshooting bullet is now flagged KRC4-only). Library CHANGELOG bumped to `0.61.1`.
+
+**Impact:** Operating a KRC5 robot no longer produces nuisance task-timeout errors on top of the component's genuine status message. `AxoKrc4` retains both watchdogs.
+
+**Risks/Review:** KRC5 tasks no longer self-abort on duration; long-running or stuck tasks rely on the component status message and operator intervention rather than the `TaskTimeout` watchdog.
+
+**Testing:** `apax ibt` in `src/components.kuka.robotics` — build + AxUnit suite green.
+
+### [FIX] `axdev` password guard contradicted the secrets complexity policy
+
+**Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
+
+- fix: `AXOpen.Dev.Validation.PasswordValidator` no longer rejects `$ & ( ) *`. These are endorsed by the set-time complexity policy (`configure-secrets.sh` requires a special char from `!@#$%^&*()_+-=`), so a password that satisfied the complexity rule was then rejected at use time by `axdev alf` / `axdev all` with "The PASSWORD contains problematic characters." The blocklist now keeps only genuinely-dangerous shell metacharacters (`` ` \ " ' | ; < > ? [ ] { } `` and whitespace) — safe because arguments reach apax/openssl via CliWrap (no shell). Error message and `PasswordValidatorTests` updated.
+
+**Impact:** `apax alf` / `apax all` accept the same passwords the secrets-setup flow accepts; no more spurious rejection of compliant passwords.
+
+**Testing:** `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — 180 passed.
+
+### [BUILD] `axdev` loads dotnet user-secrets at startup
+
+**Note:** Developer-CLI enhancement in `src/axopen.dev`. No PLC source change, no public-API removal. Branch: `feat/axdev-user-secrets-loader`.
+
+- feat: `AXOpen.Dev.Secrets.UserSecretsLoader` reads dotnet user-secrets into the process environment so PLC verbs resolve `AX_TARGET_PWD` / `AX_USERNAME` without a prior `source load-secrets.sh`. It locates the twin project's `<UserSecretsId>` (probes `../axpansion/twin` then `.`, overridable via the `AX_SECRETS_PROJECT` environment variable), reads its `secrets.json` from the OS user-secrets root, and flattens nested keys with the standard `key:subkey` convention.
+- feat: New shared entry point `AxdevApp.Run(args)` calls `UserSecretsLoader.Load()` then builds and runs the command app. Both the packed `dotnet axdev` tool (`AXOpen.Dev.Tool/Program.cs`) and the in-repo dispatcher (`src/scripts/dev.cs`) now call `AxdevApp.Run` instead of `AxdevApp.Build().Run`.
+- test: `AXOpen.Dev.Tests/Secrets/UserSecretsLoaderTests.cs` covers apply-from-store, existing-env-wins precedence, missing project / missing store / malformed JSON / no-`UserSecretsId` no-ops, the `AX_SECRETS_PROJECT` override, and nested-key flattening.
+
+**Impact:**
+- The template's credential UX (per-project `dotnet user-secrets`) is preserved while removing the bash `source load-secrets.sh` step, so apax verbs can call `axdev` directly on any platform.
+- Precedence is non-surprising: an already-set environment variable (or apax variable) always wins over the secrets store; an explicit `-p/--password` still overrides everything in `PlcCommandSettings.ResolvePassword`.
+
+**Risks/Review:**
+- Secret loading is best-effort: a missing twin project, missing store, or unreadable JSON is a silent no-op, and the per-command argument guards still report any genuinely missing credential.
+
+**Testing:**
+- `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — full suite green (176 passed), including the 8 new `UserSecretsLoaderTests`.
+
+### [BUILD] Dependency-maintenance tooling + AXSharp `0.47.0-alpha.484` bump
+
+**Note:** Build/CI tooling and dependency maintenance. No public-API change, no PLC source change. Branch: `deps-update`.
+
+- feat: `scripts/update-latest-deps.ps1` — bumps all non-AXSharp dependencies (NuGet + npm) to their latest stable versions, sharing common helpers via `scripts/_deps-common.ps1`.
+- feat: `scripts/update-vulnerable-deps.ps1` — scans npm and NuGet dependencies for known vulnerabilities and emits a report.
+- chore: AXSharp packages bumped to `0.47.0-alpha.484` in `Directory.Packages.props`, with transitive dependencies reconciled. `.config/dotnet-tools.json` updated to match.
+- chore: Added `.claude/skills/update-axsharp-version/SKILL.md` — skill for updating AXSharp and Inxton.Operon package versions.
+- chore: Removed obsolete `package.json` / `package-lock.json` files across `src/components.abb.robotics`, `src/components.abstractions`, `src/data`, `src/data/src/AXOpen.Data.Blazor`, `src/inspectors`, and a stray `apax.yml`, to clean up the project structure.
+- chore: `develop` branch GitVersion mode changed to `ContinuousDeployment`.
+- chore: Styling dependencies refreshed (`src/styling/src/package.json` / lock; `momentum.css` regenerated).
+
+**Impact:**
+- Routine dependency bumps and vulnerability scanning are now scriptable and reproducible.
+- AXSharp consumers build against `0.47.0-alpha.484`.
+- Dead npm lockfiles no longer pollute the tree or trigger spurious tooling.
+
+**Risks/Review:**
+- Dependency version bumps can introduce behavioural drift; verify a full `dotnet build` and the styling render after pulling.
+
+**Testing:**
+- Run `scripts/update-latest-deps.ps1` and `scripts/update-vulnerable-deps.ps1` end-to-end (exit code 0).
+- `dotnet build` from solution root succeeds against the bumped package set.
+
+### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
+
+**Note:** PLC bug fix in `src/core/ctrl/src/AxoCoordination/AxoSequencer/AxoSequencer.st` (`AxoStepTimedOutMessenger.Activate`). No public-API change. Branch: `fix-issue-when-timeout-sequencer-alarm-doesnot-fall`.
+
+- fix: `AxoStepTimedOutMessenger.Activate` now resolves `_context := inParent.GetContext()` on every call rather than only on the first rising transition into `ActiveAcknowledgeNotRequired`, and refreshes `ActiveContextCount := _context.OpenCycleCount()` on every cycle the messenger remains non-Idle. Previously, `ActiveContextCount` was set once at rise time and never advanced, so the `AxoMessenger` base could not detect that `Activate` was still being called cycle-to-cycle, and the step-timeout alarm would not fall when the sequencer left the timed-out step.
+- fix: Added explicit `Run(IAxoObject inParent)` override on `AxoSequencer` calling `SUPER.Run(inParent)` — placeholder for the per-cycle `_msgStepTimedOut.Serve(THIS)` wiring (currently commented) so the override site exists for the messenger lifecycle without changing observable behaviour.
+
+**Impact:**
+- Sequencer step-timeout alarms now transition Idle → Active → Idle correctly across the step-timeout boundary; operators no longer see a stale "Step timed out" entry persisting after the sequencer has advanced past the timed-out step.
+- The aggregate count maintained via `THIS.GetParent().AggregateMessage(1)` is now driven by an `ActiveContextCount` that tracks the actual cycle of last activation, restoring the standard `AxoMessenger` fall semantics for this messenger.
+
+**Risks/Review:**
+- The `Run` override is a pass-through to `SUPER.Run` — no behavioural difference yet, but adds an extra virtual call per sequencer cycle. The commented `_msgStepTimedOut.Serve(THIS)` line is the intended wiring for a follow-up patch and is left in place as a documentation marker.
+
+**Testing:**
+- AxoSequencer step-timeout scenario in the showcase (`/core/AxoSequencer`) — induce a timeout, observe the messenger rises, then allow the step to complete and verify the alarm falls within one cycle of the step transition.
+
+### [CORE] AxoIncidentBar — perf, ranking-accuracy, and sender-identification fixes
+
+**Note:** Patch follow-up to the `0.56.0` AxoIncidentBar feature. All changes in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change. No public-API removal; `IRankableMessage` gains one new member with an adapter-side default. Branch: `fix-incident-bar-perf-issues`.
+
+- fix: `AxoCauseAnalyzer` ranking — severity-tier sort is now the outermost key (`OrderByDescending(SeverityWeight).ThenByDescending(Score)`). A `Critical` candidate is never ranked below an `Error` one regardless of burst/ownership/age bonuses. Score remains the within-tier tie-breaker. Previously a long-running, deeply-owned `Error` could outrank a freshly-risen `Critical`, hiding the more urgent alarm.
+- fix: `AxoCauseAnalyzer` age contribution is capped at 7 days (`_maxAgeMinutes = 7 * 24 * 60`). Uninitialized `RisenUtc` (`DateTime.MinValue`) previously injected ~10⁹ minutes via `W_AGE` and dominated the score before `ReadDetails` had populated `Risen`.
+- fix: `AxoCauseAnalyzer` `BurstWindow` cutoff is clamped to `DateTime.MinValue` when the maximum `RisenUtc` is smaller than the window — prevents `DateTime` underflow on the first cycle before `Risen` is read.
+- fix: `AxoCauseAnalyzer` excludes candidates with empty `DisplayMessage` (e.g. `MessageCode == 0`) — there is nothing meaningful to surface to the operator, but those messengers would still consume burst-root credit.
+- fix: `AxoIncidentBarView` polling cadence is now driven by `_analyzer.ActiveCount` instead of `Provider.ActiveMessagesCount`. `Provider.ActiveMessagesCount` depends on `MsgCnt` aggregation reaching the observed root, which is not guaranteed in every project topology; the analyzer's count comes from the just-read state and is authoritative.
+- fix: `AxoIncidentBarView.Tick()` now always reads `ReadMessageStateAsync` first, then pulls `ReadDetails` when **any** messenger reports a non-Idle state. Previously the bar could skip detail reads entirely (and therefore never repopulate `Risen`/`Fallen`) when the provider's aggregated active count was zero while individual messengers were active.
+- fix: `AxoIncidentBarView.ConfigurePolling` and `Tick` errors are now logged via Serilog instead of being silently swallowed — `Information` on successful configure (with messenger count), `Debug` per tick (with `ActiveCount` and `TopCause` symbol), `Warning` on read/recompute failure, `Error` on initialize failure. The previous `catch { /* swallow */ }` made polling lifecycle and per-tick state invisible without attaching a debugger.
+- feat: `AxoCauseAnalyzer.SenderDisplayName` now produces a top-down `AttributeName` breadcrumb (e.g. `Station › Drive › Encoder`) walking from the messenger's owning component up to but excluding the unnamed root, with a fallback to `GetSymbolTail` when no chain is available. The previous single-segment `GetSymbolTail` was ambiguous for nested topologies (two `Encoder` messengers under different drives both displayed as `Encoder`).
+- feat: `AxoIncidentBarView` renders the full PLC symbol path as a mono `text-xs` subtitle beneath the breadcrumb sender label, and as the `title` tooltip on hover, both on the top bar and in expanded rows.
+- feat: `IRankableMessage` exposes a new `SenderSymbol` member (full PLC symbol path). `AxoMessengerRankableAdapter` accepts an optional `senderSymbol` projector and defaults `SenderSymbol` to the messenger symbol when none is supplied — existing call sites compile unchanged.
+- feat: `AxoMessageProvider.ReadMessageStateAsync` now batches `Risen`, `Fallen`, and `Acknowledged` alongside the state/category/code triple. Burst-window decisions no longer require a separate `ReadDetails` round-trip in the common case.
+- feat: `AxoMessageProvider.ReadDetails` issues its batch read at `eAccessPriority.Low` to reduce contention with operator-driven traffic on the same connector.
+- docs: Updated `src/core/docs/AxoIncidentBar.md` ranking-formula section with a "Severity-tier outermost" note and an age-cap mention, replaced the Station/Drive cascade example to match the new severity-first sort order, and added a "Sender identification" subsection to the BLAZOR tab documenting the breadcrumb + `SenderSymbol` behaviour. Appended `0.56.1` entry to `src/core/docs/CHANGELOG.md`.
+
+**Impact:**
+- A `Critical` alarm always sits on top of the bar — the previously-possible inversion (long-running `Error` outranking a fresh `Critical`) is closed.
+- Pre-first-detail-read cycles no longer rank random uninitialized-time alarms at the top.
+- The bar now identifies the originating instance unambiguously when multiple components share the same component-level display name (`Encoder` under Drive 1 vs. Drive 2).
+- Polling decisions match the analyzer's actual workload, so the bar correctly drops to the idle cadence (2500 ms) when there is genuinely nothing to rank, even in topologies where `Provider.ActiveMessagesCount` rolls up partially.
+- Operators can correlate the breadcrumb sender with the underlying PLC variable path via the tooltip without leaving the bar.
+
+**Risks/Review:**
+- `IRankableMessage.SenderSymbol` is a new interface member. The library's own implementation (`AxoMessengerRankableAdapter`) supplies it via a defaulted constructor parameter. External code that **directly implements** `IRankableMessage` (no in-tree call sites) will need to add the member; this is a soft break tracked in "Other" of `src/core/docs/CHANGELOG.md` rather than "Breaking changes" because the interface was introduced in `0.56.0` and has no external implementers yet.
+- `AxoMessageProvider.ReadDetails` priority dropped to `eAccessPriority.Low`. In projects with chronic high-priority operator traffic, the bar may now wait longer for its detail batch — `ActivePollingMs` (default 750 ms) is the worst-case staleness ceiling.
+- Severity-first sort changes ranking output for any deployment that relied on the previous score-only order to surface ownership over severity. The Station/Drive example in `AxoIncidentBar.md` has been rewritten to reflect the new behaviour; deployments depending on the old order need to either escalate the owner's category or accept the new precedence.
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests/Messaging/` — `AxoCauseAnalyzerTests`, `AxoIncidentBarPresenterTests`, `AxoMessengerRankableAdapterTests` updated to cover the new sort precedence, age cap, burst clamp, empty-message exclusion, and `SenderSymbol` projection.
+- `dotnet build src/core/src/AXOpen.Core.Blazor/` — Razor compiles clean with the new Serilog using and `IRankableMessage.SenderSymbol` references.
+- Showcase: `Pages/core/AxoIncidentBar.razor` — bar shows the breadcrumb on Station/Drive/Encoder topology and the mono symbol-path subtitle on hover.
+
+### [CORE] AxoCauseAnalyzer + AxoIncidentBarView — probable-cause ranking and persistent operator incident bar over AxoMessenger
+
+**Note:** Additive change in `src/core/src/AXOpen.Core/AxoMessenger/Static/` and `src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/`. No PLC source change required for application opt-in; the analyzer reads only fields `AxoMessenger` already exposes. Branch: `feat-most-probable-failure-cause`.
+
+- feat: `AxoCauseAnalyzer` (`AXOpen.Messaging.Static`) — heuristic ranking layered on `AxoMessageProvider`. Scores each Error-or-above active messenger by severity (operator-actionability map: Critical=1.0, Error=0.9, ProgrammingError=0.85, Warning=0.6, Potential=0.4, Info=0.1), burst-root (earliest `Risen` within sliding `BurstWindow`, default 8 s, anchored on latest `Risen`), twin-tree topology (container-Symbol-prefix `DownstreamCount`), acknowledgement state, and age decay. `Changed` event fires only on top-cause symbol flip. Anti-strobe hold (`HoldDuration` default 2 s) suppresses PLC-cycle mid-read empty publishes. Static factory `AxoCauseAnalyzer.Create(AxoMessageProvider, options?, nowUtc?)` wires the adapter pipeline.
+- feat: `AxoIncidentBarView` (`AXOpen.Core.Blazor`, namespace `AXOpen.Messaging.Static`) — sticky in-flow Blazor component (zero height when idle, no layout reflow) that renders the top probable cause as a severity-colored bar (`shadow-glow-{danger|warning|info}` + flat `bg-{token}/15` tint — color token matches the glow). `animate-pulse` for Critical/ProgrammingError until acknowledged. Click-to-expand panel shows top-5 candidates with score, evidence (burst-root, downstream count), optimistic Acknowledge, admin-gated Restore (`<AuthorizeView Roles="Administrator">`). Adaptive polling — 750 ms when any Error+ active, 2500 ms idle — using two-tier batch reads via the existing provider. `aria-live="polite"` for accessibility.
+- feat: `AxoIncidentBarPresenter` — pure-logic seam. Exposes `CurrentState` (visibility, severity bucket, pulse flag, rows, ack-pending markers) and static Tailwind class mappers (`GlowClass`, `BadgeClass`, `BackgroundClass`, `ToSeverityBucket`). All decision logic is xUnit-testable without rendering or twin scaffolding. `IncidentBarSeverity` enum split into `Critical` / `Error` / `Warning` / `Info` / `None`.
+- feat: `IRankableMessage` + `AxoMessengerRankableAdapter` — delegate-driven projection (`Func<string>`, `Func<DateTime>`, etc.) so tests fake fields without standing up an `AxoMessenger`. Delegates re-invoke on each access so the analyzer sees the latest batch-read value.
+- feat: Default `CauseSeverityFloor = eAxoMessageCategory.Error`. Warning/Potential/Info still count in `ActiveCount` / `PeakSeverity` (global indicators stay accurate) but never enter the cause ranking. Configurable via `AxoCauseAnalyzerOptions`.
+- fix: Topology heuristic now compares CONTAINER symbols (strip last segment), not messenger Symbols directly. Earlier draft treated sibling messengers as unrelated even when their parent components nested. New test `Topology_uses_container_prefix_not_messenger_symbol_prefix` locks the realistic twin-tree shape.
+- feat: Showcase `AxoIncidentBarExample.st` (nested `Station` → `Drive` → `Encoder` + `Conveyor` → `Sensor`, each with its own `AxoMessenger` and condition flag) plus `Pages/core/AxoIncidentBar.razor` (Live Bar tab with operator controls, Topology code tab with snippet refs, Heuristic tab with ranking formula). NavMenu entry under Core; search registry entry.
+- feat: Template `axopen.template.simple` — `MainLayout.razor` mounts `<AxoIncidentBarView Provider="@_alarmProvider" />` once per layout, cascades the provider so `GeneralAlarms.razor` consumes the same provider instance instead of walking the twin tree a second time.
+- feat: Template `tailwind.css` extended with `@source` paths for `axopen/src/core/src/AXOpen.Core/**/*.cs` and `AXOpen.Core.Blazor/**/*.razor` so future bar class additions get JIT-compiled.
+- docs: Added `src/core/docs/AxoIncidentBar.md` (ranking formula, severity floor, Blazor mount pattern). Cross-linked from `src/core/docs/toc.yml` under "Messengers (Alarms)". Appended `0.56.0` entry to `src/core/docs/CHANGELOG.md` (minor bump from `0.55.1`, GitVersion `next-version` updated).
+- test: 28 new tests in `src/core/tests/AXOpen.Core.Tests/Messaging/` — `AxoCauseAnalyzerTests` (15: severity-floor, severity map, burst window, sliding burst, topology container prefix, ack de-prio, TopN clamp, anti-strobe hold, Changed event semantics, age decay), `AxoMessengerRankableAdapterTests` (2: projection + delegate re-invocation), `AxoCauseAnalyzerFactoryTests` (2: null guard + empty provider), `AxoIncidentBarPresenterTests` (26: visibility, severity bucket, pulse, additional count, rows, ack-pending, idle hysteresis, CSS class mapping, background-color-matches-glow invariant). Total: 69/69 green.
+
+**Impact:**
+- Operators see a single severity-colored bar above the layout with the highest-confidence root cause of the current incident, instead of scanning a flat alarm list.
+- The bar collapses to zero height when no Error+ is active — no permanent UI cost when the line is healthy.
+- Applications opt in by mounting one component in their `MainLayout.razor` and creating one provider. No ST source changes; no `AxoMessenger` API change.
+- Engineers writing custom HMI surfaces can consume `AxoCauseAnalyzer` directly (events + `TopCause` / `ProbableCauses` properties) without the Blazor view.
+
+**Risks/Review:**
+- Severity-floor default is `Error`. Warning-only incidents do NOT raise the bar (intentional: operator noise reduction). Override via `AxoCauseAnalyzerOptions.CauseSeverityFloor` if a deployment needs Warning-level surfacing.
+- `bg-{token}/15` and `shadow-glow-{token}` Tailwind classes must be present in the host app's compiled `momentum.css`. The template app's `tailwind.css` `@source` glob now covers the relevant axopen paths — rebuild required (`tailwind.ps1`) on first integration.
+- Bar polling uses `System.Threading.Timer`; `IAsyncDisposable` cleans it up. If hosted in a Blazor Server circuit with frequent reconnects, monitor for orphaned timers under stress.
+- `AxoIncidentBarView` consumes `AuthenticationStateProvider` cascaded parameter for the admin-gated Restore button. If the host app routes the bar outside an `AuthorizeRouteView` boundary, the cascading parameter is `null` and Restore degrades to no-op (no exception).
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests/` — 69/69 green (17 pre-existing + 52 messaging).
+- `dotnet build src/core/src/AXOpen.Core.Blazor/` — Razor compiles clean.
+- `dotnet build src/showcase/app/ix-blazor/showcase.blazor/` after `apax ib` — 0 errors. Showcase page navigates to `/core/AxoIncidentBar` and renders the live bar with the topology controls.
+- `dotnet build axopen.template.simple/axpansion/server/` — 0 errors. `MainLayout` cascades the provider; `GeneralAlarms.razor` consumes it without creating a second instance.
+
+### [KUKA] KRC5 raw data exchange, coordinate-mirror diagnostics, and auto-mode severity fix ([#1151](https://github.com/Inxton/AXOpen/pull/1151))
+
+**Note:** KRC5-only change in `src/components.kuka.robotics/`. `AxoKrc5` now diverges from `AxoKrc4` in three respects — `AxoKrc4` is intentionally left unchanged in this PR. Fixes #1148.
+
+- feat: `AxoKrc5` exposes raw application-defined passthrough members `DataFromPlcToRobot : ARRAY[0..19] OF BYTE` (PLC → robot, output bytes `_data[44..63]`) and `DataFromRobotToPlc : ARRAY[0..15] OF BYTE` (robot → PLC, input bytes `_data[48..63]`). Both carry `RenderIgnore`; `Run()` transports them verbatim without interpretation. Wrapped in the new `<AxoKrc5DataExchangeDeclaration>` source region.
+- feat: `AxoKrc5` adds per-axis coordinate-mirror task-`potential` identifiers `1501–1506` (`StartMotorsProgramAndMovements`) and `1511–1516` (`StartMovements`), raised via `TaskMessenger` while waiting for each `Inputs.Coordinates.{X,Y,Z,Rx,Ry,Rz}` to mirror the commanded value within `0.01` tolerance. Matching `.NET` twin entries added to both the `TaskMessenger` text list and `errorDescriptionDict` in `AxoKrc5.cs`.
+- fix: `AxoKrc5` safety message `20002` (`Inputs.Automatic = FALSE` while a task is busy) is now raised as category `Info` instead of `Error` — losing auto mode mid-task is informational on KRC5, not a hard fault.
+- feat: Showcase `AxoKrc5_v_5_x_x_Showcase.st` gained an "Exchange raw data with the robot" sequencer step (in `//<DataExchange>` markers); `Steps` widened `[0..19]` → `[0..20]`, `_lastByteFromRobot` status field added.
+- docs: `AxoKrc5.md` relaxed the "identical public API to `AxoKrc4`" wording, added a **Data exchange** section (library declaration + showcase usage refs), and a note listing the three KRC5-only differences. `TROUBLES.md` flags the per-class differences (1501–1516, 20002 severity split). Appended `0.54.0` entry to `src/components.kuka.robotics/docs/CHANGELOG.md`.
+
+**Impact:**
+- Applications driving a KRC5 can now push and pull arbitrary byte payloads alongside the structured motion interface, without a library change.
+- Operators see which specific axis is holding up a movement (per-coordinate `potential` IDs) rather than a single "coordinates not mirrored" wait.
+- Dropping out of automatic mode mid-task no longer latches a KRC5 error state.
+
+**Risks/Review:**
+- `AxoKrc4` and `AxoKrc5` are no longer API/behaviour-identical. Documentation now states the divergence explicitly; if a follow-up backports these changes to `AxoKrc4`, the "KRC5-only" wording in `AxoKrc5.md` / `TROUBLES.md` must be reverted.
+- The PLC→robot (`44..63`) and robot→PLC (`48..63`) windows overlap on the same physical I/O block in opposite directions — verify the controller-side mapping matches before relying on the passthrough.
+
+**Testing:**
+- `apax ib` in `src/showcase/app/` — the new KRC5 data-exchange sequencer step builds and runs through to `CompleteSequence`.
+- `dotnet build` on `src/showcase/app/ix-blazor/showcase.blazor/` — the `AxoKrc5.cs` messenger/error-dictionary additions compile.
+- `scripts/_build_documentation.ps1` — the new `[!code-pascal[]]` (showcase `DataExchange`) and `[!code-smalltalk[]]` (`AxoKrc5DataExchangeDeclaration`) directives resolve.
+
 ### [CORE] AxoToggleTaskView aligned with AxoTaskView ([#1143](https://github.com/Inxton/AXOpen/pull/1143))
 
 **Note:** Blazor UI-only change in `src/core/src/AXOpen.Core.Blazor/AxoToggleTask/`. The PLC `AxoToggleTask` class and its public API (`SwitchOn()`, `SwitchOff()`, `Toggle()`, `IsSwitchOn()`, `IsSwitchOff()`, event-like overrides) are unchanged. Bundled with the AxoCmmtAs view expansion under the same PR; the toggle-view refactor is the core-library portion.

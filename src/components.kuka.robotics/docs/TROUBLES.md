@@ -2,11 +2,20 @@
 
 This page catalogues the error states surfaced by `AxoKrc4` and `AxoKrc5`
 (both in `AXOpen.Components.Kuka.Robotics.v_5_x_x`), each tied back to its
-raising site in the PLC source. The two classes share an identical error
-catalogue and bring-up logic, so every entry below applies to both. Error
-identifiers are published through `Status.Error.Id` and the component's
-`Messenger` / `TaskMessenger`, so the ID seen in a log or on the HMI always
-maps to one of the entries below.
+raising site in the PLC source. The two classes share the same bring-up
+logic and the bulk of the error catalogue, so unless an entry is flagged
+otherwise it applies to both. Error identifiers are published through
+`Status.Error.Id` and the component's `Messenger` / `TaskMessenger`, so the
+ID seen in a log or on the HMI always maps to one of the entries below.
+
+> [!NOTE]
+> Since the KRC5 fix in **#1148**, a few identifiers differ between the two
+> classes (the rest are identical):
+>
+> - **1501–1506** and **1511–1516** (coordinate-mirror task-`potential` IDs)
+>   are raised by `AxoKrc5` only.
+> - **20002** (`Inputs.Automatic = FALSE` while a task is busy) is raised as
+>   category `Info` on `AxoKrc5`, but as `Error` on `AxoKrc4`.
 
 ## Common issues
 
@@ -57,8 +66,11 @@ They are not errors.
 - `Inputs.Error = TRUE` raises error 20005 while a task is busy; clear
   the KRC4-side fault, then call `ExampleRobot.ErrorConfirmation` via
   `Outputs.ErrorConfirmation` or run the `Restore` sequencer step.
-- `Config.TaskTimeout` has not elapsed (default `LT#50S`). Set to `0s`
-  during commissioning to disable the watchdog.
+- **(KRC4 only)** `Config.TaskTimeout` has not elapsed (default `LT#50S`).
+  Set to `0s` during commissioning to disable the watchdog. Since #1167
+  `AxoKrc5` no longer aborts tasks on `TaskTimeout` / `ErrorTime`; a stalled
+  KRC5 task is reported through the component status message instead, so
+  there is no task-timeout watchdog to disable on KRC5.
 
 ### Movement parameters never take effect
 
@@ -80,7 +92,11 @@ If the mirror never happens the task is stuck at `_movement_progress = 354`.
   the KRC4 programme is not advancing.
 - `AXOpen.Components.Robotics.CoordinatesAreNearlyEqual` returns `TRUE` for
   the commanded vs. echoed coordinates within `0.01` tolerance. Values
-  outside that tolerance keep the task in the acknowledge state.
+  outside that tolerance keep the task in the acknowledge state. On
+  `AxoKrc5`, the specific axis that has not yet mirrored is reported through
+  the per-coordinate *potential* IDs **1501–1506** (combined
+  motors/program/movements task) or **1511–1516** (movements task) —
+  `X/Y/Z/Rx/Ry/Rz` in that order. These are KRC5-only.
 
 ### PROFINET read / write transport failures
 
@@ -114,7 +130,7 @@ corresponding input asserts/deasserts:
 | Id | Condition | Meaning |
 |----|-----------|---------|
 | 20001 | `Inputs.Manual = TRUE` | KRC4 went to T1 while a task is executing — automation path invalid. |
-| 20002 | `Inputs.Automatic = FALSE` | KRC4 dropped out of auto — task is now illegal. |
+| 20002 | `Inputs.Automatic = FALSE` | Controller dropped out of auto. Raised as `Error` on `AxoKrc4`; raised as `Info` on `AxoKrc5` (#1148), since losing auto mode mid-task is treated as an informational condition there. |
 | 20003 | `Inputs.AlarmStopActive = FALSE` | Alarm-stop dropped, likely external E-stop. |
 | 20004 | `Inputs.UserSafetySwitchClosed = FALSE` | User safety gate opened during motion. |
 | 20005 | `Inputs.Error = TRUE` | KRC4 itself raised an error while the task was running. |
@@ -157,7 +173,7 @@ task.
 | Id | Category | Raised when |
 |----|----------|-------------|
 | 20001 | Error | `Inputs.Manual = TRUE`. |
-| 20002 | Error | `Inputs.Automatic = FALSE`. |
+| 20002 | Error (`AxoKrc4`) / Info (`AxoKrc5`) | `Inputs.Automatic = FALSE`. Severity differs per class — see the note at the top of this page. |
 | 20003 | Error | `Inputs.AlarmStopActive = FALSE`. |
 | 20004 | Error | `Inputs.UserSafetySwitchClosed = FALSE`. |
 | 20005 | Error | `Inputs.Error = TRUE`. |
@@ -181,6 +197,8 @@ ranges:
 | 580 | `StartProgram` | Programme start acknowledgement. |
 | 590, 591 | `StopProgram`, `StopMovementsAndProgram` | Programme stop acknowledgement. |
 | 600, 610, 620 | `StopMovements`, `StopMotors`, `ResetAllOutputs` | Final shutdown handshakes. |
+| 1501–1506 *(KRC5 only)* | `StartMotorsProgramAndMovements` | Per-axis coordinate mirror — waiting for `Inputs.Coordinates.{X,Y,Z,Rx,Ry,Rz}` to match the commanded value within tolerance. |
+| 1511–1516 *(KRC5 only)* | `StartMovements` | Per-axis coordinate mirror — same `X/Y/Z/Rx/Ry/Rz` ordering as 1501–1506, for the movements task. |
 
 A *potential* entry is not a fault — inspect the KRC4 inputs named in the
 task's current step comment. A task only converts to an error (`10020`,

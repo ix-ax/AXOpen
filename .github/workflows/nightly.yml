@@ -91,7 +91,7 @@ jobs:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
       run: |
-        dotnet run --project cake/Build.csproj --apps-run
+        dotnet run --project cake/Build.csproj --do-test --test-level 4
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
 

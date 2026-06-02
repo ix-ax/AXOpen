@@ -6,27 +6,27 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": '0.0.49'
+  "@inxton/ax.catalog": '0.0.52'
 dependencies:
-  '@ax/apax-build': 2.1.79
-  '@ax/axunitst': 9.3.7
-  '@ax/certificate-management': 2.0.0
-  '@ax/diagnostic-buffer': 2.1.1
-  '@ax/hw-s7-1500': 4.4.0
-  '@ax/hwc': 4.4.0
-  '@ax/hwld': 3.4.0
-  '@ax/mod': 1.13.21
-  '@ax/mon': 1.13.21
-  '@ax/plc-info': 4.1.1
-  '@ax/sdb': 1.13.21
+  '@ax/apax-build': 2.2.60
+  '@ax/axunitst': 9.4.8
+  '@ax/certificate-management': 2.0.1
+  '@ax/diagnostic-buffer': 2.2.0
+  '@ax/hw-s7-1500': 4.4.1
+  '@ax/hwc': 4.4.1
+  '@ax/hwld': 3.5.0
+  '@ax/mod': 1.14.13
+  '@ax/mon': 1.14.13
+  '@ax/plc-info': 4.2.0
+  '@ax/sdb': 1.14.13
   '@ax/simatic-package-tool': 2.0.17
-  '@ax/sld': 3.6.3
-  '@ax/st-ls': 11.4.57
+  '@ax/sld': 3.8.3
+  '@ax/st-ls': 11.5.53
   '@ax/st-resources.stc-plugin': 4.0.3
-  '@ax/stc': 11.4.57
-  '@ax/target-llvm': 11.4.57
-  '@ax/target-mc7plus': 11.4.57
-  '@ax/trace': 3.3.1
+  '@ax/stc': 11.5.53
+  '@ax/target-llvm': 11.5.53
+  '@ax/target-mc7plus': 11.5.53
+  '@ax/trace': 3.4.0
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:

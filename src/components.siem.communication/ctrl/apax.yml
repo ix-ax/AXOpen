@@ -9,12 +9,12 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": '0.0.49'
+  "@inxton/ax.catalog": '0.0.52'
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@inxton/axopen.io": '0.0.0-dev.0'
-  "@ax/simatic-pointtopoint": 4.0.6
+  "@ax/simatic-pointtopoint": 4.0.54
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
