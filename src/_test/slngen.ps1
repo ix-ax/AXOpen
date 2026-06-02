@@ -1,1 +1,0 @@
-dotnet slngen _test.solution.proj -o _test.sln --folders true --launch false
