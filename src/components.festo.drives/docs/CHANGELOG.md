@@ -26,8 +26,8 @@
 ### 0.61.1
 
 **Bug fixes:**
-- Fixed `AxoCmmtAs` losing axis position while in torque control (issue #1152). A positioning move no longer completes on the `Telegram111_In.ZSW1.targetPosReached` bit alone — it now additionally requires the actual position to be within the `InPositionWindow` tolerance (`ABS(Position - ActualPosition) <= Config.InPositionWindow`) before advancing past the target-reached step.
-- Removed an unstable torque-control guard that spuriously raised programming error `1542` when `targetPosReached` was asserted during torque-control states. The check is disabled pending further investigation.
+- Fixed `AxoCmmtAs` move-absolute task to verify `InPositionWindow` tolerance (`ABS(Position - ActualPosition) <= Config.InPositionWindow`) at the end of movement before completing the move.
+- Removed aborting torque-control task with  error `1542`, when `targetPosReached` was raised. 
 
 **Other:**
 - Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`, clarifying which telegram bit drives each status signal.
