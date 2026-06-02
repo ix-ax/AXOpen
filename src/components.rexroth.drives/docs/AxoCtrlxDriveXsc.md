@@ -28,14 +28,14 @@ Generated documentation for the `AxoCtrlxDriveXsc` component.
 
 ## Source
 
-View the library source at [`AxoCtrlxDriveXsc.st`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/v_6_x_x/AxoCtrlxDriveXsc.st).
+View the library source at [`AxoCtrlxDriveXsc.st`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/v_6_x_x/AxoCtrlxDriveXsc.st).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.Components.Rexroth.Drives`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/).
+View the .NET twin source at [`AXOpen.Components.Rexroth.Drives`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -61,7 +61,7 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the dedicated view at [`AxoCtrlxDriveXscView.razor`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/AxoCtrlxDriveXsc/AxoCtrlxDriveXscView.razor), or the whole Blazor package at [`AXOpen.Components.Rexroth.Drives.blazor`](https://github.com/Inxton/AXOpen/tree/1146-ctrlxdrive/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/).
+View the dedicated view at [`AxoCtrlxDriveXscView.razor`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/AxoCtrlxDriveXsc/AxoCtrlxDriveXscView.razor), or the whole Blazor package at [`AXOpen.Components.Rexroth.Drives.blazor`](https://github.com/Inxton/AXOpen/tree/dev/src/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/).
 
 # [HARDWARE](#tab/hardware)
 
@@ -78,9 +78,9 @@ PROFINET hardware template at `showcase/app/hwc/library_templates/rexroth_ctrlx_
 [!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=RexrothCtrlxDriveIoSystem)]
 
 ## Drive commissioning (ctrlX DRIVE Engineering)
-
-The controller firmware must be version 06.12.00 or later. This software package was tested with firmware version FWA-XD1-AXS-V-0612N-NN-00.
-Earlier firmware versions exhibited unstable behavior, including the controller becoming unresponsive and failing to recover automatically. In such cases, recovery was only possible by physically disconnecting the controller from the power supply.
+> [!IMPORTANT]
+> The controller firmware MUST be version 06.12.00 or later. This software package was tested with firmware version FWA-XD1-AXS-V-0612N-NN-00.
+> Earlier firmware versions exhibited unstable behavior, including the controller becoming unresponsive and failing to recover automatically. In such cases, recovery was only possible by physically disconnecting the controller from the power supply.
 
 Before the controller can exchange cyclic process data with `AxoCtrlxDriveXsc`,
 the drive must be parameterized in the **ctrlX DRIVE Engineering** commissioning
