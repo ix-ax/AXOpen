@@ -1,4 +1,39 @@
 ### [COMPONENTS.COGNEX.VISION] AxoVisionProNet — TCP/.NET alternative to the PROFINET AxoVisionPro
+### [FIX] `AxoCmmtAs` loses axis position while in torque control
+
+**Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
+
+- fix: `AxoCmmtAs` positioning no longer advances past the target-reached step on the `Telegram111_In.ZSW1.targetPosReached` (X10) bit alone. It now additionally requires the actual position to be within the in-position window — `ABS(Position - ActualPosition) <= _AxisReference^.Config.InPositionWindow` — before transitioning, so a drive that asserts `targetPosReached` while still off target (e.g. after a torque-control phase) no longer "loses" its position.
+- fix: Removed an unstable torque-control guard that raised programming error `1542` (`eAxoMessageCategory#ProgrammingError`, `MC_TorqueControlErrorID := 1542`) whenever `targetPosReached` became true during torque-control states `126`/`127`. The check proved unreliable and is disabled pending further investigation.
+- feat: `AxoDrive_Config` (in `src/components.drives`) gains an `InPositionWindow` parameter (`LREAL`, default `0.05`) supplying the tolerance above.
+- chore: Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`.
+- chore: Disabled an unfinished dynamic-torque-boost parameter write (PNU `13073`).
+- docs: Updated `components.festo.drives` docs (CHANGELOG `0.61.1`, TROUBLES, `AxoCmmtAs.md`) to document the in-position window, the ZSW1 bit map, and the torque-control behaviour.
+
+**Impact:**
+- Absolute positioning moves on Festo CMMT-AS drives complete only when the axis is genuinely within `InPositionWindow` of the commanded target, fixing the position loss observed after torque control.
+- The spurious `1542` programming error during torque control no longer fires.
+
+**Risks/Review:**
+- `InPositionWindow` defaults to `0.05` (axis position units). Too small a value can stall a move just before completion; too large lets it complete while still off target — tune per axis.
+- The torque-control `1542` guard is disabled rather than fixed; the underlying condition is still under investigation.
+
+**Testing:**
+- Delivered and reviewed via PR #1166 (issue #1152). No automated AxUnit test was added for the in-position gate.
+### [FIX] `AxoKrc5` no longer throws spurious task-timeout errors
+
+**Note:** PLC bug fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st`. KRC5-only — `AxoKrc4` is unchanged. No public-API change. Branch: `1165-bug-kuka-issue-with-robot-reset` ([#1167](https://github.com/Inxton/AXOpen/pull/1167)).
+
+- fix: Removed the `ThrowWhen` watchdog calls (`_errorTimer.output` and `Duration >= Config.TaskTimeout`) from every `AxoKrc5` task — `StartAtMain`, `StartMotors`, `StartProgram`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMovements`, `StopMotors`, and `StopMovementsAndProgram`. A stalled task now surfaces through the component's own status message instead of an additional, redundant task-timeout error that fired even when the component had already reported the proper condition.
+- docs: `src/components.kuka.robotics/docs/AxoKrc5.md` and `TROUBLES.md` record the divergence (a 4th KRC5-only difference; `ErrorTime` / `TaskTimeout` no longer abort KRC5 tasks; the `TaskTimeout` watchdog troubleshooting bullet is now flagged KRC4-only). Library CHANGELOG bumped to `0.61.1`.
+
+**Impact:** Operating a KRC5 robot no longer produces nuisance task-timeout errors on top of the component's genuine status message. `AxoKrc4` retains both watchdogs.
+
+**Risks/Review:** KRC5 tasks no longer self-abort on duration; long-running or stuck tasks rely on the component status message and operator intervention rather than the `TaskTimeout` watchdog.
+
+**Testing:** `apax ibt` in `src/components.kuka.robotics` — build + AxUnit suite green.
+
+### [FIX] `axdev` password guard contradicted the secrets complexity policy
 
 **Note:** Additive change. New component `AxoVisionProNet` in `src/components.cognex.vision/ctrl/src/AxoVisionProNet/`, its .NET twin + TCP protocol stack in `src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/AxoVisonProNet/`, a Blazor proxy view, and full showcase/doc wiring. No public-API removal; existing `AxoVisionPro` (PROFINET) is unchanged. Branch: `1104-new-featureaxovisionpro-alternative`.
 

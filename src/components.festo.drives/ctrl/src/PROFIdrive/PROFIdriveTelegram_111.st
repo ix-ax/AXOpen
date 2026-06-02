@@ -202,37 +202,37 @@ NAMESPACE AXOpen.Components.Festo.Drives
     CLASS PUBLIC PROFIdriveTelegram_111_ZSW1
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-set:AttributeName = "<#followingErrorInTolerance#>"}
+            {#ix-set:AttributeName = "<#followingErrorInTolerance#> (X8)"}
             followingErrorInTolerance    :  BOOL;
-            {#ix-set:AttributeName = "<#controlRequest#>"}
+            {#ix-set:AttributeName = "<#controlRequest#> (X9)"}
             controlRequest    :  BOOL;
-            {#ix-set:AttributeName = "<#targetPosReached#>"}
+            {#ix-set:AttributeName = "<#targetPosReached#> (X10)"}
             targetPosReached    :  BOOL;
-            {#ix-set:AttributeName = "<#homePosSet#>"}
+            {#ix-set:AttributeName = "<#homePosSet#> (X11)"}
             homePosSet :  BOOL;
-            {#ix-set:AttributeName = "<#acknowledgeTraversingBlockActivated#>"}
+            {#ix-set:AttributeName = "<#acknowledgeTraversingBlockActivated#> (X12)"}
             acknowledgeTraversingBlockActivated    :  BOOL;
-            {#ix-set:AttributeName = "<#driveStopped#>"}
+            {#ix-set:AttributeName = "<#driveStopped#> (X13)"}
             driveStopped :  BOOL;
-            {#ix-set:AttributeName = "<#axisAccelerates#>"}
+            {#ix-set:AttributeName = "<#axisAccelerates#> (X14)"}
             axisAccelerates  :  BOOL;
-            {#ix-set:AttributeName = "<#axisDecelerates#>"}
+            {#ix-set:AttributeName = "<#axisDecelerates#> (X15)"}
             axisDecelerates  :  BOOL;
-            {#ix-set:AttributeName = "<#readyForSwitchOn#>"}
+            {#ix-set:AttributeName = "<#readyForSwitchOn#> (X0)"}
             readyForSwitchOn  :  BOOL;
-            {#ix-set:AttributeName = "<#ready#>"}
+            {#ix-set:AttributeName = "<#ready#> (X1)"}
             ready :  BOOL;
-            {#ix-set:AttributeName = "<#operationEnabled#>"}
+            {#ix-set:AttributeName = "<#operationEnabled#> (X2)"}
             operationEnabled :  BOOL;
-            {#ix-set:AttributeName = "<#faultPresent#>"}
+            {#ix-set:AttributeName = "<#faultPresent#> (X3)"}
             faultPresent :  BOOL;
-            {#ix-set:AttributeName = "<#noCoastingActive#>"}
+            {#ix-set:AttributeName = "<#noCoastingActive#> (X4)"}
             noCoastingActive    :  BOOL;
-            {#ix-set:AttributeName = "<#noQuickStopActive#>"}
+            {#ix-set:AttributeName = "<#noQuickStopActive#> (X5)"}
             noQuickStopActive    :  BOOL;
-            {#ix-set:AttributeName = "<#switchingOnInhibitedActive#>"}
+            {#ix-set:AttributeName = "<#switchingOnInhibitedActive#> (X6)"}
             switchingOnInhibitedActive  :  BOOL;
-            {#ix-set:AttributeName = "<#warningActive#>"}
+            {#ix-set:AttributeName = "<#warningActive#> (X7)"}
             warningActive    :  BOOL;
         END_VAR
     END_CLASS
