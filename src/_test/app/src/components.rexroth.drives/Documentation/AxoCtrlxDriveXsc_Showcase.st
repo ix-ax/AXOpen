@@ -6,7 +6,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     CLASS AxoCtrlxDriveXsc_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            CtrlXdrive : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc;      
+            CtrlXdrive : AXOpen.Components.Rexroth.Drives.v_6_x_x.AxoCtrlxDriveXsc;      
         END_VAR
         //</ComponentDeclaration>                          
 

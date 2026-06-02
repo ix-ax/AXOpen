@@ -55,6 +55,7 @@
 	  <ProjectReference Include="..\..\..\template.axolibrary\src\projname\inxton_apaxlibname.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\inxton_axopen_utils.csproj" />
+	  <ProjectReference Include="..\..\..\_test\app\ix\showcase.csproj" />
 	</ItemGroup>
 		
 </Project>
