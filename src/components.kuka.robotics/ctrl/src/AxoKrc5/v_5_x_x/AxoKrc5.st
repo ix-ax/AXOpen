@@ -99,6 +99,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Config  :   AxoKrc5_Config;
         END_VAR
 
+        VAR CONSTANT INTERNAL
+            BLINKER_TIME : TIME := T#1S;
+        END_VAR    
+       
+
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
@@ -462,13 +467,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#100,StartAtMainTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
             IF StartAtMainTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
                 IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _power_progress := 300;
                 END_IF;
+
                 // Start at main running: waiting for the program pointer changed.
                 IF _power_progress = 300 THEN  
                     IF _infoTimer.output THEN
@@ -479,6 +485,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
                     Outputs.ActionNo := BYTE#255;
+
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND NOT _blink.output;	// try to ack error
 
                     Outputs.StartAtMain := NOT Inputs.PpMoved  AND _blink.output;
                             
@@ -526,7 +534,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#110,StartMotorsAndProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#111,StartMotorsAndProgramTask.IsDone(), eAxoMessageCategory#Info);
             IF StartMotorsAndProgramTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
 
                 IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
@@ -543,6 +551,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
                     Outputs.ActionNo := BYTE#255;
+                    
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND NOT _blink.output;	// try to ack error
 
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
@@ -570,6 +580,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     Outputs.DrivesOff:=TRUE;		
                     Outputs.DrivesOn:=_blink.output;	
+
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND NOT _blink.output;	// try to ack error
 
                     IF Inputs.DrivesReady THEN
                         Outputs.DrivesOn:=FALSE;
@@ -675,7 +687,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#120,StartMotorsProgramAndMovementsTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#121,StartMotorsProgramAndMovementsTask.IsDone(), eAxoMessageCategory#Info);
             IF StartMotorsProgramAndMovementsTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
 
                 IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
@@ -961,7 +973,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#140,StartMotorsTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#141,StartMotorsTask.IsDone(), eAxoMessageCategory#Info);
             IF StartMotorsTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
 
                 IF _power_progress = 0 THEN
                     Status.Error.Id := UINT#0;
@@ -1263,7 +1275,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#170,StartAtMainTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#171,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
             IF StartProgramTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
 
                 IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
@@ -1412,7 +1424,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#180,StartAtMainTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#181,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
             IF StopMotorsTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
+                _blink.Blink(Context := _context, inOnTime:=BLINKER_TIME,inOffTime:=BLINKER_TIME);
 
                 IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
@@ -1995,7 +2007,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
         END_METHOD
     END_CLASS
 END_NAMESPACE
-
 
 
 
