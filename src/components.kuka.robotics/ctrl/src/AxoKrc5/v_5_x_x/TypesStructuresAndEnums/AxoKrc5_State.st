@@ -29,8 +29,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             InHome : BOOL;					
             {#ix-set:AttributeName = "<#Manual [T1]#>"}
             Manual : BOOL;					
-            {#ix-set:AttributeName = "<#Automatic [AUT]#>"}
-            Automatic : BOOL;				
+            {#ix-set:AttributeName = "<#Local Emergency Stop OK#>"}
+            LocalEstopOk : BOOL;				
             {#ix-set:AttributeName = "<#ExternalAutomatic [EXT]#>"}
             ExternalAutomatic : BOOL;		
             {#ix-set:AttributeName = "<#ProcesActive [PRO_ACT]#>"}

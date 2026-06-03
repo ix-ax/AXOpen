@@ -311,7 +311,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
             Inputs.InHome                   := _data[1].%X0;
             Inputs.Manual                   := _data[1].%X1;
-            Inputs.Automatic                := _data[1].%X2;
+            Inputs.LocalEstopOk             := _data[1].%X2;
             Inputs.ExternalAutomatic        := _data[1].%X3;
             Inputs.ProActive                := _data[1].%X4;
             Inputs.PpMoved                  := _data[1].%X5;
@@ -1795,7 +1795,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Messenger.Activate(UINT#20001,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#20001;
                 END_IF;
-                IF(NOT Inputs.Automatic) THEN
+                IF(NOT Inputs.ExternalAutomatic) THEN
                     Messenger.Activate(UINT#20002,eAxoMessageCategory#Info);
                     Status.Error.Id := UINT#20002;
                 END_IF;
@@ -1811,6 +1811,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Messenger.Activate(UINT#20005,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#20005;
                 END_IF;
+            END_IF;
+
+            IF(NOT Inputs.LocalEstopOk) THEN
+                Messenger.Activate(UINT#20006,eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#20006;
             END_IF;
 
             //***********UPDATE**OUTPUTS*****************
