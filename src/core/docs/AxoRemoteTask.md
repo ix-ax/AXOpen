@@ -54,7 +54,7 @@ In this example, when the PLC invokes this task it will write a message into con
 ![Alt text](assets/remote_exect.gif)
 
 > [!NOTE]
-> The start/done handshake is serviced on the .NET side with **batched connector access at `High` priority**. When `Execute()` runs, the twin reads `StartSignature` and `DoneSignature` together via a single `ReadBatchAsync`, and on completion writes the acknowledging `DoneSignature` via `WriteBatchAsync` — both at `eAccessPriority.High`. This reduces connector round-trips per invocation and prioritizes the handshake over lower-priority traffic. It does not change the PLC-side API or the `IsBusy` / `IsDone` / `HasError` / `IsAborted` semantics.
+> The start/done handshake is serviced on the .NET side with **batched connector access at a configurable priority**. When `Execute()` runs, the twin reads `StartSignature` and `DoneSignature` together via a single `ReadBatchAsync`, and on completion writes the acknowledging `DoneSignature` via `WriteBatchAsync`. The access priority of each leg is configurable and defaults to `eAccessPriority.Normal`: pass it to `Initialize(...)` / `InitializeExclusively(...)` (`Initialize(handler, handshakeReadAccessPriority, handshakeWriteAccessPriority)`) or set the `HandshakeReadAccessPriority` / `HandshakeWriteAccessPriority` properties directly. Raise it (e.g. to `eAccessPriority.High`) to service the handshake ahead of lower-priority traffic. Batching reduces connector round-trips per invocation; it does not change the PLC-side API or the `IsBusy` / `IsDone` / `HasError` / `IsAborted` semantics.
 
 
 ## Executing from PLC

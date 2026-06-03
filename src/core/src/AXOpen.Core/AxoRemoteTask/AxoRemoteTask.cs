@@ -12,6 +12,24 @@ namespace AXOpen.Core
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Gets or sets the connector access priority used for the start/done handshake <b>read</b>
+        /// (the batched <c>ReadBatchAsync</c> of <see cref="StartSignature"/> and <see cref="DoneSignature"/>
+        /// at the top of the execution cycle). Defaults to <see cref="eAccessPriority.Normal"/>.
+        /// Can be seeded via the <see cref="Initialize(Action, eAccessPriority, eAccessPriority)"/> overloads
+        /// or set directly any time.
+        /// </summary>
+        public eAccessPriority HandshakeReadAccessPriority { get; set; } = eAccessPriority.Normal;
+
+        /// <summary>
+        /// Gets or sets the connector access priority used for the start/done handshake <b>write</b>
+        /// (the batched <c>WriteBatchAsync</c> of the acknowledging <see cref="DoneSignature"/> after the
+        /// deferred action completes). Defaults to <see cref="eAccessPriority.Normal"/>.
+        /// Can be seeded via the <see cref="Initialize(Action, eAccessPriority, eAccessPriority)"/> overloads
+        /// or set directly any time.
+        /// </summary>
+        public eAccessPriority HandshakeWriteAccessPriority { get; set; } = eAccessPriority.Normal;
+
         protected void InitializeRemoteActionType()
         {
             _ActionType = RemoteActionType.Method;
@@ -43,8 +61,14 @@ namespace AXOpen.Core
         /// Initializes this  <see cref="AxoRemoteTask"/>.
         /// </summary>
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
-        public void Initialize(Action deferredAction)
+        /// <param name="handshakeReadAccessPriority">Connector access priority for the handshake read. Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        /// <param name="handshakeWriteAccessPriority">Connector access priority for the handshake write (Done ack). Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        public void Initialize(Action deferredAction,
+            eAccessPriority handshakeReadAccessPriority = eAccessPriority.Normal,
+            eAccessPriority handshakeWriteAccessPriority = eAccessPriority.Normal)
         {
+            HandshakeReadAccessPriority = handshakeReadAccessPriority;
+            HandshakeWriteAccessPriority = handshakeWriteAccessPriority;
             DeferredAction = deferredAction;
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
@@ -57,8 +81,14 @@ namespace AXOpen.Core
         /// Initializes this  <see cref="AxoRemoteTask"/>.
         /// </summary>
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
-        public void Initialize(Func<bool> deferredAction)
+        /// <param name="handshakeReadAccessPriority">Connector access priority for the handshake read. Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        /// <param name="handshakeWriteAccessPriority">Connector access priority for the handshake write (Done ack). Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        public void Initialize(Func<bool> deferredAction,
+            eAccessPriority handshakeReadAccessPriority = eAccessPriority.Normal,
+            eAccessPriority handshakeWriteAccessPriority = eAccessPriority.Normal)
         {
+            HandshakeReadAccessPriority = handshakeReadAccessPriority;
+            HandshakeWriteAccessPriority = handshakeWriteAccessPriority;
             DeferredAction = new Action(() => deferredAction());
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
@@ -74,13 +104,19 @@ namespace AXOpen.Core
         /// to initialize this <see cref="AxoRemoteTask"/> will throw an exception.
         /// </summary>
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
-        public void InitializeExclusively(Action deferredAction)
+        /// <param name="handshakeReadAccessPriority">Connector access priority for the handshake read. Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        /// <param name="handshakeWriteAccessPriority">Connector access priority for the handshake write (Done ack). Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        public void InitializeExclusively(Action deferredAction,
+            eAccessPriority handshakeReadAccessPriority = eAccessPriority.Normal,
+            eAccessPriority handshakeWriteAccessPriority = eAccessPriority.Normal)
         {
             if (_defferedActionCount > 0)
             {
                 throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
             }
 
+            HandshakeReadAccessPriority = handshakeReadAccessPriority;
+            HandshakeWriteAccessPriority = handshakeWriteAccessPriority;
             DeferredAction = deferredAction;
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
@@ -94,13 +130,19 @@ namespace AXOpen.Core
         /// to initialize this <see cref="AxoRemoteTask"/> will throw an exception.
         /// </summary>
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
-        public void InitializeExclusively(Func<bool> deferredAction)
+        /// <param name="handshakeReadAccessPriority">Connector access priority for the handshake read. Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        /// <param name="handshakeWriteAccessPriority">Connector access priority for the handshake write (Done ack). Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        public void InitializeExclusively(Func<bool> deferredAction,
+            eAccessPriority handshakeReadAccessPriority = eAccessPriority.Normal,
+            eAccessPriority handshakeWriteAccessPriority = eAccessPriority.Normal)
         {
             if (_defferedActionCount > 0)
             {
                 throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
             }
 
+            HandshakeReadAccessPriority = handshakeReadAccessPriority;
+            HandshakeWriteAccessPriority = handshakeWriteAccessPriority;
             DeferredAction = new Action(() => deferredAction());
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
@@ -114,13 +156,19 @@ namespace AXOpen.Core
         /// to initialize this <see cref="AxoRemoteTask"/> will throw an exception.
         /// </summary>
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
-        public void InitializeExclusively(Func<Task> deferredAction)
+        /// <param name="handshakeReadAccessPriority">Connector access priority for the handshake read. Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        /// <param name="handshakeWriteAccessPriority">Connector access priority for the handshake write (Done ack). Defaults to <see cref="eAccessPriority.Normal"/>.</param>
+        public void InitializeExclusively(Func<Task> deferredAction,
+            eAccessPriority handshakeReadAccessPriority = eAccessPriority.Normal,
+            eAccessPriority handshakeWriteAccessPriority = eAccessPriority.Normal)
         {
             if (_defferedActionCount > 0)
             {
                 throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
             }
 
+            HandshakeReadAccessPriority = handshakeReadAccessPriority;
+            HandshakeWriteAccessPriority = handshakeWriteAccessPriority;
             DeferredAction = deferredAction;
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
@@ -147,7 +195,7 @@ namespace AXOpen.Core
         //await this.StartSignature.GetAsync();
         //await this.DoneSignature.GetAsync();
     
-        await this.Connector.ReadBatchAsync(new ITwinPrimitive[] { this.StartSignature, this.DoneSignature }, eAccessPriority.High);
+        await this.Connector.ReadBatchAsync(new ITwinPrimitive[] { this.StartSignature, this.DoneSignature }, HandshakeReadAccessPriority);
     
         if (this.StartSignature.LastValue != 0 &&
             !IsRunning &&
@@ -233,7 +281,7 @@ namespace AXOpen.Core
     
             //await this.DoneSignature.SetAsync(this.StartSignature.LastValue);
             this.DoneSignature.Cyclic = this.StartSignature.LastValue;
-            await this.Connector.WriteBatchAsync(new ITwinPrimitive[] { this.DoneSignature }, eAccessPriority.High);
+            await this.Connector.WriteBatchAsync(new ITwinPrimitive[] { this.DoneSignature }, HandshakeWriteAccessPriority);
         }
     }
 

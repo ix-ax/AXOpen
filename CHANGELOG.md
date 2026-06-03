@@ -1,3 +1,22 @@
+### [CORE] `AxoRemoteTask` start/done handshake priority is now configurable (default Normal) (#TBD)
+
+**Note:** API addition + behavioral change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or PLC-side API change. Branch: `deps-update-0-47-0-alpha-495`. PR link to be filled in before merge. Follow-up to the High-priority batching entry below (commit `2a70cb744`).
+
+- feat: new `HandshakeReadAccessPriority` and `HandshakeWriteAccessPriority` properties (default `eAccessPriority.Normal`) drive the access priority of the batched start/done read (`ReadBatchAsync` of `StartSignature` + `DoneSignature`) and the Done-ack write (`WriteBatchAsync`) in `ExecuteAsync`, replacing the previously hardcoded `eAccessPriority.High` at both legs.
+- feat: all `Initialize(...)` / `InitializeExclusively(...)` overloads gain two optional args — `handshakeReadAccessPriority` and `handshakeWriteAccessPriority` (both default `eAccessPriority.Normal`) — that seed those properties. Existing call sites bind unchanged via the defaults; the properties can also be set directly any time.
+- test: added `AxoRemoteTaskHandshakePriorityTests` (4 tests) in `src/core/tests/AXOpen.Core.Tests`. A recording `DummyConnector` subclass captures the `eAccessPriority` passed to `Read`/`WriteBatchAsync`; tests cover the read leg, the write leg (distinct value to prove the write property specifically), the default-`Normal` behavior (asserting `High` is no longer used), and a property-override-after-`Initialize` case.
+- docs: `src/core/docs/CHANGELOG.md` (`0.62.3` — New features + Breaking changes) and `AxoRemoteTask.md` note updated to describe the configurable, `Normal`-default handshake.
+
+**Impact:**
+- The remote-task start/done handshake now defaults to `eAccessPriority.Normal` instead of `High`. Callers that need the handshake serviced ahead of lower-priority traffic must opt in — pass `eAccessPriority.High` to `Initialize(...)` or set `HandshakeReadAccessPriority` / `HandshakeWriteAccessPriority`.
+
+**Risks/Review:**
+- Behavioral change for upgraders: any code relying on the implicit `High` handshake from `2a70cb744` will now contend at `Normal` until it sets the priority explicitly. In the built-in connectors `High` and `Normal` share the same batch chunking; only the queue/ordering priority relative to other connector traffic differs.
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests` — 74 passed (incl. 4 new). Built strictly TDD red-first.
+- Test note: the `DummyConnector` read cycle (`BuildAndStart`) self-deadlocks on its internal lock and never raises the value-changed event, so the tests invoke the protected handshake directly (no `BuildAndStart`) to capture priorities — a harness constraint only; production triggering is unchanged.
+
 ### [CORE] `AxoRemoteTask` batches start/done handshake at High priority (#TBD)
 
 **Note:** Performance change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or public-API change. Branch: `deps-update-0-47-0-alpha-495`, commit `2a70cb744`. PR link to be filled in before merge.
