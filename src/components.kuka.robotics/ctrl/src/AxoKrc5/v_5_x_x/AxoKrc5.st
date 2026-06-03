@@ -506,7 +506,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;
 
                 THIS.CallTimers(TRUE);
-                StartAtMainTask.ThrowWhen(_errorTimer.output );
+                //StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_power_progress);
                 StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartAtMainTask timeout.#>');
             END_IF;
@@ -661,7 +661,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
+                //StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsAndProgramTask timeout.#>');
             END_IF;
@@ -948,7 +948,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	
 
                 THIS.CallTimers(NOT _movementExecuting);
-                StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
+                //StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsProgramAndMovementsTask timeout.#>');
             END_IF;
@@ -1041,7 +1041,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartMotorsTask.ThrowWhen(_errorTimer.output);
+                //StartMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
             END_IF;
             IF StartMotorsTask.DoneReached() THEN
@@ -1257,7 +1257,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
 	            THIS.CallTimers(NOT _movementExecuting);
                 
-                StartMovementsTask.ThrowWhen(_errorTimer.output);
+                //StartMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_movement_progress);
                 StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMovementsTask timeout.#>');
             END_IF;
@@ -1412,7 +1412,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StartProgramTask.ThrowWhen(_errorTimer.output);
+                //StartProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartProgramTask timeout.#>');
             END_IF;
@@ -1475,7 +1475,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
-                StopMotorsTask.ThrowWhen(_errorTimer.output);
+                //StopMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMotorsTask timeout.#>');
             END_IF;
@@ -1547,7 +1547,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
+                //StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output); 
                 Status.Action.Id := TO_UINT(_power_progress);
                 StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsAndProgramTask timeout.#>');
             END_IF;
@@ -1607,7 +1607,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopMovementsTask.ThrowWhen(_errorTimer.output);
+                //StopMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsTask timeout.#>');
             END_IF;
@@ -1666,7 +1666,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                StopProgramTask.ThrowWhen(_errorTimer.output);
+                //StopProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopProgramTask timeout.#>');
             END_IF;
@@ -1759,7 +1759,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 THIS.CallTimers(TRUE);
                 
-                ResetAllOutputsTask.ThrowWhen(_errorTimer.output);
+                //ResetAllOutputsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 ResetAllOutputsTask.ThrowWhen(ResetAllOutputsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetAllOutputsTask timeout.#>');
             END_IF;
