@@ -23,6 +23,11 @@
     on every run.
 -->
 
+### 0.62.3
+
+**Other:**
+- `AxoRemoteTask` (.NET twin) start/done handshake now batches connector I/O. `ExecuteAsync` reads `StartSignature` + `DoneSignature` via a single `Connector.ReadBatchAsync(..., eAccessPriority.High)` and writes the completion `DoneSignature` via `Connector.WriteBatchAsync(..., eAccessPriority.High)` (set through `DoneSignature.Cyclic`), replacing the previous per-signal `GetAsync`/`SetAsync` calls. This cuts connector round-trips on the remote-task start/done acknowledgement and services the handshake ahead of lower-priority traffic. No PLC-side API change — `Invoke()`, `Execute()`, `Abort()`, `Restore()`, and the `IsBusy`/`IsDone`/`HasError`/`IsAborted` semantics are unchanged.
+
 ### 0.56.2
 
 **Bug fixes:**

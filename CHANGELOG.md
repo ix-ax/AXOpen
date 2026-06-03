@@ -1,3 +1,19 @@
+### [CORE] `AxoRemoteTask` batches start/done handshake at High priority (#TBD)
+
+**Note:** Performance change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or public-API change. Branch: `deps-update-0-47-0-alpha-495`, commit `2a70cb744`. PR link to be filled in before merge.
+
+- perf: `ExecuteAsync` now reads `StartSignature` + `DoneSignature` with a single `Connector.ReadBatchAsync(..., eAccessPriority.High)` and writes the completed `DoneSignature` with `Connector.WriteBatchAsync(..., eAccessPriority.High)` (via `DoneSignature.Cyclic`), replacing the per-signal `GetAsync`/`SetAsync`. Collapses the remote-task start/done handshake into single batched, High-priority connector round-trips.
+- docs: `src/core/docs/CHANGELOG.md` bumped to `0.61.1`; `AxoRemoteTask.md` gains a note describing the High-priority batched handshake.
+
+**Impact:**
+- Fewer connector round-trips per `AxoRemoteTask` invocation. The start/done acknowledgement now contends at `eAccessPriority.High`, so it is serviced ahead of lower-priority operator/polling traffic.
+
+**Risks/Review:**
+- Promoting the handshake to `High` priority shifts connector scheduling — under heavy remote-task fan-out, confirm it does not starve other High-priority traffic.
+
+**Testing:**
+- Covered by the existing `AxoRemoteTaskTests` suite (`src/core/tests/AXOpen.Core.Tests`). No new test added specifically for the batching change.
+
 ### [FIX] `AxoCmmtAs` loses axis position while in torque control
 
 **Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
