@@ -27,6 +27,7 @@
 
 **Other:**
 - `AxoRemoteTask` (.NET twin) start/done handshake now batches connector I/O. `ExecuteAsync` reads `StartSignature` + `DoneSignature` via a single `Connector.ReadBatchAsync(..., eAccessPriority.High)` and writes the completion `DoneSignature` via `Connector.WriteBatchAsync(..., eAccessPriority.High)` (set through `DoneSignature.Cyclic`), replacing the previous per-signal `GetAsync`/`SetAsync` calls. This cuts connector round-trips on the remote-task start/done acknowledgement and services the handshake ahead of lower-priority traffic. No PLC-side API change — `Invoke()`, `Execute()`, `Abort()`, `Restore()`, and the `IsBusy`/`IsDone`/`HasError`/`IsAborted` semantics are unchanged.
+- `AxoTaskView` (Blazor) disabled rendering: when `IsDisabled` is `TRUE` the activity indicator now keeps reflecting the task state (`Ready`/`Kicking`/`Busy` still render their ring/circle) instead of being replaced by the lock. The `lock-closed` icon moved to the trailing action-button area, hiding the `Reset task` / `Resume` buttons, while the control stays non-interactive. No `AxoTask` PLC-side API change.
 
 ### 0.56.2
 
