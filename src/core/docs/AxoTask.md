@@ -174,11 +174,14 @@ and `ErrorDetails` from the bound task and updates 250 ms cyclically.
 | `Done`     | `btn-success`     | `check`                                                                                       | — |
 | `Aborted`  | `btn-warning`     | `stop`                                                                                        | `Resume` button (calls `Component.ResumeTask()`) appears next to `Reset task` |
 | `Error`    | `btn-danger`      | `x-mark`                                                                                      | Native `title` tooltip on the button reveals `Component.ErrorDetails` |
-| _Disabled_ | `btn-inactive`    | `lock-closed` (overrides the state icon)                                                      | Button is non-interactive |
+| _Disabled_ | `btn-inactive`    | state ring/icon retained (Ready, Kicking, Busy, … still render their normal indicator)        | `lock-closed` icon shown in the action-button area (Reset/Resume hidden); button is non-interactive |
 
-`IsDisabled` overrides the lifecycle state: a task that is `Busy` while
-`IsDisabled` is `TRUE` renders as locked, not as running. State is still
-announced to assistive technology via the button's `aria-label`.
+`IsDisabled` no longer overrides the lifecycle icon — the activity indicator
+keeps reflecting the task state, so a task that is `Busy` while `IsDisabled` is
+`TRUE` still shows the running circle. Instead, a `lock-closed` icon replaces
+the `Reset task` / `Resume` action buttons on the trailing edge of the control,
+and the button itself is non-interactive. State is still announced to assistive
+technology via the button's `aria-label`.
 
 ### Demonstrating the `Error` terminal state
 

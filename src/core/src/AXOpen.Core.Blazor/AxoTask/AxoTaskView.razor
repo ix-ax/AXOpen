@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Components.Web;
@@ -14,12 +14,8 @@
         style="@Style"
         @onclick="this.InvokeTask"
         disabled="@IsDisabled">
-    <span class="flex items-center gap-2 text-inherit">
-        @if (IsDisabled)
-        {
-            <HeroIcon Icon="lock-closed" Type="IconType.Outline" Class="@StatusHeroIconClass" />
-        }
-        else if (State == eAxoTaskState.Ready)
+    <span class="flex items-center gap-2 text-inherit">        
+        @if (State == eAxoTaskState.Ready)
         {
             <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 border-current text-inherit border-solid"></span>
         }
@@ -49,6 +45,20 @@
         @Description.ToUpper()
     </span>
 
+    @if (IsDisabled)
+    {
+        <HeroIcon Icon="lock-closed" Type="IconType.Outline" Class="@StatusHeroIconClass" />
+    }
+    else
+    {            
+        @if (!HideRestoreButton)
+        {
+            <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
+                <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
+            </button>
+        }
+    }
+
     @if (State == eAxoTaskState.Aborted && !HideRestoreButton)
     {
         <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResumeTask"]" disabled="@IsDisabled" @onclick="@OnResumeClick" @onclick:stopPropagation="true" @onkeydown="OnResumeKeyDown">
@@ -56,12 +66,6 @@
         </button>
     }
 
-    @if (!HideRestoreButton)
-    {
-        <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
-            <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
-        </button>
-    }
 </button>
 
 @code {

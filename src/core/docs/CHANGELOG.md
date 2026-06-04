@@ -23,6 +23,18 @@
     on every run.
 -->
 
+### 0.62.3
+
+**New features:**
+- `AxoRemoteTask` (.NET twin) start/done handshake priority is now **configurable**. The batched `Connector.ReadBatchAsync` (Start+Done poll) and `Connector.WriteBatchAsync` (Done acknowledgement) each take their `eAccessPriority` from the new `HandshakeReadAccessPriority` / `HandshakeWriteAccessPriority` properties (default `eAccessPriority.Normal`). Seed them via the new optional `Initialize(handler, handshakeReadAccessPriority, handshakeWriteAccessPriority)` / `InitializeExclusively(...)` arguments, or set the properties directly any time. Raise to `eAccessPriority.High` to service the handshake ahead of lower-priority traffic.
+
+**Other:**
+- `AxoRemoteTask` (.NET twin) start/done handshake batches connector I/O: `ExecuteAsync` reads `StartSignature` + `DoneSignature` via a single `Connector.ReadBatchAsync` and writes the completion `DoneSignature` (set through `DoneSignature.Cyclic`) via `Connector.WriteBatchAsync`, replacing the previous per-signal `GetAsync`/`SetAsync` calls. This cuts connector round-trips on the remote-task start/done acknowledgement. No PLC-side API change — `Invoke()`, `Execute()`, `Abort()`, `Restore()`, and the `IsBusy`/`IsDone`/`HasError`/`IsAborted` semantics are unchanged.
+
+**Breaking changes:**
+- `AxoRemoteTask` handshake default priority is now `eAccessPriority.Normal` (previously hardcoded `eAccessPriority.High`). Existing callers that relied on the handshake being serviced at `High` should pass `eAccessPriority.High` to `Initialize(...)` or set `HandshakeReadAccessPriority` / `HandshakeWriteAccessPriority`. (In the built-in connectors `High` and `Normal` share the same batch chunking; the difference is queue/ordering priority relative to other connector traffic.)
+- `AxoTaskView` (Blazor) disabled rendering: when `IsDisabled` is `TRUE` the activity indicator now keeps reflecting the task state (`Ready`/`Kicking`/`Busy` still render their ring/circle) instead of being replaced by the lock. The `lock-closed` icon moved to the trailing action-button area, hiding the `Reset task` / `Resume` buttons, while the control stays non-interactive. No `AxoTask` PLC-side API change.
+
 ### 0.56.2
 
 **Bug fixes:**
