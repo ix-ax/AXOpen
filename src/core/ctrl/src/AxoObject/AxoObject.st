@@ -164,7 +164,8 @@ NAMESPACE AXOpen.Core
 
         END_METHOD   
         
-        VAR
+        VAR 
+            {#ix-attr:[RenderIgnore()]}            
             _lastMessageAggregationCycle : ULINT;
         END_VAR    
         

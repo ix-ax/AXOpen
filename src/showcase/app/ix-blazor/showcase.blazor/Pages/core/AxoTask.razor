@@ -49,7 +49,8 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcTaskExamplePath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcTaskErrorPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcTaskAbortedPath" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcMomentaryDocuPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcTaskDisabledPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_plcMomentaryDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcToggleDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcRemoteDocuPath" OnOpen="OpenModalAsync" /></li>
 				</ul>
@@ -115,6 +116,32 @@
 									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoTask — Aborted terminal state</h3>
 									<p class="text-xs text-slate-500 mb-2">Click Invoke. After a short run the task calls <code>Abort()</code> and lands in <strong>Aborted</strong> — the button turns amber, a <code>stop</code> icon appears, and a <strong>Resume</strong> button shows next to <strong>Reset task</strong>. Resume continues; Reset returns to Ready.</p>
 									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoTaskAborted._abortingTask" Presentation="@_selectedPresentation" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoTaskView — Disabled (display-only) rendering</h3>
+									<p class="text-xs text-slate-500 mb-3">
+										A disabled <code>AxoTaskView</code> keeps its <strong>activity indicator live</strong>: the state ring/circle for active
+										states (Ready, Kicking, Busy) and the terminal icons (Done, Aborted, Error) render just as when enabled. What changes is
+										the trailing edge: a <code>lock-closed</code> icon replaces the Reset / Resume buttons and the control is non-interactive. One task below is kept
+										perpetually <strong>Busy</strong>, a second stays <strong>Ready</strong> (not busy) — compare the controllable
+										view with the disabled / display-only views for both an active and an idle task.
+										<br />
+										<span class="text-slate-400">Note: disabling a task on the PLC side (<code>SetIsDisabled(TRUE)</code>) aborts it while Busy, so this is a view-level disable of a genuinely running task.</span>
+									</p>
+									<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+										<div>
+											<p class="text-xs font-medium text-slate-500 mb-1">Controllable — <code>AxoTaskCommandView</code></p>
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.AxoTaskDisabled._activeTask" />
+										</div>
+										<div>
+											<p class="text-xs font-medium text-slate-500 mb-1">Disabled, active (Busy) — <code>AxoTaskStatusView</code> (live Busy circle + lock in the action area)</p>
+											<AXOpen.Core.AxoTaskStatusView Component="@Entry.Plc.Ctx.AxoTaskDisabled._activeTask" />
+										</div>
+										<div>
+											<p class="text-xs font-medium text-slate-500 mb-1">Disabled, idle (Ready) — <code>AxoTaskStatusView</code> (Ready ring + lock in the action area)</p>
+											<AXOpen.Core.AxoTaskStatusView Component="@Entry.Plc.Ctx.AxoTaskDisabled._idleTask" />
+										</div>
+									</div>
 								</div>
 							</div>
 						</TabPage>
@@ -409,6 +436,7 @@
 	private readonly string _plcTaskExamplePath    = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskExample.st";
 	private readonly string _plcTaskErrorPath      = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskErrorExample.st";
 	private readonly string _plcTaskAbortedPath    = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskAbortedExample.st";
+	private readonly string _plcTaskDisabledPath   = "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskDisabledExample.st";
 	private readonly string _plcMomentaryDocuPath  = "src/showcase/app/src/core/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st";
 	private readonly string _plcToggleDocuPath     = "src/showcase/app/src/core/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st";
 	private readonly string _plcRemoteDocuPath     = "src/showcase/app/src/core/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st";
@@ -482,5 +510,7 @@
 		this.StartPolling(Entry.Plc.Ctx.AxoRemoteTasks._remoteTask,                   250);
 		this.StartPolling(Entry.Plc.Ctx.AxoTaskError._failingTask,                    250);
 		this.StartPolling(Entry.Plc.Ctx.AxoTaskAborted._abortingTask,                 250);
+		this.StartPolling(Entry.Plc.Ctx.AxoTaskDisabled._activeTask,                  250);
+		this.StartPolling(Entry.Plc.Ctx.AxoTaskDisabled._idleTask,                    250);
 	}
 }
