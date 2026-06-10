@@ -2508,6 +2508,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveRelativeAcceleration_PV              :   LREAL;                    
             MC_MoveRelativeDeceleration_PV              :   LREAL;                                
             MC_MoveRelativeJerk_PV                      :   LREAL;                     
+            MC_MoveRelativeEndPosition_PV             :   LREAL;                                          
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveRelative 
             VAR_INPUT
@@ -2598,6 +2599,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
                         MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
                         MC_MoveRelativeJerk_PV          :=  Jerk;   
+                        MC_MoveRelativeEndPosition_PV := THIS.ActualPosition + Distance ;
                         State := UINT#91;
                     END_IF;
                 END_IF;
@@ -2641,7 +2643,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 IF State = UINT#94 THEN
                     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached 
+                        AND ( Abs(MC_MoveRelativeEndPosition_PV - THIS.ActualPosition) <= DriveConfig.InPositionWindow ) 
+                    THEN      
                         State := UINT#95;
                     END_IF;    
                 END_IF;
@@ -2685,6 +2689,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
                             MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
                             MC_MoveRelativeJerk_PV          :=  Jerk;   
+                            MC_MoveRelativeEndPosition_PV := THIS.ActualPosition + Distance ;
                             State := UINT#91;
                         END_IF;   
                     END_IF;   
