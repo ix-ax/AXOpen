@@ -84,7 +84,7 @@ NAMESPACE AXOpen.Messaging.Static
             
             
             IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
-                THIS.MsgCnt := LINT#0;
+                THIS._msgCntAcc := LINT#0;
             END_IF;   
 
             IF((THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged ||
