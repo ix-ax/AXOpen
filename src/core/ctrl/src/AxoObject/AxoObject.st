@@ -96,7 +96,8 @@ NAMESPACE AXOpen.Core
             END_VAR
 
             // We always reset message count upon initialization.
-            THIS.MsgCnt := LINT#0;
+            THIS.MsgCnt := _msgCntAcc;
+            _msgCntAcc := LINT#0; 
 
             IF _isInitialized THEN
                 RETURN;
@@ -146,7 +147,9 @@ NAMESPACE AXOpen.Core
          
 
             // We always reset message count upon initialization.
-            THIS.MsgCnt := LINT#0;
+            THIS.MsgCnt := _msgCntAcc;
+            _msgCntAcc := LINT#0;
+
             IF _isInitialized THEN
                 RETURN;
             END_IF;
@@ -164,9 +167,11 @@ NAMESPACE AXOpen.Core
 
         END_METHOD   
         
-        VAR 
+        VAR PROTECTED
             {#ix-attr:[RenderIgnore()]}            
             _lastMessageAggregationCycle : ULINT;
+             {#ix-attr:[RenderIgnore()]}
+            _msgCntAcc : LINT;
         END_VAR    
         
         ///<summary>
@@ -183,7 +188,7 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
-                THIS.MsgCnt := LINT#0;
+                THIS._msgCntAcc := LINT#0;
             END_IF;    
 
             IF(inCount = 0) THEN
@@ -193,7 +198,7 @@ NAMESPACE AXOpen.Core
                 RETURN;
             END_IF;    
             
-            THIS.MsgCnt := inCount + THIS.MsgCnt;    
+            THIS._msgCntAcc := inCount + THIS._msgCntAcc;    
                       
             IF(_parent <> NULL && THIS._parent <> THIS._parent.GetParent()) THEN
                 THIS._parent.AggregateMessage(inCount);
