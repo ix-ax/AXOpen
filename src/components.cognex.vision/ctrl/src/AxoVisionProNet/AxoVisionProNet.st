@@ -70,6 +70,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Control")]}
             Control  :   AxoVisionProNet_Control;
+            _hasSpecificData : BOOL;
         END_VAR
 
         VAR PUBLIC // STATUS
@@ -114,27 +115,35 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             if TriggerTask.HasRemoteException and not TriggerTask.IsBusy() then
                 Status.ErrorDescription := TriggerTask.ErrorDetails;
             END_IF;
+
             InspectionResultTask.Execute(THIS);
-             if InspectionResultTask.HasRemoteException and not InspectionResultTask.IsBusy() then
+            IF InspectionResultTask.HasRemoteException and not InspectionResultTask.IsBusy() then
                 Status.ErrorDescription := InspectionResultTask.ErrorDetails;
             END_IF;
+
             SetRecipeTask.Execute(THIS);  
-             if SetRecipeTask.HasRemoteException and not SetRecipeTask.IsBusy() then
+            IF SetRecipeTask.HasRemoteException and not SetRecipeTask.IsBusy() then
                 Status.ErrorDescription := SetRecipeTask.ErrorDetails;
             END_IF;
-                SendSpecificDataTask.Execute(THIS); if SendSpecificDataTask.HasRemoteException and not SendSpecificDataTask.IsBusy() then
+            
+            SendSpecificDataTask.SetIsDisabled( not _hasSpecificData); 
+            SendSpecificDataTask.Execute(THIS); 
+            IF SendSpecificDataTask.HasRemoteException and not SendSpecificDataTask.IsBusy() then
                 Status.ErrorDescription := SendSpecificDataTask.ErrorDetails;
             END_IF;
+
+            ReceiveSpecificDataTask.SetIsDisabled( not _hasSpecificData); 
             ReceiveSpecificDataTask.Execute(THIS);
-            if ReceiveSpecificDataTask.HasRemoteException and not ReceiveSpecificDataTask.IsBusy() then
+            IF ReceiveSpecificDataTask.HasRemoteException and not ReceiveSpecificDataTask.IsBusy() then
                 Status.ErrorDescription := ReceiveSpecificDataTask.ErrorDetails;
             END_IF;
-            TriggerWithSpecificDataTask.SetIsDisabled(TriggerTask.IsBusy() OR SendSpecificDataTask.IsBusy() OR SetRecipeTask.IsBusy());
+            
+            TriggerWithSpecificDataTask.SetIsDisabled(TriggerTask.IsBusy() OR SendSpecificDataTask.IsBusy() OR SetRecipeTask.IsBusy() or  not _hasSpecificData);
             TriggerWithSpecificDataTask.Execute(THIS);
             IF TriggerWithSpecificDataTask.HasRemoteException and not TriggerWithSpecificDataTask.IsBusy() then
                 Status.ErrorDescription := TriggerWithSpecificDataTask.ErrorDetails;
             END_IF;
-            SendSpecificDataAndTypesTask.SetIsDisabled(not THIS.IsManuallyControllable()); // This task is only for commissioning purposes, so it can only be executed in manual mode.
+            SendSpecificDataAndTypesTask.SetIsDisabled(not THIS.IsManuallyControllable() or not _hasSpecificData); // This task is only for commissioning purposes, so it can only be executed in manual mode.
             SendSpecificDataAndTypesTask.Execute(THIS);
             IF SendSpecificDataAndTypesTask.HasRemoteException and not SendSpecificDataAndTypesTask.IsBusy() then
                 Status.ErrorDescription := SendSpecificDataAndTypesTask.ErrorDetails;   
@@ -153,6 +162,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
 
         END_METHOD
+
+       
 
         METHOD PUBLIC Trigger : IAxoTaskState
             Trigger := TriggerTask.Invoke(THIS);

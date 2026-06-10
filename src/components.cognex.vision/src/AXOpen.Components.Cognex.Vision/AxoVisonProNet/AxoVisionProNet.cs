@@ -1,9 +1,11 @@
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
@@ -34,15 +36,17 @@ namespace AXOpen.Components.Cognex.Vision
         {
             try
             {
-                
-                this.TriggerTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.TriggerInvoked,    TaskLifecycleCodes.TriggerFinished,    TaskLifecycleCodes.TriggerFailed,    Trigger));
+           
+
+
+                this.TriggerTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.TriggerInvoked, TaskLifecycleCodes.TriggerFinished, TaskLifecycleCodes.TriggerFailed, Trigger));
                 this.SetRecipeTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SetRecipeInvoked, TaskLifecycleCodes.SetRecipeFinished, TaskLifecycleCodes.SetRecipeFailed, SetRecipe));
                 this.InspectionResultTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.InspectionResultInvoked, TaskLifecycleCodes.InspectionResultFinished, TaskLifecycleCodes.InspectionResultFailed, InspectionResult));
                 this.SendSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SendSpecificDataInvoked, TaskLifecycleCodes.SendSpecificDataFinished, TaskLifecycleCodes.SendSpecificDataFailed, SendSpecificData));
                 this.ReceiveSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.ReceiveSpecificDataInvoked, TaskLifecycleCodes.ReceiveSpecificDataFinished, TaskLifecycleCodes.ReceiveSpecificDataFailed, ReceiveSpecificData));
                 this.SendSpecificDataAndTypesTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.SendSpecificDataAndTypesInvoked, TaskLifecycleCodes.SendSpecificDataAndTypesFinished, TaskLifecycleCodes.SendSpecificDataAndTypesFailed, SendSpecificDataTypes));
                 this.TriggerWithSpecificDataTask.InitializeExclusively(() => RunWithLifecycleAsync(TaskLifecycleCodes.TriggerWithSpecificDataInvoked, TaskLifecycleCodes.TriggerWithSpecificDataFinished, TaskLifecycleCodes.TriggerWithSpecificDataFailed, TriggerWithSpecificData));
-     
+                
 
             }
             catch (Exception)
@@ -93,11 +97,11 @@ namespace AXOpen.Components.Cognex.Vision
         /// </summary>
         private async Task RunWithLifecycleAsync(ulong invokedCode, ulong finishedCode, ulong failedCode, Func<Task> body)
         {
-            await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
+            //await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
             try
             {
                 await body();
-                await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
+                //await Status.ActionDescription.SetAsync(GetTaskActionMessage(invokedCode));
             }
             catch
             {
@@ -110,20 +114,7 @@ namespace AXOpen.Components.Cognex.Vision
 
      
 
-        private static void CollectAllPrimitives(ITwinObject current, List<ITwinPrimitive> result)
-        {
-            // Collect primitive value tags at this level
-            foreach (var tag in current.GetValueTags())
-            {
-                result.Add(tag);
-            }
-
-            // Recurse into child ITwinObjects
-            foreach (var child in current.GetChildren())
-            {
-                CollectAllPrimitives(child, result);
-            }
-        }
+      
       
         /// <summary>
         /// Gets the data entity with both online and plain representations from the container.
@@ -211,9 +202,12 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     if (!prop.CanRead || prop.GetIndexParameters().Length > 0)
                         continue;
-
+                    
                     if (DerivesFromOpenGeneric(prop.PropertyType, openGenericBase))
+                    {
                         return prop.GetValue(this) as ITwinObject;
+                    }
+                    
                 }
             }
 
@@ -312,6 +306,8 @@ namespace AXOpen.Components.Cognex.Vision
             };
         }
 
+
+
         /// <summary>
         /// Returns the static text describing an <c>Error.Id</c> failure code.
         /// </summary>
@@ -350,8 +346,45 @@ namespace AXOpen.Components.Cognex.Vision
             return GetDefaultErrorMessage(messageCode);
         }
 
-      
+
+        /// <summary>
+        /// Configures proxying requests to the camera's internal web server.
+        /// This method intercepts HTTP requests starting with the specified proxy path
+        /// and forwards them to the camera's internal IP address. Settings are provided by pragmas in the PLC code
+        /// (Proxy, DeviceIpAddress).
+        /// </summary>
+        public async Task ConfigureProxy(HttpContext httpContext, Func<Task> func)
+        {
+            try
+            {
+                if (httpContext.Request.Path.StartsWithSegments($"/{Proxy}"))
+                {
+                    // Internal IP of the camera
+                    var cameraUrl = $"http://{DeviceIpAddress}"+ ":5269" + httpContext.Request.Path.Value.Replace($"/{Proxy}", "");
+
+                    using var httpClient = new HttpClient();
+                    var response = await httpClient.GetAsync(cameraUrl, HttpCompletionOption.ResponseHeadersRead);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        httpContext.Response.ContentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+                        await response.Content.CopyToAsync(httpContext.Response.Body);
+                        return;
+                    }
+                }
+
+                await func(); // Continue to Blazor handling
+            }
+            catch (Exception)
+            {
+                AxoApplication.Current.Logger?.Error($"Error proxying request to camera at IP {DeviceIpAddress}.", null);
+            }
+
+        }
+
     }
+
+
 
     
     

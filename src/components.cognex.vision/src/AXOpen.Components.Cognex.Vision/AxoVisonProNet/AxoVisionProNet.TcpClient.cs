@@ -1,5 +1,7 @@
 using AXOpen.Components.Cognex.Vision.VisionProtocol;
 using AXSharp.Connector;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace AXOpen.Components.Cognex.Vision;
@@ -28,6 +30,11 @@ public partial class AxoVisionProNet
         VisionConnectionMode connectionMode = VisionConnectionMode.Persistent,
         CancellationToken ct = default)
     {
+        // Check if SpecificDataContainer is configured and set the flag for PLC
+        var container = SpecificDataContainer;
+        if (container != null)
+            await _hasSpecificData.SetAsync(true);
+
         if (_visionClient is not null)
             await _visionClient.DisposeAsync();
 
@@ -43,6 +50,9 @@ public partial class AxoVisionProNet
 
         if (connectionMode == VisionConnectionMode.Persistent)
             await _visionClient.ConnectAsync(ct);
+
+     
+
     }
 
     // ──────────────────────────────────────────────────────────────
@@ -55,11 +65,15 @@ public partial class AxoVisionProNet
     /// <param name="withSpecificData">If true, includes specific data in the trigger request.</param>
     private async Task Trigger()
     {
+    
         if (_visionClient is null)
             throw new InvalidOperationException(
                 "VisionTcpClient is not initialized. Call InitializeVisionClientAsync first.");
+        
 
         var control = await Control.OnlineToPlainAsync(eAccessPriority.High);
+
+
 
         JsonElement? dataElement = null;
        
@@ -72,9 +86,11 @@ public partial class AxoVisionProNet
             Data = dataElement
         };
 
+
+
+
         var result = await _visionClient.TriggerAsync(payload);
 
-       
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Accepted;
@@ -83,9 +99,12 @@ public partial class AxoVisionProNet
         status.RejectReason = result.RejectReason;
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
 
+
+
         if (!result.Accepted)
             throw new InvalidOperationException(
                 $"TriggerRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
+
     }
 
     /// <summary>

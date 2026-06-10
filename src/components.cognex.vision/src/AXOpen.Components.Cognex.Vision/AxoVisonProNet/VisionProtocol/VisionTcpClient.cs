@@ -282,6 +282,7 @@ public sealed class VisionTcpClient : IAsyncDisposable
 
         try
         {
+
             await SendAsync(envelope, ct);
 
             VisionEnvelope response = await ReadPendingAsync(

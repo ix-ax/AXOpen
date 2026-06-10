@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Accepted" xml:space="preserve"><value>Akzeptiert</value></data>
+  <data name="Idle" xml:space="preserve"><value>Leerlauf</value></data>
+  <data name="Error" xml:space="preserve"><value>Fehler</value></data>
+  <data name="Inspection" xml:space="preserve"><value>Inspektion</value></data>
+  <data name="SpecificData" xml:space="preserve"><value>Spezifische Daten</value></data>
+  <data name="SetRecipe" xml:space="preserve"><value>Rezept einstellen</value></data>
+  <data name="Trigger" xml:space="preserve"><value>Auslöser</value></data>
+  <data name="InspectionResult" xml:space="preserve"><value>Inspektionsergebnis</value></data>
+  <data name="Restore" xml:space="preserve"><value>Wiederherstellen</value></data>
+  <data name="SendSpecificData" xml:space="preserve"><value>Spezifische Daten senden</value></data>
+  <data name="ReceiveSpecificData" xml:space="preserve"><value>Spezifische Daten empfangen</value></data>
+  <data name="TriggerWithSpecificData" xml:space="preserve"><value>Auslösen mit spezifischen Daten</value></data>
+  <data name="SendDataAndTypes" xml:space="preserve"><value>Daten und Typen senden</value></data>
+  <data name="Device" xml:space="preserve"><value>Gerät</value></data>
+  <data name="Proxy" xml:space="preserve"><value>Proxy</value></data>
+  <data name="Loading" xml:space="preserve"><value>Laden...</value></data>
+  <data name="FailedToLoadContent" xml:space="preserve"><value>Inhalt konnte nicht geladen werden</value></data>
+  <data name="ExternalSite" xml:space="preserve"><value>Externe Seite</value></data>
+</root>
