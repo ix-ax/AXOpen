@@ -1,5 +1,5 @@
 mode: ContinuousDeployment
-next-version: 0.61.1
+next-version: 0.63.0
 branches:
   main:
     regex: ^master$|^main$
