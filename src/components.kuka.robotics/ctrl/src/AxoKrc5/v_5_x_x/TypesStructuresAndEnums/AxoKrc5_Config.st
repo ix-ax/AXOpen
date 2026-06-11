@@ -8,9 +8,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#2S;
             {#ix-set:AttributeName = "<#Error time#>"}
-            ErrorTime : LTIME := LT#5S;
+            ErrorTime : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
-            TaskTimeout : LTIME := LT#50S;
+            TaskTimeout : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : AxoKrc5_HWIDs;
         END_VAR

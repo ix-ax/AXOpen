@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Components.Pneumatics
+@namespace AXOpen.Components.Pneumatics
 @using AXOpen.Core.Blazor
 @inherits AxoComponentViewBase<AxoCylinder>
 
@@ -11,7 +11,7 @@
             }
             else if (IsInOuterPosition)
             {
-                <span class="badge badge-info">@Component.OutLabel</span>
+                <span class="badge badge-success">@Component.OutLabel</span>
             }
             else if (IsMoving)
             {
@@ -87,7 +87,7 @@
 
                             <!-- Outer Position with Label on Right -->
                             <div class="flex items-center gap-2 flex-shrink-0">
-                                <div class="sensor-indicator @(IsInOuterPosition ? "active bg-info text-info" : "bg-border/30 text-border")"></div>
+                            <div class="sensor-indicator @(IsInOuterPosition ? "active bg-success text-success" : "bg-border/30 text-border")"></div>
                                 <span class="text-xs font-medium text-text/70">@Component.OutLabel</span>
                             </div>
                         </div>

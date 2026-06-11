@@ -118,31 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SignalOff" xml:space="preserve">
-    <value>Signál VYPNUTÝ</value>
+    <value>Signál vypnutý</value>
   </data>
   <data name="RequiredValue" xml:space="preserve">
     <value>Požadovaná hodnota</value>
   </data>
   <data name="ExpectHigh" xml:space="preserve">
-    <value>Očakávajte VYSOKÚ</value>
+    <value>Očakávajte signál je prítomný</value>
   </data>
   <data name="ExpectLow" xml:space="preserve">
-    <value>Očakávajte NÍZKU</value>
+    <value>Očakávajte signál je neprítomný</value>
   </data>
   <data name="HighCheck" xml:space="preserve">
-    <value>Kontrola HIGH</value>
-  </data>
-  <data name="LowCheck" xml:space="preserve">
-    <value>Kontrola LOW</value>
+    <value>Signál prítomný?</value>
   </data>
   <data name="Signal" xml:space="preserve">
     <value>Signál</value>
   </data>
   <data name="SignalHigh" xml:space="preserve">
-    <value>Signál HIGH</value>
+    <value>Signál prítomný</value>
   </data>
   <data name="SignalLow" xml:space="preserve">
-    <value>Signál LOW</value>
+    <value>Signál neprítomný</value>
   </data>
   <data name="PositiveFeedbackPresent" xml:space="preserve">
     <value>Prítomná pozitívna spätná väzba</value>
@@ -158,9 +155,6 @@
   </data>
   <data name="SwitchOn" xml:space="preserve">
     <value>Zapnúť</value>
-  </data>
-  <data name="SwitchOff" xml:space="preserve">
-    <value>Vypnúť</value>
   </data>
   <data name="SignalOn" xml:space="preserve">
     <value>Signál zapnutý</value>
@@ -269,10 +263,10 @@
     <value>Prepínať akustický výstup, keď je požadovaný zvukový alarm.</value>
   </data>
   <data name="HornOn" xml:space="preserve">
-    <value>Siréna ZAPNUTÁ</value>
+    <value>Siréna zapnutá</value>
   </data>
   <data name="HornOff" xml:space="preserve">
-    <value>Siréna VYPNUTÁ</value>
+    <value>Siréna vypnutá</value>
   </data>
   <data name="ManualOverride" xml:space="preserve">
     <value>Manuálne ovládanie</value>
@@ -312,5 +306,11 @@
   </data>
   <data name="Blue" xml:space="preserve">
     <value>Modrá</value>
+  </data>
+  <data name="SwitchOff" xml:space="preserve">
+    <value>Vypnúť</value>
+  </data>
+  <data name="LowCheck" xml:space="preserve">
+    <value>Signál neprítomný?</value>
   </data>
 </root>

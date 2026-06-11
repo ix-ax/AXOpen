@@ -133,6 +133,7 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20003, new AxoMessengerTextItem("Waiting for signal 'Inputs.AlarmStopActive' to be set!","Check the signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20004, new AxoMessengerTextItem("Waiting for signal 'Inputs.UserSafetySwitchClosed' to be set!","Check the signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(20005, new AxoMessengerTextItem("Waiting for signal 'Inputs.Error' to be reseted!","Check the signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20006, new AxoMessengerTextItem("Waiting for signal 'Inputs.LocalEstopOk' to be set!","Check the signal.")),
 
 
 
@@ -378,6 +379,7 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     errorDescriptionDict.Add(20003, "Waiting for signal 'Inputs.AlarmStopActive' to be set!");
                     errorDescriptionDict.Add(20004, "Waiting for signal 'Inputs.UserSafetySwitchClosed' to be set!");
                     errorDescriptionDict.Add(20005, "Waiting for signal 'Inputs.Error' to be reseted!");
+                    errorDescriptionDict.Add(20006, "Waiting for signal 'Inputs.LocalEstopOk' to be set!");
                 }
                 string errorDescription = "   ";
 

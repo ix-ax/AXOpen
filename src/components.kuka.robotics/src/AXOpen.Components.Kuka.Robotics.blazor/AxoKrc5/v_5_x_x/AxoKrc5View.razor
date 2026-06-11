@@ -6,9 +6,9 @@
 <AxoComponentContainerView Component="@Component" ParentReference="this">
     <HeaderContent>
         <div class="flex items-center gap-2" @onclick:stopPropagation="true">
-            @if (Component.Inputs.Automatic.Cyclic)
+            @if (Component.Inputs.LocalEstopOk.Cyclic)
             {
-                <span class="badge badge-success">@Localizer["Automatic"]</span>
+                <span class="badge badge-success">@Localizer["EStop"]</span>
             }
             else if (Component.Inputs.ExternalAutomatic.Cyclic)
             {
@@ -236,8 +236,8 @@
                                 <span>@Localizer["Manual"]</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="@(Component.Inputs.Automatic.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
-                                <span>@Localizer["Automatic"]</span>
+                                <span class="@(Component.Inputs.LocalEstopOk.Cyclic ? "badge badge-success badge-xs" : "badge badge-danger badge-xs")"></span>
+                                <span>@Localizer["LocalEstopOk"]</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <span class="@(Component.Inputs.ExternalAutomatic.Cyclic ? "badge badge-success badge-xs" : "badge badge-neutral badge-xs")"></span>
