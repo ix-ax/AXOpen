@@ -81,14 +81,14 @@
     [Parameter] public string? PlcLabel { get; set; }
     [Parameter] public bool AllowRestore { get; set; }
     [Parameter] public string? Class { get; set; }
-    [Parameter] public int ActivePollingMs { get; set; } = 750;
-    [Parameter] public int IdlePollingMs { get; set; } = 2500;
+    public static int ActivePollingMs { get; set; } = 250;
+    public static int IdlePollingMs { get; set; } = 3000;
     [Parameter] public TimeSpan AckTimeout { get; set; } = TimeSpan.FromSeconds(2);
     [CascadingParameter] public AuthenticationStateProvider? AuthState { get; set; }
 
-    private AxoCauseAnalyzer? _analyzer;
-    private AxoIncidentBarPresenter? _presenter;
-    private Timer? _tick;
+    private static AxoCauseAnalyzer? _analyzer;
+    private static AxoIncidentBarPresenter? _presenter;
+    private static Timer? _tick;
     private AxoIncidentBarState _state = new();
     private bool _isExpanded;
     private readonly Dictionary<string, DateTime> _ackPendingSince = new();
@@ -118,36 +118,36 @@
         {
             Log.Error(ex, "AxoIncidentBarView.ConfigurePolling: InitializeLightUpdate failed.");
         }
-        ScheduleNextTick();
+        ScheduleNextTick(this.Provider);
     }
 
-    private void ScheduleNextTick()
+    private static void ScheduleNextTick(AxoMessageProvider provider)
     {
         // Use the analyzer's authoritative ActiveCount (set from the just-read state)
         // rather than Provider.ActiveMessagesCount, which depends on MsgCnt aggregation
         // reaching the observed root — not guaranteed in every project.
         var interval = (_analyzer?.ActiveCount > 0) ? ActivePollingMs : IdlePollingMs;
         _tick?.Dispose();
-        _tick = new Timer(async _ => await TickAsync(), null, interval, Timeout.Infinite);
+        _tick = new Timer(async _ => await TickAsync(provider), null, interval, Timeout.Infinite);
     }
 
-    private async Task TickAsync()
+    private static async Task TickAsync(AxoMessageProvider provider)
     {
-        if (_analyzer is null || _presenter is null || Provider is null) return;
+        if (_analyzer is null || _presenter is null || provider is null) return;
         try
         {
             // State first so ReadDetails can filter to active messengers.
-            await Provider.ReadMessageStateAsync();
+            await provider.ReadMessageStateAsync();
             // Always pull details when any messenger is active — the analyzer needs
             // RisenUtc/Category/MessageCode, and Provider.ActiveMessagesCount depends on
             // MsgCnt aggregation that may not reach the observed root.
-            var hasActive = Provider.Messengers?.Any(m => m.State > eAxoMessengerState.Idle) ?? false;
+            var hasActive = provider.Messengers?.Any(m => m.State > eAxoMessengerState.Idle) ?? false;
             if (hasActive)
             {
-                await Provider.ReadDetails();
+                await provider.ReadDetails();
             }
             _analyzer.Recompute();
-            ExpireStaleAckPending();
+           // ExpireStaleAckPending();
             _presenter.Refresh();
             Log.Debug("AxoIncidentBarView.Tick: ActiveCount={Active} TopCause={Top}",
                 _analyzer.ActiveCount, _analyzer.TopCause?.Message.Symbol ?? "<none>");
@@ -158,20 +158,20 @@
         }
         finally
         {
-            ScheduleNextTick();
+            ScheduleNextTick(provider);
         }
     }
 
-    private void ExpireStaleAckPending()
-    {
-        if (_ackPendingSince.Count == 0) return;
-        var now = DateTime.UtcNow;
-        var expired = _ackPendingSince.Where(kv => now - kv.Value > AckTimeout).Select(kv => kv.Key).ToList();
-        foreach (var symbol in expired)
-        {
-            _ackPendingSince.Remove(symbol);
-        }
-    }
+    // private static void ExpireStaleAckPending()
+    // {
+    //     if (_ackPendingSince.Count == 0) return;
+    //     var now = DateTime.UtcNow;
+    //     var expired = _ackPendingSince.Where(kv => now - kv.Value > AckTimeout).Select(kv => kv.Key).ToList();
+    //     foreach (var symbol in expired)
+    //     {
+    //         _ackPendingSince.Remove(symbol);
+    //     }
+    // }
 
     private bool IsTopAckPending() =>
         _state.TopCause?.Message is { } m && _ackPendingSince.ContainsKey(m.Symbol);

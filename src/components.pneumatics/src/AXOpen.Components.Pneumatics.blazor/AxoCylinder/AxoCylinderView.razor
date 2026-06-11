@@ -98,7 +98,7 @@
 </AxoComponentContainerView>
 
 @code
-{    
+{
     protected bool IsInInnerPosition => Component.InSensor.Cyclic && !Component.OutSensor.Cyclic;
     protected bool IsInOuterPosition => Component.OutSensor.Cyclic && !Component.InSensor.Cyclic;
     protected bool IsMoving => Component.MoveInSignal.Cyclic || Component.MoveOutSignal.Cyclic;
@@ -118,4 +118,6 @@
         this.StartPolling(Component._MoveInTask.Status);
         this.StartPolling(Component._StopTask.Status);                
     }
+
+   
 }
