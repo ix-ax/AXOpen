@@ -13,6 +13,8 @@ NAMESPACE AXOpen.Components.Drives
             InTorqueWindowPerCent     :   LREAL := LREAL#5.0;
             {#ix-set:AttributeName = "<#InTorque window time#>"}
             InTorqueWindowTime     : LTIME := LT#100ms;
+            {#ix-set:AttributeName = "<#InPosition window#>"}
+            InPositionWindow     :   LREAL := LREAL#0.05;
         END_VAR
     END_CLASS 
 END_NAMESPACE

@@ -121,25 +121,25 @@
     <value>Požadovaná hodnota</value>
   </data>
   <data name="ExpectHigh" xml:space="preserve">
-    <value>Očakávajte HIGH</value>
+    <value>Očakávajte signál je prítomný</value>
   </data>
   <data name="ExpectLow" xml:space="preserve">
-    <value>Očakávajte nízku úroveň</value>
+    <value>Očakávajte signál je neprítomný</value>
   </data>
   <data name="HighCheck" xml:space="preserve">
-    <value>VYSOKÁ kontrola</value>
+    <value>Signál prítomný?</value>
   </data>
   <data name="LowCheck" xml:space="preserve">
-    <value>NÍZKA kontrola</value>
+    <value>Signál neprítomný?</value>
   </data>
   <data name="Signal" xml:space="preserve">
     <value>Signál</value>
   </data>
   <data name="SignalHigh" xml:space="preserve">
-    <value>Signál HIGH</value>
+    <value>Signál prítomný</value>
   </data>
   <data name="SignalLow" xml:space="preserve">
-    <value>Signál LOW</value>
+    <value>Signál neprítomný</value>
   </data>
   <data name="PositiveFeedbackPresent" xml:space="preserve">
     <value>Prítomná pozitívna spätná väzba</value>
@@ -154,16 +154,16 @@
     <value>Vstup je bez napätia</value>
   </data>
   <data name="SwitchOn" xml:space="preserve">
-    <value>Zapnutie spínača</value>
+    <value>Zapnúť</value>
   </data>
   <data name="SwitchOff" xml:space="preserve">
-    <value>Vypínač OFF</value>
+    <value>Vypnúť</value>
   </data>
   <data name="SignalOn" xml:space="preserve">
     <value>Zapnutý signál</value>
   </data>
   <data name="SignalOff" xml:space="preserve">
-    <value>Signál OFF</value>
+    <value>Signál vypnutý</value>
   </data>
   <data name="OutputIsActive" xml:space="preserve">
     <value>Výstup je aktívny</value>
@@ -269,10 +269,10 @@
     <value>Prepínať akustický výstup, keď je požadovaný zvukový alarm.</value>
   </data>
   <data name="HornOn" xml:space="preserve">
-    <value>Siréna ZAPNUTÁ</value>
+    <value>Siréna zapnutá</value>
   </data>
   <data name="HornOff" xml:space="preserve">
-    <value>Siréna VYPNUTÁ</value>
+    <value>Siréna vypnutá</value>
   </data>
   <data name="ManualOverride" xml:space="preserve">
     <value>Manuálne ovládanie</value>

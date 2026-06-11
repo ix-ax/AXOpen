@@ -952,22 +952,22 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             // ZSW1
-            _AxisReference^.Telegram111_In.ZSW1.followingErrorInTolerance             := _Telegram111[0].%X0;
-            _AxisReference^.Telegram111_In.ZSW1.controlRequest                        := _Telegram111[0].%X1;
-            _AxisReference^.Telegram111_In.ZSW1.targetPosReached                      := _Telegram111[0].%X2;
-            _AxisReference^.Telegram111_In.ZSW1.homePosSet                            := _Telegram111[0].%X3;
-            _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated   := _Telegram111[0].%X4;
-            _AxisReference^.Telegram111_In.ZSW1.driveStopped                          := _Telegram111[0].%X5;
-            _AxisReference^.Telegram111_In.ZSW1.axisAccelerates                       := _Telegram111[0].%X6;
-            _AxisReference^.Telegram111_In.ZSW1.axisDecelerates                       := _Telegram111[0].%X7;
-            _AxisReference^.Telegram111_In.ZSW1.readyForSwitchOn                      := _Telegram111[1].%X0;
-            _AxisReference^.Telegram111_In.ZSW1.ready                                 := _Telegram111[1].%X1;
-            _AxisReference^.Telegram111_In.ZSW1.operationEnabled                      := _Telegram111[1].%X2;
-            _AxisReference^.Telegram111_In.ZSW1.faultPresent                          := _Telegram111[1].%X3;
-            _AxisReference^.Telegram111_In.ZSW1.noCoastingActive                      := _Telegram111[1].%X4;
-            _AxisReference^.Telegram111_In.ZSW1.noQuickStopActive                     := _Telegram111[1].%X5;
-            _AxisReference^.Telegram111_In.ZSW1.switchingOnInhibitedActive            := _Telegram111[1].%X6;
-            _AxisReference^.Telegram111_In.ZSW1.warningActive                         := _Telegram111[1].%X7;
+            _AxisReference^.Telegram111_In.ZSW1.followingErrorInTolerance             := _Telegram111[0].%X0; //.8
+            _AxisReference^.Telegram111_In.ZSW1.controlRequest                        := _Telegram111[0].%X1; //.9
+            _AxisReference^.Telegram111_In.ZSW1.targetPosReached                      := _Telegram111[0].%X2; //.10
+            _AxisReference^.Telegram111_In.ZSW1.homePosSet                            := _Telegram111[0].%X3; //.11
+            _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated   := _Telegram111[0].%X4; //.12
+            _AxisReference^.Telegram111_In.ZSW1.driveStopped                          := _Telegram111[0].%X5; //.13
+            _AxisReference^.Telegram111_In.ZSW1.axisAccelerates                       := _Telegram111[0].%X6; //.14
+            _AxisReference^.Telegram111_In.ZSW1.axisDecelerates                       := _Telegram111[0].%X7; //.15
+            _AxisReference^.Telegram111_In.ZSW1.readyForSwitchOn                      := _Telegram111[1].%X0; //.0
+            _AxisReference^.Telegram111_In.ZSW1.ready                                 := _Telegram111[1].%X1; //.1
+            _AxisReference^.Telegram111_In.ZSW1.operationEnabled                      := _Telegram111[1].%X2; //.2
+            _AxisReference^.Telegram111_In.ZSW1.faultPresent                          := _Telegram111[1].%X3; //.3
+            _AxisReference^.Telegram111_In.ZSW1.noCoastingActive                      := _Telegram111[1].%X4; //.4
+            _AxisReference^.Telegram111_In.ZSW1.noQuickStopActive                     := _Telegram111[1].%X5; //.5
+            _AxisReference^.Telegram111_In.ZSW1.switchingOnInhibitedActive            := _Telegram111[1].%X6; //.6
+            _AxisReference^.Telegram111_In.ZSW1.warningActive                         := _Telegram111[1].%X7; //.7
             //POS_ZSW1
             _AxisReference^.Telegram111_In.POS_ZSW1.%B1                               := _Telegram111[2];
             _AxisReference^.Telegram111_In.POS_ZSW1.%B0                               := _Telegram111[3];
@@ -2416,8 +2416,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 IF State = UINT#84 THEN
                     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
-                        State := UINT#85;
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached 
+                        AND ABS( Position - THIS.ActualPosition) <=  _AxisReference^.Config.InPositionWindow THEN      
+                        State := UINT#85;                         
                     END_IF;    
                 END_IF;
                 IF State = UINT#85 THEN
@@ -2507,6 +2508,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveRelativeAcceleration_PV              :   LREAL;                    
             MC_MoveRelativeDeceleration_PV              :   LREAL;                                
             MC_MoveRelativeJerk_PV                      :   LREAL;                     
+            MC_MoveRelativeEndPosition_PV             :   LREAL;                                          
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveRelative 
             VAR_INPUT
@@ -2597,6 +2599,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
                         MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
                         MC_MoveRelativeJerk_PV          :=  Jerk;   
+                        MC_MoveRelativeEndPosition_PV := THIS.ActualPosition + Distance ;
                         State := UINT#91;
                     END_IF;
                 END_IF;
@@ -2640,7 +2643,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 IF State = UINT#94 THEN
                     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached 
+                        AND ( Abs(MC_MoveRelativeEndPosition_PV - THIS.ActualPosition) <= DriveConfig.InPositionWindow ) 
+                    THEN      
                         State := UINT#95;
                     END_IF;    
                 END_IF;
@@ -2684,6 +2689,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
                             MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
                             MC_MoveRelativeJerk_PV          :=  Jerk;   
+                            MC_MoveRelativeEndPosition_PV := THIS.ActualPosition + Distance ;
                             State := UINT#91;
                         END_IF;   
                     END_IF;   
@@ -3462,6 +3468,32 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#129;
                     END_IF;
                 END_IF;
+
+                // //Writing P1.102223.0.0 – Selection of dynamic torque boost → [0] None 
+                // // PNU 13073.0 - USINT
+                // IF State = UINT#1123 THEN
+                //     Busy := TRUE;            
+                //     Active := TRUE;          
+                //     Parametrization.Inputs.Enable := TRUE;
+                //     Parametrization.Inputs.ReadWrite   := TRUE;
+                //     Parametrization.Inputs.ParameterNo := 13073;
+                //     Parametrization.Inputs.Subindex    := 0;
+                //     Parametrization.Inputs.AxisNo  := BYTE#1;
+                //     Parametrization.Inputs.HardwareId  := _AxisReference^.HWIDs.HW_ModuleAccessPoint;
+                //     Parametrization.Inputs.ValueWriteLINT := LINT#0;
+                //     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                //         Parametrization.Inputs.Enable := FALSE;
+                //         Parametrization.Inputs.ReadWrite   := FALSE;
+                //         State := UINT#124;
+                //         RETURN;
+                //     END_IF;
+                //     IF Parametrization.Outputs.Error THEN 
+                //         Messenger.Activate(         UINT#1543, eAxoMessageCategory#Error);
+                //         MC_TorqueControlErrorID :=  DINT#1543;
+                //         State := UINT#129;
+                //     END_IF;
+                // END_IF;
+
                 IF State = UINT#124 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -3513,11 +3545,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Error := TRUE;    
                 END_IF;         
 
-                IF (State=UINT#126 OR State =UINT#127) AND _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN
-                    Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
-                    MC_TorqueControlErrorID :=  DINT#1542;
-                    State := UINT#129;
-                END_IF;
+                // ! IT IS NOT STABLE !
+                // IF (State=UINT#126 OR State =UINT#127) AND _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN
+                //     Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
+                //     MC_TorqueControlErrorID :=  DINT#1542;
+                //     State := UINT#129;
+                // END_IF;
                 
                 IF State>=UINT#120 AND State<UINT#127 THEN
                     IF MC_TorqueControlContinuousUpdate_SV AND (

@@ -14,6 +14,62 @@
 
 **Testing:** `apax ib` in `src/components.kuka.robotics`; exercise KRC5 cell: 20006 on local E-stop drop, 20002 on external-auto drop, timeout abort with `TaskTimeout > 0s`, `ErrorConfirmation` pulse while `StopMess` active.
 
+### [CORE] `AxoRemoteTask` start/done handshake priority is now configurable (default Normal) (#TBD)
+
+**Note:** API addition + behavioral change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or PLC-side API change. Branch: `deps-update-0-47-0-alpha-495`. PR link to be filled in before merge. Follow-up to the High-priority batching entry below (commit `2a70cb744`).
+
+- feat: new `HandshakeReadAccessPriority` and `HandshakeWriteAccessPriority` properties (default `eAccessPriority.Normal`) drive the access priority of the batched start/done read (`ReadBatchAsync` of `StartSignature` + `DoneSignature`) and the Done-ack write (`WriteBatchAsync`) in `ExecuteAsync`, replacing the previously hardcoded `eAccessPriority.High` at both legs.
+- feat: all `Initialize(...)` / `InitializeExclusively(...)` overloads gain two optional args — `handshakeReadAccessPriority` and `handshakeWriteAccessPriority` (both default `eAccessPriority.Normal`) — that seed those properties. Existing call sites bind unchanged via the defaults; the properties can also be set directly any time.
+- test: added `AxoRemoteTaskHandshakePriorityTests` (4 tests) in `src/core/tests/AXOpen.Core.Tests`. A recording `DummyConnector` subclass captures the `eAccessPriority` passed to `Read`/`WriteBatchAsync`; tests cover the read leg, the write leg (distinct value to prove the write property specifically), the default-`Normal` behavior (asserting `High` is no longer used), and a property-override-after-`Initialize` case.
+- docs: `src/core/docs/CHANGELOG.md` (`0.62.3` — New features + Breaking changes) and `AxoRemoteTask.md` note updated to describe the configurable, `Normal`-default handshake.
+
+**Impact:**
+- The remote-task start/done handshake now defaults to `eAccessPriority.Normal` instead of `High`. Callers that need the handshake serviced ahead of lower-priority traffic must opt in — pass `eAccessPriority.High` to `Initialize(...)` or set `HandshakeReadAccessPriority` / `HandshakeWriteAccessPriority`.
+
+**Risks/Review:**
+- Behavioral change for upgraders: any code relying on the implicit `High` handshake from `2a70cb744` will now contend at `Normal` until it sets the priority explicitly. In the built-in connectors `High` and `Normal` share the same batch chunking; only the queue/ordering priority relative to other connector traffic differs.
+
+**Testing:**
+- `dotnet test src/core/tests/AXOpen.Core.Tests` — 74 passed (incl. 4 new). Built strictly TDD red-first.
+- Test note: the `DummyConnector` read cycle (`BuildAndStart`) self-deadlocks on its internal lock and never raises the value-changed event, so the tests invoke the protected handshake directly (no `BuildAndStart`) to capture priorities — a harness constraint only; production triggering is unchanged.
+
+### [CORE] `AxoRemoteTask` batches start/done handshake at High priority (#TBD)
+
+**Note:** Performance change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or public-API change. Branch: `deps-update-0-47-0-alpha-495`, commit `2a70cb744`. PR link to be filled in before merge.
+
+- perf: `ExecuteAsync` now reads `StartSignature` + `DoneSignature` with a single `Connector.ReadBatchAsync(..., eAccessPriority.High)` and writes the completed `DoneSignature` with `Connector.WriteBatchAsync(..., eAccessPriority.High)` (via `DoneSignature.Cyclic`), replacing the per-signal `GetAsync`/`SetAsync`. Collapses the remote-task start/done handshake into single batched, High-priority connector round-trips.
+- docs: `src/core/docs/CHANGELOG.md` bumped to `0.61.1`; `AxoRemoteTask.md` gains a note describing the High-priority batched handshake.
+
+**Impact:**
+- Fewer connector round-trips per `AxoRemoteTask` invocation. The start/done acknowledgement now contends at `eAccessPriority.High`, so it is serviced ahead of lower-priority operator/polling traffic.
+
+**Risks/Review:**
+- Promoting the handshake to `High` priority shifts connector scheduling — under heavy remote-task fan-out, confirm it does not starve other High-priority traffic.
+
+**Testing:**
+- Covered by the existing `AxoRemoteTaskTests` suite (`src/core/tests/AXOpen.Core.Tests`). No new test added specifically for the batching change.
+
+### [FIX] `AxoCmmtAs` loses axis position while in torque control
+
+**Note:** PLC bug fix in `src/components.festo.drives` (`AxoCmmtAs`, `PROFIdriveTelegram_111`) and `src/components.drives` (`AxoDrive_Config`). No public-API removal. Branch: `1152-bug-cmmt-as-while-in-torque-control-loses-axis-position`. Issue #1152, PR #1166.
+
+- fix: `AxoCmmtAs` positioning no longer advances past the target-reached step on the `Telegram111_In.ZSW1.targetPosReached` (X10) bit alone. It now additionally requires the actual position to be within the in-position window — `ABS(Position - ActualPosition) <= _AxisReference^.Config.InPositionWindow` — before transitioning, so a drive that asserts `targetPosReached` while still off target (e.g. after a torque-control phase) no longer "loses" its position.
+- fix: Removed an unstable torque-control guard that raised programming error `1542` (`eAxoMessageCategory#ProgrammingError`, `MC_TorqueControlErrorID := 1542`) whenever `targetPosReached` became true during torque-control states `126`/`127`. The check proved unreliable and is disabled pending further investigation.
+- feat: `AxoDrive_Config` (in `src/components.drives`) gains an `InPositionWindow` parameter (`LREAL`, default `0.05`) supplying the tolerance above.
+- chore: Annotated the `PROFIdriveTelegram_111_ZSW1` status signals with their hardware bit positions (X0–X15) in the attribute labels, and added matching bit-position comments to the ZSW1 mapping in `AxoCmmtAs`.
+- chore: Disabled an unfinished dynamic-torque-boost parameter write (PNU `13073`).
+- docs: Updated `components.festo.drives` docs (CHANGELOG `0.61.1`, TROUBLES, `AxoCmmtAs.md`) to document the in-position window, the ZSW1 bit map, and the torque-control behaviour.
+
+**Impact:**
+- Absolute positioning moves on Festo CMMT-AS drives complete only when the axis is genuinely within `InPositionWindow` of the commanded target, fixing the position loss observed after torque control.
+- The spurious `1542` programming error during torque control no longer fires.
+
+**Risks/Review:**
+- `InPositionWindow` defaults to `0.05` (axis position units). Too small a value can stall a move just before completion; too large lets it complete while still off target — tune per axis.
+- The torque-control `1542` guard is disabled rather than fixed; the underlying condition is still under investigation.
+
+**Testing:**
+- Delivered and reviewed via PR #1166 (issue #1152). No automated AxUnit test was added for the in-position gate.
 ### [FIX] `AxoKrc5` no longer throws spurious task-timeout errors
 
 **Note:** PLC bug fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/AxoKrc5.st`. KRC5-only — `AxoKrc4` is unchanged. No public-API change. Branch: `1165-bug-kuka-issue-with-robot-reset` ([#1167](https://github.com/Inxton/AXOpen/pull/1167)).

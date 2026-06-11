@@ -18,6 +18,7 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
         AxoTaskError : AxoTaskExamples.AxoTaskErrorExample;
         AxoTaskAborted : AxoTaskExamples.AxoTaskAbortedExample;
+        AxoTaskDisabled : AxoTaskExamples.AxoTaskDisabledExample;
 
         // ---- Core: AxoToggleTask ----
         AxoToggleTasks : AxoToggleTaskExamples.Tasks;
@@ -153,6 +154,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         THIS.InitializeRootObject(AxoTaskAborted);
         AxoTaskAborted.Execute();
+
+        THIS.InitializeRootObject(AxoTaskDisabled);
+        AxoTaskDisabled.Execute();
 
         THIS.InitializeRootObject(AxoToggleTasks);
         AxoToggleTasks.Execute();
