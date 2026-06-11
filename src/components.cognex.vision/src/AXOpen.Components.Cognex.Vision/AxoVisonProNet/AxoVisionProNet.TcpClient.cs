@@ -40,10 +40,12 @@ public partial class AxoVisionProNet
 
         var options = new VisionTcpClientOptions
         {
-            Host            = host,
-            Port            = port,
-            ConnectionMode  = connectionMode,
-            ComponentSymbol = this.Symbol   // full twin symbol, e.g. "Ctx.VisionStation1"
+            Host              = host,
+            Port              = port,
+            ConnectionMode    = connectionMode,
+            ComponentSymbol   = Symbol,
+            OnMessageSent     = json => AxoApplication.Current.Logger?.Debug($"[{Symbol}] TCP -> {json}", null),
+            OnMessageReceived = json => AxoApplication.Current.Logger?.Debug($"[{Symbol}] TCP <- {json}", null),
         };
 
         _visionClient = new VisionTcpClient(options);
@@ -91,7 +93,6 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.TriggerAsync(payload);
 
-
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Accepted;
         status.TriggerId = result.TriggerId;
@@ -128,8 +129,6 @@ public partial class AxoVisionProNet
         };
 
         var result = await _visionClient.SetRecipeAsync(payload);
-
-       
 
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
@@ -183,7 +182,6 @@ public partial class AxoVisionProNet
             ? await _visionClient.SendSpecificDataTypesAsync(payload)
             : await _visionClient.SendSpecificDataAsync(payload);
 
-
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
         status.TriggerId = 0;
@@ -221,8 +219,6 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.ReceiveSpecificDataAsync(payload);
 
-    
-
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Success;
         status.TriggerId = 0;
@@ -230,6 +226,11 @@ public partial class AxoVisionProNet
         status.RejectReason = result.Reason;
 
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"ReceiveSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
+         
         if (!result.Data.HasValue)
             return;
 
@@ -239,9 +240,7 @@ public partial class AxoVisionProNet
 
         await PlainToOnlineAsync(data, eAccessPriority.Normal);
 
-        if (!result.Success)
-            throw new InvalidOperationException(
-                $"ReceiveSpecificDataRequest failed: [{result.ErrorCode}] {result.Reason}");
+   
 
     }
 
@@ -272,14 +271,17 @@ public partial class AxoVisionProNet
 
         var result = await _visionClient.TriggerWithSpecificDataAsync(payload);
 
-      
-
         var status = Status.CreateEmptyPoco();
         status.Accepted = result.Accepted;
         status.TriggerId = result.TriggerId;
         status.ErrorCode = result.ErrorCode;
         status.RejectReason = result.RejectReason;
         await Status.PlainToOnline(status, priority: eAccessPriority.High);
+
+
+        if (!result.Accepted)
+            throw new InvalidOperationException(
+                $"TriggerWithSpecificDataRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
 
         if (!result.Data.HasValue)
             return;
@@ -290,9 +292,6 @@ public partial class AxoVisionProNet
 
         await PlainToOnlineAsync(data, eAccessPriority.Normal);
 
-        if (!result.Accepted)
-            throw new InvalidOperationException(
-                $"TriggerWithSpecificDataRequest rejected by Vision PC: [{result.ErrorCode}] {result.RejectReason}");
     }
 
     /// <summary>
@@ -316,8 +315,6 @@ public partial class AxoVisionProNet
         };
 
         var result = await _visionClient.InspectionResultAsync(payload);
-
-      
 
         await PlainToOnlineAsync(plainData, eAccessPriority.Normal);
 

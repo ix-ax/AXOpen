@@ -74,6 +74,16 @@ public sealed class VisionTcpClientOptions
     public TimeSpan ReconnectDelay { get; init; } = TimeSpan.FromSeconds(2);
 
     /// <summary>
+    /// Optional callback invoked with the raw JSON string of every message sent over the wire.
+    /// </summary>
+    public Action<string>? OnMessageSent { get; init; }
+
+    /// <summary>
+    /// Optional callback invoked with the raw JSON string of every message received over the wire.
+    /// </summary>
+    public Action<string>? OnMessageReceived { get; init; }
+
+    /// <summary>
     /// Creates a new <see cref="VisionTcpClientOptions"/> instance. The provided
     /// <paramref name="taskTimeoutMs"/> value is applied to every per-task timeout.
     /// Defaults to 5000 ms.
@@ -658,6 +668,8 @@ public sealed class VisionTcpClient : IAsyncDisposable
 
         string json = JsonSerializer.Serialize(envelope, VisionJsonOptions.Default);
         await _writer.WriteLineAsync(json.AsMemory(), ct);
+        AxoApplication.Current.Logger?.Information($"[{_options.ComponentSymbol}] TCP -> {json}", null);
+        _options.OnMessageSent?.Invoke(json);
     }
 
     /// <summary>
@@ -678,6 +690,9 @@ public sealed class VisionTcpClient : IAsyncDisposable
 
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
+
+                AxoApplication.Current.Logger?.Information($"[{_options.ComponentSymbol}] TCP <- {line}", null);
+                _options.OnMessageReceived?.Invoke(line);
 
                 VisionEnvelope? envelope;
                 try

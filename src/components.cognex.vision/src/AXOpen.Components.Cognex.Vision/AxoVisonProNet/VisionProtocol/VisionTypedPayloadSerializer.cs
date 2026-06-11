@@ -35,17 +35,29 @@ internal static class VisionTypedPayloadSerializer
 
         if (value is IEnumerable enumerable && value is not string)
         {
-            var items = new List<object?>();
-            foreach (var item in enumerable)
+            Type elementType = ResolveElementType(runtimeType, enumerable);
+            int length = GetEnumerableLength(value, enumerable);
+
+            var arrayNode = new Dictionary<string, object?>
             {
-                items.Add(ToTypedNode(item, item?.GetType() ?? typeof(object)));
+                ["type"] = "array",
+                ["elementType"] = GetTypeName(elementType),
+                ["length"] = length
+            };
+
+            if (!IsScalar(elementType))
+            {
+                var items = new List<object?>();
+                foreach (object? item in enumerable)
+                {
+                    items.Add(ToTypedNode(item, elementType));
+                    break;
+                }
+
+                arrayNode["items"] = items;
             }
 
-            return new Dictionary<string, object?>
-            {
-                ["type"] = GetTypeName(runtimeType),
-                ["items"] = items
-            };
+            return arrayNode;
         }
 
         var properties = runtimeType
@@ -123,6 +135,44 @@ internal static class VisionTypedPayloadSerializer
             return "array";
 
         return effectiveType.Name;
+    }
+
+    private static Type ResolveElementType(Type runtimeType, IEnumerable enumerable)
+    {
+        if (runtimeType.IsArray)
+            return runtimeType.GetElementType() ?? typeof(object);
+
+        if (runtimeType.IsGenericType)
+        {
+            Type[] genericArguments = runtimeType.GetGenericArguments();
+            if (genericArguments.Length == 1)
+                return genericArguments[0];
+        }
+
+        foreach (object? item in enumerable)
+        {
+            if (item is not null)
+                return item.GetType();
+        }
+
+        return typeof(object);
+    }
+
+    private static int GetEnumerableLength(object value, IEnumerable enumerable)
+    {
+        if (value is Array array)
+            return array.Length;
+
+        if (value is ICollection collection)
+            return collection.Count;
+
+        int count = 0;
+        foreach (object? _ in enumerable)
+        {
+            count++;
+        }
+
+        return count;
     }
 
     private static string ToCamelCase(string value)

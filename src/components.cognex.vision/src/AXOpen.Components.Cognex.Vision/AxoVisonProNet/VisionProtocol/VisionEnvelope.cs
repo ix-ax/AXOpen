@@ -88,6 +88,62 @@ public static class VisionJsonOptions
     {
         PropertyNamingPolicy         = JsonNamingPolicy.CamelCase,
         WriteIndented                = false,
-        DefaultIgnoreCondition       = JsonIgnoreCondition.WhenWritingNull
+        DefaultIgnoreCondition       = JsonIgnoreCondition.WhenWritingNull,
+        Converters =
+        {
+            new ByteArrayAsNumberArrayConverter()
+        }
     };
+}
+
+internal sealed class ByteArrayAsNumberArrayConverter : JsonConverter<byte[]>
+{
+    public override byte[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        if (reader.TokenType == JsonTokenType.Null)
+        {
+            return null;
+        }
+
+        if (reader.TokenType == JsonTokenType.String)
+        {
+            string? base64 = reader.GetString();
+            return string.IsNullOrEmpty(base64) ? Array.Empty<byte>() : Convert.FromBase64String(base64);
+        }
+
+        if (reader.TokenType != JsonTokenType.StartArray)
+        {
+            throw new JsonException("Expected byte array as JSON array or Base64 string.");
+        }
+
+        var bytes = new List<byte>();
+        while (reader.Read())
+        {
+            if (reader.TokenType == JsonTokenType.EndArray)
+            {
+                return bytes.ToArray();
+            }
+
+            if (reader.TokenType != JsonTokenType.Number || !reader.TryGetByte(out byte value))
+            {
+                throw new JsonException("Byte array item must be a number in range 0-255.");
+            }
+
+            bytes.Add(value);
+        }
+
+        throw new JsonException("Unexpected end while reading byte array.");
+    }
+
+    public override void Write(Utf8JsonWriter writer, byte[] value, JsonSerializerOptions options)
+    {
+        writer.WriteStartArray();
+
+        foreach (byte item in value)
+        {
+            writer.WriteNumberValue(item);
+        }
+
+        writer.WriteEndArray();
+    }
 }
