@@ -20,6 +20,8 @@
             href: AxoInsight_v_24_0_0.md
           - name: AxoVisionPro
             href: AxoVisionPro.md
+          - name: AxoVisionProNet
+            href: AxoVisionProNet.md
       - name: Changes
         href: CHANGELOG.md
       - name: Troubleshooting

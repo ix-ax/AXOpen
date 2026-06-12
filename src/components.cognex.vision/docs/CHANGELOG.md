@@ -23,6 +23,14 @@
     on every run.
 -->
 
+### 0.57.0
+
+**New features:**
+- Added `AxoVisionProNet.md` documenting the TCP/.NET VisionPro variant (`AxoVisionProNet`): CONTROLLER tab (declaration, init, usage, manual control, commissioning, error recovery), .NET TWIN tab (`InitializeVisionClientAsync` TCP wiring), BLAZOR tab (dedicated `AxoVisionProNetView` + RCC presentations).
+
+**Other:**
+- Linked `AxoVisionProNet.md` from `toc.yml` and referenced both VisionPro variants from `README.md`.
+
 ### 0.43.0
 
 **Other:**
