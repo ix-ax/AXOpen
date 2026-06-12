@@ -668,7 +668,7 @@ public sealed class VisionTcpClient : IAsyncDisposable
 
         string json = JsonSerializer.Serialize(envelope, VisionJsonOptions.Default);
         await _writer.WriteLineAsync(json.AsMemory(), ct);
-        AxoApplication.Current.Logger?.Information($"[{_options.ComponentSymbol}] TCP -> {json}", null);
+        AxoApplication.Current.Logger?.Debug($"[{_options.ComponentSymbol}] TCP -> {json}", null);
         _options.OnMessageSent?.Invoke(json);
     }
 
