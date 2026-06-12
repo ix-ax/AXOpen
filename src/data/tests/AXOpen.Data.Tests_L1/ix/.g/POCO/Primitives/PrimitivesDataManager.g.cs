@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.Primitives
     {
-        [AXSharp.Connector.SourceFileAttribute(@"Primitives/PrimitivesDataManager.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Primitives/PrimitivesDataManager.st")]
         public partial class PrimitivesDataManager : AXOpen.Data.AxoDataExchange, AXSharp.Connector.IPlain
         {
             public PrimitivesDataManager() : base()

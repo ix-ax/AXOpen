@@ -19,7 +19,7 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
 
             this.StartPolling(Component.Inputs.InHome);
             this.StartPolling(Component.Inputs.Manual);
-            this.StartPolling(Component.Inputs.Automatic);
+            this.StartPolling(Component.Inputs.LocalEstopOk);
             this.StartPolling(Component.Inputs.ExternalAutomatic);
             this.StartPolling(Component.Inputs.ProActive);
             this.StartPolling(Component.Inputs.ProgramMoveActive);

@@ -9,7 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.DataExchange
 {
-    [AXSharp.Connector.SourceFileAttribute(@"DataExchange/Context.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/DataExchange/Context.st")]
     public partial class DataExchangeContext : AXOpen.Core.AxoContext
     {
         public AXOpen.Core.AxoObject _rootObject { get; }

@@ -10,7 +10,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.Primitives
 {
-    [AXSharp.Connector.SourceFileAttribute(@"Primitives/PrimitivesDataEntity.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Primitives/PrimitivesDataEntity.st")]
     public partial class PrimitivesDataEntity : AXOpen.Data.AxoDataEntity
     {
         public OnlinerBool v_BOOL { get; }

@@ -1,4 +1,20 @@
 ### [COMPONENTS.COGNEX.VISION] AxoVisionProNet — TCP/.NET alternative to the PROFINET AxoVisionPro
+### [FIX] `AxoKrc5` local E-stop monitoring, 20002 rekey, opt-in task-timeout watchdog
+
+**Note:** PLC fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/`. KRC5-only — `AxoKrc4` is unchanged. **Breaking:** public input `Inputs.Automatic` renamed to `Inputs.LocalEstopOk`. Branch: `1168-bug-update-krc4-following-the-updates-on-krc5` ([#1177](https://github.com/Inxton/AXOpen/pull/1177), refs #1168).
+
+- fix!: Input bit `%X2` repurposed from `Inputs.Automatic` ("Automatic [AUT]") to `Inputs.LocalEstopOk` ("Local Emergency Stop OK"). Whenever `LocalEstopOk = FALSE` the component raises new error **20006** (`Error`) — unconditionally, every cycle, outside the task-busy safety gate that drives 20001–20005. Matching messenger text and `errorDescriptionDict` entries added to the .NET twin (`AxoKrc5.cs`); `AxoKrc5View.razor` header badge and inputs panel rebound to `LocalEstopOk` (polling updated in `AxoKrc5View.razor.cs`).
+- fix: Safety message **20002** rekeyed to `Inputs.ExternalAutomatic = FALSE` (previously `Inputs.Automatic`, whose bit was repurposed); still raised as `Info` while a task is busy.
+- fix: Task-duration watchdog reinstated as **opt-in** (partially reverting #1167): every task except `StartMotors` calls `ThrowWhen(Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s, '{TaskName} timeout.')`. Config defaults changed `ErrorTime LT#5S → LT#0S`, `TaskTimeout LT#50S → LT#0S`, so the watchdog stays disabled out of the box; the `_errorTimer` (`ErrorTime`) watchdog remains removed.
+- feat: Robot-side stop messages are auto-acknowledged — `Outputs.ErrorConfirmation := Inputs.StopMess AND NOT _blink.output` pulses during the waiting phases of `StartAtMain`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMotors`, `StartMovements`, and `StartProgram`. Blinker centralised to a single 1 s `_blink.Blink()` tick per `Run()` cycle (`BLINKER_TIME : TIME := T#1S`); per-task 500 ms blink calls removed.
+- docs: `AxoKrc5.md` divergence note and Configuration section rewritten; `TROUBLES.md` records the per-class 20002 keying split, the new 20006 entry, and the KRC4 default-on vs KRC5 opt-in watchdog. Library CHANGELOG bumped to `0.63.0`; `GitVersion.yml` `next-version` `0.62.3 → 0.63.0` (minor — breaking rename recorded).
+
+**Impact:** A dropped local E-stop is now reported immediately and persistently (20006) instead of masquerading as a mode condition; stuck robot stop messages self-acknowledge; integrators can re-arm the task watchdog per application by setting `Config.TaskTimeout > 0s`.
+
+**Risks/Review:** Twin consumers and Blazor bindings referencing `AxoKrc5.Inputs.Automatic` must migrate to `Inputs.LocalEstopOk` (`AxoKrc4.Inputs.Automatic` unaffected). `StartMotorsTask` is the only task without the reinstated `ThrowWhen` — suspected oversight, documented as-is. Watchdog now defaults OFF (`LT#0S`) — applications relying on the old `LT#50S` self-abort must set it explicitly.
+
+**Testing:** `apax ib` in `src/components.kuka.robotics`; exercise KRC5 cell: 20006 on local E-stop drop, 20002 on external-auto drop, timeout abort with `TaskTimeout > 0s`, `ErrorConfirmation` pulse while `StopMess` active.
+
 ### [CORE] `AxoRemoteTask` start/done handshake priority is now configurable (default Normal) (#TBD)
 
 **Note:** API addition + behavioral change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or PLC-side API change. Branch: `deps-update-0-47-0-alpha-495`. PR link to be filled in before merge. Follow-up to the High-priority batching entry below (commit `2a70cb744`).

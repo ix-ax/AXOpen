@@ -23,6 +23,57 @@
     on every run.
 -->
 
+### 0.63.0
+
+**New features:**
+- `AxoKrc5` now monitors the local emergency-stop circuit: input bit `%X2`
+  is `Inputs.LocalEstopOk` ("Local Emergency Stop OK"), and whenever it is
+  `FALSE` the component raises error **20006** (`Error`) — unconditionally,
+  every cycle, not only while a task is busy (#1168). Matching messenger
+  text and `errorDescriptionDict` entries were added to the .NET twin
+  (`AxoKrc5.cs`).
+- `AxoKrc5` task-duration watchdog reinstated as **opt-in** (#1168): every
+  task except `StartMotors` now calls
+  `ThrowWhen(Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s, '{TaskName} timeout.')`.
+  With the new default `Config.TaskTimeout = LT#0S` the watchdog stays
+  disabled; the `Config.ErrorTime` (`_errorTimer`) watchdog remains removed
+  (#1167).
+- `AxoKrc5` automatically pulses `Outputs.ErrorConfirmation`
+  (`Inputs.StopMess AND NOT _blink.output`) during the waiting phases of
+  `StartAtMain`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`,
+  `StartMotors`, `StartMovements`, and `StartProgram`, acknowledging
+  robot-side stop messages without operator action (#1168).
+
+**Bug fixes:**
+- `AxoKrc5` safety message **20002** is now keyed on
+  `Inputs.ExternalAutomatic = FALSE` (previously `Inputs.Automatic`, whose
+  bit `%X2` was repurposed to `LocalEstopOk`); still raised as `Info`
+  while a task is busy (#1168).
+
+**Other:**
+- `AxoKrc5` blinker centralised: `_blink.Blink()` is ticked once per `Run()`
+  cycle with a new `BLINKER_TIME : TIME := T#1S` internal constant — the
+  per-task 500 ms blink calls were removed (#1168).
+- `AxoKrc5_Config` defaults changed: `ErrorTime LT#5S → LT#0S`,
+  `TaskTimeout LT#50S → LT#0S` (watchdog disabled out of the box).
+- `AxoKrc5View.razor` — header badge and inputs panel now bind to
+  `Inputs.LocalEstopOk` (EStop badge, `badge-danger` when not OK) instead
+  of `Inputs.Automatic`; polling updated in `AxoKrc5View.razor.cs`.
+- `AxoKrc5.md` — divergence note rewritten for #1168 (LocalEstopOk / 20006,
+  20002 rekey, opt-in watchdog, auto error-ack, 1 s blinker); Configuration
+  section records the new `LT#0S` defaults.
+- `TROUBLES.md` — 20002 rows record the per-class keying input split;
+  new 20006 entry with the unconditional-gate note; task-timeout bullet
+  rewritten (KRC4 default-on vs KRC5 opt-in); auto error-ack documented.
+- `AxoKrc4` is unchanged in this release.
+
+**Breaking changes:**
+- `AxoKrc5` public input `Inputs.Automatic` was renamed to
+  `Inputs.LocalEstopOk` with new semantics (E-stop OK instead of AUT mode,
+  #1168). .NET twin consumers and Blazor bindings referencing
+  `Inputs.Automatic` on `AxoKrc5` must migrate; `AxoKrc4.Inputs.Automatic`
+  is unaffected.
+
 ### 0.61.1
 
 **Bug fixes:**
