@@ -691,7 +691,7 @@ public sealed class VisionTcpClient : IAsyncDisposable
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
 
-                AxoApplication.Current.Logger?.Information($"[{_options.ComponentSymbol}] TCP <- {line}", null);
+                AxoApplication.Current.Logger?.Debug($"[{_options.ComponentSymbol}] TCP <- {line}", null);
                 _options.OnMessageReceived?.Invoke(line);
 
                 VisionEnvelope? envelope;
