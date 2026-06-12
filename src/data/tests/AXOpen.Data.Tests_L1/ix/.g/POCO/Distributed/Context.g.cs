@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.Distributed
     {
-        [AXSharp.Connector.SourceFileAttribute(@"Distributed/Context.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Distributed/Context.st")]
         public partial class DistributedDataContext : AXOpen.Core.AxoContext, AXSharp.Connector.IPlain
         {
             public DistributedDataContext() : base()

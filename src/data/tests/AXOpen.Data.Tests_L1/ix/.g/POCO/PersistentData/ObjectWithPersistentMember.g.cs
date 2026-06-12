@@ -9,7 +9,7 @@ namespace Pocos
 {
     namespace Tests_L1.PersistentData
     {
-        [AXSharp.Connector.SourceFileAttribute(@"PersistentData/ObjectWithPersistentMember.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/PersistentData/ObjectWithPersistentMember.st")]
         public partial class ObjectWithPersistentMember : AXSharp.Connector.IPlain
         {
             public ObjectWithPersistentMember()

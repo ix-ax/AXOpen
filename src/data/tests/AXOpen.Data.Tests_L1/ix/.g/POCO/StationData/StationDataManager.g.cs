@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1
     {
-        [AXSharp.Connector.SourceFileAttribute(@"StationData/StationDataManager.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/StationData/StationDataManager.st")]
         public partial class StationDataManager : AXOpen.Data.AxoDataExchange, AXSharp.Connector.IPlain
         {
             public StationDataManager() : base()

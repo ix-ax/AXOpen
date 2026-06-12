@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1
     {
-        [AXSharp.Connector.SourceFileAttribute(@"SharedEntityHeader/SharedEntityHeaderManager.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/SharedEntityHeader/SharedEntityHeaderManager.st")]
         public partial class SharedEntityHeaderManager : AXOpen.Data.AxoDataExchange, AXSharp.Connector.IPlain
         {
             public SharedEntityHeaderManager() : base()
