@@ -9,7 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.Distributed
 {
-    [AXSharp.Connector.SourceFileAttribute(@"Distributed/Context.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Distributed/Context.st")]
     public partial class DistributedDataContext : AXOpen.Core.AxoContext
     {
         public AXOpen.Core.AxoObject _rootObject { get; }

@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.FragmentData
     {
-        [AXSharp.Connector.SourceFileAttribute(@"FragmentData/FragmentDataManager.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/FragmentData/FragmentDataManager.st")]
         public partial class FragmentProcessDataManager : AXOpen.Data.AxoDataFragmentExchange, AXSharp.Connector.IPlain
         {
             public FragmentProcessDataManager() : base()

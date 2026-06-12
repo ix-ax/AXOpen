@@ -9,7 +9,7 @@ namespace Pocos
 {
     namespace Tests_L1.Primitives
     {
-        [AXSharp.Connector.SourceFileAttribute(@"Primitives/InitializedPrimitives.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Primitives/InitializedPrimitives.st")]
         public partial class InitializedPrimitives : AXSharp.Connector.IPlain
         {
             public InitializedPrimitives()
