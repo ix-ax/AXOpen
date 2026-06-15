@@ -6239,6 +6239,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn THEN
                          MC_ResetPower_PV := TRUE;
                     END_IF;
+
+                    // Detect torque operating mode (S-0-0135 ActualOperatingMode bits [2..0] = 3'b001)
+                    // combined with an active drive error (DriveErrorZKL1).
+                    // In this case, halt the drive immediately and clear the commanded operating mode
+                    // bits back to default (position mode = 3'b000) to prevent uncontrolled torque
+                    // output during the subsequent error reset sequence.
+                    IF      _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 AND
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 
+                    THEN
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := FALSE; 
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
+                    END_IF;
                     IF MC_ResetPower_PV THEN
                         MC_ResetState   := UINT#1;
                     ELSE
