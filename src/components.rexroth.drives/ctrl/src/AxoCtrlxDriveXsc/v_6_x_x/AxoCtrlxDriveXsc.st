@@ -31,6 +31,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             {#ix-attr:[ComponentDetails("AxisRef")]}
             {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AxoCtrlxDriveXscAxisReference;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
+            {#ix-set:AttributeName = "<#Torque Ramp Time #> [Ms]"}
+            {#ix-set:AttributeToolTip = "<#Torque ramp time in milliseconds. (Max 65535.5 ms)#>"}
+            TorqueRampTimeMiliseconds  :   LREAL := LREAL#1000; // DEFAULT 1S
         END_VAR
         VAR PUBLIC // Scaling
             {#ix-attr:[Container(Layout.Stack)]}
@@ -64,6 +71,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
             ScalingConstantActualTorque         :   LREAL   :=  0.1;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant torque ramp time#>"}
+            ScalingConstantRequiredTorqueRampTime         :   LREAL   :=  10;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
@@ -4231,7 +4242,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     END_IF;                    
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _word :=  TO_WORD(TO_INT(TorqueRamp));
+                    _word :=  TO_WORD(TO_INT(TorqueRamp * ScalingConstantRequiredTorque));
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
@@ -4259,7 +4270,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     END_IF;                    
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _word :=  TO_WORD(TO_INT(REAL#1.0));
+                    _word :=  TO_WORD(TO_UINT(TorqueRampTimeMiliseconds * ScalingConstantRequiredTorqueRampTime)); // value * 10, Max 65535.5 ms
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
@@ -4348,7 +4359,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := TRUE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := TRUE; // torque with velocity limit
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
                     // IF      _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND

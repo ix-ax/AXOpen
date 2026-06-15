@@ -128,7 +128,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoHalt_ErrorID                         :   DINT;                   
             //***********Home*********************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming task#>"}
@@ -181,7 +182,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoHome_CommandAborted                  :   BOOL;
             //***********MoveAbsolute*************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute task#>"}
@@ -232,7 +234,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_ErrorID                 :   DINT;                   
             //***********MoveRelative*************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative task#>"}
@@ -280,7 +283,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_ErrorID                 :   DINT;                   
             //***********MoveAdditive*************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive task#>"}
@@ -328,7 +332,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_ErrorID                 :   DINT;                   
             //***********MoveVelocity*************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity task#>"}
@@ -376,7 +381,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_ErrorID                 :   DINT;                   
             //***********TorqueControl************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+              // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Torque control task#>"}
@@ -842,7 +848,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_Value               :   LREAL;          
             //***********ReadStatus***************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status task#>"}
@@ -896,7 +903,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoReadStatus_SynchronizedMotion        :   BOOL;                       
             //***********ReadMotionState**********************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state task#>"}
@@ -941,7 +949,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_DirectionNegative    :   BOOL;                      
             //***********ReadAxisInfo*************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info task#>"}
@@ -1047,7 +1056,8 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             AxoReset_ErrorID                        :   DINT;    
             //***********Jog**********************************
-            {#ix-attr:[Container(Layout.UniformGrid)]}
+            // {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog positive#>"}
