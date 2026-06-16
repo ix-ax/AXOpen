@@ -6,41 +6,51 @@
 	bool   isEnabled = LiveStep?.IsEnabled.Cyclic ?? false;
 	ulong  order     = LiveStep?.Order.Cyclic     ?? 0;
 	string descr     = LiveStep?.Descr.Cyclic     ?? string.Empty;
+
+	string accent = isActive
+		? "var(--color-result-running)"
+		: (LiveStep != null && !isEnabled ? "var(--color-text-light)" : "var(--color-border)");
 }
 
-<details class="rounded border @(isActive ? "border-cyan-400 bg-cyan-50" : "border-slate-200 bg-slate-50")"
+<details class="group relative overflow-hidden rounded-lg border bg-background @(isActive ? "step-active-glow" : "")"
+         style="border-color:@(isActive ? "color-mix(in srgb, var(--color-result-running) 55%, transparent)" : "var(--color-border)")"
          open="@isActive">
-	<summary class="cursor-pointer px-3 py-2 text-sm font-medium @(isActive ? "text-cyan-900" : "text-slate-800") flex flex-wrap items-center gap-2">
-		<span>Step @Step.StepNumber — @Step.Title</span>
+	@* state rail *@
+	<span class="absolute inset-y-0 left-0 w-1" style="background-color:@accent"></span>
+
+	<summary class="flex flex-wrap items-center gap-2 cursor-pointer py-2 pl-4 pr-3 text-sm font-medium text-text">
+		<span class="inline-flex items-center justify-center size-5 shrink-0 rounded-full text-[10px] font-semibold"
+		      style="color:@accent; border:1.5px solid @accent; @(isActive ? "background-color:color-mix(in srgb, var(--color-result-running) 15%, transparent);" : "")">@Step.StepNumber</span>
+		<span>@Step.Title</span>
 		@if (isActive)
 		{
-			<span class="rounded-full px-2 py-0.5 text-xs font-semibold bg-cyan-500 text-white">ACTIVE</span>
+			<span class="rounded-full px-2 py-0.5 text-xs font-semibold text-white" style="background-color:var(--color-result-running)">ACTIVE</span>
 		}
 		else if (!isEnabled && LiveStep != null)
 		{
-			<span class="rounded-full px-2 py-0.5 text-xs font-medium bg-slate-200 text-slate-500">DISABLED</span>
+			<span class="rounded-full border border-border px-2 py-0.5 text-xs font-medium text-text-light">DISABLED</span>
 		}
 		@if (LiveStep != null && order > 0)
 		{
-			<span class="text-xs text-slate-400 font-normal">order: @order</span>
+			<span class="text-xs text-text-light font-normal">order: @order</span>
 		}
-		<span class="ml-auto text-xs text-slate-400 font-normal">(lines @Step.StartLine–@Step.EndLine)</span>
+		<span class="ml-auto text-xs text-text-light font-normal">(lines @Step.StartLine–@Step.EndLine)</span>
 	</summary>
 
 	@if (LiveStep != null)
 	{
-		<div class="px-3 py-2 border-b @(isActive ? "border-cyan-200 bg-cyan-100/40" : "border-slate-200 bg-white/60") flex flex-wrap gap-x-6 gap-y-1 text-xs text-slate-600">
-			<span><span class="font-medium">Order:</span> @order</span>
-			<span><span class="font-medium">Active:</span> @(isActive ? "yes" : "no")</span>
-			<span><span class="font-medium">Enabled:</span> @(isEnabled ? "yes" : "no")</span>
+		<div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-border px-4 py-2 text-xs text-text-light">
+			<span><span class="font-medium text-text">Order:</span> @order</span>
+			<span><span class="font-medium text-text">Active:</span> @(isActive ? "yes" : "no")</span>
+			<span><span class="font-medium text-text">Enabled:</span> @(isEnabled ? "yes" : "no")</span>
 			@if (!string.IsNullOrWhiteSpace(descr))
 			{
-				<span><span class="font-medium">Description:</span> @descr</span>
+				<span><span class="font-medium text-text">Description:</span> @descr</span>
 			}
 		</div>
 	}
 
-	<div class="px-3 pb-3 pt-2">
+	<div class="px-4 pb-3 pt-2">
 		<CodeBlock Content="@Step.Logic" Language="language-iecst" MaxHeight="18rem" />
 	</div>
 </details>

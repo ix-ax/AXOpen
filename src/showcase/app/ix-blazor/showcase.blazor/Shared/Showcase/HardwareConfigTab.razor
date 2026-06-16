@@ -1,0 +1,28 @@
+@*
+    HardwareConfigTab — for each hardware reference: device instance, device template, and
+    IO-system wiring regions, each rendered through SnippetView.
+*@
+<div class="mt-4 space-y-6">
+    @foreach (var hw in Hardware)
+    {
+        <div class="space-y-4">
+            @if (Hardware.Count > 1)
+            {
+                <h3 class="text-sm font-semibold text-text">@hw.Label</h3>
+            }
+            <SnippetView Snippet="Resolve(hw.DeviceSnippet)" Loading="Loading" Path="@hw.InstancePath"
+                         RegionNote="@($"<{hw.DeviceRegion}> region")" Language="language-yaml" OnOpen="OnOpen" />
+            <SnippetView Snippet="Resolve(hw.TemplateSnippet)" Loading="Loading" Path="@hw.TemplatePath"
+                         RegionNote="@($"<{hw.TemplateRegion}> region")" Language="language-yaml" MaxHeight="24rem" OnOpen="OnOpen" />
+            <SnippetView Snippet="Resolve(hw.IoSystemSnippet)" Loading="Loading" Path="@hw.IoSystemPath"
+                         RegionNote="@($"<{hw.IoSystemRegion}> region")" Language="language-yaml" OnOpen="OnOpen" />
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public List<HardwareRef> Hardware { get; set; } = new();
+    [Parameter] public bool Loading { get; set; }
+    [Parameter] public Func<SnippetRef?, CodeSnippet?> Resolve { get; set; } = _ => null;
+    [Parameter] public EventCallback<string> OnOpen { get; set; }
+}

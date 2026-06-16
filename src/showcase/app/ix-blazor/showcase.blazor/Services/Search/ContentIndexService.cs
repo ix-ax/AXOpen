@@ -1,4 +1,5 @@
 using showcase.Services;
+using showcase.Catalog;
 
 namespace showcase.Services.Search;
 
@@ -32,7 +33,7 @@ public class ContentIndexService : IDisposable
 
     private async Task RebuildIndexAsync()
     {
-        var pages = ShowcasePageRegistry.GetAllPages();
+        var pages = ShowcaseCatalog.All.Select(ShowcaseCatalog.ToSearchableEntry).ToList();
         var entries = new List<ContentIndexEntry>();
 
         foreach (var page in pages)

@@ -34,7 +34,7 @@ namespace showcase
 
         // Set AXOPEN_USE_DUMMY_CONNECTOR=true to run the UI without a PLC (offline / CI smoke test);
         // otherwise the secure WebAPI connector to the real/simulated PLC is used.
-        private static bool UseDummyConnector =>
+        private static bool UseDummyConnector => 
             string.Equals(Environment.GetEnvironmentVariable("AXOPEN_USE_DUMMY_CONNECTOR"), "true", StringComparison.OrdinalIgnoreCase);
 
         public static showcaseTwinController SecurePlc { get; } = UseDummyConnector

@@ -1,4 +1,4 @@
-<button class="@(Mono ? "font-mono " : "")text-xs text-cyan-700 hover:underline cursor-pointer text-left w-full truncate block"
+<button class="@(Mono ? "font-mono " : "")text-xs text-link hover:text-link-hover hover:underline cursor-pointer text-left w-full truncate block"
         @onclick="HandleClickAsync"
         title="@Path">@(Label ?? Path)</button>
 
