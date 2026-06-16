@@ -8,7 +8,8 @@ on:
     paths:
      - 'src/**'
      - 'cake/**'
-     - '.github/**' 
+     - '.github/**'
+     - 'scripts/**'
      - 'GitVersion.yaml'
   workflow_dispatch:
 
@@ -58,7 +59,7 @@ jobs:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
       run: |
-        dotnet run --project cake/Build.csproj --do-test --test-level 1  
+        dotnet run --project cake/Build.csproj --do-test --test-level 1 --do-template-test
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
 
