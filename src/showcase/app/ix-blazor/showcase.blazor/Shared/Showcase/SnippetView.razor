@@ -1,0 +1,44 @@
+@*
+    SnippetView — the one place the "load / loading / error" snippet ladder lives.
+    Renders an optional heading + source link, then the code block (or loading / error state).
+*@
+@if (Heading is not null)
+{
+    <h3 class="mb-1 text-sm font-semibold text-text">@Heading</h3>
+}
+@if (Path is not null)
+{
+    <p class="mb-2 text-xs text-text-light">
+        <SourceFileLink Path="@Path" Label="@Path" OnOpen="OnOpen" />
+        @if (RegionNote is not null)
+        {
+            <span> — @RegionNote</span>
+        }
+    </p>
+}
+@if (Snippet is not null && !Snippet.IsError)
+{
+    <CodeBlock Content="@(Snippet.Content ?? string.Empty)" Language="@Language" MaxHeight="@MaxHeight" />
+}
+else if (Loading)
+{
+    <div class="flex items-center gap-2 p-4 text-sm text-text-light">
+        <span class="inline-block size-4 animate-spin rounded-full border-2 border-border border-t-transparent"></span>
+        Loading…
+    </div>
+}
+else
+{
+    <p class="text-xs text-warning">Unable to load snippet</p>
+}
+
+@code {
+    [Parameter] public CodeSnippet? Snippet { get; set; }
+    [Parameter] public bool Loading { get; set; }
+    [Parameter] public string? Heading { get; set; }
+    [Parameter] public string? Path { get; set; }
+    [Parameter] public string? RegionNote { get; set; }
+    [Parameter] public string Language { get; set; } = "language-none";
+    [Parameter] public string? MaxHeight { get; set; }
+    [Parameter] public EventCallback<string> OnOpen { get; set; }
+}

@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "projname.blazor", "src\proj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_apaxlibname", "src\projname\inxton_apaxlibname.csproj", "{888C32A1-6202-4BBB-B637-7AD8D3148CC4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "projname_tests", "tests\projname.Tests\projname_tests.csproj", "{E002252D-C9FF-47DE-97EF-DDFB11A8137B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "projname_tests_L1", "tests\projname.Tests\projname_tests_L1.csproj", "{E002252D-C9FF-47DE-97EF-DDFB11A8137B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_timers", "..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj", "{F458C2E8-8C23-4439-9628-15AE7A844540}"
 EndProject

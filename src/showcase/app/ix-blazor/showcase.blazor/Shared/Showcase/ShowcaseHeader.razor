@@ -1,0 +1,35 @@
+@*
+    ShowcaseHeader — breadcrumb + branded hero. The accent gradient reads the page-level
+    --accent custom property (set by the layout from the descriptor's AccentColor).
+*@
+@using Operon.Icons
+
+<nav class="text-sm text-text-light">
+    <a href="/" class="no-underline hover:text-text">Home</a>
+    <span class="px-2">/</span>
+    <span>@Descriptor.Category</span>
+    <span class="px-2">/</span>
+    <span class="font-medium text-text">@Descriptor.Title</span>
+</nav>
+
+<header class="relative overflow-hidden rounded-card border border-border p-6"
+        style="background-image:linear-gradient(110deg, color-mix(in srgb, var(--accent) 14%, var(--color-background)) 0%, var(--color-background) 70%);">
+    <div class="flex items-start gap-4">
+        @if (!string.IsNullOrWhiteSpace(Descriptor.BrandIcon))
+        {
+            <div class="shrink-0 rounded-2xl p-2.5"
+                 style="color:var(--accent); background-color:color-mix(in srgb, var(--accent) 12%, transparent);">
+                <HeroIcon Icon="@Descriptor.BrandIcon" Type="IconType.Solid" Class="size-7" />
+            </div>
+        }
+        <div class="min-w-0">
+            <p class="text-xs font-medium uppercase tracking-wider" style="color:var(--accent);">@Descriptor.LibraryNamespace</p>
+            <h1 class="mt-1 text-3xl font-semibold text-text">@Descriptor.Title</h1>
+            <p class="mt-2 max-w-3xl text-text-light">@Descriptor.Description</p>
+        </div>
+    </div>
+</header>
+
+@code {
+    [Parameter] public ShowcasePageDescriptor Descriptor { get; set; } = default!;
+}

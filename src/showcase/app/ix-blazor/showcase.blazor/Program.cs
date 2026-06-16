@@ -168,6 +168,12 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.St
 
 var app = builder.Build();
 
+#if DEBUG
+// Dev-time guard: fail fast if the showcase catalog is inconsistent
+// (missing route/title/source-paths, or a component maturity key that does not resolve).
+showcase.Catalog.ShowcaseCatalog.Validate(app.Services.GetRequiredService<ComponentMaturityService>());
+#endif
+
 //<KeyenceIv3ReverseProxy>
 app.Use(async (context, next) =>
 {
@@ -175,6 +181,16 @@ app.Use(async (context, next) =>
     await keyenceComponent.ConfigureProxy(context, next);
 });
 //</KeyenceIv3ReverseProxy>
+
+//<AxoVisionProNetInitialize>
+// AxoVisionProNet drives the Vision PC over a TCP socket. Its remote-task
+// handlers self-initialize in the twin's PostConstruct, but they throw until the
+// TCP client is connected. Open the socket once at startup (fire-and-forget);
+// point Host at the Vision PC. Until connected, the PLC tasks surface
+// HasRemoteException — which the showcase's Error-recovery step then clears.
+_ = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionProNet.VisionProNet
+        .InitializeVisionClientAsync(host: "192.168.100.142", port: 8500);
+//</AxoVisionProNetInitialize>
 
 // Initialize content search index (fire-and-forget, non-blocking)
 _ = app.Services.GetRequiredService<showcase.Services.Search.ContentIndexService>().InitializeAsync();

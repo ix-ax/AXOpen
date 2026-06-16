@@ -1,0 +1,14 @@
+@*
+    AutomaticRenderingTab — binds RenderableContentControl to a component's live twin and the
+    page-level presentation selection. The twin is resolved by the descriptor's typed delegate.
+*@
+@using AXSharp.Connector
+
+<div class="mt-4">
+    <RenderableContentControl Context="@Twin" Presentation="@Presentation" />
+</div>
+
+@code {
+    [Parameter] public ITwinObject Twin { get; set; } = default!;
+    [Parameter] public string Presentation { get; set; } = "Command-Control";
+}

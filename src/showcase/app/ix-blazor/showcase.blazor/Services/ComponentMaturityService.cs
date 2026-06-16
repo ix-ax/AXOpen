@@ -26,6 +26,10 @@ namespace showcase.Services
             return new MaturityInfo("red", "red", "red");
         }
 
+        /// <summary>True when the component name resolves to a real entry parsed from COMPONENTS_MATURITY.md.</summary>
+        public bool HasMaturity(string componentName) =>
+            componentName != null && _maturityMap.ContainsKey(componentName);
+
         private void Parse(string markdown)
         {
             // Match table rows: | [Name](path) | Domain | Impl | Tested | BattleTested | ...

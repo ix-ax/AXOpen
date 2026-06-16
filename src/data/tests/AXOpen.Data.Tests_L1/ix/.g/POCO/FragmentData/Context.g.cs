@@ -8,7 +8,7 @@ namespace Pocos
 {
     namespace Tests_L1.FragmentData
     {
-        [AXSharp.Connector.SourceFileAttribute(@"FragmentData/Context.st")]
+        [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/FragmentData/Context.st")]
         public partial class FragmentDataContext : AXOpen.Core.AxoContext, AXSharp.Connector.IPlain
         {
             public FragmentDataContext() : base()

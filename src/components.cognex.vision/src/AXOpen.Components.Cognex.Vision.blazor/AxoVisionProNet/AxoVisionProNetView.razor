@@ -1,0 +1,158 @@
+@namespace AXOpen.Components.Cognex.Vision
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoVisionProNet>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex flex-wrap items-center gap-2" @onclick:stopPropagation="true">
+            @if (Component.Status.Accepted.Cyclic)
+            {
+                <span class="badge badge-success">@Localizer["Accepted"]</span>
+            }
+            else
+            {
+                <span class="badge badge-primary">@Localizer["Idle"]</span>
+            }
+            @if (Component.Status.ErrorCode.Cyclic != 0)
+            {
+                <span class="badge badge-error">@Localizer["Error"] @Component.Status.ErrorCode.Cyclic</span>
+            }
+            <span class="badge badge-info">@Component.DeviceIpAddress</span>
+        </div>
+    </HeaderContent>
+
+    <CommandsOperateContent>
+          <Operon.Components.Tab.Tab>
+            <Operon.Components.Tab.TabPage Title="@Localizer["Controls"]">
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="flex flex-col gap-3 p-2">
+                <h6 class="text-xs font-semibold text-text/70 uppercase">@Localizer["Inspection"]</h6>
+                <div class="grid gap-2 md:grid-cols-2">
+                    <AxoTaskCommandView Text="@Localizer["SetRecipe"]" Component="Component.SetRecipeTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["Trigger"]" Component="Component.TriggerTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["InspectionResult"]" Component="Component.InspectionResultTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskCommandView>
+                </div>
+            </section>
+            <section class="flex flex-col gap-3 p-2">
+                <h6 class="text-xs font-semibold text-text/70 uppercase">@Localizer["SpecificData"]</h6>
+                <div class="grid gap-2 md:grid-cols-2">
+                    <AxoTaskCommandView Text="@Localizer["SendSpecificData"]" Component="Component.SendSpecificDataTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["ReceiveSpecificData"]" Component="Component.ReceiveSpecificDataTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["TriggerWithSpecificData"]" Component="Component.TriggerWithSpecificDataTask" HideRestoreButton="false"></AxoTaskCommandView>
+                    <AxoTaskCommandView Text="@Localizer["SendDataAndTypes"]" Component="Component.SendSpecificDataAndTypesTask" HideRestoreButton="false"></AxoTaskCommandView>
+                </div>
+            </section>
+        </div>
+        </Operon.Components.Tab.TabPage>
+           <Operon.Components.Tab.TabPage Title="@Localizer["Image"]">
+                 <div class="grid gap-3 md:grid-cols-2">
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Trigger"]"
+                                 Component="Component.TriggerTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                    <AxoTaskView class="w-full"
+                                 Text="@Localizer["Restore"]"
+                                 Component="Component.RestoreTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                </div>
+
+                 <div class="flex flex-col gap-4 p-4 rounded-lg bg-background/70">
+                    <AxoVisionProNetImageView Component="Component" />
+                </div>
+            </Operon.Components.Tab.TabPage>
+        </Operon.Components.Tab.Tab>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="flex flex-col gap-3 p-2">
+                <h6 class="text-xs font-semibold text-text/70 uppercase">@Localizer["Inspection"]</h6>
+                <div class="grid gap-2 md:grid-cols-2">
+                    <AxoTaskStatusView Text="@Localizer["SetRecipe"]" Component="Component.SetRecipeTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["Trigger"]" Component="Component.TriggerTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["InspectionResult"]" Component="Component.InspectionResultTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="false"></AxoTaskStatusView>
+                </div>
+            </section>
+            <section class="flex flex-col gap-3 p-2">
+                <h6 class="text-xs font-semibold text-text/70 uppercase">@Localizer["SpecificData"]</h6>
+                <div class="grid gap-2 md:grid-cols-2">
+                    <AxoTaskStatusView Text="@Localizer["SendSpecificData"]" Component="Component.SendSpecificDataTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["ReceiveSpecificData"]" Component="Component.ReceiveSpecificDataTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["TriggerWithSpecificData"]" Component="Component.TriggerWithSpecificDataTask" HideRestoreButton="false"></AxoTaskStatusView>
+                    <AxoTaskStatusView Text="@Localizer["SendDataAndTypes"]" Component="Component.SendSpecificDataAndTypesTask" HideRestoreButton="false"></AxoTaskStatusView>
+                </div>
+            </section>
+            
+        <div class="flex flex-col gap-4 p-4 rounded-lg bg-background/70">           
+              <AxoVisionProNetImageView Component="Component" />            
+        </div>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigContent>
+        @* Control: writable request parameters fed to every Vision PC call (TriggerId / PartId / VariantId). *@
+        <div @onclick:stopPropagation="true">
+            <RenderableContentControl Context="Component.Status" Presentation="Display" />
+            <RenderableContentControl Context="Component.Config" Presentation="Control" />
+            <RenderableContentControl Context="Component.Control" Presentation="Control" />
+            <div class="text-xs text-text/70">
+                <div>@Localizer["Device"]: <span class="font-mono">@Component.DeviceIpAddress</span></div>
+                <div>@Localizer["Proxy"]: <span class="font-mono">@Component.Proxy</span></div>
+            </div>
+        </div>
+    </ConfigContent>
+
+    <ConfigAndStateViewContent>
+        <div class="flex flex-col gap-3 w-full">
+            <RenderableContentControl Context="Component.Status" Presentation="Display" />
+            <RenderableContentControl Context="Component.Config" Presentation="Display" />
+            <div class="text-xs text-text/70">
+                <div>@Localizer["Device"]: <span class="font-mono">@Component.DeviceIpAddress</span></div>
+                <div>@Localizer["Proxy"]: <span class="font-mono">@Component.Proxy</span></div>
+            </div>
+        </div>
+    </ConfigAndStateViewContent>
+
+    <SpotContent>
+        <div class="card">
+            <div class="card-title"><h6>@Component.AttributeName</h6></div>
+            <div class="flex flex-wrap items-center gap-2 w-full">
+                <div class="sensor-indicator @(Component.Status.Accepted.Cyclic ? "active bg-success text-success" : "bg-border/30 text-border")"></div>
+                @if (Component.Status.ErrorCode.Cyclic != 0)
+                {
+                    <span class="badge badge-error">@Localizer["Error"] @Component.Status.ErrorCode.Cyclic</span>
+                }
+                <span class="text-xs text-text/70 truncate">@Component.Status.ActionDescription.Cyclic</span>
+                <AxoVisionProNetImageView Component="Component" />
+            </div>
+
+        </div>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code {
+    public override async void ConfigurePolling()
+    {
+        // Status primitives read directly in markup (header / spot)
+        this.StartPolling(Component.Status.Accepted, 500);
+        this.StartPolling(Component.Status.ErrorCode, 500);
+        this.StartPolling(Component.Status.ActionDescription, 500);
+
+        // Task statuses (mirrored Operate/Monitor)
+        this.StartPolling(Component.RestoreTask.Status);
+        this.StartPolling(Component.TriggerTask.Status);
+        this.StartPolling(Component.InspectionResultTask.Status);
+        this.StartPolling(Component.SetRecipeTask.Status);
+        this.StartPolling(Component.SendSpecificDataTask.Status);
+        this.StartPolling(Component.ReceiveSpecificDataTask.Status);
+        this.StartPolling(Component.TriggerWithSpecificDataTask.Status);
+        this.StartPolling(Component.SendSpecificDataAndTypesTask.Status);
+    }
+}

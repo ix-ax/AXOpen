@@ -1,0 +1,215 @@
+@*
+    ShowcasePageLayout — renders any ShowcasePageDescriptor into the standard documentation
+    scaffold: breadcrumb + hero, sidebar, "Live Demo Controls", and the per-component tab set.
+    Snippet loading and polling are generic over the descriptor; the live twin/sequencer/steps
+    are resolved through each component's compile-safe delegates (no reflection).
+*@
+@inherits RenderableComponentBase
+@inject CodeSnippetProvider CodeProvider
+@using AXOpen.Core
+@using AXSharp.Connector
+@using Operon.Components.Tab
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8" style="@AccentStyle">
+
+    <ShowcaseHeader Descriptor="Descriptor" />
+
+    @if (Descriptor.Intro is not null)
+    {
+        <div>@Descriptor.Intro</div>
+    }
+
+    <div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+        <ShowcaseSidebar Descriptor="Descriptor" OnOpen="OpenModalAsync" />
+
+        <section class="space-y-6 xl:col-span-2">
+            <article class="rounded-card border border-border bg-background-light p-4">
+                <h2 class="text-lg font-semibold text-text">Live Demo Controls</h2>
+                <p class="mt-1 text-sm text-text-light">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+                @if (Descriptor.Components.Count > 0)
+                {
+                    <div class="mt-4">
+                        <label class="mb-1 block text-sm font-medium text-text">Presentation</label>
+                        <select @bind="_selectedPresentation"
+                                class="w-full max-w-xs rounded-select border border-border bg-background px-3 py-2 text-sm text-text shadow-sm focus:border-primary focus:outline-none">
+                            <option value="Command-Control">Command-Control</option>
+                            <option value="Status-Display">Status-Display</option>
+                            <option value="Service-Control">Service-Control</option>
+                            <option value="Spot">Spot</option>
+                            <option value="Compact">Compact</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4 space-y-4">
+                        <Tab>
+                            @for (var i = 0; i < Descriptor.Components.Count; i++)
+                            {
+                                var idx = i;
+                                var comp = Descriptor.Components[idx];
+                                <TabPage Title="@comp.DisplayName">
+                                    <div class="mt-4 space-y-4">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xs font-medium text-text-light">Maturity:</span>
+                                            <MaturityBadge ComponentName="@comp.MaturityKey" />
+                                        </div>
+                                        @if (comp.Intro is not null)
+                                        {
+                                            <div>@comp.Intro</div>
+                                        }
+                                        <Tab>
+                                            <TabPage Title="Automatic rendering">
+                                                <AutomaticRenderingTab Twin="comp.Twin(Entry.Plc.Ctx)" Presentation="@_selectedPresentation" />
+                                            </TabPage>
+                                            <TabPage Title="Code reference">
+                                                <CodeReferenceTab Component="comp" Loading="_loadingCode" Resolve="Resolve" OnOpen="OpenModalAsync" />
+                                            </TabPage>
+                                            @if (comp.Hardware.Count > 0)
+                                            {
+                                                <TabPage Title="Hardware configuration">
+                                                    <HardwareConfigTab Hardware="comp.Hardware" Loading="_loadingCode" Resolve="Resolve" OnOpen="OpenModalAsync" />
+                                                </TabPage>
+                                            }
+                                            @foreach (var ct in comp.CustomTabs)
+                                            {
+                                                <TabPage Title="@ct.Title">
+                                                    <div class="mt-4 space-y-4">
+                                                        @if (ct.Snippet is not null)
+                                                        {
+                                                            <SnippetView Snippet="Resolve(ct.Snippet)" Loading="_loadingCode" Path="@ct.Snippet.Path"
+                                                                         RegionNote="@ct.Snippet.RegionNote" Language="@ct.Snippet.Language"
+                                                                         MaxHeight="@ct.Snippet.MaxHeight" OnOpen="OpenModalAsync" />
+                                                        }
+                                                        @if (ct.Content is not null)
+                                                        {
+                                                            @ct.Content
+                                                        }
+                                                        @if (ct.Note is not null)
+                                                        {
+                                                            @ct.Note
+                                                        }
+                                                    </div>
+                                                </TabPage>
+                                            }
+                                            @if (comp.HasSequence)
+                                            {
+                                                <TabPage Title="Example sequence">
+                                                    <ExampleSequenceTab Sequencer="comp.Sequencer!(Entry.Plc.Ctx)"
+                                                                        StepBlocks="StepsFor(idx)" StepsBySymbol="SymbolsFor(idx)" Loading="_loadingCode" />
+                                                </TabPage>
+                                            }
+                                        </Tab>
+                                    </div>
+                                </TabPage>
+                            }
+                        </Tab>
+                    </div>
+                }
+                else if (Descriptor.RootBind is not null)
+                {
+                    <div class="mt-4">
+                        <RenderableContentControl Context="Descriptor.RootBind(Entry.Plc.Ctx)" Presentation="@_selectedPresentation" />
+                    </div>
+                }
+            </article>
+        </section>
+    </div>
+</div>
+
+@code {
+    [Parameter] public ShowcasePageDescriptor Descriptor { get; set; } = default!;
+
+    private SourceViewerModal _modal = default!;
+    private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+    private bool _loadingCode = true;
+    private string _selectedPresentation = "Command-Control";
+
+    private readonly Dictionary<string, CodeSnippet?> _snips = new();
+    private readonly Dictionary<int, List<StepLogicBlock>> _stepBlocks = new();
+    private readonly Dictionary<int, Dictionary<string, AxoStep>> _stepsBySymbol = new();
+
+    private CodeSnippet? Resolve(SnippetRef? r) => r is null ? null : (_snips.TryGetValue(r.Key, out var s) ? s : null);
+    private List<StepLogicBlock> StepsFor(int i) => _stepBlocks.TryGetValue(i, out var b) ? b : new();
+    private Dictionary<string, AxoStep> SymbolsFor(int i) => _stepsBySymbol.TryGetValue(i, out var d) ? d : new();
+
+    private string AccentStyle =>
+        $"--accent: {(string.IsNullOrWhiteSpace(Descriptor.AccentColor) ? "var(--color-primary)" : Descriptor.AccentColor)};";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Collect every snippet referenced anywhere in the descriptor.
+            var refs = new List<SnippetRef>();
+            foreach (var c in Descriptor.Components)
+            {
+                if (c.Declaration is not null) refs.Add(c.Declaration);
+                if (c.Initialization is not null) refs.Add(c.Initialization);
+                refs.AddRange(c.ExtraSnippets);
+                foreach (var hw in c.Hardware)
+                {
+                    refs.Add(hw.DeviceSnippet);
+                    refs.Add(hw.TemplateSnippet);
+                    refs.Add(hw.IoSystemSnippet);
+                }
+                foreach (var ct in c.CustomTabs)
+                    if (ct.Snippet is not null) refs.Add(ct.Snippet);
+            }
+
+            // Load all (dedup by key), in parallel.
+            var byKey = refs.GroupBy(r => r.Key).Select(g => g.First()).ToList();
+            var tasks = byKey.ToDictionary(r => r.Key, r => CodeProvider.GetTaggedRegionAsync(r.Path, r.Region));
+            await Task.WhenAll(tasks.Values);
+            foreach (var kv in tasks) _snips[kv.Key] = await kv.Value;
+
+            // Step logic blocks + live steps-by-symbol, per component.
+            for (var i = 0; i < Descriptor.Components.Count; i++)
+            {
+                var c = Descriptor.Components[i];
+                if (c.ResolvedStepSource is not null)
+                    _stepBlocks[i] = await CodeProvider.GetStepLogicBlocksAsync(c.ResolvedStepSource);
+                if (c.Steps is not null)
+                    _stepsBySymbol[i] = c.Steps(Entry.Plc.Ctx)
+                        .ToDictionary(s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1), s => s);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"ShowcasePageLayout: error loading snippets: {ex.Message}");
+        }
+        finally
+        {
+            _loadingCode = false;
+            StateHasChanged();
+        }
+        await base.OnInitializedAsync();
+    }
+
+    public override void ConfigurePolling()
+    {
+        foreach (var c in Descriptor.Components)
+        {
+            if (c.Sequencer is not null)
+            {
+                this.StartPolling(c.Sequencer(Entry.Plc.Ctx), 250);
+            }
+            if (c.Steps is not null)
+            {
+                foreach (var step in c.Steps(Entry.Plc.Ctx))
+                {
+                    this.StartPolling(step.IsActive, 250);
+                    this.StartPolling(step.IsEnabled, 250);
+                    this.StartPolling(step.Order, 250);
+                    this.StartPolling(step.Descr, 500);
+                }
+            }
+        }
+        if (Descriptor.RootBind is not null)
+        {
+            this.StartPolling(Descriptor.RootBind(Entry.Plc.Ctx), 250);
+        }
+    }
+}
