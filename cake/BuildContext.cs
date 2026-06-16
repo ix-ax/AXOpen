@@ -162,44 +162,133 @@ public partial class BuildContext : FrostingContext
     }
 
     #region Libraries
-    public IEnumerable<(string folder, string name, bool pack, bool app_run, bool test)> Libraries { get; } = new[]
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Library discovery
+    //
+    // The libraries the per-library build tasks iterate (clean, catalog-install,
+    // provision, apax build/test, apax pack) are discovered from the file system so a
+    // newly scaffolded library under 'src/<folder>' (see
+    // scripts/create_library_from_template.ps1) is picked up automatically - WITHOUT
+    // editing this file.
+    //
+    // The effective set is:  CuratedBaseLibraries  ∪  auto-discovered component libraries,
+    // de-duplicated by folder with the curated entry winning.
+    // ─────────────────────────────────────────────────────────────────────────────
+
+    // Non-standard entries that must NOT be auto-inferred: they either do not follow the
+    // 'src/<folder>/ctrl/apax.yml' component pattern, have a folder name that differs from
+    // their apax name (sdk-ax -> ax-sdk), or carry deliberately non-default pack/test flags
+    // (template.axolibrary is never packed or tested). These are always excluded from
+    // discovery and emitted verbatim.
+    private static readonly (string folder, string name, bool pack, bool app_run, bool test)[] CuratedBaseLibraries =
     {
-        ("ax.axopen.min", "ax.axopen.min", true, false, false),
-        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false, false),
-        ("ax.axopen.app", "ax.axopen.app", true, false, false),
-        ("sdk-ax", "ax-sdk", true, false, false),
-        ("abstractions", "axopen.abstractions", true, false, true),
-        ("timers", "axopen.timers", true, false, true),
-        ("simatic1500", "axopen.simatic1500", true, false, true),
-        ("utils", "axopen.utils", true, false, true),
-        ("core", "axopen.core", true, false, true),
-        ("data", "axopen.data", true, false, true),
-        ("probers", "axopen.probers", true, false, false),
-        ("inspectors", "axopen.inspectors", true, false, true),
-        ("components.abstractions", "axopen.components.abstractions", true, false, true),
-        ("components.elements", "axopen.components.elements", true, false, true),
-        ("io", "axopen.io", true, false, false),
-        ("components.cognex.vision", "axopen.components.cognex.vision", true, false, true),
-        ("components.pneumatics", "axopen.components.pneumatics", true, false, true),
-        ("components.drives", "axopen.components.drives", true, false, true),
-        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, false, true),
-        ("components.rexroth.press", "axopen.components.rexroth.press", true, false, true),
-        ("components.festo.drives", "axopen.components.festo.drives", true, false, true),
-        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, false, true),
-        ("components.robotics", "axopen.components.robotics", true, false, true),
-        ("components.abb.robotics", "axopen.components.abb.robotics", true, false, true),
-        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, false, true),
-        ("components.ur.robotics", "axopen.components.ur.robotics", true, false, true),
-        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, false, true),
-        ("components.siem.identification", "axopen.components.siem.identification", true, false, true),
-        ("components.siem.communication", "axopen.components.siem.communication", true, false, true),
-        ("components.balluff.identification", "axopen.components.balluff.identification", true, false, true),
-        ("components.keyence.vision", "axopen.components.keyence.vision", true, false, true),
-        ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, false, true),
-        ("components.dukane.welders", "axopen.components.dukane.welders", true, false, true),
-        ("components.zebra.vision", "axopen.components.zebra.vision", true, false, true),        
-        ("template.axolibrary", "template.axolibrary", false, false, false)
+        ("ax.axopen.min",       "ax.axopen.min",       true,  false, false),
+        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true,  false, false),
+        ("ax.axopen.app",       "ax.axopen.app",       true,  false, false),
+        ("sdk-ax",              "ax-sdk",              true,  false, false),
+        ("template.axolibrary", "template.axolibrary", false, false, false),
     };
+
+    // Folders under 'src' that must never be treated as buildable libraries.
+    // ► Add a folder name here to exclude it from the whole per-library build pipeline. ◄
+    // (The CuratedBaseLibraries folders above are excluded from discovery automatically.)
+    private static readonly HashSet<string> DiscoveryExcludes = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "components.citemplate", // throwaway library scaffolded + deleted by TemplateTestTask
+    };
+
+    // Per-folder flag overrides for discovered libraries. Discovery defaults every library
+    // to pack=true, test=true; list a folder here only to deviate from that default
+    // (null = keep the default). 'io' and 'probers' build & pack but are intentionally
+    // excluded from the apax test run.
+    private static readonly Dictionary<string, (bool? pack, bool? test)> DiscoveryOverrides =
+        new(StringComparer.OrdinalIgnoreCase)
+    {
+        { "io",      (pack: null, test: false) },
+        { "probers", (pack: null, test: false) },
+    };
+
+    private IReadOnlyList<(string folder, string name, bool pack, bool app_run, bool test)> _libraries;
+
+    public IEnumerable<(string folder, string name, bool pack, bool app_run, bool test)> Libraries =>
+        _libraries ??= BuildLibrarySet();
+
+    private IReadOnlyList<(string folder, string name, bool pack, bool app_run, bool test)> BuildLibrarySet()
+    {
+        // Curated entries are concatenated first so they win on any folder collision.
+        return CuratedBaseLibraries
+            .Concat(DiscoverComponentLibraries())
+            .GroupBy(l => l.folder, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.First())
+            .ToList();
+    }
+
+    private IEnumerable<(string folder, string name, bool pack, bool app_run, bool test)> DiscoverComponentLibraries()
+    {
+        if (!Directory.Exists(RootDir))
+        {
+            yield break;
+        }
+
+        // Curated-base folders are always excluded from discovery (added verbatim instead).
+        var excluded = new HashSet<string>(DiscoveryExcludes, StringComparer.OrdinalIgnoreCase);
+        foreach (var curated in CuratedBaseLibraries)
+        {
+            excluded.Add(curated.folder);
+        }
+
+        // Ordinal sort -> deterministic, machine-independent ordering of discovered libraries.
+        foreach (var dir in Directory.GetDirectories(RootDir).OrderBy(Path.GetFileName, StringComparer.Ordinal))
+        {
+            var folder = Path.GetFileName(dir);
+            if (excluded.Contains(folder))
+            {
+                continue;
+            }
+
+            // A controller library is identified by 'ctrl/apax.yml'. This naturally skips
+            // non-library folders such as 'traversals', 'styling', 'showcase', 'docs'.
+            var ctrlApax = Path.Combine(dir, "ctrl", "apax.yml");
+            if (!File.Exists(ctrlApax))
+            {
+                continue;
+            }
+
+            string name;
+            try
+            {
+                name = ApaxFile.CreateApaxDto(ctrlApax).Name;
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Skipping '{folder}': could not read apax name from '{ctrlApax}': {ex.Message}");
+                continue;
+            }
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                Log.Warning($"Skipping '{folder}': empty apax name in '{ctrlApax}'.");
+                continue;
+            }
+
+            // Strip the registry prefix: '@inxton/axopen.components.drives' -> 'axopen.components.drives'.
+            if (name.StartsWith("@"))
+            {
+                var slash = name.IndexOf('/');
+                if (slash >= 0 && slash < name.Length - 1)
+                {
+                    name = name.Substring(slash + 1);
+                }
+            }
+
+            var ov = DiscoveryOverrides.TryGetValue(folder, out var o) ? o : (pack: (bool?)null, test: (bool?)null);
+            var pack = ov.pack ?? true;
+            var test = ov.test ?? true;
+
+            yield return (folder, name, pack, false, test);
+        }
+    }
     #endregion
     
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
