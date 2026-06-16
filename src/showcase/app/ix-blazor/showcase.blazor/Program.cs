@@ -168,6 +168,12 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.St
 
 var app = builder.Build();
 
+#if DEBUG
+// Dev-time guard: fail fast if the showcase catalog is inconsistent
+// (missing route/title/source-paths, or a component maturity key that does not resolve).
+showcase.Catalog.ShowcaseCatalog.Validate(app.Services.GetRequiredService<ComponentMaturityService>());
+#endif
+
 //<KeyenceIv3ReverseProxy>
 app.Use(async (context, next) =>
 {

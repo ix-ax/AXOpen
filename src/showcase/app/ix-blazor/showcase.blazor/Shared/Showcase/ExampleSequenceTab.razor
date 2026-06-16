@@ -1,0 +1,40 @@
+@*
+    ExampleSequenceTab — task + sequencer command views plus the live step cards for a component.
+    Step blocks are parsed from ST; live steps are correlated by their symbol tail.
+*@
+@using AXOpen.Core
+
+<div class="mt-4">
+    @if (Sequencer is not null)
+    {
+        <AxoTaskCommandView Component="@Sequencer" />
+        <AxoSequencerCommandView Component="@Sequencer" />
+    }
+    @if (StepBlocks.Count > 0)
+    {
+        <div class="mt-4 space-y-3">
+            @foreach (var step in StepBlocks)
+            {
+                StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+                <AxoStepCard Step="step" LiveStep="liveStep" />
+            }
+        </div>
+    }
+    else if (Loading)
+    {
+        <div class="mt-4 p-4 text-sm text-text-light">Loading step logic…</div>
+    }
+    else
+    {
+        <div class="mt-4 rounded-alert border border-warning/40 bg-warning/10 p-4 text-sm text-warning">
+            No sequencer step blocks were detected.
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public AxoSequencer? Sequencer { get; set; }
+    [Parameter] public List<StepLogicBlock> StepBlocks { get; set; } = new();
+    [Parameter] public Dictionary<string, AxoStep> StepsBySymbol { get; set; } = new();
+    [Parameter] public bool Loading { get; set; }
+}

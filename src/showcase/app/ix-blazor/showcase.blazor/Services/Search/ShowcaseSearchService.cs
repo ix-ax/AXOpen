@@ -1,3 +1,5 @@
+using showcase.Catalog;
+
 namespace showcase.Services.Search;
 
 public class ShowcaseSearchService
@@ -7,7 +9,7 @@ public class ShowcaseSearchService
 
     public ShowcaseSearchService(ContentIndexService contentIndex)
     {
-        _entries = ShowcasePageRegistry.GetAllPages();
+        _entries = ShowcaseCatalog.All.Select(ShowcaseCatalog.ToSearchableEntry).ToList();
         _contentIndex = contentIndex;
     }
 
