@@ -52,7 +52,7 @@
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
-    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    <component type="typeof(App)" render-mode="Server" />
 
     <div id="blazor-error-ui">
         <environment include="Staging,Production">
@@ -62,7 +62,6 @@
             
         </environment>        
     </div>
-    <script src="_framework/blazor.server.js"></script>
     <!-- Mermaid.js for rendering diagrams in documentation -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <script>
@@ -130,5 +129,8 @@
             set: function (t) { try { localStorage.setItem('theme', t); } catch (e) { } document.documentElement.setAttribute('data-theme', t); }
         };
     </script>
+    @* Load the Blazor circuit LAST so all window.* interop functions above are defined
+       before any component's OnAfterRender invokes them (avoids "X is not a function" circuit crash). *@
+    <script src="_framework/blazor.server.js"></script>
 </body>
 </html>
