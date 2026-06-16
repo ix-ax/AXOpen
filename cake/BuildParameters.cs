@@ -51,4 +51,7 @@ public class BuildParameters
 
     [Option('o', "do-publish-only", Required = false, Default = false, HelpText = "Skips all steps and publishes from pre-build artefacts.")]
     public bool PublishOnly { get; set; }
+
+    [Option("do-template-test", Required = false, Default = false, HelpText = "Scaffolds a library from template.axolibrary and builds/tests it.")]
+    public bool DoTemplateTest { get; set; }
 }

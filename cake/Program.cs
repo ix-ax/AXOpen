@@ -318,8 +318,91 @@ public sealed class BuildTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("Tests")]
+[TaskName("TemplateTest")]
 [IsDependentOn(typeof(BuildTask))]
+public sealed class TemplateTestTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
+        if (!context.BuildParameters.DoTemplateTest)
+        {
+            context.Log.Information("Skipping template test.");
+            return;
+        }
+
+        // scripts/create_library_from_template.ps1 lives one level above 'src' (RootDir).
+        var script = Path.GetFullPath(Path.Combine(context.RootDir, "..", "scripts", "create_library_from_template.ps1"));
+
+        // The library MUST be generated inside 'src' (the apax workspace) so its
+        // '@inxton/*' dependencies (pinned at 0.0.0-dev.0) resolve locally from the
+        // sibling libraries - exactly how every repo library resolves them. This task
+        // removes the generated folder again in the finally block.
+        var libraryFolder = "components.citemplate";
+        var generated = Path.Combine(context.RootDir, libraryFolder);
+
+        // Guard against a stale copy left by an interrupted previous run.
+        if (Directory.Exists(generated))
+        {
+            Directory.Delete(generated, true);
+        }
+
+        try
+        {
+            context.Log.Information("---------------------------------");
+            context.Log.Information("Template test: scaffolding library from template.axolibrary");
+            context.Log.Information("---------------------------------");
+
+            // Scaffold + build the library (apax build in ctrl + dotnet build this.proj).
+            // -OutputRoot defaults to 'src', so it is intentionally not passed here.
+            context.RunPowershellScriptOrThrow(script, $"-LibraryFolder {libraryFolder}");
+
+            // L1: build + run the generated .NET twin tests via the per-library traversal.
+            var thisProj = Path.Combine(generated, "this.proj");
+            if (File.Exists(thisProj))
+            {
+                var testSettings = new Cake.Common.Tools.DotNet.Test.DotNetTestSettings()
+                {
+                    Configuration = context.BuildParameters.Configuration,
+                    Verbosity = context.BuildParameters.Verbosity,
+                    NoBuild = false,
+                    NoRestore = false,
+                    ResultsDirectory = context.TestResults
+                };
+                context.DotNetTest(thisProj, testSettings);
+            }
+            else
+            {
+                context.Log.Warning($"No 'this.proj' found at '{generated}'; skipping generated-library tests.");
+            }
+
+            context.Log.Information("Template test passed.");
+        }
+        finally
+        {
+            // Never leave the throwaway library behind in 'src', even on failure.
+            if (Directory.Exists(generated))
+            {
+                try
+                {
+                    Directory.Delete(generated, true);
+                }
+                catch (Exception ex)
+                {
+                    context.Log.Warning($"Template test cleanup failed: {ex.Message}");
+                }
+            }
+        }
+    }
+}
+
+[TaskName("Tests")]
+[IsDependentOn(typeof(TemplateTestTask))]
 public sealed class TestsTask : FrostingTask<BuildContext>
 {
     // Tasks can be asynchronous
