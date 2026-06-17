@@ -361,6 +361,7 @@ NAMESPACE AXOpen.Core
             
             IF IsDisabled && (_stateKicking || Status = eAxoTaskState#Busy) THEN 
                 THIS.Abort();
+                ErrorDetails := 'Aborted - disabled during kicking and busy';   
             END_IF;
 
             

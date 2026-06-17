@@ -1,29 +1,29 @@
 @*
-    MaturityBadge.razor — Displays component maturity status from COMPONENTS_MATURITY.md.
+    MaturityBadge.razor — component maturity from COMPONENTS_MATURITY.md, rendered as Momentum
+    token-coloured pills (success / warning / danger).
 
-    Usage:
-      <MaturityBadge ComponentName="Pneumatics" />
+    Usage: <MaturityBadge ComponentName="Pneumatics" />
 *@
 @using showcase.Services
 @inject ComponentMaturityService MaturityService
 
-<div class="flex items-center gap-3 text-xs">
-    <span class="inline-flex items-center gap-1">
-        <span class="@DotClass(_maturity.Implemented)">●</span>
-        <span class="text-slate-500">Implemented</span>
+<div class="flex flex-wrap items-center gap-2 text-xs">
+    <span class="inline-flex items-center gap-1.5 rounded-badge border border-border bg-background px-2 py-0.5">
+        <span class="inline-block size-2 rounded-full" style="background-color:@DotColor(_maturity.Implemented)"></span>
+        <span class="text-text-light">Implemented</span>
     </span>
-    <span class="inline-flex items-center gap-1">
-        <span class="@DotClass(_maturity.Tested)">●</span>
-        <span class="text-slate-500">Tested</span>
+    <span class="inline-flex items-center gap-1.5 rounded-badge border border-border bg-background px-2 py-0.5">
+        <span class="inline-block size-2 rounded-full" style="background-color:@DotColor(_maturity.Tested)"></span>
+        <span class="text-text-light">Tested</span>
     </span>
-    <span class="inline-flex items-center gap-1">
-        <span class="@DotClass(_maturity.BattleTested)">●</span>
-        <span class="text-slate-500">Battle Tested</span>
+    <span class="inline-flex items-center gap-1.5 rounded-badge border border-border bg-background px-2 py-0.5">
+        <span class="inline-block size-2 rounded-full" style="background-color:@DotColor(_maturity.BattleTested)"></span>
+        <span class="text-text-light">Battle Tested</span>
     </span>
 </div>
 
 @code {
-    [Parameter] public string ComponentName { get; set; }
+    [Parameter] public string ComponentName { get; set; } = string.Empty;
 
     private MaturityInfo _maturity = new("red", "red", "red");
 
@@ -32,10 +32,10 @@
         _maturity = MaturityService.GetMaturity(ComponentName);
     }
 
-    private static string DotClass(string level) => level?.ToLowerInvariant() switch
+    private static string DotColor(string level) => level?.ToLowerInvariant() switch
     {
-        "green" => "text-emerald-500",
-        "yellow" => "text-amber-400",
-        _ => "text-red-400"
+        "green" => "var(--color-success)",
+        "yellow" => "var(--color-warning)",
+        _ => "var(--color-danger)"
     };
 }

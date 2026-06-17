@@ -613,20 +613,33 @@ public static class ApaxCmd
         }
     }
 
-    //public static void RunPowershellScript(this BuildContext context, string scriptPath, string arguments)
-    //{
-    //    string workDir = Path.GetFullPath(Path.Combine(scriptPath, ".."));
-    //    context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' started");
-    //    context.ProcessRunner.Start("powershell.exe", new ProcessSettings()
-    //    {
-    //        Arguments = $"-NoProfile -ExecutionPolicy Bypass -File \"{scriptPath}\" {arguments}",
-    //        WorkingDirectory = workDir,
-    //        RedirectStandardOutput = false,
-    //        RedirectStandardError = false,
-    //        Silent = false
-    //    }).WaitForExit();
-    //    context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' finished");
-    //}
+    // Like DotNetCmd.RunPowershellScript, but throws on a non-zero exit code so a
+    // failing script fails the build (the plain overload ignores the exit code).
+    public static void RunPowershellScriptOrThrow(this BuildContext context, string scriptPath, string arguments)
+    {
+        string workDir = Path.GetFullPath(Path.Combine(scriptPath, ".."));
+        context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' started");
+
+        // Use 'powershell.exe' to match DotNetCmd.RunPowershellScript and guarantee
+        // availability on the self-hosted Windows runners this task runs on.
+        var process = context.ProcessRunner.Start("powershell.exe", new ProcessSettings()
+        {
+            Arguments = $"-NoProfile -ExecutionPolicy Bypass -File \"{scriptPath}\" {arguments}",
+            WorkingDirectory = workDir,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        });
+
+        process.WaitForExit();
+        var exitcode = process.GetExitCode();
+        context.Log.Information($"Powershell script {scriptPath} exited with '{exitcode}'");
+
+        if (exitcode != 0)
+        {
+            throw new BuildFailedException();
+        }
+    }
 
     //public static void DotnetClean(this BuildContext context, string slnFilePath, string arguments)
     //{

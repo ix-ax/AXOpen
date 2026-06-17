@@ -1,3 +1,20 @@
+### [COMPONENTS.COGNEX.VISION] AxoVisionProNet — TCP/.NET alternative to the PROFINET AxoVisionPro
+### [FIX] `AxoKrc5` local E-stop monitoring, 20002 rekey, opt-in task-timeout watchdog
+
+**Note:** PLC fix in `src/components.kuka.robotics/ctrl/src/AxoKrc5/v_5_x_x/`. KRC5-only — `AxoKrc4` is unchanged. **Breaking:** public input `Inputs.Automatic` renamed to `Inputs.LocalEstopOk`. Branch: `1168-bug-update-krc4-following-the-updates-on-krc5` ([#1177](https://github.com/Inxton/AXOpen/pull/1177), refs #1168).
+
+- fix!: Input bit `%X2` repurposed from `Inputs.Automatic` ("Automatic [AUT]") to `Inputs.LocalEstopOk` ("Local Emergency Stop OK"). Whenever `LocalEstopOk = FALSE` the component raises new error **20006** (`Error`) — unconditionally, every cycle, outside the task-busy safety gate that drives 20001–20005. Matching messenger text and `errorDescriptionDict` entries added to the .NET twin (`AxoKrc5.cs`); `AxoKrc5View.razor` header badge and inputs panel rebound to `LocalEstopOk` (polling updated in `AxoKrc5View.razor.cs`).
+- fix: Safety message **20002** rekeyed to `Inputs.ExternalAutomatic = FALSE` (previously `Inputs.Automatic`, whose bit was repurposed); still raised as `Info` while a task is busy.
+- fix: Task-duration watchdog reinstated as **opt-in** (partially reverting #1167): every task except `StartMotors` calls `ThrowWhen(Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s, '{TaskName} timeout.')`. Config defaults changed `ErrorTime LT#5S → LT#0S`, `TaskTimeout LT#50S → LT#0S`, so the watchdog stays disabled out of the box; the `_errorTimer` (`ErrorTime`) watchdog remains removed.
+- feat: Robot-side stop messages are auto-acknowledged — `Outputs.ErrorConfirmation := Inputs.StopMess AND NOT _blink.output` pulses during the waiting phases of `StartAtMain`, `StartMotorsAndProgram`, `StartMotorsProgramAndMovements`, `StartMotors`, `StartMovements`, and `StartProgram`. Blinker centralised to a single 1 s `_blink.Blink()` tick per `Run()` cycle (`BLINKER_TIME : TIME := T#1S`); per-task 500 ms blink calls removed.
+- docs: `AxoKrc5.md` divergence note and Configuration section rewritten; `TROUBLES.md` records the per-class 20002 keying split, the new 20006 entry, and the KRC4 default-on vs KRC5 opt-in watchdog. Library CHANGELOG bumped to `0.63.0`; `GitVersion.yml` `next-version` `0.62.3 → 0.63.0` (minor — breaking rename recorded).
+
+**Impact:** A dropped local E-stop is now reported immediately and persistently (20006) instead of masquerading as a mode condition; stuck robot stop messages self-acknowledge; integrators can re-arm the task watchdog per application by setting `Config.TaskTimeout > 0s`.
+
+**Risks/Review:** Twin consumers and Blazor bindings referencing `AxoKrc5.Inputs.Automatic` must migrate to `Inputs.LocalEstopOk` (`AxoKrc4.Inputs.Automatic` unaffected). `StartMotorsTask` is the only task without the reinstated `ThrowWhen` — suspected oversight, documented as-is. Watchdog now defaults OFF (`LT#0S`) — applications relying on the old `LT#50S` self-abort must set it explicitly.
+
+**Testing:** `apax ib` in `src/components.kuka.robotics`; exercise KRC5 cell: 20006 on local E-stop drop, 20002 on external-auto drop, timeout abort with `TaskTimeout > 0s`, `ErrorConfirmation` pulse while `StopMess` active.
+
 ### [CORE] `AxoRemoteTask` start/done handshake priority is now configurable (default Normal) (#TBD)
 
 **Note:** API addition + behavioral change in `src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs` (.NET twin only). No PLC source or PLC-side API change. Branch: `deps-update-0-47-0-alpha-495`. PR link to be filled in before merge. Follow-up to the High-priority batching entry below (commit `2a70cb744`).
@@ -69,55 +86,28 @@
 
 ### [FIX] `axdev` password guard contradicted the secrets complexity policy
 
-**Note:** Bug fix in `src/axopen.dev`. Branch: `feat/axdev-user-secrets-loader`.
+**Note:** Additive change. New component `AxoVisionProNet` in `src/components.cognex.vision/ctrl/src/AxoVisionProNet/`, its .NET twin + TCP protocol stack in `src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/AxoVisonProNet/`, a Blazor proxy view, and full showcase/doc wiring. No public-API removal; existing `AxoVisionPro` (PROFINET) is unchanged. Branch: `1104-new-featureaxovisionpro-alternative`.
 
-- fix: `AXOpen.Dev.Validation.PasswordValidator` no longer rejects `$ & ( ) *`. These are endorsed by the set-time complexity policy (`configure-secrets.sh` requires a special char from `!@#$%^&*()_+-=`), so a password that satisfied the complexity rule was then rejected at use time by `axdev alf` / `axdev all` with "The PASSWORD contains problematic characters." The blocklist now keeps only genuinely-dangerous shell metacharacters (`` ` \ " ' | ; < > ? [ ] { } `` and whitespace) — safe because arguments reach apax/openssl via CliWrap (no shell). Error message and `PasswordValidatorTests` updated.
-
-**Impact:** `apax alf` / `apax all` accept the same passwords the secrets-setup flow accepts; no more spurious rejection of compliant passwords.
-
-**Testing:** `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — 180 passed.
-
-### [BUILD] `axdev` loads dotnet user-secrets at startup
-
-**Note:** Developer-CLI enhancement in `src/axopen.dev`. No PLC source change, no public-API removal. Branch: `feat/axdev-user-secrets-loader`.
-
-- feat: `AXOpen.Dev.Secrets.UserSecretsLoader` reads dotnet user-secrets into the process environment so PLC verbs resolve `AX_TARGET_PWD` / `AX_USERNAME` without a prior `source load-secrets.sh`. It locates the twin project's `<UserSecretsId>` (probes `../axpansion/twin` then `.`, overridable via the `AX_SECRETS_PROJECT` environment variable), reads its `secrets.json` from the OS user-secrets root, and flattens nested keys with the standard `key:subkey` convention.
-- feat: New shared entry point `AxdevApp.Run(args)` calls `UserSecretsLoader.Load()` then builds and runs the command app. Both the packed `dotnet axdev` tool (`AXOpen.Dev.Tool/Program.cs`) and the in-repo dispatcher (`src/scripts/dev.cs`) now call `AxdevApp.Run` instead of `AxdevApp.Build().Run`.
-- test: `AXOpen.Dev.Tests/Secrets/UserSecretsLoaderTests.cs` covers apply-from-store, existing-env-wins precedence, missing project / missing store / malformed JSON / no-`UserSecretsId` no-ops, the `AX_SECRETS_PROJECT` override, and nested-key flattening.
+- feat: `AxoVisionProNet` (`AXOpen.Components.Cognex.Vision`) — drives a Cognex VisionPro PC over a TCP/.NET channel instead of a PROFINET IO frame. The PLC `Invoke()`s `AxoRemoteTask`s (`Trigger`, `InspectionResult`, `SetRecipe`, `SendSpecificData`, `ReceiveSpecificData`, `TriggerWithSpecificData`, `SendSpecificDataAndTypes`) whose handlers run on the .NET twin; `Restore` is a local `AxoTask`. Use this variant when the camera PC is reachable over the network but is not wired as a PROFINET device.
+- feat: `Control` (writable: `TriggerId`, `PartId`, `VariantId`) carries the per-request parameters; read-only `Config` holds the task supervision timers (`InfoTime` 5 s, `ErrorTime` 10 s, `TaskTimeout` 50 s); `Status` surfaces `Accepted`, `TriggerId`, `ErrorCode`, `ActionDescription`, `ErrorDescription`, `RejectReason`. Each remote task is checked for `HasRemoteException` per cycle and its `ErrorDetails` copied into `Status.ErrorDescription`; `Restore()` clears `ErrorCode` and re-arms the tasks. `SendSpecificDataAndTypes` is gated to manual control (commissioning only); `TriggerWithSpecificData` is disabled while `Trigger`/`SendSpecificData`/`SetRecipe` are busy.
+- feat: .NET twin TCP protocol stack under `AxoVisonProNet/VisionProtocol/` — `VisionTcpClient` (async connect/send/receive loop with connect-timeout and cancellation), `VisionEnvelope` + `EnvelopeMessages` (framing), and `VisionTypedPayloadSerializer` (typed payload encode/decode). The socket is opened once at host start-up via `InitializeVisionClientAsync(host, port)` on the twin; `AxoVisionProNetSpecificDataContainer` exchanges the typed specific-data payloads.
+- feat: `AxoVisionProNetView` (`AXOpen.Components.Cognex.Vision.blazor`) — dedicated proxy view on `AxoComponentContainerView` with `AxoVisionProNetStatusView` / `AxoVisionProNetCommandView` / `AxoVisionProNetSpotView` derivatives, so `RenderableContentControl` auto-selects the dedicated rendering by `Presentation`.
+- feat: Showcase — `AxoVisionProNet_Example` (`src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionProNet.st`) demonstrates the sequencer workflow, `TriggerWithSpecificData`, manual/commissioning send, and error recovery; wired into `CognexVision.st`, the Blazor `CognexVision.razor` page, `Program.cs` (`InitializeVisionClientAsync`), and the search registry.
+- docs: Added `src/components.cognex.vision/docs/AxoVisionProNet.md` (CONTROLLER / .NET TWIN / BLAZOR tabs), linked it from `toc.yml`, referenced both VisionPro variants in `README.md`, and bumped `src/components.cognex.vision/docs/CHANGELOG.md` + `GitVersion.yml` to `0.57.0`.
 
 **Impact:**
-- The template's credential UX (per-project `dotnet user-secrets`) is preserved while removing the bash `source load-secrets.sh` step, so apax verbs can call `axdev` directly on any platform.
-- Precedence is non-surprising: an already-set environment variable (or apax variable) always wins over the secrets store; an explicit `-p/--password` still overrides everything in `PlcCommandSettings.ResolvePassword`.
+- Applications can integrate a Cognex VisionPro inspection over plain TCP without provisioning a PROFINET device, while keeping the same component-level operate/monitor/spot UX as the PROFINET `AxoVisionPro`.
+- Remote-task exceptions are surfaced on `Status.ErrorDescription`/`ErrorCode` and cleared deterministically through `Restore()`.
 
 **Risks/Review:**
-- Secret loading is best-effort: a missing twin project, missing store, or unreadable JSON is a silent no-op, and the per-command argument guards still report any genuinely missing credential.
+- The .NET twin source folder is spelled `AxoVisonProNet` (missing the `i`) while the PLC `ctrl/` and Blazor folders use the correct `AxoVisionProNet`. Class/type names are correct so it compiles; the folder name is a cosmetic inconsistency.
+- No automated test coverage was added: the TCP protocol classes (`VisionTcpClient`, `VisionEnvelope`, `VisionTypedPayloadSerializer`) have no xUnit tests in `tests/AXOpen.Components.Cognex.Vision.Tests`, and the ST trigger→result→restore flow has no AxUnit case in `ctrl/test/tests.st`.
+- `InitializeVisionClientAsync` must be called by the host before the component runs, otherwise the remote tasks report "REMOTE TASK IS NOT INITIALIZED". The showcase `Program.cs` shows the required wiring (hardcoded demo endpoint `192.168.100.142:8500`).
 
 **Testing:**
-- `dotnet test src/axopen.dev/AXOpen.Dev.Tests` — full suite green (176 passed), including the 8 new `UserSecretsLoaderTests`.
-
-### [BUILD] Dependency-maintenance tooling + AXSharp `0.47.0-alpha.484` bump
-
-**Note:** Build/CI tooling and dependency maintenance. No public-API change, no PLC source change. Branch: `deps-update`.
-
-- feat: `scripts/update-latest-deps.ps1` — bumps all non-AXSharp dependencies (NuGet + npm) to their latest stable versions, sharing common helpers via `scripts/_deps-common.ps1`.
-- feat: `scripts/update-vulnerable-deps.ps1` — scans npm and NuGet dependencies for known vulnerabilities and emits a report.
-- chore: AXSharp packages bumped to `0.47.0-alpha.484` in `Directory.Packages.props`, with transitive dependencies reconciled. `.config/dotnet-tools.json` updated to match.
-- chore: Added `.claude/skills/update-axsharp-version/SKILL.md` — skill for updating AXSharp and Inxton.Operon package versions.
-- chore: Removed obsolete `package.json` / `package-lock.json` files across `src/components.abb.robotics`, `src/components.abstractions`, `src/data`, `src/data/src/AXOpen.Data.Blazor`, `src/inspectors`, and a stray `apax.yml`, to clean up the project structure.
-- chore: `develop` branch GitVersion mode changed to `ContinuousDeployment`.
-- chore: Styling dependencies refreshed (`src/styling/src/package.json` / lock; `momentum.css` regenerated).
-
-**Impact:**
-- Routine dependency bumps and vulnerability scanning are now scriptable and reproducible.
-- AXSharp consumers build against `0.47.0-alpha.484`.
-- Dead npm lockfiles no longer pollute the tree or trigger spurious tooling.
-
-**Risks/Review:**
-- Dependency version bumps can introduce behavioural drift; verify a full `dotnet build` and the styling render after pulling.
-
-**Testing:**
-- Run `scripts/update-latest-deps.ps1` and `scripts/update-vulnerable-deps.ps1` end-to-end (exit code 0).
-- `dotnet build` from solution root succeeds against the bumped package set.
+- `apax ib` in `src/components.cognex.vision/ctrl` — PLC library + twin compile (`dotnet ixc`).
+- `dotnet build src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor` — proxy view compiles (verified: 0 errors).
+- Showcase `Pages/components-cognex-vision/Documentation/CognexVision.razor`, AxoVisionProNet tab — exercise the sequencer, commissioning send, and error-recovery scenarios against a reachable VisionPro endpoint.
 
 ### [CORE] AxoSequencer step-timeout alarm — does not fall after timeout clears
 

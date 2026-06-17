@@ -26,22 +26,36 @@ Refer to the [`AxoKrc4`](AxoKrc4.md) page for:
   runtime safety errors 20001–20005, task-`potential` IDs in the 500-range).
 
 > [!NOTE]
-> Since the KRC5 fix in **#1148**, `AxoKrc5` has diverged from `AxoKrc4` in
-> three KRC5-only respects (none of these are present on `AxoKrc4`):
+> Since the KRC5 fixes in **#1148** and **#1168**, `AxoKrc5` has diverged
+> from `AxoKrc4` in the following KRC5-only respects (none of these are
+> present on `AxoKrc4`):
 >
 > - It exposes the raw byte-array data-exchange members
 >   `DataFromPlcToRobot` / `DataFromRobotToPlc` (see [Data exchange](#data-exchange)).
 > - It raises additional coordinate-mirror task-`potential` identifiers
 >   **1501–1506** and **1511–1516** (see the
 >   [TROUBLES error reference](TROUBLES.md#task-potential-waiting-on-input-identifiers)).
-> - Safety message **20002** (`Inputs.Automatic = FALSE` while a task is busy)
->   is raised as `Info` on `AxoKrc5`, where `AxoKrc4` still raises it as
->   `Error`.
-> - Its tasks no longer self-abort on the duration/error-timer watchdog
->   (#1167). `AxoKrc5` no longer calls `ThrowWhen` on `Config.TaskTimeout`
->   or `Config.ErrorTime` (`_errorTimer.output`); a stalled task now surfaces
->   through the component's own status message instead of a redundant
->   task-timeout error. `AxoKrc4` still applies both watchdogs.
+> - Input bit `%X2` is **`Inputs.LocalEstopOk`** ("Local Emergency Stop OK",
+>   #1168) — on `AxoKrc4` the same bit is still `Inputs.Automatic`. Whenever
+>   `LocalEstopOk` is `FALSE`, `AxoKrc5` raises error **20006**
+>   unconditionally — every cycle, not only while a task is busy (unlike
+>   20001–20005).
+> - Safety message **20002** is keyed on `Inputs.ExternalAutomatic = FALSE`
+>   while a task is busy (#1168 — previously `Inputs.Automatic`, which no
+>   longer exists on KRC5) and is raised as `Info`, where `AxoKrc4` raises
+>   its `Inputs.Automatic`-keyed 20002 as `Error`.
+> - The task-duration watchdog is **opt-in** (#1168): every task except
+>   `StartMotors` calls
+>   `ThrowWhen(Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s, '{TaskName} timeout.')`,
+>   and the default `Config.TaskTimeout = LT#0S` keeps it disabled. The
+>   `Config.ErrorTime` (`_errorTimer.output`) watchdog remains removed
+>   (#1167). `AxoKrc4` still applies both watchdogs with non-zero defaults.
+> - While a busy task is waiting and the robot reports `Inputs.StopMess`,
+>   `AxoKrc5` automatically pulses `Outputs.ErrorConfirmation` (gated by the
+>   component blinker) to try to acknowledge the robot-side error (#1168).
+> - The component blinker is ticked once per `Run()` cycle with a fixed
+>   `BLINKER_TIME = T#1S` on/off period (#1168 — previously each task ran
+>   its own 500 ms blink while executing).
 
 The differences between KRC4 and KRC5 are confined to:
 
@@ -57,16 +71,21 @@ The differences between KRC4 and KRC5 are confined to:
 ## Configuration
 
 `AxoKrc5` is configured via the nested `Config : AxoKrc5_Config` member
-(structurally identical to `AxoKrc4_Config`). The defaults (`InfoTime =
-LT#2S`, `ErrorTime = LT#5S`, `TaskTimeout = LT#50S`) match KRC4 — see the
+(structurally identical to `AxoKrc4_Config`). See the
 [`AxoKrc4` configuration table](AxoKrc4.md#configuration) for the meaning of
-each field.
+each field, but note the KRC5 defaults differ since #1168: `InfoTime = LT#2S`
+matches KRC4, while `ErrorTime = LT#0S` and `TaskTimeout = LT#0S` (KRC4
+defaults to `LT#5S` / `LT#50S`).
 
 > [!NOTE]
-> Since #1167, `ErrorTime` and `TaskTimeout` no longer abort `AxoKrc5` tasks
-> (the `ThrowWhen` watchdogs were removed). They are still applied by `AxoKrc4`.
-> On `AxoKrc5` a stalled task is reported through the component's status
-> message rather than raising a task-timeout error.
+> On `AxoKrc5` the task-duration watchdog is **opt-in** (#1168): with the
+> default `TaskTimeout = LT#0S` it is disabled and a stalled task is reported
+> through the component's status message only. Setting `TaskTimeout > T#0s`
+> arms a per-task `ThrowWhen` that aborts the task with a
+> `'{TaskName} timeout.'` error once `Duration` exceeds the configured value
+> (every task except `StartMotors`). The `ErrorTime` watchdog remains removed
+> on KRC5 (#1167) — the field only feeds the step timers — while `AxoKrc4`
+> still applies both watchdogs.
 
 [!code-smalltalk[](../ctrl/src/AxoKrc5/v_5_x_x/TypesStructuresAndEnums/AxoKrc5_Config.st?name=AxoKrc5ConfigDeclaration)]
 

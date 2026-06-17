@@ -9,7 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.Distributed
 {
-    [AXSharp.Connector.SourceFileAttribute(@"Distributed/ExchangesWrappedInAxoObject.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/Distributed/ExchangesWrappedInAxoObject.st")]
     public partial class ExchangesWrappedInAxoObject : AXOpen.Core.AxoObject
     {
         public Tests_L1.SharedEntityHeaderManager Header { get; }

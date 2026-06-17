@@ -9,7 +9,7 @@ using AXOpen.Data;
 
 namespace Tests_L1.PersistentData
 {
-    [AXSharp.Connector.SourceFileAttribute(@"PersistentData/PersistentDataContext.st")]
+    [AXSharp.Connector.SourceFileAttribute(@"src/data/tests/AXOpen.Data.Tests_L1/ax/src/PersistentData/PersistentDataContext.st")]
     public partial class PersistentDataContext : AXOpen.Core.AxoContext
     {
         public AXOpen.Core.AxoObject _rootObject { get; }

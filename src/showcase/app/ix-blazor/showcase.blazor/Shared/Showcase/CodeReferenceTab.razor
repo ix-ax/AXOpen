@@ -1,0 +1,39 @@
+@*
+    CodeReferenceTab — declaration, initialization, and any extra ST regions for a component,
+    each rendered through SnippetView. No per-component snippet plumbing in the page.
+*@
+<div class="mt-4 space-y-6">
+    @if (Component.Declaration is not null)
+    {
+        <div>
+            <SnippetView Snippet="Resolve(Component.Declaration)" Loading="Loading"
+                         Heading="@Component.Declaration.Heading" Path="@Component.Declaration.Path"
+                         RegionNote="@Component.Declaration.RegionNote" Language="@Component.Declaration.Language"
+                         MaxHeight="@Component.Declaration.MaxHeight" OnOpen="OnOpen" />
+        </div>
+    }
+    @if (Component.Initialization is not null)
+    {
+        <div>
+            <SnippetView Snippet="Resolve(Component.Initialization)" Loading="Loading"
+                         Heading="@Component.Initialization.Heading" Path="@Component.Initialization.Path"
+                         RegionNote="@Component.Initialization.RegionNote" Language="@Component.Initialization.Language"
+                         MaxHeight="@Component.Initialization.MaxHeight" OnOpen="OnOpen" />
+        </div>
+    }
+    @foreach (var s in Component.ExtraSnippets)
+    {
+        <div>
+            <SnippetView Snippet="Resolve(s)" Loading="Loading"
+                         Heading="@s.Heading" Path="@s.Path" RegionNote="@s.RegionNote"
+                         Language="@s.Language" MaxHeight="@s.MaxHeight" OnOpen="OnOpen" />
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public ComponentShowcase Component { get; set; } = default!;
+    [Parameter] public bool Loading { get; set; }
+    [Parameter] public Func<SnippetRef?, CodeSnippet?> Resolve { get; set; } = _ => null;
+    [Parameter] public EventCallback<string> OnOpen { get; set; }
+}

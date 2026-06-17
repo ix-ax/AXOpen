@@ -1,54 +1,89 @@
 @page "/"
+@using showcase.Catalog
+@using Operon.Icons
 
 <PageTitle>AXOpen Showcase</PageTitle>
 
-<h1 class="text-2xl font-bold mb-4">AXOpen Unified Showcase</h1>
+<div class="mx-auto max-w-7xl space-y-8 px-4 py-6">
 
-<p class="mb-6">
-    This application demonstrates all AXOpen libraries running together in a single PLC program and a single Blazor host.
-    Use the navigation menu to explore each library section.
-</p>
+    <header class="relative overflow-hidden rounded-card border border-border p-8"
+            style="background-image:linear-gradient(120deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-background)) 0%, var(--color-background) 65%);">
+        <div class="flex items-start gap-4">
+            <div class="shrink-0 rounded-2xl p-3" style="color:var(--color-primary); background-color:color-mix(in srgb, var(--color-primary) 12%, transparent);">
+                <HeroIcon Icon="bolt" Type="IconType.Solid" Class="size-8" />
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-text">AXOpen Showcase</h1>
+                <p class="mt-2 max-w-2xl text-text-light">
+                    Every AXOpen library running together in a single PLC program and a single Blazor host —
+                    live, against the connected controller.
+                </p>
+                <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-text-light">
+                    <span class="rounded-badge border border-border bg-background px-2 py-0.5">one PLC context</span>
+                    <span class="rounded-badge border border-border bg-background px-2 py-0.5">one Blazor host</span>
+                    <span class="rounded-badge border border-border bg-background px-2 py-0.5">press <kbd class="font-mono">Ctrl+K</kbd> to search</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @foreach (var group in ShowcaseCatalog.All.GroupBy(d => d.Category).OrderBy(g => g.Key))
+    {
+        <section>
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-text-light">@group.Key</h2>
+            <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+                @foreach (var d in group.OrderBy(d => d.NavOrder))
+                {
+                    var accent = string.IsNullOrWhiteSpace(d.AccentColor) ? "var(--color-primary)" : d.AccentColor;
+                    <a href="@d.Route" class="hover-lift block rounded-card border border-border bg-background-light p-4 no-underline"
+                       style="border-left:3px solid @accent;">
+                        <div class="flex items-center gap-2">
+                            <span style="color:@accent;">
+                                <HeroIcon Icon="@(string.IsNullOrWhiteSpace(d.BrandIcon) ? d.Icon : d.BrandIcon)" Type="IconType.Solid" Class="size-5" />
+                            </span>
+                            <h3 class="font-semibold text-text">@d.Title</h3>
+                        </div>
+                        <p class="mt-1 text-sm text-text-light">@d.Description</p>
+                        <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-text-light">
+                            @if (!string.IsNullOrWhiteSpace(d.Vendor))
+                            {
+                                <span class="rounded-badge border border-border px-2 py-0.5">@d.Vendor</span>
+                            }
+                            <span class="rounded-badge border border-border px-2 py-0.5">@d.Components.Count comp.</span>
+                        </div>
+                    </a>
+                }
+            </div>
+        </section>
+    }
 
-    <a href="/core/AxoTask" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Core</h2>
-        <p class="text-sm">AxoTask, AxoSequencer, AxoComponent, AxoMessaging, AxoDialogs</p>
-    </a>
-
-    <a href="/data/DataExchange" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Data</h2>
-        <p class="text-sm">AxoDataExchange, AxoDataFragments, AxoDataPersistent, AxoDataDistributed</p>
-    </a>
-
-    <a href="/components-drives/Documentation/DrivesShowcase" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Components — Drives</h2>
-        <p class="text-sm">AxoDrive documentation and sandbox</p>
-    </a>
-
-    <a href="/components-elements/Documentation/ElementsShowcase" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Components — Elements</h2>
-        <p class="text-sm">Elements documentation and sandbox</p>
-    </a>
-
-    <a href="/components-pneumatics/Documentation/PneumaticsShowcase" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Components — Pneumatics</h2>
-        <p class="text-sm">Pneumatic components documentation and sandbox</p>
-    </a>
-
-    <a href="/components-robotics/Documentation/RoboticsShowcase" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Components — Robotics</h2>
-        <p class="text-sm">Robotics components documentation and sandbox</p>
-    </a>
-
-    <a href="/inspectors/Documentation/InspectorsShowcase" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Inspectors</h2>
-        <p class="text-sm">Inspection components documentation</p>
-    </a>
-
-    <a href="/Security" class="card p-4 hover:shadow-lg">
-        <h2 class="font-semibold">Security</h2>
-        <p class="text-sm">User and role management</p>
-    </a>
-
+    <section>
+        <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-text-light">Explore by area</h2>
+        <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+            @foreach (var a in _areas)
+            {
+                <a href="@a.Link" class="hover-lift block rounded-card border border-border bg-background-light p-4 no-underline">
+                    <div class="flex items-center gap-2">
+                        <span class="text-primary"><HeroIcon Icon="@a.Icon" Type="IconType.Solid" Class="size-5" /></span>
+                        <h3 class="font-semibold text-text">@a.Title</h3>
+                    </div>
+                    <p class="mt-1 text-sm text-text-light">@a.Desc</p>
+                </a>
+            }
+        </div>
+    </section>
 </div>
+
+@code {
+    private record Area(string Title, string Desc, string Link, string Icon);
+
+    private readonly Area[] _areas =
+    [
+        new("Core", "AxoTask, AxoSequencer, AxoComponent, AxoMessaging, AxoDialogs", "/core/AxoTask", "cube"),
+        new("Data", "AxoDataExchange, Fragments, Persistent, Distributed", "/data/DataExchange", "circle-stack"),
+        new("Components", "Drives, Elements, Pneumatics, Robotics", "/components-drives/Documentation/DrivesShowcase", "squares-2x2"),
+        new("Foundation", "Abstractions, Inspectors, I/O, Probers, Timers, Utils", "/inspectors/Documentation/InspectorsShowcase", "wrench-screwdriver"),
+        new("Visual Composer", "Drag-and-drop HMI composition", "/VisualComposer", "eye"),
+        new("Security", "Users, roles, and access control", "/Security", "lock-closed"),
+    ];
+}

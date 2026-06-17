@@ -9,13 +9,19 @@ otherwise it applies to both. Error identifiers are published through
 ID seen in a log or on the HMI always maps to one of the entries below.
 
 > [!NOTE]
-> Since the KRC5 fix in **#1148**, a few identifiers differ between the two
-> classes (the rest are identical):
+> Since the KRC5 fixes in **#1148** and **#1168**, a few identifiers differ
+> between the two classes (the rest are identical):
 >
 > - **1501–1506** and **1511–1516** (coordinate-mirror task-`potential` IDs)
 >   are raised by `AxoKrc5` only.
-> - **20002** (`Inputs.Automatic = FALSE` while a task is busy) is raised as
->   category `Info` on `AxoKrc5`, but as `Error` on `AxoKrc4`.
+> - **20002** (raised while a task is busy) is keyed on
+>   `Inputs.Automatic = FALSE` and category `Error` on `AxoKrc4`, but on
+>   `Inputs.ExternalAutomatic = FALSE` and category `Info` on `AxoKrc5`
+>   (`Inputs.Automatic` no longer exists on KRC5 — bit `%X2` is
+>   `Inputs.LocalEstopOk` since #1168).
+> - **20006** (`Inputs.LocalEstopOk = FALSE`, category `Error`) is raised by
+>   `AxoKrc5` only — and unconditionally, every cycle, not only while a task
+>   is busy.
 
 ## Common issues
 
@@ -65,12 +71,18 @@ They are not errors.
   these; if they never assert, inspect the E-stop chain on the robot cell.
 - `Inputs.Error = TRUE` raises error 20005 while a task is busy; clear
   the KRC4-side fault, then call `ExampleRobot.ErrorConfirmation` via
-  `Outputs.ErrorConfirmation` or run the `Restore` sequencer step.
-- **(KRC4 only)** `Config.TaskTimeout` has not elapsed (default `LT#50S`).
-  Set to `0s` during commissioning to disable the watchdog. Since #1167
-  `AxoKrc5` no longer aborts tasks on `TaskTimeout` / `ErrorTime`; a stalled
-  KRC5 task is reported through the component status message instead, so
-  there is no task-timeout watchdog to disable on KRC5.
+  `Outputs.ErrorConfirmation` or run the `Restore` sequencer step. On
+  `AxoKrc5` (since #1168) the component already pulses
+  `Outputs.ErrorConfirmation` automatically while `Inputs.StopMess` is
+  active during a task's waiting phase, so a robot-side stop message is
+  acknowledged without operator action where possible.
+- `Config.TaskTimeout` has not elapsed. On `AxoKrc4` the watchdog is armed
+  by default (`LT#50S`) — set to `0s` during commissioning to disable it.
+  On `AxoKrc5` the watchdog is **opt-in** since #1168: the default is
+  `LT#0S` (disabled), and only a value `> T#0s` arms the per-task
+  `ThrowWhen` that aborts with `'{TaskName} timeout.'` (every task except
+  `StartMotors`). The `Config.ErrorTime` watchdog applies to `AxoKrc4`
+  only (#1167).
 
 ### Movement parameters never take effect
 
@@ -130,10 +142,15 @@ corresponding input asserts/deasserts:
 | Id | Condition | Meaning |
 |----|-----------|---------|
 | 20001 | `Inputs.Manual = TRUE` | KRC4 went to T1 while a task is executing — automation path invalid. |
-| 20002 | `Inputs.Automatic = FALSE` | Controller dropped out of auto. Raised as `Error` on `AxoKrc4`; raised as `Info` on `AxoKrc5` (#1148), since losing auto mode mid-task is treated as an informational condition there. |
+| 20002 | `Inputs.Automatic = FALSE` (KRC4) / `Inputs.ExternalAutomatic = FALSE` (KRC5, #1168) | Controller dropped out of auto. Raised as `Error` on `AxoKrc4`; raised as `Info` on `AxoKrc5` (#1148), since losing auto mode mid-task is treated as an informational condition there. |
 | 20003 | `Inputs.AlarmStopActive = FALSE` | Alarm-stop dropped, likely external E-stop. |
 | 20004 | `Inputs.UserSafetySwitchClosed = FALSE` | User safety gate opened during motion. |
 | 20005 | `Inputs.Error = TRUE` | KRC4 itself raised an error while the task was running. |
+
+On `AxoKrc5` only, error **20006** (`Inputs.LocalEstopOk = FALSE`, category
+`Error`) sits outside this task-busy gate — it is raised every cycle the
+local E-stop circuit reports not-OK, whether or not a task is executing
+(#1168). Restore the local E-stop chain on the robot cell to clear it.
 
 Resolution: bring the cell back into the safe automatic state, call the
 task's `Restore()` method so its state machine rewinds, then re-invoke the
@@ -173,10 +190,11 @@ task.
 | Id | Category | Raised when |
 |----|----------|-------------|
 | 20001 | Error | `Inputs.Manual = TRUE`. |
-| 20002 | Error (`AxoKrc4`) / Info (`AxoKrc5`) | `Inputs.Automatic = FALSE`. Severity differs per class — see the note at the top of this page. |
+| 20002 | Error (`AxoKrc4`) / Info (`AxoKrc5`) | `Inputs.Automatic = FALSE` on `AxoKrc4`; `Inputs.ExternalAutomatic = FALSE` on `AxoKrc5` (#1168). Severity and keying input differ per class — see the note at the top of this page. |
 | 20003 | Error | `Inputs.AlarmStopActive = FALSE`. |
 | 20004 | Error | `Inputs.UserSafetySwitchClosed = FALSE`. |
 | 20005 | Error | `Inputs.Error = TRUE`. |
+| 20006 *(KRC5 only)* | Error | `Inputs.LocalEstopOk = FALSE`. Raised unconditionally every cycle — not gated on a busy task (#1168). |
 
 ### Task "potential" (waiting-on-input) identifiers
 

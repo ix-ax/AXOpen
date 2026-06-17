@@ -32,12 +32,22 @@ NAMESPACE AXOpen.Core
 
         END_VAR
         
+
+        VAR PRIVATE 
+            _isInitialized : BOOL;
+        END_VAR
+        
+        
         METHOD PUBLIC OVERRIDE Execute : BOOL
             VAR_INPUT 
                 inParent : IAxoObject;
             END_VAR
+
             Execute := SUPER.Execute(inParent);            
-            
+
+            IF(NOT _isInitialized) THEN THIS._RemoteRestoreEnabled := TRUE; END_IF;
+            _isInitialized := TRUE;
+
             _remoteTaskMessenger.Serve(THIS);
 
             IF(Execute) THEN                
