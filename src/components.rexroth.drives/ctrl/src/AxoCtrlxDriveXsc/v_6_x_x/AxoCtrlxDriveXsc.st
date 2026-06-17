@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Torque Ramp Time #> [Ms]"}
             {#ix-set:AttributeToolTip = "<#Torque ramp time in milliseconds. (Max 65535.5 ms)#>"}
-            TorqueRampTimeMiliseconds  :   LREAL := LREAL#1000; // DEFAULT 1S
+            TorqueRampTimeMiliseconds  :   LREAL :=  1000.0; // DEFAULT 1S - like in plcopen
         END_VAR
         VAR PUBLIC // Scaling
             {#ix-attr:[Container(Layout.Stack)]}
@@ -172,7 +172,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             ErrorOutOfMC            :   BOOL;
             _lastMessageCodeOutOfMC :   ULINT;
         END_VAR
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -2639,14 +2638,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                 IF _State = UINT#328 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     MC_HomeCycle := ULINT#0;     
-                    CommandAborted := TRUE;  
-                    AxoHome_Task.Abort();          
+                    CommandAborted := TRUE; // action handled in parent AxoDrive        
                 END_IF;         
                 IF _State = UINT#329 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     MC_HomeCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoHome_Task.ThrowWhen(TRUE);          
+                    Error := TRUE; // action handled in parent AxoDrive           
                 END_IF;         
                 
                 IF _State>=UINT#310 AND _State<UINT#327 THEN
@@ -2827,13 +2824,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                 END_IF;         
                 IF _State = UINT#338 THEN
                     MC_StopCycle := ULINT#0;     
-                    CommandAborted := TRUE;            
-                    AxoStop_Task.Abort();          
+                    CommandAborted := TRUE; // action handled in parent AxoDrive        
                 END_IF;         
                 IF _State = UINT#339 THEN
                     MC_StopCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoStop_Task.ThrowWhen(TRUE);          
+                    Error := TRUE; // action handled in parent AxoDrive   
                 END_IF;         
  
                 IF _State>=UINT#330 AND _State<UINT#337 THEN
@@ -3232,13 +3227,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     MC_MoveAbsoluteCycle := ULINT#0;     
                 END_IF;         
                 IF _State = UINT#358 THEN
-                    CommandAborted := TRUE;            
-                    AxoMoveAbsolute_Task.Abort();          
+                    CommandAborted := TRUE; // action handled in parent AxoDrive           
                 END_IF;         
                 IF _State = UINT#359 THEN
                     MC_MoveAbsoluteCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoMoveAbsolute_Task.ThrowWhen(TRUE);          
+                    Error := TRUE; // action handled in parent AxoDrive   
                 END_IF;         
 
                 IF _State>=UINT#350 AND _State<UINT#357 THEN
@@ -3474,13 +3467,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     MC_MoveRelativeCycle := ULINT#0;     
                 END_IF;         
                 IF _State = UINT#368 THEN
-                    CommandAborted := TRUE;            
-                    AxoMoveRelative_Task.Abort();          
+                    CommandAborted := TRUE; // action handled in parent AxoDrive        
                 END_IF;         
                 IF _State = UINT#369 THEN
                     MC_MoveRelativeCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoMoveRelative_Task.ThrowWhen(TRUE);          
+                    Error := TRUE; // action handled in parent AxoDrive   
                 END_IF;         
                 
                 IF _State>=UINT#360 AND _State<UINT#367 THEN
@@ -3731,13 +3722,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     MC_MoveAdditiveCycle := ULINT#0;     
                 END_IF;         
                 IF _State = UINT#378 THEN
-                    CommandAborted := TRUE;       
-                    AxoMoveAdditive_Task.Abort();               
+                    CommandAborted := TRUE; // action handled in parent AxoDrive             
                 END_IF;         
                 IF _State = UINT#379 THEN
-                    MC_MoveAdditiveCycle := ULINT#0;     
-                    AxoMoveAdditive_Task.ThrowWhen(TRUE);               
-                    Error := TRUE;    
+                    MC_MoveAdditiveCycle := ULINT#0;                   
+                    Error := TRUE; // action handled in parent AxoDrive   
                 END_IF;         
                 
                 IF _State>=UINT#370 AND _State<UINT#377 THEN
@@ -4025,15 +4014,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                 IF _State = UINT#388 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    CommandAborted := TRUE;            
-                    AxoMoveVelocity_Task.Abort();          
+                    CommandAborted := TRUE; // action handled in parent AxoDrive         
                 END_IF;         
                 IF _State = UINT#389 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     MC_MoveVelocityCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoMoveVelocity_Task.ThrowWhen(TRUE);          
+                    Error := TRUE; // action handled in parent AxoDrive          
                 END_IF;         
                 
                 IF _State>=UINT#380 AND _State<UINT#387 THEN
@@ -4060,7 +4047,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
                         _State := UINT#388;
                     END_IF;                  
-                END_IF;         
+                END_IF; 
+
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveVelocity_Task.ThrowWhen(_errorTimer.output );
                 THIS.AxoMoveVelocity_Task.ThrowWhen(THIS.AxoMoveVelocity_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'<#AxoMoveVelocity_Task timeout.#>');                
@@ -4392,13 +4380,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     MC_TorqueControlCycle := ULINT#0;     
                 END_IF;         
                 IF _State = UINT#398 THEN
-                    CommandAborted := TRUE;            
-                    AxoTorqueControl_Task.Abort();          
+                    CommandAborted := TRUE; // AxoTorqueControl_Task will be aborted in AxoDrive         
                 END_IF;         
                 IF _State = UINT#399 THEN
                     MC_TorqueControlCycle := ULINT#0;     
-                    Error := TRUE;    
-                    AxoTorqueControl_Task.ThrowWhen(TRUE);          
+                    Error := TRUE;     // AxoTorqueControl_Task will pass to error in AxoDrive
                 END_IF;         
 
                 IF (_State>=UINT#395 AND _State <= UINT#397) THEN
@@ -6261,10 +6247,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 AND
                         _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 
                     THEN
-                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := FALSE; 
-                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
-                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE; // FALSE = halt the drive in torque mode
                     END_IF;
                     IF MC_ResetPower_PV THEN
                         MC_ResetState   := UINT#1;

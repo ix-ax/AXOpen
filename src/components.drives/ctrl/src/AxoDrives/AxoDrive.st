@@ -1117,10 +1117,28 @@ NAMESPACE AXOpen.Components.Drives
             DriveConfig         :   AxoDrive_Config;
         END_VAR
 
+        VAR PUBLIC //debug log
+            // {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Log message#>"}
+            LogMessage          :   STRING[254];
+        END_VAR
+
+        ///<summary>
+        /// This method appends a message to the Log string.
+        /// </summary>
+        METHOD PUBLIC Log
+            VAR_INPUT
+                msg         :   STRING[254];                       
+            END_VAR
+            THIS.LogMessage := Concat(THIS.LogMessage,', ', msg);
+        END_METHOD
+
         VAR PROTECTED
             MessageCodeFromMC                            :   ULINT;
             ErrorFromMC                                  :   BOOL;
         END_VAR
+        
         VAR PRIVATE
             _movementDisabled                       :   BOOL;
             _lastMessageCode                        :   ULINT;
