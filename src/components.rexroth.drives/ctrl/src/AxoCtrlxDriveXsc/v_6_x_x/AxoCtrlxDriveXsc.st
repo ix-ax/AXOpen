@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Torque Ramp Time #> [Ms]"}
             {#ix-set:AttributeToolTip = "<#Torque ramp time in milliseconds. (Max 65535.5 ms)#>"}
-            TorqueRampTimeMiliseconds  :   LREAL :=  1000.0; // DEFAULT 1S - like in plcopen
+            AxoTorqueControl_TorqueRampTime  :   LREAL :=  1000.0; // DEFAULT 1S - like in plcopen
         END_VAR
         VAR PUBLIC // Scaling
             {#ix-attr:[Container(Layout.Stack)]}
@@ -4258,7 +4258,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     END_IF;                    
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _word :=  TO_WORD(TO_UINT(TorqueRampTimeMiliseconds * ScalingConstantRequiredTorqueRampTime)); // value * 10, Max 65535.5 ms
+                    _word :=  TO_WORD(TO_UINT(AxoTorqueControl_TorqueRampTime * ScalingConstantRequiredTorqueRampTime)); // value * 10, Max 65535.5 ms
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
