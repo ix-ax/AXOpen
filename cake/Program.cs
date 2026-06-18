@@ -17,6 +17,7 @@ using System.IO.Packaging;
 using System.Linq;
 using System.Management.Automation;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Build;
@@ -56,7 +57,14 @@ public static class Program
     public static int Main(string[] args)
     {
         var retVal = 0;
-        Parser.Default.ParseArguments<BuildParameters>(args)
+        // CaseInsensitiveEnumValues lets --publish-target accept gitlab/github in any case
+        // (CI passes lowercase); HelpWriter keeps the default error/help output of Parser.Default.
+        using var parser = new Parser(settings =>
+        {
+            settings.CaseInsensitiveEnumValues = true;
+            settings.HelpWriter = Console.Error;
+        });
+        parser.ParseArguments<BuildParameters>(args)
             .WithParsed<BuildParameters>(o =>
             {
                 retVal = new CakeHost()
@@ -83,7 +91,7 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
         context.Log.Information("Build running with following parameters:");
         context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
 
-        if (context.IsGitHubActions)
+        if (context.IsGitHubActions || context.IsGitLabCI)
         {
             context.BuildParameters.CleanUp = true;
         }
@@ -594,12 +602,21 @@ public sealed class PushPackages : FrostingTask<BuildContext>
         }
 
         if (Helpers.CanReleaseInternal())
-        {      
-            //if(int.Parse(GitVersionInformation.Major) >= 1)
-            //{
-                context.ApaxPublish();
-            //}
-       
+        {
+            // apax (npm) packages.
+            if (context.BuildParameters.Target == PublishTarget.GitHub)
+            {
+                context.ApaxPublishGitHub();
+            }
+            else
+            {
+                context.ApaxPublishGitLab();
+            }
+
+            // NuGet packages: pick the feed + credential for the selected target.
+            var (source, apiKey) = context.BuildParameters.Target == PublishTarget.GitHub
+                ? ("https://nuget.pkg.github.com/inxton/index.json", context.GitHubToken)
+                : (context.GitLabNuGetSource, context.GitLabToken);
 
             foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")
                          .Select(p => new FileInfo(p)))
@@ -607,8 +624,8 @@ public sealed class PushPackages : FrostingTask<BuildContext>
                 context.DotNetNuGetPush(nugetFile.FullName,
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
-                        ApiKey = context.GitHubToken,
-                        Source = "https://nuget.pkg.github.com/inxton/index.json",
+                        ApiKey = apiKey,
+                        Source = source,
                         SkipDuplicate = true
                     });
             }
@@ -630,22 +647,81 @@ public sealed class PublishReleaseTask : FrostingTask<BuildContext>
 
         if (Helpers.CanReleaseInternal())
         {
-            var githubToken = context.Environment.GetEnvironmentVariable("GH_TOKEN");
-            var githubClient = new GitHubClient(new ProductHeaderValue("AXOPEN"));
-            githubClient.Credentials = new Credentials(githubToken);
+            if (context.BuildParameters.Target == PublishTarget.GitHub)
+            {
+                var githubToken = context.Environment.GetEnvironmentVariable("GH_TOKEN");
+                var githubClient = new GitHubClient(new ProductHeaderValue("AXOPEN"));
+                githubClient.Credentials = new Credentials(githubToken);
 
-            var release = githubClient.Repository.Release.Create(
-                "inxton",
-                "AXOpen",
-                new NewRelease($"{GitVersionInformation.SemVer}")
-                {
-                    Name = $"{GitVersionInformation.SemVer}",
-                    TargetCommitish = GitVersionInformation.Sha,
-                    Body = $"Release v{GitVersionInformation.SemVer}",
-                    Draft = !Helpers.CanReleasePublic(),
-                    Prerelease = !string.IsNullOrEmpty(GitVersionInformation.PreReleaseTag)
-                }
-            ).Result;
+                var release = githubClient.Repository.Release.Create(
+                    "inxton",
+                    "AXOpen",
+                    new NewRelease($"{GitVersionInformation.SemVer}")
+                    {
+                        Name = $"{GitVersionInformation.SemVer}",
+                        TargetCommitish = GitVersionInformation.Sha,
+                        Body = $"Release v{GitVersionInformation.SemVer}",
+                        Draft = !Helpers.CanReleasePublic(),
+                        Prerelease = !string.IsNullOrEmpty(GitVersionInformation.PreReleaseTag)
+                    }
+                ).Result;
+            }
+            else
+            {
+                CreateGitLabRelease(context);
+            }
+        }
+    }
+
+    // Creates a GitLab Release via the Releases API. GitLab auto-creates the tag from 'ref',
+    // and has no draft concept. Prefers the job token (JOB-TOKEN); falls back to a PAT
+    // (PRIVATE-TOKEN) when the API returns 401/403 (job-token API access disabled).
+    private static void CreateGitLabRelease(BuildContext context)
+    {
+        var payload = JsonConvert.SerializeObject(new
+        {
+            name = GitVersionInformation.SemVer,
+            tag_name = GitVersionInformation.SemVer,
+            @ref = GitVersionInformation.Sha,
+            description = $"Release v{GitVersionInformation.SemVer}"
+        });
+
+        using var http = new HttpClient();
+
+        bool TryPost(string headerName, string headerValue)
+        {
+            if (string.IsNullOrEmpty(headerValue))
+            {
+                return false;
+            }
+
+            using var request = new HttpRequestMessage(HttpMethod.Post, context.GitLabReleasesApi)
+            {
+                Content = new StringContent(payload, Encoding.UTF8, "application/json")
+            };
+            request.Headers.Add(headerName, headerValue);
+
+            var response = http.SendAsync(request).Result;
+            if (response.StatusCode == HttpStatusCode.Unauthorized ||
+                response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                return false;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var body = response.Content.ReadAsStringAsync().Result;
+                context.Log.Error($"GitLab release creation failed ({(int)response.StatusCode}): {body}");
+                throw new PublishFailedException();
+            }
+
+            return true;
+        }
+
+        if (!TryPost("JOB-TOKEN", context.GitLabToken) && !TryPost("PRIVATE-TOKEN", context.GitLabApiToken))
+        {
+            context.Log.Error("GitLab release creation failed: neither CI_JOB_TOKEN nor GITLAB_API_TOKEN was accepted.");
+            throw new PublishFailedException();
         }
     }
 }

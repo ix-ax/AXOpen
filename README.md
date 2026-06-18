@@ -1,10 +1,9 @@
 ![AXOpen Banner](/docfx/images/banner.png)
 
-[![dev](https://github.com/inxton/AXOpen/actions/workflows/dev.yml/badge.svg)](https://github.com/inxton/AXOpen/actions/workflows/dev.yml)
-[![preview](https://github.com/inxton/AXOpen/actions/workflows/release.yml/badge.svg?branch=releases%2Fv0)](https://github.com/inxton/AXOpen/actions/workflows/release.yml)
-[![master](https://github.com/inxton/AXOpen/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/inxton/AXOpen/actions/workflows/master.yml)
+[![pipeline](https://gitlab.mts.sk/inxton/AXOpen/badges/dev/pipeline.svg)](https://gitlab.mts.sk/inxton/AXOpen/-/pipelines?ref=dev)
+[![release](https://gitlab.mts.sk/inxton/AXOpen/-/badges/release.svg)](https://gitlab.mts.sk/inxton/AXOpen/-/releases)
 ![semver](https://img.shields.io/badge/semver-0.10.0-blue)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/inxton/AXOpen/blob/dev/LICENSE)
+[![license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://gitlab.mts.sk/inxton/AXOpen/-/blob/dev/LICENSE)
 
 `AXOpen` (AXO) is an application framework for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/inxton/AXSharp), amalgamating their unique strengths to deliver a high level of OT IT convergence.
 
@@ -111,7 +110,7 @@ We are planning the first pilot project using `AXOpen` in the coming months. Onc
 
 ## Documentation
 
-In parallel with the project's advancement, we are incrementally building the [documentation](https://inxton.github.io/AXOpen/). We invite you to visit the link if you wish to learn more about AXOpen.
+In parallel with the project's advancement, we are incrementally building the [documentation](https://pages.mts.sk/inxton/axopen/). We invite you to visit the link if you wish to learn more about AXOpen.
 
 
 ## About the Repository

@@ -25,6 +25,7 @@ namespace Tests_L1
             ComesFrom = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "ComesFrom", "ComesFrom");
             GoesTo = @Connector.ConnectorAdapter.AdapterFactory.CreateINT(this, "GoesTo", "GoesTo");
             Name = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "Name", "Name");
+            Name.Capacity = 254;
             PostConstruct(parent, readableTail, symbolTail);
         }
 

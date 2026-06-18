@@ -79,7 +79,9 @@ namespace Tests_L1.Primitives
             v_CHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateCHAR(this, "v_CHAR", "v_CHAR");
             v_WCHAR = @Connector.ConnectorAdapter.AdapterFactory.CreateWCHAR(this, "v_WCHAR", "v_WCHAR");
             v_STRING = @Connector.ConnectorAdapter.AdapterFactory.CreateSTRING(this, "v_STRING", "v_STRING");
+            v_STRING.Capacity = 254;
             v_WSTRING = @Connector.ConnectorAdapter.AdapterFactory.CreateWSTRING(this, "v_WSTRING", "v_WSTRING");
+            v_WSTRING.Capacity = 254;
             parent.AddChild(this);
             parent.AddKid(this);
             PostConstruct(parent, readableTail, symbolTail);

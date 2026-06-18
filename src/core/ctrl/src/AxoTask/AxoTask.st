@@ -159,7 +159,7 @@ NAMESPACE AXOpen.Core
                 THIS.Invoke(); 
                 RemoteInvoke := FALSE; 
             END_IF;
-            IF _RemoteRestoreEnabled THEN
+            IF NOT _RemoteRestoreDisabled THEN
                 IF( RemoteRestore) THEN 
                     THIS.Restore(); 
                     RemoteRestore := FALSE; 
@@ -200,9 +200,9 @@ NAMESPACE AXOpen.Core
         ///</remarks>
         METHOD PUBLIC OVERRIDE SetRemoteRestoreEnabled
             VAR_INPUT
-                Enable : BOOL; // Input parameter to enable or disable remote restore.
+                inDisable : BOOL; // Input parameter to enable or disable remote restore.
             END_VAR
-            _RemoteRestoreEnabled := Enable; // Assign the input value to the variable.
+            _RemoteRestoreDisabled := inDisable; // Assign the input value to the variable.
         END_METHOD
 
         ///<summary>
@@ -215,7 +215,7 @@ NAMESPACE AXOpen.Core
         /// It returns FALSE if remote restoration is disabled, preventing tasks from being restored remotely.
         ///</remarks>
         METHOD PUBLIC GetRemoteRestoreEnabled : BOOL
-            GetRemoteRestoreEnabled := _RemoteRestoreEnabled; // Returns the current status of remote restore functionality.
+            GetRemoteRestoreEnabled := _RemoteRestoreDisabled; // Returns the current status of remote restore functionality.
         END_METHOD
 
         ///<summary>

@@ -67,7 +67,7 @@
     },
     
     "sitemap": {
-      "baseUrl": "https://inxton.github.io/AXOpen/",
+      "baseUrl": "https://pages.mts.sk/inxton/axopen/",
       "priority": 0.1,
       "changefreq": "weekly"
     },
