@@ -53,7 +53,7 @@ NAMESPACE AXOpen.Core
             
             _suspendCyclicExecuteIsNotCalledCheck   : BOOL := FALSE;
             _suspendMultipleExecuteCallCheck        : BOOL := FALSE;          
-            _RemoteRestoreEnabled                   : BOOL := TRUE;
+            _RemoteRestoreDisabled                  : BOOL := FALSE;
             _RemoteAbortEnabled                     : BOOL := FALSE;
 
             _restoreCycleCount  :  ULINT;
@@ -527,9 +527,9 @@ NAMESPACE AXOpen.Core
         ///</remarks>
         METHOD PUBLIC SetRemoteRestoreEnabled
             VAR_INPUT
-                Enable : BOOL; // Input parameter to enable or disable remote restore.
+                inDisable : BOOL; // Input parameter to enable or disable remote restore.
             END_VAR
-            _RemoteRestoreEnabled := Enable; // Assign the input value to the variable.
+            _RemoteRestoreDisabled := inDisable; // Assign the input value to the variable.
         END_METHOD
 
         ///<summary>
