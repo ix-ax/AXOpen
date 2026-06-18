@@ -45,7 +45,7 @@ NAMESPACE AXOpen.Core
 
             Execute := SUPER.Execute(inParent);            
 
-            IF(NOT _isInitialized) THEN THIS._RemoteRestoreEnabled := TRUE; END_IF;
+            IF(NOT _isInitialized) THEN THIS._RemoteRestoreDisabled := TRUE; END_IF;
             _isInitialized := TRUE;
 
             _remoteTaskMessenger.Serve(THIS);
