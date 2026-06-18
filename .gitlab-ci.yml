@@ -1,0 +1,110 @@
+# GitLab CI for AXOpen.
+#
+# Every build/test/publish job is a thin wrapper over the Cake build (cake/Build.csproj) —
+# the same entry point the GitHub workflows use. No build/publish logic lives here.
+# Do NOT call build.ps1 in CI: it runs scripts/check_requisites.ps1, which is interactive.
+# Runners use the PowerShell executor, so all script blocks are PowerShell.
+#
+# Pipeline:
+#   Merge Request : build + test only
+#   dev branch    : build+test -> (manual) GitLab artefacts release -> Pages -> (manual) GitHub Packages push
+
+stages:
+  - build-test
+  - gitlab-release
+  - pages
+  - github-release
+
+variables:
+  # Full history + tags so GitVersion resolves the real branch/semver (GitLab clones shallow by default).
+  GIT_DEPTH: "0"
+
+default:
+  # Map the former GitHub self-hosted labels. Register the Windows runners with these tags.
+  tags:
+    - windows
+    - x64
+    - l2
+    - ax
+  before_script:
+    # GitLab checks out a detached HEAD; re-attach to the real branch so GitVersion (and the Cake
+    # release gating that keys on the branch name) sees 'dev'/'master'/... instead of a bare SHA.
+    - $b = if ($env:CI_COMMIT_BRANCH) { $env:CI_COMMIT_BRANCH } else { $env:CI_MERGE_REQUEST_SOURCE_BRANCH_NAME }
+    - git checkout -B $b $env:CI_COMMIT_SHA
+    # Diagnostic: confirm GitVersion reports the branch (must print 'dev' on dev). Never fail the job on it.
+    - dotnet tool restore
+    - dotnet gitversion /showvariable BranchName
+
+# Run an MR pipeline for merge requests, and a branch pipeline for branch pushes,
+# but never both for the same commit.
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+
+# Merge Request: build + test only (mirrors the former pr-dev.yml). No packaging/publish/pages.
+build-test:mr:
+  stage: build-test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - dotnet build cake/Build.csproj
+    - dotnet run --project cake/Build.csproj -- --do-test --test-level 1 --do-template-test
+
+# dev push: build + test + pack; carry the packed artifacts to the manual release stages.
+build-test:dev:
+  stage: build-test
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+  script:
+    - dotnet build cake/Build.csproj
+    - dotnet run --project cake/Build.csproj -- --do-test --do-pack --test-level 2
+  artifacts:
+    paths:
+      - artifacts/nugets/*.nupkg
+      - artifacts/apax/*
+    expire_in: 1 day
+
+# Manual gate: publish the tested artifacts to GitLab (NuGet + apax) and create a GitLab Release.
+gitlab-release:
+  stage: gitlab-release
+  needs: ["build-test:dev"]
+  dependencies: ["build-test:dev"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      when: manual
+  script:
+    - dotnet build cake/Build.csproj
+    - dotnet run --project cake/Build.csproj -- --do-publish-only --do-publish --do-publish-release --publish-target gitlab
+
+# Build the docfx site and deploy to GitLab Pages. Runs after the manual GitLab release.
+# (Switch `needs` to ["build-test:dev"] to redeploy docs on every dev push instead.)
+pages:
+  stage: pages
+  needs: ["gitlab-release"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+  script:
+    - dotnet tool restore
+    - ./scripts/_invoke_ixd.ps1
+    - dotnet docfx metadata docfx/docfx.json
+    - dotnet docfx build docfx/docfx.json --output docs/
+    - if (Test-Path public) { Remove-Item public -Recurse -Force }
+    - Move-Item docs public
+  artifacts:
+    paths:
+      - public
+
+# Manual gate: push the tested packages to GitHub Packages (NuGet + npm). No GitHub Release (no -r).
+github-release:
+  stage: github-release
+  needs: ["build-test:dev"]
+  dependencies: ["build-test:dev"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      when: manual
+  script:
+    - dotnet build cake/Build.csproj
+    - dotnet run --project cake/Build.csproj -- --do-publish-only --do-publish --publish-target github

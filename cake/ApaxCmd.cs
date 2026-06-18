@@ -453,7 +453,8 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxPublish(this BuildContext context)
+    // Publishes the packed apax (npm) packages to GitHub Packages (npm.pkg.github.com).
+    public static void ApaxPublishGitHub(this BuildContext context)
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
@@ -463,7 +464,7 @@ public static class ApaxCmd
             RedirectStandardError = false,
             Silent = false
         }).WaitForExit();
-        
+
         foreach (var apaxPackageFile in Directory.EnumerateFiles(context.ArtifactsApax))
         {
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
@@ -476,7 +477,80 @@ public static class ApaxCmd
             });
 
             process.WaitForExit();
-            
+
+            if (process.GetExitCode() != 0)
+            {
+                throw new PublishFailedException();
+            }
+        }
+    }
+
+    // Publishes the packed apax (npm) packages to the GitLab project npm registry using the
+    // job token. apax→GitLab-npm auth is not universally verified; when AXO_APAX_USE_NPM_FALLBACK
+    // is set we publish the tarballs with plain npm via a transient .npmrc instead.
+    public static void ApaxPublishGitLab(this BuildContext context)
+    {
+        if (!string.IsNullOrEmpty(context.Environment.GetEnvironmentVariable("AXO_APAX_USE_NPM_FALLBACK")))
+        {
+            PublishApaxViaNpm(context);
+            return;
+        }
+
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = $"login --registry {context.GitLabNpmRegistry} --username gitlab-ci-token --password {context.GitLabToken}",
+            WorkingDirectory = context.ArtifactsApax,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+
+        foreach (var apaxPackageFile in Directory.EnumerateFiles(context.ArtifactsApax))
+        {
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = $"publish --package {apaxPackageFile} --registry {context.GitLabNpmRegistry}",
+                WorkingDirectory = context.ArtifactsApax,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
+
+            process.WaitForExit();
+
+            if (process.GetExitCode() != 0)
+            {
+                throw new PublishFailedException();
+            }
+        }
+    }
+
+    // Fallback for ApaxPublishGitLab: map the @inxton scope to the GitLab project npm endpoint
+    // and attach the job token via a transient .npmrc (written into the gitignored artifacts/apax
+    // folder, never committed), then publish each *.tgz with npm.
+    private static void PublishApaxViaNpm(BuildContext context)
+    {
+        var authPath = context.GitLabNpmRegistry.Replace("https:", "").Replace("http:", "");
+        var npmrc = new[]
+        {
+            $"@{context.ApaxRegistry}:registry={context.GitLabNpmRegistry}",
+            $"{authPath}:_authToken={context.GitLabToken}"
+        };
+        File.WriteAllLines(Path.Combine(context.ArtifactsApax, ".npmrc"), npmrc);
+
+        foreach (var apaxPackageFile in Directory.EnumerateFiles(context.ArtifactsApax, "*.tgz"))
+        {
+            var process = context.ProcessRunner.Start(Helpers.GetNpmCommand(), new ProcessSettings()
+            {
+                Arguments = $"publish \"{apaxPackageFile}\" --registry {context.GitLabNpmRegistry}",
+                WorkingDirectory = context.ArtifactsApax,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
+
+            process.WaitForExit();
+
             if (process.GetExitCode() != 0)
             {
                 throw new PublishFailedException();

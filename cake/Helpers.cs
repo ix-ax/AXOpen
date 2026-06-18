@@ -14,6 +14,9 @@ using System.Runtime.InteropServices;
 
 internal class Helpers
 {
+    // Release gating keys on the GitVersion-resolved branch name. Under GitLab CI the checkout is
+    // a shallow, detached HEAD, so the pipeline's `git checkout -B $CI_COMMIT_BRANCH` step (run in
+    // .gitlab-ci.yml before the build) is what makes GitVersion report the real branch here.
     public static readonly IEnumerable<string> PublishInternal = new List<string>() { "dev", "main", "master", "release" };
     public static readonly IEnumerable<string> PublishExternal = new List<string>() { "main", "master", "release" };
 
@@ -36,6 +39,9 @@ internal class Helpers
 
     public static string GetApaxCommand()
         => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "apax" : "apax.cmd";
+
+    public static string GetNpmCommand()
+        => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "npm" : "npm.cmd";
 
     public static string GetDotNetCommand()
         => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "dotnet" : "dotnet";

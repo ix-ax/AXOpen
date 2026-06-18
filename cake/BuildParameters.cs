@@ -8,8 +8,19 @@
 using Cake.Common.Tools.DotNet;
 using CommandLine;
 
+// Destination for package push and release creation. The --do-publish/--do-publish-release
+// flags decide WHETHER to publish/release; this enum decides WHERE.
+public enum PublishTarget { GitLab, GitHub }
+
 public class BuildParameters
 {
+    // Default GitHub so the retained .github/workflows/* (which never pass this flag) keep their
+    // original behavior unchanged. The GitLab pipeline always passes --publish-target gitlab|github
+    // explicitly, so the default never affects it.
+    [Option("publish-target", Required = false, Default = PublishTarget.GitHub,
+        HelpText = "Package/release destination: gitlab | github")]
+    public PublishTarget Target { get; set; }
+
     [Option('t', "do-test", Required = false, Default = false, HelpText = "Runs tests")]
     public bool DoTest { get; set; }
 

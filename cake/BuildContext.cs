@@ -36,6 +36,8 @@ public partial class BuildContext : FrostingContext
 
     public bool IsGitHubActions { get; set; }
 
+    public bool IsGitLabCI { get; set; }
+
     public string ApaxRegistry => "inxton";
 
     public void UpdateApaxVersion(string file, string version)
@@ -159,6 +161,7 @@ public partial class BuildContext : FrostingContext
         };
 
         IsGitHubActions = context.EnvironmentVariable("GITHUB_ACTIONS") == "true";
+        IsGitLabCI = context.EnvironmentVariable("GITLAB_CI") == "true";
     }
 
     #region Libraries
@@ -292,10 +295,28 @@ public partial class BuildContext : FrostingContext
     #endregion
     
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
-    
+
     public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
 
     public string ApaxSignKey { get; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
+
+    // GitLab CI predefined variables (https://docs.gitlab.com/ci/variables/predefined_variables/).
+    // CI_JOB_TOKEN authenticates the project Package Registry and Releases API for the running job.
+    // GITLAB_API_TOKEN is an optional PAT fallback for the Releases API when job-token API access is off.
+    public string GitLabToken { get; } = System.Environment.GetEnvironmentVariable("CI_JOB_TOKEN");
+
+    public string GitLabApiV4Url { get; } = System.Environment.GetEnvironmentVariable("CI_API_V4_URL");
+
+    public string GitLabProjectId { get; } = System.Environment.GetEnvironmentVariable("CI_PROJECT_ID");
+
+    public string GitLabApiToken { get; } = System.Environment.GetEnvironmentVariable("GITLAB_API_TOKEN");
+
+    // Project-scoped GitLab endpoints derived from the predefined variables above.
+    public string GitLabNuGetSource => $"{GitLabApiV4Url}/projects/{GitLabProjectId}/packages/nuget/index.json";
+
+    public string GitLabNpmRegistry => $"{GitLabApiV4Url}/projects/{GitLabProjectId}/packages/npm/";
+
+    public string GitLabReleasesApi => $"{GitLabApiV4Url}/projects/{GitLabProjectId}/releases";
 
     public IEnumerable<string> GetAxFolders((string folder, string name, bool pack, bool app_run, bool test) library)
     {
