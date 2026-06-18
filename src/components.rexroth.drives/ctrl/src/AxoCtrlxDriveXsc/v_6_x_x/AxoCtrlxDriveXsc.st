@@ -4038,9 +4038,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#388;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 OR 
-                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
-                        IF MC_MoveVelocityErrorID = WORD#0 THEN
-                            MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
+                        (_AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 
+                        AND _AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 >= DWORD#16#C00E0000) THEN
+                        IF MC_MoveVelocityErrorID = DINT#0 THEN
+                            MC_MoveVelocityErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0 AND DWORD#16#000FFFFF);
                         END_IF;
                         _State := UINT#389;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveVelocityCycle THEN
@@ -4060,18 +4061,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                 // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityErrorID := DINT#0;
                 _State := UINT#0;
             END_IF;            
             IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#380 AND _State<=UINT#389 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                 // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityErrorID := DINT#0;
                 _State := UINT#0;
                 MC_MoveVelocityCycle := ULINT#0;     
             END_IF;     
-            ErrorID := TO_DINT(MC_MoveVelocityErrorID);
+            ErrorID := MC_MoveVelocityErrorID;
             MC_MoveVelocityExecute_PV := Execute;
         END_METHOD
 
@@ -6368,7 +6369,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             MC_MoveAdditiveDeceleration_PV      := LREAL#0.0;                             
             MC_MoveAdditiveJerk_PV              := LREAL#0.0;
             MC_MoveVelocityExecute_PV			:= FALSE;
-            MC_MoveVelocityErrorID				:= WORD#0;
+            MC_MoveVelocityErrorID				:= DINT#0;
             MC_MoveVelocityCycle				:= ULINT#0;
             MC_MoveVelocityContinuousUpdate_SV  := FALSE;
             MC_MoveVelocityVelocity_PV          := LREAL#0.0;               
