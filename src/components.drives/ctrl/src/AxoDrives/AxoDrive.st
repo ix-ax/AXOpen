@@ -2344,7 +2344,8 @@ NAMESPACE AXOpen.Components.Drives
             _AxoJogInVelocity                       :=   FALSE;
             _AxoJog_Active                          :=   FALSE;
             //************************************************
-
+    
+            LogMessage := 'AD-Res.';
             RestoreTask.DoneWhen(TRUE);
         END_METHOD
 

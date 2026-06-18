@@ -8,6 +8,7 @@ USING AXOpen.Components.Drives;
 USING System.Math;
 USING Siemens.Simatic.Hardware.Utilities;
 USING Siemens.Simatic.DistributedIO;
+USING System.Strings;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
     {S7.extern=ReadWrite}
@@ -29,7 +30,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AxoCtrlxDriveXscAxisReference;
 
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -3796,7 +3797,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
         ///</summary>
         VAR INTERNAL
             MC_MoveVelocityExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveVelocityErrorID					    : 	WORD;
+            MC_MoveVelocityErrorID					    : 	DINT;
             MC_MoveVelocityCycle					    : 	ULINT;
             MC_MoveVelocityContinuousUpdate_SV          :   BOOL;
             MC_MoveVelocityVelocity_PV                  :   LREAL;                    
@@ -3879,7 +3880,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
                 IF _State = UINT#0 THEN
                     Busy    := TRUE;            
                     Active  := TRUE;          
-                    MC_MoveVelocityErrorID := WORD#16#0000;
+                    MC_MoveVelocityErrorID := DINT#0;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := FALSE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
@@ -6497,6 +6498,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives.v_6_x_x
             SUPER.Restore();
 
             RestoreTask.DoneWhen(TRUE);
+            THIS.Log('X-Res');
         END_METHOD
         METHOD PRIVATE CallTimers
             VAR_INPUT
